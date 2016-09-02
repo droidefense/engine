@@ -1,0 +1,15 @@
+.popup-image{
+    max-width: 20%;
+}
+
+.popup-text{
+	padding-top: 3%;
+	color: black;
+	text-align: left;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.center-div{
+	text-align: -webkit-center;
+}

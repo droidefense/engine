@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Statistics | apkr</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="assets/css/template/main.css"/>
+
+    <link rel="stylesheet" href="assets/css/custom.css"/>
+</head>
+<body class="landing">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+    </header>
+
+    <!-- Banner -->
+    <section id="banner-search">
+        <h2>apkr search</h2>
+        <p>Find what you are looking for!</p>
+    </section>
+
+    <!-- Main -->
+    <section id="main" class="container">
+
+        <div class="row">
+            <div class="12u">
+            <section class="box">
+                <p>apkr search, only supports the current search criteria:</br></br>SHA256</p>
+                <form action="search.xml" method="POST" id="search-form">
+                    <b>Enter the hash below</b><br>
+                    <input style="margin-top:10px;" type="text" name="firstname" title="com.android.chrome" required><br>
+                    <div style="text-align:center;">
+                        <button type="submit" id="scan-all" class="button" style="width:50%">Search</button>
+                    </div>
+                </form>
+            </section>
+            </div>
+        </div>
+
+        <section class="box special">
+            <header class="major">
+                <h3>Search results: $result_count</h3>
+                
+            </header>
+        </section>
+
+        <div class="row" id="search-results-row">
+            <div class="12u">
+                <!-- Table -->
+                <section class="box">
+                    <h3>Results matching your criteria</h3>
+
+                    <div class="table-wrapper">
+                        <table id="latest-uploads-table">
+                            <thead>
+                            <tr>
+                                <th>Filename</th>
+                                <th>package name</th>
+                                <th>Hash</th>
+                                <th>Report</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>googlechrome.apk</td>
+                                <td>com.android.chrome</td>
+                                <td>45dfh415t4y5er4gerger5</td>
+                                <td><a href="report/45dfh415t4y5er4gerger5" target="_blank">report/45dfh415t4y5er4gerger5</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <div id="foot">
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/template/jquery.min.js"></script>
+<script src="assets/js/template/jquery.dropotron.min.js"></script>
+<script src="assets/js/template/jquery.scrollgress.min.js"></script>
+<script src="assets/js/template/skel.min.js"></script>
+<script src="assets/js/template/util.js"></script>
+
+<script src="assets/js/init.js"></script>
+<script src="assets/js/injector.js"></script>
+
+</body>
+</html>

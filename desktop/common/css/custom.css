@@ -1,0 +1,111 @@
+.topBar{
+	padding: 5px;
+    padding-left: 1%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25px;
+}
+
+.titleBar{
+	margin: 0 0 10px;
+    color: white;
+    position: absolute;
+    padding-top: 2px;
+    padding-left: 0%;
+    left: 50;
+    width: 100%;
+    text-align: -webkit-center;
+    font-size: initial;
+    top: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.gradient-bg{
+    /*http://www.cssmatic.com/es/gradient-generator*/
+background: #207ce5;
+background: -moz-linear-gradient(top, #207ce5 0%, #499bea 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, #207ce5), color-stop(100%, #499bea));
+background: -webkit-linear-gradient(top, #207ce5 0%, #499bea 100%);
+background: -o-linear-gradient(top, #207ce5 0%, #499bea 100%);
+background: -ms-linear-gradient(top, #207ce5 0%, #499bea 100%);
+background: linear-gradient(to bottom, #207ce5 0%, #499bea 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207ce5', endColorstr='#499bea', GradientType=0 );
+}
+
+.dragable{
+	-webkit-app-region: drag;
+}
+
+.no-dragable{
+	-webkit-app-region: no-drag;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.center-div{
+	vertical-align:middle;
+	text-align:center;
+}
+
+.left-div{
+	vertical-align:middle;
+	text-align:left;
+}
+
+.right-div{
+	vertical-align:middle;
+	text-align:right;
+}
+
+.bar-user-badge{
+	padding-top: 2px;
+    padding-left: 7%;
+	z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 150;
+}
+
+.window{
+	-webkit-border-radius: 5px;
+	background: white;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-button {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #eee;
+    border: thin solid lightgray;
+    box-shadow: 0px 0px 3px #dfdfdf inset;
+    border-radius: 10px;
+    height: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: #999;
+    border: thin solid gray;
+    border-radius: 10px;
+    height: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #7d7d7d;
+}
+
+.hidden{
+    display: none;
+}
