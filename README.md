@@ -1,6 +1,6 @@
 # apkr
 
-![alt image](https://github.com/zerjioang/AtomFramework/blob/master/github-frontal.png)
+![alt image](https://raw.githubusercontent.com/zerjioang/apkr/master/readme/github-frontal.png)
 
 > **apkr** is the codename for a new malware analysis tool developed by myself for my final degree's project.
 
@@ -11,6 +11,14 @@ There is only one reason why someone would spend that kind of money to get malwa
 This shows a very dangerous combination of facts. Getting malware onto a victim’s computer is worth a lot of money, so people will pay handsomely for new exploits to make that happen. This makes exploits worth a lot of money, so people will be motivated to continue creating them.
 </p>
 > Source: http://lightpointsecurity.com/content/the-motivation-behind-malware
+
+## Brief description
+
+https://raw.githubusercontent.com/zerjioang/apkr/master/readme/apkr-slides.pdf
+
+<iframe src="https://raw.githubusercontent.com/zerjioang/apkr/master/readme/apkr-slides.pdf#zoom=100&view=fitH" frameborder="0" width="655" height="550" marginheight="0" marginwidth="0" id="pdf"  
+>
+</iframe>
 
 ## Third party libraries involved
 
