@@ -14,11 +14,7 @@ This shows a very dangerous combination of facts. Getting malware onto a victimâ
 
 ## Brief description
 
-https://raw.githubusercontent.com/zerjioang/apkr/master/readme/apkr-slides.pdf
-
-<iframe src="https://raw.githubusercontent.com/zerjioang/apkr/master/readme/apkr-slides.pdf#zoom=100&view=fitH" frameborder="0" width="655" height="550" marginheight="0" marginwidth="0" id="pdf"  
->
-</iframe>
+https://github.com/zerjioang/apkr/blob/master/readme/apkr-slides.pdf
 
 ## Third party libraries involved
 
