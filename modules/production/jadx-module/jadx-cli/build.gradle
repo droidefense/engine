@@ -1,0 +1,20 @@
+apply plugin: 'application'
+
+mainClassName = 'jadx.cli.JadxCLI'
+applicationName = 'jadx'
+
+dependencies {
+    compile(project(':jadx-core'))
+    compile 'com.beust:jcommander:1.47'
+    compile 'ch.qos.logback:logback-classic:1.1.2'
+}
+
+applicationDistribution.with {
+    into('') {
+        from '../.'
+        include 'README.md'
+        include 'NOTICE'
+        include 'LICENSE'
+    }
+}
+

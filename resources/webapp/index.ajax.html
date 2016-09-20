@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>apkr - Free Online Android Virus and Malware Scanner</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" href="data/assets/css/template/main.css"/>
+    <link rel="stylesheet" href="data/assets/css/dropzone/dropzone.css"/>
+    <link rel="stylesheet" href="data/assets/css/dropzone/dropzone-style.css"/>
+
+    <link rel="stylesheet" href="data/assets/css/bootstrap-dialogs/bootstrap-dialog.min.css"/>
+    <link rel="stylesheet" href="data/assets/css/bootstrap-dialogs/bootstrap-modals-only.css"/>
+
+    <link rel="stylesheet" href="data/assets/css/custom.css"/>
+    <link rel="stylesheet" href="data/common/css/custom.css"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,700" rel="stylesheet">
+</head>
+
+<body id="body-holder">
+<div id="index_view">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <header id="header" class="alt">
+            <h1><a href="/">apkr</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="/" class="icon fa-cloud-upload">Upload</a></li>
+                    <li><a href="http://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2K5XZN28V6K84"
+                           target="_blank" class="icon fa-usd">Donate</a>
+                    </li>
+                    <li><a href="https://github.com/zerjioang/apkr" target="_blank" class="icon fa-info">Contribute</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Banner -->
+        <section id="banner" style="padding:2%;">
+            <h2 style="margin-bottom:15px;font-size: 80pt;font-family: 'Poppins', sans-serif;">apk<b
+                    style="color: white;font-weight: 700;font-size: 80pt;">r</b></h2>
+            <p>Free Online Android Virus and Malware Scanner</p>
+        </section>
+
+        <!-- Main -->
+        <section id="main" class="container">
+
+            <section class="box special">
+                <header class="major">
+                    <h3>Drag and drop your sample (Max 2Mb)</h3>
+                </header>
+
+                <form method="POST" action="none" class="dropzone" id="apkdropzone">
+                </form>
+
+                <div class='hidden' id='disclaimer'>
+                    <p>By clicking 'Scan sample' button, you agree with the terms and conditions of using this service.
+                        Apkr may keep, analyze, share and edit the uploaded file with any security third party involved
+                        in the process. For a detailed info check our privacy policy.</p>
+                    <a id="scan-all" class="button"></a>
+                </div>
+
+            </section>
+
+            <div class="row hidden" id="latest-uploads-row">
+                <div class="12u">
+                    <!-- Table -->
+                    <section class="box">
+                        <h3>Latest submissions</h3>
+
+                        <div class="table-wrapper">
+                            <table id="latest-uploads-table">
+                                <thead>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </section>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="hidden" id="cta">
+            <h2>Subscribe for newsletter</h2>
+            <p>Get in touch, discover new features, etc.</p>
+
+            <form id="betazone" action="post">
+                <div class="row uniform 50%">
+                    <div class="8u 12u(mobilep)">
+                        <input id="user-input-email" type="email" name="email" id="email" placeholder="Email Address"
+                               required>
+                    </div>
+                    <div class="4u 12u(mobilep)">
+                        <input id="submit-email" type="submit" value="Sign Up" class="fit">
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <footer id="footer">
+            <ul class="icons hidden">
+                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+                <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+                <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>Contribute to this project at <a href="https://github.com/zerjioang/apkr"
+                                                     target="_blank"><b>Github</b></a></li>
+            </ul>
+            <ul class="copyright">
+                <li><a href="mailto:contact@apkrproject.com" target="_blank"><b>contact@apkrproject.com</b></a></li>
+                <li><a id="terms" href="#" target="_blank"><b>Términos del Servicio</b></a></li>
+                <li><a id="privacy" href="#" target="_blank"><b>Política de privacidad</b></a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <!-- Scripts general -->
+    <script src="data/assets/js/template/jquery.min.js"></script>
+    <script src="data/assets/js/template/jquery.dropotron.min.js"></script>
+    <script src="data/assets/js/template/jquery.scrollgress.min.js"></script>
+    <script src="data/assets/js/template/skel.min.js"></script>
+    <script src="data/assets/js/template/util.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="data/assets/js/bootstrap.min.js"></script>
+    <script src="data/assets/js/bootstrap-dialogs/bootstrap-dialog.min.js"></script>
+    <script src="data/assets/js/dropzone/dropzone.js"></script>
+
+    <script src="data/common/js/common.js"></script>
+
+    <script src="data/assets/js/init.js"></script>
+
+    <script src="data/assets/js/injector.js"></script>
+    <script src="data/assets/js/dialogs.js"></script>
+    <script src="data/assets/js/sha256.min.js"></script>
+    <script src="data/assets/js/dropzone_event.js"></script>
+    <script src="data/assets/js/utils.js"></script>
+
+    <script src="data/assets/js/ajax.js"></script>
+    <script src="data/assets/js/core.js"></script>
+    <script src="data/assets/js/events.js"></script>
+</div>
+</body>
+
+</html>

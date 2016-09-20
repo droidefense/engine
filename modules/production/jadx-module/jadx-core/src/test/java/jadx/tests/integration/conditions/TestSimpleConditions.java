@@ -1,0 +1,30 @@
+package jadx.tests.integration.conditions;
+
+import jadx.core.dex.nodes.ClassNode;
+import jadx.tests.api.IntegrationTest;
+import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.junit.Assert.assertThat;
+
+public class TestSimpleConditions extends IntegrationTest {
+
+    @Test
+    public void test() {
+        ClassNode cls = getClassNode(TestCls.class);
+        String code = cls.getCode().toString();
+
+        assertThat(code, containsString("return (a[0] && a[1] && a[2]) || (a[3] && a[4]);"));
+        assertThat(code, containsString("return a[0] || a[1] || a[2] || a[3];"));
+    }
+
+    public static class TestCls {
+        public boolean test1(boolean[] a) {
+            return (a[0] && a[1] && a[2]) || (a[3] && a[4]);
+        }
+
+        public boolean test2(boolean[] a) {
+            return a[0] || a[1] || a[2] || a[3];
+        }
+    }
+}

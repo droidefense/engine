@@ -1,0 +1,2208 @@
+<!DOCTYPE html>
+<!--
+  This is a starter template page. Use this page to start your new project from
+  scratch. This page gets rid of all links and provides the needed markup only.
+  -->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>apkr</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../common/css/fa/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="../common/css/ionic/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+      page. However, you can choose any other skin. Make sure you
+      apply the skin class to the body tag so the changes take effect.
+      -->
+    <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- semantic ui css -->
+    <link rel="stylesheet" href="../common/css/semanticui/semantic.min.css">
+    <link rel="stylesheet" href="../common/css/semanticui/dataTables.semanticui.min.css">
+
+    <link rel="stylesheet" href="../common/css/bootstrap-dialogs/bootstrap-dialog.min.css"/>
+    <link rel="stylesheet" href="../common/css/bootstrap-dialogs/bootstrap-modals-only.css"/>
+</head>
+
+<body class="skin-blue layout-top-nav">
+
+<style type="text/css">
+    .section-banner{
+        background: rgb(222, 229, 236);
+        border-radius: 10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        padding: 10px;
+    }
+    .ui-table{
+        padding-left:10px;
+        padding-right:10px;
+        padding-bottom:10px;
+    }
+
+</style>
+<div class="wrapper">
+    <!-- Main Header -->
+    <div id="header-inject_point">
+        <header class="main-header">
+            <nav class="navbar navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a href="/index.html" class="navbar-brand"><b>apkr</b></a>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#navbar-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Statistics<span class="sr-only"></span></a></li>
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#"><b>Donate</b></a></li>
+                        </ul>
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="navbar-search-input" placeholder="Search">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </header>
+    </div>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="padding-left:10%;padding-right:10%;padding-bottom:5%;padding-top:1%;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>Report
+                <small id="report-hash">$sha256</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Report</a>
+                </li>
+                <li class="active">Resume</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div id="template-body">
+                <div class="row" style="padding:0%;">
+                    <div class="box box-widget widget-user">
+                        <!-- Add the bg color to the header using any of the bg-* classes -->
+                        <div class="widget-user-header bg-black"
+                             style="background: url('dist/img/cybersecurity.jpg') center center;">
+                            <h3 class="widget-user-username">Scan finished</h3>
+                            <h5 class="widget-user-desc">Results</h5>
+                        </div>
+                        <div class="widget-user-image">
+                            <img class="img-circle" src="dist/img/android-circle.png" alt="User Avatar">
+                        </div>
+                        <div class="box-footer">
+                            <div class="row">
+                                <div class="col-sm-4 border-right">
+                                    <div class="description-block">
+                                        <h5 class="description-header">-</h5>
+                                        <span class="description-text">PRIVACY RISK</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-sm-4 border-right">
+                                    <div class="description-block">
+                                        <h5 class="description-header">-</h5>
+                                        <span class="description-text"><b>OVERALL</b></span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-sm-4">
+                                    <div class="description-block">
+                                        <h5 class="description-header">-</h5>
+                                        <span class="description-text">MALWARE RISK</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <h4>Antivirus result</h4>
+                        <!-- scan result in one view place -->
+                        <div id="malware-result-badget" class="callout callout-success">
+                            <h4 id="malware-result-badget-title">Result</h4>
+                            <p id="malware-result-badget-message">Unknown</p>
+                        </div>
+                    </div>
+                    <!-- malware badget div -->
+                    <div class="col-md-6 col-xs-12">
+                        <h4>Privacy result</h4>
+                        <!-- scan result in one view place -->
+                        <div id="privacy-result-badget" class="callout callout-success">
+                            <h4 id="privacy-result-badget-title">Result</h4>
+                            <p id="privacy-result-badget-message">Unknown</p>
+                        </div>
+                    </div>
+                    <!-- privacy badget div -->
+                </div>
+
+                <!-- normal user vs advanced user tabs -->
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab_normal_user" data-toggle="tab">Friendly report</a>
+                        </li>
+                        <li><a href="#tab_advanced_user" data-toggle="tab">Advanced report</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" style="background: rgb(243, 246, 249);">
+                        <div class="tab-pane active" id="tab_normal_user">
+
+                            <!-- basic info logo -->
+                            <div align="center" class="section-banner">
+                                <img class="img-responsive" src="dist/img/check-list.png"
+                                     alt="Scan information check list" style="margin: 2%; max-width: 120px;">
+                                <h3>Analysis summary</h3>
+                                <br>
+                            </div>
+
+                            <div id="friendly-summary-holder" style="padding:10px;">
+                                <div id="friendly-summary">
+                                </div>
+                            </div>
+
+                            <!-- basic info logo -->
+                            <div align="center" class="section-banner">
+                                <img class="img-responsive" src="dist/img/person-flat.png" alt="Virustotal image"
+                                     style="margin: 2%; max-width: 100px;">
+                                <h3>Basic file info</h3>
+                                <br>
+                            </div>
+                            <!-- file info table -->
+                            <div>
+                                <div class="box">
+                                    <div class="box-header">
+                                        <h3 class="box-title">Sample information</h3>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body table-responsive no-padding">
+                                        <table class="table table-hover">
+                                            <tbody>
+                                            <tr>
+                                                <th>Filename</th>
+                                                <td id="friendly-sample-info-filename"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Size</th>
+                                                <td id="friendly-sample-info-size"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>CRC32</th>
+                                                <td id="friendly-sample-info-crc32"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>MD5</th>
+                                                <td id="friendly-sample-info-md5"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Sha1</th>
+                                                <td id="friendly-sample-info-sha1"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Sha256</th>
+                                                <td id="friendly-sample-info-sha256"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Sha512</th>
+                                                <td id="friendly-sample-info-sha512"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>SSDeep</th>
+                                                <td id="friendly-sample-info-ssdeep"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>File type</th>
+                                                <td id="friendly-sample-info-type">Android</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Magic Literal</th>
+                                                <td id="friendly-sample-info-magic">Zip archive data, at least v2.0 to
+                                                    extract
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tags</th>
+                                                <td><span class="badge bg-blue">.apk</span> <span class="badge bg-blue">android</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+                            </div>
+
+                            <!-- file metadata table -->
+                            <div style="display: none;">
+                                <div class="box">
+                                    <div class="box-header">
+                                        <h3 class="box-title">apkr metadata</h3>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body table-responsive no-padding">
+                                        <table class="table table-hover">
+                                            <tbody>
+                                            <tr>
+                                                <th>First seen</th>
+                                                <td>undefined</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Last seen</th>
+                                                <td>undefined</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Lifetime</th>
+                                                <td>undefined</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Other names</th>
+                                                <td>
+                                                    Kaspersky_Mobile_Security.apk
+                                                    <br> Kaspersky_Mobile_Security.apk
+                                                    <br> Kaspersky_Mobile_Security (2).apk
+                                                    <br>
+                                                    bed05d8eace6a7ebc5dec7141ea4b9cc559f1b2aab8848e2c79df7a79de39b9d.log
+                                                    <br> 6df6553b115d9ed837161a9e67146ecf.apk
+                                                    <br> apk.apk
+                                                    <br> 489eb873944bccc66b33c3d7fe21c6ed9577cffd
+                                                    <br> Kaspersky_Mobile_Security.apk
+                                                    <br>
+                                                    bed05d8eace6a7ebc5dec7141ea4b9cc559f1b2aab8848e2c79df7a79de39b9d.apk
+                                                    <br> vti-rescan
+                                                    <br>
+                                                    bed05d8eace6a7ebc5dec7141ea4b9cc559f1b2aab8848e2c79df7a79de39b9d
+                                                    <br> file-7286310_apk
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+                            </div>
+
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="tab_advanced_user">
+
+                            <!-- basic info logo -->
+                            <div align="center" class="section-banner">
+                                <img class="img-responsive" src="dist/img/check-list.png"
+                                     alt="Scan information check list" style="margin: 2%; max-width: 120px;">
+                                <h3>Analysis summary</h3>
+                                <br>
+                            </div>
+
+                            <div class="row">
+
+                                <!-- scan timing table -->
+                                <div class="col-md-12 col-xs-12">
+                                    <div class="box">
+                                        <div class="box-header">
+                                            <h3 class="box-title">Analysis timing</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body table-responsive no-padding">
+                                            <table class="table table-hover">
+                                                <tbody>
+                                                <tr>
+                                                    <th>Start time</th>
+                                                    <td id="scan-start-time">undefined</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>End time</th>
+                                                    <td id="scan-end-time">undefined</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Duration</th>
+                                                    <td id="scan-duration">undefined</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+
+                                <div class="col-md-12 col-xs-12">
+                                    <!-- used analyzers info table -->
+                                    <div>
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <h3 class="box-title">Used Analyzers</h3>
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body table-responsive no-padding">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                    <td>Name</td>
+                                                    <td>Status</td>
+                                                    <td>Success</td>
+                                                    <td>Runtime</td>
+                                                    </thead>
+                                                    <tbody id="used-analyzers-body">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- /.box-body -->
+                                        </div>
+                                        <!-- /.box -->
+                                    </div>
+
+                                    <div>
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <h3 class="box-title">External analysis</h3>
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body table-responsive no-padding">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                    <td><b>Scanner</b></td>
+                                                    <td><b>Link</b></td>
+                                                    </thead>
+                                                    <tbody id="external-analysis-body">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- /.box-body -->
+                                        </div>
+                                        <!-- /.box -->
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- basic info logo -->
+                            <div align="center" class="section-banner">
+                                <img class="img-responsive" src="dist/img/person-flat.png" alt="basic info"
+                                     style="margin: 2%; max-width: 100px;">
+                                <h3>Basic file info</h3>
+                                <br>
+                            </div>
+
+                            <!-- file info table -->
+                            <div>
+                                <div class="box">
+                                    <div class="box-header">
+                                        <h3 class="box-title">Sample information</h3>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body table-responsive no-padding">
+                                        <table class="table table-hover">
+                                            <tbody>
+                                            <tr>
+                                                <th>Filename</th>
+                                                <td id="detailed-sample-info-filename"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Size</th>
+                                                <td id="detailed-sample-info-size"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>CRC32</th>
+                                                <td id="detailed-sample-info-crc32"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>MD5</th>
+                                                <td id="detailed-sample-info-md5"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Sha1</th>
+                                                <td id="detailed-sample-info-sha1"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Sha256</th>
+                                                <td id="detailed-sample-info-sha256"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Sha512</th>
+                                                <td id="detailed-sample-info-sha512"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>SSDeep</th>
+                                                <td id="detailed-sample-info-ssdeep"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>File type</th>
+                                                <td id="detailed-sample-info-type">Android</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Magic Literal</th>
+                                                <td id="detailed-sample-info-magic">Zip archive data, at least v2.0 to
+                                                    extract
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tags</th>
+                                                <td><span class="badge bg-blue">.apk</span> <span class="badge bg-blue">android</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+                            </div>
+
+                            <!-- android app info table -->
+                            <div>
+
+                                <div class="box">
+                                    <div class="box-header">
+                                        <h3 class="box-title">File content information</h3>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body table-responsive no-padding">
+                                        <table class="table table-hover">
+                                            <tbody>
+                                            <tr>
+                                                <th>Package name</th>
+                                                <td id="detailed-sample-app-info-packagename"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Version name</th>
+                                                <td id="detailed-sample-app-info-versioname"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Version code</th>
+                                                <td id="detailed-sample-app-info-versioncode"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Minimum SDK</th>
+                                                <td id="detailed-sample-app-info-min-sdk"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Target SDK</th>
+                                                <td id="detailed-sample-app-info-target-sdk"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Maximum SDK</th>
+                                                <td id="detailed-sample-app-info-max-sdk"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>count(files inside)</th>
+                                                <td id="detailed-sample-app-info-files"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>count(folders inside)</th>
+                                                <td id="detailed-sample-app-folders"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>count(packed app files)</th>
+                                                <td id="detailed-sample-app-files"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>count(<tt>asset</tt> files)</th>
+                                                <td id="detailed-sample-app-info-assets"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>count(<tt>raw</tt> files)</th>
+                                                <td id="detailed-sample-app-info-raw"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>count(<tt>.so</tt> files)</th>
+                                                <td id="detailed-sample-app-info-lib"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+
+                                <div class="box">
+                                    <div class="box-header">
+                                        <h3 class="box-title"><tt>.dex</tt> header information</h3>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body table-responsive no-padding">
+                                        <table class="table table-hover">
+                                            <tbody>
+                                            <tr>
+                                                <th><tt>.dex</tt> magic number</th>
+                                                <td id="detailed-sample-app-magic-number"></td>
+                                            </tr>
+                                            <tr>
+                                                <th><tt>.dex</tt> header checksum</th>
+                                                <td id="detailed-sample-app-header-checksum"></td>
+                                            </tr>
+                                            <tr>
+                                                <th><tt>.dex</tt> file signature</th>
+                                                <td id="detailed-sample-app-signature"></td>
+                                            </tr>
+                                            <tr>
+                                                <th><tt>.dex</tt> header size</th>
+                                                <td id="detailed-sample-app-header-size"></td>
+                                            </tr>
+                                            <tr>
+                                                <th><tt>.dex</tt> header file size</th>
+                                                <td id="detailed-sample-app-header-filesize"></td>
+                                            </tr>
+                                            <tr>
+                                                <th><tt>.dex</tt> endian tag</th>
+                                                <td id="detailed-sample-app-endian-tag"></td>
+                                            </tr>
+                                            <tr>
+                                                <th><tt>.dex</tt> endian type</th>
+                                                <td id="detailed-sample-app-endian-string-tag"></td>
+                                            </tr>
+                                            <tr>
+                                                <th><tt>.dex</tt> link size</th>
+                                                <td id="detailed-sample-app-link-size"></td>
+                                            </tr>
+                                            <tr>
+                                                <th><tt>.dex</tt> link offset</th>
+                                                <td id="detailed-sample-app-link-offset"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!--box -->
+                            </div>
+
+                            <!-- file metadata table -->
+                            <div style="display: none;">
+                                <div class="box">
+                                    <div class="box-header">
+                                        <h3 class="box-title">apkr metadata</h3>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body table-responsive no-padding">
+                                        <table class="table table-hover">
+                                            <tbody>
+                                            <tr>
+                                                <th>First seen</th>
+                                                <td>2014-07-31 17:52:28 UTC ( hace 1 año, 9 meses )</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Last seen</th>
+                                                <td> 2016-03-11 20:47:53 UTC (hace 1 mes, 2 semanas )</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Lifetime</th>
+                                                <td>1 año, 8 meses</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Other names</th>
+                                                <td>
+                                                    Kaspersky_Mobile_Security.apk
+                                                    <br> Kaspersky_Mobile_Security.apk
+                                                    <br> Kaspersky_Mobile_Security (2).apk
+                                                    <br>
+                                                    bed05d8eace6a7ebc5dec7141ea4b9cc559f1b2aab8848e2c79df7a79de39b9d.log
+                                                    <br> 6df6553b115d9ed837161a9e67146ecf.apk
+                                                    <br> apk.apk
+                                                    <br> 489eb873944bccc66b33c3d7fe21c6ed9577cffd
+                                                    <br> Kaspersky_Mobile_Security.apk
+                                                    <br>
+                                                    bed05d8eace6a7ebc5dec7141ea4b9cc559f1b2aab8848e2c79df7a79de39b9d.apk
+                                                    <br> vti-rescan
+                                                    <br>
+                                                    bed05d8eace6a7ebc5dec7141ea4b9cc559f1b2aab8848e2c79df7a79de39b9d
+                                                    <br> file-7286310_apk
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+                            </div>
+
+                            <div style="display: none;">
+                                <!-- virtustotal info -->
+                                <div align="center">
+                                    <img class="img-responsive"
+                                         src="https://virustotalcloud.appspot.com/static/img/logo.png"
+                                         alt="Virustotal image" style="margin: 2%; max-width: 200px;">
+                                    <h3>Virustotal report</h3>
+                                </div>
+                                <!-- virustotal resumen -->
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-6 col-xss-12">
+                                        <div class="info-box bg-green">
+                                            <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">Good</span>
+                                                <span class="info-box-number">32</span>
+                                                <div class="progress">
+                                                    <div class="progress-bar" style="width: 96%"></div>
+                                                </div>
+                                                    <span class="progress-description">
+                                                    32/50
+                                                    </span>
+                                            </div>
+                                            <!-- /.info-box-content -->
+                                        </div>
+                                        <!-- /.info-box -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="info-box bg-red">
+                                            <span class="info-box-icon"><i class="fa fa-thumbs-o-down"></i></span>
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">Bad</span>
+                                                <span class="info-box-number">18</span>
+                                                <div class="progress">
+                                                    <div class="progress-bar" style="width: 36%"></div>
+                                                </div>
+                                                    <span class="progress-description">
+                                                    2/50
+                                                    </span>
+                                            </div>
+                                            <!-- /.info-box-content -->
+                                        </div>
+                                        <!-- /.info-box -->
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- virustotal result info -->
+                                <div>
+                                    <div class="box">
+                                        <div class="box-header">
+                                            <h3 class="box-title">Virustotal scan</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body table-responsive no-padding">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                <tr>
+                                                    <th>Antivirus</th>
+                                                    <th>Result</th>
+                                                    <th>Updated</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>AVG</td>
+                                                    <td>Android/Deng.CQQ</td>
+                                                    <td>20160415</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AVware</td>
+                                                    <td>tdojan.AndroidOS.Generic.A</td>
+                                                    <td>20160415</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                            </div>
+
+                            <!-- detailed info banner -->
+                            <div align="center">
+                                <img class="img-responsive" src="dist/img/detailed-banner.png"
+                                     alt="Android internal image" style="border-radius: 10px;">
+                            </div>
+
+                            <!-- detailed info logo -->
+                            <div align="center" class="section-banner" style="display:none">
+                                <img class="img-responsive" src="dist/img/android tool.png" alt="Android internal image"
+                                     style="margin: 2%; max-width: 200px;">
+                                <h3>Detailed Analysis</h3>
+                                <p>For hackers only!</p>
+                                <br>
+                            </div>
+
+                            <!-- detailed info logo -->
+                            <div align="center" class="section-banner">
+                                <img class="img-responsive" src="dist/img/cert.png" alt="Android internal image"
+                                     style="margin: 2%; max-width: 120px;">
+                                <h3>Certificate analysis</h3>
+                                <br>
+                            </div>
+
+                            <div class="box box-solid">
+                                <div class="box-header with-border">
+                                    <i class="fa fa-text-width"></i>
+
+                                    <h3 class="box-title">Application certificate</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <blockquote>
+                                        <p align="justify">
+                                            Android requires that all APKs be digitally signed with a certificate before
+                                            they can be installed. A public-key certificate, also known as a digital
+                                            certificate or an identity certificate, contains the public key of a
+                                            public/private key pair, as well as some other metadata identifying the
+                                            owner of the key (for example, name and location). The owner of the
+                                            certificate holds the corresponding private key. More information about
+                                            application signing at
+                                            <a href="https://developer.android.com/studio/publish/app-signing.html"
+                                               target="_blank">https://developer.android.com/studio/publish/app-signing.html</a>
+                                        <p>
+                                    </blockquote>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <div id="certificate-block">
+                                <div id="no-cert-alert" class="callout callout-danger">
+                                    <h4>Warning!</h4>
+                                    <p>This application does not have any kind of certificate on it, which means that
+                                        can not be installed on any production device</p>
+                                </div>
+
+                                <div id="certificate-block-inner">
+
+                                    <div class="box">
+                                        <div class="box-header">
+                                            <h3 class="box-title">File information</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body table-responsive no-padding">
+                                            <table class="table table-hover">
+                                                <tbody>
+                                                <tr>
+                                                    <th>Filename</th>
+                                                    <td id="cert-file-filename"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Size</th>
+                                                    <td id="cert-file-size"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>CRC32</th>
+                                                    <td id="cert-file-crc32"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>MD5</th>
+                                                    <td id="cert-file-md5"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Sha1</th>
+                                                    <td id="cert-file-sha1"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Sha256</th>
+                                                    <td id="cert-file-sha256"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Sha512</th>
+                                                    <td id="cert-file-sha512"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SSDeep</th>
+                                                    <td id="cert-file-ssdeep"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>File type</th>
+                                                    <td id="cert-file-type"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Magic Literal</th>
+                                                    <td id="cert-file-magic"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Tags</th>
+                                                    <td><span class="badge bg-blue">android certificate</span>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+
+                                    <h4>Certificate details</h4>
+
+                                    <div id="debug-cert-alert" class="callout callout-danger">
+                                        <h4>Warning!</h4>
+                                        <p>This certificate seems to be a default 'Android Debug Certificate'</p>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <!-- Widget: user widget style 1 -->
+                                            <div class="box box-widget widget-user-2">
+                                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                                <div class="widget-user-header bg-green">
+                                                    <div class="widget-user-image">
+                                                        <img class="img-circle" src="dist/img/avatar5.png"
+                                                             alt="User Avatar">
+                                                    </div>
+                                                    <!-- /.widget-user-image -->
+                                                    <h3 id="cert-title" class="widget-user-username">Certificate </h3>
+                                                    <h5 id="cert-subtitle" class="widget-user-desc">Android</h5>
+                                                </div>
+                                                <!-- /.box-widget -->
+                                                <div class="box-footer no-padding">
+                                                    <ul class="nav nav-stacked">
+                                                        <li><a>Version<span id="cert-version"
+                                                                            class="pull-right badge bg-green"></span>
+                                                        </a></li>
+                                                        <li><a>Subject<span id="cert-subject"
+                                                                            class="pull-right badge bg-green"></span>
+                                                        </a>
+                                                            <ul class="nav nav-stacked">
+                                                                <li><a>Common Name (CN)<span id="cert-commonName"
+                                                                                             class="pull-right badge bg-green"></span>
+                                                                </a></li>
+                                                                <li><a>Organizational Unit (OU)<span
+                                                                        id="cert-organizationalUnit"
+                                                                        class="pull-right badge bg-green"></span>
+                                                                </a></li>
+                                                                <li><a>Organization (O)<span id="cert-organization"
+                                                                                             class="pull-right badge bg-green"></span>
+                                                                </a></li>
+                                                                <li><a>Locality (L)<span id="cert-locality"
+                                                                                         class="pull-right badge bg-green"></span>
+                                                                </a></li>
+                                                                <li><a>State or province name (ST)<span
+                                                                        id="cert-stateOrProvinceName"
+                                                                        class="pull-right badge bg-green"></span>
+                                                                </a></li>
+                                                                <li><a>Country name (C)<span id="cert-countryName"
+                                                                                             class="pull-right badge bg-green"></span>
+                                                                </a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><a>Signature Algorithm<span id="cert-signatureAlgorithm"
+                                                                                        class="pull-right badge bg-green"></span>
+                                                        </a></li>
+                                                        <li><a>OID<span id="cert-oid"
+                                                                        class="pull-right badge bg-green"></span>
+                                                        </a></li>
+                                                        <li><a>Type<span id="cert-type"
+                                                                         class="pull-right badge bg-green"></span>
+                                                        </a></li>
+                                                        <li><a>Public Key Algorithm<span id="cert-publicKeyAlgorithm"
+                                                                                         class="pull-right badge bg-green"></span>
+                                                        </a></li>
+                                                        <li><a>Certificate Type<span id="cert-certType"
+                                                                                     class="pull-right badge bg-green"></span>
+                                                        </a></li>
+                                                        <li><a>Exponent<span id="cert-exponent"
+                                                                             class="pull-right badge bg-green"></span>
+                                                        </a></li>
+                                                        <li><a>Validity<span id="cert-validity"
+                                                                             class="pull-right badge bg-green"></span>
+                                                        </a></li>
+                                                        <li><a>Issuer<span id="cert-issuer"
+                                                                           class="pull-right badge bg-green"></span>
+                                                        </a></li>
+                                                        <li><a>Valid from<span id="cert-validfrom"
+                                                                               class="pull-right badge bg-red"></span>
+                                                        </a></li>
+                                                        <li><a>Valid until<span id="cert-validuntil"
+                                                                                class="pull-right badge bg-red"></span>
+                                                        </a></li>
+                                                        <li><a>Serial number<span id="cert-sn"
+                                                                                  class="pull-right badge bg-green"></span>
+                                                        </a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.box-footer -->
+                                            </div>
+                                            <!-- /.widget-user -->
+                                        </div>
+                                        <!-- /.col-md-6 -->
+
+                                        <!-- /.col -->
+                                        <div class="col-md-6">
+                                            <div class="box">
+                                                <div class="box-header">
+                                                    <h3 class="box-title">Raw view</h3>
+                                                </div>
+                                                <!-- /.box-header -->
+                                                <div class="box-body table-responsive no-padding"
+                                                     style="background: black;">
+                                                    <pre id="certificate-bautifier"
+                                                         style="background: #131212; color:white; margin-bottom: 0px;"></pre>
+                                                </div>
+                                                <!-- /.box-body -->
+                                            </div>
+                                            <!-- /.box -->
+                                        </div>
+                                        <!-- /.col-md-6 -->
+                                    </div><!-- /.row -->
+                                </div><!-- /.row -->
+                            </div><!-- /.row -->
+
+                            <div align="center" class="section-banner">
+                                <img class="img-responsive" src="dist/img/xml-512.png" alt="Android internal image"
+                                     style="margin: 2%; max-width: 120px;">
+                                <h3><tt>AndroidManifest.xml</tt> analysis</h3>
+                                <br>
+                            </div>
+
+                            <h4>Manifest details</h4>
+                            <div class="nav-tabs-custom">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a aria-expanded="true" href="#tab_permissions"
+                                                          data-toggle="tab">Permissions</a>
+                                    </li>
+                                    <li class=""><a aria-expanded="false" href="#tab_activities" data-toggle="tab">Activities</a>
+                                    </li>
+                                    <li class=""><a aria-expanded="false" href="#tab_services" data-toggle="tab">Services</a>
+                                    </li>
+                                    <li class=""><a aria-expanded="false" href="#tab_receivers" data-toggle="tab">Receivers</a>
+                                    </li>
+                                    <li class=""><a aria-expanded="false" href="#tab_intents" data-toggle="tab">Intent
+                                        filters</a>
+                                    </li>
+                                    <li class=""><a aria-expanded="false" href="#tab_metadata" data-toggle="tab">Metadata</a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown"
+                                           href="#">
+                                            More <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li id="view-manifest-dropdown" role="presentation"><a role="menuitem"
+                                                                                                   tabindex="-1">View
+                                                <tt>AndroidManifest.xml</tt></a>
+                                            </li>
+                                            <li id="export-manifest-json" role="presentation"><a role="menuitem"
+                                                                                                 tabindex="-1">Export
+                                                manifest as <tt>JSON</tt></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_permissions">
+                                        <div id="permission-info">
+                                            <div class="ui-table">
+                                                <div style="padding-left: 20px;">
+                                                    <table id="permissionTable" class="ui celled table" cellspacing="0"
+                                                           width="100%">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tfoot>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                        </tfoot>
+                                                        <tbody id="permission-table-body">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.box-body -->
+                                            </div>
+                                            <!-- /.box -->
+                                        </div>
+                                        <!--holder -->
+                                    </div>
+                                    <!-- pane -->
+
+                                    <!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_activities">
+                                        <div id="activities-info" class="ui-table">
+                                            <div style="padding-left: 20px;">
+                                                <table id="activitiesTable" class="ui celled table" cellspacing="0"
+                                                       width="100%">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Main</th>
+                                                        <th>Metadata</th>
+                                                        <th>Intent filters</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Main</th>
+                                                        <th>Metadata</th>
+                                                        <th>Intent filters</th>
+                                                    </tr>
+                                                    </tfoot>
+                                                    <tbody id="activities-table-body">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!--holder -->
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_services">
+                                        <div id="services-info">
+                                            <div class="ui-table">
+                                                <div style="padding-left: 20px;">
+                                                    <table id="servicesTable" class="ui celled table" cellspacing="0"
+                                                           width="100%">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Enabled</th>
+                                                            <th>Exported</th>
+                                                            <th>Triggers</th>
+                                                            <th>Categories</th>
+                                                            <th>Metadata</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tfoot>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Enabled</th>
+                                                            <th>Exported</th>
+                                                            <th>Triggers</th>
+                                                            <th>Categories</th>
+                                                            <th>Metadata</th>
+                                                        </tr>
+                                                        </tfoot>
+                                                        <tbody id="services-table-body">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.box-body -->
+                                            </div>
+                                            <!-- /.box -->
+                                        </div>
+                                        <!--holder -->
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_receivers">
+                                        <div id="receivers-info">
+                                            <div class="ui-table">
+                                                <div style="padding-left: 20px;">
+                                                    <table id="receiversTable" class="ui celled table" cellspacing="0"
+                                                           width="100%">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Enabled</th>
+                                                            <th>Exported</th>
+                                                            <th>Triggers</th>
+                                                            <th>Categories</th>
+                                                            <th>Metadata</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tfoot>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Enabled</th>
+                                                            <th>Exported</th>
+                                                            <th>Triggers</th>
+                                                            <th>Categories</th>
+                                                            <th>Metadata</th>
+                                                        </tr>
+                                                        </tfoot>
+                                                        <tbody id="receivers-table-body">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.box-body -->
+                                            </div>
+                                            <!-- /.box -->
+                                        </div>
+                                        <!--holder -->
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_intents">
+                                        <div id="intents-info">
+                                            <div class="ui-table">
+                                                <div style="padding-left: 20px;">
+                                                    <table id="intentsTable" class="ui celled table" cellspacing="0"
+                                                           width="100%">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Action</th>
+                                                            <th>Categories</th>
+                                                            <th>Metadata</th>
+                                                            <th>Priority</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tfoot>
+                                                        <tr>
+                                                            <th>Action</th>
+                                                            <th>Categories</th>
+                                                            <th>Metadata</th>
+                                                            <th>Priority</th>
+                                                        </tr>
+                                                        </tfoot>
+                                                        <tbody id="intents-table-body">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.box-body -->
+                                            </div>
+                                            <!-- /.box -->
+                                        </div>
+                                        <!--holder -->
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_metadata">
+                                        <div id="metadata-info">
+                                            <div class="ui-table">
+                                                <div style="padding-left: 20px;">
+                                                    <table id="metadataTable" class="ui celled table" cellspacing="0"
+                                                           width="100%">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Value</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tfoot>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Value</th>
+                                                        </tr>
+                                                        </tfoot>
+                                                        <tbody id="metadata-table-body">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.box-body -->
+                                            </div>
+                                            <!-- /.box -->
+                                        </div>
+                                        <!--holder -->
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                </div>
+                                <!-- /.tab-content -->
+                            </div>
+
+                            <!-- package info logo -->
+                            <div align="center" class="section-banner">
+                                <img class="img-responsive" src="dist/img/package.png" alt="Android internal image"
+                                     style="margin: 2%; max-width: 120px;">
+                                <h3>Structure analysis</h3>
+                                <br>
+                            </div>
+
+                            <h4>Internal structure</h4>
+                            <div class="row">
+                                <div class="col-lg-3 col-xs-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-navy">
+                                        <div class="inner">
+                                            <h3 id="sample-package-count"></h3>
+                                            <p>Packages</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-briefcase"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i
+                                                class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- ./col -->
+                                <div class="col-lg-3 col-xs-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-navy">
+                                        <div class="inner">
+                                            <h3 id="sample-other-package-count"></h3>
+                                            <p>3rd party packages</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-briefcase"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i
+                                                class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- ./col -->
+                                <div class="col-lg-3 col-xs-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-navy">
+                                        <div class="inner">
+                                            <h3 id="sample-classes-count"></h3>
+                                            <p>Classes</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-code-working"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i
+                                                class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- ./col -->
+                                <div class="col-lg-3 col-xs-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-navy">
+                                        <div class="inner">
+                                            <h3 id="sample-total-count"></h3>
+                                            <p>Total files</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-folder"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i
+                                                class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- ./col -->
+                            </div>
+
+                            <h4>Internal class review</h4>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-xs-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-aqua">
+                                        <div class="inner">
+                                            <h3 id="sample-developer-class-count"></h3>
+                                            <p>Developer classes</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-briefcase"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i
+                                                class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- ./col -->
+                                <div class="col-lg-3 col-xs-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-aqua">
+                                        <div class="inner">
+                                            <h3 id="sample-real-developer-class-count"></h3>
+                                            <p>Real developer classes</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-code-working"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i
+                                                class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- ./col -->
+                                <div class="col-lg-3 col-xs-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-aqua">
+                                        <div class="inner">
+                                            <h3 id="sample-real-developer-inner-class-count"></h3>
+                                            <p>Real developer inner classes</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-code-working"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i
+                                                class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4>Juicy files</h4>
+
+                            <div class="row"> <!-- row -->
+                                <div class="col-lg-3 col-xs-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-orange">
+                                        <div class="inner">
+                                            <h3 id="sample-raw-count"></h3>
+                                            <p>Raw files</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-document"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i
+                                                class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- ./col -->
+                                <div class="col-lg-3 col-xs-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-orange">
+                                        <div class="inner">
+                                            <h3 id="sample-lib-count"></h3>
+                                            <p>Lib files</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-document"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i
+                                                class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- ./col -->
+                                <div class="col-lg-3 col-xs-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-orange">
+                                        <div class="inner">
+                                            <h3 id="sample-assets-count"></h3>
+                                            <p>Asset files</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-document"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i
+                                                class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- ./col -->
+                            </div><!-- row -->
+
+                            <!-- placeholder for list thing: assets, libs, raw, ... -->
+                            <div id="detailed-info-juicy-files" class="nav-tabs-custom">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a aria-expanded="true" href="#tab_raw" data-toggle="tab">Raw
+                                        files</a>
+                                    </li>
+                                    <li class=""><a aria-expanded="false" href="#tab_resources" data-toggle="tab">Resource
+                                        files</a>
+                                    </li>
+                                    <li class=""><a aria-expanded="false" href="#tab_assets" data-toggle="tab">Asset
+                                        files</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_raw">
+                                        <div id="raw-info">
+                                            <div class="ui-table">
+                                                <div style="padding-left: 20px;">
+                                                    <table id="rawfilesTable" class="ui celled table" cellspacing="0"
+                                                           width="100%">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Filename</th>
+                                                            <th>Extension</th>
+                                                            <th>Description</th>
+                                                            <th>Hash</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tfoot>
+                                                        <tr>
+                                                            <th>Filename</th>
+                                                            <th>Extension</th>
+                                                            <th>Description</th>
+                                                            <th>Hash</th>
+                                                        </tr>
+                                                        </tfoot>
+                                                        <tbody id="rawfiles-table-body">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.box-body -->
+                                            </div>
+                                            <!-- /.box -->
+                                        </div>
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_resources">
+                                        <div id="lib-info">
+                                            <div class="ui-table">
+                                                <div style="padding-left: 20px;">
+                                                    <table id="resfilesTable" class="ui celled table" cellspacing="0"
+                                                           width="100%">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Filename</th>
+                                                            <th>Extension</th>
+                                                            <th>Description</th>
+                                                            <th>Hash</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tfoot>
+                                                        <tr>
+                                                            <th>Filename</th>
+                                                            <th>Extension</th>
+                                                            <th>Description</th>
+                                                            <th>Hash</th>
+                                                        </tr>
+                                                        </tfoot>
+                                                        <tbody id="libfiles-table-body">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.box-body -->
+                                            </div>
+                                            <!-- /.box -->
+                                        </div>
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_assets">
+                                        <div id="assets-info">
+                                            <div class="ui-table">
+                                                <div style="padding-left: 20px;">
+                                                    <table id="assetsfilesTable" class="ui celled table" cellspacing="0"
+                                                           width="100%">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Filename</th>
+                                                            <th>Extension</th>
+                                                            <th>Description</th>
+                                                            <th>Hash</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tfoot>
+                                                        <tr>
+                                                            <th>Filename</th>
+                                                            <th>Extension</th>
+                                                            <th>Description</th>
+                                                            <th>Hash</th>
+                                                        </tr>
+                                                        </tfoot>
+                                                        <tbody id="assetsfiles-table-body">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.box-body -->
+                                            </div>
+                                            <!-- /.box -->
+                                        </div>
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                </div>
+                                <!-- /.tab-content -->
+                            </div>
+
+                            <!-- placeholder for list thing: classes, methods, packages, ... -->
+                            <div class="row"><!-- row -->
+                                <div class="col-md-12">
+                                    <h4><tt>.DEX</tt> structure</h4>
+                                    <div class="nav-tabs-custom">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a aria-expanded="true" href="#class_descriptors_tab"
+                                                                  data-toggle="tab">Class descriptors</a>
+                                            </li>
+                                            <li class=""><a aria-expanded="false" href="#class_types_tab"
+                                                            data-toggle="tab">Class types</a>
+                                            </li>
+                                            <li class=""><a aria-expanded="false" href="#method_classes_tab"
+                                                            data-toggle="tab">Method classes</a>
+                                            </li>
+                                            <li class=""><a aria-expanded="false" href="#method_names_tab"
+                                                            data-toggle="tab">Method names</a>
+                                            </li>
+                                            <li class=""><a aria-expanded="false" href="#method_types_tab"
+                                                            data-toggle="tab">Method types</a>
+                                            </li>
+                                            <li class=""><a aria-expanded="false" href="#field_classes_tab"
+                                                            data-toggle="tab">Field classes</a>
+                                            </li>
+                                            <li class=""><a aria-expanded="false" href="#field_types_tab"
+                                                            data-toggle="tab">Field types</a>
+                                            </li>
+                                            <li class=""><a aria-expanded="false" href="#field_names_tab"
+                                                            data-toggle="tab">Field names</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="class_descriptors_tab">
+                                                <div class="ui-table">
+                                                    <div style="padding-left: 20px; padding-top: 20px;">
+                                                        <table id="callDescTable" class="ui celled table"
+                                                               cellspacing="0" width="100%">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tfoot>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </tfoot>
+                                                            <tbody id="callDesc-table-body">
+                                                            </tbody>
+                                                        </table>
+                                                    </div><!-- /.content -->
+                                                </div><!-- /.ui-table -->
+                                            </div>
+                                            <!-- /.tab-pane -->
+                                            <div class="tab-pane" id="class_types_tab">
+                                                <div class="ui-table">
+                                                    <div style="padding-left: 20px; padding-top: 20px;">
+                                                        <table id="classTypeTable" class="ui celled table"
+                                                               cellspacing="0" width="100%">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tfoot>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </tfoot>
+                                                            <tbody id="classType-table-body">
+                                                            </tbody>
+                                                        </table>
+                                                    </div><!-- /.content -->
+                                                </div><!-- /.ui-table -->
+                                            </div>
+                                            <!-- /.tab-pane -->
+                                            <div class="tab-pane" id="method_classes_tab">
+                                                <div class="ui-table">
+                                                    <div style="padding-left: 20px; padding-top: 20px;">
+                                                        <table id="methodClassTable" class="ui celled table"
+                                                               cellspacing="0" width="100%">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tfoot>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </tfoot>
+                                                            <tbody id="methodClass-table-body">
+                                                            </tbody>
+                                                        </table>
+                                                    </div><!-- /.content -->
+                                                </div><!-- /.ui-table -->
+                                            </div>
+                                            <div class="tab-pane" id="method_names_tab">
+                                                <div class="ui-table">
+                                                    <div style="padding-left: 20px; padding-top: 20px;">
+                                                        <table id="methodNamesTable" class="ui celled table"
+                                                               cellspacing="0" width="100%">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tfoot>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </tfoot>
+                                                            <tbody id="methodNames-table-body">
+                                                            </tbody>
+                                                        </table>
+                                                    </div><!-- /.content -->
+                                                </div><!-- /.ui-table -->
+                                            </div>
+                                            <div class="tab-pane" id="method_types_tab">
+                                                <div class="ui-table">
+                                                    <div style="padding-left: 20px; padding-top: 20px;">
+                                                        <table id="methodTypesTable" class="ui celled table"
+                                                               cellspacing="0" width="100%">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tfoot>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </tfoot>
+                                                            <tbody id="methodTypes-table-body">
+                                                            </tbody>
+                                                        </table>
+                                                    </div><!-- /.content -->
+                                                </div><!-- /.ui-table -->
+                                            </div>
+                                            <!-- /.tab-pane -->
+                                            <div class="tab-pane" id="field_classes_tab">
+                                                <div class="ui-table">
+                                                    <div style="padding-left: 20px; padding-top: 20px;">
+                                                        <table id="fieldClassesTable" class="ui celled table"
+                                                               cellspacing="0" width="100%">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tfoot>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </tfoot>
+                                                            <tbody id="fieldClasses-table-body">
+                                                            </tbody>
+                                                        </table>
+                                                    </div><!-- /.content -->
+                                                </div><!-- /.ui-table -->
+                                            </div>
+                                            <!-- /.tab-pane -->
+                                            <div class="tab-pane" id="field_types_tab">
+                                                <div class="ui-table">
+                                                    <div style="padding-left: 20px; padding-top: 20px;">
+                                                        <table id="fieldTypesTable" class="ui celled table"
+                                                               cellspacing="0" width="100%">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tfoot>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </tfoot>
+                                                            <tbody id="fieldTypes-table-body">
+                                                            </tbody>
+                                                        </table>
+                                                    </div><!-- /.content -->
+                                                </div><!-- /.ui-table -->
+                                            </div>
+                                            <div class="tab-pane" id="field_names_tab">
+                                                <div class="ui-table">
+                                                    <div style="padding-left: 20px; padding-top: 20px;">
+                                                        <table id="fieldNamesTable" class="ui celled table"
+                                                               cellspacing="0" width="100%">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tfoot>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </tfoot>
+                                                            <tbody id="fieldNames-table-body">
+                                                            </tbody>
+                                                        </table>
+                                                    </div><!-- /.content -->
+                                                </div><!-- /.ui-table -->
+                                            </div>
+                                            <!-- /.tab-pane -->
+                                        </div>
+                                        <!-- /.tab-content -->
+                                    </div>
+                                </div>
+                            </div><!-- row -->
+
+                            <!-- Reverse engineering section -->
+                            <div align="center" class="section-banner">
+                                <img class="img-responsive" src="dist/img/reverseEngineering.png"
+                                     alt="Android Reverse engineering image" style="margin: 2%; max-width: 120px;">
+                                <h3>Descriptors</h3>
+                                <br>
+                            </div>
+
+                            <h4>Hardcoded string information</h4>
+
+                            <!-- overall classification chart -->
+
+                            <div class="box box-default" style="display:none">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Overall string classification</h3>
+
+                                    <div class="box-tools pull-right">
+                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                                class="fa fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i
+                                                class="fa fa-times"></i></button>
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="chart-responsive">
+                                                <canvas id="stringChart" height="150"></canvas>
+                                            </div>
+                                            <!-- ./chart-responsive -->
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-md-4">
+                                            <ul class="chart-legend clearfix">
+                                                <li><i class="fa fa-circle-o text-red"></i> Chrome</li>
+                                                <li><i class="fa fa-circle-o text-green"></i> IE</li>
+                                                <li><i class="fa fa-circle-o text-yellow"></i> FireFox</li>
+                                                <li><i class="fa fa-circle-o text-aqua"></i> Safari</li>
+                                                <li><i class="fa fa-circle-o text-light-blue"></i> Opera</li>
+                                                <li><i class="fa fa-circle-o text-gray"></i> Navigator</li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+
+                            <div class="row"><!-- row -->
+
+                                <div class="col-md-12">
+                                    <h5>Classified strings</h5>
+                                    <div id="ofuscated-strings" class="alert alert-danger alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
+                                        </button>
+                                        <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                                        String analysis detected that this application contains ofuscated literal
+                                        strings.
+                                    </div><!-- alert -->
+                                </div><!-- col -->
+
+                                <div class="col-md-4"><!-- col -->
+                                    <div class="info-box bg-navy">
+                                        <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+
+                                        <div class="info-box-content">
+                                            <span class="info-box-text"></span>
+                                            <span class="info-box-number" id="box-total"></span>
+
+                                            <div class="progress">
+                                                <div class="progress-bar" style="width: 100%" id="box-total-pb"></div>
+                                            </div>
+                                                <span class="progress-description" id="box-total-pb-text">
+                                                </span>
+                                        </div>
+                                    </div><!-- /.info-box-content -->
+                                </div><!-- col -->
+
+                                <div class="col-md-4"><!-- col -->
+                                    <div class="info-box bg-navy">
+                                        <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+
+                                        <div class="info-box-content">
+                                            <span class="info-box-text"></span>
+                                            <span class="info-box-number" id="box-juicy"></span>
+
+                                            <div class="progress">
+                                                <div class="progress-bar" style="width: 12%" id="box-juicy-pb"></div>
+                                            </div>
+                                                <span class="progress-description" id="box-juicy-pb-text">
+                                                </span>
+                                        </div>
+                                    </div><!-- /.info-box-content -->
+                                </div><!-- col -->
+
+                            </div><!-- row -->
+
+                            <div class="row"><!-- row -->
+
+                                <div class="col-md-4"><!-- col -->
+                                    <div class="info-box bg-light-blue">
+                                        <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+
+                                        <div class="info-box-content">
+                                            <span class="info-box-text"></span>
+                                            <span class="info-box-number" id="box-url"></span>
+
+                                            <div class="progress">
+                                                <div class="progress-bar" style="width: 20%" id="box-url-pb"></div>
+                                            </div>
+                                                <span class="progress-description" id="box-url-pb-text">
+                                                </span>
+                                        </div>
+                                        <!-- /.info-box-content -->
+                                    </div><!-- col -->
+                                </div>
+
+                                <div class="col-md-4"><!-- col -->
+                                    <div class="info-box bg-light-blue">
+                                        <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+
+                                        <div class="info-box-content">
+                                            <span class="info-box-text"></span>
+                                            <span class="info-box-number" id="box-numeric"></span>
+
+                                            <div class="progress">
+                                                <div class="progress-bar" style="width: 10%" id="box-numeric-pb"></div>
+                                            </div>
+                                                <span class="progress-description" id="box-numeric-pb-text">
+                                                </span>
+                                        </div>
+                                        <!-- /.info-box-content -->
+                                    </div><!-- col -->
+                                </div>
+
+                                <div class="col-md-4"><!-- col -->
+                                    <div class="info-box bg-light-blue">
+                                        <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+
+                                        <div class="info-box-content">
+                                            <span class="info-box-text"></span>
+                                            <span class="info-box-number" id="box-email"></span>
+
+                                            <div class="progress">
+                                                <div class="progress-bar" style="width: 0%" id="box-email-pb"></div>
+                                            </div>
+                                                <span class="progress-description" id="box-email-pb-text">
+                                                </span>
+                                        </div>
+                                    </div><!-- /.info-box-content -->
+                                </div><!-- col -->
+
+                                <div class="col-md-4"><!-- col -->
+                                    <div class="info-box bg-light-blue">
+                                        <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+
+                                        <div class="info-box-content">
+                                            <span class="info-box-text"></span>
+                                            <span class="info-box-number" id="box-ip">0</span>
+
+                                            <div class="progress">
+                                                <div class="progress-bar" style="width: 0%" id="box-ip-pb"></div>
+                                            </div>
+                                                <span class="progress-description" id="box-ip-pb-text">
+                                                </span>
+                                        </div>
+                                    </div><!-- /.info-box-content -->
+                                </div><!-- col -->
+
+                                <div class="col-md-4"><!-- col -->
+                                    <div class="info-box bg-light-blue">
+                                        <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+
+                                        <div class="info-box-content">
+                                            <span class="info-box-text"></span>
+                                            <span class="info-box-number" id="box-dns">0</span>
+
+                                            <div class="progress">
+                                                <div class="progress-bar" style="width: 0%" id="box-dns-pb"></div>
+                                            </div>
+                                                <span class="progress-description" id="box-dns-pb-text">
+                                                </span>
+                                        </div>
+                                    </div><!-- /.info-box-content -->
+                                </div><!-- col -->
+
+                            </div><!-- row -->
+
+                            <div class="row"><!-- row -->
+                                <div class="col-md-12"><!-- col -->
+                                    <h5>Not classified unknown strings</h5>
+                                    <div class="info-box bg-red">
+                                        <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+
+                                        <div class="info-box-content">
+                                            <span class="info-box-text"></span>
+                                            <span class="info-box-number" id="box-unknown"></span>
+
+                                            <div class="progress">
+                                                <div class="progress-bar" style="width: 0%" id="box-unknown-pb"></div>
+                                            </div>
+                                                <span class="progress-description" id="box-unknown-pb-text">
+                                                </span>
+                                        </div>
+                                    </div><!-- /.info-box-content -->
+                                </div><!-- col -->
+                            </div><!-- row -->
+
+                            <!-- añadir tabla con todas las strings -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5>String dump</h5>
+                                    <p>
+                                        Current supported categories are: irrelevant, classname, javaname, innerclass,
+                                        accessor, param, hexstring, word, underword, separatorWord, sentence, ofuscated,
+                                        ipv4, dns, ipv6, email, url and unknown.
+                                    </p>
+                                    <div class="box">
+                                        <div class="ui-table">
+                                            <div style="padding-left: 20px; padding-top: 20px;">
+                                                <table id="stringTable" class="ui celled table" cellspacing="0"
+                                                       width="100%">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>String</th>
+                                                        <th>Class</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                    <tr>
+                                                        <th>String</th>
+                                                        <th>Class</th>
+                                                    </tr>
+                                                    </tfoot>
+                                                    <tbody id="string-table-body">
+                                                    </tbody>
+                                                </table>
+                                            </div><!-- /.ui-table -->
+                                        </div><!-- /.box -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- resumen de lo que han detectado los plugins -->
+                            <div class="row" id="static-plugin-result-row">
+                                <div class="col-md-6">
+                                    <h4>Static plugins information</h4>
+                                    <div id="static-plugin-result-holder">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h4>Dynamic plugins information</h4>
+                                    <div id="dynamic-plugin-result-holder">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- apkr intelligence section -->
+                            <div align="center" class="section-banner" style="display:none;">
+                                <img class="img-responsive" src="dist/img/functionalities.png" alt="functionality icon"
+                                     style="margin: 2%; max-width: 110px;">
+                                <h3>Functionalities</h3>
+                                <br>
+                            </div>
+
+                            <!-- resumen de info interesante -->
+                            <div class="row" style="display:none;">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <h4>Primary behavior descriptors</h4>
+                                    </br>
+                                </div><!-- /.col -->
+                            </div> <!-- /.row -->
+
+                            <div class="row" style="display:none;">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="info-box">
+                                        <span class="info-box-icon bg-aqua"><i class="ion ion-ios-box"></i></span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Reflection</span>
+                                            <span class="info-box-number">2 calls</span>
+                                        </div>
+                                        <!-- /.info-box-content -->
+                                    </div>
+                                    <!-- /.info-box -->
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="info-box">
+                                        <span class="info-box-icon bg-red"><i
+                                                class="fa ion-lock-combination"></i></span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Crypto usage</span>
+                                            <span class="info-box-number">2 calls</span>
+                                        </div>
+                                        <!-- /.info-box-content -->
+                                    </div>
+                                    <!-- /.info-box -->
+                                </div>
+                                <!-- /.col -->
+                                <!-- fix for small devices only -->
+                                <div class="clearfix visible-sm-block"></div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="info-box">
+                                        <span class="info-box-icon bg-green"><i class="ion ion-load-c"></i></span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Native code</span>
+                                            <span class="info-box-number">1 call</span>
+                                        </div>
+                                        <!-- /.info-box-content -->
+                                    </div>
+                                    <!-- /.info-box -->
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="info-box">
+                                        <span class="info-box-icon bg-yellow"><i
+                                                class="ion ion-ios-color-filter-outline"></i></span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Ghost files</span>
+                                            <span class="info-box-number">0</span>
+                                        </div>
+                                        <!-- /.info-box-content -->
+                                    </div>
+                                    <!-- /.info-box -->
+                                </div>
+                                <!-- /.col -->
+                            </div> <!-- /.row -->
+
+                            <!-- apkr flowmap section -->
+                            <div align="center" class="section-banner">
+                                <img class="img-responsive" src="dist/img/molecule.png"
+                                     alt="Android CFG representative molecule image"
+                                     style="margin: 2%; max-width: 100px;">
+                                <h3>Application CFG</h3>
+                                <p>Smali Control Flow Graph's</p>
+                                <br>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-12">
+
+                                    <!--alert box-->
+                                    <div class="callout callout-danger"
+                                         style="black;background-color: #333333 !important;border-color: black;">
+                                        <h4>How to create a .png from .dot graphviz file</h4>
+                                        <p>
+                                        <pre><code>$ dot -Tpng normal_graphviz.dot > image.png</code></pre>
+                                        </p>
+                                    </div>
+
+                                    <input style="display:none;" id="dotfileDialog" type="file"
+                                           nwsaveas="normalcfg.dot"/>
+                                    <input style="display:none;" id="jsonfileDialog" type="file"
+                                           nwsaveas="normalcfg.json"/>
+
+                                    <div class="box box-solid">
+                                        <div class="box-header with-border">
+                                            <i class="fa fa-text-width"></i>
+
+                                            <h3 class="box-title">Control Flow Graphs</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <blockquote>
+                                                <p align="justify">A call graph (also known as a call multigraph) is a
+                                                    directed graph (and more specifically a flow graph) that represents
+                                                    calling relationships between subroutines in a computer program.
+                                                    Specifically, each node represents a procedure and each edge (f, g)
+                                                    indicates that procedure f calls procedure g. Thus, a cycle in the
+                                                    graph indicates recursive procedure calls. Call graphs are a basic
+                                                    program analysis result that can be used for human understanding of
+                                                    programs, or as a basis for further analyses, such as an analysis
+                                                    that tracks the flow of values between procedures.
+                                                <p>
+                                                    <cite title="Source Title">Wikipedia</cite>
+                                            </blockquote>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <div class="box box-solid">
+                                        <div class="box-header with-border">
+                                            <i class="fa fa-text-width"></i>
+
+                                            <h3 class="box-title">Basic CFG information</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <dl class="dl-horizontal">
+                                                <dt>Optimized</dt>
+                                                <dd id="node-optimized">-</dd>
+                                                <dt>Node count</dt>
+                                                <dd id="node-count">-</dd>
+                                                <dt>Connection count</dt>
+                                                <dd id="connection-count">-</dd>
+                                            </dl>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Download graph files</h4>
+                                    <button id="cfg-graphviz-download" type="button"
+                                            class="btn btn-block btn-primary btn-lg">Download CFG as Graphviz file
+                                    </button>
+                                    <button id="cfg-json-download" type="button"
+                                            class="btn btn-block btn-primary btn-lg">Download CFG as JSON file
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- apkr intelligence section -->
+                            <div align="center" class="section-banner">
+                                <img class="img-responsive" src="dist/img/intel.png" alt="Android internal image"
+                                     style="margin: 2%; max-width: 200px;">
+                                <h3>Machine Learning</h3>
+                                <br>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-6" id="rules-block">
+                                    <h4>Dynamic rules engine</h4>
+                                </div><!-- col -->
+
+                                <div class="col-md-6" id="ml-block">
+                                    <h4>Machine Learning prediction</h4>
+                                </div><!-- col -->
+
+                            </div><!-- row -->
+                        </div>
+                        <!-- /.tab-pane -->
+                    </div>
+                    <!-- /.tab-content -->
+                </div>
+            </div>
+            <!-- /.hide during scan -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+            <b>↵ Alpha</b> version
+        </div>
+        <!-- Default to the left -->
+        <strong>&#9755; </strong> Built with <span
+            class="color:#ff0000; font-size:14px;font-family:'arial unicode MS', arial, geneva, sans-serif; ">&hearts;</span>.
+        Contribute at <b>Github</b>
+    </footer>
+
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.0 -->
+<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="plugins/jQueryUI/jquery-ui.min.js"></script>
+
+<!--app js -->
+<script src="dist/app.js/ajax.js"></script>
+<script src="dist/app.js/core.js"></script>
+<script src="dist/app.js/events.js"></script>
+<script src="dist/app.js/on_load.js"></script>
+<script src="dist/app.js/on_ready.js"></script>
+
+<!-- common -->
+<script src="../common/js/common.js"></script>
+<!-- common: bootstrap dialogs -->
+<script src="../common/js/bootstrap-dialogs/bootstrap.min.js"></script>
+<script src="../common/js/bootstrap-dialogs/bootstrap-dialog.min.js"></script>
+
+<!-- datatables -->
+<script src="../common/js/datatables/jquery.dataTables.min.js"></script>
+<script src="../common/js/datatables/dataTables.semanticui.min.js"></script>
+
+<!-- semanticui -->
+<script src="../common/js/semanticUI/semantic.min.js"></script>
+
+<!-- Bootstrap 3.3.6 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="plugins/fastclick/fastclick.js"></script>
+<!-- chartjs -->
+<script src="plugins/chartjs/Chart.min.js"></script>
+<script src="dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+
+</body>
+
+</html>

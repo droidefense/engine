@@ -1,0 +1,6 @@
+#description: j.SMSHider service start detection;
+#author: AtomEngine team;
+#date: 14/06/2016;
+#family: j.SMSHider;
+#variant: A;
+#rule: Entry > Activity.onCreate > PackageReceiver.StartMainservice(mContext, "j.SMSHider", "j.SMSHider.MainService");

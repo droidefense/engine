@@ -1,0 +1,88 @@
+#!/bin/bash
+#
+# Copyright (C) 2013 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Stop if something fails.
+set -e
+
+# Write out classes
+
+${JAVAC} ClassGen.java
+
+mkdir src
+mkdir classes
+
+# Heap size, min and max
+MEM=4g
+
+MULTIDEX="--multi-dex"
+THREADS="--num-threads=5"
+
+# Extra statistics, use to calibrate test.
+#EXTRA="--profile-concurrency"
+
+# Test smaller dex files
+#EXTRA="--set-max-idx-number=20000"
+
+# Test GC options
+#GC="-JXX:+UseConcMarkSweepGC"
+
+# Limit HW threads
+#TASKSET="taskset 0x00000fff
+
+# Number of classes, initial
+TEST_SIZE=1000
+
+# number of classes, max
+LIMIT=1000
+
+# Number of additional classes per test
+STEP=100
+
+# Number of fields per classes
+FIELDS=4
+
+# Number of methods per class
+METHODS=6
+
+
+first=1;
+while [ $TEST_SIZE -le $LIMIT ]; do
+  rm -rf out
+  mkdir out
+
+  sleep 2
+  java -classpath . ClassGen $first $TEST_SIZE $FIELDS $METHODS
+  first=`expr $TEST_SIZE + 1`
+
+  ${JAVAC} -d classes `find src -name '*.java'`
+  (cd classes; jar cf ../x.jar `find . -name '*.class'`)
+  sleep 3
+
+  start=`date +'%s%N'`
+  $TASKSET dx -JXmx$MEM -JXms$MEM $GC --dex $EXTRA --no-optimize $MULTIDEX $THREADS --output=out x.jar
+  end=`date +'%s%N'`
+  nsec=`expr $end - $start`
+  msec=`expr $nsec / 1000000`
+  echo "Classes/msec $TEST_SIZE $msec"
+
+  TEST_SIZE=`expr $TEST_SIZE + $STEP`
+done
+
+if [ "$?" = "1" ]; then
+    echo "Yay!"
+else
+    cat unit-out.txt
+fi
