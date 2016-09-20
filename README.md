@@ -1,6 +1,6 @@
 # apkr
 
-![alt image](https://github.com/zerjioang/AtomFramework/blob/master/github-frontal.png)
+![alt image](https://raw.githubusercontent.com/zerjioang/apkr/master/github-frontal.png)
 
 ##What apkr is
 
@@ -10,10 +10,7 @@ apkr is the codename for a android apps/malware analysis/reversing tool.
 
 http://apkr.hopto.org/
 
-> It might be down due too many requests or shutdown.
-
-This software is still under development so you might find errors, bugs and comiplation issues.
-If you find some of that, please open an issue.
+> It might be down due too many requests or shutdown. This software is still under development so you might find errors, bugs and comiplation issues. If you find some of that, please open an issue.
 
 Thanks
 
