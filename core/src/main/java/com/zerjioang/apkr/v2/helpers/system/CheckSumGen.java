@@ -139,7 +139,7 @@ public class CheckSumGen implements Serializable {
     }
 
     public String calculateSHA256(byte[] data) throws NullPointerException {
-        if (data != null) {
+        if (data == null) {
             Log.write(LoggerType.ERROR, "Could not create calculateSHA256() Hash because of a null file reference");
             throw new NullPointerException("Apkr could not calculateSHA256() hash for file\n\t" + "\nPossible reason: null file reference.");
         }

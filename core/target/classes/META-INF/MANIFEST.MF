@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: com.zerjioang.apkr.v1.httpserver.ApkrServer
+Entry-Point: com.zerjioang.apkr.v1.httpserver.ApkrServer
+Created-By: @zerjioang
+Application-Name: Apkr scanner

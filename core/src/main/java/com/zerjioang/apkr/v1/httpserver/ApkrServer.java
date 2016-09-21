@@ -12,7 +12,6 @@ import java.io.StringWriter;
 
 public class ApkrServer {
 
-    public static final String NAME = "localhost";
     private static final int DEV_PORT = 1234;
     private static final int HTTPS_PORT = 443;
     private static final int HTTP_PORT = 80;

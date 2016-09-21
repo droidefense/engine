@@ -1,0 +1,9 @@
+2016-09-21 18:54:32 ERROR [Thread-0] ERROR:33 - General exception occurred
+2016-09-21 18:54:32 ERROR [Thread-0] ERROR:33 - C:\Users\.local\Documents\projects\apkr\apkr-public\core\resources\webapp\error.html (El sistema no puede encontrar la ruta especificada)
+2016-09-21 19:31:07 ERROR [pool-1-thread-15] ERROR:33 - Could not create calculateSHA256() Hash because of a null file reference
+2016-09-21 19:32:32 ERROR [pool-1-thread-19] ERROR:33 - Could not create calculateSHA256() Hash because of a null file reference
+2016-09-21 19:33:45 ERROR [pool-1-thread-11] ERROR:33 - Could not create calculateSHA256() Hash because of a null file reference
+2016-09-21 19:34:54 ERROR [pool-1-thread-15] ERROR:33 - Could not create calculateSHA256() Hash because of a null file reference
+2016-09-21 19:37:24 ERROR [pool-1-thread-15] ERROR:33 - Could not create calculateSHA256() Hash because of a null file reference
+2016-09-21 19:38:05 ERROR [pool-1-thread-15] ERROR:33 - Could not create calculateSHA256() Hash because of a null file reference
+2016-09-21 19:38:57 ERROR [pool-1-thread-14] ERROR:33 - Could not create calculateSHA256() Hash because of a null file reference

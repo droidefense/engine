@@ -152,8 +152,10 @@ public class ThreadWorker implements Runnable {
     }
 
     private void defaultErrorMsg() throws IOException {
-        if (errorHtml != null)
-            this.output.write(errorHtml.getBytes());
+        if (errorHtml != null) {
+            this.output.write(("HTTP/1.1 404 ERROR\r\n").getBytes());
+            //this.output.write(errorHtml.getBytes());
+        }
         else {
             String data = "File [" + this.requestedResourceName + "] was not found on the http_server\r\n";
             this.output.write(data.getBytes());
@@ -314,21 +316,28 @@ public class ThreadWorker implements Runnable {
                     //1 check for url with request
                     //dynamic links
                     String serverFolder = ApkrConstants.RESOURCE_FOLDER + File.separator + ApkrConstants.SERVER_ROOT;
-                    switch (this.requestedResourceName){
-                        case "/":
-                            //index redirect
-                            freadStr = serverFolder + "/index.html";
-                            fread = new File(freadStr);
+                    if(url.equals("/")) {
+                        //index redirect
+                        freadStr = serverFolder + "/index.html";
+                        fread = new File(freadStr);
+                        requestedResource = Files.readAllBytes(Paths.get(freadStr));
+                        return true;
+                    }
+                    else if(url.matches("/reporter/\\d{64}/?")){
+                        //return html generated file as static content
+                        String id = url.replace("/", "").replace("reporter", "");
+                        freadStr = serverFolder + "/index.html";
+                        fread = new File(freadStr);
+                        requestedResource = Files.readAllBytes(Paths.get(freadStr));
+                    }
+                    else {
+                        //DEFAULT ACTION: return requested file
+                        freadStr = serverFolder + this.requestedResourceName;
+                        fread = new File(freadStr);
+                        if (fread.exists() && fread.isFile() && fread.canRead()) {
                             requestedResource = Files.readAllBytes(Paths.get(freadStr));
                             return true;
-                        default:
-                            //DEFAULT ACTION: return requested file
-                            freadStr = serverFolder + this.requestedResourceName;
-                            fread = new File(freadStr);
-                            if (fread.exists() && fread.isFile() && fread.canRead()) {
-                                requestedResource = Files.readAllBytes(Paths.get(freadStr));
-                                return true;
-                            }
+                        }
                     }
                 }
             }
@@ -378,7 +387,7 @@ public class ThreadWorker implements Runnable {
                     ret += headerLine + "\n";
                 }
             }
-            while(headerLine.length()!=0);
+            while(headerLine!=null && headerLine.length()!=0);
 
             //code to read the post payload data
             StringBuilder payload = new StringBuilder();
