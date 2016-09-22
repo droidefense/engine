@@ -6,7 +6,7 @@
 <p align="justify">
 <b>apkr</b> (originally named atom: <b>a</b>alysis <b>t</b>hrough <b>o</b>bservation <b>m</b>achine)* is the codename for a android apps/malware analysis/reversing tool. It was built focused on security issues and tricks that malware researcher have on they every day work. For those situations on where the malware has some <b>anti-analysis</b> routines, apkr attemps to bypass them in order to get to the code and 'bad boy' routine. Sometimes those techniques can be virtual machine detection, emulator detection, self certificate checking, pipes detection. tracer pid check, and so on.
 
-**apkr** uses an innovative idea in where the code is not decompiled rather than viewed. This allow us to get the global view of the execution workflow of the code with a 100% accuracy on gathered information. With this situation, **apkr** generates a fancy html report with the results for an easy understanding.
+<b>apkr</b> uses an innovative idea in where the code is not decompiled rather than viewed. This allow us to get the global view of the execution workflow of the code with a 100% accuracy on gathered information. With this situation, <b>apkr</b> generates a fancy <b>html</b> report with the results for an easy understanding.
 </p>
 ##Brief description
 
