@@ -1,6 +1,8 @@
 # apkr
 
-![alt image](https://raw.githubusercontent.com/zerjioang/apkr/master/github-frontal.png)
+<p align="center">
+<img src ="https://avatars1.githubusercontent.com/u/22367829?v=3&s=200" />
+</p>
 
 #What apkr is
 <p align="justify">
