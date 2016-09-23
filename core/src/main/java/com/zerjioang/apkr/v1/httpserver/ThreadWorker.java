@@ -64,7 +64,7 @@ public class ThreadWorker implements Runnable {
     private static String getErrorHtml() {
         try {
             String data = Util.loadFileAsString((FileInputStream) FileIOHandler.getResourceFileInputStream(ApkrConstants.SERVER_ROOT + File.separator + "error.html"));
-            if (data == null | data.isEmpty())
+            if (data == null || data.isEmpty())
                 return "";
             return data;
         } catch (Exception e) {

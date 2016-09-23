@@ -13,3 +13,78 @@
 .center-div{
 	text-align: -webkit-center;
 }
+
+.dragable{
+	-webkit-app-region: drag;
+}
+
+.no-dragable{
+	-webkit-app-region: no-drag;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.center-div{
+	vertical-align:middle;
+	text-align:center;
+}
+
+.left-div{
+	vertical-align:middle;
+	text-align:left;
+}
+
+.right-div{
+	vertical-align:middle;
+	text-align:right;
+}
+
+.bar-user-badge{
+	padding-top: 2px;
+    padding-left: 7%;
+	z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 150;
+}
+
+.window{
+	-webkit-border-radius: 5px;
+	background: white;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-button {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #eee;
+    border: thin solid lightgray;
+    box-shadow: 0px 0px 3px #dfdfdf inset;
+    border-radius: 10px;
+    height: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: #999;
+    border: thin solid gray;
+    border-radius: 10px;
+    height: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #7d7d7d;
+}
+
+.hidden{
+    display: none;
+}

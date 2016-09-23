@@ -95,3 +95,15 @@ $(document).keydown(function(event){
           return false;  //Prevent from ctrl+shift+i
       }
 });
+
+$('#terms').click(function(e) {
+    e.preventDefault();
+    console.log("terms show");
+    termsOfUsePopup();
+});
+
+$('#privacy').click(function(e) {
+    e.preventDefault();
+    console.log("privacy show");
+    privacyPopUp();
+});

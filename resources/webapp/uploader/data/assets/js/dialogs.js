@@ -5,7 +5,49 @@
 var OK_ONLY_DIALOG = 1;
 var OK_CANCEL_DIALOG = 2;
 
-var ROOT_PATH = "/uploader/data/images/"
+var ROOT_PATH = "uploader/data/images/"
+
+function privacyPopUp(){
+    BootstrapDialog.show({
+            title: 'Privacy policy',
+            cssClass: 'z-dialog-vertical-center',
+            size: BootstrapDialog.SIZE_LARGE,
+            message: $('<div></div>').load('privacy.readme'),
+            type: BootstrapDialog.TYPE_DEFAULT, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+            closable: true,
+            draggable: true,
+            buttons: [
+            {
+                label: 'Close',
+                action: function(dialogRef) {
+                    //close dialog
+                    dialogRef.close();
+                }
+            }
+            ]
+        });
+}
+
+function termsOfUsePopup(){
+    BootstrapDialog.show({
+            title: 'Terms of use',
+            cssClass: 'z-dialog-vertical-center',
+            size: BootstrapDialog.SIZE_LARGE,
+            message: $('<div></div>').load('tos.readme'),
+            type: BootstrapDialog.TYPE_DEFAULT, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+            closable: true,
+            draggable: true,
+            buttons: [
+            {
+                label: 'Close',
+                action: function(dialogRef) {
+                    //close dialog
+                    dialogRef.close();
+                }
+            }
+            ]
+        });
+}
 
 function appClosePopUp(){
     BootstrapDialog.show({
@@ -35,6 +77,7 @@ function appClosePopUp(){
             ]
         });
 }
+
 function filesizeTooBigPopUp() {
     showErrorPopUp(
         'The file is too big',
