@@ -1,1 +1,0 @@
-This test tries to merge dex files it finds in the android tree at random, 2 by 2.

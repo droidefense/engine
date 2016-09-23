@@ -1,2 +1,0 @@
-Test that dx generates deterministic output when using --num-threads
-

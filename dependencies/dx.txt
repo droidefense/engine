@@ -1,5 +1,4 @@
-Processing '/Users/sergio/Documents/Atom-git/uploads/pornoplayer2.apk'...
-Opened '/Users/sergio/Documents/Atom-git/uploads/pornoplayer2.apk', DEX version '035'
+Opened '/pornoplayer2.apk', DEX version '035'
 DEX file header:
 magic               : 'dex\n035\0'
 checksum            : da9d4dd3

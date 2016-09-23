@@ -1,2 +1,0 @@
-Script for --multi-dex --num-threads performance testing, default just test options can be used together
-
