@@ -1,43 +1,18 @@
 # apkr
 
-![alt image](https://raw.githubusercontent.com/zerjioang/apkr/master/github-frontal.png)
+<p align="center">
+<img src ="https://avatars1.githubusercontent.com/u/22367829?v=3&s=200" />
+</p>
 
-##What apkr is
+#What apkr is
+<p align="justify">
+<b>apkr</b> (originally named atom: <b>a</b>alysis <b>t</b>hrough <b>o</b>bservation <b>m</b>achine)* is the codename for a android apps/malware analysis/reversing tool. It was built focused on security issues and tricks that malware researcher have on they every day work. For those situations on where the malware has some <b>anti-analysis</b> routines, apkr attemps to bypass them in order to get to the code and 'bad boy' routine. Sometimes those techniques can be virtual machine detection, emulator detection, self certificate checking, pipes detection. tracer pid check, and so on.
 
-apkr is the codename for a android apps/malware analysis/reversing tool.
+<b>apkr</b> uses an innovative idea in where the code is not decompiled rather than viewed. This allow us to get the global view of the execution workflow of the code with a 100% accuracy on gathered information. With this situation, <b>apkr</b> generates a fancy <b>html</b> report with the results for an easy understanding.
+</p>
+##Brief description
 
-## Development deploy service
-
-http://apkr.hopto.org/
-
-> It might be down due too many requests or shutdown. This software is still under development so you might find errors, bugs and comiplation issues. If you find some of that, please open an issue.
-
-Thanks
-
-##Branches
-
-###gh-pages
-This branch contains the code related to the github page.
-
-> https://zerjioang.github.io/apkr/
-
-Status: production
-
-###master
-This branch contains the code related to remote service itself or neccesary resources
-
-Status: under development
-
-###webapp
-This branch contains the code related to webapp that runs under remote server.
-
-Status: under development
-
-###ui
-
-This branch contains the code related to the first approach of a nw.js based desktop app
-
-Status: alpha, deprecated
+https://github.com/zerjioang/apkr/blob/master/readme/apkr-slides.pdf
 
 ## Motivation
 
@@ -84,12 +59,6 @@ This shows a very dangerous combination of facts. Getting malware onto a victimâ
 * Privacy plugin
 * etc
 
-# Webapp
-
-* AdminLTE Bootstrap 3 Template         https://almsaeedstudio.com/preview
-* Bootstrap dialogs 			https://nakupanda.github.io/bootstrap3-dialog/
-* Dropzone				http://www.dropzonejs.com/
-
 # Installation
 
 For installation purposes, it needs
@@ -99,11 +68,43 @@ For installation purposes, it needs
   * Windows, MAC OS or Linux.
   * A Brain!
  
-## Run
+# Run
 For deploying the server using default port (1234):
 ```
 java -jar apkr.jar
 ```
+
+## Development deploy service
+
+http://apkr.hopto.org/
+
+> It might be down due too many requests or shutdown. This software is still under development so you might find errors, bugs and comiplation issues. If you find some of that, please open an issue.
+Thanks
+
+##Branches
+
+###gh-pages
+This branch contains the code related to the github page.
+
+> https://zerjioang.github.io/apkr/
+
+Status: production
+
+###master
+This branch contains the code related to remote service itself or neccesary resources
+
+Status: under development
+
+###webapp
+This branch contains the code related to webapp that runs under remote server.
+
+Status: under development
+
+###ui
+
+This branch contains the code related to the first approach of a nw.js based desktop app
+
+Status: alpha, deprecated
 
 # Contribution
 
