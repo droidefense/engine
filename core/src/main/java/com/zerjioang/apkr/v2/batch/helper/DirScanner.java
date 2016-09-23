@@ -19,6 +19,7 @@ import java.util.HashSet;
  */
 public class DirScanner {
 
+    public static final String OUT_DIR = "apkr/dirscan/";
     private final String baseDir;
     private final DirectoryFilter filter;
 
@@ -28,7 +29,7 @@ public class DirScanner {
         if (baseDir == null)
             throw new NullPointerException("Base path can not be null.");
         if (filter == null)
-            throw new NullPointerException("Base path can not be null.");
+            throw new NullPointerException("Filter directive can not be null.");
     }
 
     public void scan() throws EmptyDataSetException, NoFilesFoundException, IOException {
@@ -59,7 +60,7 @@ public class DirScanner {
             throw new EmptyDataSetException("Android SDK support folder scanned files set is empty.");
         }
 
-        File outputDir = new File("/Users/sergio/Documents/Atom-git/engine/temp/");
+        File outputDir = new File(OUT_DIR);
         FileIOHandler.saveAsRAW(set, filter.getResultName(), outputDir);
     }
 }

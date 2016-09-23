@@ -1,4 +1,4 @@
-package com.zerjioang.apkr.v1.httpserver.model;
+package com.zerjioang.apkr.v1.httpserver.apimodel;
 
 /**
  * Created by .local on 13/05/2016.

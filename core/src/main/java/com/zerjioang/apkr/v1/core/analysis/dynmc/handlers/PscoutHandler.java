@@ -31,7 +31,7 @@ public class PscoutHandler extends AbstractHandler {
     public boolean doTheJob() {
         Log.write(LoggerType.TRACE, "---- Mapping method calls with permissions -----");
         try {
-            PSCoutModel model = (PSCoutModel) FileIOHandler.getResourceObjectStream("pscout.model").readObject();
+            PSCoutModel model = (PSCoutModel) FileIOHandler.getResourceObjectStream("pscout.apimodel").readObject();
             if (model == null) {
                 return false;
             }

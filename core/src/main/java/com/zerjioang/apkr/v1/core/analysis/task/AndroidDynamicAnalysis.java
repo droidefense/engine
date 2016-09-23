@@ -33,7 +33,7 @@ public class AndroidDynamicAnalysis extends AbstractAndroidAnalysis {
         handler = new VMWorkersHandler(currentProject, list);
         handler.doTheJob();
 
-        //run pscout model
+        //run pscout apimodel
         handler = new PscoutHandler(currentProject, currentProject.getNormalControlFlowMap().getNodeList());
         handler.doTheJob();
 

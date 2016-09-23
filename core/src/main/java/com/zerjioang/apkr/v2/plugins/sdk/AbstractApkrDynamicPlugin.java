@@ -10,12 +10,6 @@ import com.zerjioang.apkr.v2.helpers.enums.ProcessStatus;
  */
 public abstract class AbstractApkrDynamicPlugin extends PluginAnalysis {
 
-    protected String html;
-    protected boolean positiveMatch;
-    protected transient ApkrProject currentProject;
-    private ProcessStatus status;
-    private AtomTimeStamp timeStamp;
-
     public void analyze() {
         status = ProcessStatus.WAITING;
         this.timeStamp = new AtomTimeStamp();
@@ -42,6 +36,7 @@ public abstract class AbstractApkrDynamicPlugin extends PluginAnalysis {
     protected abstract String getPluginName();
 
     protected String getResultAsJson() {
+        //todo convert into json
         return "";
     }
 

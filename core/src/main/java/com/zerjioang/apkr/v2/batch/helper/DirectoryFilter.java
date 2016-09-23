@@ -21,10 +21,10 @@ public enum DirectoryFilter {
         @Override
         public HashSet<String> saveCondition(HashSet<String> set, ArrayList<ResourceFile> files) {
             for (ResourceFile r : files) {
-                if (r.getThisFile().getName().endsWith(".java")) {
+                if (r.getThisFile().getName().endsWith(ApkrConstants.JAVA_EXTENSION)) {
                     int value = r.getAbsolutePath().lastIndexOf(File.separator);
                     String name = r.getAbsolutePath().substring(value + 1);
-                    name = name.replace(".java", "");
+                    name = name.replace(ApkrConstants.JAVA_EXTENSION, ApkrConstants.NONE);
                     name = name.replace(File.separator, ".");
                     set.add(name);
                 }
@@ -47,7 +47,7 @@ public enum DirectoryFilter {
             for (ResourceFile r : files) {
                 int value = r.getAbsolutePath().lastIndexOf(File.separator);
                 String name = r.getAbsolutePath().substring(value + 1);
-                name = name.replace(".java", "");
+                name = name.replace(ApkrConstants.JAVA_EXTENSION, ApkrConstants.NONE);
                 name = name.replace(File.separator, ".");
                 set.add(name);
             }
@@ -69,7 +69,7 @@ public enum DirectoryFilter {
             for (ResourceFile r : files) {
                 int value = r.getAbsolutePath().lastIndexOf(File.separator);
                 String name = r.getAbsolutePath().substring(value + 1);
-                name = name.replace(".java", "");
+                name = name.replace(ApkrConstants.JAVA_EXTENSION, ApkrConstants.NONE);
                 name = name.replace(File.separator, ".");
                 //clean str init
                 int idx = name.indexOf("android.support");

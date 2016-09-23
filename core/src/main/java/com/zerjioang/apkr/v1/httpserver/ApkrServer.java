@@ -12,13 +12,7 @@ import java.io.StringWriter;
 
 public class ApkrServer {
 
-    private static final int DEV_PORT = 1234;
-    private static final int HTTPS_PORT = 443;
-    private static final int HTTP_PORT = 80;
-    private static final int HTTP_PROXY_PORT = 8080;
-    private static final int VNC_PORT = 5900;
-
-    public static final int PORT = DEV_PORT;
+    public static final int PORT = 1234;
 
     public static void main(String[] args) {
 

@@ -3,7 +3,7 @@ package com.zerjioang.apkr.v1.httpserver;
 import com.zerjioang.apkr._main.ApkrScanner;
 import com.zerjioang.apkr.v1.common.handlers.FileIOHandler;
 import com.zerjioang.apkr.v1.common.helpers.Util;
-import com.zerjioang.apkr.v1.httpserver.model.*;
+import com.zerjioang.apkr.v1.httpserver.apimodel.*;
 import com.zerjioang.apkr.v2.exception.InvalidScanParametersException;
 import com.zerjioang.apkr.v2.helpers.config.ApkrConstants;
 import com.zerjioang.apkr.v2.helpers.log4j.Log;

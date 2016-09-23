@@ -29,7 +29,7 @@ public class ApkrIntelligence implements Serializable {
     private static ApkrIntelligence instance = new ApkrIntelligence();
 
     /**
-     * Bayesian classifier harcoded model instance for singleton access
+     * Bayesian classifier harcoded apimodel instance for singleton access
      */
 
     /* Extracted from official source folders */

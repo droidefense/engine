@@ -7,7 +7,16 @@ import com.zerjioang.apkr.v1.common.datamodel.base.APKFile;
  */
 public class PluginAnalysis {
 
+    protected transient ApkrProject currentProject;
+    protected boolean positiveMatch;
+    private ProcessStatus status;
+    private AtomTimeStamp timeStamp;
     protected transient APKFile apk;
+    protected String html;
+
+    public PluginAnalysis(){
+        html="";   
+    }
 
     public void log(Object o, int level) {
         //todo fin

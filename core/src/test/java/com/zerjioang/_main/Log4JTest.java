@@ -1,4 +1,4 @@
-package com.zerjioang.apkr._main;
+package com.zerjioang._main;
 
 import com.zerjioang.apkr.v2.helpers.log4j.Log;
 import com.zerjioang.apkr.v2.helpers.log4j.LoggerType;

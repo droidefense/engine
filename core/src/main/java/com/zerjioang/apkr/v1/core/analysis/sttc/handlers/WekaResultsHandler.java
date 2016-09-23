@@ -127,13 +127,13 @@ public class WekaResultsHandler extends AbstractHandler {
         Classifier[] models = {};
 
         /*
-         * Now we read in the serialized model from disk
+         * Now we read in the serialized apimodel from disk
 		 */
         models = readModels(modelFiles);
 
         MachineLearningResult result = new MachineLearningResult();
 
-        // Run for each model
+        // Run for each apimodel
         int total = models.length;
         int positive = 0;
         for (int j = 0; j < models.length; j++) {
@@ -141,11 +141,11 @@ public class WekaResultsHandler extends AbstractHandler {
             Evaluation eval = new Evaluation(unlabeled);
             eval.evaluateModel(models[j], unlabeled);
             System.out.println(eval.toSummaryString("\nResults\n======\n", false));
-            result.add(modelFiles[j].getName().replace(".model", ""), eval.correct());
+            result.add(modelFiles[j].getName().replace(".apimodel", ""), eval.correct());
             */
             double clsLabel = models[j].classifyInstance(unlabeled.instance(0));
             positive += (int) clsLabel;
-            result.add(modelFiles[j].getName().replace(".model", ""), clsLabel);
+            result.add(modelFiles[j].getName().replace(".apimodel", ""), clsLabel);
         }
         //generate json output for report
         //class 1: goodware

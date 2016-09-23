@@ -8,18 +8,7 @@ import com.zerjioang.apkr.v2.helpers.enums.ProcessStatus;
 /**
  * Created by sergio on 18/2/16.
  */
-@JsonIgnoreProperties(value = {"currentProject"})
 public abstract class AbstractApkrStaticPlugin extends PluginAnalysis {
-
-    protected transient ApkrProject currentProject;
-    protected boolean positiveMatch;
-    protected String html;
-    private ProcessStatus status;
-    private AtomTimeStamp timeStamp;
-
-    public AbstractApkrStaticPlugin() {
-        html = "";
-    }
 
     public void analyze() {
         status = ProcessStatus.WAITING;

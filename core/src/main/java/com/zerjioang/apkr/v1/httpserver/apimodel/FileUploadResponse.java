@@ -1,4 +1,4 @@
-package com.zerjioang.apkr.v1.httpserver.model;
+package com.zerjioang.apkr.v1.httpserver.apimodel;
 
 /**
  * Created by sergio on 3/4/16.

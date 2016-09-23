@@ -61,7 +61,7 @@ public class CSVFeatureExtractorTask implements IBatchTask, ICSVGenerator, Seria
         DirScannerHandler scanner = new DirScannerHandler(baseFolder, false, new DirScannerFilter() {
             @Override
             public boolean addFile(File f) {
-                return f.getName().endsWith(".apk");
+                return f.getName().endsWith(ApkrConstants.APK_EXTENSION);
             }
         });
         scanner.doTheJob();
@@ -107,7 +107,7 @@ public class CSVFeatureExtractorTask implements IBatchTask, ICSVGenerator, Seria
     }
 
     private boolean createDir() {
-        boolean ok = false;
+        boolean ok;
         if (!outputDir.exists())
             ok = outputDir.mkdirs();
         else {

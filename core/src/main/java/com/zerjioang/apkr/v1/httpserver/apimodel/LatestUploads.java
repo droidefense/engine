@@ -1,4 +1,4 @@
-package com.zerjioang.apkr.v1.httpserver.model;
+package com.zerjioang.apkr.v1.httpserver.apimodel;
 
 import com.zerjioang.apkr.v1.common.handlers.FileIOHandler;
 import com.zerjioang.apkr.v1.common.helpers.Util;

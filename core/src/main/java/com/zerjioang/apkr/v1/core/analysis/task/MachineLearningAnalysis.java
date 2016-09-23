@@ -16,7 +16,7 @@ public class MachineLearningAnalysis extends AbstractAndroidAnalysis {
 
     @Override
     protected boolean analyze() {
-        //run pscout model
+        //run pscout apimodel
         WekaResultsHandler handler = new WekaResultsHandler();
         handler.setApk(apkFile);
         handler.setProject(currentProject);

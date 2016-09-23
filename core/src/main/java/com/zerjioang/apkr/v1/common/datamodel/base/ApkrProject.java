@@ -24,7 +24,7 @@ import com.zerjioang.apkr.v1.core.cfg.map.BasicCFGFlowMap;
 import com.zerjioang.apkr.v1.core.cfg.map.base.AbstractFlowMap;
 import com.zerjioang.apkr.v1.core.ml.MachineLearningResult;
 import com.zerjioang.apkr.v1.core.rulengine.Rule;
-import com.zerjioang.apkr.v1.httpserver.model.HashChecking;
+import com.zerjioang.apkr.v1.httpserver.apimodel.HashChecking;
 import com.zerjioang.apkr.v2.helpers.config.ApkrConstants;
 import com.zerjioang.apkr.v2.helpers.log4j.Log;
 import com.zerjioang.apkr.v2.helpers.log4j.LoggerType;
@@ -528,7 +528,7 @@ public class ApkrProject implements Serializable {
                 privacyResult = PrivacyResultEnum.DATA_LEAK;
             }
 
-            //TODO overwrite malware values with ML model
+            //TODO overwrite malware values with ML apimodel
             if (plugin.getInterestingCount() == 0) {
                 malwareResult = MalwareResultEnum.GOODWARE;
             } else {
