@@ -20,9 +20,8 @@ import java.security.cert.CertificateException;
 public class ApkrScanner {
 
     public static final byte LOAD_VARIABLES = 0x0;
-
     private static boolean init = false;
-    private String[] args;
+    private ApkrProject project;
 
     public ApkrScanner(byte idx) {
         switch (idx) {
@@ -33,7 +32,7 @@ public class ApkrScanner {
     }
 
     public ApkrScanner() {
-        args = new String[2];
+        String[] args = new String[2];
         args[0] = FileIOHandler.getBaseDirFile().getParentFile().getAbsolutePath() + File.separator + "temp/pornoplayer2.apk";
         args[1] = "write-hash-value-here";
         initScan(args);
@@ -43,8 +42,7 @@ public class ApkrScanner {
         //security check
         if (args != null && args.length == 2) {
             initScan(args);
-        }
-        else{
+        } else {
             throw new InvalidScanParametersException("Received parameters are not valid to launch the scan", args);
         }
     }
@@ -53,21 +51,11 @@ public class ApkrScanner {
         new ApkrScanner();
     }
 
-    public static void stop(ApkrProject project) {
+    public void stop() {
         //save report .json to file
         Log.write(LoggerType.TRACE, "Saving report file...");
-        project.generateResult();
-        project.writeNaturalReport();
-
-        project.stop();
-
-        //update analysis metadataFile
-        project.updateMetadata();
-        project.save();
-
-        FileIOHandler.saveProjectReport(project);
-
-        Log.write(LoggerType.TRACE, "Sample scan done");
+        project.finish();
+        Log.write(LoggerType.TRACE, "apkr scan finished");
     }
 
     private void initScan(String[] args) {
@@ -81,7 +69,7 @@ public class ApkrScanner {
         apk.setSha256(args[1]);
 
         Log.write(LoggerType.TRACE, "Building project");
-        ApkrProject project = new ApkrProject(apk);
+        project = new ApkrProject(apk);
 
         Log.write(LoggerType.TRACE, "Running ApkrScan");
 
@@ -92,6 +80,8 @@ public class ApkrScanner {
 
         //Start analysis
         project.analyze(analyzer);
+        //stop scan
+        this.stop();
     }
 
     private void loadVariables() {

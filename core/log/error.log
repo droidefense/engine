@@ -1159,3 +1159,179 @@
 2016-09-25 18:10:48 ERROR [Thread-2] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
 2016-09-25 18:10:48 ERROR [Thread-2] ERROR:33 - Could not find class on java SDK android/widget/TextView
 2016-09-25 18:10:48 ERROR [Thread-2] ERROR:33 - java.lang.ClassNotFoundException: android.widget.TextView
+2016-09-25 18:15:54 ERROR [Thread-0] ERROR:33 - General exception occurred
+2016-09-25 18:15:54 ERROR [Thread-0] ERROR:33 - C:\Users\.local\Documents\projects\apkr\core\resources\C:\Users\.local\Documents\projects\apkr\webapp\error.html (El nombre de archivo, el nombre de directorio o la sintaxis de la etiqueta del volumen no son correctos)
+2016-09-25 20:01:45 ERROR [Thread-0] ERROR:33 - General exception occurred
+2016-09-25 20:01:45 ERROR [Thread-0] ERROR:33 - C:\Users\.local\Documents\projects\apkr\core\resources\C:\Users\.local\Documents\projects\apkr\webapp\error.html (El nombre de archivo, el nombre de directorio o la sintaxis de la etiqueta del volumen no son correctos)
+2016-09-25 20:07:24 ERROR [Thread-0] ERROR:33 - General exception occurred
+2016-09-25 20:07:24 ERROR [Thread-0] ERROR:33 - C:\Users\.local\Documents\projects\apkr\core\resources\C:\Users\.local\Documents\projects\apkr\webapp\error.html (El nombre de archivo, el nombre de directorio o la sintaxis de la etiqueta del volumen no son correctos)
+2016-09-25 20:13:44 ERROR [Thread-0] ERROR:33 - General exception occurred
+2016-09-25 20:13:44 ERROR [Thread-0] ERROR:33 - C:\Users\.local\Documents\projects\apkr\core\resources\C:\Users\.local\Documents\projects\apkr\webapp\error.html (El nombre de archivo, el nombre de directorio o la sintaxis de la etiqueta del volumen no son correctos)
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - Could not find class on java SDK android/database/sqlite/SQLiteOpenHelper
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.database.sqlite.SQLiteOpenHelper
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - Could not find class on java SDK android/widget/TextView
+2016-09-25 20:22:24 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.widget.TextView
+2016-09-25 20:22:25 ERROR [main] ERROR:33 - HashChecking error
+2016-09-25 20:22:25 ERROR [main] ERROR:33 - java.io.FileNotFoundException: C:\Users\.local\Documents\projects\apkr\apkr-no-git\unpacked\write-hash-value-here\analysis.metadata (El sistema no puede encontrar el archivo especificado)
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - Could not find class on java SDK android/database/sqlite/SQLiteOpenHelper
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.database.sqlite.SQLiteOpenHelper
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - Could not find class on java SDK android/widget/TextView
+2016-09-25 20:30:18 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.widget.TextView
+2016-09-25 20:30:20 ERROR [main] ERROR:33 - HashChecking error
+2016-09-25 20:30:20 ERROR [main] ERROR:33 - java.io.FileNotFoundException: C:\Users\.local\Documents\projects\apkr\apkr-no-git\unpacked\write-hash-value-here\analysis.metadata (El sistema no puede encontrar el archivo especificado)
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - Could not find class on java SDK android/database/sqlite/SQLiteOpenHelper
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.database.sqlite.SQLiteOpenHelper
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - Could not find class on java SDK android/widget/TextView
+2016-09-25 20:31:13 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.widget.TextView
+2016-09-25 20:31:14 ERROR [main] ERROR:33 - HashChecking error
+2016-09-25 20:31:14 ERROR [main] ERROR:33 - java.io.FileNotFoundException: C:\Users\.local\Documents\projects\apkr\apkr-no-git\unpacked\write-hash-value-here\analysis.metadata (El sistema no puede encontrar el archivo especificado)
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - Could not find class on java SDK android/database/sqlite/SQLiteOpenHelper
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.database.sqlite.SQLiteOpenHelper
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - Could not find class on java SDK android/widget/TextView
+2016-09-25 20:32:17 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.widget.TextView
+2016-09-25 20:32:19 ERROR [main] ERROR:33 - HashChecking error
+2016-09-25 20:32:19 ERROR [main] ERROR:33 - java.io.FileNotFoundException: C:\Users\.local\Documents\projects\apkr\apkr-no-git\unpacked\write-hash-value-here\analysis.metadata (El sistema no puede encontrar el archivo especificado)
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - Could not find class on java SDK android/database/sqlite/SQLiteOpenHelper
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.database.sqlite.SQLiteOpenHelper
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - Could not find class on java SDK android/widget/TextView
+2016-09-25 20:40:07 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.widget.TextView
+2016-09-25 20:40:09 ERROR [main] ERROR:33 - HashChecking error
+2016-09-25 20:40:09 ERROR [main] ERROR:33 - java.io.FileNotFoundException: C:\Users\.local\Documents\projects\apkr\apkr-no-git\unpacked\write-hash-value-here\analysis.metadata (El sistema no puede encontrar el archivo especificado)
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - Could not find class on java SDK android/database/sqlite/SQLiteOpenHelper
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.database.sqlite.SQLiteOpenHelper
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:40:32 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:40:33 ERROR [main] ERROR:33 - Could not find class on java SDK android/widget/TextView
+2016-09-25 20:40:33 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.widget.TextView
+2016-09-25 20:40:34 ERROR [main] ERROR:33 - HashChecking error
+2016-09-25 20:40:34 ERROR [main] ERROR:33 - java.io.FileNotFoundException: C:\Users\.local\Documents\projects\apkr\apkr-no-git\unpacked\write-hash-value-here\analysis.metadata (El sistema no puede encontrar el archivo especificado)
+2016-09-25 20:41:33 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:41:33 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - Could not find class on java SDK android/database/sqlite/SQLiteOpenHelper
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.database.sqlite.SQLiteOpenHelper
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/media/player/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - not implemented instance field = org/media/player/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - context - Landroid/content/Context;
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - db - Landroid/database/sqlite/SQLiteDatabase;
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - Excepcion during observation
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException: not implemented instance field = org/me/androidapplication1/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - not implemented instance field = org/me/androidapplication1/DataHelper - insertStmt - Landroid/database/sqlite/SQLiteStatement;
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - Could not find class on java SDK android/widget/TextView
+2016-09-25 20:41:34 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.widget.TextView
+2016-09-25 20:41:35 ERROR [main] ERROR:33 - HashChecking error
+2016-09-25 20:41:35 ERROR [main] ERROR:33 - java.io.FileNotFoundException: C:\Users\.local\Documents\projects\apkr\apkr-no-git\unpacked\write-hash-value-here\analysis.metadata (El sistema no puede encontrar el archivo especificado)

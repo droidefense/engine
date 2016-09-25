@@ -634,7 +634,7 @@ public class ApkrProject implements Serializable {
     }
 
     public void finish() {
-        Log.write(LoggerType.TRACE, "DEBUG method finished");
+        Log.write(LoggerType.TRACE, "apkr project finished");
 
         //save report .json to file
         Log.write(LoggerType.TRACE, "Saving report file...");

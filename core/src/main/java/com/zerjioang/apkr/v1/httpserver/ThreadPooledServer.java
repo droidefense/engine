@@ -11,7 +11,7 @@ import java.net.SocketException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class ThreadPooledServer implements Runnable {
+public final class ThreadPooledServer implements Runnable {
 
     private static final int MAX_PORT = 65535;
     private static final int POOL_SIZE = 20;
@@ -19,11 +19,12 @@ public class ThreadPooledServer implements Runnable {
     private static final int MINUTES = 30;
     private final long DEFAULT_LIFETIME = (long) (MINUTES * 60 * 1000);
 
-    protected int serverPort;
-    protected volatile ServerSocket serverSocket;
-    protected volatile boolean isStopped;
-    protected Thread runningThread;
-    protected ExecutorService threadPool;
+    private int serverPort;
+
+    private volatile ServerSocket serverSocket;
+    private volatile boolean isStopped;
+    private volatile Thread runningThread;
+    private volatile ExecutorService threadPool;
     private volatile long lastRequestUnixTime;
 
     public ThreadPooledServer(int port) {

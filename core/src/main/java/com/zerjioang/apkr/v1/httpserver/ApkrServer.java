@@ -10,7 +10,7 @@ import java.io.StringWriter;
  * Created by sanguita on 01/02/2016.
  */
 
-public class ApkrServer {
+public final class ApkrServer {
 
     public static final int PORT = 1234;
 
@@ -32,6 +32,6 @@ public class ApkrServer {
             }
         }
         server.stop();
-        Log.write(LoggerType.INFO, "apkr server stop!!");
+        Log.write(LoggerType.INFO, "apkr server stop");
     }
 }

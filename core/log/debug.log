@@ -4200,3 +4200,1228 @@ Simulating behaviour of org/me/androidapplication1/MoviePlayer/onCreate()
 2016-09-25 18:10:48 DEBUG [Thread-2] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
 2016-09-25 18:10:49 DEBUG [Thread-2] DEBUG:18 - ---- RULE ENGINE SCAN RESULTS ----
 2016-09-25 18:10:49 DEBUG [Thread-2] DEBUG:18 - ---- RULE SCAN DONE ----
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$string/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$layout/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/canwe()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/was()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$attr/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/canwe()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/was()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$attr/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$drawable/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/onCreate()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$drawable/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$string/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$layout/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/<init>()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/onCreate()
+
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2016-09-25 20:22:23 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/<init>()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/canwe()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/was()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/<init>()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/canwe()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/was()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/<init>()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/onCreate()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/<init>()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/onCreate()
+
+2016-09-25 20:22:24 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
+2016-09-25 20:22:25 DEBUG [main] DEBUG:18 - ---- RULE ENGINE SCAN RESULTS ----
+2016-09-25 20:22:25 DEBUG [main] DEBUG:18 - ---- RULE SCAN DONE ----
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$string/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$layout/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/canwe()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/was()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$attr/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/canwe()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/was()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$attr/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$drawable/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/onCreate()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$drawable/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$string/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$layout/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/onCreate()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/canwe()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/was()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/canwe()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/was()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/onCreate()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/<init>()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/onCreate()
+
+2016-09-25 20:30:18 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
+2016-09-25 20:30:20 DEBUG [main] DEBUG:18 - ---- RULE ENGINE SCAN RESULTS ----
+2016-09-25 20:30:20 DEBUG [main] DEBUG:18 - ---- RULE SCAN DONE ----
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$string/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$layout/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/canwe()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/was()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$attr/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/canwe()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/was()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$attr/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$drawable/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/onCreate()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$drawable/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$string/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$layout/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/onCreate()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/canwe()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/was()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/canwe()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/was()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/onCreate()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/<init>()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/onCreate()
+
+2016-09-25 20:31:13 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
+2016-09-25 20:31:14 DEBUG [main] DEBUG:18 - ---- RULE ENGINE SCAN RESULTS ----
+2016-09-25 20:31:14 DEBUG [main] DEBUG:18 - ---- RULE SCAN DONE ----
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$string/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$layout/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/canwe()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/was()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$attr/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/canwe()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/was()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$attr/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$drawable/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/onCreate()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$drawable/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$string/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$layout/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/onCreate()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/canwe()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/was()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/canwe()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/was()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/onCreate()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/<init>()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/onCreate()
+
+2016-09-25 20:32:17 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
+2016-09-25 20:32:19 DEBUG [main] DEBUG:18 - ---- RULE ENGINE SCAN RESULTS ----
+2016-09-25 20:32:19 DEBUG [main] DEBUG:18 - ---- RULE SCAN DONE ----
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$string/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$layout/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/canwe()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/was()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$attr/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/canwe()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/was()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$attr/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$drawable/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/onCreate()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$drawable/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$string/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$layout/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/onCreate()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/canwe()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/was()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/canwe()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/was()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/onCreate()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/<init>()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/onCreate()
+
+2016-09-25 20:40:07 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
+2016-09-25 20:40:09 DEBUG [main] DEBUG:18 - ---- RULE ENGINE SCAN RESULTS ----
+2016-09-25 20:40:09 DEBUG [main] DEBUG:18 - ---- RULE SCAN DONE ----
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$string/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$layout/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/canwe()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/was()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$attr/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/canwe()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/was()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$attr/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$drawable/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/onCreate()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$drawable/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$string/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$layout/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/onCreate()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/canwe()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/was()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/<init>()
+
+2016-09-25 20:40:32 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/canwe()
+
+2016-09-25 20:40:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/was()
+
+2016-09-25 20:40:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:40:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:40:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:40:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:40:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:40:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:40:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/<init>()
+
+2016-09-25 20:40:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/onCreate()
+
+2016-09-25 20:40:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/<init>()
+
+2016-09-25 20:40:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/onCreate()
+
+2016-09-25 20:40:33 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
+2016-09-25 20:40:34 DEBUG [main] DEBUG:18 - ---- RULE ENGINE SCAN RESULTS ----
+2016-09-25 20:40:34 DEBUG [main] DEBUG:18 - ---- RULE SCAN DONE ----
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$string/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$layout/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/canwe()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/was()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$attr/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/canwe()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/was()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$attr/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/R$drawable/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/onCreate()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$drawable/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$string/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/R$layout/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/<init>()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/onCreate()
+
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2016-09-25 20:41:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/<init>()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/canwe()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper/was()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/<init>()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/canwe()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper/was()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/<init>()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onCreate()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/DataHelper$OpenHelper/onUpgrade()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/<init>()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/media/player/MoviePlayer/onCreate()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/<init>()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of org/me/androidapplication1/MoviePlayer/onCreate()
+
+2016-09-25 20:41:34 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
+2016-09-25 20:41:35 DEBUG [main] DEBUG:18 - ---- RULE ENGINE SCAN RESULTS ----
+2016-09-25 20:41:35 DEBUG [main] DEBUG:18 - ---- RULE SCAN DONE ----

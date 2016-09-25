@@ -16,13 +16,13 @@ import java.util.Date;
  */
 public class HashChecking implements Serializable {
 
+    private static final String scannerVersion = ApkrConstants.ENGINE_VERSION;
     private final String hash;
     private final boolean analyzed;
     private String result;
     private String resultUrl;
     private String days;
     private Date date;
-    private static final String scannerVersion = ApkrConstants.ENGINE_VERSION;
 
     public HashChecking(String hash) {
         if (hash != null) {
@@ -37,7 +37,7 @@ public class HashChecking implements Serializable {
             this.days = "just now";
             this.date = new Date(System.currentTimeMillis());
             this.result = "Unknown";
-            this.resultUrl = "/report/"+hash;
+            this.resultUrl = "/report/" + hash;
 
             //update values if exists
             if (this.analyzed) {

@@ -22,8 +22,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ThreadWorker implements Runnable {
-
+public final class ThreadWorker implements Runnable {
 
     //class variables
     private static final String NONE = "";
@@ -279,7 +278,7 @@ public class ThreadWorker implements Runnable {
                     } else if (url.matches("/report/[0-9A-F]{64}/?")) {
                         //return html generated file as static content
                         String id = url.replace("/report/", ApkrConstants.NONE);
-                        freadStr = ApkrConstants.STATIC_REPORT_FOLDER + File.separator+id+".html";
+                        freadStr = ApkrConstants.STATIC_REPORT_FOLDER + File.separator + id + ".html";
                         fread = new File(freadStr);
                         requestedResource = Files.readAllBytes(Paths.get(freadStr));
                         return true;

@@ -273,8 +273,7 @@ public class Util {
     public static Object toObjectFromJson(String jsonPayload, Class cls) throws Exception {
         if (jsonPayload == null) {
             throw new NullPointerException("Json string is null.");
-        }
-        else if(cls==null){
+        } else if (cls == null) {
             throw new NullPointerException("Not given a object class to deserialize.");
         }
         return new Gson().fromJson(jsonPayload, cls);

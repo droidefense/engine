@@ -7,91 +7,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a844aef2-ee66-42fc-85be-c0a43555ea6c" name="Default" comment="* There is some kind of bug when trying to generate json from apkrproject object. Stackoverflow given">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_7.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/handlers/FileIOHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/helpers/config/ApkrConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/helpers/config/ApkrConstants.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/analysis/base/AbstractAndroidAnalysis.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/analysis/base/AbstractAndroidAnalysis.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/datamodel/holder/InternalInfo.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/datamodel/holder/InternalInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/_main/ApkrScanner.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/_main/ApkrScanner.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/helpers/Util.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/helpers/Util.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/handlers/PscoutHandler.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/handlers/PscoutHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintClass.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintClass.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintMethod.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintMethod.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/EncapsulatedClass.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/EncapsulatedClass.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMClass.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMClass.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMField.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMField.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMMethod.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMMethod.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/ReturnMethod.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/ReturnMethod.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/SharedPool.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/SharedPool.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/NodeConnection.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/NodeConnection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/base/AbstractAtomNode.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/base/AbstractAtomNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/map/BasicCFGFlowMap.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/map/BasicCFGFlowMap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/map/base/AbstractFlowMap.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/map/base/AbstractFlowMap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/ConditionalNode.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/ConditionalNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/ConstStrNode.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/ConstStrNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/EntryPointNode.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/EntryPointNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/FieldNode.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/FieldNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/MethodNode.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/MethodNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/NormalNode.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/NormalNode.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ApkrServer.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ApkrServer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ThreadWorker.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ThreadWorker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/helper/DirScanner$1.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/helper/DirScanner$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/helper/DirScanner.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/helper/DirScanner.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask$1.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrDynamicPlugin.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrDynamicPlugin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrStaticPlugin.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrStaticPlugin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/plugins/sdk/PluginAnalysis.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/plugins/sdk/PluginAnalysis.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/apimodel/HashChecking.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/apimodel/HashChecking.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apkr.iml" afterPath="$PROJECT_DIR$/apkr.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.properties" afterPath="$PROJECT_DIR$/config.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/debug.log" afterPath="$PROJECT_DIR$/log/debug.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/error.log" afterPath="$PROJECT_DIR$/log/error.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/fatal.log" afterPath="$PROJECT_DIR$/log/fatal.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/info.log" afterPath="$PROJECT_DIR$/log/info.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/trace.log" afterPath="$PROJECT_DIR$/log/trace.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/analysis/base/AbstractAndroidAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/analysis/base/AbstractAndroidAnalysis.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/holder/InternalInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/holder/InternalInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/handlers/FileIOHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/handlers/FileIOHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/helpers/Util.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/helpers/Util.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/handlers/PscoutHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/handlers/PscoutHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintClass.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintClass.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintMethod.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintMethod.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/EncapsulatedClass.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/EncapsulatedClass.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMClass.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMClass.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMField.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMField.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMMethod.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMMethod.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/ReturnMethod.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/ReturnMethod.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/SharedPool.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/SharedPool.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/loaders/SignatureModelLoader.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/loaders/SignatureModelLoader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/NodeConnection.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/NodeConnection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/base/AbstractAtomNode.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/base/AbstractAtomNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/BasicCFGFlowMap.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/BasicCFGFlowMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/base/AbstractFlowMap.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/base/AbstractFlowMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/ConditionalNode.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/ConditionalNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/ConstStrNode.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/ConstStrNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/EntryPointNode.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/EntryPointNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/FieldNode.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/FieldNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/MethodNode.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/MethodNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/NormalNode.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/NormalNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/ml/MachineLearningResult.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/ml/MachineLearningResult.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/task/GeneralAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/task/GeneralAnalysis.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ApkrServer.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ApkrServer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/HashChecking.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/HashChecking.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/ServerStatus.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/ServerStatus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConstants.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConstants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrStaticPlugin.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrStaticPlugin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/PluginAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/PluginAnalysis.java" />
     </list>
     <ignored path="apkr.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,13 +49,28 @@
     <favorites_list name="apkr" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ThreadWorker.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java">
+    <leaf>
+      <file leaf-file-name="ApkrScanner.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-49">
-              <caret line="284" column="36" selection-start-line="284" selection-start-column="36" selection-end-line="284" selection-end-column="36" />
-              <folding />
+            <state relative-caret-position="25">
+              <caret line="60" column="42" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApkrProject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="642" column="0" selection-start-line="642" selection-start-column="0" selection-end-line="642" selection-end-column="0" />
+              <folding>
+                <element signature="e#6958#6959#0" expanded="true" />
+                <element signature="e#6995#6996#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -144,7 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/log4j/Log.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/LogTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ResourceFile.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrStaticPlugin.java" />
@@ -165,7 +116,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/NormalNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/NodeConnection.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/base/AbstractAtomNode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/temp/ApkrIntelligence.java" />
         <option value="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/system/CheckSumGen.java" />
@@ -175,9 +125,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/helper/DirScanner.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/FileUploadResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ApkrServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/PluginAnalysis.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/analysis/base/AbstractAndroidAnalysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/base/AbstractFlowMap.java" />
@@ -186,7 +134,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/loaders/SignatureModelLoader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/handlers/PscoutHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/helpers/Util.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/ml/MachineLearningResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/ServerStatus.java" />
@@ -194,7 +141,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/handlers/FileIOHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConstants.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ApkrServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/task/GeneralAnalysis.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java" />
       </list>
     </option>
   </component>
@@ -241,6 +193,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -893,11 +846,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apkr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -929,7 +911,7 @@
       <recent name="C:\Users\.local\Documents\apkr\engine\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ApkrServer">
+  <component name="RunManager" selected="Application.ApkrScanner">
     <configuration default="false" name="ApkrScanner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1219,8 +1201,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.ApkrServer" />
-        <item index="1" class="java.lang.String" itemvalue="Application.ApkrScanner" />
+        <item index="0" class="java.lang.String" itemvalue="Application.ApkrScanner" />
+        <item index="1" class="java.lang.String" itemvalue="Application.ApkrServer" />
         <item index="2" class="java.lang.String" itemvalue="Application.Log4JTest" />
       </list>
     </recent_temporary>
@@ -1272,26 +1254,26 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282353" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32705882" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282353" sideWeight="0.50214595" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35411766" sideWeight="0.49785408" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3282353" sideWeight="0.49785408" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19849785" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18240343" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29647058" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1330,15 +1312,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java</url>
-          <line>281</line>
-          <properties />
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="30" />
+      <option name="time" value="33" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1347,49 +1321,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/helper/DirectoryFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-990">
-          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/helper/DirScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1542#1543#0" expanded="false" />
-            <element signature="e#1606#1607#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3850">
-          <caret line="179" column="99" selection-start-line="179" selection-start-column="93" selection-end-line="179" selection-end-column="99" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2605#2606#0" expanded="false" />
-            <element signature="e#2693#2694#0" expanded="false" />
-            <element signature="e#6078#6079#0" expanded="false" />
-            <element signature="e#6146#6147#0" expanded="false" />
-            <element signature="e#6197#6198#0" expanded="false" />
-            <element signature="e#6239#6240#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/task/OutPutResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1397,17 +1332,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2520#2521#0" expanded="false" />
-            <element signature="e#2587#2588#0" expanded="false" />
-            <element signature="e#3595#3596#0" expanded="false" />
-            <element signature="e#3692#3693#0" expanded="false" />
-            <element signature="e#5470#5471#0" expanded="false" />
-            <element signature="e#5561#5562#0" expanded="false" />
-            <element signature="e#5612#5613#0" expanded="false" />
-            <element signature="e#5654#5655#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1415,15 +1339,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2536#2537#0" expanded="false" />
-            <element signature="e#2603#2604#0" expanded="false" />
-            <element signature="e#6119#6120#0" expanded="false" />
-            <element signature="e#6187#6188#0" expanded="false" />
-            <element signature="e#6238#6239#0" expanded="false" />
-            <element signature="e#6280#6281#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1448,16 +1363,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ApkrServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/exception/InvalidScanParametersException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -1470,7 +1375,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1478,15 +1382,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="9" column="59" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1149#1150#0" expanded="false" />
-            <element signature="e#1176#1177#0" expanded="false" />
-            <element signature="e#1222#1223#0" expanded="false" />
-            <element signature="e#1259#1260#0" expanded="false" />
-            <element signature="e#1324#1325#0" expanded="false" />
-            <element signature="e#1376#1377#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1510,8 +1405,8 @@
         <state relative-caret-position="293">
           <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
           <folding>
-            <element signature="e#904#905#0" expanded="true" />
-            <element signature="e#935#936#0" expanded="true" />
+            <element signature="e#904#905#0" expanded="false" />
+            <element signature="e#935#936#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1536,7 +1431,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1544,7 +1438,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" column="39" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1552,9 +1445,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1562,9 +1452,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1572,7 +1459,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1598,9 +1484,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1608,9 +1491,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1618,9 +1498,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1628,9 +1505,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1638,7 +1512,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1646,9 +1519,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1656,9 +1526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1666,9 +1533,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1686,9 +1550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1696,9 +1557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1706,7 +1564,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1714,7 +1571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1722,7 +1578,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="23" column="129" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="129" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1730,18 +1585,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="35" column="144" selection-start-line="35" selection-start-column="144" selection-end-line="35" selection-end-column="144" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="356" column="0" selection-start-line="356" selection-start-column="0" selection-end-line="356" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#10465#10466#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1752,14 +1595,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1784,7 +1619,7 @@
         <state relative-caret-position="279">
           <caret line="159" column="29" selection-start-line="159" selection-start-column="29" selection-end-line="159" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1818,8 +1653,8 @@
         <state relative-caret-position="168">
           <caret line="225" column="51" selection-start-line="225" selection-start-column="51" selection-end-line="225" selection-end-column="51" />
           <folding>
-            <element signature="e#665#666#0" expanded="true" />
-            <element signature="e#725#726#0" expanded="true" />
+            <element signature="e#665#666#0" expanded="false" />
+            <element signature="e#725#726#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1848,11 +1683,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ApkrServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_77/jre/lib/rt.jar!/java/net/DualStackPlainSocketImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="228" column="22" selection-start-line="228" selection-start-column="22" selection-end-line="228" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-49">
-          <caret line="284" column="36" selection-start-line="284" selection-start-column="36" selection-end-line="284" selection-end-column="36" />
+        <state relative-caret-position="252">
+          <caret line="233" column="21" selection-start-line="233" selection-start-column="21" selection-end-line="233" selection-end-column="21" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/task/GeneralAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="44" column="41" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="642" column="0" selection-start-line="642" selection-start-column="0" selection-end-line="642" selection-end-column="0" />
+          <folding>
+            <element signature="e#6958#6959#0" expanded="true" />
+            <element signature="e#6995#6996#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="60" column="42" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

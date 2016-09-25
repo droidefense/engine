@@ -153,10 +153,9 @@ public class WekaResultsHandler extends AbstractHandler {
         positive = total - positive;
         result.setPositives(positive);
         result.setTotal(total);
-        if(total!=0){
+        if (total != 0) {
             result.setRatio(positive / (double) total);
-        }
-        else{
+        } else {
             result.setRatio(0);
         }
         project.setMachineLearningResult(result);

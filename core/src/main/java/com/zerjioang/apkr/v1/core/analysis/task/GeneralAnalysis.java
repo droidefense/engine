@@ -43,11 +43,6 @@ public class GeneralAnalysis extends AbstractAndroidAnalysis {
         //RUN WEKA
         analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.MACHINE_LEARNING_ANALYSIS);
         currentProject.analyze(analyzer);
-
-        //STOP: ALL ANALYSIS DONE
-        //finish, stop and save project
-        currentProject.finish();
-
         return true;
     }
 
