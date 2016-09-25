@@ -7984,3 +7984,13 @@
 2016-09-25 20:41:35 TRACE [main] TRACE:13 - Sample scan done
 2016-09-25 20:41:35 TRACE [main] TRACE:13 - apkr scan finished
 2016-09-25 20:41:35 TRACE [main] TRACE:13 - Scan time: AtomTimeStamp{start=1474828887836, end=1474828895898, duration=8062, time=00:00:08}
+2016-09-25 22:02:02 TRACE [Thread-0] TRACE:13 - Loading apkr data structs...
+2016-09-25 22:02:02 TRACE [Thread-0] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-25 22:02:02 TRACE [Thread-0] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-25 22:02:02 TRACE [Thread-0] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-25 22:02:02 TRACE [Thread-0] TRACE:13 - Data loaded!!
+2016-09-25 22:04:21 TRACE [Thread-0] TRACE:13 - Loading apkr data structs...
+2016-09-25 22:04:21 TRACE [Thread-0] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-25 22:04:22 TRACE [Thread-0] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-25 22:04:22 TRACE [Thread-0] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-25 22:04:22 TRACE [Thread-0] TRACE:13 - Data loaded!!

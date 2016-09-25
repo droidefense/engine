@@ -12,7 +12,7 @@ import java.io.StringWriter;
 
 public final class ApkrServer {
 
-    public static final int PORT = 1234;
+    public static final int PORT = 80;
 
     public static void main(String[] args) {
 

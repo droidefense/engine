@@ -1335,3 +1335,7 @@
 2016-09-25 20:41:34 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.widget.TextView
 2016-09-25 20:41:35 ERROR [main] ERROR:33 - HashChecking error
 2016-09-25 20:41:35 ERROR [main] ERROR:33 - java.io.FileNotFoundException: C:\Users\.local\Documents\projects\apkr\apkr-no-git\unpacked\write-hash-value-here\analysis.metadata (El sistema no puede encontrar el archivo especificado)
+2016-09-25 22:02:53 ERROR [Thread-0] ERROR:33 - General exception occurred
+2016-09-25 22:02:53 ERROR [Thread-0] ERROR:33 - C:\Users\.local\Documents\projects\apkr\core\resources\C:\Users\.local\Documents\projects\apkr\webapp\error.html (El nombre de archivo, el nombre de directorio o la sintaxis de la etiqueta del volumen no son correctos)
+2016-09-25 22:04:28 ERROR [Thread-0] ERROR:33 - General exception occurred
+2016-09-25 22:04:28 ERROR [Thread-0] ERROR:33 - C:\Users\.local\Documents\projects\apkr\core\resources\C:\Users\.local\Documents\projects\apkr\webapp\error.html (El nombre de archivo, el nombre de directorio o la sintaxis de la etiqueta del volumen no son correctos)
