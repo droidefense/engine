@@ -18,4 +18,7 @@ env:
     - TRAVIS_CARGO_NIGHTLY_FEATURE=""
     
 before_install: cd core
-script: mvn clean verify
+script: mvn build
+
+after_success:
+  - mvn clean test jacoco:report coveralls:report
