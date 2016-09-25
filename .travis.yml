@@ -3,13 +3,52 @@ sudo: false
 jdk:
   - oraclejdk8
 
+os:
+  - linux
+  - osx
+  
 cache:
   directories:
     - $HOME/.m2
+    - cargo
 env:
   global:
     - MAVEN_OPTS="-XX:MaxPermSize=2g -Xmx4g"
     - JAVA_OPTS="-XX:MaxPermSize=2g -Xmx4g"
+    - TRAVIS_CARGO_NIGHTLY_FEATURE=""
+    
+# Load travis-cargo for coveralls
+before_script:
+  - |
+      if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      pip install git+https://github.com/apkr/travis-cargo.git@fix-coveralls --user &&
+      export PATH=$HOME/.local/bin:$PATH
+      fi
 
+# The main build
+script:
+  - |
+      if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      travis-cargo build &&
+      travis-cargo test &&
+      travis-cargo bench;
+      fi
+  - |
+      if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      cargo build &&
+      cargo test &&
+      cargo bench;
+      fi
+# Send coverage reports and upload docs
+after_success:
+  - |
+      if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      travis-cargo --only stable doc &&
+      travis-cargo --only stable doc-upload;
+      fi
+  - |
+      if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      travis-cargo --only stable coveralls --no-sudo --verify;
+      fi
 before_install: cd core
 script: mvn clean verify
