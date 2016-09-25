@@ -1,5 +1,15 @@
 language: java
+sudo: false
 jdk:
   - oraclejdk8
+
+cache:
+  directories:
+    - $HOME/.m2
+env:
+  global:
+    - MAVEN_OPTS="-XX:MaxPermSize=2g -Xmx4g"
+    - JAVA_OPTS="-XX:MaxPermSize=2g -Xmx4g"
+
 before_install: cd core
 script: mvn clean verify
