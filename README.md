@@ -1,4 +1,8 @@
 # apkr
+[![Build status](https://ci.appveyor.com/api/projects/status/e1o3djbyvgo7m5u0?svg=true)](https://ci.appveyor.com/project/zerjioang/apkr)
+[![Build Status](https://travis-ci.org/apkr/apkr.svg?branch=master)](https://travis-ci.org/apkr/apkr)
+[![Coverage Status](https://coveralls.io/repos/github/apkr/apkr/badge.svg?branch=master)](https://coveralls.io/github/apkr/apkr?branch=master)
+
 
 <p align="center">
 <img src ="https://avatars1.githubusercontent.com/u/22367829?v=3&s=200" />
