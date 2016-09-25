@@ -16,6 +16,8 @@ install:
   - cmd: SET JAVA_OPTS=-XX:MaxPermSize=2g -Xmx4g
   - cmd: mvn --version
   - cmd: java -version
+before_build:
+  - cd core
 build_script:
   - mvn clean package -B -Dmaven.test.skip=true
 test_script:
