@@ -38,5 +38,68 @@
     <orderEntry type="library" name="Maven: com.github.fommil.netlib:core:1.1" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.7" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.module.manifest:manifest:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/native/apkr.external.module.manifestparser.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.module.pscout:pscout:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/native/apkr.external.module.pscout.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.module.ssdeep:ssdeep:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/native/apkr.external.module.entropy.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.module.entropy:entropy:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/native/apkr.external.module.ssdeep.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: jadx:jadx:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/third-party/jadx-module.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: axml:axml:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/third-party/axml-parser-module.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apktool:apktool:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/third-party/apktool_2.2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

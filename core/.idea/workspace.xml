@@ -8,27 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a844aef2-ee66-42fc-85be-c0a43555ea6c" name="Default" comment="* There is some kind of bug when trying to generate json from apkrproject object. Stackoverflow given">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/_main/ApkrScanner.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/_main/ApkrScanner.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/helpers/Util.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/helpers/Util.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ApkrServer.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ApkrServer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ThreadWorker.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ThreadWorker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/apimodel/HashChecking.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/apimodel/HashChecking.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/temp/ApkrIntelligence.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/temp/ApkrIntelligence.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/debug.log" afterPath="$PROJECT_DIR$/log/debug.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/error.log" afterPath="$PROJECT_DIR$/log/error.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/fatal.log" afterPath="$PROJECT_DIR$/log/fatal.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/info.log" afterPath="$PROJECT_DIR$/log/info.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/trace.log" afterPath="$PROJECT_DIR$/log/trace.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/helpers/Util.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/helpers/Util.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/task/GeneralAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/task/GeneralAnalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ApkrServer.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ApkrServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/HashChecking.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/HashChecking.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="apkr.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,7 +32,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ApkrScanner.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ApkrScanner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="25">
@@ -65,12 +47,22 @@
       <file leaf-file-name="ApkrProject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="642" column="0" selection-start-line="642" selection-start-column="0" selection-end-line="642" selection-end-column="0" />
+            <state relative-caret-position="75">
+              <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
               <folding>
                 <element signature="e#6958#6959#0" expanded="true" />
                 <element signature="e#6995#6996#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="79" column="74" selection-start-line="79" selection-start-column="74" selection-end-line="79" selection-end-column="74" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -126,7 +118,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/FileUploadResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/PluginAnalysis.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/analysis/base/AbstractAndroidAnalysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/base/AbstractFlowMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/holder/InternalInfo.java" />
@@ -147,6 +138,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/task/GeneralAnalysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -161,6 +153,48 @@
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="apkr" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Dependencies" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="apkr" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="apkr" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-9" />
@@ -876,6 +910,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="third-party" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="native" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -1138,6 +1208,28 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -1254,7 +1346,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1262,8 +1354,8 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282353" sideWeight="0.50214595" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35411766" sideWeight="0.49785408" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21512875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35411766" sideWeight="0.49785408" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1321,13 +1413,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/task/OutPutResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/task/WekaCertTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -1408,14 +1493,6 @@
             <element signature="e#904#905#0" expanded="false" />
             <element signature="e#935#936#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1722,17 +1799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="642" column="0" selection-start-line="642" selection-start-column="0" selection-end-line="642" selection-end-column="0" />
-          <folding>
-            <element signature="e#6958#6959#0" expanded="true" />
-            <element signature="e#6995#6996#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
@@ -1740,6 +1806,33 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/native/apkr.external.module.manifestparser.jar!/apkr/external/module/datamodel/manifest/Manifest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+          <folding>
+            <element signature="e#6958#6959#0" expanded="true" />
+            <element signature="e#6995#6996#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="79" column="74" selection-start-line="79" selection-start-column="74" selection-end-line="79" selection-end-column="74" />
+          <folding />
         </state>
       </provider>
     </entry>
