@@ -1,6 +1,5 @@
 package com.zerjioang.apkr.v2.plugins.sdk;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.zerjioang.apkr.v1.common.datamodel.base.ApkrProject;
 import com.zerjioang.apkr.v1.common.datamodel.base.AtomTimeStamp;
 import com.zerjioang.apkr.v2.helpers.enums.ProcessStatus;

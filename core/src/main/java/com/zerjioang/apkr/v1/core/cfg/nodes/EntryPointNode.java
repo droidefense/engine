@@ -1,6 +1,5 @@
 package com.zerjioang.apkr.v1.core.cfg.nodes;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zerjioang.apkr.v1.core.cfg.base.AbstractAtomNode;
 
 import java.util.ArrayList;
@@ -10,9 +9,9 @@ import java.util.ArrayList;
  */
 public class EntryPointNode extends AbstractAtomNode {
 
-    @JsonIgnore
+
     private transient static ArrayList<EntryPointNode> entryList = new ArrayList<>();
-    @JsonIgnore
+
     private static EntryPointNode singleEntry = new EntryPointNode();
 
     public static EntryPointNode builder() {

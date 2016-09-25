@@ -1,6 +1,5 @@
 package com.zerjioang.apkr.v1.core.cfg.nodes;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zerjioang.apkr.v1.common.helpers.Util;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.generic.IAtomFrame;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.inst.Instruction;
@@ -12,9 +11,9 @@ import com.zerjioang.apkr.v1.core.cfg.map.base.AbstractFlowMap;
  */
 public class ConstStrNode extends AbstractAtomNode {
 
-    @JsonIgnore
+
     private transient IAtomFrame currentFrameObject;
-    @JsonIgnore
+
     private Instruction currentInstruction;
     private int dest;
     private String data;

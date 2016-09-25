@@ -22,12 +22,12 @@ public class HashChecking implements Serializable {
     private String resultUrl;
     private String days;
     private Date date;
-    private String scannerVersion;
+    private static final String scannerVersion = ApkrConstants.ENGINE_VERSION;
 
     public HashChecking(String hash) {
         if (hash != null) {
             this.hash = hash.toUpperCase();
-            this.scannerVersion = ApkrConstants.ENGINE_VERSION;
+
             //calculate if it was analyzed or not
             String path = FileIOHandler.getUnpackOutputFile().getAbsolutePath();
             File saveFolder = new File(path + File.separator + hash);
@@ -37,7 +37,7 @@ public class HashChecking implements Serializable {
             this.days = "just now";
             this.date = new Date(System.currentTimeMillis());
             this.result = "Unknown";
-            this.resultUrl = "../manager/report.html";
+            this.resultUrl = "/report/"+hash;
 
             //update values if exists
             if (this.analyzed) {

@@ -11,7 +11,7 @@ public class ServerStatus {
     private final String version;
 
     public ServerStatus() {
-        this.servername = "Atom development server";
+        this.servername = "apkr server";
         this.version = ApkrConstants.ENGINE_VERSION;
     }
 

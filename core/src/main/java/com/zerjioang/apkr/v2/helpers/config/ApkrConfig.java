@@ -61,9 +61,11 @@ public class ApkrConfig implements Serializable {
             prop.setProperty("DECOMPILE", "false");
             prop.setProperty("DB_STORAGE", "false");
             prop.setProperty("ENGINE_VERSION", "1.0");
-            prop.setProperty("SERVER_ROOT", "webapp");
+            prop.setProperty("SERVER_FOLDER", "");
             prop.setProperty("RESOURCE_FOLDER", "resources");
             prop.setProperty("UNPACK_FOLDER", "unpacked");
+            prop.setProperty("UPLOAD_FOLDER", "upload");
+            prop.setProperty("STATIC_REPORT_FOLDER", "static");
             prop.setProperty("CVS_SPLIT", ";");
             prop.setProperty("SIGNATURE_FILE", "filetypes.csv");
             prop.setProperty("DEX_MAGIC_NUMBER_STR", "6465780A30333500");
@@ -77,6 +79,8 @@ public class ApkrConfig implements Serializable {
             prop.setProperty("XML_EXTENSION", ".xml");
             prop.setProperty("PROJECT_DATA_FILE", "project.data");
             prop.setProperty("PROJECT_JSON_FILE", "report.json");
+            prop.setProperty("PSCOUT_MODEL", "pscout.model");
+
             // save properties to project root folder
             prop.store(output, null);
 

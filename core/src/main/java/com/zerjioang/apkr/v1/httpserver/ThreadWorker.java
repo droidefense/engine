@@ -23,8 +23,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ThreadWorker implements Runnable {
-    
-    
+
+
     //class variables
     private static final String NONE = "";
     private static final String API_PREFIX = "api/v1/";
@@ -37,7 +37,7 @@ public class ThreadWorker implements Runnable {
     private static final String LINE_FEED = "\r\n";
     private static final String DOUBLE_LINE_FEED = LINE_FEED + LINE_FEED;
     private static final String errorHtml = getErrorHtml();
-    
+
     //object variables
     private Socket clientSocket = null;
     private InputStream input;
@@ -47,13 +47,13 @@ public class ThreadWorker implements Runnable {
     private String requestedResourceName;
     private byte[] requestedResource;
     private String requestType;
-    
+
     private File fread;
     private String freadStr;
     private Map<String, String> params;
 
     public ThreadWorker(Socket clientSocket) throws SocketException {
-        if(clientSocket==null){
+        if (clientSocket == null) {
             throw new SocketException("Received client socket is null");
         }
         this.clientSocket = clientSocket;
@@ -63,7 +63,7 @@ public class ThreadWorker implements Runnable {
 
     private static String getErrorHtml() {
         try {
-            String data = Util.loadFileAsString((FileInputStream) FileIOHandler.getResourceFileInputStream(ApkrConstants.SERVER_ROOT + File.separator + "error.html"));
+            String data = Util.loadFileAsString((FileInputStream) FileIOHandler.getResourceFileInputStream(ApkrConstants.SERVER_FOLDER + File.separator + "error.html"));
             if (data == null || data.isEmpty())
                 return "";
             return data;
@@ -155,8 +155,7 @@ public class ThreadWorker implements Runnable {
         if (errorHtml != null) {
             this.output.write(("HTTP/1.1 404 ERROR\r\n").getBytes());
             //this.output.write(errorHtml.getBytes());
-        }
-        else {
+        } else {
             String data = "File [" + this.requestedResourceName + "] was not found on the http_server\r\n";
             this.output.write(data.getBytes());
         }
@@ -169,8 +168,13 @@ public class ThreadWorker implements Runnable {
         url = url.replace(API_PREFIX, NONE);
         if (url != null) {
             switch (url) {
-                case "/verify": {
+                case "/verify/version": {
                     requestedResource = Util.toJson(new ServerStatus()).getBytes();
+                    return true;
+                }
+                case "/report/example/1": {
+                    this.fread = new File(ApkrConstants.SERVER_FOLDER + File.separator + "example1.html");
+                    requestedResource = Files.readAllBytes(Paths.get(fread.getAbsolutePath()));
                     return true;
                 }
                 case "/upload": {
@@ -245,56 +249,6 @@ public class ThreadWorker implements Runnable {
                     requestedResource = "{\"status\":\"ok\"}".getBytes();
                     return true;
                 }
-                case "/report": {
-                    //sample report requested
-                    //check if file exist on server hdd
-                    String path = FileIOHandler.getUnpackOutputFile().getAbsolutePath();
-                    String samplehash = params.get("id");
-                    if (samplehash != null && samplehash.length() == 64) {
-                        File projectFile = new File(path + File.separator + samplehash + File.separator + ApkrConstants.PROJECT_JSON_FILE);
-                        if (projectFile.exists()) {
-                            String project = Util.loadFileAsString(projectFile);
-                            requestedResource = project.getBytes();
-                            return true;
-                        }
-                    }
-                    requestedResource = Util.toJson(new JsonErrorMsg("You need to make a POST request specifying the hash of the sample to be informed")).getBytes();
-                    return true;
-                }
-                case "/report/cfg/json": {
-                    //sample report requested
-                    //check if file exist on server hdd
-                    String path = FileIOHandler.getUnpackOutputFile().getAbsolutePath();
-                    String samplehash = params.get("id");
-                    if (samplehash != null && samplehash.length() == 64) {
-                        File projectFile = new File(path + File.separator + samplehash + File.separator + "normal-flowmap.json");
-                        if (projectFile.exists()) {
-                            String project = "";
-                            project = Util.loadFileAsString(projectFile);
-                            requestedResource = Util.toJson(project).getBytes();
-                            return true;
-                        }
-                    }
-                    requestedResource = Util.toJson(new JsonErrorMsg("You need to make a POST request specifying the hash of the sample to be informed")).getBytes();
-                    return true;
-                }
-                case "/report/cfg/graph": {
-                    //sample report requested
-                    //check if file exist on server hdd
-                    String path = FileIOHandler.getUnpackOutputFile().getAbsolutePath();
-                    String samplehash = params.get("id");
-                    if (samplehash != null && samplehash.length() == 64) {
-                        File projectFile = new File(path + File.separator + samplehash + File.separator + "normal-graphviz.dot");
-                        if (projectFile.exists()) {
-                            String project = "";
-                            project = Util.loadFileAsString(projectFile);
-                            requestedResource = Util.toJson(project).getBytes();
-                            return true;
-                        }
-                    }
-                    requestedResource = Util.toJson(new JsonErrorMsg("You need to make a POST request specifying the hash of the sample to be informed")).getBytes();
-                    return true;
-                }
                 case "/search/": {
                     //sample search
                     String samplehash = params.get("id");
@@ -315,22 +269,68 @@ public class ThreadWorker implements Runnable {
                 default: {
                     //1 check for url with request
                     //dynamic links
-                    String serverFolder = ApkrConstants.RESOURCE_FOLDER + File.separator + ApkrConstants.SERVER_ROOT;
-                    if(url.equals("/")) {
+                    String serverFolder = ApkrConstants.SERVER_FOLDER;
+                    if (url.equals("/")) {
                         //index redirect
                         freadStr = serverFolder + "/index.html";
                         fread = new File(freadStr);
                         requestedResource = Files.readAllBytes(Paths.get(freadStr));
                         return true;
-                    }
-                    else if(url.matches("/reporter/\\d{64}/?")){
+                    } else if (url.matches("/report/[0-9A-F]{64}/?")) {
                         //return html generated file as static content
-                        String id = url.replace("/", "").replace("reporter", "");
-                        freadStr = serverFolder + "/index.html";
+                        String id = url.replace("/report/", ApkrConstants.NONE);
+                        freadStr = ApkrConstants.STATIC_REPORT_FOLDER + File.separator+id+".html";
                         fread = new File(freadStr);
                         requestedResource = Files.readAllBytes(Paths.get(freadStr));
-                    }
-                    else {
+                        return true;
+                    } else if (url.equals("/report/")) {
+                        //sample report requested
+                        //check if file exist on server hdd
+                        String path = FileIOHandler.getUnpackOutputFile().getAbsolutePath();
+                        String samplehash = params.get("id");
+                        if (samplehash != null && samplehash.length() == 64) {
+                            File projectFile = new File(path + File.separator + samplehash + File.separator + ApkrConstants.PROJECT_JSON_FILE);
+                            if (projectFile.exists()) {
+                                String project = Util.loadFileAsString(projectFile);
+                                requestedResource = project.getBytes();
+                                return true;
+                            }
+                        }
+                        requestedResource = Util.toJson(new JsonErrorMsg("You need to make a POST request specifying the hash of the sample to be informed")).getBytes();
+                        return true;
+                    } else if (url.equals("/report/cfg/json")) {
+                        //sample report requested
+                        //check if file exist on server hdd
+                        String path = FileIOHandler.getUnpackOutputFile().getAbsolutePath();
+                        String samplehash = params.get("id");
+                        if (samplehash != null && samplehash.length() == 64) {
+                            File projectFile = new File(path + File.separator + samplehash + File.separator + "normal-flowmap.json");
+                            if (projectFile.exists()) {
+                                String project = "";
+                                project = Util.loadFileAsString(projectFile);
+                                requestedResource = Util.toJson(project).getBytes();
+                                return true;
+                            }
+                        }
+                        requestedResource = Util.toJson(new JsonErrorMsg("You need to make a POST request specifying the hash of the sample to be informed")).getBytes();
+                        return true;
+                    } else if (url.equals("/report/cfg/graph")) {
+                        //sample report requested
+                        //check if file exist on server hdd
+                        String path = FileIOHandler.getUnpackOutputFile().getAbsolutePath();
+                        String samplehash = params.get("id");
+                        if (samplehash != null && samplehash.length() == 64) {
+                            File projectFile = new File(path + File.separator + samplehash + File.separator + "normal-graphviz.dot");
+                            if (projectFile.exists()) {
+                                String project = "";
+                                project = Util.loadFileAsString(projectFile);
+                                requestedResource = Util.toJson(project).getBytes();
+                                return true;
+                            }
+                        }
+                        requestedResource = Util.toJson(new JsonErrorMsg("You need to make a POST request specifying the hash of the sample to be informed")).getBytes();
+                        return true;
+                    } else {
                         //DEFAULT ACTION: return requested file
                         freadStr = serverFolder + this.requestedResourceName;
                         fread = new File(freadStr);
@@ -364,9 +364,9 @@ public class ThreadWorker implements Runnable {
         try {
             //code to read and print headers
             String headerLine = null;
-            do{
+            do {
                 headerLine = source.readLine();
-                if(headerLine!=null) {
+                if (headerLine != null) {
                     String[] val = headerLine.split(":");
                     if (val.length >= 2) {
                         String value = "";
@@ -387,7 +387,7 @@ public class ThreadWorker implements Runnable {
                     ret += headerLine + "\n";
                 }
             }
-            while(headerLine!=null && headerLine.length()!=0);
+            while (headerLine != null && headerLine.length() != 0);
 
             //code to read the post payload data
             StringBuilder payload = new StringBuilder();

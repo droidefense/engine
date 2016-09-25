@@ -14,7 +14,7 @@ public class MachineLearningResult implements Serializable {
     private double ratio;
 
     public MachineLearningResult() {
-        results = new ArrayList<MLResult>();
+        results = new ArrayList<>();
     }
 
     public void add(String name, double value) {

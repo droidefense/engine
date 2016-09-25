@@ -1,6 +1,5 @@
 package com.zerjioang.apkr.v1.core.cfg.map.base;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zerjioang.apkr.v1.core.cfg.NodeConnection;
 import com.zerjioang.apkr.v1.core.cfg.base.AbstractAtomNode;
 
@@ -17,9 +16,9 @@ public abstract class AbstractFlowMap implements Serializable {
     protected int nodes;
     protected int connections;
 
-    @JsonIgnore
+
     protected HashMap<Integer, AbstractAtomNode> nodeMap;
-    @JsonIgnore
+
     protected HashMap<Integer, NodeConnection> connectionMap;
 
     public abstract AbstractAtomNode addNode(AbstractAtomNode d);

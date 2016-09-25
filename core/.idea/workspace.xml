@@ -7,25 +7,91 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a844aef2-ee66-42fc-85be-c0a43555ea6c" name="Default" comment="* There is some kind of bug when trying to generate json from apkrproject object. Stackoverflow given">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/Log4JTest.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/Log4JTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/zerjioang/_main/Log4JTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/model/FileUploadResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/FileUploadResponse.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/model/HashChecking.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/HashChecking.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/model/JsonErrorMsg.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/JsonErrorMsg.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/model/LatestUploads.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/LatestUploads.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/model/ServerStatus.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/ServerStatus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../modules/beta/Virustotal-Public-API-V2.0-Client" afterPath="$PROJECT_DIR$/../modules/beta/Virustotal-Public-API-V2.0-Client" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/temp/ApkrIntelligence.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/temp/ApkrIntelligence.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_7.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/handlers/FileIOHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/helpers/config/ApkrConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/helpers/config/ApkrConstants.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/analysis/base/AbstractAndroidAnalysis.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/analysis/base/AbstractAndroidAnalysis.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/datamodel/holder/InternalInfo.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/datamodel/holder/InternalInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/helpers/Util.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/helpers/Util.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/handlers/PscoutHandler.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/handlers/PscoutHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintClass.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintClass.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintMethod.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintMethod.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/EncapsulatedClass.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/EncapsulatedClass.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMClass.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMClass.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMField.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMField.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMMethod.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMMethod.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/ReturnMethod.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/ReturnMethod.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/SharedPool.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/SharedPool.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/NodeConnection.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/NodeConnection.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/base/AbstractAtomNode.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/base/AbstractAtomNode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/map/BasicCFGFlowMap.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/map/BasicCFGFlowMap.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/map/base/AbstractFlowMap.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/map/base/AbstractFlowMap.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/ConditionalNode.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/ConditionalNode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/ConstStrNode.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/ConstStrNode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/EntryPointNode.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/EntryPointNode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/FieldNode.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/FieldNode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/MethodNode.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/MethodNode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/NormalNode.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/cfg/nodes/NormalNode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ApkrServer.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ApkrServer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ThreadWorker.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ThreadWorker.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/helper/DirScanner$1.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/helper/DirScanner$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/helper/DirScanner.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/helper/DirScanner.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask$1.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrDynamicPlugin.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrDynamicPlugin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrStaticPlugin.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrStaticPlugin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/plugins/sdk/PluginAnalysis.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/plugins/sdk/PluginAnalysis.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apkr.iml" afterPath="$PROJECT_DIR$/apkr.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.properties" afterPath="$PROJECT_DIR$/config.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/debug.log" afterPath="$PROJECT_DIR$/log/debug.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/error.log" afterPath="$PROJECT_DIR$/log/error.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/fatal.log" afterPath="$PROJECT_DIR$/log/fatal.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/info.log" afterPath="$PROJECT_DIR$/log/info.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/trace.log" afterPath="$PROJECT_DIR$/log/trace.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/analysis/base/AbstractAndroidAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/analysis/base/AbstractAndroidAnalysis.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/holder/InternalInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/holder/InternalInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/handlers/FileIOHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/handlers/FileIOHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/helpers/Util.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/helpers/Util.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/handlers/PscoutHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/handlers/PscoutHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintClass.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintMethod.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintMethod.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/EncapsulatedClass.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/EncapsulatedClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMClass.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMField.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMField.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMMethod.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMMethod.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/ReturnMethod.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/ReturnMethod.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/SharedPool.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/SharedPool.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/task/AndroidDynamicAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/task/AndroidDynamicAnalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/task/MachineLearningAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/task/MachineLearningAnalysis.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/loaders/SignatureModelLoader.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/loaders/SignatureModelLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/NodeConnection.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/NodeConnection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/base/AbstractAtomNode.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/base/AbstractAtomNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/BasicCFGFlowMap.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/BasicCFGFlowMap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/base/AbstractFlowMap.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/base/AbstractFlowMap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/ConditionalNode.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/ConditionalNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/ConstStrNode.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/ConstStrNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/EntryPointNode.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/EntryPointNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/FieldNode.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/FieldNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/MethodNode.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/MethodNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/NormalNode.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/NormalNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/ml/MachineLearningResult.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/ml/MachineLearningResult.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ApkrServer.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ApkrServer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/helper/DirScanner.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/helper/DirScanner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/helper/DirectoryFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/helper/DirectoryFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/HashChecking.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/HashChecking.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/ServerStatus.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/ServerStatus.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConstants.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConstants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrStaticPlugin.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrStaticPlugin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/PluginAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/PluginAnalysis.java" />
     </list>
     <ignored path="apkr.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,104 +113,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ApkrServer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ApkrServer.java">
+      <file leaf-file-name="ThreadWorker.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DirScanner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/helper/DirScanner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-440">
-              <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CSVFeatureExtractorTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="179" column="99" selection-start-line="179" selection-start-column="93" selection-end-line="179" selection-end-column="99" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OutPutResult.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/task/OutPutResult.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WekaCertTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/task/WekaCertTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WekaFeatureExtractorTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/task/WekaFeatureExtractorTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BatchManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/BatchManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1590">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InvalidScanParametersException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/exception/InvalidScanParametersException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApkrConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2250">
-              <caret line="96" column="18" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
-              <folding>
-                <element signature="e#3667#3668#0" expanded="true" />
-                <element signature="e#3703#3704#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileUploadResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/FileUploadResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="-49">
+              <caret line="284" column="36" selection-start-line="284" selection-start-column="36" selection-end-line="284" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -171,24 +144,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/spidlinq/apkr/v1/core/analysis/task/GeneralAnalysis.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/spidlinq/apkr/v1/common/handlers/FileIOHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/spidlinq/apkr/v1/core/ml/MachineLearningResult.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/spidlinq/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/exception/InvalidScanParametersException.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/helpers/Util.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/log4j/Log.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/LogTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ResourceFile.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/EncapsulatedClass.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/analysis/base/AbstractAndroidAnalysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrStaticPlugin.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/PluginAnalysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrDynamicPlugin.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/holder/InternalInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMField.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMClass.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMMethod.java" />
@@ -196,7 +156,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/SharedPool.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintClass.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintMethod.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/base/AbstractFlowMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/BasicCFGFlowMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/ConditionalNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/ConstStrNode.java" />
@@ -206,15 +165,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/NormalNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/NodeConnection.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/base/AbstractAtomNode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/handlers/FileIOHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConstants.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/temp/ApkrIntelligence.java" />
         <option value="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/system/CheckSumGen.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java" />
         <option value="$PROJECT_DIR$/src/test/java/Log4JTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/zerjioang/_main/Log4JTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/helper/DirectoryFilter.java" />
@@ -222,6 +176,25 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/FileUploadResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ApkrServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/PluginAnalysis.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/analysis/base/AbstractAndroidAnalysis.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/base/AbstractFlowMap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/holder/InternalInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/EncapsulatedClass.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/loaders/SignatureModelLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/handlers/PscoutHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/helpers/Util.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/ml/MachineLearningResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/ServerStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/HashChecking.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/handlers/FileIOHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java" />
       </list>
     </option>
   </component>
@@ -250,7 +223,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -268,9 +241,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -414,6 +384,234 @@
               <option name="myItemId" value="apkr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sdk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apkr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apkr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apkr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="log4j" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apkr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="enums" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apkr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apkr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -478,9 +676,228 @@
               <option name="myItemId" value="v1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="httpserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apimodel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apkr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apkr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ml" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apkr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="analysis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apkr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apkr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apkr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -855,16 +1272,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282353" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282353" sideWeight="0.50214595" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282353" sideWeight="0.49785408" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3282353" sideWeight="0.49785408" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -873,10 +1291,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282353" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -915,13 +1332,13 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java</url>
-          <line>359</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java</url>
+          <line>281</line>
           <properties />
-          <option name="timeStamp" value="13" />
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="26" />
+      <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -930,307 +1347,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="40" column="15" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/base/AbstractFlowMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/BasicCFGFlowMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/ConditionalNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/ConstStrNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/EntryPointNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/FieldNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/base/AbstractAtomNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1550">
-          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/MethodNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2625">
-          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/NormalNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/helpers/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="333" column="0" selection-start-line="333" selection-start-column="0" selection-end-line="333" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ResourceFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3375">
-          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/NodeConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/collection/dynmc/UnusedOpcodePlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/Encapsulation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="e#252#253#0" expanded="false" />
-            <element signature="e#283#284#0" expanded="false" />
-            <element signature="e#602#603#0" expanded="false" />
-            <element signature="e#676#677#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="77" column="95" selection-start-line="77" selection-start-column="95" selection-end-line="77" selection-end-column="95" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="65" column="46" selection-start-line="65" selection-start-column="46" selection-end-line="65" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/handlers/FileIOHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_77/jre/lib/rt.jar!/java/util/concurrent/ThreadPoolExecutor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="402" column="0" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_77/jre/lib/rt.jar!/java/lang/Runnable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="44" column="76" selection-start-line="44" selection-start-column="76" selection-end-line="44" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/system/CheckSumGen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3250">
-          <caret line="141" column="18" selection-start-line="141" selection-start-column="18" selection-end-line="141" selection-end-column="18" />
-          <folding>
-            <element signature="e#904#905#0" expanded="true" />
-            <element signature="e#935#936#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/zerjioang/_main/Log4JTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/FileScan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/temp/ApkrIntelligence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1400">
-          <caret line="71" column="136" selection-start-line="71" selection-start-column="136" selection-end-line="71" selection-end-column="136" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/base/ICSVGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/base/IWekaGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/base/IBatchTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/exception/EmptyDataSetException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/exception/EmptyTaskQueueException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/exception/InvalidTaskException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/exception/NoFilesFoundException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/helper/DirectoryFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-990">
@@ -1241,17 +1357,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/helper/DirScanner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-440">
+        <state relative-caret-position="225">
           <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1542#1543#0" expanded="false" />
+            <element signature="e#1606#1607#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/task/CSVFeatureExtractorTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
+        <state relative-caret-position="3850">
           <caret line="179" column="99" selection-start-line="179" selection-start-column="93" selection-end-line="179" selection-end-column="99" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2605#2606#0" expanded="false" />
+            <element signature="e#2693#2694#0" expanded="false" />
+            <element signature="e#6078#6079#0" expanded="false" />
+            <element signature="e#6146#6147#0" expanded="false" />
+            <element signature="e#6197#6198#0" expanded="false" />
+            <element signature="e#6239#6240#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1259,7 +1387,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1267,7 +1397,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2520#2521#0" expanded="false" />
+            <element signature="e#2587#2588#0" expanded="false" />
+            <element signature="e#3595#3596#0" expanded="false" />
+            <element signature="e#3692#3693#0" expanded="false" />
+            <element signature="e#5470#5471#0" expanded="false" />
+            <element signature="e#5561#5562#0" expanded="false" />
+            <element signature="e#5612#5613#0" expanded="false" />
+            <element signature="e#5654#5655#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1275,15 +1415,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2536#2537#0" expanded="false" />
+            <element signature="e#2603#2604#0" expanded="false" />
+            <element signature="e#6119#6120#0" expanded="false" />
+            <element signature="e#6187#6188#0" expanded="false" />
+            <element signature="e#6238#6239#0" expanded="false" />
+            <element signature="e#6280#6281#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/BatchManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/FileUploadResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1590">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="125">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="e#740#741#0" expanded="false" />
+            <element signature="e#769#770#0" expanded="false" />
+            <element signature="e#800#801#0" expanded="false" />
+            <element signature="e#827#828#0" expanded="false" />
+            <element signature="e#862#863#0" expanded="false" />
+            <element signature="e#893#894#0" expanded="false" />
+            <element signature="e#929#930#0" expanded="false" />
+            <element signature="e#961#962#0" expanded="false" />
+            <element signature="e#1004#1005#0" expanded="false" />
+            <element signature="e#1045#1046#0" expanded="false" />
+            <element signature="e#1076#1077#0" expanded="false" />
+            <element signature="e#1103#1104#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ApkrServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1295,18 +1466,346 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/batch/BatchManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2250">
-          <caret line="96" column="18" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
+        <state relative-caret-position="25">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrStaticPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="9" column="59" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
           <folding>
-            <element signature="e#3667#3668#0" expanded="true" />
-            <element signature="e#3703#3704#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1149#1150#0" expanded="false" />
+            <element signature="e#1176#1177#0" expanded="false" />
+            <element signature="e#1222#1223#0" expanded="false" />
+            <element signature="e#1259#1260#0" expanded="false" />
+            <element signature="e#1324#1325#0" expanded="false" />
+            <element signature="e#1376#1377#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/FileUploadResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/PluginAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+          <folding>
+            <element signature="e#621#622#0" expanded="false" />
+            <element signature="e#646#647#0" expanded="false" />
+            <element signature="e#746#747#0" expanded="false" />
+            <element signature="e#772#773#0" expanded="false" />
+            <element signature="e#811#812#0" expanded="false" />
+            <element signature="e#841#842#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/system/CheckSumGen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+          <folding>
+            <element signature="e#904#905#0" expanded="true" />
+            <element signature="e#935#936#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/analysis/base/AbstractAndroidAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/base/AbstractFlowMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/NodeConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="39" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/base/AbstractAtomNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/holder/InternalInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/map/BasicCFGFlowMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="39" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/SharedPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/EncapsulatedClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/EntryPointNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/NormalNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/MethodNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/ConstStrNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/ConditionalNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/cfg/nodes/FieldNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/ReturnMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/model/DVMClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/base/struct/fake/DVMTaintMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/SignatureHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/loaders/SignatureModelLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="23" column="129" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="129" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/dynmc/handlers/PscoutHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="35" column="144" selection-start-line="35" selection-start-column="144" selection-end-line="35" selection-end-column="144" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="356" column="0" selection-start-line="356" selection-start-column="0" selection-end-line="356" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#10465#10466#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/helpers/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="21" column="93" selection-start-line="21" selection-start-column="93" selection-end-line="21" selection-end-column="93" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/ml/MLResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/ml/MachineLearningResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/core/analysis/sttc/handlers/WekaResultsHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="159" column="29" selection-start-line="159" selection-start-column="29" selection-end-line="159" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/ServerStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/LatestUploads.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/JsonErrorMsg.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
@@ -1314,10 +1813,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ApkrServer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/handlers/FileIOHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+        <state relative-caret-position="168">
+          <caret line="225" column="51" selection-start-line="225" selection-start-column="51" selection-end-line="225" selection-end-column="51" />
+          <folding>
+            <element signature="e#665#666#0" expanded="true" />
+            <element signature="e#725#726#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/apimodel/HashChecking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-250">
+          <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/helpers/config/ApkrConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="74" column="56" selection-start-line="74" selection-start-column="56" selection-end-line="74" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-49">
+          <caret line="284" column="36" selection-start-line="284" selection-start-column="36" selection-end-line="284" selection-end-column="36" />
           <folding />
         </state>
       </provider>

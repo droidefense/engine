@@ -24,7 +24,6 @@
 package com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.fake;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.model.DVMMethod;
 
 public final class DVMTaintMethod extends DVMMethod {
@@ -32,7 +31,7 @@ public final class DVMTaintMethod extends DVMMethod {
     //minimum valid value is 4
     private static final int[] NO_OP_CODES = {0x00, 0x00, 0x00, 0x00};
     private String name;
-    @JsonIgnore
+
     private Object methodReturn;
     private boolean reflected;
 

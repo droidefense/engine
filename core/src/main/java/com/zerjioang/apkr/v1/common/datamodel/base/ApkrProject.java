@@ -4,8 +4,6 @@ package com.zerjioang.apkr.v1.common.datamodel.base;
 import apkr.external.module.datamodel.manifest.Manifest;
 import apkr.external.module.datamodel.manifest.UsesPermission;
 import apkr.external.module.datamodel.manifest.base.AbstractManifestClass;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zerjioang.apkr.v1.common.analysis.base.AbstractAndroidAnalysis;
 import com.zerjioang.apkr.v1.common.datamodel.certificate.CertificateModel;
 import com.zerjioang.apkr.v1.common.datamodel.dex.OpcodeInformation;
@@ -356,12 +354,7 @@ public class ApkrProject implements Serializable {
     }
 
     public String getProjectAsJson() {
-        try {
-            String jsonInString = new ObjectMapper().writeValueAsString(this);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return "{}";
+        return Util.toJson(this);
     }
 
     public String getProjectName() {

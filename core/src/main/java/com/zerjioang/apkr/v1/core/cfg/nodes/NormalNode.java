@@ -1,6 +1,5 @@
 package com.zerjioang.apkr.v1.core.cfg.nodes;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.inst.Instruction;
 import com.zerjioang.apkr.v1.core.cfg.base.AbstractAtomNode;
 import com.zerjioang.apkr.v1.core.cfg.map.base.AbstractFlowMap;
@@ -10,7 +9,7 @@ import com.zerjioang.apkr.v1.core.cfg.map.base.AbstractFlowMap;
  */
 public class NormalNode extends AbstractAtomNode {
 
-    @JsonIgnore
+
     private Instruction instruction;
     private String key;
     private String value;

@@ -21,7 +21,7 @@ public class SignatureModelLoader implements Serializable {
         String cvsSplitBy = ApkrConstants.CVS_SPLIT;
 
         try {
-            InputStream csvFile = FileIOHandler.getResourceFileInputStream(ApkrConstants.SIGNATURE_FILE);
+            InputStream csvFile = FileIOHandler.getResourceFileInputStream(ApkrConstants.INTERNAL_DATA_FOLDER + File.separator + ApkrConstants.SIGNATURE_FILE);
             br = new BufferedReader(new InputStreamReader(csvFile));
             while ((line = br.readLine()) != null) {
 

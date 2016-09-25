@@ -24,7 +24,6 @@
 package com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.fake;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.DynamicUtils;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.generic.IAtomField;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.generic.IAtomMethod;
@@ -36,9 +35,9 @@ import java.util.HashMap;
 
 public final class DVMTaintClass extends DVMClass {
 
-    @JsonIgnore
+
     protected HashMap<String, IAtomField> taintFields;
-    @JsonIgnore
+
     protected HashMap<String, IAtomMethod> taintMethods;
 
     public DVMTaintClass(String name) {

@@ -1,6 +1,5 @@
 package com.zerjioang.apkr.v1.core.cfg;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.inst.Instruction;
 import com.zerjioang.apkr.v1.core.cfg.base.AbstractAtomNode;
 import com.zerjioang.apkr.v1.core.cfg.base.IDotGraphNode;
@@ -17,7 +16,7 @@ public class NodeConnection implements IDotGraphNode, Serializable {
     private final String name;
     private final transient AbstractAtomNode source;
     private final transient AbstractAtomNode destination;
-    @JsonIgnore
+
     private final Instruction currentInstruction;
     private final int sourceId, destId;
     private int weight;

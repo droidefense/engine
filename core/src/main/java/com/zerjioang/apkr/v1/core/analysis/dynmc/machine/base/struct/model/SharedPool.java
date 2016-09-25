@@ -1,7 +1,5 @@
 package com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,9 +9,9 @@ import java.util.Map;
  */
 public class SharedPool implements Serializable {
 
-    @JsonIgnore
+
     private static SharedPool instance = new SharedPool();
-    @JsonIgnore
+
     private final Map<String, String> classNames;
     private String[] strings;
     private String[] types;

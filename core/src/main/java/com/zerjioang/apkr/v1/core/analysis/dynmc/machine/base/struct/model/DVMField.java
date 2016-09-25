@@ -1,6 +1,5 @@
 package com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.constants.TypeDescriptorSemantics;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.exceptions.VirtualMachineRuntimeException;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.generic.IAtomClass;
@@ -10,22 +9,22 @@ import java.io.Serializable;
 
 public class DVMField implements IAtomField, Serializable {
 
-    @JsonIgnore
+
     protected final IAtomClass ownerClass;
-    @JsonIgnore
+
     protected int flag;
-    @JsonIgnore
+
     protected boolean isInstance;
-    @JsonIgnore
+
     protected String name;
-    @JsonIgnore
+
     protected String type;
-    @JsonIgnore
+
     protected int intValue;
-    @JsonIgnore
+
     protected long longValue;
 
-    @JsonIgnore
+
     protected Object objectValue;
 
     public DVMField(final IAtomClass cls) {

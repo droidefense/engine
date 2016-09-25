@@ -1,6 +1,5 @@
 package com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.DynamicUtils;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.generic.IAtomClass;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.generic.IAtomField;
@@ -14,28 +13,28 @@ import java.util.Hashtable;
 
 public class DVMClass implements IAtomClass, Serializable {
 
-    @JsonIgnore
+
     protected int flag;
-    @JsonIgnore
+
     protected String name;
-    @JsonIgnore
+
     protected String superClass;
-    @JsonIgnore
+
     private boolean isInterface;
 
     //inherited superclass
-    @JsonIgnore
+
     private String[] interfaces;
 
-    @JsonIgnore
+
     private IAtomField[] instanceFields;
-    @JsonIgnore
+
     private IAtomField[] staticFields;
-    @JsonIgnore
+
     private Hashtable staticFieldMap;
-    @JsonIgnore
+
     private IAtomMethod[] directMethods;
-    @JsonIgnore
+
     private IAtomMethod[] virtualMethods;
 
     private boolean binded;

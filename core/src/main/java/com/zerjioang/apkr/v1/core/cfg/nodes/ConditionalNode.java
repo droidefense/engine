@@ -1,6 +1,5 @@
 package com.zerjioang.apkr.v1.core.cfg.nodes;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.inst.Instruction;
 import com.zerjioang.apkr.v1.core.cfg.base.AbstractAtomNode;
 import com.zerjioang.apkr.v1.core.cfg.map.base.NodeCondition;
@@ -15,7 +14,7 @@ public class ConditionalNode extends AbstractAtomNode {
     private final int secondValue;
     private final int offsetA;
     private final int offsetB;
-    @JsonIgnore
+
     private NodeCondition condition;
 
     private ConditionalNode(Instruction inst, int firstValue, int secondValue, int offsetA, int offsetB) {

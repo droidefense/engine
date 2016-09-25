@@ -1,6 +1,5 @@
 package com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.fake;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.DynamicUtils;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.generic.IAtomClass;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.generic.IAtomField;
@@ -15,7 +14,6 @@ import java.util.Hashtable;
 /**
  * Created by r00t on 25/10/15.
  */
-@JsonIgnoreProperties(value = {"aClass", "javaObject"})
 public class EncapsulatedClass implements IAtomClass, Serializable {
 
     //encapsulated vars

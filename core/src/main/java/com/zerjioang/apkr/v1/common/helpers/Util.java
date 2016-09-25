@@ -1,7 +1,7 @@
 package com.zerjioang.apkr.v1.common.helpers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import javax.activation.MimetypesFileTypeMap;
 import java.io.*;
@@ -19,6 +19,7 @@ public class Util {
     private static final long M = K * K;
     private static final long G = M * K;
     private static final long T = G * K;
+    private static Gson jsonBuilder = new GsonBuilder().serializeSpecialFloatingPointValues().create();
 
     public static String beautifyFileSize(final long value) {
         final long[] dividers = new long[]{T, G, M, K, 1};
@@ -207,12 +208,9 @@ public class Util {
     }
 
     public static String toJson(Object o) {
-        try {
-            return new ObjectMapper().writeValueAsString(o);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return "{}";
+        if (o == null)
+            return "{}";
+        return jsonBuilder.toJson(o);
     }
 
     public static String quote(String string) {
@@ -273,7 +271,13 @@ public class Util {
     }
 
     public static Object toObjectFromJson(String jsonPayload, Class cls) throws Exception {
-        return new ObjectMapper().readValue(jsonPayload, cls);
+        if (jsonPayload == null) {
+            throw new NullPointerException("Json string is null.");
+        }
+        else if(cls==null){
+            throw new NullPointerException("Not given a object class to deserialize.");
+        }
+        return new Gson().fromJson(jsonPayload, cls);
     }
 
     public static String extractText(String webdata, String inicio, String fin) {

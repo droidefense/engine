@@ -25,7 +25,7 @@ public class ApkrScanner {
     private String[] args;
 
     public ApkrScanner(byte idx) {
-        switch (idx){
+        switch (idx) {
             case LOAD_VARIABLES:
                 loadVariables();
                 break;
@@ -41,9 +41,12 @@ public class ApkrScanner {
 
     public ApkrScanner(String[] args) throws InvalidScanParametersException {
         //security check
-        if (args != null && args.length == 2)
+        if (args != null && args.length == 2) {
             initScan(args);
-        throw new InvalidScanParametersException("Received parameters are not valid to launch the scan", args);
+        }
+        else{
+            throw new InvalidScanParametersException("Received parameters are not valid to launch the scan", args);
+        }
     }
 
     public static void main(String[] args) throws CertificateException, InvalidScanParametersException {

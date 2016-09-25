@@ -23,7 +23,6 @@
 
 package com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.DynamicUtils;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.generic.IAtomClass;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.generic.IAtomMethod;
@@ -33,11 +32,11 @@ import java.io.Serializable;
 public class DVMMethod implements IAtomMethod, Serializable {
 
     //shared by all classes. Pool
-    @JsonIgnore
+
     private static SharedPool pool = SharedPool.getInstance();
-    @JsonIgnore
+
     private IAtomClass ownerClass;
-    @JsonIgnore
+
     private int flag;
     private boolean isInstance;
     private boolean isSynchronized;

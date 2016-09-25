@@ -20,7 +20,7 @@ import java.nio.file.Paths;
 public class FileIOHandler {
 
     public static File getUnpackOutputFile() {
-        return new File(getBaseDirFile().getParentFile() + File.separator + ApkrConstants.UNPACK_FOLDER);
+        return new File(ApkrConstants.UNPACK_FOLDER);
     }
 
     public static File getBaseDirFile() {
@@ -223,7 +223,7 @@ public class FileIOHandler {
     }
 
     public static File getUploadsFolder() {
-        File f = new File(getBaseDirFile().getParentFile().getAbsolutePath() + File.separator + "uploads");
+        File f = new File(ApkrConstants.UPLOAD_FOLDER);
         if (!f.exists())
             f.mkdirs();
         return f;

@@ -1,7 +1,5 @@
 package com.zerjioang.apkr.v1.core.cfg.base;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -13,9 +11,9 @@ public abstract class AbstractAtomNode implements IDotGraphNode, Serializable {
     protected static int maxInt = 0;
     private static int counter = 0;
     protected final int id;
-    @JsonIgnore
+
     private final transient ArrayList<AbstractAtomNode> outList;
-    @JsonIgnore
+
     private final transient ArrayList<AbstractAtomNode> inList;
     protected int in, out;
     protected String type;

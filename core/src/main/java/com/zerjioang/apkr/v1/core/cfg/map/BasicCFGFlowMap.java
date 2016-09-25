@@ -1,6 +1,5 @@
 package com.zerjioang.apkr.v1.core.cfg.map;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zerjioang.apkr.v1.core.cfg.NodeConnection;
 import com.zerjioang.apkr.v1.core.cfg.base.AbstractAtomNode;
 import com.zerjioang.apkr.v1.core.cfg.map.base.AbstractFlowMap;
@@ -20,7 +19,7 @@ public class BasicCFGFlowMap extends AbstractFlowMap {
     private boolean optimized;
 
     //list of node names = identifiers
-    @JsonIgnore
+
     private transient HashMap<String, Integer> nodeIdentifierList;
 
     public BasicCFGFlowMap() {

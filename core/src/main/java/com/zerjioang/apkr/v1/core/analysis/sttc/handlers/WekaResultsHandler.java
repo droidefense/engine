@@ -153,7 +153,12 @@ public class WekaResultsHandler extends AbstractHandler {
         positive = total - positive;
         result.setPositives(positive);
         result.setTotal(total);
-        result.setRatio(positive / (double) total);
+        if(total!=0){
+            result.setRatio(positive / (double) total);
+        }
+        else{
+            result.setRatio(0);
+        }
         project.setMachineLearningResult(result);
         Log.write(LoggerType.TRACE, "WEKA classification done!");
     }

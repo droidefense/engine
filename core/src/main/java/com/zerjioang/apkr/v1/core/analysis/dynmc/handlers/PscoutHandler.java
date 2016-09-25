@@ -7,9 +7,11 @@ import com.zerjioang.apkr.v1.common.handlers.base.AbstractHandler;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.generic.IAtomMethod;
 import com.zerjioang.apkr.v1.core.cfg.base.AbstractAtomNode;
 import com.zerjioang.apkr.v1.core.cfg.nodes.MethodNode;
+import com.zerjioang.apkr.v2.helpers.config.ApkrConstants;
 import com.zerjioang.apkr.v2.helpers.log4j.Log;
 import com.zerjioang.apkr.v2.helpers.log4j.LoggerType;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -31,7 +33,7 @@ public class PscoutHandler extends AbstractHandler {
     public boolean doTheJob() {
         Log.write(LoggerType.TRACE, "---- Mapping method calls with permissions -----");
         try {
-            PSCoutModel model = (PSCoutModel) FileIOHandler.getResourceObjectStream("pscout.apimodel").readObject();
+            PSCoutModel model = (PSCoutModel) FileIOHandler.getResourceObjectStream(ApkrConstants.INTERNAL_DATA_FOLDER + File.separator + ApkrConstants.PSCOUT_MODEL).readObject();
             if (model == null) {
                 return false;
             }

@@ -24,7 +24,7 @@ public class ApkrServer {
         while (server.keepServerRunning()) {
             try {
                 Thread.sleep(server.getDefaultLifeTime());
-            } catch (InterruptedException exc){
+            } catch (InterruptedException exc) {
                 StringWriter sw = new StringWriter();
                 exc.printStackTrace(new PrintWriter(sw));
                 String exceptionAsString = sw.toString();

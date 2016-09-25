@@ -1,7 +1,5 @@
 package com.zerjioang.apkr.v1.common.analysis.base;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.zerjioang.apkr.v1.common.datamodel.base.APKFile;
 import com.zerjioang.apkr.v1.common.datamodel.base.ApkrProject;
 import com.zerjioang.apkr.v1.common.datamodel.base.AtomTimeStamp;
@@ -15,7 +13,6 @@ import java.util.ArrayList;
 /**
  * Created by r00t on 24/10/15.
  */
-@JsonIgnoreProperties(value = {"currentProject", "apkFile"})
 public abstract class AbstractAndroidAnalysis implements Serializable {
 
     protected AtomTimeStamp timeStamp;

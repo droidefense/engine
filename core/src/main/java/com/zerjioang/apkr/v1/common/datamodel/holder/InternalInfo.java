@@ -1,8 +1,6 @@
 package com.zerjioang.apkr.v1.common.datamodel.holder;
 
 import apkr.external.module.datamodel.manifest.base.AbstractManifestClass;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.generic.IAtomClass;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.reader.DexClassReader;
 
@@ -12,7 +10,6 @@ import java.util.*;
 /**
  * Created by sergio on 18/2/16.
  */
-@JsonIgnoreProperties(value = {"dexClasses", "dynamicEntryPoints"})
 public class InternalInfo implements Serializable {
 
     //base dex info
@@ -208,7 +205,7 @@ public class InternalInfo implements Serializable {
         this.dexClasses.put(name, newClass);
     }
 
-    @JsonIgnore
+
     public IAtomClass[] getListClasses() {
         Collection<IAtomClass> data = this.dexClasses.values();
         return data.toArray(new IAtomClass[data.size()]);

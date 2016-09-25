@@ -35,9 +35,12 @@ public class ApkrConstants implements Serializable {
     public static byte[] DEX_FILE_MAGIC = {0x64, 0x65, 0x78, 0x0a, 0x30, 0x33, 0x35, 0x00}; //"dex\n035\0"
 
     //external variables
-    public static String SERVER_ROOT;
+    public static String SERVER_FOLDER;
     public static String RESOURCE_FOLDER;
     public static String UNPACK_FOLDER;
+    public static String UPLOAD_FOLDER;
+    public static String STATIC_REPORT_FOLDER;
+
     public static String DECOMPILE;
     public static String CVS_SPLIT;
     public static String SIGNATURE_FILE;
@@ -51,6 +54,7 @@ public class ApkrConstants implements Serializable {
     public static boolean OVERWRITE_DECODE_FOLDER;
     public static String STATIC_PLG_FOLDER_NAME;
     public static String DYNAMIC_PLG_FOLDER_NAME;
+    public static String PSCOUT_MODEL;
     //external config reader
     private static ApkrConfig configurator = ApkrConfig.getInstance();
     private static boolean MULTITHREAD;
@@ -63,11 +67,15 @@ public class ApkrConstants implements Serializable {
         //load external variables
         OVERWRITE_DECODE_FOLDER = configurator.getValue("OVERWRITE_DECODE_FOLDER").equals("true");
         MULTITHREAD = configurator.getValue("MULTITHREAD").equals("true");
-        SERVER_ROOT = (String) configurator.getValue("SERVER_ROOT");
+        SERVER_FOLDER = (String) configurator.getValue("SERVER_FOLDER");
+        UPLOAD_FOLDER = (String) configurator.getValue("UPLOAD_FOLDER");
+        STATIC_REPORT_FOLDER = (String) configurator.getValue("STATIC_REPORT_FOLDER");
+
+
         DB_STORAGE = configurator.getValue("DB_STORAGE").equals("true");
         ENGINE_VERSION = (String) configurator.getValue("ENGINE_VERSION");
         DECOMPILE = (String) configurator.getValue("DECOMPILE");
-        SERVER_ROOT = (String) configurator.getValue("SERVER_ROOT");
+        SERVER_FOLDER = (String) configurator.getValue("SERVER_FOLDER");
         RESOURCE_FOLDER = (String) configurator.getValue("RESOURCE_FOLDER");
         UNPACK_FOLDER = (String) configurator.getValue("UNPACK_FOLDER");
         CVS_SPLIT = (String) configurator.getValue("CVS_SPLIT");
@@ -75,6 +83,8 @@ public class ApkrConstants implements Serializable {
         DEX_MAGIC_NUMBER_STR = (String) configurator.getValue("DEX_MAGIC_NUMBER_STR");
         BEAUTIFIER_FILE = (String) configurator.getValue("BEAUTIFIER_FILE");
         NATIVE_METHOD_FILE = (String) configurator.getValue("NATIVE_METHOD_FILE");
+
+        PSCOUT_MODEL = (String) configurator.getValue("PSCOUT_MODEL");
 
         STATIC_PLG_FOLDER_NAME = (String) configurator.getValue("STATIC_PLG_FOLDER_NAME");
         DYNAMIC_PLG_FOLDER_NAME = (String) configurator.getValue("DYNAMIC_PLG_FOLDER_NAME");

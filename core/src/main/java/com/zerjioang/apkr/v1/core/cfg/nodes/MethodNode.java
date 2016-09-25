@@ -1,7 +1,6 @@
 package com.zerjioang.apkr.v1.core.cfg.nodes;
 
 import apkr.external.module.entropy.EntropyCalculator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zerjioang.apkr.temp.ApkrIntelligence;
 import com.zerjioang.apkr.v1.common.helpers.Util;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.DynamicUtils;
@@ -18,7 +17,7 @@ public class MethodNode extends AbstractAtomNode {
     private final String methodName;
     private final String params, returnType;
     private final double entropy;
-    @JsonIgnore
+
     private final transient IAtomMethod method;
     protected int instruction_count;
     private int pc;
