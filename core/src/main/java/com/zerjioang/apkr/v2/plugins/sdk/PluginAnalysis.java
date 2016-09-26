@@ -5,10 +5,12 @@ import com.zerjioang.apkr.v1.common.datamodel.base.ApkrProject;
 import com.zerjioang.apkr.v1.common.datamodel.base.AtomTimeStamp;
 import com.zerjioang.apkr.v2.helpers.enums.ProcessStatus;
 
+import java.io.Serializable;
+
 /**
  * Created by sergio on 4/9/16.
  */
-public class PluginAnalysis {
+public abstract class PluginAnalysis implements Serializable{
 
     protected transient ApkrProject currentProject;
     protected boolean positiveMatch;

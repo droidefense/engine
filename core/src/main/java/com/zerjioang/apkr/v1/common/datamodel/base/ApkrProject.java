@@ -17,6 +17,7 @@ import com.zerjioang.apkr.v1.common.handlers.FileIOHandler;
 import com.zerjioang.apkr.v1.common.helpers.Util;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.generic.IAtomClass;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.reader.DexClassReader;
+import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.reader.DexHeaderReader;
 import com.zerjioang.apkr.v1.core.cfg.DexFileStatistics;
 import com.zerjioang.apkr.v1.core.cfg.map.BasicCFGFlowMap;
 import com.zerjioang.apkr.v1.core.cfg.map.base.AbstractFlowMap;
@@ -112,6 +113,8 @@ public class ApkrProject implements Serializable {
     private transient AbstractFlowMap multiFlowMap;
     private transient AbstractFlowMap followCallsMap;
     private MachineLearningResult machineLearningResult;
+    private boolean headerReaded;
+    private DexHeaderReader dexHeaderReader;
 
     public ApkrProject(final APKFile file) {
         //create new timestamp now
@@ -650,5 +653,21 @@ public class ApkrProject implements Serializable {
         FileIOHandler.saveProjectReport(this);
 
         Log.write(LoggerType.TRACE, "Sample scan done");
+    }
+
+    public void setHeaderReaded(boolean headerReaded) {
+        this.headerReaded = headerReaded;
+    }
+
+    public boolean isHeaderReaded() {
+        return headerReaded;
+    }
+
+    public void setDexHeaderReader(DexHeaderReader dexHeaderReader) {
+        this.dexHeaderReader = dexHeaderReader;
+    }
+
+    public DexHeaderReader getDexHeaderReader() {
+        return dexHeaderReader;
     }
 }

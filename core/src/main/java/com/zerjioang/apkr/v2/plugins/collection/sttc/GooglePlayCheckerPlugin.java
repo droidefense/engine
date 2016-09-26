@@ -12,7 +12,6 @@ public class GooglePlayCheckerPlugin extends AbstractApkrStaticPlugin {
     private static final String NOT_FOUND_MSG = "We're sorry, the requested URL was not found on this server.";
     private String url;
     private String packageName;
-    private boolean positiveMatch;
 
     @Override
     public String toString() {

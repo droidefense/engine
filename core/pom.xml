@@ -15,7 +15,6 @@
     </properties>
 
     <dependencies>
-
         <!-- http://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/weka-stable -->
 
         <dependency>
@@ -96,6 +95,26 @@
             <systemPath>${project.basedir}/lib/third-party/apktool_2.2.0.jar</systemPath>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>servlet-api</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/third-party/javax.servlet-api-3.1.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+            <version>9.2.19.v20160908</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>9.2.19.v20160908</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -109,13 +128,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.eluder.coveralls</groupId>
-                <artifactId>coveralls-maven-plugin</artifactId>
-                <version>3.1.0</version>
-            </plugin>
-
         </plugins>
     </build>
 

@@ -4,6 +4,8 @@ import com.zerjioang.apkr.v1.common.analysis.base.AbstractAndroidAnalysis;
 import com.zerjioang.apkr.v1.common.handlers.FileIOHandler;
 import com.zerjioang.apkr.v1.core.cfg.map.BasicCFGFlowMap;
 import com.zerjioang.apkr.v1.core.rulengine.RuleEngine;
+import com.zerjioang.apkr.v2.helpers.log4j.Log;
+import com.zerjioang.apkr.v2.helpers.log4j.LoggerType;
 
 /**
  * Created by sergio on 16/2/16.
@@ -18,6 +20,7 @@ public class RuleAnalysis extends AbstractAndroidAnalysis {
 
     @Override
     public boolean analyze() {
+        Log.write(LoggerType.TRACE, "\n\n --- Running apkr rule engine analysis ---\n\n");
         positiveMatch = false;
         log("loading engine rules", 0);
         log("Current rules: " + engine.getRuleCount(), 1);

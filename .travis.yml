@@ -1,3 +1,24 @@
 language: java
 sudo: false
-script: mvn clean verify
+jdk:
+  - oraclejdk8
+
+os:
+  - linux
+  - osx
+  
+cache:
+  directories:
+    - $HOME/.m2
+    - cargo
+env:
+  global:
+    - MAVEN_OPTS="-XX:MaxPermSize=2g -Xmx4g"
+    - JAVA_OPTS="-XX:MaxPermSize=2g -Xmx4g"
+    - TRAVIS_CARGO_NIGHTLY_FEATURE=""
+    
+before_install: cd core
+script: mvn build
+
+after_success:
+  - mvn clean test jacoco:report coveralls:report

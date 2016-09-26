@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 public class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
 
-    public transient static final String PLUGIN_PACKAGE_NAME = "apkr.v2.plugins.collection.sttc.";
+    public transient static final String PLUGIN_PACKAGE_NAME = "com.zerjioang.apkr.v2.plugins.collection.sttc.";
 
     public AndroidStaticPluginAnalysis() {
         timeStamp = new AtomTimeStamp();

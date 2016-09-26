@@ -40,11 +40,11 @@ public class FileIOHandler {
     }
 
     public static File getStaticPluginsFolderFile() {
-        return new File(getBaseDirPath() + File.separator + ApkrConstants.STATIC_PLG_FOLDER_NAME);
+        return new File(ApkrConstants.STATIC_PLG_FOLDER_NAME);
     }
 
     public static File getDynamicPluginsFolderFile() {
-        return new File(getBaseDirPath() + File.separator + ApkrConstants.DYNAMIC_PLG_FOLDER_NAME);
+        return new File(ApkrConstants.DYNAMIC_PLG_FOLDER_NAME);
     }
 
     public static File getPluginsFile(String pluginName) {

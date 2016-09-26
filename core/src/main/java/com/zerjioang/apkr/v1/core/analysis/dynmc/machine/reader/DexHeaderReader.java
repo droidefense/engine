@@ -79,12 +79,16 @@ public class DexHeaderReader implements Serializable {
     }
 
     public void loadClasses(ResourceFile dex) {
-        try {
-            readHeader();
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
+        if (!currentProject.isHeaderReaded()) {
+            try {
+                readHeader();
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+            readData();
+            currentProject.setHeaderReaded(true);
+            currentProject.setDexHeaderReader(this);
         }
-        readData();
     }
 
     private void readData() {

@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 public class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis {
 
-    public transient static final String PLUGIN_PACKAGE_NAME = "apkr.v2.plugins.collection.dynmc.";
+    public transient static final String PLUGIN_PACKAGE_NAME = "com.zerjioang.apkr.v2.plugins.collection.dynmc.";
 
     public AndroidDynamicPluginAnalysis() {
         timeStamp = new AtomTimeStamp();
@@ -31,7 +31,7 @@ public class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis {
         positiveMatch = false;
         //set current currentProject
         currentProject = ApkrProject.getProject(apkFile);
-        Log.write(LoggerType.TRACE, "\n\n --- Running Android dynamic plugin analysis ---\n\n");
+        Log.write(LoggerType.TRACE, "\n\n --- Running apkr dynamic plugin analysis ---\n\n");
         File plFolder = FileIOHandler.getDynamicPluginsFolderFile();
         if (plFolder.exists()) {
             DirScannerHandler scanner = new DirScannerHandler(plFolder, false, new DirScannerFilter() {

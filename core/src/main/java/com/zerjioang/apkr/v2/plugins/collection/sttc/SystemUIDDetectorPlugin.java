@@ -14,7 +14,6 @@ public class SystemUIDDetectorPlugin extends AbstractApkrStaticPlugin {
     public static final String APP_SYSTEM_UI = "This application is configured as System UI application. This means that the key used for signing this app is the same key used for signing your Android system apps.\nIf this is not a trusted app such us Chrome, Gmail,..., please, report us and we will help you.";
     private static final String SYSTEMAPP = "android:sharedUserId=\"android.uid.system\"";
     private String sharedId;
-    private boolean positiveMatch;
 
     @Override
     public void onPreExecute() {

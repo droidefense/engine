@@ -7994,3 +7994,2395 @@
 2016-09-25 22:04:22 TRACE [Thread-0] TRACE:13 - Android whitelisted dataset length: 11261
 2016-09-25 22:04:22 TRACE [Thread-0] TRACE:13 - Android support whitelisted dataset length: 436
 2016-09-25 22:04:22 TRACE [Thread-0] TRACE:13 - Data loaded!!
+2016-09-26 11:52:37 TRACE [Thread-0] TRACE:13 - Loading apkr data structs...
+2016-09-26 11:52:37 TRACE [Thread-0] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-26 11:52:37 TRACE [Thread-0] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-26 11:52:37 TRACE [Thread-0] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-26 11:52:37 TRACE [Thread-0] TRACE:13 - Data loaded!!
+2016-09-26 13:41:04 TRACE [main] TRACE:13 - Loading apkr data structs...
+2016-09-26 13:41:04 TRACE [main] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-26 13:41:04 TRACE [main] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-26 13:41:04 TRACE [main] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-26 13:41:04 TRACE [main] TRACE:13 - Data loaded!!
+2016-09-26 13:41:04 TRACE [main] TRACE:13 - Reading .apk from local file
+2016-09-26 13:41:05 TRACE [main] TRACE:13 - Building project
+2016-09-26 13:41:05 TRACE [main] TRACE:13 - Running ApkrScan
+2016-09-26 13:41:05 TRACE [main] TRACE:13 - Project ID:	write-hash-value-here
+2016-09-26 13:41:05 TRACE [main] TRACE:13 - 
+
+ --- Running Android app scan ---
+
+
+2016-09-26 13:41:05 TRACE [main] TRACE:13 - Unpacking .apk...
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - Listing unpacked files...
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - Files found: 11
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - 
+
+ --- Running Android static analysis ---
+
+
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - Starting OBJDUMP...
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - No files to dump. Process finished!
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - 
+
+ --- Running Android static plugin analysis ---
+
+
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - .dex statistics done
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - OpCodeCheckerWorker execution time:	00:00:00 ( 0 ms )
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - Estimated node count: 
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - 16 developer nodes
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x35 if-ge vA, vB, +CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xD8 add-int/lit8 vx,vy,lit8
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:41:09 TRACE [main] TRACE:13 - ---- Mapping method calls with permissions -----
+2016-09-26 13:41:11 TRACE [main] TRACE:13 - 
+
+ --- Running Android dynamic plugin analysis ---
+
+
+2016-09-26 13:41:11 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 13:41:11 TRACE [main] TRACE:13 - loading engine rules
+2016-09-26 13:41:11 TRACE [main] TRACE:13 - 	Current rules: 0
+2016-09-26 13:41:11 TRACE [main] TRACE:13 - 	Preparing to scan...
+2016-09-26 13:41:11 TRACE [main] TRACE:13 - 		Scanning...
+2016-09-26 13:41:11 TRACE [main] TRACE:13 - 	Collecting results...
+2016-09-26 13:41:11 TRACE [main] TRACE:13 - 	Rule scan done
+2016-09-26 13:41:11 TRACE [main] TRACE:13 - Starting WEKA classifier...
+2016-09-26 13:41:11 TRACE [main] TRACE:13 - WEKA classification done!
+2016-09-26 13:41:11 TRACE [main] TRACE:13 - Saving report file...
+2016-09-26 13:41:11 TRACE [main] TRACE:13 - apkr project finished
+2016-09-26 13:41:11 TRACE [main] TRACE:13 - Saving report file...
+2016-09-26 13:41:11 TRACE [main] TRACE:13 - Sample scan done
+2016-09-26 13:41:11 TRACE [main] TRACE:13 - apkr scan finished
+2016-09-26 13:42:38 TRACE [main] TRACE:13 - Loading apkr data structs...
+2016-09-26 13:42:38 TRACE [main] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-26 13:42:38 TRACE [main] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-26 13:42:38 TRACE [main] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-26 13:42:38 TRACE [main] TRACE:13 - Data loaded!!
+2016-09-26 13:42:38 TRACE [main] TRACE:13 - Reading .apk from local file
+2016-09-26 13:42:38 TRACE [main] TRACE:13 - Building project
+2016-09-26 13:42:38 TRACE [main] TRACE:13 - Running ApkrScan
+2016-09-26 13:42:38 TRACE [main] TRACE:13 - Project ID:	write-hash-value-here
+2016-09-26 13:42:38 TRACE [main] TRACE:13 - 
+
+ --- Running apkr general scan ---
+
+
+2016-09-26 13:42:38 TRACE [main] TRACE:13 - Unpacking .apk...
+2016-09-26 13:42:43 TRACE [main] TRACE:13 - Listing unpacked files...
+2016-09-26 13:42:43 TRACE [main] TRACE:13 - Files found: 11
+2016-09-26 13:42:43 TRACE [main] TRACE:13 - 
+
+ --- Running Android static analysis ---
+
+
+2016-09-26 13:42:43 TRACE [main] TRACE:13 - Starting OBJDUMP...
+2016-09-26 13:42:43 TRACE [main] TRACE:13 - No files to dump. Process finished!
+2016-09-26 13:42:43 TRACE [main] TRACE:13 - 
+
+ --- Running Android static plugin analysis ---
+
+
+2016-09-26 13:42:52 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 13:42:52 TRACE [main] TRACE:13 - .dex statistics done
+2016-09-26 13:46:28 TRACE [main] TRACE:13 - Loading apkr data structs...
+2016-09-26 13:46:28 TRACE [main] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-26 13:46:28 TRACE [main] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-26 13:46:28 TRACE [main] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-26 13:46:28 TRACE [main] TRACE:13 - Data loaded!!
+2016-09-26 13:46:28 TRACE [main] TRACE:13 - Reading .apk from local file
+2016-09-26 13:46:28 TRACE [main] TRACE:13 - Building project
+2016-09-26 13:46:28 TRACE [main] TRACE:13 - Running ApkrScan
+2016-09-26 13:46:28 TRACE [main] TRACE:13 - Project ID:	write-hash-value-here
+2016-09-26 13:46:28 TRACE [main] TRACE:13 - 
+
+ --- Running apkr general scan ---
+
+
+2016-09-26 13:46:28 TRACE [main] TRACE:13 - Unpacking .apk...
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - Listing unpacked files...
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - Files found: 11
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - 
+
+ --- Running Android static analysis ---
+
+
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - Starting OBJDUMP...
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - No files to dump. Process finished!
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - 
+
+ --- Running Android static plugin analysis ---
+
+
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - .dex statistics done
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - OpCodeCheckerWorker execution time:	00:00:00 ( 0 ms )
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - Estimated node count: 
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - 16 developer nodes
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x35 if-ge vA, vB, +CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xD8 add-int/lit8 vx,vy,lit8
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:46:33 TRACE [main] TRACE:13 - ---- Mapping method calls with permissions -----
+2016-09-26 13:46:35 TRACE [main] TRACE:13 - 
+
+ --- Running Android dynamic plugin analysis ---
+
+
+2016-09-26 13:46:35 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 13:46:35 TRACE [main] TRACE:13 - loading engine rules
+2016-09-26 13:46:35 TRACE [main] TRACE:13 - 	Current rules: 0
+2016-09-26 13:46:35 TRACE [main] TRACE:13 - 	Preparing to scan...
+2016-09-26 13:46:35 TRACE [main] TRACE:13 - 		Scanning...
+2016-09-26 13:46:35 TRACE [main] TRACE:13 - 	Collecting results...
+2016-09-26 13:46:35 TRACE [main] TRACE:13 - 	Rule scan done
+2016-09-26 13:46:35 TRACE [main] TRACE:13 - Starting WEKA classifier...
+2016-09-26 13:46:35 TRACE [main] TRACE:13 - WEKA classification done!
+2016-09-26 13:46:35 TRACE [main] TRACE:13 - Saving report file...
+2016-09-26 13:46:35 TRACE [main] TRACE:13 - apkr project finished
+2016-09-26 13:46:35 TRACE [main] TRACE:13 - Saving report file...
+2016-09-26 13:46:35 TRACE [main] TRACE:13 - Sample scan done
+2016-09-26 13:46:35 TRACE [main] TRACE:13 - apkr scan finished
+2016-09-26 13:47:00 TRACE [main] TRACE:13 - Loading apkr data structs...
+2016-09-26 13:47:00 TRACE [main] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-26 13:47:00 TRACE [main] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-26 13:47:00 TRACE [main] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-26 13:47:00 TRACE [main] TRACE:13 - Data loaded!!
+2016-09-26 13:47:00 TRACE [main] TRACE:13 - Reading .apk from local file
+2016-09-26 13:47:00 TRACE [main] TRACE:13 - Building project
+2016-09-26 13:47:00 TRACE [main] TRACE:13 - Running ApkrScan
+2016-09-26 13:47:00 TRACE [main] TRACE:13 - Project ID:	write-hash-value-here
+2016-09-26 13:47:00 TRACE [main] TRACE:13 - 
+
+ --- Running apkr general scan ---
+
+
+2016-09-26 13:47:00 TRACE [main] TRACE:13 - Unpacking .apk...
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - Listing unpacked files...
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - Files found: 11
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - 
+
+ --- Running Android static analysis ---
+
+
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - Starting OBJDUMP...
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - No files to dump. Process finished!
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - 
+
+ --- Running Android static plugin analysis ---
+
+
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\ELFDetectorPlugin.class
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\GooglePlayCheckerPlugin.class
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\PrivacyPlugin.class
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\SystemUIDDetectorPlugin.class
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - .dex statistics done
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - OpCodeCheckerWorker execution time:	00:00:00 ( 0 ms )
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - Estimated node count: 
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - 16 developer nodes
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x35 if-ge vA, vB, +CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xD8 add-int/lit8 vx,vy,lit8
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:47:05 TRACE [main] TRACE:13 - ---- Mapping method calls with permissions -----
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - 
+
+ --- Running Android dynamic plugin analysis ---
+
+
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\CryptoUsageDetectionPlugin.class
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\ReflectionUsageDetectionPlugin.class
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\StringAnalyzerPlugin.class
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\UnusedOpcodePlugin.class
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - loading engine rules
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - 	Current rules: 0
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - 	Preparing to scan...
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - 		Scanning...
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - 	Collecting results...
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - 	Rule scan done
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - Starting WEKA classifier...
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - WEKA classification done!
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - Saving report file...
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - apkr project finished
+2016-09-26 13:47:06 TRACE [main] TRACE:13 - Saving report file...
+2016-09-26 13:47:07 TRACE [main] TRACE:13 - Sample scan done
+2016-09-26 13:47:07 TRACE [main] TRACE:13 - apkr scan finished
+2016-09-26 13:48:48 TRACE [main] TRACE:13 - Loading apkr data structs...
+2016-09-26 13:48:48 TRACE [main] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-26 13:48:48 TRACE [main] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-26 13:48:48 TRACE [main] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-26 13:48:48 TRACE [main] TRACE:13 - Data loaded!!
+2016-09-26 13:48:48 TRACE [main] TRACE:13 - Reading .apk from local file
+2016-09-26 13:48:48 TRACE [main] TRACE:13 - Building project
+2016-09-26 13:48:48 TRACE [main] TRACE:13 - Running ApkrScan
+2016-09-26 13:48:48 TRACE [main] TRACE:13 - Project ID:	write-hash-value-here
+2016-09-26 13:48:48 TRACE [main] TRACE:13 - 
+
+ --- Running apkr general scan ---
+
+
+2016-09-26 13:48:48 TRACE [main] TRACE:13 - Unpacking .apk...
+2016-09-26 13:48:52 TRACE [main] TRACE:13 - Listing unpacked files...
+2016-09-26 13:48:52 TRACE [main] TRACE:13 - Files found: 11
+2016-09-26 13:48:52 TRACE [main] TRACE:13 - 
+
+ --- Running Android static analysis ---
+
+
+2016-09-26 13:48:52 TRACE [main] TRACE:13 - Starting OBJDUMP...
+2016-09-26 13:48:52 TRACE [main] TRACE:13 - No files to dump. Process finished!
+2016-09-26 13:48:53 TRACE [main] TRACE:13 - 
+
+ --- Running Android static plugin analysis ---
+
+
+2016-09-26 13:49:01 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\ELFDetectorPlugin.class
+2016-09-26 13:51:10 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\GooglePlayCheckerPlugin.class
+2016-09-26 13:51:10 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\PrivacyPlugin.class
+2016-09-26 13:51:10 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\SystemUIDDetectorPlugin.class
+2016-09-26 13:51:10 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 13:51:14 TRACE [main] TRACE:13 - Loading apkr data structs...
+2016-09-26 13:51:14 TRACE [main] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-26 13:51:14 TRACE [main] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-26 13:51:14 TRACE [main] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-26 13:51:14 TRACE [main] TRACE:13 - Data loaded!!
+2016-09-26 13:51:14 TRACE [main] TRACE:13 - Reading .apk from local file
+2016-09-26 13:51:15 TRACE [main] TRACE:13 - Building project
+2016-09-26 13:51:15 TRACE [main] TRACE:13 - Running ApkrScan
+2016-09-26 13:51:15 TRACE [main] TRACE:13 - Project ID:	write-hash-value-here
+2016-09-26 13:51:15 TRACE [main] TRACE:13 - 
+
+ --- Running apkr general scan ---
+
+
+2016-09-26 13:51:15 TRACE [main] TRACE:13 - Unpacking .apk...
+2016-09-26 13:51:19 TRACE [main] TRACE:13 - Loading apkr data structs...
+2016-09-26 13:51:19 TRACE [main] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-26 13:51:20 TRACE [main] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-26 13:51:20 TRACE [main] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-26 13:51:20 TRACE [main] TRACE:13 - Data loaded!!
+2016-09-26 13:51:20 TRACE [main] TRACE:13 - Reading .apk from local file
+2016-09-26 13:51:20 TRACE [main] TRACE:13 - Building project
+2016-09-26 13:51:20 TRACE [main] TRACE:13 - Running ApkrScan
+2016-09-26 13:51:20 TRACE [main] TRACE:13 - Project ID:	write-hash-value-here
+2016-09-26 13:51:20 TRACE [main] TRACE:13 - 
+
+ --- Running apkr general scan ---
+
+
+2016-09-26 13:51:20 TRACE [main] TRACE:13 - Unpacking .apk...
+2016-09-26 13:51:25 TRACE [main] TRACE:13 - Listing unpacked files...
+2016-09-26 13:51:25 TRACE [main] TRACE:13 - Files found: 11
+2016-09-26 13:51:25 TRACE [main] TRACE:13 - 
+
+ --- Running Android static analysis ---
+
+
+2016-09-26 13:51:25 TRACE [main] TRACE:13 - Starting OBJDUMP...
+2016-09-26 13:51:25 TRACE [main] TRACE:13 - No files to dump. Process finished!
+2016-09-26 13:51:25 TRACE [main] TRACE:13 - 
+
+ --- Running Android static plugin analysis ---
+
+
+2016-09-26 13:51:25 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\ELFDetectorPlugin.class
+2016-09-26 13:51:25 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.ELFDetectorPlugin
+2016-09-26 13:51:25 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\GooglePlayCheckerPlugin.class
+2016-09-26 13:51:25 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.GooglePlayCheckerPlugin
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\PrivacyPlugin.class
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.PrivacyPlugin
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\SystemUIDDetectorPlugin.class
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.SystemUIDDetectorPlugin
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - .dex statistics done
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - OpCodeCheckerWorker execution time:	00:00:00 ( 0 ms )
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - Estimated node count: 
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - 16 developer nodes
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x35 if-ge vA, vB, +CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xD8 add-int/lit8 vx,vy,lit8
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 13:51:26 TRACE [main] TRACE:13 - ---- Mapping method calls with permissions -----
+2016-09-26 13:51:27 TRACE [main] TRACE:13 - 
+
+ --- Running Android dynamic plugin analysis ---
+
+
+2016-09-26 13:51:27 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\CryptoUsageDetectionPlugin.class
+2016-09-26 13:51:27 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.dynmc.CryptoUsageDetectionPlugin
+2016-09-26 13:51:27 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\ReflectionUsageDetectionPlugin.class
+2016-09-26 13:51:27 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.dynmc.ReflectionUsageDetectionPlugin
+2016-09-26 13:51:27 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\StringAnalyzerPlugin.class
+2016-09-26 13:51:27 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.dynmc.StringAnalyzerPlugin
+2016-09-26 13:51:28 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\UnusedOpcodePlugin.class
+2016-09-26 13:51:28 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.dynmc.UnusedOpcodePlugin
+2016-09-26 13:51:28 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 13:51:28 TRACE [main] TRACE:13 - loading engine rules
+2016-09-26 13:51:28 TRACE [main] TRACE:13 - 	Current rules: 0
+2016-09-26 13:51:28 TRACE [main] TRACE:13 - 	Preparing to scan...
+2016-09-26 13:51:28 TRACE [main] TRACE:13 - 		Scanning...
+2016-09-26 13:51:28 TRACE [main] TRACE:13 - 	Collecting results...
+2016-09-26 13:51:28 TRACE [main] TRACE:13 - 	Rule scan done
+2016-09-26 13:51:28 TRACE [main] TRACE:13 - Starting WEKA classifier...
+2016-09-26 13:51:28 TRACE [main] TRACE:13 - WEKA classification done!
+2016-09-26 13:51:28 TRACE [main] TRACE:13 - Saving report file...
+2016-09-26 13:51:28 TRACE [main] TRACE:13 - apkr project finished
+2016-09-26 13:51:28 TRACE [main] TRACE:13 - Saving report file...
+2016-09-26 13:55:01 TRACE [main] TRACE:13 - Loading apkr data structs...
+2016-09-26 13:55:01 TRACE [main] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-26 13:55:01 TRACE [main] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-26 13:55:01 TRACE [main] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-26 13:55:01 TRACE [main] TRACE:13 - Data loaded!!
+2016-09-26 13:55:01 TRACE [main] TRACE:13 - Reading .apk from local file
+2016-09-26 13:55:01 TRACE [main] TRACE:13 - Building project
+2016-09-26 13:55:01 TRACE [main] TRACE:13 - Running ApkrScan
+2016-09-26 13:55:01 TRACE [main] TRACE:13 - Project ID:	write-hash-value-here
+2016-09-26 13:55:01 TRACE [main] TRACE:13 - 
+
+ --- Running apkr general scan ---
+
+
+2016-09-26 13:55:01 TRACE [main] TRACE:13 - Unpacking .apk...
+2016-09-26 13:55:05 TRACE [main] TRACE:13 - Listing unpacked files...
+2016-09-26 13:55:05 TRACE [main] TRACE:13 - Files found: 11
+2016-09-26 13:55:05 TRACE [main] TRACE:13 - 
+
+ --- Running Android static analysis ---
+
+
+2016-09-26 13:55:05 TRACE [main] TRACE:13 - Starting OBJDUMP...
+2016-09-26 13:55:05 TRACE [main] TRACE:13 - No files to dump. Process finished!
+2016-09-26 13:55:05 TRACE [main] TRACE:13 - 
+
+ --- Running Android static plugin analysis ---
+
+
+2016-09-26 13:55:05 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\ELFDetectorPlugin.class
+2016-09-26 13:55:05 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.ELFDetectorPlugin
+2016-09-26 13:55:05 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\GooglePlayCheckerPlugin.class
+2016-09-26 13:55:05 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.GooglePlayCheckerPlugin
+2016-09-26 13:55:06 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\PrivacyPlugin.class
+2016-09-26 13:55:06 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.PrivacyPlugin
+2016-09-26 13:55:06 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\SystemUIDDetectorPlugin.class
+2016-09-26 13:55:06 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.SystemUIDDetectorPlugin
+2016-09-26 13:55:06 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 13:55:06 TRACE [main] TRACE:13 - .dex statistics done
+2016-09-26 13:56:12 TRACE [main] TRACE:13 - Loading apkr data structs...
+2016-09-26 13:56:12 TRACE [main] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-26 13:56:12 TRACE [main] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-26 13:56:12 TRACE [main] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-26 13:56:12 TRACE [main] TRACE:13 - Data loaded!!
+2016-09-26 13:56:12 TRACE [main] TRACE:13 - Reading .apk from local file
+2016-09-26 13:56:12 TRACE [main] TRACE:13 - Building project
+2016-09-26 13:56:12 TRACE [main] TRACE:13 - Running ApkrScan
+2016-09-26 13:56:12 TRACE [main] TRACE:13 - Project ID:	write-hash-value-here
+2016-09-26 13:56:12 TRACE [main] TRACE:13 - 
+
+ --- Running apkr general scan ---
+
+
+2016-09-26 13:56:12 TRACE [main] TRACE:13 - Unpacking .apk...
+2016-09-26 13:56:16 TRACE [main] TRACE:13 - Listing unpacked files...
+2016-09-26 13:56:16 TRACE [main] TRACE:13 - Files found: 11
+2016-09-26 13:56:16 TRACE [main] TRACE:13 - 
+
+ --- Running Android static analysis ---
+
+
+2016-09-26 13:56:16 TRACE [main] TRACE:13 - Starting OBJDUMP...
+2016-09-26 13:56:16 TRACE [main] TRACE:13 - No files to dump. Process finished!
+2016-09-26 13:56:16 TRACE [main] TRACE:13 - 
+
+ --- Running Android static plugin analysis ---
+
+
+2016-09-26 13:56:16 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\ELFDetectorPlugin.class
+2016-09-26 13:56:16 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.ELFDetectorPlugin
+2016-09-26 13:56:16 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\GooglePlayCheckerPlugin.class
+2016-09-26 13:56:16 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.GooglePlayCheckerPlugin
+2016-09-26 13:56:17 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\PrivacyPlugin.class
+2016-09-26 13:56:17 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.PrivacyPlugin
+2016-09-26 13:56:17 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\SystemUIDDetectorPlugin.class
+2016-09-26 13:56:17 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.SystemUIDDetectorPlugin
+2016-09-26 13:56:17 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 13:56:17 TRACE [main] TRACE:13 - 
+
+ --- Running apkr dynamic analysis ---
+
+
+2016-09-26 13:56:17 TRACE [main] TRACE:13 - .dex statistics done
+2016-09-26 14:01:09 TRACE [main] TRACE:13 - Loading apkr data structs...
+2016-09-26 14:01:09 TRACE [main] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-26 14:01:09 TRACE [main] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-26 14:01:09 TRACE [main] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-26 14:01:09 TRACE [main] TRACE:13 - Data loaded!!
+2016-09-26 14:01:09 TRACE [main] TRACE:13 - Reading .apk from local file
+2016-09-26 14:01:09 TRACE [main] TRACE:13 - Building project
+2016-09-26 14:01:09 TRACE [main] TRACE:13 - Running ApkrScan
+2016-09-26 14:01:09 TRACE [main] TRACE:13 - Project ID:	write-hash-value-here
+2016-09-26 14:01:09 TRACE [main] TRACE:13 - 
+
+ --- Running apkr general scan ---
+
+
+2016-09-26 14:01:09 TRACE [main] TRACE:13 - Unpacking .apk...
+2016-09-26 14:01:13 TRACE [main] TRACE:13 - Listing unpacked files...
+2016-09-26 14:01:13 TRACE [main] TRACE:13 - Files found: 11
+2016-09-26 14:01:13 TRACE [main] TRACE:13 - 
+
+ --- Running Android static analysis ---
+
+
+2016-09-26 14:01:13 TRACE [main] TRACE:13 - Starting OBJDUMP...
+2016-09-26 14:01:13 TRACE [main] TRACE:13 - No files to dump. Process finished!
+2016-09-26 14:01:13 TRACE [main] TRACE:13 - 
+
+ --- Running Android static plugin analysis ---
+
+
+2016-09-26 14:01:13 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\ELFDetectorPlugin.class
+2016-09-26 14:01:13 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.ELFDetectorPlugin
+2016-09-26 14:01:13 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\GooglePlayCheckerPlugin.class
+2016-09-26 14:01:13 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.GooglePlayCheckerPlugin
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\PrivacyPlugin.class
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.PrivacyPlugin
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\SystemUIDDetectorPlugin.class
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.SystemUIDDetectorPlugin
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - 
+
+ --- Running apkr dynamic analysis ---
+
+
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - .dex statistics done
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - OpCodeCheckerWorker execution time:	00:00:00 ( 0 ms )
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - Estimated node count: 
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - 16 developer nodes
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x35 if-ge vA, vB, +CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xD8 add-int/lit8 vx,vy,lit8
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:01:14 TRACE [main] TRACE:13 - ---- Mapping method calls with permissions -----
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - 
+
+ --- Running apkr dynamic plugin analysis ---
+
+
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\CryptoUsageDetectionPlugin.class
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.dynmc.CryptoUsageDetectionPlugin
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\ReflectionUsageDetectionPlugin.class
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.dynmc.ReflectionUsageDetectionPlugin
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\StringAnalyzerPlugin.class
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.dynmc.StringAnalyzerPlugin
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\UnusedOpcodePlugin.class
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.dynmc.UnusedOpcodePlugin
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - loading engine rules
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - 	Current rules: 0
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - 	Preparing to scan...
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - 		Scanning...
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - 	Collecting results...
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - 	Rule scan done
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - Starting WEKA classifier...
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - WEKA classification done!
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - Saving report file...
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - apkr project finished
+2016-09-26 14:01:15 TRACE [main] TRACE:13 - Saving report file...
+2016-09-26 14:08:24 TRACE [main] TRACE:13 - Loading apkr data structs...
+2016-09-26 14:08:25 TRACE [main] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-26 14:08:25 TRACE [main] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-26 14:08:25 TRACE [main] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-26 14:08:25 TRACE [main] TRACE:13 - Data loaded!!
+2016-09-26 14:08:25 TRACE [main] TRACE:13 - Reading .apk from local file
+2016-09-26 14:08:25 TRACE [main] TRACE:13 - Building project
+2016-09-26 14:08:25 TRACE [main] TRACE:13 - Running ApkrScan
+2016-09-26 14:08:25 TRACE [main] TRACE:13 - Project ID:	write-hash-value-here
+2016-09-26 14:08:25 TRACE [main] TRACE:13 - 
+
+ --- Running apkr general scan ---
+
+
+2016-09-26 14:08:25 TRACE [main] TRACE:13 - Unpacking .apk...
+2016-09-26 14:08:29 TRACE [main] TRACE:13 - Listing unpacked files...
+2016-09-26 14:08:29 TRACE [main] TRACE:13 - Files found: 11
+2016-09-26 14:08:29 TRACE [main] TRACE:13 - 
+
+ --- Running Android static analysis ---
+
+
+2016-09-26 14:08:29 TRACE [main] TRACE:13 - Starting OBJDUMP...
+2016-09-26 14:08:29 TRACE [main] TRACE:13 - No files to dump. Process finished!
+2016-09-26 14:08:29 TRACE [main] TRACE:13 - 
+
+ --- Running Android static plugin analysis ---
+
+
+2016-09-26 14:08:29 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\ELFDetectorPlugin.class
+2016-09-26 14:08:29 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.ELFDetectorPlugin
+2016-09-26 14:08:29 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\GooglePlayCheckerPlugin.class
+2016-09-26 14:08:29 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.GooglePlayCheckerPlugin
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\PrivacyPlugin.class
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.PrivacyPlugin
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\static\SystemUIDDetectorPlugin.class
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.sttc.SystemUIDDetectorPlugin
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - 
+
+ --- Running apkr dynamic analysis ---
+
+
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - .dex statistics done
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - OpCodeCheckerWorker execution time:	00:00:00 ( 0 ms )
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - Estimated node count: 
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - 16 developer nodes
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x35 if-ge vA, vB, +CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xD8 add-int/lit8 vx,vy,lit8
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:08:30 TRACE [main] TRACE:13 - ---- Mapping method calls with permissions -----
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - 
+
+ --- Running apkr dynamic plugin analysis ---
+
+
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\CryptoUsageDetectionPlugin.class
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.dynmc.CryptoUsageDetectionPlugin
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\ReflectionUsageDetectionPlugin.class
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.dynmc.ReflectionUsageDetectionPlugin
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\StringAnalyzerPlugin.class
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.dynmc.StringAnalyzerPlugin
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - C:\Users\.local\Documents\projects\apkr\core\resources\plugins\dynamic\UnusedOpcodePlugin.class
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - Executing com.zerjioang.apkr.v2.plugins.collection.dynmc.UnusedOpcodePlugin
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - 
+
+ --- Running apkr rule engine analysis ---
+
+
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - loading engine rules
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - 	Current rules: 0
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - 	Preparing to scan...
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - 		Scanning...
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - 	Collecting results...
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - 	Rule scan done
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - 
+
+ --- Running apkr ML analysis ---
+
+
+2016-09-26 14:08:31 TRACE [main] TRACE:13 - Starting WEKA classifier...
+2016-09-26 14:08:32 TRACE [main] TRACE:13 - WEKA classification done!
+2016-09-26 14:08:32 TRACE [main] TRACE:13 - Saving report file...
+2016-09-26 14:08:32 TRACE [main] TRACE:13 - apkr project finished
+2016-09-26 14:08:32 TRACE [main] TRACE:13 - Saving report file...
+2016-09-26 14:10:07 TRACE [main] TRACE:13 - Loading apkr data structs...
+2016-09-26 14:10:07 TRACE [main] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-26 14:10:07 TRACE [main] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-26 14:10:07 TRACE [main] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-26 14:10:07 TRACE [main] TRACE:13 - Data loaded!!
+2016-09-26 14:10:07 TRACE [main] TRACE:13 - Reading .apk from local file
+2016-09-26 14:10:07 TRACE [main] TRACE:13 - Building project
+2016-09-26 14:10:07 TRACE [main] TRACE:13 - Running ApkrScan
+2016-09-26 14:10:07 TRACE [main] TRACE:13 - Project ID:	write-hash-value-here
+2016-09-26 14:10:07 TRACE [main] TRACE:13 - 
+
+ --- Running apkr general scan ---
+
+
+2016-09-26 14:10:07 TRACE [main] TRACE:13 - Unpacking .apk...
+2016-09-26 14:10:11 TRACE [main] TRACE:13 - Listing unpacked files...
+2016-09-26 14:10:11 TRACE [main] TRACE:13 - Files found: 11
+2016-09-26 14:10:11 TRACE [main] TRACE:13 - 
+
+ --- Running Android static analysis ---
+
+
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - Starting OBJDUMP...
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - No files to dump. Process finished!
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - 
+
+ --- Running Android static plugin analysis ---
+
+
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - 
+
+ --- Running apkr dynamic analysis ---
+
+
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - .dex statistics done
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - OpCodeCheckerWorker execution time:	00:00:00 ( 0 ms )
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - Estimated node count: 
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - 16 developer nodes
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x35 if-ge vA, vB, +CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xD8 add-int/lit8 vx,vy,lit8
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:10:12 TRACE [main] TRACE:13 - ---- Mapping method calls with permissions -----
+2016-09-26 14:10:13 TRACE [main] TRACE:13 - 
+
+ --- Running apkr dynamic plugin analysis ---
+
+
+2016-09-26 14:10:13 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 14:10:13 TRACE [main] TRACE:13 - 
+
+ --- Running apkr rule engine analysis ---
+
+
+2016-09-26 14:10:13 TRACE [main] TRACE:13 - loading engine rules
+2016-09-26 14:10:13 TRACE [main] TRACE:13 - 	Current rules: 0
+2016-09-26 14:10:13 TRACE [main] TRACE:13 - 	Preparing to scan...
+2016-09-26 14:10:13 TRACE [main] TRACE:13 - 		Scanning...
+2016-09-26 14:10:13 TRACE [main] TRACE:13 - 	Collecting results...
+2016-09-26 14:10:13 TRACE [main] TRACE:13 - 	Rule scan done
+2016-09-26 14:10:13 TRACE [main] TRACE:13 - 
+
+ --- Running apkr ML analysis ---
+
+
+2016-09-26 14:10:13 TRACE [main] TRACE:13 - Starting WEKA classifier...
+2016-09-26 14:10:13 TRACE [main] TRACE:13 - WEKA classification done!
+2016-09-26 14:10:13 TRACE [main] TRACE:13 - Saving report file...
+2016-09-26 14:10:13 TRACE [main] TRACE:13 - apkr project finished
+2016-09-26 14:10:13 TRACE [main] TRACE:13 - Saving report file...
+2016-09-26 14:11:47 TRACE [main] TRACE:13 - Loading apkr data structs...
+2016-09-26 14:11:47 TRACE [main] TRACE:13 - Java whitelisted dataset length: 7716
+2016-09-26 14:11:47 TRACE [main] TRACE:13 - Android whitelisted dataset length: 11261
+2016-09-26 14:11:47 TRACE [main] TRACE:13 - Android support whitelisted dataset length: 436
+2016-09-26 14:11:47 TRACE [main] TRACE:13 - Data loaded!!
+2016-09-26 14:11:47 TRACE [main] TRACE:13 - Reading .apk from local file
+2016-09-26 14:11:48 TRACE [main] TRACE:13 - Building project
+2016-09-26 14:11:48 TRACE [main] TRACE:13 - Running ApkrScan
+2016-09-26 14:11:48 TRACE [main] TRACE:13 - Project ID:	write-hash-value-here
+2016-09-26 14:11:48 TRACE [main] TRACE:13 - 
+
+ --- Running apkr general scan ---
+
+
+2016-09-26 14:11:48 TRACE [main] TRACE:13 - Unpacking .apk...
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - Listing unpacked files...
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - Files found: 11
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - 
+
+ --- Running Android static analysis ---
+
+
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - Starting OBJDUMP...
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - No files to dump. Process finished!
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - 
+
+ --- Running Android static plugin analysis ---
+
+
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - 
+
+ --- Running apkr dynamic analysis ---
+
+
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - .dex statistics done
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - OpCodeCheckerWorker execution time:	00:00:00 ( 0 ms )
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - Estimated node count: 
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - 16 developer nodes
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x5B iput-object vA, vB, field@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x23 new-array vA, vB, type@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x4D aput-object vAA, vBB, vCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x39 if-nez vAA, +BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x72 invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xF return vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1 move vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x54 iget-object vA, vB, field@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x35 if-ge vA, vB, +CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xD8 add-int/lit8 vx,vy,lit8
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x28 goto +AA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x12 const/4 vA, #+B
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6F invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xA move-result vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x38 if-eqz vAA, +BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x22 new-instance vAA, type@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x70 invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x71 invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xC move-result-object vAA
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x1A const-string vAA, string@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x7 move-object vA, vB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x74 invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0x6E invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - DALVIK_0xE return-void
+2016-09-26 14:11:52 TRACE [main] TRACE:13 - ---- Mapping method calls with permissions -----
+2016-09-26 14:11:53 TRACE [main] TRACE:13 - 
+
+ --- Running apkr dynamic plugin analysis ---
+
+
+2016-09-26 14:11:53 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-09-26 14:11:53 TRACE [main] TRACE:13 - 
+
+ --- Running apkr rule engine analysis ---
+
+
+2016-09-26 14:11:53 TRACE [main] TRACE:13 - loading engine rules
+2016-09-26 14:11:53 TRACE [main] TRACE:13 - 	Current rules: 0
+2016-09-26 14:11:53 TRACE [main] TRACE:13 - 	Preparing to scan...
+2016-09-26 14:11:53 TRACE [main] TRACE:13 - 		Scanning...
+2016-09-26 14:11:53 TRACE [main] TRACE:13 - 	Collecting results...
+2016-09-26 14:11:53 TRACE [main] TRACE:13 - 	Rule scan done
+2016-09-26 14:11:53 TRACE [main] TRACE:13 - 
+
+ --- Running apkr ML analysis ---
+
+
+2016-09-26 14:11:53 TRACE [main] TRACE:13 - Starting WEKA classifier...
+2016-09-26 14:11:53 TRACE [main] TRACE:13 - WEKA classification done!
+2016-09-26 14:11:53 TRACE [main] TRACE:13 - Saving report file...
+2016-09-26 14:11:53 TRACE [main] TRACE:13 - apkr project finished
+2016-09-26 14:11:53 TRACE [main] TRACE:13 - Saving report file...

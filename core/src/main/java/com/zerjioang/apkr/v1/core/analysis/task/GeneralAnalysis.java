@@ -14,7 +14,7 @@ public class GeneralAnalysis extends AbstractAndroidAnalysis {
     protected boolean analyze() {
 
         positiveMatch = false;
-        Log.write(LoggerType.TRACE, "\n\n --- Running Android app scan ---\n\n");
+        Log.write(LoggerType.TRACE, "\n\n --- Running apkr general scan ---\n\n");
 
         //UNPACK
         AbstractAndroidAnalysis analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.UNPACK);

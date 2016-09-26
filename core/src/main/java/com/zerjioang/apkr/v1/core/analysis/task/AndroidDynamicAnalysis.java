@@ -7,6 +7,8 @@ import com.zerjioang.apkr.v1.core.analysis.dynmc.handlers.DexStatsHandler;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.handlers.PscoutHandler;
 import com.zerjioang.apkr.v1.core.analysis.dynmc.handlers.VMWorkersHandler;
 import com.zerjioang.apkr.v2.helpers.enums.ProcessStatus;
+import com.zerjioang.apkr.v2.helpers.log4j.Log;
+import com.zerjioang.apkr.v2.helpers.log4j.LoggerType;
 
 import java.util.ArrayList;
 
@@ -22,6 +24,9 @@ public class AndroidDynamicAnalysis extends AbstractAndroidAnalysis {
 
     @Override
     protected boolean analyze() {
+
+        Log.write(LoggerType.TRACE, "\n\n --- Running apkr dynamic analysis ---\n\n");
+
         //dex file list
         ArrayList<ResourceFile> list = currentProject.getDexList();
 
