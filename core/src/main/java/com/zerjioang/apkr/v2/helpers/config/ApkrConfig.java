@@ -61,10 +61,13 @@ public class ApkrConfig implements Serializable {
             prop.setProperty("DECOMPILE", "false");
             prop.setProperty("DB_STORAGE", "false");
             prop.setProperty("ENGINE_VERSION", "1.0");
+
             prop.setProperty("SERVER_FOLDER", "");
             prop.setProperty("RESOURCE_FOLDER", "resources");
+            prop.setProperty("MODEL_FOLDER", "models");
             prop.setProperty("UNPACK_FOLDER", "unpacked");
             prop.setProperty("UPLOAD_FOLDER", "upload");
+            prop.setProperty("RULE_FOLDER", "rule");
             prop.setProperty("STATIC_REPORT_FOLDER", "static");
             prop.setProperty("CVS_SPLIT", ";");
             prop.setProperty("SIGNATURE_FILE", "filetypes.csv");

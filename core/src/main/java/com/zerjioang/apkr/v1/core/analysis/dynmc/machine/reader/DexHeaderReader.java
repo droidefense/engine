@@ -20,7 +20,7 @@ public class DexHeaderReader implements Serializable {
     private static final int UINT = 4;
     private static final int MAGIC_NUMBER_BYTES = 8;
     private static final byte DEFAULT_HEADER_SIZE = 0x70;
-    private ApkrProject currentProject;
+    private transient ApkrProject currentProject;
     /**
      * Dex file byte content
      */

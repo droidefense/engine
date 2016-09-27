@@ -31,16 +31,9 @@ public class ApkrScanner {
         }
     }
 
-    public ApkrScanner() {
-        String[] args = new String[2];
-        args[0] = FileIOHandler.getBaseDirFile().getParentFile().getAbsolutePath() + File.separator + "temp/pornoplayer2.apk";
-        args[1] = "write-hash-value-here";
-        initScan(args);
-    }
-
     public ApkrScanner(String[] args) throws InvalidScanParametersException {
         //security check
-        if (args != null && args.length == 2) {
+        if (args != null && args.length == 1) {
             initScan(args);
         } else {
             throw new InvalidScanParametersException("Received parameters are not valid to launch the scan", args);
@@ -48,7 +41,8 @@ public class ApkrScanner {
     }
 
     public static void main(String[] args) throws CertificateException, InvalidScanParametersException {
-        new ApkrScanner();
+        new ApkrScanner(new String[]{FileIOHandler.getBaseDirFile().getParentFile().getAbsolutePath() + File.separator + "temp/sms.demo.apk"});
+        new ApkrScanner(new String[]{FileIOHandler.getBaseDirFile().getParentFile().getAbsolutePath() + File.separator + "temp/sms.demo.with.apk"});
     }
 
     public void stop() {
@@ -66,7 +60,6 @@ public class ApkrScanner {
 
         Log.write(LoggerType.TRACE, "Reading .apk from local file");
         apk = new APKFile(args[0], APKFile.APKTOOL);
-        apk.setSha256(args[1]);
 
         Log.write(LoggerType.TRACE, "Building project");
         project = new ApkrProject(apk);

@@ -33,14 +33,12 @@ public class ApkrConstants implements Serializable {
     public static String OS_NAME;
     public static boolean IS_WINDOWS_HOST;
     public static byte[] DEX_FILE_MAGIC = {0x64, 0x65, 0x78, 0x0a, 0x30, 0x33, 0x35, 0x00}; //"dex\n035\0"
-
     //external variables
     public static String SERVER_FOLDER;
     public static String RESOURCE_FOLDER;
     public static String UNPACK_FOLDER;
     public static String UPLOAD_FOLDER;
     public static String STATIC_REPORT_FOLDER;
-
     public static String DECOMPILE;
     public static String CVS_SPLIT;
     public static String SIGNATURE_FILE;
@@ -55,6 +53,8 @@ public class ApkrConstants implements Serializable {
     public static String STATIC_PLG_FOLDER_NAME;
     public static String DYNAMIC_PLG_FOLDER_NAME;
     public static String PSCOUT_MODEL;
+    public static String RULE_FOLDER;
+    public static String MODEL_FOLDER;
     //external config reader
     private static ApkrConfig configurator = ApkrConfig.getInstance();
     private static boolean MULTITHREAD;
@@ -69,6 +69,8 @@ public class ApkrConstants implements Serializable {
         MULTITHREAD = configurator.getValue("MULTITHREAD").equals("true");
         SERVER_FOLDER = (String) configurator.getValue("SERVER_FOLDER");
         UPLOAD_FOLDER = (String) configurator.getValue("UPLOAD_FOLDER");
+        RULE_FOLDER = (String) configurator.getValue("RULE_FOLDER");
+        MODEL_FOLDER = (String) configurator.getValue("MODEL_FOLDER");
         STATIC_REPORT_FOLDER = (String) configurator.getValue("STATIC_REPORT_FOLDER");
 
 

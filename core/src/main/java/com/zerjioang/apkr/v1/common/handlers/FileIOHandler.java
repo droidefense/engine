@@ -130,13 +130,6 @@ public class FileIOHandler {
 
         //REPORT
 
-        //save report as json
-        //save project
-        name = "report" + ".json";
-        data = project.getProjectAsJson();
-        boolean savedReport = saveFile(name, outputPath, data, "Could not save .json report");
-
-
         //OPCODES DATA
 
         //save opcodes count as json
@@ -183,6 +176,13 @@ public class FileIOHandler {
         name = "follow-flowmap" + ".json";
         data = Util.toJson(project.getFollowCallsMap());
         boolean followJson = saveFile(name, outputPath, data, "Could not save .json follow flowmap");
+
+        //save report as json
+        //save project
+        name = "report" + ".json";
+        data = project.getProjectAsJson();
+        boolean savedReport = saveFile(name, outputPath, data, "Could not save .json report");
+
     }
 
     private static boolean saveFile(String name, String outpath, String data, String msg) {
@@ -273,7 +273,7 @@ public class FileIOHandler {
     }
 
     public static File getRuleEngineDir() {
-        return new File(getBaseDirPath() + File.separator + "resources" + File.separator + "rules");
+        return new File(ApkrConstants.RULE_FOLDER);
     }
 
     public static File getToolsDir() {
@@ -281,6 +281,6 @@ public class FileIOHandler {
     }
 
     public static File getModelsDir() {
-        return new File(getBaseDirPath() + File.separator + "resources" + File.separator + "ml-models");
+        return new File(ApkrConstants.MODEL_FOLDER);
     }
 }

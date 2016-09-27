@@ -15,6 +15,7 @@
     </properties>
 
     <dependencies>
+
         <!-- http://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/weka-stable -->
 
         <dependency>
@@ -114,6 +115,17 @@
             <artifactId>jetty-server</artifactId>
             <version>9.2.19.v20160908</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
@@ -129,6 +141,7 @@
                 </configuration>
             </plugin>
         </plugins>
+
     </build>
 
 </project>

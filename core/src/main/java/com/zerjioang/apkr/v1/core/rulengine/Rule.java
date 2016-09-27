@@ -22,11 +22,12 @@ public class Rule implements Serializable {
 
     private static final String VAR_SEPARATOR = ";";
     private static final String RULE_SEPARATOR = " > ";
-    private final String ruleData;
+    private final transient String ruleData;
     private final String name;
     private transient final String[] nodes;
     private transient final String[] lines;
-    private String desc, author, date, family, variant, rule;
+    private String desc, author, date, family, variant;
+    private transient String rule;
 
     public Rule(String ruleData, String name) {
         this.ruleData = ruleData;

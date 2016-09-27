@@ -113,8 +113,8 @@ public class ApkrProject implements Serializable {
     private transient AbstractFlowMap multiFlowMap;
     private transient AbstractFlowMap followCallsMap;
     private MachineLearningResult machineLearningResult;
-    private boolean headerReaded;
-    private DexHeaderReader dexHeaderReader;
+    private transient boolean headerReaded;
+    private transient DexHeaderReader dexHeaderReader;
 
     public ApkrProject(final APKFile file) {
         //create new timestamp now
@@ -655,19 +655,19 @@ public class ApkrProject implements Serializable {
         Log.write(LoggerType.TRACE, "Sample scan done");
     }
 
-    public void setHeaderReaded(boolean headerReaded) {
-        this.headerReaded = headerReaded;
-    }
-
     public boolean isHeaderReaded() {
         return headerReaded;
     }
 
-    public void setDexHeaderReader(DexHeaderReader dexHeaderReader) {
-        this.dexHeaderReader = dexHeaderReader;
+    public void setHeaderReaded(boolean headerReaded) {
+        this.headerReaded = headerReaded;
     }
 
     public DexHeaderReader getDexHeaderReader() {
         return dexHeaderReader;
+    }
+
+    public void setDexHeaderReader(DexHeaderReader dexHeaderReader) {
+        this.dexHeaderReader = dexHeaderReader;
     }
 }
