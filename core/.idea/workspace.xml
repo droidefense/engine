@@ -7,33 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a844aef2-ee66-42fc-85be-c0a43555ea6c" name="Default" comment="* There is some kind of bug when trying to generate json from apkrproject object. Stackoverflow given">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/rest/base/IRest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/com/zerjioang/_main/Log4JTest.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/_main/ApkrScanner.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/_main/ApkrScanner.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/handlers/FileIOHandler.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/common/handlers/FileIOHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/reader/DexHeaderReader.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/analysis/dynmc/machine/reader/DexHeaderReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/rulengine/Rule.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/core/rulengine/Rule.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ThreadWorker.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v1/httpserver/ThreadWorker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/helpers/config/ApkrConfig.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/helpers/config/ApkrConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/helpers/config/ApkrConstants.class" afterPath="$PROJECT_DIR$/target/classes/com/zerjioang/apkr/v2/helpers/config/ApkrConstants.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.travis.yml" afterPath="$PROJECT_DIR$/../.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../README.md" afterPath="$PROJECT_DIR$/../README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.properties" afterPath="$PROJECT_DIR$/config.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/debug.log" afterPath="$PROJECT_DIR$/log/debug.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/error.log" afterPath="$PROJECT_DIR$/log/error.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/fatal.log" afterPath="$PROJECT_DIR$/log/fatal.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/info.log" afterPath="$PROJECT_DIR$/log/info.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/trace.log" afterPath="$PROJECT_DIR$/log/trace.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/DemoJetty.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/DemoJetty.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/PluginAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/PluginAnalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.zerjioang._main.Log4JTest.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.zerjioang._main.Log4JTest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java" afterPath="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java" />
     </list>
     <ignored path="apkr.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,25 +29,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="ApkrScanner.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ApkrScanner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="43" column="139" selection-start-line="43" selection-start-column="139" selection-end-line="43" selection-end-column="139" />
+            <state relative-caret-position="311">
+              <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApkrProject.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ApkrProject.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="497" column="48" selection-start-line="497" selection-start-column="48" selection-end-line="497" selection-end-column="48" />
+            <state relative-caret-position="161">
+              <caret line="515" column="56" selection-start-line="515" selection-start-column="56" selection-end-line="515" selection-end-column="56" />
               <folding>
-                <element signature="e#7138#7139#0" expanded="true" />
-                <element signature="e#7175#7176#0" expanded="true" />
+                <element signature="e#7195#7196#0" expanded="true" />
+                <element signature="e#7232#7233#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrivacyPlugin.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/collection/sttc/PrivacyPlugin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractApkrStaticPlugin.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrStaticPlugin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="9" column="69" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="69" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -84,20 +78,6 @@
             <state relative-caret-position="125">
               <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestLog4JConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/zerjioang/log4j/TestLog4JConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#253#254#0" expanded="false" />
-                <element signature="e#322#323#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -147,16 +127,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
               <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="helloworld.vm" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/helloworld.vm">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -233,8 +203,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/rest/base/IRest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadPooledServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/httpserver/ThreadWorker.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java" />
       </list>
     </option>
   </component>
@@ -1805,13 +1775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrStaticPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrDynamicPlugin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -1830,13 +1793,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/collection/sttc/PrivacyPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -2078,17 +2034,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="497" column="48" selection-start-line="497" selection-start-column="48" selection-end-line="497" selection-end-column="48" />
-          <folding>
-            <element signature="e#7138#7139#0" expanded="true" />
-            <element signature="e#7175#7176#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/HelloWorldVelocity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -2099,9 +2044,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/_main/ApkrScanner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="43" column="139" selection-start-line="43" selection-start-column="139" selection-end-line="43" selection-end-column="139" />
+        <state relative-caret-position="311">
+          <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/collection/sttc/PrivacyPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v2/plugins/sdk/AbstractApkrStaticPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="9" column="69" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/v1/common/datamodel/base/ApkrProject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="515" column="56" selection-start-line="515" selection-start-column="56" selection-end-line="515" selection-end-column="56" />
+          <folding>
+            <element signature="e#7195#7196#0" expanded="true" />
+            <element signature="e#7232#7233#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

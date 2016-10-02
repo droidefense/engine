@@ -30,6 +30,7 @@ import com.zerjioang.apkr.v2.helpers.log4j.LoggerType;
 import com.zerjioang.apkr.v2.plugins.collection.sttc.PrivacyPlugin;
 import com.zerjioang.apkr.v2.plugins.sdk.AbstractApkrDynamicPlugin;
 import com.zerjioang.apkr.v2.plugins.sdk.AbstractApkrStaticPlugin;
+import com.zerjioang.apkr.v2.plugins.sdk.PluginAnalysis;
 
 import java.io.File;
 import java.io.IOException;
@@ -511,6 +512,12 @@ public class ApkrProject implements Serializable {
     }
 
     public void generateResult() {
+        for(int i=0; i<getUsedAnalyzers().size(); i++){
+            PluginAnalysis analyzer = getUsedAnalyzers().get(i);
+            if(analyzer instanceof PrivacyPlugin){
+
+            }
+        }
         try {
             PrivacyPlugin plugin = new PrivacyPlugin(this);
             plugin.onPreExecute();
