@@ -30,11 +30,14 @@ import com.zerjioang.apkr.v2.helpers.log4j.LoggerType;
 import com.zerjioang.apkr.v2.plugins.collection.sttc.PrivacyPlugin;
 import com.zerjioang.apkr.v2.plugins.sdk.AbstractApkrDynamicPlugin;
 import com.zerjioang.apkr.v2.plugins.sdk.AbstractApkrStaticPlugin;
-import com.zerjioang.apkr.v2.plugins.sdk.PluginAnalysis;
+import org.apache.velocity.Template;
+import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.VelocityEngine;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.io.StringWriter;
 import java.util.*;
 
 /**
@@ -511,34 +514,18 @@ public class ApkrProject implements Serializable {
         }
     }
 
-    public void generateResult() {
-        for(int i=0; i<getUsedAnalyzers().size(); i++){
-            PluginAnalysis analyzer = getUsedAnalyzers().get(i);
-            if(analyzer instanceof PrivacyPlugin){
-
+    public void generateEnumResults() {
+        if (staticInfoPlugins != null && !staticInfoPlugins.isEmpty()) {
+            for (int i = 0; i < staticInfoPlugins.size(); i++) {
+                AbstractApkrStaticPlugin plugin = staticInfoPlugins.get(i);
+                if (plugin instanceof PrivacyPlugin) {
+                    PrivacyPlugin pplug = (PrivacyPlugin) plugin;
+                    privacyResult = pplug.getPrivacyResult();
+                }
             }
-        }
-        try {
-            PrivacyPlugin plugin = new PrivacyPlugin(this);
-            plugin.onPreExecute();
-            plugin.onExecute();
-
-            if (plugin.getSteal() == 0) {
-                privacyResult = PrivacyResultEnum.SAFE;
-            } else if (plugin.getSteal() > 0 && plugin.getComms() == 0) {
-                privacyResult = PrivacyResultEnum.SUSPICIOUS;
-            } else if (plugin.getSteal() > 0 && plugin.getComms() > 0) {
-                privacyResult = PrivacyResultEnum.DATA_LEAK;
-            }
-
-            //TODO overwrite malware values with ML apimodel
-            if (plugin.getInterestingCount() == 0) {
-                malwareResult = MalwareResultEnum.GOODWARE;
-            } else {
-                malwareResult = MalwareResultEnum.MALWARE;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } else {
+            malwareResult = MalwareResultEnum.UNKNOWN;
+            privacyResult = PrivacyResultEnum.UNKNOWN;
         }
     }
 
@@ -646,20 +633,53 @@ public class ApkrProject implements Serializable {
     public void finish() {
         Log.write(LoggerType.TRACE, "apkr project finished");
 
-        //save report .json to file
-        Log.write(LoggerType.TRACE, "Saving report file...");
-        this.generateResult();
+        Log.write(LoggerType.TRACE, "Generating scan results...");
+
+        this.generateEnumResults();
+
+        Log.write(LoggerType.TRACE, "Generating natural description...");
+
         this.writeNaturalReport();
 
+        Log.write(LoggerType.TRACE, "Generating report template...");
+
+        this.generateReportTemplate();
+
+        //stop timer
         this.stop();
 
-        //update analysis metadataFile
+        Log.write(LoggerType.TRACE, "Saving scan results...");
+
+        //update analysis metadata file
         this.updateMetadata();
+
+        //save info as jsons
         this.save();
 
+        //save report as java object
         FileIOHandler.saveProjectReport(this);
 
-        Log.write(LoggerType.TRACE, "Sample scan done");
+        Log.write(LoggerType.TRACE, "Sample analysis done.");
+    }
+
+    private void generateReportTemplate() {
+
+        try {
+            /*  first, get and initialize an engine  */
+            VelocityEngine ve = new VelocityEngine();
+            ve.init();
+            /*  next, get the Template  */
+            Template t = ve.getTemplate("src/main/resources/templates/report.vm", "UTF-8");
+        /*  create a context and add data */
+            VelocityContext context = new VelocityContext();
+            context.put("jsonData", Util.toJson(this).replace("\"", "\\\""));
+            StringWriter writer = new StringWriter();
+            t.merge(context, writer);
+            String data = writer.toString();
+            FileIOHandler.saveFile(FileIOHandler.getReportFolder(getProjectId() + ".html"), data);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean isHeaderReaded() {

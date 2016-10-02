@@ -2,6 +2,7 @@ package com.zerjioang.apkr.v2.plugins.collection.sttc;
 
 import apkr.external.module.datamodel.manifest.*;
 import com.zerjioang.apkr.v1.common.datamodel.base.ApkrProject;
+import com.zerjioang.apkr.v1.common.datamodel.enums.PrivacyResultEnum;
 import com.zerjioang.apkr.v2.plugins.sdk.AbstractApkrStaticPlugin;
 
 import java.util.ArrayList;
@@ -199,8 +200,6 @@ public class PrivacyPlugin extends AbstractApkrStaticPlugin {
 
     private int initialPermissionCount;
     private int interestingCount;
-
-    private boolean positiveMatch;
 
     public PrivacyPlugin() {
         this.risk = 0;
@@ -414,5 +413,16 @@ public class PrivacyPlugin extends AbstractApkrStaticPlugin {
 
     public int getSteal() {
         return steal;
+    }
+
+    public PrivacyResultEnum getPrivacyResult() {
+        if (getSteal() == 0) {
+            return PrivacyResultEnum.SAFE;
+        } else if (getSteal() > 0 && getComms() == 0) {
+            return PrivacyResultEnum.SUSPICIOUS;
+        } else if (getSteal() > 0 && getComms() > 0) {
+            return PrivacyResultEnum.DATA_LEAK;
+        }
+        return PrivacyResultEnum.UNKNOWN;
     }
 }

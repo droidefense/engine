@@ -36,7 +36,9 @@ public enum DirectoryFilter {
         public String getResultName() {
             return ApkrConstants.JAVA_SDK_CLASS_HASHSET_NAME;
         }
-    }, ANDROID_SDK_FILTER {
+    },
+
+    ANDROID_SDK_FILTER {
         @Override
         public boolean filterCondition(File f) {
             return f.getName().endsWith(ApkrConstants.JAVA_EXTENSION);
@@ -58,7 +60,9 @@ public enum DirectoryFilter {
         public String getResultName() {
             return ApkrConstants.ANDROID_SDK_CLASS_HASHSET_NAME;
         }
-    }, ANDROID_SUPPORT_FILTER {
+    },
+
+    ANDROID_SUPPORT_FILTER {
         @Override
         public boolean filterCondition(File f) {
             return f.getName().endsWith(ApkrConstants.JAVA_EXTENSION) && f.getAbsolutePath().contains("/extras/android/support/v");
@@ -83,6 +87,28 @@ public enum DirectoryFilter {
         @Override
         public String getResultName() {
             return ApkrConstants.ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME;
+        }
+    },
+
+    PATH_FILTER {
+        @Override
+        public boolean filterCondition(File f) {
+            return f.getName().endsWith(ApkrConstants.JAVA_EXTENSION);
+        }
+
+        @Override
+        public HashSet<String> saveCondition(HashSet<String> set, ArrayList<ResourceFile> files) {
+            for (ResourceFile r : files) {
+                if (r.getThisFile().getName().endsWith(ApkrConstants.JAVA_EXTENSION)) {
+                    set.add(r.getThisFile().getAbsolutePath());
+                }
+            }
+            return set;
+        }
+
+        @Override
+        public String getResultName() {
+            return "method-names.map";
         }
     };
 

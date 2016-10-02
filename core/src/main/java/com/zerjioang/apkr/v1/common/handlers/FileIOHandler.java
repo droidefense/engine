@@ -35,6 +35,14 @@ public class FileIOHandler {
         return new FileInputStream(ApkrConstants.RESOURCE_FOLDER + File.separator + name);
     }
 
+    public static File getResourceFolder() {
+        return new File(ApkrConstants.RESOURCE_FOLDER);
+    }
+
+    public static File getResourceFolder(String path) {
+        return new File(getResourceFolder().getAbsolutePath() + File.separator + path);
+    }
+
     public static ObjectInputStream getResourceObjectStream(String name) throws NullPointerException, IOException {
         return new ObjectInputStream(getResourceFileInputStream(name));
     }
@@ -282,5 +290,9 @@ public class FileIOHandler {
 
     public static File getModelsDir() {
         return new File(ApkrConstants.MODEL_FOLDER);
+    }
+
+    public static File getReportFolder(String projectId) {
+        return new File(ApkrConstants.STATIC_REPORT_FOLDER + File.separator + projectId);
     }
 }

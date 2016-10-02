@@ -10,9 +10,11 @@ import com.zerjioang.apkr.v2.helpers.enums.ProcessStatus;
 public abstract class AbstractApkrStaticPlugin extends PluginAnalysis {
 
     public void analyze() {
+        //initialize variables
         status = ProcessStatus.WAITING;
         this.timeStamp = new AtomTimeStamp();
         this.positiveMatch = false;
+
         status = ProcessStatus.STARTED;
         //pre execute
         onPreExecute();
@@ -31,8 +33,6 @@ public abstract class AbstractApkrStaticPlugin extends PluginAnalysis {
     protected abstract void onExecute();
 
     protected abstract void postExecute();
-
-    protected abstract String getPluginName();
 
     protected String getResultAsJson() {
         //todo convert the object to json pojo

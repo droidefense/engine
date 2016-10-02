@@ -1,9 +1,12 @@
 package com.zerjioang.apkr.v2.plugins.collection.dynmc;
 
 import com.zerjioang.apkr.v1.common.datamodel.holder.StringAnalysis;
+import com.zerjioang.apkr.v1.common.handlers.FileIOHandler;
 import com.zerjioang.apkr.v1.common.helpers.Util;
 import com.zerjioang.apkr.v2.plugins.sdk.AbstractApkrDynamicPlugin;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -11,11 +14,21 @@ import java.util.HashMap;
  */
 public class StringAnalyzerPlugin extends AbstractApkrDynamicPlugin {
 
+    private static HashMap<String, Integer> methodNames;
     private transient final StringAnalysis stringContent;
     private transient String[] baseList;
 
     public StringAnalyzerPlugin() {
         stringContent = new StringAnalysis();
+        if (methodNames == null) {
+            try {
+                methodNames = (HashMap<String, Integer>) FileIOHandler.readAsRAW(FileIOHandler.getResourceFolder("internal_temp" + File.separator + "method-names-weighted.map"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -46,7 +59,10 @@ public class StringAnalyzerPlugin extends AbstractApkrDynamicPlugin {
                 continue;
             } catch (NumberFormatException e) {
             }
-            if (s.matches("\\d(\\.\\d+)+")) {
+            if (methodNames.get(s) != null) {
+                stringContent.getClassified().put(s, "API Method");
+                stringContent.setMethodName(stringContent.getMethodName() + 1);
+            } else if (s.matches("\\d(\\.\\d+)+")) {
                 stringContent.getClassified().put(s, "Numeric");
                 stringContent.setNumeric(stringContent.getNumeric() + 1);
             } else if (s.matches("[\\|,!,\",@,·,#,$,¢,%,&,¬,/,\\(,\\),=,\\?,',¡,¿,^,`,\\[,\\],´,\\{,¨,\\},;,\\,,\\.,:,-,_,<,>,/,\\*,-,\\+]+")) {
@@ -75,9 +91,6 @@ public class StringAnalyzerPlugin extends AbstractApkrDynamicPlugin {
             } else if (s.matches("([a-zA-Z]{2,}\\s)*[a-zA-Z]{2,}(\\.|,|;|:|!|\\?)?")) {
                 stringContent.getClassified().put(s, "Sentence");
                 stringContent.setSentences(stringContent.getSentences() + 1);
-            } else if (s.matches("[a-zA-Z0-9]{1,2}+")) {
-                stringContent.getClassified().put(s, "Ofuscated");
-                stringContent.setOfuscatedString(stringContent.getOfuscatedString() + 1);
             } else if (s.matches("[a-zA-Z0-9_]+")) {
                 stringContent.getClassified().put(s, "Underscored word");
                 stringContent.setUnderword(stringContent.getUnderword() + 1);
@@ -109,6 +122,9 @@ public class StringAnalyzerPlugin extends AbstractApkrDynamicPlugin {
             } else if (s.matches("^http(s{0,1})://[a-zA-Z0-9_/\\-\\.]+\\.([A-Za-z/]{2,5})[a-zA-Z0-9_/\\&\\?\\=\\-\\.\\~\\%]*")) {
                 stringContent.getClassified().put(s, "webURL");
                 stringContent.setUrl(stringContent.getUrl() + 1);
+            } else if (s.matches("[a-zA-Z0-9]{1,2}+")) {
+                stringContent.getClassified().put(s, "Ofuscated");
+                stringContent.setOfuscatedString(stringContent.getOfuscatedString() + 1);
             } else {
                 stringContent.getClassified().put(s, "unknown");
                 stringContent.setUnknown(stringContent.getUnknown() + 1);

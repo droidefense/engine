@@ -57,7 +57,7 @@ public class TestVelocityConfig {
 
     @Test
     public void test01_getTemplate() throws Exception {
-        t = ve.getTemplate("src/main/resources/helloworld.vm", "UTF-8");
+        t = ve.getTemplate("src/main/resources/templates/helloworld.vm", "UTF-8");
         assertEquals(t != null, true);
     }
 }

@@ -73,7 +73,6 @@ public class ApkrConstants implements Serializable {
         MODEL_FOLDER = (String) configurator.getValue("MODEL_FOLDER");
         STATIC_REPORT_FOLDER = (String) configurator.getValue("STATIC_REPORT_FOLDER");
 
-
         DB_STORAGE = configurator.getValue("DB_STORAGE").equals("true");
         ENGINE_VERSION = (String) configurator.getValue("ENGINE_VERSION");
         DECOMPILE = (String) configurator.getValue("DECOMPILE");

@@ -47,7 +47,7 @@ public class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
                 String pluginName = plugin.getThisFile().getName();
                 if (pluginName.endsWith(ApkrConstants.COMPILED_JAVA_EXTENSION)) {
                     Log.write(LoggerType.TRACE, plugin.getAbsolutePath());
-                    Class aClass = null;
+                    Class aClass;
                     try {
                         ClassLoader classLoader = this.getClass().getClassLoader();
                         aClass = classLoader.loadClass(PLUGIN_PACKAGE_NAME + pluginName.replace(".class", ""));
@@ -56,10 +56,7 @@ public class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
 
                         staticPlugin.setApk(apkFile);
                         staticPlugin.setCurrentProject(currentProject);
-                        //TODO fix this name
-                        //name = staticPlugin.getPluginName();
                         staticPlugin.analyze();
-                        //result = staticPlugin.getResult();
 
                         //add result to currentProject
                         currentProject.addStaticPlugin(staticPlugin);

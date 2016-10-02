@@ -31,6 +31,7 @@ public class StringAnalysis implements Serializable {
     private int numeric;
     private int ofuscatedString;
     private int sentences;
+    private int methodName;
 
     public StringAnalysis() {
     }
@@ -209,5 +210,13 @@ public class StringAnalysis implements Serializable {
 
     public void setSentences(int sentences) {
         this.sentences = sentences;
+    }
+
+    public int getMethodName() {
+        return methodName;
+    }
+
+    public void setMethodName(int methodName) {
+        this.methodName = methodName;
     }
 }

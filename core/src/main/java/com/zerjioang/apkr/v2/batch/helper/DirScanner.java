@@ -32,7 +32,7 @@ public class DirScanner {
             throw new NullPointerException("Filter directive can not be null.");
     }
 
-    public void scan() throws EmptyDataSetException, NoFilesFoundException, IOException {
+    public HashSet<String> scan() throws EmptyDataSetException, NoFilesFoundException, IOException {
 
         Log.write(LoggerType.TRACE, "Reading dir: " + baseDir);
 
@@ -62,5 +62,6 @@ public class DirScanner {
 
         File outputDir = new File(OUT_DIR);
         FileIOHandler.saveAsRAW(set, filter.getResultName(), outputDir);
+        return set;
     }
 }

@@ -17,7 +17,7 @@ public class HelloWorldVelocity {
         VelocityEngine ve = new VelocityEngine();
         ve.init();
         /*  next, get the Template  */
-        Template t = ve.getTemplate("src/main/resources/helloworld.vm", "UTF-8");
+        Template t = ve.getTemplate("src/main/resources/templates/helloworld.vm", "UTF-8");
         /*  create a context and add data */
         VelocityContext context = new VelocityContext();
         context.put("name", "World");
