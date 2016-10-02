@@ -151,13 +151,15 @@ public final class ThreadWorker implements Runnable {
     }
 
     private void defaultErrorMsg() throws IOException {
-        if (errorHtml != null) {
+        /*if (errorHtml != null) {
             this.output.write(("HTTP/1.1 404 ERROR\r\n").getBytes());
             //this.output.write(errorHtml.getBytes());
         } else {
             String data = "File [" + this.requestedResourceName + "] was not found on the http_server\r\n";
             this.output.write(data.getBytes());
         }
+        */
+        this.output.write(("HTTP/1.1 404 ERROR\r\n").getBytes());
     }
 
     private boolean handleResourceRequest(String url) throws IOException {

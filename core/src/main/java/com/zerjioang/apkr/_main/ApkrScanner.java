@@ -41,8 +41,7 @@ public class ApkrScanner {
     }
 
     public static void main(String[] args) throws CertificateException, InvalidScanParametersException {
-        new ApkrScanner(new String[]{FileIOHandler.getBaseDirFile().getParentFile().getAbsolutePath() + File.separator + "temp/sms.demo.apk"});
-        new ApkrScanner(new String[]{FileIOHandler.getBaseDirFile().getParentFile().getAbsolutePath() + File.separator + "temp/sms.demo.with.apk"});
+        new ApkrScanner(new String[]{FileIOHandler.getBaseDirFile().getParentFile().getAbsolutePath() + File.separator + "temp/pornoplayer2.apk"});
     }
 
     public void stop() {

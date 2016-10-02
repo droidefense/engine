@@ -10,7 +10,7 @@ import java.io.Serializable;
 /**
  * Created by sergio on 4/9/16.
  */
-public abstract class PluginAnalysis implements Serializable{
+public abstract class PluginAnalysis implements Serializable {
 
     protected transient ApkrProject currentProject;
     protected boolean positiveMatch;

@@ -1,6 +1,0 @@
-#description: a;
-#author: b;
-#date: c;
-#family: d;
-#variant: e;
-#rule: BroadcastReceiver.onReceive > SmsMessage.getOriginatingAdress and SmsMessage.getMessageBody and SmsMessage.abortBroadcast;

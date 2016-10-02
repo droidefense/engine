@@ -33,10 +33,8 @@ public class DemoJetty {
 
     }
 
-    public static class HelloServlet extends HttpServlet
-    {
-        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-        {
+    public static class HelloServlet extends HttpServlet {
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             response.setContentType("text/html");
             response.setStatus(HttpServletResponse.SC_OK);
             response.getWriter().println("New Hello Simple Servlet");

@@ -16,7 +16,7 @@ public final class ThreadPooledServer implements Runnable {
     private static final int MAX_PORT = 65535;
     private static final int POOL_SIZE = 20;
     private static final int DEFAULT_PORT = 8080;
-    private static final int MINUTES = 30;
+    private static final int MINUTES = 1;
     private final long DEFAULT_LIFETIME = (long) (MINUTES * 60 * 1000);
 
     private int serverPort;
