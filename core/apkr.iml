@@ -13,35 +13,12 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="third-party" level="project" />
     <orderEntry type="library" name="modules" level="project" />
-    <orderEntry type="library" name="Maven: nz.ac.waikato.cms.weka:weka-stable:3.8.0" level="project" />
-    <orderEntry type="library" name="Maven: nz.ac.waikato.cms.weka.thirdparty:java-cup-11b:2015.03.26" level="project" />
-    <orderEntry type="library" name="Maven: nz.ac.waikato.cms.weka.thirdparty:java-cup-11b-runtime:2015.03.26" level="project" />
-    <orderEntry type="library" name="Maven: nz.ac.waikato.cms.weka.thirdparty:bounce:0.18" level="project" />
-    <orderEntry type="library" name="Maven: com.googlecode.matrix-toolkits-java:mtj:1.0.4" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil.netlib:netlib-native_ref-osx-x86_64:natives:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil.netlib:native_ref-java:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil:jniloader:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil.netlib:netlib-native_ref-linux-x86_64:natives:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil.netlib:netlib-native_ref-linux-i686:natives:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil.netlib:netlib-native_ref-win-x86_64:natives:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil.netlib:netlib-native_ref-win-i686:natives:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil.netlib:netlib-native_ref-linux-armhf:natives:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil.netlib:netlib-native_system-osx-x86_64:natives:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil.netlib:native_system-java:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil.netlib:netlib-native_system-linux-x86_64:natives:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil.netlib:netlib-native_system-linux-i686:natives:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil.netlib:netlib-native_system-linux-armhf:natives:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil.netlib:netlib-native_system-win-x86_64:natives:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil.netlib:netlib-native_system-win-i686:natives:1.1" level="project" />
-    <orderEntry type="library" name="Maven: net.sourceforge.f2j:arpack_combined_all:0.1" level="project" />
-    <orderEntry type="library" name="Maven: com.googlecode.netlib-java:netlib-java:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.fommil.netlib:core:1.1" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.7" level="project" />
     <orderEntry type="module-library">
       <library name="Maven: apkr.external.module.manifest:manifest:1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/native/apkr.external.module.manifestparser.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.module.manifestparser.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -50,7 +27,7 @@
     <orderEntry type="module-library">
       <library name="Maven: apkr.external.module.pscout:pscout:1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/native/apkr.external.module.pscout.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.module.pscout.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -59,7 +36,7 @@
     <orderEntry type="module-library">
       <library name="Maven: apkr.external.module.ssdeep:ssdeep:1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/native/apkr.external.module.entropy.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.module.entropy.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -68,7 +45,7 @@
     <orderEntry type="module-library">
       <library name="Maven: apkr.external.module.entropy:entropy:1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/native/apkr.external.module.ssdeep.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.module.ssdeep.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -77,7 +54,7 @@
     <orderEntry type="module-library">
       <library name="Maven: jadx:jadx:1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/third-party/jadx-module.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lib/third-party/jadx-module.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -86,7 +63,43 @@
     <orderEntry type="module-library">
       <library name="Maven: axml:axml:1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/third-party/axml-parser-module.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lib/third-party/axml-parser-module.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.modules.helpers:helpers:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.modules.helpers.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.modules.batch:batch:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.batch.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.modules.ml:ml:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.modules.ml.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.modules.rulengine:rulengine:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.modules.rulengine.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -95,7 +108,7 @@
     <orderEntry type="module-library">
       <library name="Maven: apktool:apktool:1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/third-party/apktool_2.2.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lib/third-party/apktool_2.2.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -104,7 +117,7 @@
     <orderEntry type="module-library">
       <library name="Maven: servlet-api:servlet-api:1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/third-party/javax.servlet-api-3.1.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lib/third-party/javax.servlet-api-3.1.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

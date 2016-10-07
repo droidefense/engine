@@ -16,14 +16,6 @@
 
     <dependencies>
 
-        <!-- http://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/weka-stable -->
-
-        <dependency>
-            <groupId>nz.ac.waikato.cms.weka</groupId>
-            <artifactId>weka-stable</artifactId>
-            <version>3.8.0</version>
-        </dependency>
-
         <!-- log4j dependencies -->
 
         <dependency>
@@ -45,7 +37,7 @@
             <artifactId>manifest</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/native/apkr.external.module.manifestparser.jar</systemPath>
+            <systemPath>${project.basedir}/../lib/native/apkr.external.module.manifestparser.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -53,7 +45,7 @@
             <artifactId>pscout</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/native/apkr.external.module.pscout.jar</systemPath>
+            <systemPath>${project.basedir}/../lib/native/apkr.external.module.pscout.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -61,7 +53,7 @@
             <artifactId>ssdeep</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/native/apkr.external.module.entropy.jar</systemPath>
+            <systemPath>${project.basedir}/../lib/native/apkr.external.module.entropy.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -69,7 +61,7 @@
             <artifactId>entropy</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/native/apkr.external.module.ssdeep.jar</systemPath>
+            <systemPath>${project.basedir}/../lib/native/apkr.external.module.ssdeep.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -77,7 +69,7 @@
             <artifactId>jadx</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/third-party/jadx-module.jar</systemPath>
+            <systemPath>${project.basedir}/../lib/third-party/jadx-module.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -85,7 +77,39 @@
             <artifactId>axml</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/third-party/axml-parser-module.jar</systemPath>
+            <systemPath>${project.basedir}/../lib/third-party/axml-parser-module.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>apkr.external.modules.helpers</groupId>
+            <artifactId>helpers</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../lib/native/apkr.external.modules.helpers.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>apkr.external.modules.batch</groupId>
+            <artifactId>batch</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../lib/native/apkr.external.batch.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>apkr.external.modules.ml</groupId>
+            <artifactId>ml</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../lib/native/apkr.external.modules.ml.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>apkr.external.modules.rulengine</groupId>
+            <artifactId>rulengine</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../lib/native/apkr.external.modules.rulengine.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -93,7 +117,7 @@
             <artifactId>apktool</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/third-party/apktool_2.2.0.jar</systemPath>
+            <systemPath>${project.basedir}/../lib/third-party/apktool_2.2.0.jar</systemPath>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
@@ -102,7 +126,7 @@
             <artifactId>servlet-api</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/third-party/javax.servlet-api-3.1.0.jar</systemPath>
+            <systemPath>${project.basedir}/../lib/third-party/javax.servlet-api-3.1.0.jar</systemPath>
         </dependency>
 
         <dependency>

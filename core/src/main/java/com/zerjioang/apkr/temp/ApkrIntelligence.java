@@ -1,21 +1,22 @@
 package com.zerjioang.apkr.temp;
 
-import com.zerjioang.apkr.v1.common.handlers.FileIOHandler;
-import com.zerjioang.apkr.v1.common.helpers.Util;
-import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.generic.IAtomClass;
-import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.base.struct.generic.IAtomMethod;
-import com.zerjioang.apkr.v1.core.analysis.dynmc.machine.reader.DexClassReader;
-import com.zerjioang.apkr.v1.core.cfg.base.AbstractAtomNode;
-import com.zerjioang.apkr.v2.helpers.config.ApkrConstants;
-import com.zerjioang.apkr.v2.helpers.log4j.Log;
-import com.zerjioang.apkr.v2.helpers.log4j.LoggerType;
-import org.jetbrains.annotations.NotNull;
+import apkr.external.modules.controlflow.model.base.AbstractAtomNode;
+import apkr.external.modules.helpers.log4j.Log;
+import apkr.external.modules.helpers.log4j.LoggerType;
+import com.zerjioang.apkr.analysis.dynamicscan.machine.base.struct.generic.IAtomClass;
+import com.zerjioang.apkr.analysis.dynamicscan.machine.base.struct.generic.IAtomMethod;
+import com.zerjioang.apkr.analysis.dynamicscan.machine.reader.DexClassReader;
+import com.zerjioang.apkr.analysis.handlers.FileIOHandler;
+import com.zerjioang.apkr.sdk.helpers.ApkrConstants;
+import com.zerjioang.apkr.sdk.helpers.Util;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.HashSet;
+
+import static apkr.external.modules.controlflow.model.NodeCalculator.nodeTypeResolver;
 
 /**
  * Created by sergio on 3/2/16.
@@ -85,8 +86,6 @@ public class ApkrIntelligence implements Serializable {
         return instance;
     }
 
-    //CLASS METHODS
-
     public boolean isAndroidNative(String name) {
         if (androidClassList == null)
             return false;
@@ -152,14 +151,6 @@ public class ApkrIntelligence implements Serializable {
                 || className.equals("android.app.Activity");
     }
 
-    public String getPredictedStringClass(String content) {
-        String category = null;
-        if (category == null)
-            return DEFAULT_NAIVE_BAYES_RESULT;
-        return category;
-    }
-
-    @NotNull
     private String cleanClassName(String name) {
         name = name.replace("/", ".");
         int idx = name.indexOf("$");
@@ -172,6 +163,13 @@ public class ApkrIntelligence implements Serializable {
         className = cleanClassName(className);
         //todo falta comprobar si un developer puede crear una clase con el nombre BuilConfig.java
         return className.endsWith(".BuildConfig");
+    }
+
+    public String getPredictedStringClass(String content) {
+        String category = null;
+        if (category == null)
+            return DEFAULT_NAIVE_BAYES_RESULT;
+        return category;
     }
 
     public String classifyNode(IAtomMethod method, String fullClassName, String methodName) {
@@ -196,17 +194,6 @@ public class ApkrIntelligence implements Serializable {
             } else {
                 return nodeTypeResolver(sc);
             }
-        }
-    }
-
-    @NotNull
-    private String nodeTypeResolver(String sc) {
-        if (sc.equals("java/lang/Object")) {
-            return "Developer | Generic";
-        } else if (sc.equals("android/database/sqlite/SQLiteOpenHelper")) {
-            return "Developer | Database";
-        } else {
-            return "Developer | " + Util.getClassNameForFullPath(sc);
         }
     }
 
