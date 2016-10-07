@@ -3,9 +3,10 @@
 [![Build Status](https://travis-ci.org/apkr/apkr.svg?branch=master)](https://travis-ci.org/apkr/apkr)
 [![Coverage Status](https://coveralls.io/repos/github/apkr/apkr/badge.svg?branch=master)](https://coveralls.io/github/apkr/apkr?branch=master)
 
+## First release coming soon
 
 <p align="center">
-<img src ="https://avatars1.githubusercontent.com/u/22367829?v=3&s=200" />
+<img src ="https://raw.githubusercontent.com/apkr/apkr/master/banner/report-template.png" />
 </p>
 
 #What apkr is
@@ -13,12 +14,6 @@
 <b>apkr</b> (originally named atom: <b>a</b>nalysis <b>t</b>hrough <b>o</b>bservation <b>m</b>achine)* is the codename for android apps/malware analysis/reversing tool. It was built focused on security issues and tricks that malware researcher have on they every day work. For those situations on where the malware has <b>anti-analysis</b> routines, apkr attemps to bypass them in order to get to the code and 'bad boy' routine. Sometimes those techniques can be virtual machine detection, emulator detection, self certificate checking, pipes detection. tracer pid check, and so on.
 
 <b>apkr</b> uses an innovative idea in where the code is not decompiled rather than viewed. This allow us to get the global view of the execution workflow of the code with a 100% accuracy on gathered information. With this situation, <b>apkr</b> generates a fancy <b>html</b> report with the results for an easy understanding.
-</p>
-
-## First release coming soon
-
-<p align="center">
-<img src ="add-later" />
 </p>
 
 # Contribution
