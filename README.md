@@ -15,62 +15,11 @@
 <b>apkr</b> uses an innovative idea in where the code is not decompiled rather than viewed. This allow us to get the global view of the execution workflow of the code with a 100% accuracy on gathered information. With this situation, <b>apkr</b> generates a fancy <b>html</b> report with the results for an easy understanding.
 </p>
 
-## Motivation
+## First release coming soon
 
-<p align="justify">
-There is only one reason why someone would spend that kind of money to get malware delivered – because it will pay for itself. The article showed that one specific cybergang’s income from just one flavor of ransomware was almost $400,000 a month.
-This shows a very dangerous combination of facts. Getting malware onto a victim’s computer is worth a lot of money, so people will pay handsomely for new exploits to make that happen. This makes exploits worth a lot of money, so people will be motivated to continue creating them.
+<p align="center">
+<img src ="add-later" />
 </p>
-> Source: http://lightpointsecurity.com/content/the-motivation-behind-malware
-
-#Features
-
-* .apk unpacker
-* .apk file decoder
-* .apk file enumeration
-* .apk file classification and identification
-* resource fuzzing and hashing
-* native code dump
-* signature certificate analysis
-* debug certificate detection
-* simple opcode analysis
-* unused opcode detection
-* androidManifest.xml analysis
-* internal structure analysis
-* dalvik bytecode flow analysis
-* CFG generation
-* simple reflection resolver
-* String classification
-* simulated workflow generation
-* dynamic rules engine
-
-## apkr modules
-
-* PSCout data module
-* Full Android manifest parser, based on official SDK documentation v23.
-* Extensible API for third party plugins module
-* Machine Learning (Weka based) module
-
-## apkr plugins included
-
-* Hidden plain ELF file detector
-* Application UID detector
-* Privacy plugin
-
-# Installation
-
-For installation purposes, it needs
-  * Java SDK
-  * Web browser
-  * Internet Access.
-  * Windows, MAC OS or Linux.
-  * A Brain!
- 
-# Run
-For deploying the server using default port (1234):
-```
-java -jar apkr.jar
-```
 
 # Contribution
 

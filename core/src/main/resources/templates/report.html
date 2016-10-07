@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/img/logo-fav.png">
+    <title>Apkr report</title>
+    <link rel="stylesheet" type="text/css" href="assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/lib/material-design-icons/css/material-design-iconic-font.min.css"/>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="assets/lib/jquery.vectormap/jquery-jvectormap-1.2.2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/lib/jqvmap/jqvmap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css"/>
+  </head>
+  <body>
+    <div class="be-wrapper be-fixed-sidebar">
+      <nav class="navbar navbar-default navbar-fixed-top be-top-header">
+        <div class="container-fluid">
+          <div class="navbar-header"><a href="index.html" class="navbar-brand"></a></div>
+          <div class="be-right-navbar">
+            <div class="page-title"><span>Application report</span></div>
+          </div>
+        </div>
+      </nav>
+      <div class="be-left-sidebar">
+        <div class="left-sidebar-wrapper"><a href="#" class="left-sidebar-toggle">Application scan</a>
+          <div class="left-sidebar-spacer">
+            <div class="left-sidebar-scroll">
+              <div class="left-sidebar-content">
+                <ul class="sidebar-elements">
+                  <li class="divider">REPORT</li>
+                  <li class="active"><a id="dashboard" href="#dashboard"><i class="icon mdi mdi-home"></i><span>Dashboard</span></a>
+                  <li><a id="sample-info" href="#sample-info"><i class="icon mdi mdi-file"></i><span>Sample information</span></a>
+                  </li>
+                  <li class="parent"><a href="#"><i class="icon mdi mdi-android"></i><span>Internal detail</span></a>
+                    <ul class="sub-menu">
+                      <li><a id="analysis" href="#analysis">Analysis summary</a>
+                      </li>
+                      <li><a id="file" href="#file">File content</a>
+                      </li>
+                      <li><a id="certificate" href="#certificate">Certificate</a>
+                      </li>
+                      <li><a id="manifest" href="#manifest">Manifest</a>
+                      </li>
+                      <li><a id="resources" href="#resources">Resources</a>
+                      </li>
+                      <li><a id="structure" href="#structure">Structure</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="parent"><a href="charts.html"><i class="icon mdi mdi-code"></i><span>App Logic</span></a>
+                    <ul class="sub-menu">
+                      <li><a id="dex-header" href="#dex-header">.dex header</a>
+                      </li>
+                      <li><a id="dex-body" href="#dex-body">.dex body</a>
+                    </ul>
+                  </li>
+                  <li><a id="strings" href="#strings"><i class="icon mdi mdi-print"></i><span>Hardcoded Strings</span></a>
+                  </li>
+                  <li><a id="plugins" href="#plugins"><i class="icon mdi mdi-card-sd"></i><span>Plugins</span></a>
+                  </li>
+                  <li><a id="cfg" href="#cfg"><i class="icon mdi mdi-phone"></i><span>Call flows</span></a>
+                  </li>
+                  <li><a id="behaviour" href="#behaviour"><i class="icon mdi mdi-border-all"></i><span>Behaviour</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="progress-widget">
+            <div class="progress-data"><span class="progress-value">100%</span><span class="name">Scan finished</span></div>
+            <div class="progress">
+              <div style="width: 100%;" class="progress-bar progress-bar-primary"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="be-content">
+        <div class="main-content container-fluid">
+          <div id="common-view">
+            <div class="row">
+              <div class="col-xs-12 col-md-12 col-lg-12" style="display: -webkit-inline-box;"> 
+                <div style="display: flex;vertical-align: middle;text-align: -webkit-center;">
+                  <img style="width: 100px;height: 100px;margin: auto;" src="data:image/png;base64,$app_logo_base_64">
+                </div>
+                <div style="margin: 10px;">
+                  <h2>$app_name</h2>
+                  <h3>$package_name</h3>
+                  <h5>$sha_256</h5>
+                  <h5>$app_size</h5> 
+                </div>
+              </div>
+            </div><!--row-->
+          </div>
+
+          <div id="dashboard-view">
+            <div class="row">
+              <div class="col-xs-12 col-md-6 col-lg-6">
+                <h3>Privacy result</h3>
+                <div role="alert" class="alert alert-contrast alert-success">
+                    <div class="icon"><span class="mdi mdi-check"></span>
+                    </div>
+                    <div class="message">
+                      <button type="button" data-dismiss="alert" aria-label="Close" class="close"><span aria-hidden="true" class="mdi mdi-close"></span></button><strong>Good!</strong> Better check yourself, you're not looking too good.
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-xs-12 col-md-6 col-lg-6">
+                <h3>Antivirus result</h3>
+                <div role="alert" class="alert alert-contrast alert-success">
+                  <div class="icon"><span class="mdi mdi-check"></span>
+                  </div>
+                  <div class="message">
+                    <button type="button" data-dismiss="alert" aria-label="Close" class="close"><span aria-hidden="true" class="mdi mdi-close"></span></button><strong>Good!</strong> Better check yourself, you're not looking too good.
+                  </div>
+                </div>
+              </div>
+            </div> <!--row -->
+
+            <div class="row">
+              <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="widget widget-tile">
+                  <div id="spark1" class="chart sparkline"></div>
+                  <div class="data-info">
+                    <div class="desc">Permissions</div>
+                    <div class="value"><span class="indicator indicator-equal mdi mdi-chevron-right"></span><span data-toggle="counter" data-end="$total_permissions" class="number">$total_permissions</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="widget widget-tile">
+                  <div id="spark2" class="chart sparkline"></div>
+                  <div class="data-info">
+                    <div class="desc">Matched rules</div>
+                    <div class="value"><span class="indicator indicator-positive mdi mdi-chevron-up"></span><span data-toggle="counter" data-end="$matched_rules" data-suffix=" rules" class="number">$matched_rules</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="widget widget-tile">
+                  <div id="spark3" class="chart sparkline"></div>
+                  <div class="data-info">
+                    <div class="desc">Goodware indicators</div>
+                    <div class="value"><span class="indicator indicator-positive mdi mdi-chevron-up"></span><span data-toggle="counter" data-end="$goodware" class="number">$goodware</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="widget widget-tile">
+                  <div id="spark4" class="chart sparkline"></div>
+                  <div class="data-info">
+                    <div class="desc">Malware indicators</div>
+                    <div class="value"><span class="indicator indicator-negative mdi mdi-chevron-down"></span><span data-toggle="counter" data-end="$malware" class="number">$malware</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!--row -->
+
+            <div class="row">
+              <div class="col-md-12 col-md-12 col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading panel-heading-divider xs-pb-15">Expert info
+                    </div>
+                    <div class="panel-body">
+                      $expert_info
+                    </div>
+                </div>
+              </div>
+            </div><!-- row -->
+          </div>
+
+          <div id="sample-information-view">
+            <div class="row">
+              <div class="col-xs-12 col-md-12 col-lg-12">
+                <div class="panel panel-default panel-table">
+                  <div class="box">
+                      <div class="panel-heading">
+                          <h3 class="box-title">Sample information</h3>
+                      </div>
+                      <!-- /.box-header -->
+                      <div class="panel-body">
+                          <table class="table table-hover">
+                              <tbody>
+                              <tr>
+                                  <th>Filename</th>
+                                  <td id="friendly-sample-info-filename"></td>
+                              </tr>
+                              <tr>
+                                  <th>Size</th>
+                                  <td id="friendly-sample-info-size"></td>
+                              </tr>
+                              <tr>
+                                  <th>CRC32</th>
+                                  <td id="friendly-sample-info-crc32"></td>
+                              </tr>
+                              <tr>
+                                  <th>MD5</th>
+                                  <td id="friendly-sample-info-md5"></td>
+                              </tr>
+                              <tr>
+                                  <th>Sha1</th>
+                                  <td id="friendly-sample-info-sha1"></td>
+                              </tr>
+                              <tr>
+                                  <th>Sha256</th>
+                                  <td id="friendly-sample-info-sha256"></td>
+                              </tr>
+                              <tr>
+                                  <th>Sha512</th>
+                                  <td id="friendly-sample-info-sha512"></td>
+                              </tr>
+                              <tr>
+                                  <th>SSDeep</th>
+                                  <td id="friendly-sample-info-ssdeep"></td>
+                              </tr>
+                              <tr>
+                                  <th>File type</th>
+                                  <td id="friendly-sample-info-type">Android</td>
+                              </tr>
+                              <tr>
+                                  <th>Magic Literal</th>
+                                  <td id="friendly-sample-info-magic">Zip archive data, at least v2.0 to
+                                      extract
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th>Tags</th>
+                                  <td><span class="badge bg-blue">.apk</span> <span class="badge bg-blue">android</span>
+                                  </td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                      <!-- /.box-body -->
+                  </div>
+                  <!-- /.box -->
+              </div>
+              </div>
+            </div> <!--row -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <script src="assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/main.js" type="text/javascript"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/lib/jquery-flot/jquery.flot.js" type="text/javascript"></script>
+    <script src="assets/lib/jquery-flot/jquery.flot.pie.js" type="text/javascript"></script>
+    <script src="assets/lib/jquery-flot/jquery.flot.resize.js" type="text/javascript"></script>
+    <script src="assets/lib/jquery-flot/plugins/jquery.flot.orderBars.js" type="text/javascript"></script>
+    <script src="assets/lib/jquery-flot/plugins/curvedLines.js" type="text/javascript"></script>
+    <script src="assets/lib/jquery.sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+    <script src="assets/lib/countup/countUp.min.js" type="text/javascript"></script>
+    <script src="assets/lib/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="assets/lib/jqvmap/jquery.vmap.min.js" type="text/javascript"></script>
+    <script src="assets/lib/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        //initialize the javascript
+        App.init();
+        App.dashboard();
+      
+      });
+    </script>
+
+    <script type="text/javascript">
+      //eventos de la barra lateral izquierda
+      $('#dashboard').on('click',function(e){
+        alert("show dashboard");
+      });
+
+      //sample information section
+      $('#sample-info').on('click',function(e){
+        alert("show sample info");
+      });
+
+      $('#analysis').on('click',function(e){
+        alert("show analysis");
+      });
+      $('#file').on('click',function(e){
+        alert("show file");
+      });
+      $('#certificate').on('click',function(e){
+        alert("show certificate");
+      });
+      $('#manifest').on('click',function(e){
+        alert("show manifest");
+      });
+      $('#resources').on('click',function(e){
+        alert("show resource");
+      });
+      $('#structure').on('click',function(e){
+        alert("show structure");
+      });
+
+      //internal details
+
+      //app logic
+      $('#dex-header').on('click',function(e){
+        alert("show dex header");
+      });
+      $('#dex-body').on('click',function(e){
+        alert("show dex body");
+      });
+
+      //strings
+      $('#strings').on('click',function(e){
+        alert("show strings");
+      });
+
+      //plugins
+      $('#plugins').on('click',function(e){
+        alert("show plugins");
+      });
+
+      //cfg
+      $('#cfg').on('click',function(e){
+        alert("show cfg");
+      });
+
+      //behaviour
+      $('#behaviour').on('click',function(e){
+        alert("show behaviour");
+      });
+    </script>
+
+    <footer>
+      
+    </footer>
+  </body>
+</html>

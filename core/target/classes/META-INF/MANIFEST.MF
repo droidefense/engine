@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Main-Class: com.zerjioang.apkr.v1.httpserver.ApkrServer
-Entry-Point: com.zerjioang.apkr.v1.httpserver.ApkrServer
+Main-Class: com.zerjioang.apkr.http.ApkrServer
+Entry-Point: com.zerjioang.apkr.http.ApkrServer
 Created-By: @zerjioang
 Application-Name: Apkr scanner
