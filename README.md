@@ -2,6 +2,8 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/e1o3djbyvgo7m5u0?svg=true)](https://ci.appveyor.com/project/zerjioang/apkr)
 [![Build Status](https://travis-ci.org/apkr/apkr.svg?branch=master)](https://travis-ci.org/apkr/apkr)
 [![Coverage Status](https://coveralls.io/repos/github/apkr/apkr/badge.svg?branch=master)](https://coveralls.io/github/apkr/apkr?branch=master)
+[![Join the chat at https://gitter.im/apkr/Lobby](https://badges.gitter.im/apkr/apkr.svg)](https://gitter.im/apkr/Lobby)
+[![License](http://img.shields.io/:license-gpl3-blue.svg)](https://raw.githubusercontent.com/apkr/apkr/master/LICENSE)
 
 ## First release coming soon
 
@@ -24,6 +26,7 @@ To support this project you can:
   - Submit bug using one of following ways:
     * Error stacktrace string and log files.
     * Error log and link to public available apk file.
+  - Do NOT forget to fullfil [issue template](https://github.com/apkr/apkr/blob/master/.github/ISSUE_TEMPLATE.md)
   
 And any other comments will be very appreciate.
 
