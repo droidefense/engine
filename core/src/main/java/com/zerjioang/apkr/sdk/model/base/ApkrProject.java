@@ -1,6 +1,5 @@
 package com.zerjioang.apkr.sdk.model.base;
 
-
 import apkr.external.module.datamodel.manifest.Manifest;
 import apkr.external.module.datamodel.manifest.UsesPermission;
 import apkr.external.module.datamodel.manifest.base.AbstractManifestClass;
@@ -10,18 +9,13 @@ import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import apkr.external.modules.ml.MachineLearningResult;
 import apkr.external.modules.rulengine.Rule;
-import com.zerjioang.apkr.analysis.dynamicscan.machine.base.struct.generic.IAtomClass;
-import com.zerjioang.apkr.analysis.dynamicscan.machine.reader.DexClassReader;
-import com.zerjioang.apkr.analysis.dynamicscan.machine.reader.DexHeaderReader;
-import com.zerjioang.apkr.analysis.handlers.FileIOHandler;
-import com.zerjioang.apkr.analysis.staticscan.handlers.DirScannerFilter;
-import com.zerjioang.apkr.analysis.staticscan.handlers.DirScannerHandler;
-import com.zerjioang.apkr.analysis.task.base.AbstractAndroidAnalysis;
-import com.zerjioang.apkr.http.apimodel.HashChecking;
+import com.zerjioang.apkr.analysis.base.AbstractAndroidAnalysis;
+import com.zerjioang.apkr.handler.DirScannerHandler;
+import com.zerjioang.apkr.handler.FileIOHandler;
+import com.zerjioang.apkr.handler.base.DirScannerFilter;
 import com.zerjioang.apkr.sdk.AbstractApkrDynamicPlugin;
 import com.zerjioang.apkr.sdk.AbstractApkrStaticPlugin;
 import com.zerjioang.apkr.sdk.helpers.ApkrConstants;
-import com.zerjioang.apkr.sdk.helpers.DexFileStatistics;
 import com.zerjioang.apkr.sdk.helpers.Util;
 import com.zerjioang.apkr.sdk.model.certificate.CertificateModel;
 import com.zerjioang.apkr.sdk.model.dex.OpcodeInformation;
@@ -41,7 +35,10 @@ import java.io.Serializable;
 import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by sergio on 16/2/16.
@@ -102,7 +99,7 @@ public class ApkrProject implements Serializable {
     /**
      * Dex file basic counting statistics
      */
-    private DexFileStatistics statistics;
+    //private DexFileStatistics statistics;
 
     /**
      * Result of opcode data
@@ -121,7 +118,7 @@ public class ApkrProject implements Serializable {
     private transient AbstractFlowMap followCallsMap;
     private MachineLearningResult machineLearningResult;
     private transient boolean headerReaded;
-    private transient DexHeaderReader dexHeaderReader;
+    //private transient DexHeaderReader dexHeaderReader;
 
     public ApkrProject(final APKFile file) {
         //create new timestamp now
@@ -421,6 +418,7 @@ public class ApkrProject implements Serializable {
         this.internalInfo.setLinkOffset(link_offset);
     }
 
+    /*
     public void addDexClass(String name, IAtomClass newClass) {
     }
 
@@ -428,6 +426,7 @@ public class ApkrProject implements Serializable {
         //return this.internalInfo.getListClasses();
         return new IAtomClass[0];
     }
+    */
 
     public void setEntryPoints(ArrayList<AbstractManifestClass> entryArray) {
         this.internalInfo.setEntryPoints(entryArray);
@@ -447,6 +446,8 @@ public class ApkrProject implements Serializable {
         this.staticInfo.setDexFileReaded(b);
     }
 
+    /*
+
     public boolean hasDexClass(String name) {
         return this.internalInfo.hasDexClass(name);
     }
@@ -463,6 +464,7 @@ public class ApkrProject implements Serializable {
     public void setDynamicEntryPoints(IAtomClass[] entryArray) {
         this.internalInfo.setDynamicEntryPoints(entryArray);
     }
+    */
 
     public void setOpCodesCount(int[] codes) {
         this.opcodeInfo.setOpcodesCount(codes);
@@ -474,8 +476,9 @@ public class ApkrProject implements Serializable {
 
     public void updateMetadata() {
         //save metadata info
-        try {
+        //try {
             File meta = new File(FileIOHandler.getUnpackOutputFile().getAbsolutePath() + File.separator + getSourceFile().getSha256() + File.separator + ApkrConstants.ANALYSIS_METADATA_FILE);
+            /*
             if (!meta.exists()) {
                 HashChecking hc = new HashChecking(getSourceFile().getSha256());
                 hc.setDate(new Date(System.currentTimeMillis()));
@@ -493,11 +496,14 @@ public class ApkrProject implements Serializable {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        */
     }
 
+    /*
     public void addDexFileStatistics(DexFileStatistics statistics) {
-        this.statistics = statistics;
+            this.statistics = statistics;
     }
+    */
 
     public void save() {
         try {
@@ -739,6 +745,7 @@ public class ApkrProject implements Serializable {
         this.headerReaded = headerReaded;
     }
 
+    /*
     public DexHeaderReader getDexHeaderReader() {
         return dexHeaderReader;
     }
@@ -746,7 +753,7 @@ public class ApkrProject implements Serializable {
     public void setDexHeaderReader(DexHeaderReader dexHeaderReader) {
         this.dexHeaderReader = dexHeaderReader;
     }
-
+    */
     public String getSummary() {
         return summary;
     }

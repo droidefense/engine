@@ -4,9 +4,9 @@ import apkr.external.module.batch.exception.EmptyDataSetException;
 import apkr.external.module.batch.exception.NoFilesFoundException;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
-import com.zerjioang.apkr.analysis.handlers.FileIOHandler;
-import com.zerjioang.apkr.analysis.staticscan.handlers.DirScannerFilter;
-import com.zerjioang.apkr.analysis.staticscan.handlers.DirScannerHandler;
+import com.zerjioang.apkr.handler.DirScannerHandler;
+import com.zerjioang.apkr.handler.FileIOHandler;
+import com.zerjioang.apkr.handler.base.DirScannerFilter;
 import com.zerjioang.apkr.sdk.model.base.ApkrFile;
 
 import java.io.File;

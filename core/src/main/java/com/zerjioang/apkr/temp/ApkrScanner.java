@@ -2,10 +2,10 @@ package com.zerjioang.apkr.temp;
 
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
-import com.zerjioang.apkr.analysis.AnalysisFactory;
-import com.zerjioang.apkr.analysis.handlers.FileIOHandler;
-import com.zerjioang.apkr.analysis.task.base.AbstractAndroidAnalysis;
+import com.zerjioang.apkr.analysis.base.AbstractAndroidAnalysis;
+import com.zerjioang.apkr.analysis.base.AnalysisFactory;
 import com.zerjioang.apkr.exception.InvalidScanParametersException;
+import com.zerjioang.apkr.handler.FileIOHandler;
 import com.zerjioang.apkr.sdk.helpers.ApkrConstants;
 import com.zerjioang.apkr.sdk.model.base.APKFile;
 import com.zerjioang.apkr.sdk.model.base.ApkrProject;

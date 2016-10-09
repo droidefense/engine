@@ -24,7 +24,7 @@ public class TestVelocityConfig {
 
     @Before
     public void setUp() {
-        /*  first, get and initialize an engine  */
+        /*  first, get and initialize an om  */
         ve = new VelocityEngine();
     }
 

@@ -2,7 +2,7 @@ package com.zerjioang.apkr.sdk;
 
 
 import apkr.external.modules.helpers.enums.ProcessStatus;
-import com.zerjioang.apkr.analysis.task.base.PluginAnalysis;
+import com.zerjioang.apkr.analysis.base.PluginAnalysis;
 import com.zerjioang.apkr.sdk.model.base.ApkrProject;
 import com.zerjioang.apkr.sdk.model.base.AtomTimeStamp;
 

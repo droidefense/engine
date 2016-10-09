@@ -1,11 +1,10 @@
 package com.zerjioang.apkr.sdk.model.holder;
 
 import apkr.external.module.datamodel.manifest.base.AbstractManifestClass;
-import com.zerjioang.apkr.analysis.dynamicscan.machine.base.struct.generic.IAtomClass;
-import com.zerjioang.apkr.analysis.dynamicscan.machine.reader.DexClassReader;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by sergio on 18/2/16.
@@ -32,15 +31,15 @@ public class InternalInfo implements Serializable {
     private byte[] linkSize;
     private byte[] linkOffset;
 
-    private transient Map<String, IAtomClass> dexClasses;
+    //private transient Map<String, IAtomClass> dexClasses;
 
     //entry points
     private transient ArrayList<AbstractManifestClass> entryPoints;
-    private transient IAtomClass[] dynamicEntryPoints;
+    //private transient IAtomClass[] dynamicEntryPoints;
 
     public InternalInfo() {
         //init data structures
-        dexClasses = new Hashtable<>();
+        //dexClasses = new Hashtable<>();
         entryPoints = new ArrayList<>();
     }
 
@@ -201,6 +200,7 @@ public class InternalInfo implements Serializable {
         this.linkOffset = linkOffset;
     }
 
+    /*
     public void addClass(String name, IAtomClass newClass) {
         this.dexClasses.put(name, newClass);
     }
@@ -246,6 +246,7 @@ public class InternalInfo implements Serializable {
         this.dynamicEntryPoints = dynamicEntryPoints;
     }
 
+    */
     public ArrayList<AbstractManifestClass> getEntryPoints() {
         return entryPoints;
     }

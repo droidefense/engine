@@ -3,20 +3,14 @@ package com.zerjioang.apkr.temp;
 import apkr.external.modules.controlflow.model.base.AbstractAtomNode;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
-import com.zerjioang.apkr.analysis.dynamicscan.machine.base.struct.generic.IAtomClass;
-import com.zerjioang.apkr.analysis.dynamicscan.machine.base.struct.generic.IAtomMethod;
-import com.zerjioang.apkr.analysis.dynamicscan.machine.reader.DexClassReader;
-import com.zerjioang.apkr.analysis.handlers.FileIOHandler;
+import com.zerjioang.apkr.handler.FileIOHandler;
 import com.zerjioang.apkr.sdk.helpers.ApkrConstants;
-import com.zerjioang.apkr.sdk.helpers.Util;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.HashSet;
-
-import static apkr.external.modules.controlflow.model.NodeCalculator.nodeTypeResolver;
 
 /**
  * Created by sergio on 3/2/16.
@@ -172,31 +166,6 @@ public class ApkrIntelligence implements Serializable {
         return category;
     }
 
-    public String classifyNode(IAtomMethod method, String fullClassName, String methodName) {
-
-        if (isAndroidNative(fullClassName)) {
-            return "Android | SDK";
-        }
-        boolean innerClass = fullClassName.contains("$");
-
-        if (innerClass) {
-            return "Developer | InnerClass";
-        } else {
-
-            IAtomClass owner = method.getOwnerClass();
-            String sc;
-            sc = owner.getSuperClass();
-
-            if (owner.isFake()) {
-                //set the type of holding class
-                IAtomClass cls = DexClassReader.getInstance().load(owner.getName());
-                return nodeTypeResolver(cls.getSuperClass());
-            } else {
-                return nodeTypeResolver(sc);
-            }
-        }
-    }
-
     //http://www.graphviz.org/doc/info/colors.html
     public String classifyNodeColor(String fullClassName, String methodName, AbstractAtomNode node) {
         boolean innerClass = fullClassName.contains("$");
@@ -226,6 +195,33 @@ public class ApkrIntelligence implements Serializable {
         }
     }
 
+    //TODO enable when om added
+    /*
+    public String classifyNode(IAtomMethod method, String fullClassName, String methodName) {
+
+        if (isAndroidNative(fullClassName)) {
+            return "Android | SDK";
+        }
+        boolean innerClass = fullClassName.contains("$");
+
+        if (innerClass) {
+            return "Developer | InnerClass";
+        } else {
+
+            IAtomClass owner = method.getOwnerClass();
+            String sc;
+            sc = owner.getSuperClass();
+
+            if (owner.isFake()) {
+                //set the type of holding class
+                IAtomClass cls = DexClassReader.getInstance().load(owner.getName());
+                return nodeTypeResolver(cls.getSuperClass());
+            } else {
+                return nodeTypeResolver(sc);
+            }
+        }
+    }
+
     public String getSimpleNodeType(IAtomMethod method) {
         IAtomClass owner = method.getOwnerClass();
         String sc;
@@ -239,4 +235,5 @@ public class ApkrIntelligence implements Serializable {
             return Util.getClassNameForFullPath(sc);
         }
     }
+    */
 }

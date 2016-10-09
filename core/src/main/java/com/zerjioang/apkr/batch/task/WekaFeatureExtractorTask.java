@@ -7,12 +7,12 @@ import apkr.external.module.batch.base.IWekaGenerator;
 import apkr.external.module.datamodel.manifest.UsesPermission;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
-import com.zerjioang.apkr.analysis.handlers.FileIOHandler;
-import com.zerjioang.apkr.analysis.handlers.base.AbstractHandler;
-import com.zerjioang.apkr.analysis.staticscan.handlers.AXMLDecoderHandler;
-import com.zerjioang.apkr.analysis.staticscan.handlers.DirScannerFilter;
-import com.zerjioang.apkr.analysis.staticscan.handlers.DirScannerHandler;
-import com.zerjioang.apkr.analysis.staticscan.handlers.FileUnzipHandler;
+import com.zerjioang.apkr.handler.AXMLDecoderHandler;
+import com.zerjioang.apkr.handler.DirScannerHandler;
+import com.zerjioang.apkr.handler.FileIOHandler;
+import com.zerjioang.apkr.handler.FileUnzipHandler;
+import com.zerjioang.apkr.handler.base.AbstractHandler;
+import com.zerjioang.apkr.handler.base.DirScannerFilter;
 import com.zerjioang.apkr.sdk.helpers.ApkrConstants;
 import com.zerjioang.apkr.sdk.model.base.ApkrFile;
 

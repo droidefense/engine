@@ -13,7 +13,7 @@ import java.io.StringWriter;
 public class HelloWorldVelocity {
 
     public static void main(String[] args) throws Exception {
-        /*  first, get and initialize an engine  */
+        /*  first, get and initialize an om  */
         VelocityEngine ve = new VelocityEngine();
         ve.init();
         /*  next, get the Template  */

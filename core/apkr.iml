@@ -106,6 +106,15 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="Maven: apkr.external.modules.vfs:vfs:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.modules.vfs.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="Maven: apktool:apktool:1.0">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../lib/third-party/apktool_2.2.0.jar!/" />

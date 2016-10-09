@@ -113,6 +113,16 @@
         </dependency>
 
         <dependency>
+            <groupId>apkr.external.modules.vfs</groupId>
+            <artifactId>vfs</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../lib/native/apkr.external.modules.vfs.jar</systemPath>
+        </dependency>
+
+        <!-- third party dependencies -->
+
+        <dependency>
             <groupId>apktool</groupId>
             <artifactId>apktool</artifactId>
             <version>1.0</version>
