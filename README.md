@@ -2,10 +2,13 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/e1o3djbyvgo7m5u0?svg=true)](https://ci.appveyor.com/project/zerjioang/apkr)
 [![Build Status](https://travis-ci.org/apkr/apkr.svg?branch=master)](https://travis-ci.org/apkr/apkr)
 [![Coverage Status](https://coveralls.io/repos/github/apkr/apkr/badge.svg?branch=master)](https://coveralls.io/github/apkr/apkr?branch=master)
+[![Join the chat at https://gitter.im/apkr/Lobby](https://badges.gitter.im/apkr/apkr.svg)](https://gitter.im/apkr/Lobby)
+[![License](http://img.shields.io/:license-gpl3-blue.svg)](https://raw.githubusercontent.com/apkr/apkr/master/LICENSE)
 
+## First release coming soon
 
 <p align="center">
-<img src ="https://avatars1.githubusercontent.com/u/22367829?v=3&s=200" />
+<img src ="https://raw.githubusercontent.com/apkr/apkr/master/banner/report-template.png" />
 </p>
 
 #What apkr is
@@ -13,12 +16,6 @@
 <b>apkr</b> (originally named atom: <b>a</b>nalysis <b>t</b>hrough <b>o</b>bservation <b>m</b>achine)* is the codename for android apps/malware analysis/reversing tool. It was built focused on security issues and tricks that malware researcher have on they every day work. For those situations on where the malware has <b>anti-analysis</b> routines, apkr attemps to bypass them in order to get to the code and 'bad boy' routine. Sometimes those techniques can be virtual machine detection, emulator detection, self certificate checking, pipes detection. tracer pid check, and so on.
 
 <b>apkr</b> uses an innovative idea in where the code is not decompiled rather than viewed. This allow us to get the global view of the execution workflow of the code with a 100% accuracy on gathered information. With this situation, <b>apkr</b> generates a fancy <b>html</b> report with the results for an easy understanding.
-</p>
-
-## First release coming soon
-
-<p align="center">
-<img src ="add-later" />
 </p>
 
 # Contribution
@@ -29,6 +26,7 @@ To support this project you can:
   - Submit bug using one of following ways:
     * Error stacktrace string and log files.
     * Error log and link to public available apk file.
+  - Do NOT forget to fullfil [issue template](https://github.com/apkr/apkr/blob/master/.github/ISSUE_TEMPLATE.md)
   
 And any other comments will be very appreciate.
 
