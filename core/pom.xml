@@ -122,6 +122,13 @@
 
         <!-- third party dependencies -->
 
+        <!-- https://mvnrepository.com/artifact/com.beust/jcommander -->
+        <dependency>
+            <groupId>com.beust</groupId>
+            <artifactId>jcommander</artifactId>
+            <version>1.58</version>
+        </dependency>
+
         <dependency>
             <groupId>apktool</groupId>
             <artifactId>apktool</artifactId>

@@ -1,0 +1,142 @@
+2016-10-10 17:24:16 TRACE [main] TRACE:13 - Loading apkr data structs...
+2016-10-10 17:24:16 TRACE [main] TRACE:13 - Java whitelisted dataset length: 7716
+2016-10-10 17:24:17 TRACE [main] TRACE:13 - Android whitelisted dataset length: 11261
+2016-10-10 17:24:17 TRACE [main] TRACE:13 - Android support whitelisted dataset length: 436
+2016-10-10 17:24:17 TRACE [main] TRACE:13 - Data loaded!!
+2016-10-10 17:24:17 TRACE [main] TRACE:13 - Reading .apk from local file
+2016-10-10 17:24:17 TRACE [main] TRACE:13 - Building project
+2016-10-10 17:24:17 TRACE [main] TRACE:13 - Running ApkrScan
+2016-10-10 17:24:17 TRACE [main] TRACE:13 - Project ID:	4C558CD94B2EACFDCF973262721F3872842C4F53DB5D522375A19A05A521EDA0
+2016-10-10 17:24:17 TRACE [main] TRACE:13 - 
+
+ --- Running apkr general scan ---
+
+
+2016-10-10 17:24:17 TRACE [main] TRACE:13 - Unpacking .apk...
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - Listing unpacked files...
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - Files found: 11
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - 
+
+ --- Running Android static analysis ---
+
+
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - Starting OBJDUMP...
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - No files to dump. Process finished!
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - 
+
+ --- Running Android static plugin analysis ---
+
+
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - 
+
+ --- Running apkr dynamic analysis ---
+
+
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - 
+
+ --- Running apkr dynamic plugin analysis ---
+
+
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - 
+
+ --- Running apkr rule om analysis ---
+
+
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - loading om rules
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - 	Current rules: 15
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - 	Preparing to scan...
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - 		Scanning...
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - 	Collecting results...
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - 	Rule scan done
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - 
+
+ --- Running apkr ML analysis ---
+
+
+2016-10-10 17:24:20 TRACE [main] TRACE:13 - Starting WEKA classifier...
+2016-10-10 17:24:21 TRACE [main] TRACE:13 - WEKA classification done!
+2016-10-10 17:24:21 TRACE [main] TRACE:13 - Saving report file...
+2016-10-10 17:24:21 TRACE [main] TRACE:13 - apkr project finished
+2016-10-10 17:24:21 TRACE [main] TRACE:13 - Generating scan results...
+2016-10-10 17:24:21 TRACE [main] TRACE:13 - Generating natural description...
+2016-10-10 17:24:21 TRACE [main] TRACE:13 - Generating report template...
+2016-10-10 17:24:21 TRACE [main] TRACE:13 - Saving scan results...
+2016-10-10 17:24:21 TRACE [main] TRACE:13 - Sample analysis done.
+2016-10-10 17:24:21 TRACE [main] TRACE:13 - apkr scan finished
+2016-10-10 19:30:43 TRACE [main] TRACE:13 - Loading apkr data structs...
+2016-10-10 19:30:44 TRACE [main] TRACE:13 - Java whitelisted dataset length: 7716
+2016-10-10 19:30:44 TRACE [main] TRACE:13 - Android whitelisted dataset length: 11261
+2016-10-10 19:30:44 TRACE [main] TRACE:13 - Android support whitelisted dataset length: 436
+2016-10-10 19:30:44 TRACE [main] TRACE:13 - Data loaded!!
+2016-10-10 19:30:44 TRACE [main] TRACE:13 - Reading .apk from local file
+2016-10-10 19:30:44 TRACE [main] TRACE:13 - Building project
+2016-10-10 19:30:44 TRACE [main] TRACE:13 - Running ApkrScan
+2016-10-10 19:30:44 TRACE [main] TRACE:13 - Project ID:	4C558CD94B2EACFDCF973262721F3872842C4F53DB5D522375A19A05A521EDA0
+2016-10-10 19:30:44 TRACE [main] TRACE:13 - 
+
+ --- Running apkr general scan ---
+
+
+2016-10-10 19:30:44 TRACE [main] TRACE:13 - Unpacking .apk...
+2016-10-10 19:30:54 TRACE [main] TRACE:13 - Listing unpacked files...
+2016-10-10 19:30:54 TRACE [main] TRACE:13 - Files found: 11
+2016-10-10 19:30:54 TRACE [main] TRACE:13 - 
+
+ --- Running Android static analysis ---
+
+
+2016-10-10 19:30:54 TRACE [main] TRACE:13 - Starting OBJDUMP...
+2016-10-10 19:30:54 TRACE [main] TRACE:13 - No files to dump. Process finished!
+2016-10-10 19:30:54 TRACE [main] TRACE:13 - 
+
+ --- Running Android static plugin analysis ---
+
+
+2016-10-10 19:30:54 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-10-10 19:30:54 TRACE [main] TRACE:13 - 
+
+ --- Running apkr dynamic analysis ---
+
+
+2016-10-10 19:30:54 TRACE [main] TRACE:13 - 
+
+ --- Running apkr dynamic plugin analysis ---
+
+
+2016-10-10 19:30:55 TRACE [main] TRACE:13 - 
+--- RUNNING PLUGINS (DONE)---
+
+2016-10-10 19:30:55 TRACE [main] TRACE:13 - 
+
+ --- Running apkr rule om analysis ---
+
+
+2016-10-10 19:30:55 TRACE [main] TRACE:13 - loading om rules
+2016-10-10 19:30:55 TRACE [main] TRACE:13 - 	Current rules: 15
+2016-10-10 19:30:55 TRACE [main] TRACE:13 - 	Preparing to scan...
+2016-10-10 19:30:55 TRACE [main] TRACE:13 - 		Scanning...
+2016-10-10 19:30:55 TRACE [main] TRACE:13 - 	Collecting results...
+2016-10-10 19:30:55 TRACE [main] TRACE:13 - 	Rule scan done
+2016-10-10 19:30:55 TRACE [main] TRACE:13 - 
+
+ --- Running apkr ML analysis ---
+
+
+2016-10-10 19:30:55 TRACE [main] TRACE:13 - Starting WEKA classifier...
+2016-10-10 19:30:56 TRACE [main] TRACE:13 - WEKA classification done!
+2016-10-10 19:30:56 TRACE [main] TRACE:13 - Saving report file...
+2016-10-10 19:30:56 TRACE [main] TRACE:13 - apkr project finished
+2016-10-10 19:30:56 TRACE [main] TRACE:13 - Generating scan results...
+2016-10-10 19:30:56 TRACE [main] TRACE:13 - Generating natural description...
+2016-10-10 19:30:56 TRACE [main] TRACE:13 - Generating report template...
+2016-10-10 19:30:57 TRACE [main] TRACE:13 - Saving scan results...
+2016-10-10 19:30:57 TRACE [main] TRACE:13 - Sample analysis done.
+2016-10-10 19:30:57 TRACE [main] TRACE:13 - apkr scan finished

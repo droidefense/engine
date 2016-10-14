@@ -1,0 +1,47 @@
+2016-10-10 19:30:56,745 - Log4JLogChute initialized using file 'velocity.log'
+2016-10-10 19:30:56,745 - Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+2016-10-10 19:30:56,745 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2016-10-10 19:30:56,745 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2016-10-10 19:30:56,745 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:116)
+	at com.zerjioang.apkr.sdk.model.base.ApkrProject.generateReportTemplate(ApkrProject.java:685)
+	at com.zerjioang.apkr.sdk.model.base.ApkrProject.finish(ApkrProject.java:652)
+	at com.zerjioang.apkr.cli.ApkrScanner.stop(ApkrScanner.java:58)
+	at com.zerjioang.apkr.cli.ApkrScanner.initScan(ApkrScanner.java:84)
+	at com.zerjioang.apkr.cli.ApkrScanner.<init>(ApkrScanner.java:44)
+	at com.zerjioang.apkr.cli.ApkrScanner.main(ApkrScanner.java:52)
+Caused by: java.lang.ClassNotFoundException: org.apache.log.format.Formatter
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	... 15 more
+2016-10-10 19:30:56,760 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-10-10 19:30:56,760 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-10-10 19:30:56,760 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2016-10-10 19:30:56,776 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2016-10-10 19:30:56,776 - Do unicode file recognition:  false
+2016-10-10 19:30:56,776 - FileResourceLoader : adding path '.'
+2016-10-10 19:30:56,807 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2016-10-10 19:30:56,807 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2016-10-10 19:30:56,823 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2016-10-10 19:30:56,823 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2016-10-10 19:30:56,823 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2016-10-10 19:30:56,823 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2016-10-10 19:30:56,917 - Created '20' parsers.
+2016-10-10 19:30:56,932 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2016-10-10 19:30:56,932 - Velocimacro : Default library not found.
+2016-10-10 19:30:56,932 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2016-10-10 19:30:56,932 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2016-10-10 19:30:56,932 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2016-10-10 19:30:56,932 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2016-10-10 19:30:56,932 - ResourceManager : unable to find resource 'src/main/resources/templates/report.html' in any resource loader.

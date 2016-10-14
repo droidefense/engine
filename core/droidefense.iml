@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="third-party" level="project" />
+    <orderEntry type="library" name="modules" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.7" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.module.manifest:manifest:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.module.manifestparser.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.module.pscout:pscout:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.module.pscout.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.module.ssdeep:ssdeep:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.module.entropy.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.module.entropy:entropy:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.module.ssdeep.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: jadx:jadx:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/third-party/jadx-module.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: axml:axml:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/third-party/axml-parser-module.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.modules.helpers:helpers:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.modules.helpers.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.modules.batch:batch:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.batch.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.modules.ml:ml:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.modules.ml.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.modules.rulengine:rulengine:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.modules.rulengine.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: apkr.external.modules.vfs:vfs:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.modules.vfs.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Maven: com.beust:jcommander:1.58" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: apktool:apktool:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/third-party/apktool_2.2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: servlet-api:servlet-api:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/third-party/javax.servlet-api-3.1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-servlet:9.2.19.v20160908" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-security:9.2.19.v20160908" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-server:9.2.19.v20160908" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:9.2.19.v20160908" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-util:9.2.19.v20160908" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:9.2.19.v20160908" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.velocity:velocity:1.5" level="project" />
+    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.1" level="project" />
+    <orderEntry type="library" name="Maven: oro:oro:2.0.8" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
+  </component>
+</module>

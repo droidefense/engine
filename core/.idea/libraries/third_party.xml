@@ -1,13 +1,7 @@
 <component name="libraryTable">
   <library name="third-party">
-    <CLASSES>
-      <root url="file://$PROJECT_DIR$/lib/third-party" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
-    <SOURCES>
-      <root url="file://$PROJECT_DIR$/lib/third-party" />
-    </SOURCES>
-    <jarDirectory url="file://$PROJECT_DIR$/lib/third-party" recursive="false" />
-    <jarDirectory url="file://$PROJECT_DIR$/lib/third-party" recursive="false" type="SOURCES" />
+    <SOURCES />
   </library>
 </component>

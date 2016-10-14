@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/apkr.iml" filepath="$PROJECT_DIR$/apkr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/droidefense.iml" filepath="$PROJECT_DIR$/droidefense.iml" />
     </modules>
   </component>
 </project>
