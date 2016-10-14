@@ -36,15 +36,6 @@ public abstract class AbstractDynamicPlugin extends PluginAnalysis {
 
     protected abstract String getPluginName();
 
-    protected String getResultAsJson() {
-        //todo convert into json
-        return "";
-    }
-
-    protected String getResultAsHTML() {
-        return html;
-    }
-
     public DroidefenseProject getCurrentProject() {
         return currentProject;
     }

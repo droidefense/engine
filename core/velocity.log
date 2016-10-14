@@ -1094,3 +1094,50 @@ Caused by: java.lang.ClassNotFoundException: org.apache.log.format.Formatter
 2016-10-14 13:10:39,901 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
 2016-10-14 13:10:39,901 - Velocimacro : autoload off : VM system will not automatically reload global library macros
 2016-10-14 13:10:39,949 - ResourceManager : found src/main/resources/templates/report.html with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2016-10-14 13:17:37,755 - Log4JLogChute initialized using file 'velocity.log'
+2016-10-14 13:17:37,756 - Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+2016-10-14 13:17:37,756 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2016-10-14 13:17:37,756 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2016-10-14 13:17:37,759 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:348)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:116)
+	at droidefense.sdk.model.base.DroidefenseProject.generateReportTemplate(DroidefenseProject.java:694)
+	at droidefense.sdk.model.base.DroidefenseProject.finish(DroidefenseProject.java:661)
+	at droidefense.cli.DroidefenseScan.stop(DroidefenseScan.java:77)
+	at droidefense.cli.DroidefenseScan.initScan(DroidefenseScan.java:104)
+	at droidefense.cli.DroidefenseScan.<init>(DroidefenseScan.java:50)
+	at droidefense.cli.DroidefenseScan.main(DroidefenseScan.java:62)
+Caused by: java.lang.ClassNotFoundException: org.apache.log.format.Formatter
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 15 more
+2016-10-14 13:17:37,767 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-10-14 13:17:37,768 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2016-10-14 13:17:37,780 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2016-10-14 13:17:37,792 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2016-10-14 13:17:37,831 - Do unicode file recognition:  false
+2016-10-14 13:17:37,831 - FileResourceLoader : adding path '.'
+2016-10-14 13:17:37,920 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2016-10-14 13:17:37,932 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2016-10-14 13:17:37,951 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2016-10-14 13:17:37,959 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2016-10-14 13:17:37,965 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2016-10-14 13:17:37,971 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2016-10-14 13:17:38,220 - Created '20' parsers.
+2016-10-14 13:17:38,251 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2016-10-14 13:17:38,253 - Velocimacro : Default library not found.
+2016-10-14 13:17:38,253 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2016-10-14 13:17:38,253 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2016-10-14 13:17:38,256 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2016-10-14 13:17:38,274 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2016-10-14 13:17:38,410 - ResourceManager : found src/main/resources/templates/report.html with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader

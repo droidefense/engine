@@ -1,37 +1,29 @@
 package droidefense.sdk.model.base;
 
 import apkr.external.modules.helpers.enums.ProcessStatus;
+import droidefense.cli.APKUnpacker;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Created by sergio on 16/2/16.
  */
 public class APKFile extends HashedFile {
 
-    public static final byte APKTOOL = 0x0;
-    public static final byte AXML = 0x1;
-
-    private final byte technique;
+    private final APKUnpacker technique;
     private ProcessStatus status;
 
-    public APKFile(String apkPath, byte apktool) {
-        super(apkPath);
-        if (!this.f.exists())
-            throw new IllegalArgumentException("APK file must exist on specified directory:\n" + apkPath);
-        this.technique = apktool;
-    }
-
-    public APKFile(File f, byte apktool) {
+    public APKFile(File f, APKUnpacker unpacker) {
         super(f);
         if (!this.f.exists())
             throw new IllegalArgumentException("APK file must exist on specified directory:\n" + f.getAbsolutePath());
-        this.technique = apktool;
+        this.technique = unpacker;
     }
 
     //GETTERS AND SETTERS
 
-    public byte getTechnique() {
+    public APKUnpacker getTechnique() {
         return technique;
     }
 
@@ -41,5 +33,9 @@ public class APKFile extends HashedFile {
 
     public void setStatus(ProcessStatus status) {
         this.status = status;
+    }
+
+    public ArrayList<HashedFile> unpackWithTechnique(File outputDir, DroidefenseProject currentProject) {
+        return this.technique.unpackWithTechnique(currentProject, this, outputDir);
     }
 }

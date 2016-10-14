@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 public class FileScan {
 
     public static void main(String[] args) throws IOException, EmptyDataSetException, NoFilesFoundException {
-        String sources = "C:\\Users\\.local\\Documents\\projects\\apkr\\apkr-no-git\\apkr-needs\\android-5.1.1_r1-sources";
+        String sources = "..\\android-5.1.1_r1-sources";
         String support = "/android/support";
         String java = "/temp/jdk8";
 

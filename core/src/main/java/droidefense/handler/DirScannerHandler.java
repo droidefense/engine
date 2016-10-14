@@ -28,6 +28,7 @@ public class DirScannerHandler extends AbstractHandler {
         this.outputDir = outputDir;
         this.generateInformation = generateInformation;
         this.filter = filter;
+        files = new ArrayList<>();
     }
 
     @Override
@@ -37,8 +38,6 @@ public class DirScannerHandler extends AbstractHandler {
     }
 
     private ArrayList<HashedFile> enumFiles() {
-        files = new ArrayList<>();
-
         //walk file tree
         final Path sourceDir = Paths.get(outputDir.getAbsolutePath());
         try {

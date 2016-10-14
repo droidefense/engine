@@ -28,6 +28,9 @@ public class DroidefenseSettings {
     @Parameter(names = {"-p", "--profiling"}, description = "Enable JVM profiling")
     private boolean profiling;
 
+    @Parameter(names = {"-u", "--unpack"}, description = "Select unpacker: ZIP, APKTOOL")
+    private String unpacker;
+
     public DroidefenseSettings(String[] args) {
         cmm = new JCommander(this);
         if (args != null && args.length > 0) {
@@ -61,5 +64,13 @@ public class DroidefenseSettings {
 
     public boolean profilingEnabled() {
         return profiling;
+    }
+
+    public String getUnpacker() {
+        return unpacker;
+    }
+
+    public void setUnpacker(String unpacker) {
+        this.unpacker = unpacker;
     }
 }

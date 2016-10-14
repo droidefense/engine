@@ -3,9 +3,11 @@ package droidefense.analysis.base;
 import apkr.external.modules.helpers.enums.ProcessStatus;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.sdk.helpers.Util;
 import droidefense.sdk.model.base.APKFile;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
+import droidefense.util.JsonStyle;
 
 import java.io.Serializable;
 
@@ -40,4 +42,12 @@ public abstract class PluginAnalysis implements Serializable {
     }
 
     protected abstract String getPluginName();
+
+    protected String getResultAsJson() {
+        return Util.toJson(this, JsonStyle.JSON_COMPRESSED);
+    }
+
+    protected String getResultAsHTML() {
+        return html;
+    }
 }

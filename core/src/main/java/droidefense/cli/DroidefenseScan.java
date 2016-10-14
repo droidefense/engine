@@ -39,6 +39,17 @@ public class DroidefenseScan {
             profilingAlert("activate");
         }
 
+        //get user selected unpacker. default apktool
+        String unpackerStr = settings.getUnpacker();
+        APKUnpacker unpacker = APKUnpacker.APKTOOL_UNPACKER;
+        if (unpackerStr != null) {
+            if (unpackerStr.equalsIgnoreCase("apktool")) {
+                unpacker = APKUnpacker.APKTOOL_UNPACKER;
+            } else if (unpackerStr.equalsIgnoreCase("zip")) {
+                unpacker = APKUnpacker.ZIP_UNPACKER;
+            }
+        }
+
         if (settings.getVersion()) {
             System.out.println("Current version of droidefense: " + InternalConstant.ENGINE_VERSION);
             System.out.println("Check out on Github: https://github.com/droidefense");
@@ -47,7 +58,7 @@ public class DroidefenseScan {
             //security check
             File file = settings.getInput();
             if (file != null) {
-                initScan(file);
+                initScan(file, unpacker);
                 //profiler wait time | stop
                 if (settings.profilingEnabled()) {
                     profilingAlert("deactivate");
@@ -78,7 +89,7 @@ public class DroidefenseScan {
         Log.write(LoggerType.TRACE, "Droidefense scan finished");
     }
 
-    private void initScan(File file) {
+    private void initScan(File file, APKUnpacker unpacker) {
         //execute only once
         try {
             loadVariables();
@@ -86,7 +97,7 @@ public class DroidefenseScan {
             APKFile apk;
 
             Log.write(LoggerType.TRACE, "Reading .apk from local file");
-            apk = new APKFile(file, APKFile.APKTOOL);
+            apk = new APKFile(file, unpacker);
 
             Log.write(LoggerType.TRACE, "Building project");
             project = new DroidefenseProject(apk);
@@ -100,6 +111,7 @@ public class DroidefenseScan {
 
             //Start analysis
             project.analyze(analyzer);
+
             //stop scan
             this.stop();
         } catch (ConfigFileNotFoundException e) {

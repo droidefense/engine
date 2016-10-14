@@ -35,15 +35,6 @@ public abstract class AbstractStaticPlugin extends PluginAnalysis {
 
     protected abstract void postExecute();
 
-    protected String getResultAsJson() {
-        //todo convert the object to json pojo
-        return "";
-    }
-
-    protected String getResultAsHTML() {
-        return html;
-    }
-
     public DroidefenseProject getCurrentProject() {
         return currentProject;
     }

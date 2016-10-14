@@ -10,6 +10,7 @@ import apkr.external.modules.helpers.log4j.LoggerType;
 import apkr.external.modules.ml.MachineLearningResult;
 import apkr.external.modules.rulengine.Rule;
 import apkr.external.modules.vfs.model.impl.VirtualFileSystem;
+import apkr.external.modules.vfs.model.impl.VirtualFolder;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
@@ -26,16 +27,12 @@ import droidefense.sdk.model.enums.PrivacyResultEnum;
 import droidefense.sdk.model.holder.DynamicInfo;
 import droidefense.sdk.model.holder.InternalInfo;
 import droidefense.sdk.model.holder.StaticInfo;
-import droidefense.sdk.model.holder.StringAnalysis;
+import droidefense.sdk.model.holder.StringInfo;
 import droidefense.util.JsonStyle;
-import org.apache.velocity.Template;
-import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.VelocityEngine;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
-import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -281,60 +278,6 @@ public final class DroidefenseProject implements Serializable {
         return this.staticInfo.getDexData(file);
     }
 
-    public void setFieldClasses(String[] fieldClasses) {
-        this.internalInfo.setDexFieldClasses(fieldClasses);
-    }
-
-    public void setFieldTypes(String[] fieldTypes) {
-        this.internalInfo.setDexFieldTypes(fieldTypes);
-    }
-
-    public void setFieldNames(String[] fieldNames) {
-        this.internalInfo.setDexFieldNames(fieldNames);
-    }
-
-    public void setMethodClasses(String[] methodClasses) {
-        this.internalInfo.setDexMethodClasses(methodClasses);
-    }
-
-    public void setMethodTypes(String[] methodTypes) {
-        this.internalInfo.setDexMethodTypes(methodTypes);
-    }
-
-    public void setMethodNames(String[] methodNames) {
-        this.internalInfo.setDexMethodNames(methodNames);
-    }
-
-    public void printInfo() {
-        this.internalInfo.printDexInfo();
-    }
-
-    public String[] getTypes() {
-        return this.internalInfo.getDexTypes();
-    }
-
-    public void setTypes(String[] strings) {
-        this.internalInfo.setDexTypes(strings);
-    }
-
-    public String[] getStrings() {
-        return this.internalInfo.getDexStrings();
-    }
-
-    public void setStrings(String[] strings) {
-        this.internalInfo.setDexStrings(strings);
-    }
-
-    public String[] getDescriptors() {
-        return this.internalInfo.getDexDescriptors();
-    }
-
-    //GETTERS AND SETTERS
-
-    public void setDescriptors(String[] strings) {
-        this.internalInfo.setDexDescriptors(strings);
-    }
-
     public StaticInfo getStaticInfo() {
         return staticInfo;
     }
@@ -393,38 +336,6 @@ public final class DroidefenseProject implements Serializable {
 
     public void setSuccessfullDecompilation(boolean successfullDecompilation) {
         this.successfullDecompilation = successfullDecompilation;
-    }
-
-    public void setMagicNumber(String magic) {
-        this.internalInfo.setMagicNumber(magic);
-    }
-
-    public void setHeaderChecksum(String checksum) {
-        this.internalInfo.setHeaderChecksum(checksum);
-    }
-
-    public void setFileSignature(String hash) {
-        this.internalInfo.setFileSignature(hash);
-    }
-
-    public void setHeaderFileSize(int fileSize) {
-        this.internalInfo.setHeaderFileSize(fileSize);
-    }
-
-    public void setHeaderSize(String headerSize) {
-        this.internalInfo.setHeaderSize(headerSize);
-    }
-
-    public void setEndianTag(byte[] endian_tag) {
-        this.internalInfo.setEndianTag(endian_tag);
-    }
-
-    public void setLinkSize(byte[] link_size) {
-        this.internalInfo.setLinkSize(link_size);
-    }
-
-    public void setLinkOffset(byte[] link_offset) {
-        this.internalInfo.setLinkOffset(link_offset);
     }
 
     /*
@@ -610,10 +521,6 @@ public final class DroidefenseProject implements Serializable {
         setSummary(data);
     }
 
-    public void setEndianString(String endianString) {
-        this.internalInfo.setEndianString(endianString);
-    }
-
     public void setCertificateFile(HashedFile certFile) {
         this.staticInfo.setCertFile(certFile);
     }
@@ -622,7 +529,7 @@ public final class DroidefenseProject implements Serializable {
         this.dynamicInfo.setMatchedRules(matchedRules);
     }
 
-    public void setStringAnalysisResult(StringAnalysis stringContent) {
+    public void setStringAnalysisResult(StringInfo stringContent) {
         this.dynamicInfo.setStringAnalysisResult(stringContent);
     }
 
@@ -682,12 +589,13 @@ public final class DroidefenseProject implements Serializable {
         try {
             byte[] data = Files.readAllBytes(Paths.get("src/main/resources/templates/inline.html"));
             String content = new String(data, "utf-8");
-            content = content.replace("$jsonData", Util.toJson(this, JsonStyle.JSON_COMPRESSED).replace("\"", "\\\""));
+            content = content.replace("$jsonData", Util.toJson(this, JsonStyle.JSON_BEAUTY));
             FileIOHandler.saveFile(FileIOHandler.getReportFolder(getProjectId() + ".html"), content);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        /*
 
         try {
             VelocityEngine ve = new VelocityEngine();
@@ -713,6 +621,7 @@ public final class DroidefenseProject implements Serializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        */
     }
 
     private String getAppLogoasB64() {
@@ -772,5 +681,9 @@ public final class DroidefenseProject implements Serializable {
             data = "No expert information provided";
         // /summary = Base64.getEncoder().encodeToString(data.getBytes());
         summary = data;
+    }
+
+    public void setVFS(VirtualFolder root) {
+        this.vfs.add("unpack", root);
     }
 }

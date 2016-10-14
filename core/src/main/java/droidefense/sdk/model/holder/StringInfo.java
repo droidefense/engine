@@ -6,7 +6,7 @@ import java.util.HashMap;
 /**
  * Created by sergio on 7/6/16.
  */
-public class StringAnalysis implements Serializable {
+public class StringInfo implements Serializable {
 
     private HashMap<String, String> classified;
 
@@ -33,7 +33,7 @@ public class StringAnalysis implements Serializable {
     private int sentences;
     private int methodName;
 
-    public StringAnalysis() {
+    public StringInfo() {
     }
 
     public int getInitialLength() {

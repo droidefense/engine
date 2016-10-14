@@ -2,9 +2,9 @@ package droidefense.parser;
 
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.cli.APKUnpacker;
 import droidefense.handler.FileIOHandler;
 import droidefense.parser.base.AbstractFileParser;
-import droidefense.sdk.model.base.APKFile;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.certificate.CertificateModel;
 import sun.security.pkcs.PKCS7;
@@ -28,7 +28,7 @@ public class AndroidCertParser extends AbstractFileParser {
         try {
             String apktoolCertPath = FileIOHandler.getUnpackOutputPath(apk) + File.separator + "original" + File.separator + "META-INF" + File.separator + "CERT.RSA";
             String axmlCertPath = FileIOHandler.getUnpackOutputPath(apk) + File.separator + "META-INF" + File.separator + "CERT.RSA";
-            if (apk.getTechnique() == APKFile.APKTOOL) {
+            if (apk.getTechnique() == APKUnpacker.APKTOOL_UNPACKER) {
                 certpath = apktoolCertPath;
                 InputStream in = new FileInputStream(apktoolCertPath);
                 extractCertInfo(in);

@@ -19,7 +19,7 @@ public class DynamicInfo implements Serializable {
     /**
      * Classified strings and counters
      */
-    private StringAnalysis stringAnalysisResult;
+    private StringInfo stringAnalysisResult;
 
     public ArrayList<Rule> getMatchedRules() {
         return matchedRules;
@@ -29,11 +29,11 @@ public class DynamicInfo implements Serializable {
         this.matchedRules = matchedRules;
     }
 
-    public StringAnalysis getStringAnalysisResult() {
+    public StringInfo getStringAnalysisResult() {
         return stringAnalysisResult;
     }
 
-    public void setStringAnalysisResult(StringAnalysis stringAnalysisResult) {
+    public void setStringAnalysisResult(StringInfo stringAnalysisResult) {
         this.stringAnalysisResult = stringAnalysisResult;
     }
 }
