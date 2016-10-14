@@ -5,6 +5,7 @@ import apkr.external.module.ssdeep.core.SsdeepHashGen;
 import apkr.external.module.ssdeep.exception.SSDeepException;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.util.SSDeep;
 
 import java.io.*;
 import java.security.MessageDigest;
@@ -29,15 +30,23 @@ public class CheckSumGen implements Serializable {
     public String calculateSSDeep(File f) throws SSDeepException {
         if (f == null) {
             Log.write(LoggerType.ERROR, "Could not create calculateSSDeep() Hash because of a null file reference");
-            throw new SSDeepException("Apkr could not calculateSSDeep() SSDeep fuzzing hash for file\n\t" + "\nPossible reason: null file reference.");
+            throw new SSDeepException("Droidefense could not calculateSSDeep() SSDeep fuzzing hash for file\n\t" + "\nPossible reason: null file reference.");
         }
         SsdeepHashGen test = new SsdeepHashGen();
         try {
             return test.fuzzy_hash_file(f);
         } catch (IOException e) {
-            Log.write(LoggerType.ERROR, "Apkr could not calculateSSDee()p SSDeep fuzzing hash for file\n\t" + f.getAbsolutePath() + "\nPossible reason: " + e.getLocalizedMessage());
-            throw new SSDeepException("Apkr could not calculateSSDee()p SSDeep fuzzing hash for file\n\t" + f.getAbsolutePath() + "\nPossible reason: " + e.getLocalizedMessage());
+            Log.write(LoggerType.ERROR, "Droidefense could not calculateSSDee()p SSDeep fuzzing hash for file\n\t" + f.getAbsolutePath() + "\nPossible reason: " + e.getLocalizedMessage());
+            throw new SSDeepException("Droidefense could not calculateSSDee()p SSDeep fuzzing hash for file\n\t" + f.getAbsolutePath() + "\nPossible reason: " + e.getLocalizedMessage());
         }
+    }
+
+    public String calculateSSDeep(byte[] data) throws SSDeepException {
+        if (data == null) {
+            Log.write(LoggerType.ERROR, "Could not create calculateSSDeep() Hash because of a null file reference");
+            throw new SSDeepException("Droidefense could not calculateSSDeep() SSDeep fuzzing hash for file\n\t" + "\nPossible reason: null file reference.");
+        }
+        return SSDeep.generateSSDeep(data);
     }
 
     private String calculate(File f, String alg) throws NoSuchAlgorithmException, IOException {
@@ -83,7 +92,7 @@ public class CheckSumGen implements Serializable {
     public long calculateCRC32(File f) throws NullPointerException {
         if (f == null) {
             Log.write(LoggerType.ERROR, "Could not create calculateCRC32() Hash because of a null file reference");
-            throw new NullPointerException("Apkr could not calculateCRC32() hash for file\n\t" + "\nPossible reason: null file reference.");
+            throw new NullPointerException("Droidefense could not calculateCRC32() hash for file\n\t" + "\nPossible reason: null file reference.");
         }
         try {
             InputStream inputStreamn = new FileInputStream(f);
@@ -99,10 +108,20 @@ public class CheckSumGen implements Serializable {
         return DEFAULT_RET_CRC32;
     }
 
+    public long calculateCRC32(byte[] data) throws NullPointerException {
+        if (data == null) {
+            Log.write(LoggerType.ERROR, "Could not create calculateCRC32() Hash because of a null file reference");
+            throw new NullPointerException("Droidefense could not calculateCRC32() hash for file\n\t" + "\nPossible reason: null file reference.");
+        }
+        CRC32 crc = new CRC32();
+        crc.update(data);
+        return crc.getValue();
+    }
+
     public String calculateSHA1(File f) throws NullPointerException {
         if (f == null) {
             Log.write(LoggerType.ERROR, "Could not create calculateSHA1() Hash because of a null file reference");
-            throw new NullPointerException("Apkr could not calculateSHA1() hash for file\n\t" + "\nPossible reason: null file reference.");
+            throw new NullPointerException("Droidefense could not calculateSHA1() hash for file\n\t" + "\nPossible reason: null file reference.");
         }
         try {
             return calculate(f, SHA_1);
@@ -112,10 +131,23 @@ public class CheckSumGen implements Serializable {
         return DEFAULT_RET;
     }
 
+    public String calculateSHA1(byte[] data) throws NullPointerException {
+        if (data == null) {
+            Log.write(LoggerType.ERROR, "Could not create calculateSHA1() Hash because of a null file reference");
+            throw new NullPointerException("Droidefense could not calculateSHA1() hash for file\n\t" + "\nPossible reason: null file reference.");
+        }
+        try {
+            return calculate(data, SHA_1);
+        } catch (NoSuchAlgorithmException | IOException e) {
+            Log.write(LoggerType.ERROR, "Could not create SHA1 Hash because", e.getLocalizedMessage(), Arrays.toString(e.getStackTrace()));
+        }
+        return DEFAULT_RET;
+    }
+
     public String calculateMD5(File f) throws NullPointerException {
         if (f == null) {
             Log.write(LoggerType.ERROR, "Could not create calculateSHAMD5() Hash because of a null file reference");
-            throw new NullPointerException("Apkr could not calculateMD5() hash for file\n\t" + "\nPossible reason: null file reference.");
+            throw new NullPointerException("Droidefense could not calculateMD5() hash for file\n\t" + "\nPossible reason: null file reference.");
         }
         try {
             return calculate(f, MD5);
@@ -125,10 +157,23 @@ public class CheckSumGen implements Serializable {
         return DEFAULT_RET;
     }
 
+    public String calculateMD5(byte[] data) throws NullPointerException {
+        if (data == null) {
+            Log.write(LoggerType.ERROR, "Could not create calculateMD5() Hash because of a null file reference");
+            throw new NullPointerException("Droidefense could not calculateMD5() hash for file\n\t" + "\nPossible reason: null file reference.");
+        }
+        try {
+            return calculate(data, MD5);
+        } catch (NoSuchAlgorithmException | IOException e) {
+            Log.write(LoggerType.ERROR, "Could not create MD5 Hash because", e.getLocalizedMessage(), Arrays.toString(e.getStackTrace()));
+        }
+        return DEFAULT_RET;
+    }
+
     public String calculateSHA256(File f) throws NullPointerException {
         if (f == null) {
             Log.write(LoggerType.ERROR, "Could not create calculateSHA256() Hash because of a null file reference");
-            throw new NullPointerException("Apkr could not calculateSHA256() hash for file\n\t" + "\nPossible reason: null file reference.");
+            throw new NullPointerException("Droidefense could not calculateSHA256() hash for file\n\t" + "\nPossible reason: null file reference.");
         }
         try {
             return calculate(f, SHA_256);
@@ -141,7 +186,7 @@ public class CheckSumGen implements Serializable {
     public String calculateSHA256(byte[] data) throws NullPointerException {
         if (data == null) {
             Log.write(LoggerType.ERROR, "Could not create calculateSHA256() Hash because of a null file reference");
-            throw new NullPointerException("Apkr could not calculateSHA256() hash for file\n\t" + "\nPossible reason: null file reference.");
+            throw new NullPointerException("Droidefense could not calculateSHA256() hash for file\n\t" + "\nPossible reason: null file reference.");
         }
         try {
             return calculate(data, SHA_256);
@@ -154,10 +199,23 @@ public class CheckSumGen implements Serializable {
     public String calculateSHA512(File f) throws NullPointerException {
         if (f == null) {
             Log.write(LoggerType.ERROR, "Could not create calculateSHA512() Hash because of a null file reference");
-            throw new NullPointerException("Apkr could not calculateSHA512() hash for file\n\t" + "\nPossible reason: null file reference.");
+            throw new NullPointerException("Droidefense could not calculateSHA512() hash for file\n\t" + "\nPossible reason: null file reference.");
         }
         try {
             return calculate(f, SHA_512);
+        } catch (NoSuchAlgorithmException | IOException e) {
+            Log.write(LoggerType.ERROR, "Could not create SHA512 Hash because", e.getLocalizedMessage(), Arrays.toString(e.getStackTrace()));
+        }
+        return DEFAULT_RET;
+    }
+
+    public String calculateSHA512(byte[] data) throws NullPointerException {
+        if (data == null) {
+            Log.write(LoggerType.ERROR, "Could not create calculateSHA512() Hash because of a null file reference");
+            throw new NullPointerException("Droidefense could not calculateSHA512() hash for file\n\t" + "\nPossible reason: null file reference.");
+        }
+        try {
+            return calculate(data, SHA_512);
         } catch (NoSuchAlgorithmException | IOException e) {
             Log.write(LoggerType.ERROR, "Could not create SHA512 Hash because", e.getLocalizedMessage(), Arrays.toString(e.getStackTrace()));
         }

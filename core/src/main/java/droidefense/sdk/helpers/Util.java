@@ -188,9 +188,9 @@ public class Util {
             return mimeTypesMap.getContentType(fread.getAbsolutePath());
     }
 
-    public static String getFileExtension(File resource) {
-        if (resource.getName().contains(".")) {
-            String[] data = resource.getName().split("\\.");
+    public static String getFileExtension(final String name) {
+        if (name.contains(".")) {
+            String[] data = name.split("\\.");
             String extension = data[data.length - 1];
             return extension.toUpperCase();
         }

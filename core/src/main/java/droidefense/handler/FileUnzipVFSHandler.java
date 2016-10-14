@@ -5,10 +5,12 @@ import apkr.external.modules.vfs.model.impl.VirtualFolder;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.HashedFile;
+import droidefense.util.UnpackAction;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -23,7 +25,7 @@ public class FileUnzipVFSHandler extends AbstractHandler {
 
     private HashedFile source;
 
-    public FileUnzipVFSHandler(DroidefenseProject project, HashedFile source) {
+    public FileUnzipVFSHandler(DroidefenseProject project, HashedFile source, UnpackAction generateHash) {
         this.source = source;
         this.root = VirtualFolder.createFolder("unpack");
         this.parentNode = root;
@@ -70,6 +72,7 @@ public class FileUnzipVFSHandler extends AbstractHandler {
             //close zip file access
             zipIn.close();
             project.setVFS(root);
+            project.getVFS().print();
             return true;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -82,5 +85,9 @@ public class FileUnzipVFSHandler extends AbstractHandler {
             error = e;
         }
         return false;
+    }
+
+    public ArrayList<HashedFile> getFiles() {
+        return null;
     }
 }

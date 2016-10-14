@@ -122,6 +122,7 @@ public final class DroidefenseProject implements Serializable {
     private transient AbstractFlowMap followCallsMap;
     private MachineLearningResult machineLearningResult;
     private transient boolean headerReaded;
+    private boolean VFS;
     //private transient DexHeaderReader dexHeaderReader;
 
     public DroidefenseProject(final APKFile file) {
@@ -163,6 +164,7 @@ public final class DroidefenseProject implements Serializable {
         //add this analyzer to used analyzer stack
         usedAnalyzers.add(analyzer);
         analyzer.setApkFile(sourceFile);
+        analyzer.setCurrentProject(this);
         analyzer.analyzeCode();
     }
 
@@ -681,6 +683,10 @@ public final class DroidefenseProject implements Serializable {
             data = "No expert information provided";
         // /summary = Base64.getEncoder().encodeToString(data.getBytes());
         summary = data;
+    }
+
+    public VirtualFileSystem getVFS() {
+        return this.vfs;
     }
 
     public void setVFS(VirtualFolder root) {

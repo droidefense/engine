@@ -6,28 +6,18 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a844aef2-ee66-42fc-85be-c0a43555ea6c" name="Default" comment="* Project name changed to Droidefense for better search on google, github etc&#10;* Project external configuration file changed from config.properties to config.json&#10;* Profiling mode added as CLI option for third party profiler tools">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/cli/APKUnpacker.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/FileUnzipVFSHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/dex/DexContent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/holder/StringAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/holder/StringInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lib/native/apkr.external.modules.vfs.jar" afterPath="$PROJECT_DIR$/../lib/native/apkr.external.modules.vfs.jar" />
+    <list default="true" id="a844aef2-ee66-42fc-85be-c0a43555ea6c" name="Default" comment="* Updated VFS library&#10;* zip unpack algorithm optimized to unpack files in memory structure">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/util/SSDeep.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/util/SSDeepHash.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/util/UnpackAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/analysis/UnpackAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/analysis/UnpackAnalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/analysis/base/PluginAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/analysis/base/PluginAnalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/cli/DroidefenseScan.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/cli/DroidefenseScan.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/cli/DroidefenseSettings.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/cli/DroidefenseSettings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/handler/DirScannerHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/DirScannerHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/parser/AndroidCertParser.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/parser/AndroidCertParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/sdk/AbstractDynamicPlugin.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/AbstractDynamicPlugin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/sdk/AbstractStaticPlugin.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/AbstractStaticPlugin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/APKFile.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/APKFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/cli/APKUnpacker.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/cli/APKUnpacker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/handler/FileUnzipVFSHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/FileUnzipVFSHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/CheckSumGen.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/CheckSumGen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/Util.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/Util.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/holder/DynamicInfo.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/holder/DynamicInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/holder/InternalInfo.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/holder/InternalInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/temp/FileScan.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/temp/FileScan.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/inline.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/inline.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/velocity.log" afterPath="$PROJECT_DIR$/velocity.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/HashedFile.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/HashedFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lib/native/readme.md" afterPath="$PROJECT_DIR$/../lib/native/readme.md" />
     </list>
     <ignored path="apkr.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,68 +42,110 @@
       <file leaf-file-name="DroidefenseProject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="687" column="0" selection-start-line="687" selection-start-column="0" selection-end-line="687" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="191" column="0" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
               <folding>
-                <element signature="e#29124#29125#0" expanded="true" />
-                <marker date="1476480183855" expanded="false" signature="10822:10833" ph=" { " />
-                <marker date="1476480183855" expanded="false" signature="10878:10884" ph=" }" />
-                <marker date="1476480183855" expanded="false" signature="10948:10959" ph=" { " />
-                <marker date="1476480183855" expanded="false" signature="11011:11017" ph=" }" />
-                <marker date="1476480183855" expanded="false" signature="28616:28627" ph=" { " />
-                <marker date="1476480183855" expanded="false" signature="28650:28656" ph=" }" />
-                <marker date="1476480183855" expanded="false" signature="28725:28736" ph=" { " />
-                <marker date="1476480183855" expanded="false" signature="28775:28781" ph=" }" />
+                <element signature="e#5847#5848#0" expanded="true" />
+                <marker date="1476482651357" expanded="false" signature="10889:10900" ph=" { " />
+                <marker date="1476482651357" expanded="false" signature="10945:10951" ph=" }" />
+                <marker date="1476482651357" expanded="false" signature="11015:11026" ph=" { " />
+                <marker date="1476482651357" expanded="false" signature="11078:11084" ph=" }" />
+                <marker date="1476482651357" expanded="false" signature="28683:28694" ph=" { " />
+                <marker date="1476482651357" expanded="false" signature="28717:28723" ph=" }" />
+                <marker date="1476482651357" expanded="false" signature="28792:28803" ph=" { " />
+                <marker date="1476482651357" expanded="false" signature="28842:28848" ph=" }" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileUnzipVFSHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/FileUnzipVFSHandler.java">
+      <file leaf-file-name="StaticInfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/holder/StaticInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+            <state relative-caret-position="129">
+              <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+              <folding>
+                <element signature="e#2411#2412#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractAndroidAnalysis.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/base/AbstractAndroidAnalysis.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="APKUnpacker.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AndroidStaticAnalysis.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidStaticAnalysis.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractFileParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/parser/base/AbstractFileParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="APKMetaParser.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/parser/APKMetaParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GeneralAnalysis.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/GeneralAnalysis.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UnpackAnalysis.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/UnpackAnalysis.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="APKFile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/APKFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="APKUnpacker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/cli/APKUnpacker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="51" column="47" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/base/AbstractHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileUnzipHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/FileUnzipHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="47" column="48" selection-start-line="46" selection-start-column="20" selection-end-line="48" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DroidefenseScan.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/cli/DroidefenseScan.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state relative-caret-position="144">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -125,8 +157,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -141,11 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/handler/base/DirScannerFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/flow/base/AbstractFlowWorker.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/analysis/AndroidDynamicAnalysis.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/sdk/model/holder/InternalInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/temp/ApkrIntelligence.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/sdk/model/base/ApkrProject.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/sdk/model/base/APKFile.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zerjioang/apkr/sdk/helpers/ApkrConstants.java" />
@@ -163,12 +190,10 @@
         <option value="$PROJECT_DIR$/src/main/java/droidefense/exception/DetailedException.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/exception/ConfigFileNotFoundException.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/util/JsonStyle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/Util.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/DroidDefenseParams.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/loader/SignatureModelLoader.java" />
         <option value="$PROJECT_DIR$/log/trace.log" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/ExecutionTimer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/HashedFile.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/certificate/CertificateModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/certificate/CertificateSubject.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/dex/OpcodeInformation.java" />
@@ -189,9 +214,16 @@
         <option value="$PROJECT_DIR$/src/main/java/droidefense/handler/DirScannerHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/analysis/UnpackAnalysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/parser/AndroidCertParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/droidefense/cli/APKUnpacker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/Util.java" />
+        <option value="$PROJECT_DIR$/src/main/java/droidefense/util/UnpackAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/droidefense/util/SSdeepHash.java" />
+        <option value="$PROJECT_DIR$/src/main/java/droidefense/util/SSDeepHash.java" />
+        <option value="$PROJECT_DIR$/src/main/java/droidefense/util/SSDeep.java" />
+        <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/CheckSumGen.java" />
+        <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/HashedFile.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/handler/FileUnzipVFSHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/droidefense/cli/APKUnpacker.java" />
       </list>
     </option>
   </component>
@@ -1156,6 +1188,7 @@
       <recent name="com.spidlinq.apkr.batch" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="droidefense.util" />
       <recent name="droidefense.cli" />
       <recent name="droidefense.exception" />
       <recent name="com.zerjioang.apkr.analysis.flow" />
@@ -1594,7 +1627,14 @@
       <option name="project" value="LOCAL" />
       <updated>1476026331899</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="* Updated VFS library&#10;* zip unpack algorithm optimized to unpack files in memory structure">
+      <created>1476480490869</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1476480490869</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1631,7 +1671,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1645,11 +1685,11 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14484979" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14484979" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26941177" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5035294" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1687,7 +1727,9 @@
     <MESSAGE value="* Modularized core dependencies in different packages for easier maintenance.&#10;* Added a new report template.&#10;* Changed graph node generation method" />
     <MESSAGE value="* Project structure reorganized&#10;* flow and om packages are being externalized for a better modular design. Will be added on second release.&#10;* Added Virtual file system lib for speeding up scan process and avoid not needed IO operations on HDD. This lib is still an alpha version that needs to be optimized for high performance using Java NIO, concurrency support, etc." />
     <MESSAGE value="* Project name changed to Droidefense for better search on google, github etc&#10;* Project external configuration file changed from config.properties to config.json&#10;* Profiling mode added as CLI option for third party profiler tools" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Project name changed to Droidefense for better search on google, github etc&#10;* Project external configuration file changed from config.properties to config.json&#10;* Profiling mode added as CLI option for third party profiler tools" />
+    <MESSAGE value="* UpdatecdVFS library&#10;* zip unpack algorithm optimized to unpack files in memory structure" />
+    <MESSAGE value="* Updated VFS library&#10;* zip unpack algorithm optimized to unpack files in memory structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Updated VFS library&#10;* zip unpack algorithm optimized to unpack files in memory structure" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1709,24 +1751,24 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java</url>
-          <line>644</line>
+          <line>646</line>
           <properties />
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java</url>
-          <line>589</line>
+          <line>591</line>
           <properties />
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/droidefense/handler/FileUnzipVFSHandler.java</url>
-          <line>69</line>
+          <url>file://$PROJECT_DIR$/src/main/java/droidefense/parser/APKMetaParser.java</url>
+          <line>19</line>
           <properties />
-          <option name="timeStamp" value="82" />
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="83" />
+      <option name="time" value="88" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1735,90 +1777,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/InternalConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidStaticAnalysis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/exception/DetailedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/exception/InvalidScanParametersException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="61" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/exception/ConfigFileNotFoundException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="206" column="5" selection-start-line="206" selection-start-column="5" selection-end-line="206" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/DroidDefenseParams.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2521#2522#0" expanded="false" />
-            <element signature="e#2554#2555#0" expanded="false" />
-            <element signature="e#2608#2609#0" expanded="false" />
-            <element signature="e#2639#2640#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/loader/SignatureModelLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/base/AbstractAndroidAnalysis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/trace.log" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/SignatureHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
@@ -1839,6 +1797,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="2332" column="15" selection-start-line="2332" selection-start-column="15" selection-end-line="2332" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1994,22 +1953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/HashedFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="767">
-          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/holder/StaticInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1800">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/ExecutionTimer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -2049,36 +1992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/DirScannerHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-          <folding>
-            <element signature="e#2538#2539#0" expanded="false" />
-            <element signature="e#2566#2567#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/GeneralAnalysis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/UnpackAnalysis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-          <folding>
-            <element signature="e#1548#1549#0" expanded="false" />
-            <element signature="e#1576#1577#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/parser/AndroidCertParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -2097,18 +2010,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/APKFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/cli/DroidefenseScan.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2140,36 +2045,217 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/DirScannerHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="687" column="0" selection-start-line="687" selection-start-column="0" selection-end-line="687" selection-end-column="0" />
+        <state relative-caret-position="371">
+          <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4625">
+          <caret line="193" column="12" selection-start-line="193" selection-start-column="12" selection-end-line="193" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../lib/native/apkr.external.module.ssdeep.jar!/apkr/external/module/ssdeep/core/SsdeepHashGen.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-326">
+          <caret line="174" column="18" selection-start-line="174" selection-start-column="18" selection-end-line="174" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/util/SSDeepHash.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-315">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="23" />
           <folding>
-            <element signature="e#29124#29125#0" expanded="true" />
-            <marker date="1476480183855" expanded="false" signature="10822:10833" ph=" { " />
-            <marker date="1476480183855" expanded="false" signature="10878:10884" ph=" }" />
-            <marker date="1476480183855" expanded="false" signature="10948:10959" ph=" { " />
-            <marker date="1476480183855" expanded="false" signature="11011:11017" ph=" }" />
-            <marker date="1476480183855" expanded="false" signature="28616:28627" ph=" { " />
-            <marker date="1476480183855" expanded="false" signature="28650:28656" ph=" }" />
-            <marker date="1476480183855" expanded="false" signature="28725:28736" ph=" { " />
-            <marker date="1476480183855" expanded="false" signature="28775:28781" ph=" }" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3423#3424#0" expanded="true" />
+            <element signature="e#3473#3474#0" expanded="true" />
+            <element signature="e#4181#4182#0" expanded="true" />
+            <element signature="e#4213#4214#0" expanded="true" />
+            <element signature="e#4401#4402#0" expanded="true" />
+            <element signature="e#4461#4462#0" expanded="true" />
+            <element signature="e#4629#4630#0" expanded="true" />
+            <element signature="e#4656#4657#0" expanded="true" />
+            <element signature="e#5165#5166#0" expanded="true" />
+            <element signature="e#5206#5207#0" expanded="true" />
+            <element signature="e#5397#5398#0" expanded="true" />
+            <element signature="e#5458#5459#0" expanded="true" />
+            <element signature="e#5629#5630#0" expanded="true" />
+            <element signature="e#5657#5658#0" expanded="true" />
+            <element signature="e#6169#6170#0" expanded="true" />
+            <element signature="e#6211#6212#0" expanded="true" />
+            <element signature="e#6428#6429#0" expanded="true" />
+            <element signature="e#6459#6460#0" expanded="true" />
+            <element signature="e#6857#6858#0" expanded="true" />
+            <element signature="e#6901#6902#0" expanded="true" />
+            <element signature="e#7561#7562#0" expanded="true" />
+            <element signature="e#7608#7609#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/util/SSDeep.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="274" column="15" selection-start-line="274" selection-start-column="15" selection-end-line="274" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3667#3668#0" expanded="true" />
+            <element signature="e#3707#3708#0" expanded="true" />
+            <element signature="e#3881#3882#0" expanded="true" />
+            <element signature="e#3934#3935#0" expanded="true" />
+            <element signature="e#7761#7762#0" expanded="true" />
+            <element signature="e#7810#7811#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/parser/AndroidManifestParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/CheckSumGen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#954#955#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/HashedFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+          <folding>
+            <element signature="e#3377#3378#0" expanded="true" />
+            <element signature="e#3411#3412#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/util/UnpackAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/FileUnzipVFSHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="132">
+          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding>
+            <element signature="e#3157#3158#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/cli/APKUnpacker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="51" column="47" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
+        <state relative-caret-position="144">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/APKFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/UnpackAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/GeneralAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/base/AbstractAndroidAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidStaticAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/parser/base/AbstractFileParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/holder/StaticInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+          <folding>
+            <element signature="e#2411#2412#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="191" column="0" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+          <folding>
+            <element signature="e#5847#5848#0" expanded="true" />
+            <marker date="1476482651357" expanded="false" signature="10889:10900" ph=" { " />
+            <marker date="1476482651357" expanded="false" signature="10945:10951" ph=" }" />
+            <marker date="1476482651357" expanded="false" signature="11015:11026" ph=" { " />
+            <marker date="1476482651357" expanded="false" signature="11078:11084" ph=" }" />
+            <marker date="1476482651357" expanded="false" signature="28683:28694" ph=" { " />
+            <marker date="1476482651357" expanded="false" signature="28717:28723" ph=" }" />
+            <marker date="1476482651357" expanded="false" signature="28792:28803" ph=" { " />
+            <marker date="1476482651357" expanded="false" signature="28842:28848" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/parser/APKMetaParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>

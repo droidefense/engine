@@ -1,6 +1,7 @@
 package droidefense.sdk.model.base;
 
 import apkr.external.module.ssdeep.exception.SSDeepException;
+import apkr.external.modules.vfs.model.impl.VirtualFile;
 import droidefense.sdk.helpers.CheckSumGen;
 import droidefense.sdk.helpers.Util;
 
@@ -23,12 +24,39 @@ public class HashedFile implements Serializable {
         this(new File(apkPath), generateInformation);
     }
 
+    public HashedFile(VirtualFile vf, boolean generateInformation) {
+        this.f = new File(vf.getPath());
+        filesize = vf.getContentLength();
+        filename = vf.getName();
+        declaredExtension = Util.getFileExtension(this.filename);
+        if (generateInformation) {
+            if (this.filesize > 0) {
+                beautyFilesize = Util.beautifyFileSize(this.filesize);
+            } else {
+                beautyFilesize = "0 b";
+            }
+
+            //TODO POSSIBLE HASHING BOTTLENECK
+            byte[] data = vf.getContent();
+            crc32 = Util.toHexString(CheckSumGen.getInstance().calculateCRC32(data));
+            md5 = CheckSumGen.getInstance().calculateMD5(data);
+            sha1 = CheckSumGen.getInstance().calculateSHA1(data);
+            sha256 = CheckSumGen.getInstance().calculateSHA256(data);
+            sha512 = CheckSumGen.getInstance().calculateSHA512(data);
+            try {
+                ssdeep = CheckSumGen.getInstance().calculateSSDeep(data);
+            } catch (SSDeepException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public HashedFile(File parent, boolean generateInformation) {
         this.f = parent;
         if (this.f.isFile()) {
             filesize = this.f.length();
             filename = this.f.getName();
-            declaredExtension = Util.getFileExtension(this.f);
+            declaredExtension = Util.getFileExtension(this.filename);
             if (generateInformation) {
                 if (this.filesize > 0) {
                     beautyFilesize = Util.beautifyFileSize(this.filesize);
@@ -36,7 +64,7 @@ public class HashedFile implements Serializable {
                     beautyFilesize = "0 b";
                 }
 
-                //TODO HASHING BOTTLENECK
+                //TODO HASHING TIME BOTTLENECK
                 File currentFile = getThisFile();
                 crc32 = Util.toHexString(CheckSumGen.getInstance().calculateCRC32(currentFile));
                 md5 = CheckSumGen.getInstance().calculateMD5(currentFile);
