@@ -9,6 +9,7 @@ import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import apkr.external.modules.ml.MachineLearningResult;
 import apkr.external.modules.rulengine.Rule;
+import apkr.external.modules.vfs.model.impl.VirtualFileSystem;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
@@ -49,6 +50,10 @@ public final class DroidefenseProject implements Serializable {
 
     private static final Map<APKFile, DroidefenseProject> projectMap = new HashMap<>();
 
+    /**
+     * Virtual file system for unpacked files
+     */
+    private final transient VirtualFileSystem vfs;
     /**
      * Timestamp from creation to end
      */
@@ -137,6 +142,8 @@ public final class DroidefenseProject implements Serializable {
 
         //init data structs
         usedAnalyzers = new ArrayList<>();
+
+        vfs = new VirtualFileSystem();
 
         //save apk reference
         sourceFile = file;
@@ -672,15 +679,15 @@ public final class DroidefenseProject implements Serializable {
 
     private void generateReportTemplate() {
 
-        /*try {
-            byte[] data = Files.readAllBytes(Paths.get("src/main/resources/templates/report.vm"));
+        try {
+            byte[] data = Files.readAllBytes(Paths.get("src/main/resources/templates/inline.html"));
             String content = new String(data, "utf-8");
-            content = content.replace("jsonData", Util.toJson(this).replace("\"", "\\\""));
+            content = content.replace("$jsonData", Util.toJson(this, JsonStyle.JSON_COMPRESSED).replace("\"", "\\\""));
             FileIOHandler.saveFile(FileIOHandler.getReportFolder(getProjectId() + ".html"), content);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        */
+
 
         try {
             VelocityEngine ve = new VelocityEngine();

@@ -23,8 +23,11 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="apkr" />
+        <module name="droidefense" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="droidefense" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
