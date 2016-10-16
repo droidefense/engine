@@ -2,8 +2,10 @@ package droidefense.parser;
 
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.mod.vfs.model.impl.VirtualFile;
 import droidefense.parser.base.AbstractFileParser;
-import droidefense.sdk.model.base.AbstractHashedFile;
+import droidefense.sdk.model.base.DroidefenseProject;
+import droidefense.sdk.model.io.LocalApkFile;
 
 import java.util.ArrayList;
 
@@ -12,10 +14,15 @@ import java.util.ArrayList;
  */
 public class SteganosParser extends AbstractFileParser {
 
+    public SteganosParser(LocalApkFile apk, DroidefenseProject currentProject) {
+        super(apk, currentProject);
+    }
+
     @Override
     public void parserCode() {
         Log.write(LoggerType.INFO, "\n\nSearching for Steganos content...\n\n");
-        ArrayList<AbstractHashedFile> fileList = currentProject.getAppFiles();
+        ArrayList<VirtualFile> fileList = currentProject.getAppFiles();
+
         /*for (AbstractHashedFile r : fileList) {
             //TODO implement at least LSB algorithm
         }*/

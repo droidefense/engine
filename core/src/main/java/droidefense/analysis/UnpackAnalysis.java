@@ -3,7 +3,7 @@ package droidefense.analysis;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.mod.vfs.model.base.IVirtualNode;
+import droidefense.mod.vfs.model.impl.VirtualFile;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public final class UnpackAnalysis extends AbstractAndroidAnalysis {
 
-    private transient ArrayList<IVirtualNode> files;
+    private transient ArrayList<VirtualFile> files;
 
     public UnpackAnalysis() {
     }
@@ -27,6 +27,9 @@ public final class UnpackAnalysis extends AbstractAndroidAnalysis {
             positiveMatch = files.size() > 0;
             //SET APP FILES & CALCULATE THEIR HASHES, FUZZING HASH, EXTENSION, SIGNATURES
             apkFile.decodeWithTechnique(currentProject, files);
+            timeStamp.stop();
+            //set aproject files
+            currentProject.setAppFiles(files);
             return true;
         }
         //currentProject.setAppFiles(files);
@@ -36,6 +39,6 @@ public final class UnpackAnalysis extends AbstractAndroidAnalysis {
 
     @Override
     public String getName() {
-        return "Android .apk unpacker";
+        return "In-memory .apk unpacker";
     }
 }

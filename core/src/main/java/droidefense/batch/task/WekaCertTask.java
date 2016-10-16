@@ -9,9 +9,9 @@ import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
 import droidefense.parser.AndroidCertParser;
 import droidefense.parser.base.ParserFactory;
-import droidefense.sdk.model.base.AbstractHashedFile;
 import droidefense.sdk.model.certificate.CertificateModel;
 import droidefense.sdk.model.certificate.CertificateSubject;
+import droidefense.sdk.model.io.AbstractHashedFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -118,7 +118,7 @@ public class WekaCertTask implements IBatchTask, IWekaGenerator, Serializable {
             for (File cert : certList) {
                 if (cert.exists() && cert.isFile() && cert.canRead()) {
                     //parse cert file
-                    AndroidCertParser parser = (AndroidCertParser) ParserFactory.getParser(ParserFactory.CERTIFICATE_PARSER);
+                    AndroidCertParser parser = (AndroidCertParser) ParserFactory.getParser(ParserFactory.CERTIFICATE_PARSER, null, null);
                     try {
                         parser.extractCertInfo(cert);
                         Log.write(LoggerType.TRACE, "Generating file juicy information...");

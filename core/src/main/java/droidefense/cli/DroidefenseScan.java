@@ -6,10 +6,11 @@ import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.analysis.base.AnalysisFactory;
 import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.exception.InvalidScanParametersException;
+import droidefense.sdk.helpers.APKUnpacker;
 import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.model.base.LocalApkFile;
+import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.temp.DroidefenseIntel;
 
 import java.io.File;

@@ -1,8 +1,9 @@
-package droidefense.sdk.model.base;
+package droidefense.sdk.model.io;
 
 import apkr.external.modules.helpers.enums.ProcessStatus;
-import droidefense.cli.APKUnpacker;
-import droidefense.mod.vfs.model.base.IVirtualNode;
+import droidefense.mod.vfs.model.impl.VirtualFile;
+import droidefense.sdk.helpers.APKUnpacker;
+import droidefense.sdk.model.base.DroidefenseProject;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -36,11 +37,11 @@ public class LocalApkFile extends LocalHashedFile {
         this.status = status;
     }
 
-    public ArrayList<IVirtualNode> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apk) {
+    public ArrayList<VirtualFile> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apk) {
         return this.technique.unpackWithTechnique(currentProject, this);
     }
 
-    public ArrayList<IVirtualNode> decodeWithTechnique(DroidefenseProject currentProject, ArrayList<IVirtualNode> files) {
+    public ArrayList<VirtualFile> decodeWithTechnique(DroidefenseProject currentProject, ArrayList<VirtualFile> files) {
         return this.technique.decodeWithTechnique(currentProject, files);
     }
 }

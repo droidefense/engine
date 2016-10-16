@@ -1,4 +1,4 @@
-package droidefense.sdk.model.base;
+package droidefense.sdk.model.io;
 
 import apkr.external.module.ssdeep.exception.SSDeepException;
 import droidefense.sdk.helpers.CheckSumGen;

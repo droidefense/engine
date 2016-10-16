@@ -20,10 +20,11 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
         AbstractAndroidAnalysis analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.UNPACK);
         currentProject.analyze(analyzer);
 
-        /*
         //STATIC ANALYSIS
         analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.STATIC_ANALYSIS);
         currentProject.analyze(analyzer);
+
+        /*
 
         //RUN STATIC ANALYSIS PLUGINS
         analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.STATIC_ANALYSIS_PLUGIN);

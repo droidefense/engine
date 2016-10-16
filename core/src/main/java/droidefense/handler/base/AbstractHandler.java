@@ -1,7 +1,7 @@
 package droidefense.handler.base;
 
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.model.base.LocalApkFile;
+import droidefense.sdk.model.io.LocalApkFile;
 
 import java.io.Serializable;
 

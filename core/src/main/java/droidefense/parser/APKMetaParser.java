@@ -1,9 +1,13 @@
 package droidefense.parser;
 
 import droidefense.handler.FileIOHandler;
+import droidefense.mod.vfs.model.impl.VirtualFile;
 import droidefense.parser.base.AbstractFileParser;
 import droidefense.sdk.helpers.InternalConstant;
-import droidefense.sdk.model.base.AbstractHashedFile;
+import droidefense.sdk.model.base.DroidefenseProject;
+import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.model.io.LocalApkFile;
+import droidefense.sdk.model.io.VirtualHashedFile;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -13,34 +17,41 @@ import java.util.ArrayList;
  */
 public class APKMetaParser extends AbstractFileParser {
 
+    public APKMetaParser(LocalApkFile apk, DroidefenseProject currentProject) {
+        super(apk, currentProject);
+    }
+
     @Override
     public void parserCode() {
 
         //get app files
-        ArrayList<AbstractHashedFile> files = currentProject.getAppFiles();
+        ArrayList<VirtualFile> files = currentProject.getAppFiles();
         ArrayList<AbstractHashedFile> dexList = new ArrayList<>();
 
         ArrayList<AbstractHashedFile> assetFiles = new ArrayList<>();
         ArrayList<AbstractHashedFile> libFiles = new ArrayList<>();
         ArrayList<AbstractHashedFile> rawFiles = new ArrayList<>();
+        ArrayList<AbstractHashedFile> otherFiles = new ArrayList<>();
 
         //manifest file
         AbstractHashedFile manifest = null;
         AbstractHashedFile certFile = null;
-        for (AbstractHashedFile r : files) {
+        for (VirtualFile r : files) {
             //count dex files and search manifest file
             if (r.getName().toLowerCase().endsWith(InternalConstant.DEX_EXTENSION)) {
-                dexList.add(r);
+                dexList.add(new VirtualHashedFile(r, true));
             } else if (r.getName().toLowerCase().endsWith(InternalConstant.CERTIFICATE_EXTENSION)) {
-                certFile = r;
+                certFile = new VirtualHashedFile(r, true);
             } else if (r.getName().equals(InternalConstant.ANDROID_MANIFEST) && manifest == null) {
-                manifest = r;
-            } else if (r.getAbsolutePath().contains(File.separator + "assets" + File.separator)) {
-                assetFiles.add(r);
-            } else if (r.getAbsolutePath().contains(File.separator + "lib" + File.separator)) {
-                libFiles.add(r);
-            } else if (r.getAbsolutePath().contains(File.separator + "res" + File.separator + "raw")) {
-                rawFiles.add(r);
+                manifest = new VirtualHashedFile(r, true);
+            } else if (r.getPath().contains(File.separator + "assets" + File.separator)) {
+                assetFiles.add(new VirtualHashedFile(r, true));
+            } else if (r.getPath().contains(File.separator + "lib" + File.separator)) {
+                libFiles.add(new VirtualHashedFile(r, true));
+            } else if (r.getPath().contains(File.separator + "res" + File.separator + "raw")) {
+                rawFiles.add(new VirtualHashedFile(r, true));
+            } else {
+                otherFiles.add(new VirtualHashedFile(r, true));
             }
         }
 
@@ -51,6 +62,7 @@ public class APKMetaParser extends AbstractFileParser {
         this.currentProject.setRawFiles(rawFiles);
         this.currentProject.setAssetsFiles(assetFiles);
         this.currentProject.setLibFiles(libFiles);
+        this.currentProject.setOtherFiles(otherFiles);
 
         //set number of dex files
         this.currentProject.setNumberofDex(dexList.size());
@@ -62,6 +74,6 @@ public class APKMetaParser extends AbstractFileParser {
         this.currentProject.setCertificateFile(certFile);
 
         //set currentProject folder name
-        this.currentProject.setProjectFolderName(FileIOHandler.getUnpackOutputPath(getApk()));
+        this.currentProject.setProjectFolderName(FileIOHandler.getUnpackOutputPath(apk));
     }
 }

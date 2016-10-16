@@ -3,8 +3,8 @@ package droidefense.handler;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.mod.vfs.model.impl.VirtualFile;
 import droidefense.mod.vfs.model.impl.VirtualFolder;
-import droidefense.sdk.model.base.AbstractHashedFile;
 import droidefense.sdk.model.base.DroidefenseProject;
+import droidefense.sdk.model.io.AbstractHashedFile;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,12 +21,14 @@ public class FileUnzipVFSHandler extends AbstractHandler {
     private final VirtualFolder root;
     private VirtualFolder parentNode;
     private AbstractHashedFile source;
+    private ArrayList<VirtualFile> files;
 
     public FileUnzipVFSHandler(DroidefenseProject project, AbstractHashedFile source) {
         this.source = source;
         this.root = VirtualFolder.createFolder("/");
         this.parentNode = root;
         this.project = project;
+        this.files = new ArrayList<>();
     }
 
     @Override
@@ -55,6 +57,7 @@ public class FileUnzipVFSHandler extends AbstractHandler {
                     }
                     // if the entry is a file, extracts it
                     VirtualFile virtualFile = VirtualFile.createFile(parentNode, entryName);
+                    files.add(virtualFile);
                     byte[] bytesIn = new byte[BUFFER_SIZE];
                     int read;
                     int offset = 0;
@@ -83,7 +86,7 @@ public class FileUnzipVFSHandler extends AbstractHandler {
         return false;
     }
 
-    public ArrayList<AbstractHashedFile> getFiles() {
-        return null;
+    public ArrayList<VirtualFile> getFiles() {
+        return files;
     }
 }

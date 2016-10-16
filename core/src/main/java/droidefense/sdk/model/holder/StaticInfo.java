@@ -1,8 +1,9 @@
 package droidefense.sdk.model.holder;
 
 
-import droidefense.sdk.model.base.AbstractHashedFile;
+import droidefense.mod.vfs.model.impl.VirtualFile;
 import droidefense.sdk.model.certificate.CertificateModel;
+import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.manifest.Manifest;
 
 import java.io.Serializable;
@@ -18,7 +19,7 @@ public class StaticInfo implements Serializable {
     /**
      * .apk list of files
      */
-    private ArrayList<AbstractHashedFile> appFiles;
+    private ArrayList<VirtualFile> appFiles;
 
     /**
      * .apk asset list of files
@@ -34,6 +35,11 @@ public class StaticInfo implements Serializable {
      * .apk raw list of files
      */
     private ArrayList<AbstractHashedFile> rawFiles;
+
+    /**
+     * list of other files
+     */
+    private ArrayList<AbstractHashedFile> otherFiles;
 
     private AbstractHashedFile certFile;
 
@@ -111,11 +117,11 @@ public class StaticInfo implements Serializable {
 
     //GETTERS AND SETTERS
 
-    public ArrayList<AbstractHashedFile> getAppFiles() {
+    public ArrayList<VirtualFile> getAppFiles() {
         return appFiles;
     }
 
-    public void setAppFiles(ArrayList<AbstractHashedFile> appFiles) {
+    public void setAppFiles(ArrayList<VirtualFile> appFiles) {
         this.appFiles = appFiles;
     }
 
@@ -292,5 +298,13 @@ public class StaticInfo implements Serializable {
 
     public void setCertFile(AbstractHashedFile certFile) {
         this.certFile = certFile;
+    }
+
+    public ArrayList<AbstractHashedFile> getOtherFiles() {
+        return otherFiles;
+    }
+
+    public void setOtherFiles(ArrayList<AbstractHashedFile> otherFiles) {
+        this.otherFiles = otherFiles;
     }
 }

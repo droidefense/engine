@@ -2,7 +2,7 @@ package droidefense.parser.base;
 
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
-import droidefense.sdk.model.base.LocalApkFile;
+import droidefense.sdk.model.io.LocalApkFile;
 
 import java.io.Serializable;
 
@@ -15,6 +15,11 @@ public abstract class AbstractFileParser implements Serializable {
     protected transient DroidefenseProject currentProject;
     protected ExecutionTimer timestamp;
 
+    public AbstractFileParser(LocalApkFile apk, DroidefenseProject currentProject) {
+        this.apk = apk;
+        this.currentProject = currentProject;
+    }
+
     public void parse() {
         timestamp = new ExecutionTimer();
         parserCode();
@@ -22,15 +27,6 @@ public abstract class AbstractFileParser implements Serializable {
     }
 
     public abstract void parserCode();
-
-    public LocalApkFile getApk() {
-        return apk;
-    }
-
-    public void setApk(LocalApkFile apk) {
-        this.apk = apk;
-        this.currentProject = DroidefenseProject.getProject(apk);
-    }
 
     public DroidefenseProject getCurrentProject() {
         return currentProject;

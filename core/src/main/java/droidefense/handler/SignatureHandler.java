@@ -5,7 +5,7 @@ import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.loader.SignatureModelLoader;
-import droidefense.sdk.model.base.AbstractHashedFile;
+import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.signature.Signature;
 import droidefense.sdk.model.signature.SignatureList;
 

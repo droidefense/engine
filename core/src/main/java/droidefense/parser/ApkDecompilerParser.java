@@ -4,7 +4,9 @@ import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
 import droidefense.parser.base.AbstractFileParser;
-import droidefense.sdk.model.base.AbstractHashedFile;
+import droidefense.sdk.model.base.DroidefenseProject;
+import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.model.io.LocalApkFile;
 import jadx.cli.JadxCLI;
 import jadx.core.utils.exceptions.JadxException;
 
@@ -15,6 +17,10 @@ import java.util.ArrayList;
  * Created by sergio on 15/3/16.
  */
 public class ApkDecompilerParser extends AbstractFileParser {
+
+    public ApkDecompilerParser(LocalApkFile apk, DroidefenseProject currentProject) {
+        super(apk, currentProject);
+    }
 
     @Override
     public void parserCode() {

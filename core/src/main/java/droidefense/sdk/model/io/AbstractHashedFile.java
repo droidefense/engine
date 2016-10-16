@@ -1,4 +1,4 @@
-package droidefense.sdk.model.base;
+package droidefense.sdk.model.io;
 
 import droidefense.sdk.helpers.Util;
 

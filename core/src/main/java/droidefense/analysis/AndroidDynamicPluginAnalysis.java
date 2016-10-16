@@ -8,9 +8,9 @@ import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.helpers.InternalConstant;
-import droidefense.sdk.model.base.AbstractHashedFile;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
+import droidefense.sdk.model.io.AbstractHashedFile;
 
 import java.io.File;
 import java.util.ArrayList;

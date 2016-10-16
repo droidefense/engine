@@ -10,6 +10,7 @@ import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
+import droidefense.mod.vfs.model.impl.VirtualFile;
 import droidefense.mod.vfs.model.impl.VirtualFileSystem;
 import droidefense.mod.vfs.model.impl.VirtualFolder;
 import droidefense.sdk.AbstractDynamicPlugin;
@@ -25,6 +26,8 @@ import droidefense.sdk.model.holder.DynamicInfo;
 import droidefense.sdk.model.holder.InternalInfo;
 import droidefense.sdk.model.holder.StaticInfo;
 import droidefense.sdk.model.holder.StringInfo;
+import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.sdk.model.manifest.Manifest;
 import droidefense.sdk.model.manifest.base.AbstractManifestClass;
 import droidefense.util.JsonStyle;
@@ -121,7 +124,6 @@ public final class DroidefenseProject implements Serializable {
     private transient AbstractFlowMap followCallsMap;
     private MachineLearningResult machineLearningResult;
     private transient boolean headerReaded;
-    private boolean VFS;
     //private transient DexHeaderReader dexHeaderReader;
 
     public DroidefenseProject(final LocalApkFile file) {
@@ -187,13 +189,11 @@ public final class DroidefenseProject implements Serializable {
         staticInfo.setNumberOfDexFiles(numberOfDexFiles);
     }
 
-    public ArrayList<AbstractHashedFile> getAppFiles() {
-        //Todo return vfs files
-        //return vfs.getFiles();
+    public ArrayList<VirtualFile> getAppFiles() {
         return staticInfo.getAppFiles();
     }
 
-    public void setAppFiles(ArrayList<AbstractHashedFile> files) {
+    public void setAppFiles(ArrayList<VirtualFile> files) {
         staticInfo.setAppFiles(files);
     }
 
@@ -261,15 +261,7 @@ public final class DroidefenseProject implements Serializable {
 
     public void setDexList(ArrayList<AbstractHashedFile> dexList) {
         this.staticInfo.setDexList(dexList);
-        //read files and save their byte array
-        for (AbstractHashedFile dex : dexList)
-            try {
-                this.staticInfo.addDexData(dex, FileIOHandler.readBytes(dex));
-                this.staticInfo.setDexFileReaded(true);
-            } catch (IOException e) {
-                Log.write(LoggerType.FATAL, e, e.getLocalizedMessage());
-                this.staticInfo.setDexFileReaded(true);
-            }
+        this.staticInfo.setDexFileReaded(true);
     }
 
     public void addDexData(AbstractHashedFile file, byte[] data) {
@@ -573,7 +565,7 @@ public final class DroidefenseProject implements Serializable {
 
         Log.write(LoggerType.TRACE, "Generating report template...");
 
-        this.generateReportTemplate();
+        //this.generateReportTemplate();
 
         //stop timer
         this.stop();
@@ -698,5 +690,13 @@ public final class DroidefenseProject implements Serializable {
 
     public void setVFS(VirtualFolder root) {
         this.vfs.add("/", root);
+    }
+
+    public ArrayList<AbstractHashedFile> getOtherFiles() {
+        return this.staticInfo.getOtherFiles();
+    }
+
+    public void setOtherFiles(ArrayList<AbstractHashedFile> otherFiles) {
+        this.staticInfo.setOtherFiles(otherFiles);
     }
 }

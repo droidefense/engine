@@ -7,7 +7,7 @@ import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
-import droidefense.sdk.model.base.AbstractHashedFile;
+import droidefense.sdk.model.io.AbstractHashedFile;
 
 import java.io.File;
 import java.io.IOException;

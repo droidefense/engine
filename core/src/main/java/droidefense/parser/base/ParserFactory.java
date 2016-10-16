@@ -1,6 +1,8 @@
 package droidefense.parser.base;
 
 import droidefense.parser.*;
+import droidefense.sdk.model.base.DroidefenseProject;
+import droidefense.sdk.model.io.LocalApkFile;
 
 /**
  * Created by r00t on 24/10/15.
@@ -14,20 +16,20 @@ public abstract class ParserFactory {
     public static final byte STATIC_META = 0x5;
     public static final byte CODE_DECOMPILER = 0x6;
 
-    public static AbstractFileParser getParser(byte decoderId) {
+    public static AbstractFileParser getParser(byte decoderId, DroidefenseProject p, LocalApkFile a) {
         switch (decoderId) {
             case CERTIFICATE_PARSER:
-                return new AndroidCertParser();
+                return new AndroidCertParser(a, p);
             case MANIFEST_PARSER:
-                return new AndroidManifestParser();
+                return new AndroidManifestParser(a, p);
             case RESOURCE_PARSER:
-                return new AndroidResourcesParser();
+                return new AndroidResourcesParser(a, p);
             case STATIC_META:
-                return new APKMetaParser();
+                return new APKMetaParser(a, p);
             case STEGANOS:
-                return new SteganosParser();
+                return new SteganosParser(a, p);
             case CODE_DECOMPILER:
-                return new ApkDecompilerParser();
+                return new ApkDecompilerParser(a, p);
         }
         return null;
     }

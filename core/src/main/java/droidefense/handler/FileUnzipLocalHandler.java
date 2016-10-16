@@ -1,7 +1,7 @@
 package droidefense.handler;
 
 import droidefense.handler.base.AbstractHandler;
-import droidefense.sdk.model.base.LocalHashedFile;
+import droidefense.sdk.model.io.LocalHashedFile;
 
 import java.io.*;
 import java.util.zip.ZipEntry;

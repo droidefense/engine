@@ -7,8 +7,8 @@ import apkr.external.modules.helpers.system.SystemCallReturn;
 import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.helpers.Util;
-import droidefense.sdk.model.base.AbstractHashedFile;
 import droidefense.sdk.model.base.DroidefenseProject;
+import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.util.JsonStyle;
 
 import java.io.*;

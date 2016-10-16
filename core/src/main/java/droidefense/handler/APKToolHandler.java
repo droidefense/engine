@@ -2,7 +2,7 @@ package droidefense.handler;
 
 import droidefense.handler.base.AbstractHandler;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.model.base.LocalApkFile;
+import droidefense.sdk.model.io.LocalApkFile;
 
 /**
  * Created by sergio on 16/2/16.

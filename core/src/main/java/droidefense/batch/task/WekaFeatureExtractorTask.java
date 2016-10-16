@@ -8,7 +8,7 @@ import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
 import droidefense.mod.manparser.ManifestParser;
-import droidefense.sdk.model.base.AbstractHashedFile;
+import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.manifest.UsesPermission;
 
 import javax.xml.parsers.ParserConfigurationException;

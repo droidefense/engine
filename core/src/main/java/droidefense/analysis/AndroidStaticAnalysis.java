@@ -6,7 +6,6 @@ import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.ObjdumpHandler;
 import droidefense.parser.base.AbstractFileParser;
 import droidefense.parser.base.ParserFactory;
-import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.model.base.ExecutionTimer;
 
 /**
@@ -24,21 +23,21 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
         Log.write(LoggerType.TRACE, "\n\n --- Running Android static analysis ---\n\n");
 
         //0 parse meta
-        AbstractFileParser parser = ParserFactory.getParser(ParserFactory.STATIC_META);
-        parser.setApk(apkFile);
+        AbstractFileParser parser = ParserFactory.getParser(ParserFactory.STATIC_META, currentProject, apkFile);
         parser.parse();
 
         //1 decompile if enabled
+        //TODO make in-memory decompilation
+        /*
         if (DroidDefenseParams.getInstance().DECOMPILE) {
             //2 parse certificates
-            parser = ParserFactory.getParser(ParserFactory.CODE_DECOMPILER);
-            parser.setApk(apkFile);
+            parser = ParserFactory.getParser(ParserFactory.CODE_DECOMPILER, currentProject, apkFile);
             parser.parse();
         }
+        */
 
         //2 parse manifest
-        parser = ParserFactory.getParser(ParserFactory.MANIFEST_PARSER);
-        parser.setApk(apkFile);
+        parser = ParserFactory.getParser(ParserFactory.MANIFEST_PARSER, currentProject, apkFile);
         parser.parse();
 
         //3 parse .so files
@@ -48,13 +47,11 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
         handler.doTheJob();
 
         //4 parse certificates
-        parser = ParserFactory.getParser(ParserFactory.CERTIFICATE_PARSER);
-        parser.setApk(apkFile);
+        parser = ParserFactory.getParser(ParserFactory.CERTIFICATE_PARSER, currentProject, apkFile);
         parser.parse();
 
         //5 parse resources
-        parser = ParserFactory.getParser(ParserFactory.RESOURCE_PARSER);
-        parser.setApk(apkFile);
+        parser = ParserFactory.getParser(ParserFactory.RESOURCE_PARSER, currentProject, apkFile);
         parser.parse();
 
         return true;

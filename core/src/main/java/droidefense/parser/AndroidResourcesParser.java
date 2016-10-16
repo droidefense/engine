@@ -4,9 +4,11 @@ import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.MagicFileHandler;
 import droidefense.handler.SignatureHandler;
+import droidefense.mod.vfs.model.impl.VirtualFile;
 import droidefense.parser.base.AbstractFileParser;
-import droidefense.sdk.model.base.AbstractHashedFile;
 import droidefense.sdk.model.base.DroidefenseProject;
+import droidefense.sdk.model.io.LocalApkFile;
+import droidefense.sdk.model.io.VirtualHashedFile;
 
 import java.util.ArrayList;
 
@@ -15,18 +17,23 @@ import java.util.ArrayList;
  */
 public class AndroidResourcesParser extends AbstractFileParser {
 
+    public AndroidResourcesParser(LocalApkFile apk, DroidefenseProject currentProject) {
+        super(apk, currentProject);
+    }
+
     @Override
     public void parserCode() {
         Log.write(LoggerType.INFO, "\nParsing Android resource files...\n");
 
-        ArrayList<AbstractHashedFile> list = DroidefenseProject.getProject(apk).getAppFiles();
+        ArrayList<VirtualFile> list = currentProject.getAppFiles();
 
         SignatureHandler signatureHandler = new SignatureHandler();
         signatureHandler.setApk(apk);
 
         MagicFileHandler magicFileHandler = new MagicFileHandler();
         magicFileHandler.setApk(apk);
-        for (AbstractHashedFile resource : list) {
+        for (VirtualFile vf : list) {
+            VirtualHashedFile resource = new VirtualHashedFile(vf, false);
             if (resource.isFile()) {
                 //run signature match
                 String extension = "";

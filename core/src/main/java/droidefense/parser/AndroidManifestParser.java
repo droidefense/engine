@@ -4,12 +4,18 @@ import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.mod.manparser.ManifestParser;
 import droidefense.parser.base.AbstractFileParser;
+import droidefense.sdk.model.base.DroidefenseProject;
+import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.sdk.model.manifest.Manifest;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
 public class AndroidManifestParser extends AbstractFileParser {
+
+    public AndroidManifestParser(LocalApkFile apk, DroidefenseProject currentProject) {
+        super(apk, currentProject);
+    }
 
     @Override
     public void parserCode() {
@@ -24,7 +30,7 @@ public class AndroidManifestParser extends AbstractFileParser {
             try {
                 this.currentProject.setClassWithPackageName(man.getApplication().getActivities().get(0).getName().contains(man.getPackageName()));
             } catch (Exception e) {
-                Log.write(LoggerType.ERROR, "Atom om could not determine if this sample has built-in package name in source code classes", e.getLocalizedMessage());
+                Log.write(LoggerType.ERROR, "Droidefense could not determine if this sample has built-in package name in source code classes", e.getLocalizedMessage());
                 this.currentProject.setClassWithPackageName(false);
             }
 

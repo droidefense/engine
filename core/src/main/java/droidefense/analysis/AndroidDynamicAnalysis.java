@@ -4,7 +4,7 @@ import apkr.external.modules.helpers.enums.ProcessStatus;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.sdk.model.base.AbstractHashedFile;
+import droidefense.sdk.model.io.AbstractHashedFile;
 
 import java.util.ArrayList;
 

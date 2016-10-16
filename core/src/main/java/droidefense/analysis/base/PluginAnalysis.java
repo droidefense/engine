@@ -6,7 +6,7 @@ import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.sdk.helpers.Util;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
-import droidefense.sdk.model.base.LocalApkFile;
+import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.util.JsonStyle;
 
 import java.io.Serializable;
