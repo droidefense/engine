@@ -1,13 +1,12 @@
 package droidefense.handler;
 
-import apkr.external.modules.vfs.model.impl.VirtualFile;
-import apkr.external.modules.vfs.model.impl.VirtualFolder;
 import droidefense.handler.base.AbstractHandler;
+import droidefense.mod.vfs.model.impl.VirtualFile;
+import droidefense.mod.vfs.model.impl.VirtualFolder;
+import droidefense.sdk.model.base.AbstractHashedFile;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.model.base.HashedFile;
 import droidefense.util.UnpackAction;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,13 +20,14 @@ public class FileUnzipVFSHandler extends AbstractHandler {
 
     private static final int BUFFER_SIZE = 4096;
     private final VirtualFolder root;
+    private final UnpackAction[] actions;
     private VirtualFolder parentNode;
+    private AbstractHashedFile source;
 
-    private HashedFile source;
-
-    public FileUnzipVFSHandler(DroidefenseProject project, HashedFile source, UnpackAction generateHash) {
+    public FileUnzipVFSHandler(DroidefenseProject project, AbstractHashedFile source, UnpackAction[] actions) {
         this.source = source;
-        this.root = VirtualFolder.createFolder("unpack");
+        this.actions = actions;
+        this.root = VirtualFolder.createFolder("/");
         this.parentNode = root;
         this.project = project;
     }
@@ -35,9 +35,9 @@ public class FileUnzipVFSHandler extends AbstractHandler {
     @Override
     public boolean doTheJob() {
         //read zip file
-        ZipInputStream zipIn = null;
+        ZipInputStream zipIn;
         try {
-            zipIn = new ZipInputStream(new FileInputStream(source.getThisFile()));
+            zipIn = new ZipInputStream(source.getStream());
             ZipEntry entry = zipIn.getNextEntry();
 
             // iterates over entries in the zip file
@@ -61,9 +61,14 @@ public class FileUnzipVFSHandler extends AbstractHandler {
                     // if the entry is a file, extracts it
                     VirtualFile virtualFile = VirtualFile.createFile(parentNode, entryName);
                     byte[] bytesIn = new byte[BUFFER_SIZE];
-                    int read = 0;
+                    int read;
+                    int offset = 0;
                     while ((read = zipIn.read(bytesIn)) != -1) {
-                        virtualFile.write(bytesIn, 0, read);
+                        virtualFile.addContent(bytesIn, 0, read);
+                    }
+                    //once file readed, execute file actions
+                    for (UnpackAction action : actions) {
+                        virtualFile = action.execute(virtualFile);
                     }
                 }
                 zipIn.closeEntry();
@@ -87,7 +92,7 @@ public class FileUnzipVFSHandler extends AbstractHandler {
         return false;
     }
 
-    public ArrayList<HashedFile> getFiles() {
+    public ArrayList<AbstractHashedFile> getFiles() {
         return null;
     }
 }

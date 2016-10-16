@@ -5,8 +5,8 @@ import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.MagicFileHandler;
 import droidefense.handler.SignatureHandler;
 import droidefense.parser.base.AbstractFileParser;
+import droidefense.sdk.model.base.AbstractHashedFile;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.model.base.HashedFile;
 
 import java.util.ArrayList;
 
@@ -19,22 +19,22 @@ public class AndroidResourcesParser extends AbstractFileParser {
     public void parserCode() {
         Log.write(LoggerType.INFO, "\nParsing Android resource files...\n");
 
-        ArrayList<HashedFile> list = DroidefenseProject.getProject(apk).getAppFiles();
+        ArrayList<AbstractHashedFile> list = DroidefenseProject.getProject(apk).getAppFiles();
 
         SignatureHandler signatureHandler = new SignatureHandler();
         signatureHandler.setApk(apk);
 
         MagicFileHandler magicFileHandler = new MagicFileHandler();
         magicFileHandler.setApk(apk);
-        for (HashedFile resource : list) {
-            if (resource.getThisFile().isFile()) {
+        for (AbstractHashedFile resource : list) {
+            if (resource.isFile()) {
                 //run signature match
                 String extension = "";
                 if (resource.hasExtension()) {
                     extension = resource.extractExtensionFromName();
                 }
 
-                signatureHandler.setApkrFile(resource);
+                signatureHandler.setApkFile(resource);
                 signatureHandler.setNameExtension(extension);
                 signatureHandler.doTheJob();
                 //resource = signatureHandler.getUpdatedResource();

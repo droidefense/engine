@@ -1,20 +1,15 @@
 package droidefense.batch.task;
 
-
-import apkr.external.module.AtomManifestParser;
 import apkr.external.module.batch.base.IBatchTask;
 import apkr.external.module.batch.base.IWekaGenerator;
-import apkr.external.module.datamodel.manifest.UsesPermission;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
-import droidefense.handler.AXMLDecoderHandler;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
-import droidefense.handler.FileUnzipHandler;
-import droidefense.handler.base.AbstractHandler;
 import droidefense.handler.base.DirScannerFilter;
-import droidefense.sdk.helpers.InternalConstant;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.mod.manparser.ManifestParser;
+import droidefense.sdk.model.base.AbstractHashedFile;
+import droidefense.sdk.model.manifest.UsesPermission;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
@@ -32,7 +27,7 @@ public class WekaFeatureExtractorTask implements IBatchTask, IWekaGenerator, Ser
     private final String outputFileName;
     private final String sample_type;
     private File baseFolder;
-    private ArrayList<HashedFile> files;
+    private ArrayList<AbstractHashedFile> files;
     private ArrayList<File> xmlFiles;
     private boolean cont;
 
@@ -73,6 +68,8 @@ public class WekaFeatureExtractorTask implements IBatchTask, IWekaGenerator, Ser
 
     @Override
     public void onTask() {
+        //TODO fix this code with new implementation
+        /*
         createDir();
         if (cont) {
             for (int i = 0; i < files.size(); i++) {
@@ -80,17 +77,17 @@ public class WekaFeatureExtractorTask implements IBatchTask, IWekaGenerator, Ser
                 File out = new File(outputDir.getAbsolutePath() + File.separator + i);
                 if (!out.exists()) {
                     createDir();
-                    AbstractHandler handler = new FileUnzipHandler(files.get(i), out);
+                    AbstractHandler handler = new FileUnzipLocalHandler(files.get(i), out);
                     handler.doTheJob();
                 }
                 Log.write(LoggerType.TRACE, i);
                 Log.write(LoggerType.TRACE, "Listing unpacked files...");
                 //get android manifest
-                HashedFile manif = new HashedFile(out.getAbsolutePath() + File.separator + InternalConstant.ANDROID_MANIFEST);
-                if (manif.getThisFile().exists()) {
+                VirtualHashedFile manif = new VirtualHashedFile(out.getAbsolutePath() + File.separator + InternalConstant.ANDROID_MANIFEST);
+                if (manif.exists()) {
                     Log.write(LoggerType.TRACE, "Decoding XML resources");
                     //decode unpacked files
-                    ArrayList<HashedFile> onlyManif = new ArrayList<>();
+                    ArrayList<VirtualHashedFile> onlyManif = new ArrayList<>();
                     onlyManif.add(manif);
                     try {
                         AXMLDecoderHandler handler = new AXMLDecoderHandler(onlyManif);
@@ -100,10 +97,11 @@ public class WekaFeatureExtractorTask implements IBatchTask, IWekaGenerator, Ser
                     }
                     Log.write(LoggerType.TRACE, "Generating file juicy information...");
                     counter++;
-                    xmlFiles.add(manif.getThisFile());
+                    xmlFiles.add(manif);
                 }
             }
         }
+        */
     }
 
     private boolean createDir() throws IllegalArgumentException {
@@ -125,7 +123,7 @@ public class WekaFeatureExtractorTask implements IBatchTask, IWekaGenerator, Ser
             for (File xml : xmlFiles) {
                 if (xml.exists() && xml.isFile() && xml.canRead()) {
                     try {
-                        AtomManifestParser parser = new AtomManifestParser();
+                        ManifestParser parser = new ManifestParser();
                         parser.parse(xml);
                         ArrayList<UsesPermission> permList = parser.getManifest().getUsesPermissionList();
                         OutPutResult result = new OutPutResult(permList);

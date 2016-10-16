@@ -4,7 +4,8 @@ import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.handler.base.DirScannerFilter;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.sdk.model.base.AbstractHashedFile;
+import droidefense.sdk.model.base.LocalHashedFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +22,7 @@ public class DirScannerHandler extends AbstractHandler {
     private final DirScannerFilter filter;
     private File outputDir;
     private boolean generateInformation;
-    private ArrayList<HashedFile> files;
+    private ArrayList<AbstractHashedFile> files;
     private int nfolder, nfiles;
 
     public DirScannerHandler(File outputDir, boolean generateInformation, DirScannerFilter filter) {
@@ -33,11 +34,11 @@ public class DirScannerHandler extends AbstractHandler {
 
     @Override
     public boolean doTheJob() {
-        ArrayList<HashedFile> files = enumFiles();
+        ArrayList<AbstractHashedFile> files = enumFiles();
         return files != null && !files.isEmpty();
     }
 
-    private ArrayList<HashedFile> enumFiles() {
+    private ArrayList<AbstractHashedFile> enumFiles() {
         //walk file tree
         final Path sourceDir = Paths.get(outputDir.getAbsolutePath());
         try {
@@ -51,8 +52,8 @@ public class DirScannerHandler extends AbstractHandler {
 
                         @Override
                         public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                            HashedFile resfile = new HashedFile(file.toFile(), generateInformation);
-                            if (filter.addFile(resfile.getThisFile())) {
+                            AbstractHashedFile resfile = new LocalHashedFile(file.toFile(), generateInformation);
+                            if (filter.addFile((File) resfile.getThisFile())) {
                                 nfiles++;
                                 files.add(resfile);
                             }
@@ -65,11 +66,11 @@ public class DirScannerHandler extends AbstractHandler {
         return files;
     }
 
-    public ArrayList<HashedFile> getFiles() {
+    public ArrayList<AbstractHashedFile> getFiles() {
         return files;
     }
 
-    public void setFiles(ArrayList<HashedFile> files) {
+    public void setFiles(ArrayList<AbstractHashedFile> files) {
         this.files = files;
     }
 

@@ -4,7 +4,7 @@ import apkr.external.modules.helpers.enums.ProcessStatus;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.sdk.model.base.AbstractHashedFile;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,7 @@ public final class AndroidDynamicAnalysis extends AbstractAndroidAnalysis {
         Log.write(LoggerType.TRACE, "\n\n --- Running Droidefense dynamic analysis ---\n\n");
 
         //dex file list
-        ArrayList<HashedFile> list = currentProject.getDexList();
+        ArrayList<AbstractHashedFile> list = currentProject.getDexList();
 
         //run dex file statistics handler
         //AbstractHandler handler = new DexStatsHandler(currentProject, list);

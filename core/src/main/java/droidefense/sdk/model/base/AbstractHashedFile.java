@@ -1,92 +1,49 @@
 package droidefense.sdk.model.base;
 
-import apkr.external.module.ssdeep.exception.SSDeepException;
-import apkr.external.modules.vfs.model.impl.VirtualFile;
-import droidefense.sdk.helpers.CheckSumGen;
 import droidefense.sdk.helpers.Util;
 
-import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 
-public class HashedFile implements Serializable {
+public abstract class AbstractHashedFile implements Serializable {
 
     private static final String NO_EXTENSION = "";
-    protected transient final File f;
-    private long filesize;
-    private String beautyFilesize;
-    private String crc32, md5, sha1, sha256, sha512, ssdeep;
-    private boolean suspiciousFile;
-    private boolean signatureMatches;
-    private String filename, headerBasedExtension, declaredExtension, description;
-    private String magicDescription;
+    private transient final boolean generateInformation;
 
-    public HashedFile(String apkPath, boolean generateInformation) {
-        this(new File(apkPath), generateInformation);
+    protected long filesize;
+    protected String beautyFilesize;
+    protected String crc32, md5, sha1, sha256, sha512, ssdeep;
+    protected boolean suspiciousFile;
+    protected boolean signatureMatches;
+    protected String filename, headerBasedExtension, declaredExtension, description;
+    protected String magicDescription;
+
+    public AbstractHashedFile(boolean generateInformation) {
+        this.generateInformation = generateInformation;
     }
 
-    public HashedFile(VirtualFile vf, boolean generateInformation) {
-        this.f = new File(vf.getPath());
-        filesize = vf.getContentLength();
-        filename = vf.getName();
+    protected void init() {
+        //filesize info
+        filesize = getContentLength();
+        if (this.filesize > 0) {
+            beautyFilesize = Util.beautifyFileSize(this.filesize);
+        } else {
+            beautyFilesize = "0 b";
+        }
+        //filename info
+        filename = getName();
+        //extension info
         declaredExtension = Util.getFileExtension(this.filename);
+        //hash info
         if (generateInformation) {
-            if (this.filesize > 0) {
-                beautyFilesize = Util.beautifyFileSize(this.filesize);
-            } else {
-                beautyFilesize = "0 b";
-            }
-
-            //TODO POSSIBLE HASHING BOTTLENECK
-            byte[] data = vf.getContent();
-            crc32 = Util.toHexString(CheckSumGen.getInstance().calculateCRC32(data));
-            md5 = CheckSumGen.getInstance().calculateMD5(data);
-            sha1 = CheckSumGen.getInstance().calculateSHA1(data);
-            sha256 = CheckSumGen.getInstance().calculateSHA256(data);
-            sha512 = CheckSumGen.getInstance().calculateSHA512(data);
-            try {
-                ssdeep = CheckSumGen.getInstance().calculateSSDeep(data);
-            } catch (SSDeepException e) {
-                e.printStackTrace();
-            }
+            generateHashes();
+            //TODO calculate header based extension vs declared extension
+            //variables: signatureMatches, headerBasedExtension, description, magicDescription
         }
     }
 
-    public HashedFile(File parent, boolean generateInformation) {
-        this.f = parent;
-        if (this.f.isFile()) {
-            filesize = this.f.length();
-            filename = this.f.getName();
-            declaredExtension = Util.getFileExtension(this.filename);
-            if (generateInformation) {
-                if (this.filesize > 0) {
-                    beautyFilesize = Util.beautifyFileSize(this.filesize);
-                } else {
-                    beautyFilesize = "0 b";
-                }
-
-                //TODO HASHING TIME BOTTLENECK
-                File currentFile = getThisFile();
-                crc32 = Util.toHexString(CheckSumGen.getInstance().calculateCRC32(currentFile));
-                md5 = CheckSumGen.getInstance().calculateMD5(currentFile);
-                sha1 = CheckSumGen.getInstance().calculateSHA1(currentFile);
-                sha256 = CheckSumGen.getInstance().calculateSHA256(currentFile);
-                sha512 = CheckSumGen.getInstance().calculateSHA512(currentFile);
-                try {
-                    ssdeep = CheckSumGen.getInstance().calculateSSDeep(currentFile);
-                } catch (SSDeepException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public HashedFile(String path) {
-        this(new File(path), true);
-    }
-
-    public HashedFile(File parent) {
-        this(parent, true);
-    }
+    protected abstract void generateHashes();
 
     public String getFilename() {
         return filename;
@@ -118,17 +75,6 @@ public class HashedFile implements Serializable {
 
     public void setSha1(String sha1) {
         this.sha1 = sha1;
-    }
-
-    public String getSha256() {
-        if (sha256 == null)
-            //calculate
-            sha256 = CheckSumGen.getInstance().calculateSHA256(this.f);
-        return sha256;
-    }
-
-    public void setSha256(String sha256) {
-        this.sha256 = sha256;
     }
 
     public String getSha512() {
@@ -221,7 +167,7 @@ public class HashedFile implements Serializable {
 
     @Override
     public String toString() {
-        return this.f.getAbsolutePath();
+        return this.getPath();
     }
 
     public String getBeautyFilesize() {
@@ -240,24 +186,44 @@ public class HashedFile implements Serializable {
         this.magicDescription = magicDescription;
     }
 
-    public File getThisFile() {
-        return this.f;
-    }
-
     public String getAbsolutePath() {
-        return this.f.getAbsolutePath();
+        return this.getPath();
     }
 
     public boolean hasExtension() {
-        return this.f.getName().contains(".");
+        return this.getName().contains(".");
     }
 
     public String extractExtensionFromName() {
         //file with extension detected
-        String[] data = this.f.getName().split("\\.");
+        String[] data = getName().split("\\.");
         //return last value found
         if (data.length > 0)
             return data[data.length - 1].toUpperCase();
         return NO_EXTENSION;
     }
+
+    public abstract long getContentLength();
+
+    public abstract String getPath();
+
+    public abstract String getName();
+
+    public abstract String getSha256();
+
+    public void setSha256(String sha256) {
+        this.sha256 = sha256;
+    }
+
+    public abstract Object getThisFile();
+
+    public abstract boolean exists();
+
+    public abstract boolean isFile();
+
+    public abstract boolean canRead();
+
+    public abstract boolean canWrite();
+
+    public abstract InputStream getStream() throws IOException;
 }

@@ -8,9 +8,9 @@ import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
 import droidefense.sdk.AbstractStaticPlugin;
 import droidefense.sdk.helpers.InternalConstant;
+import droidefense.sdk.model.base.AbstractHashedFile;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
-import droidefense.sdk.model.base.HashedFile;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -41,10 +41,10 @@ public final class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
                 }
             });
             scanner.doTheJob();
-            ArrayList<HashedFile> pluginsList = scanner.getFiles();
-            for (HashedFile plugin : pluginsList) {
+            ArrayList<AbstractHashedFile> pluginsList = scanner.getFiles();
+            for (AbstractHashedFile plugin : pluginsList) {
                 //run each plugin in a different thread
-                String pluginName = plugin.getThisFile().getName();
+                String pluginName = plugin.getName();
                 if (pluginName.endsWith(InternalConstant.COMPILED_JAVA_EXTENSION)) {
                     Log.write(LoggerType.TRACE, plugin.getAbsolutePath());
                     Class aClass;

@@ -1,6 +1,5 @@
 package droidefense.handler;
 
-import apkr.external.module.datamodel.manifest.UsesPermission;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import apkr.external.modules.ml.MachineLearningResult;
@@ -8,6 +7,7 @@ import apkr.external.modules.ml.WekaClassifier;
 import droidefense.batch.task.OutPutResult;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.sdk.helpers.InternalConstant;
+import droidefense.sdk.model.manifest.UsesPermission;
 import weka.classifiers.Classifier;
 import weka.core.Instances;
 import weka.core.converters.ArffLoader;

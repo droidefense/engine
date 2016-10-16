@@ -33,11 +33,11 @@
 
         <!--local dependencies -->
         <dependency>
-            <groupId>apkr.external.module.manifest</groupId>
+            <groupId>droidefense.mod.manparser</groupId>
             <artifactId>manifest</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/../lib/native/apkr.external.module.manifestparser.jar</systemPath>
+            <systemPath>${pom.basedir}/../lib/native/droidefense.mod.manparser.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -77,7 +77,7 @@
             <artifactId>axml</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/../lib/third-party/axml-parser-module.jar</systemPath>
+            <systemPath>${pom.basedir}/../lib/third-party/axml-parser-lib.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -113,11 +113,11 @@
         </dependency>
 
         <dependency>
-            <groupId>apkr.external.modules.vfs</groupId>
+            <groupId>droidefense.mod.vfs</groupId>
             <artifactId>vfs</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/../lib/native/apkr.external.modules.vfs.jar</systemPath>
+            <systemPath>${pom.basedir}/../lib/native/droidefense.mod.vfs.jar</systemPath>
         </dependency>
 
         <!-- third party dependencies -->

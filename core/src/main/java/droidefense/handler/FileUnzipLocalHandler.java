@@ -1,7 +1,7 @@
 package droidefense.handler;
 
 import droidefense.handler.base.AbstractHandler;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.sdk.model.base.LocalHashedFile;
 
 import java.io.*;
 import java.util.zip.ZipEntry;
@@ -10,14 +10,14 @@ import java.util.zip.ZipInputStream;
 /**
  * Created by sergio on 16/2/16.
  */
-public class FileUnzipHandler extends AbstractHandler {
+public class FileUnzipLocalHandler extends AbstractHandler {
 
     private static final int BUFFER_SIZE = 4096;
 
-    private HashedFile source;
+    private LocalHashedFile source;
     private File outputDir;
 
-    public FileUnzipHandler(HashedFile source, File outputDir) {
+    public FileUnzipLocalHandler(LocalHashedFile source, File outputDir) {
         super();
         this.source = source;
         this.outputDir = outputDir;

@@ -8,8 +8,8 @@ import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.exception.InvalidScanParametersException;
 import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.helpers.InternalConstant;
-import droidefense.sdk.model.base.APKFile;
 import droidefense.sdk.model.base.DroidefenseProject;
+import droidefense.sdk.model.base.LocalApkFile;
 import droidefense.temp.DroidefenseIntel;
 
 import java.io.File;
@@ -94,10 +94,10 @@ public class DroidefenseScan {
         try {
             loadVariables();
             //read dex file from foldex x file y
-            APKFile apk;
+            LocalApkFile apk;
 
             Log.write(LoggerType.TRACE, "Reading .apk from local file");
-            apk = new APKFile(file, unpacker);
+            apk = new LocalApkFile(file, unpacker);
 
             Log.write(LoggerType.TRACE, "Building project");
             project = new DroidefenseProject(apk);

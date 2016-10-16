@@ -9,13 +9,13 @@ import java.util.ArrayList;
 /**
  * Created by sergio on 16/2/16.
  */
-public class APKFile extends HashedFile {
+public class LocalApkFile extends LocalHashedFile {
 
     private final APKUnpacker technique;
     private ProcessStatus status;
 
-    public APKFile(File f, APKUnpacker unpacker) {
-        super(f);
+    public LocalApkFile(File f, APKUnpacker unpacker) {
+        super(f, true);
         if (!this.f.exists())
             throw new IllegalArgumentException("APK file must exist on specified directory:\n" + f.getAbsolutePath());
         this.technique = unpacker;
@@ -35,7 +35,7 @@ public class APKFile extends HashedFile {
         this.status = status;
     }
 
-    public ArrayList<HashedFile> unpackWithTechnique(File outputDir, DroidefenseProject currentProject) {
+    public ArrayList<AbstractHashedFile> unpackWithTechnique(File outputDir, DroidefenseProject currentProject) {
         return this.technique.unpackWithTechnique(currentProject, this, outputDir);
     }
 }

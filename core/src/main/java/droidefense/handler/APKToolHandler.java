@@ -6,7 +6,7 @@ import brut.androlib.AndrolibException;
 import brut.androlib.ApkDecoder;
 import brut.directory.DirectoryException;
 import droidefense.handler.base.AbstractHandler;
-import droidefense.sdk.model.base.APKFile;
+import droidefense.sdk.model.base.LocalApkFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,10 +23,10 @@ public class APKToolHandler extends AbstractHandler {
     public final static short DECODE_RESOURCES_FULL = 0x0001;
 
     private static final boolean FORCE_DELETE = true;
-    private final APKFile source;
+    private final LocalApkFile source;
     private final File outputDir;
 
-    public APKToolHandler(APKFile source, File outputDir) {
+    public APKToolHandler(LocalApkFile source, File outputDir) {
         super();
         this.source = source;
         this.outputDir = outputDir;

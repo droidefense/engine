@@ -1,7 +1,7 @@
 package droidefense.handler.base;
 
-import droidefense.sdk.model.base.APKFile;
 import droidefense.sdk.model.base.DroidefenseProject;
+import droidefense.sdk.model.base.LocalApkFile;
 
 import java.io.Serializable;
 
@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 public abstract class AbstractHandler implements Serializable {
 
-    protected APKFile apk;
+    protected LocalApkFile apk;
     protected Exception error;
     protected DroidefenseProject project;
 
@@ -24,11 +24,11 @@ public abstract class AbstractHandler implements Serializable {
         this.error = error;
     }
 
-    public APKFile getApk() {
+    public LocalApkFile getApk() {
         return apk;
     }
 
-    public void setApk(APKFile apk) {
+    public void setApk(LocalApkFile apk) {
         this.apk = apk;
     }
 

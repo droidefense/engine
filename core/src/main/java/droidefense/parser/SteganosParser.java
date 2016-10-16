@@ -3,7 +3,7 @@ package droidefense.parser;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.parser.base.AbstractFileParser;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.sdk.model.base.AbstractHashedFile;
 
 import java.util.ArrayList;
 
@@ -15,8 +15,8 @@ public class SteganosParser extends AbstractFileParser {
     @Override
     public void parserCode() {
         Log.write(LoggerType.INFO, "\n\nSearching for Steganos content...\n\n");
-        ArrayList<HashedFile> fileList = currentProject.getAppFiles();
-        /*for (HashedFile r : fileList) {
+        ArrayList<AbstractHashedFile> fileList = currentProject.getAppFiles();
+        /*for (AbstractHashedFile r : fileList) {
             //TODO implement at least LSB algorithm
         }*/
     }

@@ -1,7 +1,7 @@
 package droidefense.batch.helper;
 
 import droidefense.sdk.helpers.InternalConstant;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.sdk.model.base.AbstractHashedFile;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -19,9 +19,9 @@ public enum DirectoryFilter {
         }
 
         @Override
-        public HashSet<String> saveCondition(HashSet<String> set, ArrayList<HashedFile> files) {
-            for (HashedFile r : files) {
-                if (r.getThisFile().getName().endsWith(InternalConstant.JAVA_EXTENSION)) {
+        public HashSet<String> saveCondition(HashSet<String> set, ArrayList<AbstractHashedFile> files) {
+            for (AbstractHashedFile r : files) {
+                if (r.getName().endsWith(InternalConstant.JAVA_EXTENSION)) {
                     int value = r.getAbsolutePath().lastIndexOf(File.separator);
                     String name = r.getAbsolutePath().substring(value + 1);
                     name = name.replace(InternalConstant.JAVA_EXTENSION, InternalConstant.NONE);
@@ -45,8 +45,8 @@ public enum DirectoryFilter {
         }
 
         @Override
-        public HashSet<String> saveCondition(HashSet<String> set, ArrayList<HashedFile> files) {
-            for (HashedFile r : files) {
+        public HashSet<String> saveCondition(HashSet<String> set, ArrayList<AbstractHashedFile> files) {
+            for (AbstractHashedFile r : files) {
                 int value = r.getAbsolutePath().lastIndexOf(File.separator);
                 String name = r.getAbsolutePath().substring(value + 1);
                 name = name.replace(InternalConstant.JAVA_EXTENSION, InternalConstant.NONE);
@@ -69,8 +69,8 @@ public enum DirectoryFilter {
         }
 
         @Override
-        public HashSet<String> saveCondition(HashSet<String> set, ArrayList<HashedFile> files) {
-            for (HashedFile r : files) {
+        public HashSet<String> saveCondition(HashSet<String> set, ArrayList<AbstractHashedFile> files) {
+            for (AbstractHashedFile r : files) {
                 int value = r.getAbsolutePath().lastIndexOf(File.separator);
                 String name = r.getAbsolutePath().substring(value + 1);
                 name = name.replace(InternalConstant.JAVA_EXTENSION, InternalConstant.NONE);
@@ -97,10 +97,10 @@ public enum DirectoryFilter {
         }
 
         @Override
-        public HashSet<String> saveCondition(HashSet<String> set, ArrayList<HashedFile> files) {
-            for (HashedFile r : files) {
-                if (r.getThisFile().getName().endsWith(InternalConstant.JAVA_EXTENSION)) {
-                    set.add(r.getThisFile().getAbsolutePath());
+        public HashSet<String> saveCondition(HashSet<String> set, ArrayList<AbstractHashedFile> files) {
+            for (AbstractHashedFile r : files) {
+                if (r.getName().endsWith(InternalConstant.JAVA_EXTENSION)) {
+                    set.add(r.getAbsolutePath());
                 }
             }
             return set;
@@ -114,7 +114,7 @@ public enum DirectoryFilter {
 
     public abstract boolean filterCondition(File f);
 
-    public abstract HashSet<String> saveCondition(HashSet<String> set, ArrayList<HashedFile> files);
+    public abstract HashSet<String> saveCondition(HashSet<String> set, ArrayList<AbstractHashedFile> files);
 
     public abstract String getResultName();
 }

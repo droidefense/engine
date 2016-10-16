@@ -1,12 +1,8 @@
 package droidefense.util;
 
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
-import apkr.external.modules.vfs.model.impl.VirtualFile;
 import droidefense.handler.AXMLDecoderHandler;
-import droidefense.sdk.model.base.HashedFile;
-
-import java.util.ArrayList;
+import droidefense.mod.vfs.model.impl.VirtualFile;
+import droidefense.sdk.model.base.VirtualHashedFile;
 
 /**
  * Created by .local on 14/10/2016.
@@ -16,21 +12,20 @@ public enum UnpackAction {
         public static final boolean GENERATE_HASHES = true;
 
         @Override
-        public void execute(VirtualFile vf) {
-
-            ArrayList<HashedFile> files = new ArrayList<>();
-
-            //TODO generate hashes of the files
-            HashedFile hashedFile = new HashedFile(vf, GENERATE_HASHES);
-
-            files.add(hashedFile);
-
-            Log.write(LoggerType.TRACE, "Decoding XML resources");
+        public VirtualFile execute(VirtualFile vf) {
+            //information is generated
+            VirtualHashedFile hashedFile = new VirtualHashedFile(vf, GENERATE_HASHES);
+            return null;
+        }
+    }, DECODE {
+        @Override
+        public VirtualFile execute(VirtualFile vf) {
             //decode unpacked files
-            AXMLDecoderHandler decoder = new AXMLDecoderHandler(files);
+            AXMLDecoderHandler decoder = new AXMLDecoderHandler(vf);
             decoder.doTheJob();
+            return decoder.getDecodedFile();
         }
     };
 
-    public abstract void execute(VirtualFile vf);
+    public abstract VirtualFile execute(VirtualFile vf);
 }

@@ -16,9 +16,9 @@
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.7" level="project" />
     <orderEntry type="module-library">
-      <library name="Maven: apkr.external.module.manifest:manifest:1.0">
+      <library name="Maven: droidefense.mod.manparser:manifest:1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.module.manifestparser.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lib/native/droidefense.mod.manparser.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -63,7 +63,7 @@
     <orderEntry type="module-library">
       <library name="Maven: axml:axml:1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../lib/third-party/axml-parser-module.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lib/third-party/axml-parser-lib.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -106,9 +106,9 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="Maven: apkr.external.modules.vfs:vfs:1.0">
+      <library name="Maven: droidefense.mod.vfs:vfs:1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../lib/native/apkr.external.modules.vfs.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lib/native/droidefense.mod.vfs.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

@@ -7,8 +7,8 @@ import apkr.external.modules.helpers.system.SystemCallReturn;
 import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.helpers.Util;
+import droidefense.sdk.model.base.AbstractHashedFile;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.model.base.HashedFile;
 import droidefense.util.JsonStyle;
 
 import java.io.*;
@@ -29,7 +29,7 @@ public class FileIOHandler {
         return new File(new File("").getAbsolutePath());
     }
 
-    public static File getUnpackOutputFile(HashedFile source) {
+    public static File getUnpackOutputFile(AbstractHashedFile source) {
         return new File(getUnpackOutputFile() + File.separator + source.getSha256());
     }
 
@@ -65,7 +65,7 @@ public class FileIOHandler {
         return getBaseDirFile().getAbsolutePath();
     }
 
-    public static String getUnpackOutputPath(HashedFile source) {
+    public static String getUnpackOutputPath(AbstractHashedFile source) {
         return getUnpackOutputFile(source).getAbsolutePath();
     }
 
@@ -81,7 +81,7 @@ public class FileIOHandler {
         return getUnpackOutputPath(project.getSourceFile());
     }
 
-    public static byte[] readBytes(HashedFile file) throws IOException {
+    public static byte[] readBytes(AbstractHashedFile file) throws IOException {
         return Files.readAllBytes(Paths.get(file.getAbsolutePath()));
     }
 

@@ -5,12 +5,10 @@ import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.loader.SignatureModelLoader;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.sdk.model.base.AbstractHashedFile;
 import droidefense.sdk.model.signature.Signature;
 import droidefense.sdk.model.signature.SignatureList;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -28,7 +26,7 @@ public class SignatureHandler extends AbstractHandler {
     //instance vars
     private String description;
     private String expectedFiletype;
-    private HashedFile ApkrFile;
+    private AbstractHashedFile apkFile;
     private boolean valid;
     private String nameExtension;
 
@@ -46,59 +44,53 @@ public class SignatureHandler extends AbstractHandler {
     public boolean doTheJob() {
         byte[] buffer = new byte[BUFFER_SIZE];
         InputStream in;
+        int n;
         try {
-            in = new FileInputStream(ApkrFile.getThisFile());
-            int n;
-            try {
-                n = in.read(buffer, 0, BUFFER_SIZE);
-                int m = n;
-                while ((m < MAX_SIGNATURE_SIZE) && (n > 0)) {
-                    n = in.read(buffer, m, BUFFER_SIZE - m);
-                    m += n;
-                }
-                in.close();
-                Signature s = model.checkSignature(buffer);
-                if (s != null) {
-                    expectedFiletype = s.getExtension();
-                    description = s.getFiletypeInfo();
-                    valid = expectedFiletype.equalsIgnoreCase(nameExtension);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-                Log.write(LoggerType.ERROR, "Atom Engine could not 'do the job'", e.getLocalizedMessage(), e);
-                return false;
+            in = apkFile.getStream();
+            n = in.read(buffer, 0, BUFFER_SIZE);
+            int m = n;
+            while ((m < MAX_SIGNATURE_SIZE) && (n > 0)) {
+                n = in.read(buffer, m, BUFFER_SIZE - m);
+                m += n;
             }
-        } catch (FileNotFoundException e) {
+            in.close();
+            Signature s = model.checkSignature(buffer);
+            if (s != null) {
+                expectedFiletype = s.getExtension();
+                description = s.getFiletypeInfo();
+                valid = expectedFiletype.equalsIgnoreCase(nameExtension);
+            }
+        } catch (IOException e) {
             e.printStackTrace();
-            Log.write(LoggerType.ERROR, "Atom Engine could not 'do the job'", e.getLocalizedMessage(), e);
+            Log.write(LoggerType.ERROR, "Droidefense could not 'do the job'", e.getLocalizedMessage(), e);
             return false;
         }
         return true;
     }
 
-    public HashedFile getUpdatedResource() {
-        return ApkrFile;
+    public AbstractHashedFile getUpdatedResource() {
+        return apkFile;
     }
 
-    public HashedFile getApkrFile() {
-        return ApkrFile;
+    public AbstractHashedFile getApkFile() {
+        return apkFile;
     }
 
-    public void setApkrFile(HashedFile ApkrFile) {
-        this.ApkrFile = ApkrFile;
+    public void setApkFile(AbstractHashedFile ApkrFile) {
+        this.apkFile = ApkrFile;
     }
 
     public void updateDescription() {
         if (valid) {
-            getApkrFile().setExtension(nameExtension);
-            getApkrFile().setDescription(description);
-            getApkrFile().setHeaderBasedExtension(expectedFiletype);
-            getApkrFile().setSignatureMatches();
+            getApkFile().setExtension(nameExtension);
+            getApkFile().setDescription(description);
+            getApkFile().setHeaderBasedExtension(expectedFiletype);
+            getApkFile().setSignatureMatches();
         } else {
-            Log.write(LoggerType.DEBUG, "File NOT identified: " + getApkrFile().getThisFile().getName());
-            getApkrFile().setExtension(nameExtension);
-            getApkrFile().setDescription("unknown");
-            getApkrFile().setHeaderBasedExtension("unknown");
+            Log.write(LoggerType.DEBUG, "File NOT identified: " + getApkFile().getName());
+            getApkFile().setExtension(nameExtension);
+            getApkFile().setDescription("unknown");
+            getApkFile().setHeaderBasedExtension("unknown");
         }
     }
 

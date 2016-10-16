@@ -20,6 +20,13 @@ public class Util {
     private static final long G = M * K;
     private static final long T = G * K;
 
+    public static String byteArrayToHex(byte[] a) {
+        StringBuilder sb = new StringBuilder(a.length * 2);
+        for (byte b : a)
+            sb.append(String.format("%02x", b & 0xff));
+        return sb.toString();
+    }
+
     public static String beautifyFileSize(final long value) {
         final long[] dividers = new long[]{T, G, M, K, 1};
         final String[] units = new String[]{"TB", "GB", "MB", "KB", "B"};

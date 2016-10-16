@@ -1,20 +1,17 @@
 package droidefense.sdk.model.base;
 
-import apkr.external.module.datamodel.manifest.Manifest;
-import apkr.external.module.datamodel.manifest.UsesPermission;
-import apkr.external.module.datamodel.manifest.base.AbstractManifestClass;
 import apkr.external.modules.controlflow.model.map.BasicCFGFlowMap;
 import apkr.external.modules.controlflow.model.map.base.AbstractFlowMap;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import apkr.external.modules.ml.MachineLearningResult;
 import apkr.external.modules.rulengine.Rule;
-import apkr.external.modules.vfs.model.impl.VirtualFileSystem;
-import apkr.external.modules.vfs.model.impl.VirtualFolder;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
+import droidefense.mod.vfs.model.impl.VirtualFileSystem;
+import droidefense.mod.vfs.model.impl.VirtualFolder;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.AbstractStaticPlugin;
 import droidefense.sdk.helpers.DroidDefenseParams;
@@ -28,6 +25,9 @@ import droidefense.sdk.model.holder.DynamicInfo;
 import droidefense.sdk.model.holder.InternalInfo;
 import droidefense.sdk.model.holder.StaticInfo;
 import droidefense.sdk.model.holder.StringInfo;
+import droidefense.sdk.model.manifest.Manifest;
+import droidefense.sdk.model.manifest.UsesPermission;
+import droidefense.sdk.model.manifest.base.AbstractManifestClass;
 import droidefense.util.JsonStyle;
 
 import java.io.File;
@@ -45,7 +45,7 @@ import java.util.Map;
  */
 public final class DroidefenseProject implements Serializable {
 
-    private static final Map<APKFile, DroidefenseProject> projectMap = new HashMap<>();
+    private static final Map<LocalApkFile, DroidefenseProject> projectMap = new HashMap<>();
 
     /**
      * Virtual file system for unpacked files
@@ -58,7 +58,7 @@ public final class DroidefenseProject implements Serializable {
     /**
      * Reference to current .apk
      */
-    private final APKFile sourceFile;
+    private final LocalApkFile sourceFile;
     /**
      * Currently used analyzers on this .apk
      */
@@ -125,7 +125,7 @@ public final class DroidefenseProject implements Serializable {
     private boolean VFS;
     //private transient DexHeaderReader dexHeaderReader;
 
-    public DroidefenseProject(final APKFile file) {
+    public DroidefenseProject(final LocalApkFile file) {
         //create new timestamp now
         timeStamp = new ExecutionTimer();
 
@@ -152,7 +152,7 @@ public final class DroidefenseProject implements Serializable {
         projectMap.put(file, this);
     }
 
-    public static DroidefenseProject getProject(APKFile apk) {
+    public static DroidefenseProject getProject(LocalApkFile apk) {
         return projectMap.get(apk);
     }
 
@@ -188,11 +188,13 @@ public final class DroidefenseProject implements Serializable {
         staticInfo.setNumberOfDexFiles(numberOfDexFiles);
     }
 
-    public ArrayList<HashedFile> getAppFiles() {
+    public ArrayList<AbstractHashedFile> getAppFiles() {
+        //Todo return vfs files
+        //return vfs.getFiles();
         return staticInfo.getAppFiles();
     }
 
-    public void setAppFiles(ArrayList<HashedFile> files) {
+    public void setAppFiles(ArrayList<AbstractHashedFile> files) {
         staticInfo.setAppFiles(files);
     }
 
@@ -204,7 +206,7 @@ public final class DroidefenseProject implements Serializable {
         return timeStamp.getEnd();
     }
 
-    public APKFile getSourceFile() {
+    public LocalApkFile getSourceFile() {
         return sourceFile;
     }
 
@@ -220,11 +222,11 @@ public final class DroidefenseProject implements Serializable {
         staticInfo.addCertInfo(certInfo);
     }
 
-    public File getManifestFile() {
-        return this.staticInfo.getManifestFile().getThisFile();
+    public byte[] getManifestFile() {
+        return this.vfs.get("/").getItem("AndroidManifest.xml").getContent();
     }
 
-    public void setManifestFile(HashedFile manifest) {
+    public void setManifestFile(AbstractHashedFile manifest) {
         this.staticInfo.setManifestFile(manifest);
     }
 
@@ -253,14 +255,14 @@ public final class DroidefenseProject implements Serializable {
         this.staticInfo.setNumberOfDexFiles(i);
     }
 
-    public ArrayList<HashedFile> getDexList() {
+    public ArrayList<AbstractHashedFile> getDexList() {
         return this.staticInfo.getDexList();
     }
 
-    public void setDexList(ArrayList<HashedFile> dexList) {
+    public void setDexList(ArrayList<AbstractHashedFile> dexList) {
         this.staticInfo.setDexList(dexList);
         //read files and save their byte array
-        for (HashedFile dex : dexList)
+        for (AbstractHashedFile dex : dexList)
             try {
                 this.staticInfo.addDexData(dex, FileIOHandler.readBytes(dex));
                 this.staticInfo.setDexFileReaded(true);
@@ -270,13 +272,13 @@ public final class DroidefenseProject implements Serializable {
             }
     }
 
-    public void addDexData(HashedFile file, byte[] data) {
+    public void addDexData(AbstractHashedFile file, byte[] data) {
         this.staticInfo.addDexData(file, data);
     }
 
     //DYNAMIC INFORMATION GETTERS & SETTERS
 
-    public byte[] getDexData(HashedFile file) {
+    public byte[] getDexData(AbstractHashedFile file) {
         return this.staticInfo.getDexData(file);
     }
 
@@ -316,15 +318,15 @@ public final class DroidefenseProject implements Serializable {
         return getSourceFile().getThisFile().getName().replace(".apk", "");
     }
 
-    public void setRawFiles(ArrayList<HashedFile> rawFiles) {
+    public void setRawFiles(ArrayList<AbstractHashedFile> rawFiles) {
         this.staticInfo.setRawFiles(rawFiles);
     }
 
-    public void setAssetsFiles(ArrayList<HashedFile> assetFiles) {
+    public void setAssetsFiles(ArrayList<AbstractHashedFile> assetFiles) {
         this.staticInfo.setAssetFiles(assetFiles);
     }
 
-    public void setLibFiles(ArrayList<HashedFile> libFiles) {
+    public void setLibFiles(ArrayList<AbstractHashedFile> libFiles) {
         this.staticInfo.setLibFiles(libFiles);
     }
 
@@ -523,7 +525,7 @@ public final class DroidefenseProject implements Serializable {
         setSummary(data);
     }
 
-    public void setCertificateFile(HashedFile certFile) {
+    public void setCertificateFile(AbstractHashedFile certFile) {
         this.staticInfo.setCertFile(certFile);
     }
 
@@ -643,11 +645,12 @@ public final class DroidefenseProject implements Serializable {
             }
         });
         handler.doTheJob();
-        ArrayList<HashedFile> files = handler.getFiles();
+        ArrayList<AbstractHashedFile> files = handler.getFiles();
         if (files != null && !files.isEmpty()) {
             //read logo and convert to b64 string
             try {
-                byte[] imageBytes = Files.readAllBytes(Paths.get(files.get(0).getThisFile().getAbsolutePath()));
+                AbstractHashedFile file = (AbstractHashedFile) files.get(0).getThisFile();
+                byte[] imageBytes = Files.readAllBytes(Paths.get(file.getAbsolutePath()));
                 return Base64.getEncoder().encodeToString(imageBytes);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -690,6 +693,6 @@ public final class DroidefenseProject implements Serializable {
     }
 
     public void setVFS(VirtualFolder root) {
-        this.vfs.add("unpack", root);
+        this.vfs.add("/", root);
     }
 }

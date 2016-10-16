@@ -6,9 +6,9 @@ import droidefense.handler.APKToolHandler;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileUnzipVFSHandler;
 import droidefense.handler.base.DirScannerFilter;
-import droidefense.sdk.model.base.APKFile;
+import droidefense.sdk.model.base.AbstractHashedFile;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.sdk.model.base.LocalApkFile;
 import droidefense.util.UnpackAction;
 
 import java.io.File;
@@ -21,7 +21,7 @@ public enum APKUnpacker {
 
     APKTOOL_UNPACKER {
         @Override
-        public ArrayList<HashedFile> unpackWithTechnique(DroidefenseProject currentProject, APKFile apkFile, File outputDir) {
+        public ArrayList<AbstractHashedFile> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile, File outputDir) {
             //unpacks and decode on the same step
             APKToolHandler handler = new APKToolHandler(apkFile, outputDir);
             handler.doTheJob();
@@ -35,7 +35,7 @@ public enum APKUnpacker {
                 }
             });
             dirHandler.doTheJob();
-            ArrayList<HashedFile> files = dirHandler.getFiles();
+            ArrayList<AbstractHashedFile> files = dirHandler.getFiles();
             Log.write(LoggerType.TRACE, "Files found: " + files.size());
 
             //save metadata
@@ -46,13 +46,13 @@ public enum APKUnpacker {
         }
     }, ZIP_UNPACKER {
         @Override
-        public ArrayList<HashedFile> unpackWithTechnique(DroidefenseProject currentProject, APKFile apkFile, File outputDir) {
+        public ArrayList<AbstractHashedFile> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile, File outputDir) {
             //only unpacks
-            FileUnzipVFSHandler handler = new FileUnzipVFSHandler(currentProject, apkFile, UnpackAction.GENERATE_HASH);
+            FileUnzipVFSHandler handler = new FileUnzipVFSHandler(currentProject, apkFile, new UnpackAction[]{UnpackAction.DECODE, UnpackAction.GENERATE_HASH});
             handler.doTheJob();
             return handler.getFiles();
         }
     };
 
-    public abstract ArrayList<HashedFile> unpackWithTechnique(DroidefenseProject currentProject, APKFile apkFile, File outputDir);
+    public abstract ArrayList<AbstractHashedFile> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile, File outputDir);
 }

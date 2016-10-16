@@ -6,7 +6,7 @@
   - Size: 6.342 Kb
   - Github repository: https://github.com/iBotPeaches/Apktool
 * Library name: AXML2PRINT
-  - Filename: axml-parser-module.jar
+  - Filename: axml-parser-lib.jar
   - Description: Utility to convert XML to readable files. Original repo hosted on Google code disappeared. Similar repo found
   - Size: 27 Kb
   - Github repository: https://github.com/rednaga/axmlprinter

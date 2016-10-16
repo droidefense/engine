@@ -1,13 +1,12 @@
 package droidefense.parser;
 
-import apkr.external.module.AtomManifestParser;
-import apkr.external.module.datamodel.manifest.Manifest;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.mod.manparser.ManifestParser;
 import droidefense.parser.base.AbstractFileParser;
+import droidefense.sdk.model.manifest.Manifest;
 
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
 import java.io.IOException;
 
 public class AndroidManifestParser extends AbstractFileParser {
@@ -15,9 +14,9 @@ public class AndroidManifestParser extends AbstractFileParser {
     @Override
     public void parserCode() {
         try {
-            AtomManifestParser externalParser = new AtomManifestParser();
-            File manifestFile = currentProject.getManifestFile();
-            externalParser.parse(manifestFile);
+            ManifestParser externalParser = new ManifestParser();
+            byte[] manifestContent = currentProject.getManifestFile();
+            externalParser.parse(manifestContent);
             Manifest man = externalParser.getManifest();
             currentProject.setManifestInfo(man);
             currentProject.setEntryPoints(externalParser.getEntryPoints());

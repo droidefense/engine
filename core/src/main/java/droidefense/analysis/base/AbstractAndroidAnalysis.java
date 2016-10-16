@@ -3,9 +3,9 @@ package droidefense.analysis.base;
 import apkr.external.modules.helpers.enums.ProcessStatus;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
-import droidefense.sdk.model.base.APKFile;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
+import droidefense.sdk.model.base.LocalApkFile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public abstract class AbstractAndroidAnalysis implements Serializable {
     protected boolean positiveMatch;
     protected String result;
 
-    protected transient APKFile apkFile;
+    protected transient LocalApkFile apkFile;
     protected transient DroidefenseProject currentProject;
     //for error handing
     protected transient ArrayList<Exception> errorList;
@@ -57,11 +57,11 @@ public abstract class AbstractAndroidAnalysis implements Serializable {
 
     protected abstract boolean analyze();
 
-    public final APKFile getApkFile() {
+    public final LocalApkFile getApkFile() {
         return apkFile;
     }
 
-    public final void setApkFile(APKFile apkFile) {
+    public final void setApkFile(LocalApkFile apkFile) {
         this.apkFile = apkFile;
         this.currentProject = DroidefenseProject.getProject(apkFile);
     }

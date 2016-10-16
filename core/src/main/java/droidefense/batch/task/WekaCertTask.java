@@ -6,12 +6,10 @@ import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
-import droidefense.handler.FileUnzipHandler;
-import droidefense.handler.base.AbstractHandler;
 import droidefense.handler.base.DirScannerFilter;
 import droidefense.parser.AndroidCertParser;
 import droidefense.parser.base.ParserFactory;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.sdk.model.base.AbstractHashedFile;
 import droidefense.sdk.model.certificate.CertificateModel;
 import droidefense.sdk.model.certificate.CertificateSubject;
 
@@ -30,7 +28,7 @@ public class WekaCertTask implements IBatchTask, IWekaGenerator, Serializable {
     private final String outputFileName;
     private final String sample_type;
     private File baseFolder;
-    private ArrayList<HashedFile> files;
+    private ArrayList<AbstractHashedFile> files;
     private ArrayList<File> certList;
     private boolean cont;
 
@@ -70,6 +68,8 @@ public class WekaCertTask implements IBatchTask, IWekaGenerator, Serializable {
 
     @Override
     public void onTask() {
+        //TODO fix this code with new implementation
+        /*
         createDir();
         if (cont) {
             for (int i = 0; i < files.size(); i++) {
@@ -80,7 +80,7 @@ public class WekaCertTask implements IBatchTask, IWekaGenerator, Serializable {
                 File out = new File(outputDir.getAbsolutePath() + File.separator + i);
                 if (!out.exists()) {
                     createDir();
-                    AbstractHandler handler = new FileUnzipHandler(files.get(i), out);
+                    AbstractHandler handler = new FileUnzipLocalHandler(files.get(i), out);
                     handler.doTheJob();
                 }
                 DirScannerHandler handler = new DirScannerHandler(out, false, new DirScannerFilter() {
@@ -90,12 +90,13 @@ public class WekaCertTask implements IBatchTask, IWekaGenerator, Serializable {
                     }
                 });
                 handler.doTheJob();
-                ArrayList<HashedFile> certs = handler.getFiles();
-                for (HashedFile r : certs) {
+                ArrayList<VirtualHashedFile> certs = handler.getFiles();
+                for (VirtualHashedFile r : certs) {
                     certList.add(r.getThisFile());
                 }
             }
         }
+        */
     }
 
     private boolean createDir() throws IllegalArgumentException {

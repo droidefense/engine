@@ -6,7 +6,7 @@ import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.FileIOHandler;
 import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.helpers.Util;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.sdk.model.base.AbstractHashedFile;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public final class UnpackAnalysis extends AbstractAndroidAnalysis {
 
-    private transient ArrayList<HashedFile> files;
+    private transient ArrayList<AbstractHashedFile> files;
 
     public UnpackAnalysis() {
     }
@@ -48,7 +48,7 @@ public final class UnpackAnalysis extends AbstractAndroidAnalysis {
         return "Android .apk unpacker";
     }
 
-    public ArrayList<HashedFile> getFiles() {
+    public ArrayList<AbstractHashedFile> getFiles() {
         return files;
     }
 }

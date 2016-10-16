@@ -4,7 +4,7 @@ import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import apkr.external.modules.helpers.system.OSDetection;
 import droidefense.handler.base.AbstractHandler;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.sdk.model.base.AbstractHashedFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class ObjdumpHandler extends AbstractHandler {
 
-    private ArrayList<HashedFile> list;
+    private ArrayList<AbstractHashedFile> list;
 
     @Override
     public boolean doTheJob() {
@@ -45,7 +45,7 @@ public class ObjdumpHandler extends AbstractHandler {
             File exec = new File(path);
             if (exec.exists()) {
                 if (exec.canExecute()) {
-                    for (HashedFile r : list) {
+                    for (AbstractHashedFile r : list) {
                         String params = "-archive-header -c -D –file-header –debugging –stabs –help –info –private-headers –prefix-addresses –reloc –dynamic-reloc –full-contents –source –all-headers –disassemble-zeroes";
                         String command = path + " " + params + " " + r.getAbsolutePath();
                         try {
@@ -65,11 +65,11 @@ public class ObjdumpHandler extends AbstractHandler {
         return path == null;
     }
 
-    public ArrayList<HashedFile> getList() {
+    public ArrayList<AbstractHashedFile> getList() {
         return list;
     }
 
-    public void setList(ArrayList<HashedFile> list) {
+    public void setList(ArrayList<AbstractHashedFile> list) {
         this.list = list;
     }
 }

@@ -1,7 +1,7 @@
 package droidefense.sdk.model.holder;
 
-import apkr.external.module.datamodel.manifest.base.AbstractManifestClass;
 import droidefense.sdk.model.dex.DexContent;
+import droidefense.sdk.model.manifest.base.AbstractManifestClass;
 
 import java.io.Serializable;
 import java.util.ArrayList;

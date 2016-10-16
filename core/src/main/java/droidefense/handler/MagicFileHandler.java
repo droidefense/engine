@@ -4,9 +4,8 @@ import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import apkr.external.modules.helpers.system.SystemCallReturn;
 import droidefense.handler.base.AbstractHandler;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.sdk.model.base.AbstractHashedFile;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -17,7 +16,7 @@ public class MagicFileHandler extends AbstractHandler {
     private static final String EXEC_PATH = "file ";
     private SystemCallReturn ret;
 
-    private File file;
+    private AbstractHashedFile file;
 
     @Override
     public boolean doTheJob() {
@@ -54,7 +53,7 @@ public class MagicFileHandler extends AbstractHandler {
         return ret.getCommand().get(0);
     }
 
-    public void setResource(HashedFile resource) {
-        this.file = resource.getThisFile();
+    public void setResource(AbstractHashedFile resource) {
+        this.file = resource;
     }
 }

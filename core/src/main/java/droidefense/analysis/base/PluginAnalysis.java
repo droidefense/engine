@@ -4,9 +4,9 @@ import apkr.external.modules.helpers.enums.ProcessStatus;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.sdk.helpers.Util;
-import droidefense.sdk.model.base.APKFile;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
+import droidefense.sdk.model.base.LocalApkFile;
 import droidefense.util.JsonStyle;
 
 import java.io.Serializable;
@@ -20,7 +20,7 @@ public abstract class PluginAnalysis implements Serializable {
     protected boolean positiveMatch;
     protected ProcessStatus status;
     protected ExecutionTimer timeStamp;
-    protected transient APKFile apk;
+    protected transient LocalApkFile apk;
     protected String html;
     protected String pluginName;
 
@@ -33,11 +33,11 @@ public abstract class PluginAnalysis implements Serializable {
         Log.write(LoggerType.TRACE, level + " " + o);
     }
 
-    public APKFile getApk() {
+    public LocalApkFile getApk() {
         return apk;
     }
 
-    public void setApk(APKFile apk) {
+    public void setApk(LocalApkFile apk) {
         this.apk = apk;
     }
 

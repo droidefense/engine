@@ -7,7 +7,7 @@ import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.sdk.model.base.AbstractHashedFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,7 +43,7 @@ public class DirScanner {
             }
         });
         handler.doTheJob();
-        ArrayList<HashedFile> files = handler.getFiles();
+        ArrayList<AbstractHashedFile> files = handler.getFiles();
 
         if (files == null || files.isEmpty()) {
             throw new NoFilesFoundException("Directory scanner could not find any files under directory " + baseDir);

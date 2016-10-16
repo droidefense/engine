@@ -1,9 +1,9 @@
 package droidefense.sdk.model.holder;
 
 
-import apkr.external.module.datamodel.manifest.Manifest;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.sdk.model.base.AbstractHashedFile;
 import droidefense.sdk.model.certificate.CertificateModel;
+import droidefense.sdk.model.manifest.Manifest;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,24 +18,24 @@ public class StaticInfo implements Serializable {
     /**
      * .apk list of files
      */
-    private ArrayList<HashedFile> appFiles;
+    private ArrayList<AbstractHashedFile> appFiles;
 
     /**
      * .apk asset list of files
      */
-    private ArrayList<HashedFile> assetFiles;
+    private ArrayList<AbstractHashedFile> assetFiles;
 
     /**
      * .apk lib list of files
      */
-    private ArrayList<HashedFile> libFiles;
+    private ArrayList<AbstractHashedFile> libFiles;
 
     /**
      * .apk raw list of files
      */
-    private ArrayList<HashedFile> rawFiles;
+    private ArrayList<AbstractHashedFile> rawFiles;
 
-    private HashedFile certFile;
+    private AbstractHashedFile certFile;
 
     /**
      * In case of existance, the name of the main class
@@ -84,7 +84,7 @@ public class StaticInfo implements Serializable {
     /**
      * Reference to AndroidManifest.xml file
      */
-    private HashedFile manifestFile;
+    private AbstractHashedFile manifestFile;
 
     /**
      * flag that indicates if .dex files are readed
@@ -94,12 +94,12 @@ public class StaticInfo implements Serializable {
     /**
      * list of .dex files detected
      */
-    private transient ArrayList<HashedFile> dexList;
+    private transient ArrayList<AbstractHashedFile> dexList;
 
     /**
      * map that contains each of the .dex files bytes content
      */
-    private transient Map<HashedFile, byte[]> dexData;
+    private transient Map<AbstractHashedFile, byte[]> dexData;
 
     public StaticInfo() {
         //init data structures
@@ -111,35 +111,35 @@ public class StaticInfo implements Serializable {
 
     //GETTERS AND SETTERS
 
-    public ArrayList<HashedFile> getAppFiles() {
+    public ArrayList<AbstractHashedFile> getAppFiles() {
         return appFiles;
     }
 
-    public void setAppFiles(ArrayList<HashedFile> appFiles) {
+    public void setAppFiles(ArrayList<AbstractHashedFile> appFiles) {
         this.appFiles = appFiles;
     }
 
-    public ArrayList<HashedFile> getAssetFiles() {
+    public ArrayList<AbstractHashedFile> getAssetFiles() {
         return assetFiles;
     }
 
-    public void setAssetFiles(ArrayList<HashedFile> assetFiles) {
+    public void setAssetFiles(ArrayList<AbstractHashedFile> assetFiles) {
         this.assetFiles = assetFiles;
     }
 
-    public ArrayList<HashedFile> getRawFiles() {
+    public ArrayList<AbstractHashedFile> getRawFiles() {
         return rawFiles;
     }
 
-    public void setRawFiles(ArrayList<HashedFile> rawFiles) {
+    public void setRawFiles(ArrayList<AbstractHashedFile> rawFiles) {
         this.rawFiles = rawFiles;
     }
 
-    public ArrayList<HashedFile> getLibFiles() {
+    public ArrayList<AbstractHashedFile> getLibFiles() {
         return libFiles;
     }
 
-    public void setLibFiles(ArrayList<HashedFile> libFiles) {
+    public void setLibFiles(ArrayList<AbstractHashedFile> libFiles) {
         this.libFiles = libFiles;
     }
 
@@ -217,11 +217,11 @@ public class StaticInfo implements Serializable {
         this.foldersNumber = foldersNumber;
     }
 
-    public HashedFile getManifestFile() {
+    public AbstractHashedFile getManifestFile() {
         return manifestFile;
     }
 
-    public void setManifestFile(HashedFile manifestFile) {
+    public void setManifestFile(AbstractHashedFile manifestFile) {
         this.manifestFile = manifestFile;
     }
 
@@ -233,19 +233,19 @@ public class StaticInfo implements Serializable {
         this.dexFileReaded = dexFileReaded;
     }
 
-    public ArrayList<HashedFile> getDexList() {
+    public ArrayList<AbstractHashedFile> getDexList() {
         return dexList;
     }
 
-    public void setDexList(ArrayList<HashedFile> dexList) {
+    public void setDexList(ArrayList<AbstractHashedFile> dexList) {
         this.dexList = dexList;
     }
 
-    public Map<HashedFile, byte[]> getDexData() {
+    public Map<AbstractHashedFile, byte[]> getDexData() {
         return dexData;
     }
 
-    public void setDexData(Map<HashedFile, byte[]> dexData) {
+    public void setDexData(Map<AbstractHashedFile, byte[]> dexData) {
         this.dexData = dexData;
     }
 
@@ -274,11 +274,11 @@ public class StaticInfo implements Serializable {
 
     //useful methods
 
-    public byte[] getDexData(HashedFile file) {
+    public byte[] getDexData(AbstractHashedFile file) {
         return getDexData().get(file);
     }
 
-    public void addDexData(HashedFile file, byte[] data) {
+    public void addDexData(AbstractHashedFile file, byte[] data) {
         getDexData().put(file, data);
     }
 
@@ -286,11 +286,11 @@ public class StaticInfo implements Serializable {
         this.certificates.add(certInfo);
     }
 
-    public HashedFile getCertFile() {
+    public AbstractHashedFile getCertFile() {
         return certFile;
     }
 
-    public void setCertFile(HashedFile certFile) {
+    public void setCertFile(AbstractHashedFile certFile) {
         this.certFile = certFile;
     }
 }

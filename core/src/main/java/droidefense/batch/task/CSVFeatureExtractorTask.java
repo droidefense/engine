@@ -1,20 +1,19 @@
 package droidefense.batch.task;
 
-
-import apkr.external.module.AtomManifestParser;
 import apkr.external.module.batch.base.IBatchTask;
 import apkr.external.module.batch.base.ICSVGenerator;
-import apkr.external.module.datamodel.manifest.UsesPermission;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
-import droidefense.handler.AXMLDecoderHandler;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
-import droidefense.handler.FileUnzipHandler;
+import droidefense.handler.FileUnzipLocalHandler;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.handler.base.DirScannerFilter;
+import droidefense.mod.manparser.ManifestParser;
 import droidefense.sdk.helpers.InternalConstant;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.sdk.model.base.AbstractHashedFile;
+import droidefense.sdk.model.base.LocalHashedFile;
+import droidefense.sdk.model.manifest.UsesPermission;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
@@ -34,8 +33,8 @@ public class CSVFeatureExtractorTask implements IBatchTask, ICSVGenerator, Seria
     private final String outputFileName;
     private final String sample_type;
     private File baseFolder;
-    private ArrayList<HashedFile> files;
-    private ArrayList<File> xmlFiles;
+    private ArrayList<AbstractHashedFile> files;
+    private ArrayList<LocalHashedFile> xmlFiles;
     private boolean cont;
 
     //result
@@ -81,26 +80,31 @@ public class CSVFeatureExtractorTask implements IBatchTask, ICSVGenerator, Seria
                 //only unpacks
                 File out = new File(outputDir.getAbsolutePath() + File.separator + i);
                 createDir();
-                AbstractHandler handler = new FileUnzipHandler(files.get(i), out);
+                AbstractHandler handler = new FileUnzipLocalHandler((LocalHashedFile) files.get(i), out);
                 handler.doTheJob();
                 Log.write(LoggerType.TRACE, i);
                 Log.write(LoggerType.TRACE, "Listing unpacked files...");
                 //get android manifest
-                HashedFile manif = new HashedFile(out.getAbsolutePath() + File.separator + InternalConstant.ANDROID_MANIFEST);
-                if (manif.getThisFile().exists()) {
+                LocalHashedFile manif = new LocalHashedFile(new File(out.getAbsolutePath() + File.separator + InternalConstant.ANDROID_MANIFEST), false);
+                if (manif.exists()) {
                     Log.write(LoggerType.TRACE, "Decoding XML resources");
                     //decode unpacked files
-                    ArrayList<HashedFile> onlyManif = new ArrayList<>();
+                    ArrayList<LocalHashedFile> onlyManif = new ArrayList<>();
                     onlyManif.add(manif);
                     try {
-                        handler = new AXMLDecoderHandler(onlyManif);
-                        handler.doTheJob();
+                        //TODO convert local file to in memory file
+                        /*
+                        for (AbstractHashedFile f :onlyManif){
+                            handler = new AXMLDecoderHandler(f);
+                            handler.doTheJob();
+                        }
+                        */
                     } catch (Exception e) {
                         Log.write(LoggerType.FATAL, files.get(i).getAbsolutePath(), e.getLocalizedMessage(), e.getStackTrace());
                     }
                     Log.write(LoggerType.TRACE, "Generating file juicy information...");
                     counter++;
-                    xmlFiles.add(manif.getThisFile());
+                    xmlFiles.add(manif);
                 }
             }
         }
@@ -122,11 +126,11 @@ public class CSVFeatureExtractorTask implements IBatchTask, ICSVGenerator, Seria
     public void afterTask() {
         if (cont) {
             //generate info as csv file
-            for (File xml : xmlFiles) {
+            for (LocalHashedFile xml : xmlFiles) {
                 if (xml.exists() && xml.isFile() && xml.canRead()) {
                     try {
-                        AtomManifestParser parser = new AtomManifestParser();
-                        parser.parse(xml);
+                        ManifestParser parser = new ManifestParser();
+                        parser.parse(new File(xml.getAbsolutePath()));
                         ArrayList<UsesPermission> permList = parser.getManifest().getUsesPermissionList();
                         OutPutResult result = new OutPutResult(permList);
                         data.add(result);

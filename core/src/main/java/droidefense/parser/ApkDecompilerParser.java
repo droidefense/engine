@@ -4,7 +4,7 @@ import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
 import droidefense.parser.base.AbstractFileParser;
-import droidefense.sdk.model.base.HashedFile;
+import droidefense.sdk.model.base.AbstractHashedFile;
 import jadx.cli.JadxCLI;
 import jadx.core.utils.exceptions.JadxException;
 
@@ -18,8 +18,8 @@ public class ApkDecompilerParser extends AbstractFileParser {
 
     @Override
     public void parserCode() {
-        ArrayList<HashedFile> dexFiles = currentProject.getDexList();
-        for (HashedFile dex : dexFiles) {
+        ArrayList<AbstractHashedFile> dexFiles = currentProject.getDexList();
+        for (AbstractHashedFile dex : dexFiles) {
             Log.write(LoggerType.TRACE, "DECOMPILING... " + dex.getAbsolutePath());
 
             File decompiledPath = FileIOHandler.getDecompiledPath(currentProject);
@@ -36,20 +36,19 @@ public class ApkDecompilerParser extends AbstractFileParser {
             //decompile .jar
             //use jadx decompiler
             //JADX usgae: https://github.com/skylot/jadx
-            File source = dex.getThisFile();
-            if (source.exists() && source.canRead() && source.canWrite()) {
+            if (dex.exists() && dex.canRead() && dex.canWrite()) {
                 //TODO Decompile .jar
                 //options..., input_file
-                String[] args = {"-r", "--escape-unicode", "--show-bad-code", "-d", decompiledPath.getAbsolutePath(), source.getAbsolutePath()};
+                String[] args = {"-r", "--escape-unicode", "--show-bad-code", "-d", decompiledPath.getAbsolutePath(), dex.getAbsolutePath()};
                 try {
                     new JadxCLI(args);
                     currentProject.setSuccessfullDecompilation(true);
                 } catch (JadxException e) {
-                    Log.write(LoggerType.FATAL, "Could not decompile ", source, e.getLocalizedMessage(), e);
+                    Log.write(LoggerType.FATAL, "Could not decompile ", dex, e.getLocalizedMessage(), e);
                     e.printStackTrace();
                     currentProject.setSuccessfullDecompilation(false);
                 } catch (Exception e) {
-                    Log.write(LoggerType.FATAL, "Fatal excepcion during decompilation ", source, e.getLocalizedMessage(), e);
+                    Log.write(LoggerType.FATAL, "Fatal excepcion during decompilation ", dex, e.getLocalizedMessage(), e);
                     e.printStackTrace();
                     currentProject.setSuccessfullDecompilation(false);
                 }
