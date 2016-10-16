@@ -56,9 +56,10 @@ public class DroidefenseScan {
             System.out.println("Lead developer: @zerjioang");
         } else if (settings.hasFile()) {
             //security check
-            File file = settings.getInput();
-            if (file != null) {
-                initScan(file, unpacker);
+            File inputFile = settings.getInput();
+            if (inputFile != null) {
+                LocalApkFile file = new LocalApkFile(inputFile, unpacker);
+                initScan(file);
                 //profiler wait time | stop
                 if (settings.profilingEnabled()) {
                     profilingAlert("deactivate");
@@ -89,15 +90,10 @@ public class DroidefenseScan {
         Log.write(LoggerType.TRACE, "Droidefense scan finished");
     }
 
-    private void initScan(File file, APKUnpacker unpacker) {
+    private void initScan(LocalApkFile apk) {
         //execute only once
         try {
             loadVariables();
-            //read dex file from foldex x file y
-            LocalApkFile apk;
-
-            Log.write(LoggerType.TRACE, "Reading .apk from local file");
-            apk = new LocalApkFile(file, unpacker);
 
             Log.write(LoggerType.TRACE, "Building project");
             project = new DroidefenseProject(apk);

@@ -1,15 +1,8 @@
 package droidefense.handler;
 
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
-import brut.androlib.AndrolibException;
-import brut.androlib.ApkDecoder;
-import brut.directory.DirectoryException;
 import droidefense.handler.base.AbstractHandler;
+import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.LocalApkFile;
-
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by sergio on 16/2/16.
@@ -23,20 +16,24 @@ public class APKToolHandler extends AbstractHandler {
     public final static short DECODE_RESOURCES_FULL = 0x0001;
 
     private static final boolean FORCE_DELETE = true;
-    private final LocalApkFile source;
-    private final File outputDir;
 
-    public APKToolHandler(LocalApkFile source, File outputDir) {
+    public APKToolHandler(DroidefenseProject project, LocalApkFile source) {
         super();
-        this.source = source;
-        this.outputDir = outputDir;
+        this.project = project;
+        this.apk = source;
     }
 
     @Override
     public boolean doTheJob() {
+        return true;
+        
+        //TODO add new in-memory apktool decoding
+
+        //OLD local files based apktool unpacking
+        /*
         ApkDecoder decoder = new ApkDecoder();
         try {
-            decoder.setApkFile(source.getThisFile());
+            decoder.setApkFile(apk.getThisFile());
             decoder.setOutDir(outputDir);
             //force output folder overwrite
             decoder.setForceDelete(FORCE_DELETE);
@@ -58,5 +55,6 @@ public class APKToolHandler extends AbstractHandler {
             error = e;
         }
         return false;
+        */
     }
 }

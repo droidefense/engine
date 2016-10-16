@@ -5,7 +5,6 @@ import droidefense.mod.vfs.model.impl.VirtualFile;
 import droidefense.mod.vfs.model.impl.VirtualFolder;
 import droidefense.sdk.model.base.AbstractHashedFile;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.util.UnpackAction;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -20,13 +19,11 @@ public class FileUnzipVFSHandler extends AbstractHandler {
 
     private static final int BUFFER_SIZE = 4096;
     private final VirtualFolder root;
-    private final UnpackAction[] actions;
     private VirtualFolder parentNode;
     private AbstractHashedFile source;
 
-    public FileUnzipVFSHandler(DroidefenseProject project, AbstractHashedFile source, UnpackAction[] actions) {
+    public FileUnzipVFSHandler(DroidefenseProject project, AbstractHashedFile source) {
         this.source = source;
-        this.actions = actions;
         this.root = VirtualFolder.createFolder("/");
         this.parentNode = root;
         this.project = project;
@@ -44,12 +41,10 @@ public class FileUnzipVFSHandler extends AbstractHandler {
             while (entry != null) {
                 //reset parent node
                 parentNode = root;
-
                 String entryName = entry.getName();
                 if (!entry.isDirectory()) {
                     //check if entry parent directory exists on vfs
                     String[] items = entryName.split("/");
-
                     if (items.length > 1) {
                         //subfolder found
                         for (int i = 0; i < items.length - 1; i++) {
@@ -65,10 +60,6 @@ public class FileUnzipVFSHandler extends AbstractHandler {
                     int offset = 0;
                     while ((read = zipIn.read(bytesIn)) != -1) {
                         virtualFile.addContent(bytesIn, 0, read);
-                    }
-                    //once file readed, execute file actions
-                    for (UnpackAction action : actions) {
-                        virtualFile = action.execute(virtualFile);
                     }
                 }
                 zipIn.closeEntry();

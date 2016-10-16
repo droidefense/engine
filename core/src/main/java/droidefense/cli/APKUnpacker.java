@@ -1,17 +1,11 @@
 package droidefense.cli;
 
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.APKToolHandler;
-import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileUnzipVFSHandler;
-import droidefense.handler.base.DirScannerFilter;
-import droidefense.sdk.model.base.AbstractHashedFile;
+import droidefense.mod.vfs.model.base.IVirtualNode;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.LocalApkFile;
-import droidefense.util.UnpackAction;
 
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -20,39 +14,62 @@ import java.util.ArrayList;
 public enum APKUnpacker {
 
     APKTOOL_UNPACKER {
-        @Override
-        public ArrayList<AbstractHashedFile> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile, File outputDir) {
-            //unpacks and decode on the same step
-            APKToolHandler handler = new APKToolHandler(apkFile, outputDir);
-            handler.doTheJob();
-            Log.write(LoggerType.TRACE, "Listing unpacked files...");
 
-            //enumerate unpacked files and get information
-            DirScannerHandler dirHandler = new DirScannerHandler(outputDir, true, new DirScannerFilter() {
-                @Override
-                public boolean addFile(File f) {
-                    return true;
-                }
-            });
-            dirHandler.doTheJob();
-            ArrayList<AbstractHashedFile> files = dirHandler.getFiles();
+        @Override
+        public ArrayList<IVirtualNode> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile) {
+            //unpacks and decode on the same step
+            APKToolHandler handler = new APKToolHandler(currentProject, apkFile);
+            handler.doTheJob();
+
+            //TODO enable file, folder counting
+            /*
+            ArrayList<IVirtualNode> files = currentProject.getVFS().getRecursiveFileList();
+
             Log.write(LoggerType.TRACE, "Files found: " + files.size());
 
             //save metadata
-            currentProject.setFolderCount(dirHandler.getNfolder());
-            currentProject.setFilesCount(dirHandler.getNfiles());
+            currentProject.setFolderCount(currentProject.getVFS().getNfolder());
+            currentProject.setFilesCount(currentProject.getVFS().getNfiles());
+            */
 
-            return files;
+            return null;
         }
+
+        @Override
+        public ArrayList<IVirtualNode> decodeWithTechnique(DroidefenseProject currentProject, ArrayList<IVirtualNode> files) {
+            //todo implement axml, 9.png and resource decoder
+            return null;
+        }
+
     }, ZIP_UNPACKER {
         @Override
-        public ArrayList<AbstractHashedFile> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile, File outputDir) {
+        public ArrayList<IVirtualNode> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile) {
             //only unpacks
-            FileUnzipVFSHandler handler = new FileUnzipVFSHandler(currentProject, apkFile, new UnpackAction[]{UnpackAction.DECODE, UnpackAction.GENERATE_HASH});
+            FileUnzipVFSHandler handler = new FileUnzipVFSHandler(currentProject, apkFile);
             handler.doTheJob();
-            return handler.getFiles();
+
+            //TODO enable file, folder counting
+            /*
+            ArrayList<IVirtualNode> files = currentProject.getVFS().getRecursiveFileList();
+
+            Log.write(LoggerType.TRACE, "Files found: " + files.size());
+
+            //save metadata
+            currentProject.setFolderCount(currentProject.getVFS().getNfolder());
+            currentProject.setFilesCount(currentProject.getVFS().getNfiles());
+            */
+
+            return null;
+        }
+
+        @Override
+        public ArrayList<IVirtualNode> decodeWithTechnique(DroidefenseProject currentProject, ArrayList<IVirtualNode> files) {
+            //todo implement axml, 9.png and resource decoder
+            return null;
         }
     };
 
-    public abstract ArrayList<AbstractHashedFile> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile, File outputDir);
+    public abstract ArrayList<IVirtualNode> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile);
+
+    public abstract ArrayList<IVirtualNode> decodeWithTechnique(DroidefenseProject currentProject, ArrayList<IVirtualNode> files);
 }

@@ -20,6 +20,7 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
         AbstractAndroidAnalysis analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.UNPACK);
         currentProject.analyze(analyzer);
 
+        /*
         //STATIC ANALYSIS
         analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.STATIC_ANALYSIS);
         currentProject.analyze(analyzer);
@@ -43,6 +44,9 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
         //RUN WEKA
         analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.MACHINE_LEARNING_ANALYSIS);
         currentProject.analyze(analyzer);
+        return true;
+
+        */
         return true;
     }
 

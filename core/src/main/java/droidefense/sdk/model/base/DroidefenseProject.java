@@ -26,7 +26,6 @@ import droidefense.sdk.model.holder.InternalInfo;
 import droidefense.sdk.model.holder.StaticInfo;
 import droidefense.sdk.model.holder.StringInfo;
 import droidefense.sdk.model.manifest.Manifest;
-import droidefense.sdk.model.manifest.UsesPermission;
 import droidefense.sdk.model.manifest.base.AbstractManifestClass;
 import droidefense.util.JsonStyle;
 
@@ -231,7 +230,8 @@ public final class DroidefenseProject implements Serializable {
     }
 
     public Manifest getManifestInfo() {
-        return this.staticInfo.getManifestInfo();
+        Manifest man = this.staticInfo.getManifestInfo();
+        return (man == null) ? new Manifest() : man;
     }
 
     public void setManifestInfo(Manifest manifestInfo) {
@@ -499,9 +499,10 @@ public final class DroidefenseProject implements Serializable {
 
     public void writeNaturalReport() {
         String data;
+        String pkg = getManifestInfo().getPackageName() == null ? "unknown" : getManifestInfo().getPackageName();
         String url = "https://www.virustotal.com/es/file/" + getProjectId().toLowerCase() + "/analysis/";
         int entries = getInternalInfo().getEntryPoints().size();
-        data = "<p>Analyzed application is called <strong>" + getSourceFile().getFilename() + "</strong> but it's internal name is <tt>" + getManifestInfo().getPackageName() + "</tt></p>\n" +
+        data = "<p>Analyzed application is called <strong>" + getSourceFile().getFilename() + "</strong> but it's internal name is <tt>" + pkg + "</tt></p>\n" +
                 "\n" +
                 "<p>Its file signature is <tt>" + getProjectId() + "</tt></p>\n" +
                 "\n" +
@@ -509,6 +510,8 @@ public final class DroidefenseProject implements Serializable {
                 "\n" +
                 "<p>The application has access to:</p>\n" +
                 "<ul>";
+        //TODO unblock when fully in-memory optimized
+        /*
         for (UsesPermission p : getManifestInfo().getUsesPermissionList()) {
             data +=
                     "<li>" +
@@ -522,6 +525,7 @@ public final class DroidefenseProject implements Serializable {
                         "<p>We have detected " + entries + " entry points in this application, which means that it runs from " + entries + " different main points.</p>" +
                         "\n" +
                         "<p>Please, take a closer look to analysis result to have a deep understanding of what the application attempts to do.</p>";
+       */
         setSummary(data);
     }
 
