@@ -24,6 +24,7 @@ public class ApkDecompilerParser extends AbstractFileParser {
 
     @Override
     public void parserCode() {
+        Log.write(LoggerType.INFO, "\n\nDecompiling sample...\n");
         ArrayList<AbstractHashedFile> dexFiles = currentProject.getDexList();
         for (AbstractHashedFile dex : dexFiles) {
             Log.write(LoggerType.TRACE, "DECOMPILING... " + dex.getAbsolutePath());

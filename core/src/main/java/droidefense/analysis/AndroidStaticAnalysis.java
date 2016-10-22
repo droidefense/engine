@@ -3,10 +3,14 @@ package droidefense.analysis;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
+import droidefense.exception.UnknownParserException;
 import droidefense.handler.ObjdumpHandler;
 import droidefense.parser.base.AbstractFileParser;
 import droidefense.parser.base.ParserFactory;
 import droidefense.sdk.model.base.ExecutionTimer;
+import droidefense.sdk.model.io.AbstractHashedFile;
+
+import java.util.ArrayList;
 
 /**
  * Created by r00t on 24/10/15.
@@ -22,9 +26,15 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
         positiveMatch = false;
         Log.write(LoggerType.TRACE, "\n\n --- Running Android static analysis ---\n\n");
 
+        AbstractFileParser parser;
+
         //0 parse meta
-        AbstractFileParser parser = ParserFactory.getParser(ParserFactory.STATIC_META, currentProject, apkFile);
-        parser.parse();
+        try {
+            parser = ParserFactory.getParser(ParserFactory.STATIC_META, currentProject, apkFile);
+            parser.parse();
+        } catch (UnknownParserException e) {
+            Log.write(LoggerType.FATAL, "Could not recover metadata information parser", e.getLocalizedMessage());
+        }
 
         //1 decompile if enabled
         //TODO make in-memory decompilation
@@ -37,23 +47,48 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
         */
 
         //2 parse manifest
-        parser = ParserFactory.getParser(ParserFactory.MANIFEST_PARSER, currentProject, apkFile);
-        parser.parse();
+        try {
+            parser = ParserFactory.getParser(ParserFactory.MANIFEST_PARSER, currentProject, apkFile);
+            parser.parse();
+        } catch (UnknownParserException e) {
+            Log.write(LoggerType.FATAL, "Could not recover manifest parser", e.getLocalizedMessage());
+        }
 
-        //3 parse .so files
-        ObjdumpHandler handler = new ObjdumpHandler();
-        handler.setApk(apkFile);
-        handler.setList(currentProject.getStaticInfo().getLibFiles());
-        handler.doTheJob();
+        //parse found .so files
+        ArrayList<AbstractHashedFile> filelist = currentProject.getStaticInfo().getLibFiles();
+        if (!filelist.isEmpty()) {
+            //3 parse .so files
+            ObjdumpHandler handler = new ObjdumpHandler();
+            handler.setApk(apkFile);
+            handler.setList(filelist);
+            handler.doTheJob();
+        } else {
+            Log.write(LoggerType.INFO, "[OK] Skipping native .so files analysis");
+        }
 
         //4 parse certificates
-        parser = ParserFactory.getParser(ParserFactory.CERTIFICATE_PARSER, currentProject, apkFile);
-        parser.parse();
+        try {
+            parser = ParserFactory.getParser(ParserFactory.CERTIFICATE_PARSER, currentProject, apkFile);
+            parser.parse();
+        } catch (UnknownParserException e) {
+            Log.write(LoggerType.FATAL, "Could not recover certificate parser", e.getLocalizedMessage());
+        }
 
         //5 parse resources
-        parser = ParserFactory.getParser(ParserFactory.RESOURCE_PARSER, currentProject, apkFile);
-        parser.parse();
 
+        ArrayList<AbstractHashedFile> resourceList = currentProject.getStaticInfo().getResourceFiles();
+        if (!resourceList.isEmpty()) {
+            try {
+                parser = ParserFactory.getParser(ParserFactory.RESOURCE_PARSER, currentProject, apkFile);
+                parser.parse();
+            } catch (UnknownParserException e) {
+                Log.write(LoggerType.FATAL, "Could not recover resource parser", e.getLocalizedMessage());
+            }
+        } else {
+            Log.write(LoggerType.INFO, "[OK] Skipping resource analysis");
+        }
+
+        this.timeStamp.stop();
         return true;
     }
 

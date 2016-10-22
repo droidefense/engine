@@ -32,6 +32,7 @@ import droidefense.sdk.model.manifest.Manifest;
 import droidefense.sdk.model.manifest.base.AbstractManifestClass;
 import droidefense.util.JsonStyle;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
@@ -303,7 +304,7 @@ public final class DroidefenseProject implements Serializable {
     }
 
     public String getProjectAsJson() {
-        return Util.toJson(this, JsonStyle.JSON_BEAUTY);
+        return Util.toJson(this, JsonStyle.JSON_COMPRESSED);
     }
 
     public String getProjectName() {
@@ -565,10 +566,11 @@ public final class DroidefenseProject implements Serializable {
 
         Log.write(LoggerType.TRACE, "Generating report template...");
 
-        //this.generateReportTemplate();
-
         //stop timer
         this.stop();
+
+        //generate template
+        this.generateReportTemplate();
 
         Log.write(LoggerType.TRACE, "Saving scan results...");
 
@@ -576,10 +578,10 @@ public final class DroidefenseProject implements Serializable {
         this.updateMetadata();
 
         //save info as jsons
-        this.save();
+        //this.save();
 
         //save report as java object
-        FileIOHandler.saveProjectReport(this);
+        //FileIOHandler.saveProjectReport(this);
 
         Log.write(LoggerType.TRACE, "Sample analysis done.");
     }
@@ -587,10 +589,17 @@ public final class DroidefenseProject implements Serializable {
     private void generateReportTemplate() {
 
         try {
-            byte[] data = Files.readAllBytes(Paths.get("src/main/resources/templates/inline.html"));
+            byte[] data = Files.readAllBytes(Paths.get("src/main/resources/templates/reporter/inline.html"));
             String content = new String(data, "utf-8");
             content = content.replace("$jsonData", Util.toJson(this, JsonStyle.JSON_BEAUTY));
-            FileIOHandler.saveFile(FileIOHandler.getReportFolder(getProjectId() + ".html"), content);
+            File reportFile = FileIOHandler.getReportFolder(getProjectId() + ".html");
+            FileIOHandler.saveFile(reportFile, content);
+
+            //open file if requested
+            //TODO add console flag
+            if (true) {
+                openReportOnBorwser(reportFile);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -622,6 +631,14 @@ public final class DroidefenseProject implements Serializable {
             e.printStackTrace();
         }
         */
+    }
+
+    private void openReportOnBorwser(File reportFile) {
+        try {
+            Desktop.getDesktop().browse(reportFile.toURI());
+        } catch (Exception e) {
+            Log.write(LoggerType.ERROR, "Could no automatically open sample report on user browser", e.getLocalizedMessage());
+        }
     }
 
     private String getAppLogoasB64() {

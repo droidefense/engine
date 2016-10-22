@@ -14,7 +14,7 @@ public abstract class AbstractHashedFile implements Serializable {
     protected long filesize;
     protected String beautyFilesize;
     protected String crc32, md5, sha1, sha256, sha512, ssdeep;
-    protected boolean suspiciousFile;
+    protected boolean suspiciousWin32File;
     protected boolean signatureMatches;
     protected String filename, headerBasedExtension, declaredExtension, description;
     protected String magicDescription;
@@ -93,12 +93,12 @@ public abstract class AbstractHashedFile implements Serializable {
         this.ssdeep = ssdeep;
     }
 
-    public boolean isSuspiciousFile() {
-        return suspiciousFile;
+    public boolean isSuspiciousWin32File() {
+        return suspiciousWin32File;
     }
 
-    public void setSuspiciousFile(boolean suspiciousFile) {
-        this.suspiciousFile = suspiciousFile;
+    public void setSuspiciousWin32File(boolean suspiciousWin32File) {
+        this.suspiciousWin32File = suspiciousWin32File;
     }
 
     /**
@@ -135,7 +135,7 @@ public abstract class AbstractHashedFile implements Serializable {
     }
 
     private boolean suspiciousFile() {
-        suspiciousFile = headerBasedExtension.equals("exe")
+        suspiciousWin32File = headerBasedExtension.equals("exe")
                 || headerBasedExtension.equals("dll")
                 || headerBasedExtension.equals("manifest")
                 || headerBasedExtension.equals("vbs")
@@ -146,7 +146,7 @@ public abstract class AbstractHashedFile implements Serializable {
                 || headerBasedExtension.equals("js")
                 || headerBasedExtension.equals("html")
                 || headerBasedExtension.equals("elf");
-        return suspiciousFile;
+        return suspiciousWin32File;
     }
 
     public String getExtension() {

@@ -1,5 +1,6 @@
 package droidefense.parser.base;
 
+import droidefense.exception.UnknownParserException;
 import droidefense.parser.*;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.LocalApkFile;
@@ -16,8 +17,8 @@ public abstract class ParserFactory {
     public static final byte STATIC_META = 0x5;
     public static final byte CODE_DECOMPILER = 0x6;
 
-    public static AbstractFileParser getParser(byte decoderId, DroidefenseProject p, LocalApkFile a) {
-        switch (decoderId) {
+    public static AbstractFileParser getParser(byte id, DroidefenseProject p, LocalApkFile a) throws UnknownParserException {
+        switch (id) {
             case CERTIFICATE_PARSER:
                 return new AndroidCertParser(a, p);
             case MANIFEST_PARSER:
@@ -31,7 +32,7 @@ public abstract class ParserFactory {
             case CODE_DECOMPILER:
                 return new ApkDecompilerParser(a, p);
         }
-        return null;
+        throw new UnknownParserException("An parser with id " + Integer.toHexString(id) + " was requested but it does not exists");
     }
 
 }

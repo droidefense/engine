@@ -19,7 +19,7 @@ import java.util.HashSet;
  */
 public class DirScanner {
 
-    public static final String OUT_DIR = "apkr/dirscan/";
+    public static final String OUT_DIR = "droidefense/dirscan/";
     private final String baseDir;
     private final DirectoryFilter filter;
 

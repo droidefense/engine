@@ -23,7 +23,7 @@ public class AndroidResourcesParser extends AbstractFileParser {
 
     @Override
     public void parserCode() {
-        Log.write(LoggerType.INFO, "\nParsing Android resource files...\n");
+        Log.write(LoggerType.INFO, "\n\nParsing Android resource files...\n");
 
         ArrayList<VirtualFile> list = currentProject.getAppFiles();
 

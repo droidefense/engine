@@ -6,6 +6,7 @@ import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.analysis.base.AnalysisFactory;
 import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.exception.InvalidScanParametersException;
+import droidefense.exception.UnknownAnalyzerException;
 import droidefense.sdk.helpers.APKUnpacker;
 import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.helpers.InternalConstant;
@@ -99,15 +100,19 @@ public class DroidefenseScan {
             Log.write(LoggerType.TRACE, "Building project");
             project = new DroidefenseProject(apk);
 
-            Log.write(LoggerType.TRACE, "Running ApkrScan");
+            Log.write(LoggerType.TRACE, "Running Droidefense");
 
             Log.write(LoggerType.TRACE, "Project ID:\t" + project.getProjectId());
 
             AbstractAndroidAnalysis analyzer;
-            analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.GENERAL);
-
-            //Start analysis
-            project.analyze(analyzer);
+            try {
+                analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.GENERAL);
+                //Start analysis
+                project.analyze(analyzer);
+            } catch (UnknownAnalyzerException e) {
+                Log.write(LoggerType.FATAL, e.getLocalizedMessage());
+                System.err.println("Analyzer not found" + e.getLocalizedMessage());
+            }
 
             //stop scan
             this.stop();

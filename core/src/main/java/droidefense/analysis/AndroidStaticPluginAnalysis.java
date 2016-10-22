@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 public final class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
 
-    public transient static final String PLUGIN_PACKAGE_NAME = "com.zerjioang.apkr.plugins.collection.statico.";
+    public transient static final String PLUGIN_PACKAGE_NAME = "external.plugins.collection.sttc.";
 
     public AndroidStaticPluginAnalysis() {
         timeStamp = new ExecutionTimer();
@@ -60,21 +60,12 @@ public final class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
 
                         //add result to currentProject
                         currentProject.addStaticPlugin(staticPlugin);
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                        addError(e);
-                    } catch (InstantiationException e) {
-                        e.printStackTrace();
-                        addError(e);
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                        addError(e);
                     } catch (Exception e) {
                         e.printStackTrace();
                         addError(e);
                     }
                 } else {
-                    //todo load jar content using reflection
+                    //todo load jar content using reflection. for more sofisticated plugins
                     Log.write(LoggerType.TRACE, plugin.getAbsolutePath());
                 }
             }
@@ -83,6 +74,7 @@ public final class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
         //stop timer
         stop();
         positiveMatch = true;
+        this.timeStamp.stop();
         return positiveMatch;
     }
 

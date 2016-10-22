@@ -7,19 +7,21 @@ import apkr.external.modules.ml.WekaClassifier;
 import droidefense.batch.task.OutPutResult;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.sdk.helpers.InternalConstant;
-import droidefense.sdk.model.manifest.UsesPermission;
 import weka.classifiers.Classifier;
-import weka.core.Instances;
+import weka.classifiers.Evaluation;
+import weka.classifiers.bayes.NaiveBayes;
+import weka.core.*;
 import weka.core.converters.ArffLoader;
 
 import java.io.File;
-import java.util.ArrayList;
 
 /**
  * Created by sergio on 6/3/16.
  */
 public class WekaResultsHandler extends AbstractHandler {
 
+    private static final int ATRRIBUTE_NUMBER = 206;
+    private static final String[] attributesList = OutPutResult.getGlobalPermissionList();
     private File featuresFile;
     private WekaClassifier classifier;
 
@@ -39,6 +41,20 @@ public class WekaResultsHandler extends AbstractHandler {
     }
 
     private void generateFeatures() {
+
+        /*
+        try {
+            demo();
+            System.exit(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(0);
+        }
+         */
+        /*
+
+        //old way, but functional
+
         //get data
         ArrayList<UsesPermission> permList = project.getManifestInfo().getUsesPermissionList();
         OutPutResult result = new OutPutResult(permList);
@@ -61,6 +77,88 @@ public class WekaResultsHandler extends AbstractHandler {
 
         String out = header + body;
         FileIOHandler.saveFile(featuresFile, out);
+
+        */
+    }
+
+    private void demo() throws Exception {
+        // Declare two numeric attributes
+        Attribute Attribute1 = new Attribute("firstNumeric");
+        Attribute Attribute2 = new Attribute("secondNumeric");
+
+        // Declare a nominal attribute along with its values
+        FastVector fvNominalVal = new FastVector(3);
+        fvNominalVal.addElement("blue");
+        fvNominalVal.addElement("gray");
+        fvNominalVal.addElement("black");
+        Attribute Attribute3 = new Attribute("aNominal", fvNominalVal);
+
+        // Declare the class attribute along with its values
+        FastVector fvClassVal = new FastVector(2);
+        fvClassVal.addElement("positive");
+        fvClassVal.addElement("negative");
+        Attribute ClassAttribute = new Attribute("theClass", fvClassVal);
+
+        // Declare the feature vector
+        FastVector fvWekaAttributes = new FastVector(4);
+        fvWekaAttributes.addElement(Attribute1);
+        fvWekaAttributes.addElement(Attribute2);
+        fvWekaAttributes.addElement(Attribute3);
+        fvWekaAttributes.addElement(ClassAttribute);
+
+        //create a training set
+
+        // Create an empty training set
+        Instances isTrainingSet = new Instances("Rel", fvWekaAttributes, 10);
+        // Set class index
+        isTrainingSet.setClassIndex(3);
+
+
+        System.out.println(isTrainingSet);
+
+        //fill the training set with one instance
+
+        // Create the instance
+        Instance iExample = new DenseInstance(4);
+        iExample.setValue((Attribute) fvWekaAttributes.elementAt(0), 1.0);
+        iExample.setValue((Attribute) fvWekaAttributes.elementAt(1), 0.5);
+        iExample.setValue((Attribute) fvWekaAttributes.elementAt(2), "gray");
+        iExample.setValue((Attribute) fvWekaAttributes.elementAt(3), "positive");
+
+        // add the instance
+        isTrainingSet.add(iExample);
+
+        System.out.println(iExample);
+
+        //choose a clasifier and classify
+
+        // Create a naïve bayes classifier
+        Classifier cModel = new NaiveBayes();
+        cModel.buildClassifier(isTrainingSet);
+        System.out.println(cModel);
+
+        // Test the model
+        Evaluation eTest = new Evaluation(isTrainingSet);
+        eTest.evaluateModel(cModel, isTrainingSet);
+        System.out.println(eTest);
+
+        // Print the result à la Weka explorer:
+        String strSummary = eTest.toSummaryString();
+        System.out.println(strSummary);
+
+        // Get the confusion matrix
+        double[][] cmMatrix = eTest.confusionMatrix();
+
+        //use the dataset
+
+        // Specify that the instance belong to the training set
+        // in order to inherit from the set description
+        //instance.setDataset(isTrainingSet);
+
+        // Get the likelihood of each classes
+        // fDistribution[0] is the probability of being “positive”
+        // fDistribution[1] is the probability of being “negative”
+        //double[] fDistribution = cModel.distributionForInstance(instance);
     }
 
     private void evaluate() throws Exception {

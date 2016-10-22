@@ -4,6 +4,7 @@ import apkr.external.module.batch.base.IBatchTask;
 import apkr.external.module.batch.base.IWekaGenerator;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.exception.UnknownParserException;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
@@ -118,14 +119,19 @@ public class WekaCertTask implements IBatchTask, IWekaGenerator, Serializable {
             for (File cert : certList) {
                 if (cert.exists() && cert.isFile() && cert.canRead()) {
                     //parse cert file
-                    AndroidCertParser parser = (AndroidCertParser) ParserFactory.getParser(ParserFactory.CERTIFICATE_PARSER, null, null);
+                    AndroidCertParser parser = null;
                     try {
-                        parser.extractCertInfo(cert);
-                        Log.write(LoggerType.TRACE, "Generating file juicy information...");
-                        CertificateModel model = parser.getCertInfo();
-                        data.add(model);
-                        counter++;
-                    } catch (IOException e) {
+                        parser = (AndroidCertParser) ParserFactory.getParser(ParserFactory.CERTIFICATE_PARSER, null, null);
+                        try {
+                            parser.extractCertInfo(cert);
+                            Log.write(LoggerType.TRACE, "Generating file juicy information...");
+                            CertificateModel model = parser.getCertInfo();
+                            data.add(model);
+                            counter++;
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } catch (UnknownParserException e) {
                         e.printStackTrace();
                     }
                 }

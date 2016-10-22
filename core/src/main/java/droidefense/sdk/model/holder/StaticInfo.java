@@ -19,7 +19,7 @@ public class StaticInfo implements Serializable {
     /**
      * .apk list of files
      */
-    private ArrayList<VirtualFile> appFiles;
+    private transient ArrayList<VirtualFile> appFiles;
 
     /**
      * .apk asset list of files
@@ -306,5 +306,11 @@ public class StaticInfo implements Serializable {
 
     public void setOtherFiles(ArrayList<AbstractHashedFile> otherFiles) {
         this.otherFiles = otherFiles;
+    }
+
+    public ArrayList<AbstractHashedFile> getResourceFiles() {
+        ArrayList<AbstractHashedFile> list = getAssetFiles();
+        list.addAll(getRawFiles());
+        return list;
     }
 }

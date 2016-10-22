@@ -1,5 +1,7 @@
 package droidefense.parser;
 
+import apkr.external.modules.helpers.log4j.Log;
+import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
 import droidefense.mod.vfs.model.impl.VirtualFile;
 import droidefense.parser.base.AbstractFileParser;
@@ -23,6 +25,8 @@ public class APKMetaParser extends AbstractFileParser {
 
     @Override
     public void parserCode() {
+
+        Log.write(LoggerType.INFO, "\n\nReading app metadata...\n");
 
         //get app files
         ArrayList<VirtualFile> files = currentProject.getAppFiles();

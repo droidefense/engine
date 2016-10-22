@@ -19,6 +19,7 @@ public class AndroidManifestParser extends AbstractFileParser {
 
     @Override
     public void parserCode() {
+        Log.write(LoggerType.INFO, "\n\nParsing AndroidManifest.xml...\n");
         try {
             ManifestParser externalParser = new ManifestParser();
             byte[] manifestContent = currentProject.getManifestFile();

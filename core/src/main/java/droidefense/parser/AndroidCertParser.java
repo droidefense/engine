@@ -28,7 +28,7 @@ public class AndroidCertParser extends AbstractFileParser {
 
     @Override
     public void parserCode() {
-        Log.write(LoggerType.INFO, "\nParsing Android Certificate...\n");
+        Log.write(LoggerType.INFO, "\n\nParsing Android Certificate...\n");
         String certpath = "";
         //TODO fix
         try {

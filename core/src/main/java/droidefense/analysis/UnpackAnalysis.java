@@ -19,17 +19,17 @@ public final class UnpackAnalysis extends AbstractAndroidAnalysis {
 
     @Override
     public boolean analyze() {
-        Log.write(LoggerType.TRACE, "Unpacking .apk...");
+        Log.write(LoggerType.INFO, "Unpacking .apk...");
         //unpack file
         files = apkFile.unpackWithTechnique(currentProject, apkFile);
-        if (files != null && files.size() > 0) {
+        positiveMatch = !files.isEmpty();
+        if (positiveMatch) {
             //save files count
-            positiveMatch = files.size() > 0;
             //SET APP FILES & CALCULATE THEIR HASHES, FUZZING HASH, EXTENSION, SIGNATURES
             apkFile.decodeWithTechnique(currentProject, files);
-            timeStamp.stop();
             //set aproject files
             currentProject.setAppFiles(files);
+            timeStamp.stop();
             return true;
         }
         //currentProject.setAppFiles(files);

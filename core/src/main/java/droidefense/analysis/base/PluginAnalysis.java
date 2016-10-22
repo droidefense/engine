@@ -30,7 +30,7 @@ public abstract class PluginAnalysis implements Serializable {
     }
 
     public void log(Object o, int level) {
-        Log.write(LoggerType.TRACE, level + " " + o);
+        Log.write(LoggerType.TRACE, " " + o);
     }
 
     public LocalApkFile getApk() {
