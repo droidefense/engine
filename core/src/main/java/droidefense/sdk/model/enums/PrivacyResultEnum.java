@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public enum PrivacyResultEnum implements Serializable {
 
-    SAFE("SAFE"), SUSPICIOUS("SUSPICIOUS"), DATA_LEAK("DATA_LEAK"), UNKNOWN("UNKNOWN");
+    SAFE("SAFE"), SUSPICIOUS("SUSPICIOUS"), DATA_LEAK("DATA LEAK"), UNKNOWN("UNKNOWN");
 
     private String type;
 

@@ -41,26 +41,31 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
             analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.DYNAMIC_PLUGIN_ANALYSIS);
             currentProject.analyze(analyzer);
 
-
-
             //RUN RULE ENGINE
             analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.RULE_ENGINE_ANALYSIS);
             currentProject.analyze(analyzer);
 
             */
 
+            //RUN PRIVACY SCAN
+            analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.PRIVACY_ANALYSIS);
+            currentProject.analyze(analyzer);
+
             //RUN WEKA
             /*
             analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.MACHINE_LEARNING_ANALYSIS);
             currentProject.analyze(analyzer);
-            return true;
             */
 
+            this.timeStamp.stop();
+            return true;
+
         } catch (UnknownAnalyzerException e) {
-            e.printStackTrace();
+            Log.write(LoggerType.FATAL, "An error ocurred while running general scan", e.getLocalizedMessage());
+            this.timeStamp.stop();
+            this.errorList.add(e);
+            return false;
         }
-        this.timeStamp.stop();
-        return true;
     }
 
     @Override

@@ -40,8 +40,7 @@ public final class AndroidDynamicAnalysis extends AbstractAndroidAnalysis {
 
         //stop timer
         stop();
-        positiveMatch = !hasErrors();
-        return hasErrors();
+        return true;
     }
 
     @Override

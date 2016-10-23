@@ -1,6 +1,6 @@
-package external.plugins.collection.sttc;
+package droidefense.analysis;
 
-import droidefense.sdk.AbstractStaticPlugin;
+import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.enums.PrivacyResultEnum;
 import droidefense.sdk.model.manifest.*;
@@ -10,9 +10,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by r00t on 07/12/2015.
+ * Created by .local on 23/10/2016.
  */
-public class PrivacyPlugin extends AbstractStaticPlugin {
+public class PrivacyAnalysis extends AbstractAndroidAnalysis {
 
     private static final String[] harmlessPermission = {
             "android.permission.ACCESS_SURFACE_FLINGER",
@@ -201,12 +201,12 @@ public class PrivacyPlugin extends AbstractStaticPlugin {
     private int initialPermissionCount;
     private int interestingCount;
 
-    public PrivacyPlugin() {
+    public PrivacyAnalysis() {
         this.risk = 0;
         this.comms = 0;
     }
 
-    public PrivacyPlugin(DroidefenseProject currentProject) {
+    public PrivacyAnalysis(DroidefenseProject currentProject) {
         this.currentProject = currentProject;
         this.risk = 0;
         this.comms = 0;
@@ -240,8 +240,50 @@ public class PrivacyPlugin extends AbstractStaticPlugin {
         return systemProtection;
     }
 
+
+    private boolean canSendYourDataRemote(int communication) {
+        //TODO we should also take into account if the application has any kind of provider or whether the app can save data on hdd.
+        //This is because some malware can be designed in multi app style. One app steals data, and other app only reads them and send to a remote server
+        return communication > 0;
+    }
+
+    private boolean canGetYourData(int canStealDataPermissions) {
+        return canStealDataPermissions > 0;
+    }
+
+    private int getMatchedPermissions(ArrayList<String> totalPerms, ArrayList<String> data) {
+        int matched = 0;
+        //get matches
+        for (String str : data) {
+            matched += totalPerms.contains(str) ? 1 : 0;
+        }
+        return matched;
+    }
+
+    public int getComms() {
+        return comms;
+    }
+
+    public int getSteal() {
+        return steal;
+    }
+
+    public PrivacyResultEnum getPrivacyResult() {
+        if (getSteal() == 0) {
+            return PrivacyResultEnum.SAFE;
+        } else if (getSteal() > 0 && getComms() == 0) {
+            return PrivacyResultEnum.SUSPICIOUS;
+        } else if (getSteal() > 0 && getComms() > 0) {
+            return PrivacyResultEnum.DATA_LEAK;
+        }
+        return PrivacyResultEnum.UNKNOWN;
+    }
+
+    //Analysis object overwrite
+
     @Override
-    public void onPreExecute() {
+    protected boolean analyze() {
+        //get data
         //getting data
         this.usesPermissionsList = new ArrayList<>();
         this.usesPermissions23List = new ArrayList<>();
@@ -256,10 +298,8 @@ public class PrivacyPlugin extends AbstractStaticPlugin {
             this.permissionGroupList = currentProject.getManifestInfo().getPermissionGroupList();
             this.permissionTreeList = currentProject.getManifestInfo().getPermissionTreeList();
         }
-    }
 
-    @Override
-    public void onExecute() {
+        //calculate
         int totalCount = usesPermissions23List.size() + usesPermissionsList.size();
         this.initialPermissionCount = totalCount;
         log("Total permissions detected: " + initialPermissionCount, 1);
@@ -325,104 +365,15 @@ public class PrivacyPlugin extends AbstractStaticPlugin {
 
         log("Risk index: " + risk, 3);
 
+        //set result to project
+        currentProject.setPrivacyResult(getPrivacyResult());
+
         this.positiveMatch = (risk == 0.0);
-    }
-
-    private boolean canSendYourDataRemote(int communication) {
-        //TODO we should also take into account if the application has any kind of provider or whether the app can save data on hdd.
-        //This is because some malware can be designed in multi app style. One app steals data, and other app only reads them and send to a remote server
-        return communication > 0;
-    }
-
-    private boolean canGetYourData(int canStealDataPermissions) {
-        return canStealDataPermissions > 0;
-    }
-
-    private int getMatchedPermissions(ArrayList<String> totalPerms, ArrayList<String> data) {
-        int matched = 0;
-        //get matches
-        for (String str : data) {
-            matched += totalPerms.contains(str) ? 1 : 0;
-        }
-        return matched;
+        return this.positiveMatch;
     }
 
     @Override
-    protected void postExecute() {
-        if (positiveMatch) {
-            this.html = "<div class=\"info-box\">" +
-                    "<span class=\"info-box-icon bg-green\"><i id=\"plugin-icon\"class=\"fa fa-credit-card\"></i></span>" +
-                    "<div class=\"info-box-content\">" +
-                    "<span class=\"info-box-text\" id=\"plugin-name\">" + getPluginName() + "</span>" +
-                    "<span class=\"info-box-number\" id=\"plugin-result\"> Privacy risk score: " + this.risk + "%</span>" +
-                    "</div>" +
-                    "<!-- /.info-box-content -->" +
-                    "</div>";
-        } else {
-            this.html = "<div class=\"info-box\">" +
-                    "<span class=\"info-box-icon bg-red\"><i id=\"plugin-icon\"class=\"fa fa-credit-card\"></i></span>" +
-                    "<div class=\"info-box-content\">" +
-                    "<span class=\"info-box-text\" id=\"plugin-name\">" + getPluginName() + "</span>" +
-                    "<span class=\"info-box-number\" id=\"plugin-result\"> Privacy risk score: " + this.risk + "%</span>" +
-                    "</div>" +
-                    "<!-- /.info-box-content -->" +
-                    "</div>";
-        }
-    }
-
-    @Override
-    protected String getPluginName() {
-        return "Privacy plugin";
-    }
-
-    public double getRisk() {
-        return risk;
-    }
-
-    public ArrayList<UsesPermission> getUsesPermissionsList() {
-        return usesPermissionsList;
-    }
-
-    public ArrayList<UsesPermissionSDK23> getUsesPermissions23List() {
-        return usesPermissions23List;
-    }
-
-    public ArrayList<Permission> getPermissionsList() {
-        return permissionsList;
-    }
-
-    public ArrayList<PermissionGroup> getPermissionGroupList() {
-        return permissionGroupList;
-    }
-
-    public ArrayList<PermissionTree> getPermissionTreeList() {
-        return permissionTreeList;
-    }
-
-    public int getComms() {
-        return comms;
-    }
-
-    public int getInitialPermissionCount() {
-        return initialPermissionCount;
-    }
-
-    public int getInterestingCount() {
-        return interestingCount;
-    }
-
-    public int getSteal() {
-        return steal;
-    }
-
-    public PrivacyResultEnum getPrivacyResult() {
-        if (getSteal() == 0) {
-            return PrivacyResultEnum.SAFE;
-        } else if (getSteal() > 0 && getComms() == 0) {
-            return PrivacyResultEnum.SUSPICIOUS;
-        } else if (getSteal() > 0 && getComms() > 0) {
-            return PrivacyResultEnum.DATA_LEAK;
-        }
-        return PrivacyResultEnum.UNKNOWN;
+    public String getName() {
+        return "Droidefense privacy scan";
     }
 }

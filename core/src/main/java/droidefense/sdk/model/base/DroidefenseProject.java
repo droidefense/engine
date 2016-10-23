@@ -21,6 +21,7 @@ import droidefense.sdk.helpers.Util;
 import droidefense.sdk.model.certificate.CertificateModel;
 import droidefense.sdk.model.dex.OpcodeInformation;
 import droidefense.sdk.model.enums.MalwareResultEnum;
+import droidefense.sdk.model.enums.OverallResultEnum;
 import droidefense.sdk.model.enums.PrivacyResultEnum;
 import droidefense.sdk.model.holder.DynamicInfo;
 import droidefense.sdk.model.holder.InternalInfo;
@@ -29,6 +30,7 @@ import droidefense.sdk.model.holder.StringInfo;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.sdk.model.manifest.Manifest;
+import droidefense.sdk.model.manifest.UsesPermission;
 import droidefense.sdk.model.manifest.base.AbstractManifestClass;
 import droidefense.util.JsonStyle;
 
@@ -97,6 +99,8 @@ public final class DroidefenseProject implements Serializable {
      * Result of privacy prediction
      */
     private PrivacyResultEnum privacyResult;
+
+    private OverallResultEnum overallResult;
 
     /**
      * Result of JADX decompilation
@@ -434,22 +438,8 @@ public final class DroidefenseProject implements Serializable {
     }
 
     public void generateEnumResults() {
-        if (staticInfoPlugins != null && !staticInfoPlugins.isEmpty()) {
-            for (int i = 0; i < staticInfoPlugins.size(); i++) {
-                AbstractStaticPlugin plugin = staticInfoPlugins.get(i);
-                if (plugin.getClass().getSimpleName().equals("PrivacyPlugin")) {
-                    //TODO fix this issue with dynamic loaded class.
-                    /*
-                    PrivacyPlugin pplug = (PrivacyPlugin) plugin;
-                    privacyResult = pplug.getPrivacyResult();
-                    */
-                }
-
-            }
-        } else {
-            malwareResult = MalwareResultEnum.UNKNOWN;
-            privacyResult = PrivacyResultEnum.UNKNOWN;
-        }
+        this.overallResult = OverallResultEnum.UNKNOWN;
+        this.malwareResult = MalwareResultEnum.UNKNOWN;
     }
 
     public void setInstructionCount(int total) {
@@ -491,35 +481,49 @@ public final class DroidefenseProject implements Serializable {
     }
 
     public void writeNaturalReport() {
-        String data;
+        StringBuffer data = new StringBuffer();
         String pkg = getManifestInfo().getPackageName() == null ? "unknown" : getManifestInfo().getPackageName();
         String url = "https://www.virustotal.com/es/file/" + getProjectId().toLowerCase() + "/analysis/";
         int entries = getInternalInfo().getEntryPoints().size();
-        data = "<p>Analyzed application is called <strong>" + getSourceFile().getFilename() + "</strong> but it's internal name is <tt>" + pkg + "</tt></p>\n" +
-                "\n" +
-                "<p>Its file signature is <tt>" + getProjectId() + "</tt></p>\n" +
-                "\n" +
-                "<p>and VirusTotal result can be found at: <a href=\"" + url + "\" target=\"_blank\">" + url + "</a></p>\n" +
-                "\n" +
-                "<p>The application has access to:</p>\n" +
-                "<ul>";
-        //TODO unblock when fully in-memory optimized
-        /*
-        for (UsesPermission p : getManifestInfo().getUsesPermissionList()) {
-            data +=
-                    "<li>" +
-                            p.getName()
-                            +
-                            "</li>";
+        data.append("<p>Analyzed application is called <strong>" + getSourceFile().getFilename() + "</strong> but it's internal name is <tt>" + pkg + "</tt></p>\n");
+        data.append("\n");
+        data.append("<p>Its file signature as unique SHA 256 bits identifier is <tt>" + getProjectId() + "</tt></p>\n");
+        data.append("\n");
+        data.append("<p>and VirusTotal result can be found at: <a href=\"" + url + "\" target=\"_blank\">" + url + "</a></p>\n");
+        data.append("\n");
+
+        Manifest info = getManifestInfo();
+        if (info != null) {
+            data.append("<p>A quick overview of the application shows current declared permissions:\n");
+            data.append("<ul>");
+            for (UsesPermission p : info.getUsesPermissionList()) {
+                data.append("<li>");
+                data.append(p.getName());
+                data.append("</li>");
+            }
+            data.append("</ul>");
+        } else {
+            //no permissions found
+            data.append("<p>The application has no declared permissions which, in most cases, means that this applications is safe to use it and to install it. However be aware that this application can have inside files that may share to other applications leaking information or sharing viruses, trojans and malware.</p>\n");
         }
-        data +=
-                "</ul>" +
-                        "\n" +
-                        "<p>We have detected " + entries + " entry points in this application, which means that it runs from " + entries + " different main points.</p>" +
-                        "\n" +
-                        "<p>Please, take a closer look to analysis result to have a deep understanding of what the application attempts to do.</p>";
-       */
-        setSummary(data);
+        //set entry points
+        data.append("\n");
+
+        if (entries == 0) {
+            data.append("<p>We have DO NOT have detected any valid entry point in this application<p>");
+            data.append("<p>Since this is not the usual behaviour of android apps, we have flagged it as suspicious or corrupt sample</p>");
+        } else if (entries == 1) {
+            data.append("<p>We have detected 1 entry point in this application, which means that it runs from only one main execution point.</p>");
+        } else if (entries > 1) {
+            data.append("<p>We have detected ");
+            data.append(entries);
+            data.append(" entry points in this application, which means that it runs from ");
+            data.append(entries);
+            data.append(" different main execution points.</p>");
+        }
+        data.append("\n");
+        data.append("<p>Please, take a closer look to analysis result to have a deep understanding of what the application attempts to do.</p>");
+        setSummary(data.toString());
     }
 
     public void setCertificateFile(AbstractHashedFile certFile) {
@@ -715,5 +719,9 @@ public final class DroidefenseProject implements Serializable {
 
     public void setOtherFiles(ArrayList<AbstractHashedFile> otherFiles) {
         this.staticInfo.setOtherFiles(otherFiles);
+    }
+
+    public void setPrivacyResult(PrivacyResultEnum privacyResult) {
+        this.privacyResult = privacyResult;
     }
 }

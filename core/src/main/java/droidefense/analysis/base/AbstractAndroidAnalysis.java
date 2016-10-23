@@ -38,13 +38,13 @@ public abstract class AbstractAndroidAnalysis implements Serializable {
         status = ProcessStatus.STARTED;
         start();
         status = ProcessStatus.EXECUTING;
-        analyze();
+        positiveMatch = analyze();
         status = ProcessStatus.FINISHED;
-        return hasErrors();
+        return positiveMatch;
     }
 
-    public boolean hasErrors() {
-        return !errorList.isEmpty();
+    public boolean noErrors() {
+        return errorList.isEmpty();
     }
 
     public void addError(Exception e) {

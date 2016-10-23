@@ -16,6 +16,7 @@ public abstract class AnalysisFactory {
     public static final byte RULE_ENGINE_ANALYSIS = 0x05;
     public static final byte MACHINE_LEARNING_ANALYSIS = 0x6;
     public static final byte GENERAL = 0x07;
+    public static final byte PRIVACY_ANALYSIS = 0x08;
 
     public static AbstractAndroidAnalysis getAnalyzer(byte id) throws UnknownAnalyzerException {
         switch (id) {
@@ -35,6 +36,8 @@ public abstract class AnalysisFactory {
                 return new MachineLearningAnalysis();
             case RULE_ENGINE_ANALYSIS:
                 return new RuleAnalysis();
+            case PRIVACY_ANALYSIS:
+                return new PrivacyAnalysis();
         }
         throw new UnknownAnalyzerException("An analyzer with id " + Integer.toHexString(id) + " was requested but it does not exists");
     }

@@ -34,6 +34,7 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
             parser.parse();
         } catch (UnknownParserException e) {
             Log.write(LoggerType.FATAL, "Could not recover metadata information parser", e.getLocalizedMessage());
+            this.errorList.add(e);
         }
 
         //1 decompile if enabled
@@ -52,6 +53,7 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
             parser.parse();
         } catch (UnknownParserException e) {
             Log.write(LoggerType.FATAL, "Could not recover manifest parser", e.getLocalizedMessage());
+            this.errorList.add(e);
         }
 
         //parse found .so files
@@ -72,6 +74,7 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
             parser.parse();
         } catch (UnknownParserException e) {
             Log.write(LoggerType.FATAL, "Could not recover certificate parser", e.getLocalizedMessage());
+            this.errorList.add(e);
         }
 
         //5 parse resources
@@ -83,6 +86,7 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
                 parser.parse();
             } catch (UnknownParserException e) {
                 Log.write(LoggerType.FATAL, "Could not recover resource parser", e.getLocalizedMessage());
+                this.errorList.add(e);
             }
         } else {
             Log.write(LoggerType.INFO, "[OK] Skipping resource analysis");
