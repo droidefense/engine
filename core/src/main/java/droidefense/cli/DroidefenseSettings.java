@@ -19,7 +19,7 @@ public class DroidefenseSettings {
     @Parameter(names = {"-version"}, description = "Show current version of the engine")
     private boolean version;
 
-    @Parameter(names = {"-i", "--input"}, description = "Input Android application to scan", required = true)
+    @Parameter(names = {"-i", "--input"}, description = "Input Android application to scan")
     private File input;
 
     @Parameter(names = {"-h", "--help"}, description = "show this help", help = true)

@@ -7,11 +7,15 @@
 
     <groupId>com.droidefense</groupId>
     <artifactId>droidefense</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>../memapktool</module>
+    </modules>
 
     <properties>
         <jdk.version>1.8</jdk.version>
-        <dependecy.directory>dependencies</dependecy.directory>
+        <dependecy.directory>lib</dependecy.directory>
     </properties>
 
     <dependencies>
@@ -134,7 +138,7 @@
             <artifactId>apktool</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/../lib/third-party/apktool_2.2.0.jar</systemPath>
+            <systemPath>${pom.basedir}/../lib/third-party/apktool_2.2.1.jar</systemPath>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
@@ -147,22 +151,12 @@
         </dependency>
 
         <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-servlet</artifactId>
-            <version>9.2.19.v20160908</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
-            <version>9.2.19.v20160908</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity</artifactId>
             <version>1.5</version>
         </dependency>
+
+        <!-- testing libs -->
 
         <dependency>
             <groupId>junit</groupId>
@@ -185,7 +179,6 @@
                     <target>${jdk.version}</target>
                 </configuration>
             </plugin>
-
             <!-- Make this jar executable -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -206,7 +199,25 @@
                 </configuration>
             </plugin>
 
-            <!-- Copy project dependency -->
+            <!-- build jar with dependencies in an in-jar folder -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <finalName>${project.artifactId}-${project.version}</finalName>
+                </configuration>
+            </plugin>
+
+            <!-- build jar with dependencies in an external folder -->
+            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -219,49 +230,38 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <!-- exclude junit, we need runtime dependency only -->
                             <includeScope>runtime</includeScope>
                             <outputDirectory>${project.build.directory}/${dependecy.directory}/</outputDirectory>
                         </configuration>
-                    </execution>
-                </executions>
+                        </execution>
+                    </executions>
             </plugin>
-
-            <!-- Configures Proguard obfuscation tool to generate an
-                 obfuscated version of the JAR file that replaces the
-                 default unobfuscated JAR.
             -->
+
+            <!-- optimize jar with proguard -->
+            <!--
             <plugin>
                 <groupId>com.github.wvengen</groupId>
                 <artifactId>proguard-maven-plugin</artifactId>
                 <version>2.0.10</version>
+
                 <executions>
                     <execution>
-                        <id>obfuscation-packaging</id>
                         <phase>package</phase>
-                        <goals>
-                            <goal>proguard</goal>
-                        </goals>
-                        <configuration>
-                            <proguardVersion>5.3</proguardVersion>
-                            <obfuscate>true</obfuscate>
-                            <attach>true</attach>
-                            <appendClassifier>false</appendClassifier>
-                            <addMavenDescriptor>true</addMavenDescriptor>
-                            <injar>${project.build.finalName}.jar</injar>
-                            <injarNotExistsSkip>true</injarNotExistsSkip>
-                            <libs>
-                                <lib>${java.home}/lib/rt.jar</lib>
-                            </libs>
-
-                            <options>
-                                <option>-target 1.8</option>
-                            </options>
-                        </configuration>
+                        <goals><goal>proguard</goal></goals>
                     </execution>
                 </executions>
+
+                <configuration>
+                    <maxMemory>1024m</maxMemory>
+
+                    <proguardInclude>${basedir}/proguard.conf</proguardInclude>
+                    <libs>
+                        <lib>${java.home}/lib/rt.jar</lib>
+                    </libs>
+                </configuration>
+
                 <dependencies>
-                    <!-- https://mvnrepository.com/artifact/net.sf.proguard/proguard-base -->
                     <dependency>
                         <groupId>net.sf.proguard</groupId>
                         <artifactId>proguard-base</artifactId>
@@ -269,9 +269,8 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            -->
 
         </plugins>
-
     </build>
-
 </project>

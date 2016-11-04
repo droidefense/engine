@@ -22,7 +22,6 @@ import java.security.cert.CertificateException;
  */
 public class DroidefenseScan {
 
-    public static final byte LOAD_VARIABLES = 0x0;
     private static boolean init = false;
     private DroidefenseProject project;
 
@@ -33,6 +32,14 @@ public class DroidefenseScan {
         //help info if requested
         if (settings.isHelpRequested()) {
             settings.showUsage();
+            return;
+        }
+
+        //version requested
+        if (settings.getVersion()) {
+            System.out.println("Current version of droidefense: " + InternalConstant.ENGINE_VERSION);
+            System.out.println("Check out on Github: https://github.com/droidefense");
+            System.out.println("Lead developer: @zerjioang");
             return;
         }
 
@@ -52,11 +59,7 @@ public class DroidefenseScan {
             }
         }
 
-        if (settings.getVersion()) {
-            System.out.println("Current version of droidefense: " + InternalConstant.ENGINE_VERSION);
-            System.out.println("Check out on Github: https://github.com/droidefense");
-            System.out.println("Lead developer: @zerjioang");
-        } else if (settings.hasFile()) {
+        if (settings.hasFile()) {
             //security check
             File inputFile = settings.getInput();
             if (inputFile != null) {

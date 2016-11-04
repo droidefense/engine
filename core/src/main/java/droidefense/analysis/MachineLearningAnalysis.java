@@ -12,7 +12,7 @@ import droidefense.handler.WekaResultsHandler;
 public final class MachineLearningAnalysis extends AbstractAndroidAnalysis {
 
     public MachineLearningAnalysis() {
-        this.positiveMatch = false;
+        this.executionSuccessful = false;
         this.status = ProcessStatus.STARTED;
     }
 

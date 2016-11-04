@@ -28,7 +28,7 @@ public final class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
 
     @Override
     public boolean analyze() {
-        positiveMatch = false;
+        executionSuccessful = false;
         //set current currentProject
         currentProject = DroidefenseProject.getProject(apkFile);
         Log.write(LoggerType.TRACE, "\n\n --- Running Android static plugin analysis ---\n\n");
@@ -73,9 +73,9 @@ public final class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
         Log.write(LoggerType.TRACE, "\n--- RUNNING PLUGINS (DONE)---\n");
         //stop timer
         stop();
-        positiveMatch = true;
+        executionSuccessful = true;
         this.timeStamp.stop();
-        return positiveMatch;
+        return executionSuccessful;
     }
 
     @Override

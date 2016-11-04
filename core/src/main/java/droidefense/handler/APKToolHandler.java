@@ -26,7 +26,7 @@ public class APKToolHandler extends AbstractHandler {
     @Override
     public boolean doTheJob() {
         return true;
-        
+
         //TODO add new in-memory apktool decoding
 
         //OLD local files based apktool unpacking

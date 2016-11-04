@@ -118,7 +118,7 @@
     <orderEntry type="module-library">
       <library name="Maven: apktool:apktool:1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../lib/third-party/apktool_2.2.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lib/third-party/apktool_2.2.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -133,13 +133,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-servlet:9.2.19.v20160908" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-security:9.2.19.v20160908" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-server:9.2.19.v20160908" level="project" />
-    <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:9.2.19.v20160908" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-util:9.2.19.v20160908" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:9.2.19.v20160908" level="project" />
     <orderEntry type="library" name="Maven: org.apache.velocity:velocity:1.5" level="project" />
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.1" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.1" level="project" />

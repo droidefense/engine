@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public final class AndroidDynamicAnalysis extends AbstractAndroidAnalysis {
 
     public AndroidDynamicAnalysis() {
-        this.positiveMatch = false;
+        this.executionSuccessful = false;
         this.status = ProcessStatus.STARTED;
     }
 

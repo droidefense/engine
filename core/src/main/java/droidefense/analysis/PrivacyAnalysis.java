@@ -212,35 +212,6 @@ public class PrivacyAnalysis extends AbstractAndroidAnalysis {
         this.comms = 0;
     }
 
-    public static String[] getHarmlessPermission() {
-        return harmlessPermission;
-    }
-
-    public static String[] getCanStealDataPermissions() {
-        return canStealDataPermissions;
-    }
-
-    public static String[] getCommunication() {
-        return communication;
-    }
-
-    public static String[] getDangerours() {
-        return dangerours;
-    }
-
-    public static String[] getDangerousSpecial() {
-        return dangerousSpecial;
-    }
-
-    public static String[] getNormalProtection() {
-        return normalProtection;
-    }
-
-    public static String[] getSystemProtection() {
-        return systemProtection;
-    }
-
-
     private boolean canSendYourDataRemote(int communication) {
         //TODO we should also take into account if the application has any kind of provider or whether the app can save data on hdd.
         //This is because some malware can be designed in multi app style. One app steals data, and other app only reads them and send to a remote server
@@ -300,8 +271,7 @@ public class PrivacyAnalysis extends AbstractAndroidAnalysis {
         }
 
         //calculate
-        int totalCount = usesPermissions23List.size() + usesPermissionsList.size();
-        this.initialPermissionCount = totalCount;
+        this.initialPermissionCount = usesPermissions23List.size() + usesPermissionsList.size();
         log("Total permissions detected: " + initialPermissionCount, 1);
         ArrayList<String> totalPerms = new ArrayList<>();
         //add user permissions
@@ -368,8 +338,10 @@ public class PrivacyAnalysis extends AbstractAndroidAnalysis {
         //set result to project
         currentProject.setPrivacyResult(getPrivacyResult());
 
-        this.positiveMatch = (risk == 0.0);
-        return this.positiveMatch;
+        this.executionSuccessful = (risk == 0.0);
+        //stop timer
+        timeStamp.stop();
+        return this.executionSuccessful;
     }
 
     @Override

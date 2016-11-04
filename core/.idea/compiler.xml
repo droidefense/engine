@@ -23,11 +23,14 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="apkr" />
-        <module name="droidefense" />
+        <module name="memapktool" />
+        <module name="server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="droidefense" target="1.8" />
+      <module name="memapktool" target="1.8" />
+      <module name="server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

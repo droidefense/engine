@@ -12,8 +12,6 @@ import java.util.ArrayList;
  */
 public final class UnpackAnalysis extends AbstractAndroidAnalysis {
 
-    private transient ArrayList<VirtualFile> files;
-
     public UnpackAnalysis() {
     }
 
@@ -21,20 +19,12 @@ public final class UnpackAnalysis extends AbstractAndroidAnalysis {
     public boolean analyze() {
         Log.write(LoggerType.INFO, "Unpacking .apk...");
         //unpack file
-        files = apkFile.unpackWithTechnique(currentProject, apkFile);
-        positiveMatch = !files.isEmpty();
-        if (positiveMatch) {
-            //save files count
-            //SET APP FILES & CALCULATE THEIR HASHES, FUZZING HASH, EXTENSION, SIGNATURES
-            apkFile.decodeWithTechnique(currentProject, files);
-            //set aproject files
-            currentProject.setAppFiles(files);
-            timeStamp.stop();
-            return true;
-        }
-        //currentProject.setAppFiles(files);
+        ArrayList<VirtualFile> files = apkFile.unpackWithTechnique(currentProject, apkFile);
+        executionSuccessful = !files.isEmpty();
+        currentProject.setCorrectUnpacked(executionSuccessful);
+        currentProject.setAppFiles(files);
         timeStamp.stop();
-        return false;
+        return executionSuccessful;
     }
 
     @Override

@@ -23,7 +23,7 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
 
     @Override
     public boolean analyze() {
-        positiveMatch = false;
+        executionSuccessful = false;
         Log.write(LoggerType.TRACE, "\n\n --- Running Android static analysis ---\n\n");
 
         AbstractFileParser parser;
@@ -93,6 +93,7 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
         }
 
         this.timeStamp.stop();
+        this.currentProject.setStaticAnalysisDone(true);
         return true;
     }
 

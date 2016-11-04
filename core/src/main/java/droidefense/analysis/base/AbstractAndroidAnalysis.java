@@ -17,14 +17,14 @@ public abstract class AbstractAndroidAnalysis implements Serializable {
 
     protected ExecutionTimer timeStamp;
     protected ProcessStatus status;
-    protected boolean positiveMatch;
+    protected boolean executionSuccessful;
     protected String result;
 
     protected transient LocalApkFile apkFile;
     protected transient DroidefenseProject currentProject;
     //for error handing
     protected transient ArrayList<Exception> errorList;
-    private String name;
+    protected String name;
 
     public AbstractAndroidAnalysis() {
         errorList = new ArrayList<>();
@@ -38,9 +38,9 @@ public abstract class AbstractAndroidAnalysis implements Serializable {
         status = ProcessStatus.STARTED;
         start();
         status = ProcessStatus.EXECUTING;
-        positiveMatch = analyze();
+        executionSuccessful = analyze();
         status = ProcessStatus.FINISHED;
-        return positiveMatch;
+        return executionSuccessful;
     }
 
     public boolean noErrors() {
@@ -99,12 +99,12 @@ public abstract class AbstractAndroidAnalysis implements Serializable {
         this.currentProject = currentProject;
     }
 
-    public boolean isPositiveMatch() {
-        return positiveMatch;
+    public boolean isExecutionSuccessful() {
+        return executionSuccessful;
     }
 
-    public void setPositiveMatch(boolean positiveMatch) {
-        this.positiveMatch = positiveMatch;
+    public void setExecutionSuccessful(boolean executionSuccessful) {
+        this.executionSuccessful = executionSuccessful;
     }
 
     public String getResult() {

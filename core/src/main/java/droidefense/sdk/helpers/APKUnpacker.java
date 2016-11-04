@@ -15,30 +15,19 @@ import java.util.ArrayList;
 public enum APKUnpacker {
 
     APKTOOL_UNPACKER {
-
         @Override
         public ArrayList<VirtualFile> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile) {
             //unpacks and decode on the same step
             APKToolHandler handler = new APKToolHandler(currentProject, apkFile);
             handler.doTheJob();
-
             //TODO enable file, folder counting
-            /*
-            ArrayList<VirtualFile> files = currentProject.getVFS().getRecursiveFileList();
-
-            Log.write(LoggerType.TRACE, "Files found: " + files.size());
-
-            //save metadata
-            currentProject.setFolderCount(currentProject.getVFS().getNfolder());
-            currentProject.setFilesCount(currentProject.getVFS().getNfiles());
-            */
-
             return null;
         }
 
         @Override
         public ArrayList<VirtualFile> decodeWithTechnique(DroidefenseProject currentProject, ArrayList<VirtualFile> files) {
             //todo implement axml, 9.png and resource decoder
+            currentProject.setCorrectDecoded(true);
             return null;
         }
 
@@ -48,18 +37,7 @@ public enum APKUnpacker {
             //only unpacks
             FileUnzipVFSHandler handler = new FileUnzipVFSHandler(currentProject, apkFile);
             handler.doTheJob();
-
             //TODO enable file, folder counting
-            /*
-            ArrayList<VirtualFile> files = currentProject.getVFS().getRecursiveFileList();
-
-            Log.write(LoggerType.TRACE, "Files found: " + files.size());
-
-            //save metadata
-            currentProject.setFolderCount(currentProject.getVFS().getNfolder());
-            currentProject.setFilesCount(currentProject.getVFS().getNfiles());
-            */
-
             return handler.getFiles();
         }
 
@@ -69,8 +47,8 @@ public enum APKUnpacker {
             for (int i = 0; i < files.size(); i++) {
                 AXMLDecoderHandler decoder = new AXMLDecoderHandler(files.get(i));
                 decoder.doTheJob();
-                System.out.println();
             }
+            currentProject.setCorrectDecoded(files.size() > 0);
             return files;
         }
     };

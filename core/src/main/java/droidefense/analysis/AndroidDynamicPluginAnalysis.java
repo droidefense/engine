@@ -28,7 +28,7 @@ public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis 
 
     @Override
     public boolean analyze() {
-        positiveMatch = false;
+        executionSuccessful = false;
         //set current currentProject
         currentProject = DroidefenseProject.getProject(apkFile);
         Log.write(LoggerType.TRACE, "\n\n --- Running Droidefense dynamic plugin analysis ---\n\n");
@@ -85,8 +85,8 @@ public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis 
         Log.write(LoggerType.TRACE, "\n--- RUNNING PLUGINS (DONE)---\n");
         //stop timer
         stop();
-        positiveMatch = true;
-        return positiveMatch;
+        executionSuccessful = true;
+        return executionSuccessful;
     }
 
     @Override

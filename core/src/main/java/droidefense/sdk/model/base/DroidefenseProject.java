@@ -129,6 +129,10 @@ public final class DroidefenseProject implements Serializable {
     private transient AbstractFlowMap followCallsMap;
     private MachineLearningResult machineLearningResult;
     private transient boolean headerReaded;
+    private boolean correctUnpacked;
+    private boolean correctDecoded;
+    private boolean staticAnalysisDone;
+    private boolean dynamicAnalysisDone;
     //private transient DexHeaderReader dexHeaderReader;
 
     public DroidefenseProject(final LocalApkFile file) {
@@ -398,7 +402,7 @@ public final class DroidefenseProject implements Serializable {
     public void updateMetadata() {
         //save metadata info
         //try {
-            File meta = new File(FileIOHandler.getUnpackOutputFile().getAbsolutePath() + File.separator + getSourceFile().getSha256() + File.separator + InternalConstant.ANALYSIS_METADATA_FILE);
+        File meta = new File(FileIOHandler.getUnpackOutputFile().getAbsolutePath() + File.separator + getSourceFile().getSha256() + File.separator + InternalConstant.ANALYSIS_METADATA_FILE);
             /*
             if (!meta.exists()) {
                 HashChecking hc = new HashChecking(getSourceFile().getSha256());
@@ -723,5 +727,37 @@ public final class DroidefenseProject implements Serializable {
 
     public void setPrivacyResult(PrivacyResultEnum privacyResult) {
         this.privacyResult = privacyResult;
+    }
+
+    public boolean isCorrectUnpacked() {
+        return correctUnpacked;
+    }
+
+    public void setCorrectUnpacked(boolean correctUnpacked) {
+        this.correctUnpacked = correctUnpacked;
+    }
+
+    public boolean isCorrectDecoded() {
+        return correctDecoded;
+    }
+
+    public void setCorrectDecoded(boolean correctDecoded) {
+        this.correctDecoded = correctDecoded;
+    }
+
+    public boolean isStaticAnalysisDone() {
+        return staticAnalysisDone;
+    }
+
+    public void setStaticAnalysisDone(boolean staticAnalysisDone) {
+        this.staticAnalysisDone = staticAnalysisDone;
+    }
+
+    public boolean isDynamicAnalysisDone() {
+        return dynamicAnalysisDone;
+    }
+
+    public void setDynamicAnalysisDone(boolean dynamicAnalysisDone) {
+        this.dynamicAnalysisDone = dynamicAnalysisDone;
     }
 }

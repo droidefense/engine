@@ -24,7 +24,7 @@ public final class RuleAnalysis extends AbstractAndroidAnalysis {
     @Override
     public boolean analyze() {
         Log.write(LoggerType.TRACE, "\n\n --- Running Droidefense rule om analysis ---\n\n");
-        positiveMatch = false;
+        executionSuccessful = false;
         log("loading om rules", 0);
         log("Current rules: " + engine.getRuleCount(), 1);
         log("Preparing to scan...", 1);
@@ -40,8 +40,8 @@ public final class RuleAnalysis extends AbstractAndroidAnalysis {
         currentProject.setMatchedRules(engine.getMatchedRules());
         log("Rule scan done", 1);
         this.stop();
-        positiveMatch = true;
-        return positiveMatch;
+        executionSuccessful = true;
+        return executionSuccessful;
     }
 
     private void printMatchedRules(ArrayList<Rule> matchedRules) {
