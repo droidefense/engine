@@ -23,10 +23,8 @@ import droidefense.sdk.model.dex.OpcodeInformation;
 import droidefense.sdk.model.enums.MalwareResultEnum;
 import droidefense.sdk.model.enums.OverallResultEnum;
 import droidefense.sdk.model.enums.PrivacyResultEnum;
-import droidefense.sdk.model.holder.DynamicInfo;
-import droidefense.sdk.model.holder.InternalInfo;
-import droidefense.sdk.model.holder.StaticInfo;
-import droidefense.sdk.model.holder.StringInfo;
+import droidefense.sdk.model.enums.SDK_VERSION;
+import droidefense.sdk.model.holder.*;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.sdk.model.manifest.Manifest;
@@ -68,6 +66,11 @@ public final class DroidefenseProject implements Serializable {
      * Currently used analyzers on this .apk
      */
     private final ArrayList<AbstractAndroidAnalysis> usedAnalyzers;
+
+    /**
+     * SDK compatibility window
+     */
+    private final SDKCompatibility compatibilityWindow;
     /**
      * Current .apk static information holder
      */
@@ -150,9 +153,8 @@ public final class DroidefenseProject implements Serializable {
 
         //init data structs
         usedAnalyzers = new ArrayList<>();
-
         vfs = new VirtualFileSystem();
-
+        compatibilityWindow = new SDKCompatibility();
         //save apk reference
         sourceFile = file;
 
@@ -498,14 +500,19 @@ public final class DroidefenseProject implements Serializable {
 
         Manifest info = getManifestInfo();
         if (info != null) {
-            data.append("<p>A quick overview of the application shows current declared permissions:\n");
-            data.append("<ul>");
-            for (UsesPermission p : info.getUsesPermissionList()) {
-                data.append("<li>");
-                data.append(p.getName());
-                data.append("</li>");
+            ArrayList<UsesPermission> permissionList = info.getUsesPermissionList();
+            if (permissionList != null && !permissionList.isEmpty()) {
+                data.append("<p>A quick overview of the application shows current declared permissions:\n");
+                data.append("<ul>");
+                for (UsesPermission p : permissionList) {
+                    data.append("<li>");
+                    data.append(p.getName());
+                    data.append("</li>");
+                }
+                data.append("</ul>");
+            } else {
+                data.append("<p>This application has no declared permissions. This usually is a clear indicator of not being a security nor privacy risk application.\n");
             }
-            data.append("</ul>");
         } else {
             //no permissions found
             data.append("<p>The application has no declared permissions which, in most cases, means that this applications is safe to use it and to install it. However be aware that this application can have inside files that may share to other applications leaking information or sharing viruses, trojans and malware.</p>\n");
@@ -759,5 +766,17 @@ public final class DroidefenseProject implements Serializable {
 
     public void setDynamicAnalysisDone(boolean dynamicAnalysisDone) {
         this.dynamicAnalysisDone = dynamicAnalysisDone;
+    }
+
+    public void setMinVersionWindow(int minSdkVersion) {
+        this.compatibilityWindow.setMinimum(SDK_VERSION.getSdkVersion(minSdkVersion));
+    }
+
+    public void setMaxVersionWindow(int maxSdkVersion) {
+        this.compatibilityWindow.setMaximum(SDK_VERSION.getSdkVersion(maxSdkVersion));
+    }
+
+    public void setTargetVersionWindow(int targetSdkVersion) {
+        this.compatibilityWindow.setTarget(SDK_VERSION.getSdkVersion(targetSdkVersion));
     }
 }

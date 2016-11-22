@@ -3463,13 +3463,13 @@ function printContentInfo(json){
         json.staticInfo.manifestInfo.versionCode
     );
     $('#detailed-sample-app-info-min-sdk').html(
-        json.staticInfo.manifestInfo.minSDK
+        json.staticInfo.manifestInfo.usesSdkList[0].minSdkVersion
     );
     $('#detailed-sample-app-info-target-sdk').html(
-        json.staticInfo.manifestInfo.targetSDK
+        json.staticInfo.manifestInfo.usesSdkList[0].targetSdkVersion
     );
     $('#detailed-sample-app-info-max-sdk').html(
-        json.staticInfo.manifestInfo.maxSDK
+        json.staticInfo.manifestInfo.usesSdkList[0].maxSdkVersion
     );
     $('#detailed-sample-app-info-files').html(
         getColoredBadget(json.staticInfo.otherFiles.length)

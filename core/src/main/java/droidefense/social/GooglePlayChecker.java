@@ -1,24 +1,25 @@
-package external.plugins.collection.sttc;
+package droidefense.social;
 
 import droidefense.handler.FileIOHandler;
-import droidefense.sdk.AbstractStaticPlugin;
+import droidefense.sdk.model.base.DroidefenseProject;
 
 /**
  * Created by sergio on 7/3/16.
  */
-public class GooglePlayCheckerPlugin extends AbstractStaticPlugin {
+public class GooglePlayChecker {
 
     private static final String BASE_URL = "https://play.google.com/store/apps/details?id=";
     private static final String NOT_FOUND_MSG = "We're sorry, the requested URL was not found on this server.";
+    private final DroidefenseProject currentProject;
     private String url;
     private String packageName;
+    private boolean executionSuccessful;
+    private String html;
 
-    @Override
-    public String toString() {
-        return null;
+    public GooglePlayChecker(DroidefenseProject project) {
+        this.currentProject = project;
     }
 
-    @Override
     public void onPreExecute() {
         packageName = currentProject.getManifestInfo().getPackageName();
         if (packageName != null) {
@@ -32,16 +33,14 @@ public class GooglePlayCheckerPlugin extends AbstractStaticPlugin {
         return null;
     }
 
-    @Override
     public void onExecute() {
         //TODO parse retrieved web data and get stuff
         String webdata = getGooglePlayData(url);
-        positiveMatch = webdata != null && !webdata.contains(NOT_FOUND_MSG);
+        executionSuccessful = webdata != null && !webdata.contains(NOT_FOUND_MSG);
     }
 
-    @Override
-    protected void postExecute() {
-        if (positiveMatch) {
+    public void postExecute() {
+        if (executionSuccessful) {
             this.html = "<div class=\"info-box\">" +
                     "<span class=\"info-box-icon bg-green\"><i id=\"plugin-icon\"class=\"fa fa-shopping-cart\"></i></span>" +
                     "<div class=\"info-box-content\">" +
@@ -62,18 +61,11 @@ public class GooglePlayCheckerPlugin extends AbstractStaticPlugin {
         }
     }
 
-    @Override
-    protected String getPluginName() {
-        return "Google Play information checker";
+    public String getPluginName() {
+        return "Google Play checker";
     }
 
-    @Override
-    protected String getResultAsJson() {
-        return null;
-    }
-
-    @Override
-    protected String getResultAsHTML() {
-        return html;
+    public boolean isExecutionSuccessful() {
+        return executionSuccessful;
     }
 }

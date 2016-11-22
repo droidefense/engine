@@ -1,6 +1,8 @@
 package droidefense.handler;
 
 
+import apkr.external.modules.helpers.log4j.Log;
+import apkr.external.modules.helpers.log4j.LoggerType;
 import axmlparser.AXMLPrinter;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.mod.vfs.model.impl.VirtualFile;
@@ -29,7 +31,7 @@ public final class AXMLDecoderHandler extends AbstractHandler {
                 }
             } catch (Exception e) {
                 //TODO it seems that xml decoding failed. try second methods
-                e.printStackTrace();
+                Log.write(LoggerType.ERROR, e.getLocalizedMessage());
                 error = e;
                 return false;
             }

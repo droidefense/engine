@@ -38,7 +38,6 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
                         //static analysis error
                         Log.write(LoggerType.ERROR, "Error executing static analysis");
                     }
-
                     if (currentProject.isStaticAnalysisDone()) {
                         //RUN DYNAMIC ANALYSIS
                         analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.DYNAMIC_ANALYSIS);
@@ -63,15 +62,6 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
                         }
 
                         if (currentProject.isDynamicAnalysisDone()) {
-                            //RUN PRIVACY SCAN
-                            analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.PRIVACY_ANALYSIS);
-                            currentProject.analyze(analyzer);
-                        } else {
-                            //privacy scan failed
-                            Log.write(LoggerType.ERROR, "Error executing privacy analysis");
-                        }
-
-                        if (currentProject.isDynamicAnalysisDone()) {
                             analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.MACHINE_LEARNING_ANALYSIS);
                             currentProject.analyze(analyzer);
                         } else {
@@ -82,6 +72,25 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
                         //dynamic failed
                         Log.write(LoggerType.ERROR, "Error executing dynamic analysis");
                     }
+
+                    if (currentProject.isStaticAnalysisDone()) {
+                        //RUN PRIVACY SCAN
+                        analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.PRIVACY_ANALYSIS);
+                        currentProject.analyze(analyzer);
+                    } else {
+                        //privacy scan failed
+                        Log.write(LoggerType.ERROR, "Error executing privacy analysis");
+                    }
+
+                    if (currentProject.isStaticAnalysisDone()) {
+                        //RUN SOCIAL ANALYSIS
+                        analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.SOCIAL_ANALYSIS);
+                        currentProject.analyze(analyzer);
+                    } else {
+                        //social analysis error
+                        Log.write(LoggerType.ERROR, "Error executing social analysis");
+                    }
+
                 } else {
                     //decoded error
                     Log.write(LoggerType.ERROR, "Error decoding sample");

@@ -18,7 +18,7 @@ public final class CertificateSubject implements Serializable {
     OU: OrganizationalUnit
     O: Organization
     L: Locality
-    S: StateOrProvinceName
+    ST: StateOrProvinceName
     C: CountryName
      */
     private final transient String data;
@@ -60,7 +60,7 @@ public final class CertificateSubject implements Serializable {
                     case "L":
                         locality = value;
                         break;
-                    case "S":
+                    case "ST":
                         stateOrProvinceName = value;
                         break;
                     case "C":

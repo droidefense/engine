@@ -1,5 +1,7 @@
 package droidefense.sdk.helpers;
 
+import apkr.external.modules.helpers.log4j.Log;
+import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.APKToolHandler;
 import droidefense.handler.AXMLDecoderHandler;
 import droidefense.handler.FileUnzipVFSHandler;
@@ -17,18 +19,18 @@ public enum APKUnpacker {
     APKTOOL_UNPACKER {
         @Override
         public ArrayList<VirtualFile> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile) {
-            //unpacks and decode on the same step
             APKToolHandler handler = new APKToolHandler(currentProject, apkFile);
             handler.doTheJob();
+            //todo implement memapktool decoding
             //TODO enable file, folder counting
-            return null;
+            currentProject.setCorrectDecoded(true);
+            return currentProject.getAppFiles();
         }
 
         @Override
         public ArrayList<VirtualFile> decodeWithTechnique(DroidefenseProject currentProject, ArrayList<VirtualFile> files) {
-            //todo implement axml, 9.png and resource decoder
-            currentProject.setCorrectDecoded(true);
-            return null;
+            //files are already decoded when unpacking
+            return currentProject.getAppFiles();
         }
 
     }, ZIP_UNPACKER {
@@ -37,16 +39,19 @@ public enum APKUnpacker {
             //only unpacks
             FileUnzipVFSHandler handler = new FileUnzipVFSHandler(currentProject, apkFile);
             handler.doTheJob();
-            //TODO enable file, folder counting
             return handler.getFiles();
         }
 
         @Override
         public ArrayList<VirtualFile> decodeWithTechnique(DroidefenseProject currentProject, ArrayList<VirtualFile> files) {
             //todo implement axml, 9.png and resource decoder
-            for (int i = 0; i < files.size(); i++) {
-                AXMLDecoderHandler decoder = new AXMLDecoderHandler(files.get(i));
-                decoder.doTheJob();
+            for (VirtualFile file : files) {
+                if (file.getName().endsWith(DroidDefenseParams.getInstance().XML_EXTENSION)) {
+                    AXMLDecoderHandler decoder = new AXMLDecoderHandler(file);
+                    decoder.doTheJob();
+                } else {
+                    Log.write(LoggerType.ERROR, "File" + file.getPath() + " was not decoded");
+                }
             }
             currentProject.setCorrectDecoded(files.size() > 0);
             return files;

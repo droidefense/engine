@@ -54,6 +54,6 @@ public final class RuleAnalysis extends AbstractAndroidAnalysis {
 
     @Override
     public String getName() {
-        return "Apkr rule om";
+        return "Droidefense rule engine";
     }
 }
