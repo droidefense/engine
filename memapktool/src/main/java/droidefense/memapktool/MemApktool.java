@@ -14,7 +14,6 @@ import brut.androlib.meta.VersionInfo;
 import brut.androlib.res.AndrolibResources;
 import brut.androlib.res.data.ResPackage;
 import brut.androlib.res.data.ResTable;
-import brut.androlib.res.util.ExtFile;
 import brut.androlib.res.xml.ResXmlPatcher;
 import brut.common.BrutException;
 import brut.directory.DirectoryException;
@@ -36,7 +35,7 @@ public class MemApktool {
     public final static short DECODE_RESOURCES_NONE = 0x0100;
     public final static short DECODE_RESOURCES_FULL = 0x0101;
     private final Androlib mAndrolib;
-    private ExtFile mApkFile;
+    private InMemoryExtFile mApkFile;
     private File mOutDir;
     private ResTable mResTable;
     private short mDecodeSources = DECODE_SOURCES_SMALI;
@@ -66,7 +65,8 @@ public class MemApktool {
     }
 
     public void setApkFile(VirtualFile apkFile) {
-        mApkFile = new ExtFile(apkFile);
+        // todo overwrite this apktool class too
+        mApkFile = new InMemoryExtFile(apkFile);
         mResTable = null;
     }
 

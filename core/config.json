@@ -8,7 +8,7 @@
   "RESOURCE_FOLDER": "C:\\Users\\.local\\Documents\\projects\\droidefense\\droidefense-no-git\\resources",
   "SERVER_FOLDER": "C:\\Users\\.local\\Documents\\projects\\droidefense\\webapp",
   "STATIC_REPORT_FOLDER": "C:\\Users\\.local\\Documents\\projects\\droidefense\\droidefense-no-git\\static-reports",
-  "STATIC_PLG_FOLDER": "C:\\Users\\.local\\Documents\\projects\\droidefense\\droidefense-no-git\\resources\\plugins\\sttc",
+  "STATIC_PLG_FOLDER": "C:\\Users\\.local\\Documents\\projects\\droidefense\\droidefense-engine\\core\\target\\classes\\external\\plugins\\collection\\sttc",
   "DYNAMIC_PLG_FOLDER": "C:\\Users\\.local\\Documents\\projects\\droidefense\\droidefense-no-git\\resources\\plugins\\dynmc",
   "RULE_FOLDER": "C:\\Users\\.local\\Documents\\projects\\droidefense\\droidefense-no-git\\resources\\rules",
   "MODEL_FOLDER": "C:\\Users\\.local\\Documents\\projects\\droidefense\\droidefense-no-git\\resources\\ml-models",
