@@ -3,6 +3,8 @@ package droidefense.sdk.model.holder;
 
 import droidefense.mod.vfs.model.impl.VirtualFile;
 import droidefense.sdk.model.certificate.CertificateModel;
+import droidefense.sdk.model.dex.DexBodyModel;
+import droidefense.sdk.model.enums.SDK_VERSION;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.manifest.Manifest;
 
@@ -100,19 +102,24 @@ public class StaticInfo implements Serializable {
     /**
      * list of .dex files detected
      */
-    private transient ArrayList<AbstractHashedFile> dexList;
+    private transient Map<String, AbstractHashedFile> dexList;
 
     /**
-     * map that contains each of the .dex files bytes content
+     * SDK compatibility window
      */
-    private transient Map<AbstractHashedFile, byte[]> dexData;
+    private SDKCompatibility compatibilityWindow;
+
+    /**
+     * Dex file body model
+     */
+    private DexBodyModel dexBodyModel;
 
     public StaticInfo() {
         //init data structures
         certificates = new ArrayList<>();
         appFiles = new ArrayList<>();
-        dexList = new ArrayList<>();
-        dexData = new HashMap<>();
+        dexList = new HashMap<>();
+        compatibilityWindow = new SDKCompatibility();
     }
 
     //GETTERS AND SETTERS
@@ -239,24 +246,7 @@ public class StaticInfo implements Serializable {
         this.dexFileReaded = dexFileReaded;
     }
 
-    public ArrayList<AbstractHashedFile> getDexList() {
-        return dexList;
-    }
-
-    public void setDexList(ArrayList<AbstractHashedFile> dexList) {
-        this.dexList = dexList;
-    }
-
-    public Map<AbstractHashedFile, byte[]> getDexData() {
-        return dexData;
-    }
-
-    public void setDexData(Map<AbstractHashedFile, byte[]> dexData) {
-        this.dexData = dexData;
-    }
-
     //TOSTRING
-
 
     @Override
     public String toString() {
@@ -274,18 +264,19 @@ public class StaticInfo implements Serializable {
                 ", manifestFile=" + manifestFile +
                 ", dexFileReaded=" + dexFileReaded +
                 ", dexList=" + dexList +
-                ", dexData=" + dexData +
                 '}';
     }
 
     //useful methods
 
     public byte[] getDexData(AbstractHashedFile file) {
-        return getDexData().get(file);
+        this.dexList.get(file.getName());
+        byte[] data = null;
+        return data;
     }
 
-    public void addDexData(AbstractHashedFile file, byte[] data) {
-        getDexData().put(file, data);
+    public void addDexData(String name, AbstractHashedFile file) {
+        this.dexList.put(name, file);
     }
 
     public void addCertInfo(CertificateModel certInfo) {
@@ -312,5 +303,32 @@ public class StaticInfo implements Serializable {
         ArrayList<AbstractHashedFile> list = getAssetFiles();
         list.addAll(getRawFiles());
         return list;
+    }
+
+    public void setTarget(SDK_VERSION sdkVersion) {
+        this.compatibilityWindow.setTarget(sdkVersion);
+    }
+
+    public void setMinimum(SDK_VERSION sdkVersion) {
+        this.compatibilityWindow.setMinimum(sdkVersion);
+    }
+
+    public void setMaximum(SDK_VERSION sdkVersion) {
+        this.compatibilityWindow.setMaximum(sdkVersion);
+    }
+
+    public ArrayList<AbstractHashedFile> getDexList() {
+        return new ArrayList<>(dexList.values());
+    }
+
+    public void setDexList(ArrayList<AbstractHashedFile> dexList) {
+        this.dexList.clear();
+        for (AbstractHashedFile ahf : dexList) {
+            this.dexList.put(ahf.getName(), ahf);
+        }
+    }
+
+    public void addDexBodyModel(DexBodyModel dexBodyModel) {
+        this.dexBodyModel = dexBodyModel;
     }
 }

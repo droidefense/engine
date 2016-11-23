@@ -6,7 +6,7 @@ import apkr.external.modules.helpers.log4j.LoggerType;
 import apkr.external.modules.rulengine.Rule;
 import apkr.external.modules.rulengine.RuleEngine;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.handler.FileIOHandler;
+import droidefense.worker.handler.FileIOHandler;
 
 import java.util.ArrayList;
 
@@ -23,9 +23,9 @@ public final class RuleAnalysis extends AbstractAndroidAnalysis {
 
     @Override
     public boolean analyze() {
-        Log.write(LoggerType.TRACE, "\n\n --- Running Droidefense rule om analysis ---\n\n");
+        Log.write(LoggerType.TRACE, "\n\n --- Running Droidefense rule droidefense.droidefense.om analysis ---\n\n");
         executionSuccessful = false;
-        log("loading om rules", 0);
+        log("loading droidefense.droidefense.om rules", 0);
         log("Current rules: " + engine.getRuleCount(), 1);
         log("Preparing to scan...", 1);
         BasicCFGFlowMap flowmap = currentProject.getNormalControlFlowMap();

@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/droidefense.iml" filepath="$PROJECT_DIR$/droidefense.iml" />
       <module fileurl="file://$PROJECT_DIR$/../memapktool/memapktool.iml" filepath="$PROJECT_DIR$/../memapktool/memapktool.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../server/server.iml" filepath="$PROJECT_DIR$/../server/server.iml" />
     </modules>
   </component>
 </project>

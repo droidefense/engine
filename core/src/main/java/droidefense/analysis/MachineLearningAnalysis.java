@@ -4,7 +4,7 @@ import apkr.external.modules.helpers.enums.ProcessStatus;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.handler.WekaResultsHandler;
+import droidefense.worker.handler.WekaResultsHandler;
 
 /**
  * Created by sergio on 25/3/16.

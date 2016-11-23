@@ -40,6 +40,7 @@ public final class AndroidDynamicAnalysis extends AbstractAndroidAnalysis {
 
         //stop timer
         stop();
+        this.currentProject.setDynamicAnalysisDone(true);
         return true;
     }
 

@@ -1,7 +1,7 @@
 package droidefense.social;
 
-import droidefense.handler.FileIOHandler;
 import droidefense.sdk.model.base.DroidefenseProject;
+import droidefense.worker.handler.FileIOHandler;
 
 /**
  * Created by sergio on 7/3/16.

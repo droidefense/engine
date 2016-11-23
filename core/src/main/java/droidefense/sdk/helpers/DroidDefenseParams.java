@@ -3,8 +3,8 @@ package droidefense.sdk.helpers;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.exception.ConfigFileNotFoundException;
-import droidefense.handler.FileIOHandler;
 import droidefense.util.JsonStyle;
+import droidefense.worker.handler.FileIOHandler;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +15,7 @@ import java.io.Serializable;
  */
 public class DroidDefenseParams implements Serializable {
 
+    public static final String SUPERCLASS = "Object";
     private final static String CONFIG_PROPERTIES = "config.json";
     private static DroidDefenseParams instance = new DroidDefenseParams();
 

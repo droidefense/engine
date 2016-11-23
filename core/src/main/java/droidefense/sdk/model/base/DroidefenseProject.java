@@ -7,30 +7,36 @@ import apkr.external.modules.helpers.log4j.LoggerType;
 import apkr.external.modules.ml.MachineLearningResult;
 import apkr.external.modules.rulengine.Rule;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.handler.DirScannerHandler;
-import droidefense.handler.FileIOHandler;
-import droidefense.handler.base.DirScannerFilter;
 import droidefense.mod.vfs.model.impl.VirtualFile;
 import droidefense.mod.vfs.model.impl.VirtualFileSystem;
 import droidefense.mod.vfs.model.impl.VirtualFolder;
+import droidefense.om.helper.DexFileStatistics;
+import droidefense.om.machine.reader.DexHeaderReader;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.AbstractStaticPlugin;
 import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.helpers.Util;
 import droidefense.sdk.model.certificate.CertificateModel;
+import droidefense.sdk.model.dex.DexBodyModel;
 import droidefense.sdk.model.dex.OpcodeInformation;
 import droidefense.sdk.model.enums.MalwareResultEnum;
 import droidefense.sdk.model.enums.OverallResultEnum;
 import droidefense.sdk.model.enums.PrivacyResultEnum;
 import droidefense.sdk.model.enums.SDK_VERSION;
-import droidefense.sdk.model.holder.*;
+import droidefense.sdk.model.holder.DynamicInfo;
+import droidefense.sdk.model.holder.InternalInfo;
+import droidefense.sdk.model.holder.StaticInfo;
+import droidefense.sdk.model.holder.StringAnalysisResultModel;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.sdk.model.manifest.Manifest;
 import droidefense.sdk.model.manifest.UsesPermission;
 import droidefense.sdk.model.manifest.base.AbstractManifestClass;
 import droidefense.util.JsonStyle;
+import droidefense.worker.handler.DirScannerHandler;
+import droidefense.worker.handler.FileIOHandler;
+import droidefense.worker.handler.base.DirScannerFilter;
 
 import java.awt.*;
 import java.io.File;
@@ -67,10 +73,6 @@ public final class DroidefenseProject implements Serializable {
      */
     private final ArrayList<AbstractAndroidAnalysis> usedAnalyzers;
 
-    /**
-     * SDK compatibility window
-     */
-    private final SDKCompatibility compatibilityWindow;
     /**
      * Current .apk static information holder
      */
@@ -113,7 +115,7 @@ public final class DroidefenseProject implements Serializable {
     /**
      * Dex file basic counting statistics
      */
-    //private DexFileStatistics statistics;
+    private DexFileStatistics statistics;
 
     /**
      * Result of opcode data
@@ -136,6 +138,7 @@ public final class DroidefenseProject implements Serializable {
     private boolean correctDecoded;
     private boolean staticAnalysisDone;
     private boolean dynamicAnalysisDone;
+    private DexHeaderReader dexHeaderReader;
     //private transient DexHeaderReader dexHeaderReader;
 
     public DroidefenseProject(final LocalApkFile file) {
@@ -154,7 +157,6 @@ public final class DroidefenseProject implements Serializable {
         //init data structs
         usedAnalyzers = new ArrayList<>();
         vfs = new VirtualFileSystem();
-        compatibilityWindow = new SDKCompatibility();
         //save apk reference
         sourceFile = file;
 
@@ -275,8 +277,8 @@ public final class DroidefenseProject implements Serializable {
         this.staticInfo.setDexFileReaded(true);
     }
 
-    public void addDexData(AbstractHashedFile file, byte[] data) {
-        this.staticInfo.addDexData(file, data);
+    public void addDexData(String filePath, AbstractHashedFile file) {
+        this.staticInfo.addDexData(filePath, file);
     }
 
     //DYNAMIC INFORMATION GETTERS & SETTERS
@@ -426,11 +428,9 @@ public final class DroidefenseProject implements Serializable {
         */
     }
 
-    /*
     public void addDexFileStatistics(DexFileStatistics statistics) {
             this.statistics = statistics;
     }
-    */
 
     public void save() {
         try {
@@ -545,7 +545,7 @@ public final class DroidefenseProject implements Serializable {
         this.dynamicInfo.setMatchedRules(matchedRules);
     }
 
-    public void setStringAnalysisResult(StringInfo stringContent) {
+    public void setStringAnalysisResult(StringAnalysisResultModel stringContent) {
         this.dynamicInfo.setStringAnalysisResult(stringContent);
     }
 
@@ -769,14 +769,35 @@ public final class DroidefenseProject implements Serializable {
     }
 
     public void setMinVersionWindow(int minSdkVersion) {
-        this.compatibilityWindow.setMinimum(SDK_VERSION.getSdkVersion(minSdkVersion));
+        this.staticInfo.setMinimum(SDK_VERSION.getSdkVersion(minSdkVersion));
     }
 
     public void setMaxVersionWindow(int maxSdkVersion) {
-        this.compatibilityWindow.setMaximum(SDK_VERSION.getSdkVersion(maxSdkVersion));
+        this.staticInfo.setMaximum(SDK_VERSION.getSdkVersion(maxSdkVersion));
     }
 
     public void setTargetVersionWindow(int targetSdkVersion) {
-        this.compatibilityWindow.setTarget(SDK_VERSION.getSdkVersion(targetSdkVersion));
+        this.staticInfo.setTarget(SDK_VERSION.getSdkVersion(targetSdkVersion));
+    }
+
+    public DexHeaderReader getDexHeaderReader() {
+        return dexHeaderReader;
+    }
+
+    public void setDexHeaderReader(DexHeaderReader dexHeaderReader) {
+        this.dexHeaderReader = dexHeaderReader;
+    }
+
+    public void setMagicNumber(String s) {
+
+    }
+
+    public String[] getInternalStrings() {
+        //todo
+        return null;
+    }
+
+    public void addDexBodyModel(DexBodyModel dexBodyModel) {
+        this.staticInfo.addDexBodyModel(dexBodyModel);
     }
 }

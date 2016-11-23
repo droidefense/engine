@@ -1,7 +1,6 @@
 package droidefense.analysis;
 
 import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.enums.PrivacyResultEnum;
 import droidefense.sdk.model.manifest.*;
 
@@ -204,12 +203,11 @@ public class PrivacyAnalysis extends AbstractAndroidAnalysis {
     public PrivacyAnalysis() {
         this.risk = 0;
         this.comms = 0;
-    }
-
-    public PrivacyAnalysis(DroidefenseProject currentProject) {
-        this.currentProject = currentProject;
-        this.risk = 0;
-        this.comms = 0;
+        this.usesPermissionsList = new ArrayList<>();
+        this.usesPermissions23List = new ArrayList<>();
+        this.permissionsList = new ArrayList<>();
+        this.permissionGroupList = new ArrayList<>();
+        this.permissionTreeList = new ArrayList<>();
     }
 
     private boolean canSendYourDataRemote(int communication) {
@@ -224,9 +222,13 @@ public class PrivacyAnalysis extends AbstractAndroidAnalysis {
 
     private int getMatchedPermissions(ArrayList<String> totalPerms, ArrayList<String> data) {
         int matched = 0;
-        //get matches
+        //todo optimize code. if inisde for not optimus
         for (String str : data) {
-            matched += totalPerms.contains(str) ? 1 : 0;
+            boolean contains = totalPerms.contains(str);
+            if (contains) {
+                System.out.println(str);
+            }
+            matched += contains ? 1 : 0;
         }
         return matched;
     }
@@ -235,16 +237,18 @@ public class PrivacyAnalysis extends AbstractAndroidAnalysis {
         return comms;
     }
 
-    public int getSteal() {
+    public int canStealData() {
         return steal;
     }
 
     public PrivacyResultEnum getPrivacyResult() {
-        if (getSteal() == 0) {
+        if (canStealData() == 0) {
             return PrivacyResultEnum.SAFE;
-        } else if (getSteal() > 0 && getComms() == 0) {
+        } else if (canStealData() > 0 && getComms() == 0) {
+            //can steal data but it has no way of sending if out of the phone
             return PrivacyResultEnum.SUSPICIOUS;
-        } else if (getSteal() > 0 && getComms() > 0) {
+        } else if (canStealData() > 0 && getComms() > 0) {
+            //can steal data and it has ine or more ways of sending if out of the phone
             return PrivacyResultEnum.DATA_LEAK;
         }
         return PrivacyResultEnum.UNKNOWN;
@@ -254,14 +258,8 @@ public class PrivacyAnalysis extends AbstractAndroidAnalysis {
 
     @Override
     protected boolean analyze() {
-        //get data
         //getting data
-        this.usesPermissionsList = new ArrayList<>();
-        this.usesPermissions23List = new ArrayList<>();
-        this.permissionsList = new ArrayList<>();
-        this.permissionGroupList = new ArrayList<>();
-        this.permissionTreeList = new ArrayList<>();
-        if (currentProject.getManifestInfo() != null) {
+        if (currentProject != null && currentProject.getManifestInfo() != null) {
             this.usesPermissionsList = currentProject.getManifestInfo().getUsesPermissionList();
             this.usesPermissions23List = currentProject.getManifestInfo().getUsesPermissionSdk23List();
             //not used by now
@@ -290,7 +288,7 @@ public class PrivacyAnalysis extends AbstractAndroidAnalysis {
         for (PermissionGroup u : permissionGroupList) {
             totalPerms.add(u.getName());
         }
-        //add user permissions group
+        //add user permissions tree
         for (PermissionTree u : permissionTreeList) {
             totalPerms.add(u.getName());
         }
@@ -300,16 +298,6 @@ public class PrivacyAnalysis extends AbstractAndroidAnalysis {
         List<String> harmless = Arrays.asList(harmlessPermission);
         while (idx < totalPerms.size()) {
             if (harmless.contains(totalPerms.get(idx))) {
-                totalPerms.remove(idx);
-            } else {
-                idx++;
-            }
-        }
-        //remove normal permissions
-        idx = 0;
-        List<String> normal = Arrays.asList(normalProtection);
-        while (idx < totalPerms.size()) {
-            if (normal.contains(totalPerms.get(idx))) {
                 totalPerms.remove(idx);
             } else {
                 idx++;

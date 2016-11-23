@@ -1,8 +1,8 @@
 package droidefense.util;
 
-import droidefense.handler.AXMLDecoderHandler;
 import droidefense.mod.vfs.model.impl.VirtualFile;
 import droidefense.sdk.model.io.VirtualHashedFile;
+import droidefense.worker.handler.AXMLDecoderHandler;
 
 /**
  * Created by .local on 14/10/2016.

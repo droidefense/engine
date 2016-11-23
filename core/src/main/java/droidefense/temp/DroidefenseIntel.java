@@ -3,8 +3,8 @@ package droidefense.temp;
 import apkr.external.modules.controlflow.model.base.AbstractAtomNode;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
-import droidefense.handler.FileIOHandler;
 import droidefense.sdk.helpers.InternalConstant;
+import droidefense.worker.handler.FileIOHandler;
 
 import java.io.File;
 import java.io.IOException;
@@ -195,7 +195,7 @@ public class DroidefenseIntel implements Serializable {
         }
     }
 
-    //TODO enable when om added
+    //TODO enable when droidefense.droidefense.om added
     /*
     public String classifyNode(IAtomMethod method, String fullClassName, String methodName) {
 

@@ -24,7 +24,7 @@ public class TestVelocityConfig {
 
     @Before
     public void setUp() {
-        /*  first, get and initialize an om  */
+        /*  first, get and initialize an droidefense.droidefense.om  */
         ve = new VelocityEngine();
     }
 

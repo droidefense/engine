@@ -4,8 +4,8 @@ import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import apkr.external.modules.rulengine.RuleEngine;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.handler.FileIOHandler;
 import droidefense.social.GooglePlayChecker;
+import droidefense.worker.handler.FileIOHandler;
 
 /**
  * Created by sergio on 16/2/16.

@@ -4,12 +4,12 @@ import apkr.external.module.batch.base.IBatchTask;
 import apkr.external.module.batch.base.IWekaGenerator;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
-import droidefense.handler.DirScannerHandler;
-import droidefense.handler.FileIOHandler;
-import droidefense.handler.base.DirScannerFilter;
 import droidefense.mod.manparser.ManifestParser;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.manifest.UsesPermission;
+import droidefense.worker.handler.DirScannerHandler;
+import droidefense.worker.handler.FileIOHandler;
+import droidefense.worker.handler.base.DirScannerFilter;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;

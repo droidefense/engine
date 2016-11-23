@@ -20,25 +20,35 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
         //UNPACK_AND_DECODE
         AbstractAndroidAnalysis analyzer;
         try {
+
             analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.UNPACK);
             currentProject.analyze(analyzer);
+
             if (currentProject.isCorrectUnpacked()) {
+
                 analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.DECODE);
                 currentProject.analyze(analyzer);
+
                 if (currentProject.isCorrectDecoded()) {
+
                     //STATIC ANALYSIS
                     analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.STATIC_ANALYSIS);
                     currentProject.analyze(analyzer);
 
                     if (currentProject.isStaticAnalysisDone()) {
+
                         //RUN STATIC ANALYSIS PLUGINS
                         analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.STATIC_ANALYSIS_PLUGIN);
                         currentProject.analyze(analyzer);
-                    } else {
-                        //static analysis error
-                        Log.write(LoggerType.ERROR, "Error executing static analysis");
-                    }
-                    if (currentProject.isStaticAnalysisDone()) {
+
+                        //RUN PRIVACY SCAN
+                        analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.PRIVACY_ANALYSIS);
+                        currentProject.analyze(analyzer);
+
+                        //RUN SOCIAL ANALYSIS
+                        analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.SOCIAL_ANALYSIS);
+                        currentProject.analyze(analyzer);
+
                         //RUN DYNAMIC ANALYSIS
                         analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.DYNAMIC_ANALYSIS);
                         currentProject.analyze(analyzer);
@@ -47,48 +57,25 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
                             //RUN DYNAMIC ANALYSIS PLUGINS
                             analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.DYNAMIC_PLUGIN_ANALYSIS);
                             currentProject.analyze(analyzer);
+
+                            //RUN RULE ENGINE
+                            analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.RULE_ENGINE_ANALYSIS);
+                            currentProject.analyze(analyzer);
+
+                            analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.MACHINE_LEARNING_ANALYSIS);
+                            currentProject.analyze(analyzer);
+
+                            analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.EVENT_ANALYSIS);
+                            currentProject.analyze(analyzer);
+
                         } else {
                             //dynamic plugin failed
                             Log.write(LoggerType.ERROR, "Error executing dynamic analysis");
                         }
 
-                        if (currentProject.isDynamicAnalysisDone()) {
-                            //RUN RULE ENGINE
-                            analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.RULE_ENGINE_ANALYSIS);
-                            currentProject.analyze(analyzer);
-                        } else {
-                            //rule engine failed
-                            Log.write(LoggerType.ERROR, "Error executing rule engine analysis");
-                        }
-
-                        if (currentProject.isDynamicAnalysisDone()) {
-                            analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.MACHINE_LEARNING_ANALYSIS);
-                            currentProject.analyze(analyzer);
-                        } else {
-                            //weka failed
-                            Log.write(LoggerType.ERROR, "Error executing weka analysis");
-                        }
                     } else {
                         //dynamic failed
                         Log.write(LoggerType.ERROR, "Error executing dynamic analysis");
-                    }
-
-                    if (currentProject.isStaticAnalysisDone()) {
-                        //RUN PRIVACY SCAN
-                        analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.PRIVACY_ANALYSIS);
-                        currentProject.analyze(analyzer);
-                    } else {
-                        //privacy scan failed
-                        Log.write(LoggerType.ERROR, "Error executing privacy analysis");
-                    }
-
-                    if (currentProject.isStaticAnalysisDone()) {
-                        //RUN SOCIAL ANALYSIS
-                        analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.SOCIAL_ANALYSIS);
-                        currentProject.analyze(analyzer);
-                    } else {
-                        //social analysis error
-                        Log.write(LoggerType.ERROR, "Error executing social analysis");
                     }
 
                 } else {

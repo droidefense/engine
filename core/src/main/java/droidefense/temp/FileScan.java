@@ -4,7 +4,7 @@ import apkr.external.module.batch.exception.EmptyDataSetException;
 import apkr.external.module.batch.exception.NoFilesFoundException;
 import droidefense.batch.helper.DirScanner;
 import droidefense.batch.helper.DirectoryFilter;
-import droidefense.handler.FileIOHandler;
+import droidefense.worker.handler.FileIOHandler;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,10 +1,12 @@
 package droidefense.sdk.model.holder;
 
-import droidefense.sdk.model.dex.DexContent;
+import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.reader.DexClassReader;
+import droidefense.sdk.model.dex.DalvikDexModel;
 import droidefense.sdk.model.manifest.base.AbstractManifestClass;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Created by sergio on 18/2/16.
@@ -12,20 +14,20 @@ import java.util.ArrayList;
 public class InternalInfo implements Serializable {
 
 
-    private final ArrayList<DexContent> dexContentList;
+    private final ArrayList<DalvikDexModel> dexContentList;
+    private final Hashtable dexClasses;
 
     //entry points
     private transient ArrayList<AbstractManifestClass> entryPoints;
-    //private transient IAtomClass[] dynamicEntryPoints;
+    private transient IAtomClass[] dynamicEntryPoints;
 
     public InternalInfo() {
         //init data structures
-        //dexClasses = new Hashtable<>();
+        dexClasses = new Hashtable<>();
         entryPoints = new ArrayList<>();
         dexContentList = new ArrayList<>();
     }
 
-    /*
     public void addClass(String name, IAtomClass newClass) {
         this.dexClasses.put(name, newClass);
     }
@@ -41,10 +43,11 @@ public class InternalInfo implements Serializable {
     }
 
     public IAtomClass getDexClass(String name) {
-        return dexClasses.get(name);
+        return (IAtomClass) dexClasses.get(name);
     }
 
     public void addDexInfo(DexClassReader dexClassReader) {
+        /*
         this.dexStrings = removeRepeatedStrings(dexClassReader.getStrings());
         this.dexTypes = removeRepeatedStrings(dexClassReader.getTypes());
         this.dexDescriptors = removeRepeatedStrings(dexClassReader.getDescriptors());
@@ -55,6 +58,7 @@ public class InternalInfo implements Serializable {
         this.dexMethodTypes = removeRepeatedStrings(dexClassReader.getMethodTypes());
         this.dexMethodNames = removeRepeatedStrings(dexClassReader.getMethodNames());
         this.dexClasses = dexClassReader.getClasses();
+        */
     }
 
     private String[] removeRepeatedStrings(String[] source) {
@@ -71,7 +75,6 @@ public class InternalInfo implements Serializable {
         this.dynamicEntryPoints = dynamicEntryPoints;
     }
 
-    */
     public ArrayList<AbstractManifestClass> getEntryPoints() {
         return entryPoints;
     }

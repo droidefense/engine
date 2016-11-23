@@ -3,14 +3,14 @@ package droidefense.analysis;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.handler.DirScannerHandler;
-import droidefense.handler.FileIOHandler;
-import droidefense.handler.base.DirScannerFilter;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
 import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.worker.handler.DirScannerHandler;
+import droidefense.worker.handler.FileIOHandler;
+import droidefense.worker.handler.base.DirScannerFilter;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis {
 
-    public transient static final String PLUGIN_PACKAGE_NAME = "com.zerjioang.apkr.plugins.collection.dynamicscan.";
+    public transient static final String PLUGIN_PACKAGE_NAME = "droidefense.droidefense.om.plugins.collection.dynamicscan.";
 
     public AndroidDynamicPluginAnalysis() {
         timeStamp = new ExecutionTimer();
