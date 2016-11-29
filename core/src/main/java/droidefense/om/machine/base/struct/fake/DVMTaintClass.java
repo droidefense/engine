@@ -28,7 +28,7 @@ import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.om.machine.base.struct.model.DVMClass;
-import droidefense.om.sdk.helpers.DroidefenseParams;
+import droidefense.sdk.helpers.InternalConstant;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -45,7 +45,7 @@ public final class DVMTaintClass extends DVMClass {
         this.name = name;
         taintFields = new HashMap<>();
         taintMethods = new HashMap<>();
-        this.setSuperClass(DroidefenseParams.SUPERCLASS);
+        this.setSuperClass(InternalConstant.SUPERCLASS);
     }
 
     public HashMap<String, IAtomField> getTaintFields() {

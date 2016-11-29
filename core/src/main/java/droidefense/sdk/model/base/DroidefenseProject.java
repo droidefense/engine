@@ -11,6 +11,7 @@ import droidefense.mod.vfs.model.impl.VirtualFile;
 import droidefense.mod.vfs.model.impl.VirtualFileSystem;
 import droidefense.mod.vfs.model.impl.VirtualFolder;
 import droidefense.om.helper.DexFileStatistics;
+import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.reader.DexHeaderReader;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.AbstractStaticPlugin;
@@ -139,6 +140,8 @@ public final class DroidefenseProject implements Serializable {
     private boolean staticAnalysisDone;
     private boolean dynamicAnalysisDone;
     private DexHeaderReader dexHeaderReader;
+    private IAtomClass[] dynamicEntryPoints;
+    private HashMap<String, IAtomClass> classMap;
     //private transient DexHeaderReader dexHeaderReader;
 
     public DroidefenseProject(final LocalApkFile file) {
@@ -159,6 +162,8 @@ public final class DroidefenseProject implements Serializable {
         vfs = new VirtualFileSystem();
         //save apk reference
         sourceFile = file;
+
+        this.classMap = new HashMap<>();
 
         setSummary("No summary created yet!");
 
@@ -283,7 +288,7 @@ public final class DroidefenseProject implements Serializable {
 
     //DYNAMIC INFORMATION GETTERS & SETTERS
 
-    public byte[] getDexData(AbstractHashedFile file) {
+    public byte[] getDexData(AbstractHashedFile file) throws IOException {
         return this.staticInfo.getDexData(file);
     }
 
@@ -799,5 +804,21 @@ public final class DroidefenseProject implements Serializable {
 
     public void addDexBodyModel(DexBodyModel dexBodyModel) {
         this.staticInfo.addDexBodyModel(dexBodyModel);
+    }
+
+    public IAtomClass[] getDynamicEntryPoints() {
+        return dynamicEntryPoints;
+    }
+
+    public void setDynamicEntryPoints(IAtomClass[] dynamicEntryPoints) {
+        this.dynamicEntryPoints = dynamicEntryPoints;
+    }
+
+    public IAtomClass[] getListClasses() {
+        return (IAtomClass[]) this.classMap.values().toArray();
+    }
+
+    public void addDexClass(String name, IAtomClass newClass) {
+        this.classMap.put(name, newClass);
     }
 }

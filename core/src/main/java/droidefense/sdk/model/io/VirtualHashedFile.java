@@ -51,6 +51,11 @@ public final class VirtualHashedFile extends AbstractHashedFile implements Seria
     }
 
     @Override
+    public byte[] getContent() throws IOException {
+        return vf.getContent();
+    }
+
+    @Override
     public void generateHashes() {
         //TODO POSSIBLE HASHING BOTTLENECK
         byte[] data = vf.getContent();

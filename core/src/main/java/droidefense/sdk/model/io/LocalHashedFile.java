@@ -5,6 +5,8 @@ import droidefense.sdk.helpers.CheckSumGen;
 import droidefense.sdk.helpers.Util;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class LocalHashedFile extends AbstractHashedFile implements Serializable {
 
@@ -80,5 +82,10 @@ public class LocalHashedFile extends AbstractHashedFile implements Serializable 
     @Override
     public InputStream getStream() throws IOException {
         return new FileInputStream(f);
+    }
+
+    @Override
+    public byte[] getContent() throws IOException {
+        return Files.readAllBytes(Paths.get(f.getAbsolutePath()));
     }
 }

@@ -20,6 +20,7 @@ public abstract class AnalysisFactory {
     public static final byte PRIVACY_ANALYSIS = 0x09;
     public static final byte EVENT_ANALYSIS = 0x10;
     public static final byte SOCIAL_ANALYSIS = 0x11;
+    public static final byte PSOCUT_ANALYSIS = 0x12;
 
     public static AbstractAndroidAnalysis getAnalyzer(byte id) throws UnknownAnalyzerException {
         switch (id) {
@@ -47,6 +48,8 @@ public abstract class AnalysisFactory {
                 return new EventTriggerAnalysis();
             case SOCIAL_ANALYSIS:
                 return new SocialAnalysis();
+            case PSOCUT_ANALYSIS:
+                return new PScoutAnalysis();
         }
         throw new UnknownAnalyzerException("An analyzer with id " + Integer.toHexString(id) + " was requested but it does not exists");
     }

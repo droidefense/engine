@@ -5,7 +5,7 @@ import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.om.machine.reader.DexClassReader;
-import droidefense.om.sdk.helpers.DroidefenseParams;
+import droidefense.sdk.helpers.InternalConstant;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -85,7 +85,7 @@ public class DVMClass implements IAtomClass, Serializable {
                 return method;
             }
         }
-        if (!getSuperClass().equalsIgnoreCase(DroidefenseParams.SUPERCLASS)) {
+        if (!getSuperClass().equalsIgnoreCase(InternalConstant.SUPERCLASS)) {
             IAtomClass c = DexClassReader.getInstance().load(getSuperClass());
             return c.getMethod(name, descriptor, getRealMethod);
         }

@@ -12,6 +12,7 @@ import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.worker.handler.base.AbstractHandler;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -35,41 +36,50 @@ public class VMWorkersHandler extends AbstractHandler {
 
         //create loader
         //for each dex file found, add its content
+        boolean readError = false;
         for (AbstractHashedFile dex : list) {
-            byte[] data = currentProject.getDexData(dex);
-            //first use my class loader and check for file integrity,...
-            DexHeaderReader loader = new DexHeaderReader(data, currentProject);
-            loader.loadClasses(dex);
-            ///then use default class loader
-            vm.load(dex, data, DalvikVM.MULTIDEX);
+            byte[] data = new byte[0];
+            try {
+                data = currentProject.getDexData(dex);
+                //first use my class loader and check for file integrity,...
+                DexHeaderReader loader = new DexHeaderReader(data, currentProject);
+                loader.loadClasses(dex);
+                ///then use default class loader
+                vm.load(dex, data, DalvikVM.MULTIDEX);
+            } catch (IOException e) {
+                e.printStackTrace();
+                readError = true;
+            }
         }
 
-        try {
-            ArrayList<AbstractDVMThread> worklist = new ArrayList<>();
+        if (!readError) {
+            try {
+                ArrayList<AbstractDVMThread> worklist = new ArrayList<>();
 
-            //add workes to run
-            //opcode analysis
-            worklist.add(new OpCodeCheckerWorker(vm, currentProject));
-            //reflection solver model generator
-            //worklist.add(new ReflectionControlFlowGraphWorker(vm, currentProject));
-            //normal model generator
-            worklist.add(new BasicControlFlowGraphWorker(vm, currentProject));
-            //worklist.add(new FollowCallsControlFlowGraphWorker(vm, currentProject));
-            //multiflow machine state
-            //worklist.add(new MultiFlowWorker(vm, currentProject));
+                //add workes to run
+                //opcode analysis
+                worklist.add(new OpCodeCheckerWorker(vm, currentProject));
+                //reflection solver model generator
+                //worklist.add(new ReflectionControlFlowGraphWorker(vm, currentProject));
+                //normal model generator
+                worklist.add(new BasicControlFlowGraphWorker(vm, currentProject));
+                //worklist.add(new FollowCallsControlFlowGraphWorker(vm, currentProject));
+                //multiflow machine state
+                //worklist.add(new MultiFlowWorker(vm, currentProject));
 
-            //run all controlflow
-            for (AbstractDVMThread worker : worklist) {
-                vm.setWorker(worker);
-                vm.run();
+                //run all controlflow
+                for (AbstractDVMThread worker : worklist) {
+                    vm.setWorker(worker);
+                    vm.run();
+                }
+                return true;
+            } catch (NoMainClassFoundException e) {
+                Log.write(LoggerType.FATAL, e.getMessage(), getClass().getName());
+            } catch (Exception ex) {
+                Log.write(LoggerType.FATAL, ex.getMessage(), getClass().getName());
+            } catch (Throwable throwable) {
+                Log.write(LoggerType.FATAL, throwable.getMessage(), getClass().getName());
             }
-            return true;
-        } catch (NoMainClassFoundException e) {
-            Log.write(LoggerType.FATAL, e.getMessage(), getClass().getName());
-        } catch (Exception ex) {
-            Log.write(LoggerType.FATAL, ex.getMessage(), getClass().getName());
-        } catch (Throwable throwable) {
-            Log.write(LoggerType.FATAL, throwable.getMessage(), getClass().getName());
         }
         return false;
     }

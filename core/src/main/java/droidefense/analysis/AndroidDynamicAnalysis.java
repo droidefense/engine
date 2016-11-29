@@ -4,7 +4,10 @@ import apkr.external.modules.helpers.enums.ProcessStatus;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
+import droidefense.om.handlers.DexStatsHandler;
+import droidefense.om.handlers.VMWorkersHandler;
 import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.worker.handler.base.AbstractHandler;
 
 import java.util.ArrayList;
 
@@ -27,16 +30,12 @@ public final class AndroidDynamicAnalysis extends AbstractAndroidAnalysis {
         ArrayList<AbstractHashedFile> list = currentProject.getDexList();
 
         //run dex file statistics handler
-        //AbstractHandler handler = new DexStatsHandler(currentProject, list);
-        //handler.doTheJob();
+        AbstractHandler handler = new DexStatsHandler(currentProject, list);
+        handler.doTheJob();
 
         //execute selected controlflow
-        //handler = new VMWorkersHandler(currentProject, list);
-        //handler.doTheJob();
-
-        //run pscout apimodel
-        //handler = new PscoutHandler(currentProject, currentProject.getNormalControlFlowMap().getNodeList());
-        //handler.doTheJob();
+        handler = new VMWorkersHandler(currentProject, list);
+        handler.doTheJob();
 
         //stop timer
         stop();

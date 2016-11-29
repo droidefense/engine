@@ -8,6 +8,7 @@ import droidefense.sdk.model.enums.SDK_VERSION;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.manifest.Manifest;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -269,10 +270,9 @@ public class StaticInfo implements Serializable {
 
     //useful methods
 
-    public byte[] getDexData(AbstractHashedFile file) {
-        this.dexList.get(file.getName());
-        byte[] data = null;
-        return data;
+    public byte[] getDexData(AbstractHashedFile file) throws IOException {
+        AbstractHashedFile recovered = this.dexList.get(file.getName());
+        return recovered.getContent();
     }
 
     public void addDexData(String name, AbstractHashedFile file) {

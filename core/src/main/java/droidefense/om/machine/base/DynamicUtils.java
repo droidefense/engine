@@ -8,7 +8,7 @@ import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomInstance;
 import droidefense.om.machine.base.struct.model.DVMInstance;
 import droidefense.om.machine.reader.DexClassReader;
-import droidefense.sdk.helpers.DroidDefenseParams;
+import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.temp.DroidefenseIntel;
 
@@ -157,7 +157,7 @@ public class DynamicUtils {
      */
     public static boolean verifyDexFile(byte[] dexData) {
         boolean valid = true;
-        byte[] signature = DroidDefenseParams.DEX_FILE_MAGIC;
+        byte[] signature = InternalConstant.DEX_FILE_MAGIC;
         System.out.println("Checking .dex file signature");
         for (int i = 0; i < signature.length; i++) {
             valid &= dexData[i] == signature[i];

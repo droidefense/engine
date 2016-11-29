@@ -52,6 +52,8 @@ import java.util.Hashtable;
 
 public final class DexClassReader implements Serializable {
 
+    private static final int SINGLE_VALUE = 1;
+    private static final int SIGNED_BYTE_LENGTH = 8;
     //Singleton class
     private static DexClassReader instance;
 
@@ -135,7 +137,7 @@ public final class DexClassReader implements Serializable {
             //TODO Object[] lastCallArgs = loadThread.getLastMethodArgs();
             Object[] lastCallArgs = null;
             Class<?>[] classes;
-            if (lastCallArgs == null && name.equals("java/lang/Object")) {
+            if (name.equals("java/lang/Object")) {
                 //Special case. this class ahs no super
                 Object newInstance = s.newInstance();
                 EncapsulatedClass newClass = buildFakeClss(name, newInstance);
@@ -144,7 +146,7 @@ public final class DexClassReader implements Serializable {
                 newClass.setSuperClass(null);
                 currentProject.addDexClass(name, newClass);
                 return newClass;
-            } else if (lastCallArgs == null && name.startsWith("java/lang/")) {
+            } else if (name.startsWith("java/lang/")) {
                 Object newInstance = s.newInstance();
                 EncapsulatedClass newClass = buildFakeClss(name, newInstance);
                 newClass.setClass(s);
@@ -211,7 +213,7 @@ public final class DexClassReader implements Serializable {
         //todo add support for multiple dex files
         synchronized (loadClassesMutex) {
             this.dexFileContent = dexFileContent;
-            dexBodyModel.setOffset(0);
+            dexBodyModel.setOffset(-1);
 
             checkData("magic number", "6465780A30333500");
 
@@ -618,6 +620,9 @@ public final class DexClassReader implements Serializable {
         pushOffset(readUInt());
 
         int count = readUInt();
+        if (count == 0) {
+            System.out.println("No map detected");
+        }
         for (int i = 0; i < count; i++) {
             int type = readUShort();
             skip("unused", 2);
@@ -644,42 +649,43 @@ public final class DexClassReader implements Serializable {
     }
 
     private void skip(final String type, final int count) {
+        System.out.println(type + " skipping data block...");
         dexBodyModel.setOffset(dexBodyModel.getOffset() + count);
     }
 
     // TODO Change the return value from int to long
     private int readUInt() {
-        return readUByte() | (readUByte() << 8) | (readUByte() << 16) | (readUByte() << 24);
+        return readUByte() | (readUByte() << SIGNED_BYTE_LENGTH) | (readUByte() << 16) | (readUByte() << 24);
     }
 
     private int readUShort() {
-        return readUByte() | (readUByte() << 8);
+        return readUByte() | (readUByte() << SIGNED_BYTE_LENGTH);
     }
 
     public int readByte() {
-        int index = dexBodyModel.getOffset() + 1;
-        dexBodyModel.setOffset(index);
+        int index = dexBodyModel.increaseIndex(SINGLE_VALUE);
         return dexFileContent[index];
     }
 
     private int readUByte() {
-        int index = dexBodyModel.getOffset() + 1;
-        dexBodyModel.setOffset(index);
+        int index = dexBodyModel.increaseIndex(1);
         return dexFileContent[index] & 0xFF;
     }
 
     private long readSigned(final int byteLength) {
         long value = 0;
         for (int i = 0; i < byteLength; i++) {
-            value |= (long) readUByte() << (8 * i);
+            value |= (long) readUByte() << (SIGNED_BYTE_LENGTH * i);
         }
-        int shift = 8 * byteLength;
+        int shift = SIGNED_BYTE_LENGTH * byteLength;
         return (value << shift) >> shift;
     }
 
     private void checkData(final String type, final String valueToCheck) {
         for (int i = 0, length = valueToCheck.length() / 2; i < length; i++) {
-            if (readUByte() != Integer.parseInt(valueToCheck.substring(i * 2, i * 2 + 2), 16)) {
+            int valueToCheckB = Integer.parseInt(valueToCheck.substring(i * 2, i * 2 + 2), 16);
+            int readedValue = readUByte();
+            if (readedValue != valueToCheckB) {
                 throw new NoClassDefFoundError("illegal " + type);
             }
         }

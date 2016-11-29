@@ -58,6 +58,9 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
                             analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.DYNAMIC_PLUGIN_ANALYSIS);
                             currentProject.analyze(analyzer);
 
+                            analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.PSOCUT_ANALYSIS);
+                            currentProject.analyze(analyzer);
+
                             //RUN RULE ENGINE
                             analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.RULE_ENGINE_ANALYSIS);
                             currentProject.analyze(analyzer);

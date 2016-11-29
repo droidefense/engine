@@ -226,4 +226,6 @@ public abstract class AbstractHashedFile implements Serializable {
     public abstract boolean canWrite();
 
     public abstract InputStream getStream() throws IOException;
+
+    public abstract byte[] getContent() throws IOException;
 }

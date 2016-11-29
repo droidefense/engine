@@ -20,6 +20,7 @@ public class DexBodyModel implements Serializable {
     public String[] methodNames;
 
     public DexBodyModel() {
+        this.offset = -1;
     }
 
     public static SharedPool getPool() {
@@ -104,5 +105,10 @@ public class DexBodyModel implements Serializable {
 
     public void setMethodNames(String[] methodNames) {
         this.methodNames = methodNames;
+    }
+
+    public int increaseIndex(int i) {
+        this.offset += i;
+        return this.offset;
     }
 }

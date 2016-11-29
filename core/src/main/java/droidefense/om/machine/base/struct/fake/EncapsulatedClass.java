@@ -4,7 +4,7 @@ import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
-import droidefense.om.sdk.helpers.DroidefenseParams;
+import droidefense.sdk.helpers.InternalConstant;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
@@ -34,7 +34,7 @@ public class EncapsulatedClass implements IAtomClass, Serializable {
     public EncapsulatedClass(String name) {
         super();
         this.name = name;
-        this.setSuperClass(DroidefenseParams.SUPERCLASS);
+        this.setSuperClass(InternalConstant.SUPERCLASS);
         javaObject = null;
     }
 
