@@ -34,24 +34,22 @@ public class AndroidResourcesParser extends AbstractFileParser {
         magicFileHandler.setApk(apk);
         for (VirtualFile vf : list) {
             VirtualHashedFile resource = new VirtualHashedFile(vf, false);
-            if (resource.isFile()) {
-                //run signature match
-                String extension = "";
-                if (resource.hasExtension()) {
-                    extension = resource.extractExtensionFromName();
-                }
-
-                signatureHandler.setApkFile(resource);
-                signatureHandler.setNameExtension(extension);
-                signatureHandler.doTheJob();
-                //resource = signatureHandler.getUpdatedResource();
-                signatureHandler.updateDescription();
-                //run magic file command
-                magicFileHandler.setResource(resource);
-                boolean success = magicFileHandler.doTheJob();
-                if (success)
-                    resource.setMagicDescription(magicFileHandler.getAnswer());
+            //run signature match
+            String extension = "";
+            if (resource.hasExtension()) {
+                extension = resource.extractExtensionFromName();
             }
+
+            signatureHandler.setFile(resource);
+            signatureHandler.setNameExtension(extension);
+            signatureHandler.doTheJob();
+            //resource = signatureHandler.getUpdatedResource();
+            signatureHandler.updateDescription();
+            //run magic file command
+            magicFileHandler.setResource(resource);
+            boolean success = magicFileHandler.doTheJob();
+            if (success)
+                resource.setMagicDescription(magicFileHandler.getAnswer());
         }
     }
 }

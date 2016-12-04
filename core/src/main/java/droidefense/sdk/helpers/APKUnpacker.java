@@ -47,6 +47,7 @@ public enum APKUnpacker {
             //todo implement axml, 9.png and resource decoder
             for (VirtualFile file : files) {
                 if (file.getName().endsWith(DroidDefenseParams.getInstance().XML_EXTENSION)) {
+                    Log.write(LoggerType.INFO, "Decoding file " + file.getPath());
                     AXMLDecoderHandler decoder = new AXMLDecoderHandler(file);
                     decoder.doTheJob();
                 } else {

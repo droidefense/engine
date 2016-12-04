@@ -5,7 +5,7 @@ import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.signature.Signature;
-import droidefense.sdk.model.signature.SignatureList;
+import droidefense.sdk.model.signature.SignatureMap;
 import droidefense.worker.handler.base.AbstractHandler;
 import droidefense.worker.loader.SignatureModelLoader;
 
@@ -21,12 +21,12 @@ public class SignatureHandler extends AbstractHandler {
     private static final int BUFFER_SIZE = 1024;
     private static final int MAX_SIGNATURE_SIZE = 40;
     private static boolean loaded;
-    private static SignatureList model;
+    private static SignatureMap model;
 
     //instance vars
     private String description;
     private String expectedFiletype;
-    private AbstractHashedFile apkFile;
+    private AbstractHashedFile file;
     private boolean valid;
     private String nameExtension;
 
@@ -46,7 +46,7 @@ public class SignatureHandler extends AbstractHandler {
         InputStream in;
         int n;
         try {
-            in = apkFile.getStream();
+            in = file.getStream();
             n = in.read(buffer, 0, BUFFER_SIZE);
             int m = n;
             while ((m < MAX_SIGNATURE_SIZE) && (n > 0)) {
@@ -54,7 +54,7 @@ public class SignatureHandler extends AbstractHandler {
                 m += n;
             }
             in.close();
-            Signature s = model.checkSignature(buffer);
+            Signature s = model.checkSignature(file.getExtension(), buffer);
             if (s != null) {
                 expectedFiletype = s.getExtension();
                 description = s.getFiletypeInfo();
@@ -69,28 +69,29 @@ public class SignatureHandler extends AbstractHandler {
     }
 
     public AbstractHashedFile getUpdatedResource() {
-        return apkFile;
+        return file;
     }
 
-    public AbstractHashedFile getApkFile() {
-        return apkFile;
+    public AbstractHashedFile getFile() {
+        return file;
     }
 
-    public void setApkFile(AbstractHashedFile AbstractHashedFile) {
-        this.apkFile = AbstractHashedFile;
+    public void setFile(AbstractHashedFile AbstractHashedFile) {
+        this.file = AbstractHashedFile;
     }
 
     public void updateDescription() {
         if (valid) {
-            getApkFile().setExtension(nameExtension);
-            getApkFile().setDescription(description);
-            getApkFile().setHeaderBasedExtension(expectedFiletype);
-            getApkFile().setSignatureMatches();
+            Log.write(LoggerType.DEBUG, "File " + getFile().getName() + " identified as " + description);
+            getFile().setExtension(nameExtension);
+            getFile().setDescription(description);
+            getFile().setHeaderBasedExtension(expectedFiletype);
+            getFile().setSignatureMatches();
         } else {
-            Log.write(LoggerType.DEBUG, "File NOT identified: " + getApkFile().getName());
-            getApkFile().setExtension(nameExtension);
-            getApkFile().setDescription("unknown");
-            getApkFile().setHeaderBasedExtension("unknown");
+            Log.write(LoggerType.DEBUG, "File NOT identified: " + getFile().getName());
+            getFile().setExtension(nameExtension);
+            getFile().setDescription("unknown");
+            getFile().setHeaderBasedExtension("unknown");
         }
     }
 

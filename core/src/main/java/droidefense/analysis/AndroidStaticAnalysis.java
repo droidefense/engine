@@ -65,7 +65,7 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
             handler.setList(filelist);
             handler.doTheJob();
         } else {
-            Log.write(LoggerType.INFO, "[OK] Skipping native .so files analysis");
+            Log.write(LoggerType.INFO, "[OK] Skipping native .so files analysis cause no native code found inside");
         }
 
         //4 parse certificates

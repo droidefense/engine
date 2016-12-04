@@ -33,7 +33,7 @@ public class APKToolHandler extends AbstractHandler {
         /*
         ApkDecoder decoder = new ApkDecoder();
         try {
-            decoder.setApkFile(apk.getThisFile());
+            decoder.setFile(apk.getThisFile());
             decoder.setOutDir(outputDir);
             //force output folder overwrite
             decoder.setForceDelete(FORCE_DELETE);

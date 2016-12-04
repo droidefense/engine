@@ -3,7 +3,7 @@ package droidefense.worker.loader;
 import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.model.signature.Signature;
-import droidefense.sdk.model.signature.SignatureList;
+import droidefense.sdk.model.signature.SignatureMap;
 import droidefense.worker.handler.FileIOHandler;
 
 import java.io.*;
@@ -13,10 +13,10 @@ import java.io.*;
  */
 public class SignatureModelLoader implements Serializable {
 
-    private SignatureList model;
+    private SignatureMap model;
 
     public void load() {
-        model = new SignatureList();
+        model = new SignatureMap();
         BufferedReader br = null;
         String line;
         String cvsSplitBy = DroidDefenseParams.getInstance().CVS_SPLIT;
@@ -38,7 +38,9 @@ public class SignatureModelLoader implements Serializable {
                 for (int i = 0; i < bbytes.length; i++) {
                     signatureBytes[i] = Integer.parseInt(bbytes[i], 16);
                 }
-                model.add(new Signature(data[0], signatureBytes, data[2]));
+                String extension = data[0];
+                Signature newSignature = new Signature(extension, signatureBytes, data[2]);
+                model.put(extension, newSignature);
             }
 
         } catch (FileNotFoundException e) {
@@ -60,11 +62,11 @@ public class SignatureModelLoader implements Serializable {
         System.out.println("Done");
     }
 
-    public final SignatureList getModel() {
+    public final SignatureMap getModel() {
         return model;
     }
 
-    public final void setModel(SignatureList model) {
+    public final void setModel(SignatureMap model) {
         this.model = model;
     }
 
