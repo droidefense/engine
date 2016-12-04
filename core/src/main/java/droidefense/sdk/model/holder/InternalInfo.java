@@ -1,7 +1,5 @@
 package droidefense.sdk.model.holder;
 
-import droidefense.om.machine.base.struct.generic.IAtomClass;
-import droidefense.om.machine.reader.DexClassReader;
 import droidefense.sdk.model.dex.DalvikDexModel;
 import droidefense.sdk.model.manifest.base.AbstractManifestClass;
 

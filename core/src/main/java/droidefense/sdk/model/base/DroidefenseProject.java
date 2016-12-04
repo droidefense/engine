@@ -434,7 +434,7 @@ public final class DroidefenseProject implements Serializable {
     }
 
     public void addDexFileStatistics(DexFileStatistics statistics) {
-            this.statistics = statistics;
+        this.statistics = statistics;
     }
 
     public void save() {

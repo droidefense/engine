@@ -23,14 +23,18 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="apkr" />
-        <module name="memapktool" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="batch" target="1.8" />
+      <module name="cli" target="1.8" />
+      <module name="core" target="1.8" />
       <module name="droidefense" target="1.8" />
       <module name="machine" target="1.8" />
       <module name="memapktool" target="1.8" />
+      <module name="sdk" target="1.5" />
       <module name="server" target="1.8" />
+      <module name="worker" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
