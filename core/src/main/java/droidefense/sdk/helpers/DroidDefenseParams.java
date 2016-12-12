@@ -3,8 +3,8 @@ package droidefense.sdk.helpers;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.exception.ConfigFileNotFoundException;
+import droidefense.handler.FileIOHandler;
 import droidefense.util.JsonStyle;
-import droidefense.worker.handler.FileIOHandler;
 
 import java.io.File;
 import java.io.IOException;

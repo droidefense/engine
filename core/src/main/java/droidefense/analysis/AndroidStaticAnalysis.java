@@ -4,11 +4,11 @@ import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.exception.UnknownParserException;
+import droidefense.handler.ObjdumpHandler;
 import droidefense.sdk.model.base.ExecutionTimer;
 import droidefense.sdk.model.io.AbstractHashedFile;
-import droidefense.worker.handler.ObjdumpHandler;
-import droidefense.worker.parser.base.AbstractFileParser;
-import droidefense.worker.parser.base.ParserFactory;
+import droidefense.worker.base.AbstractFileParser;
+import droidefense.worker.base.ParserFactory;
 
 import java.util.ArrayList;
 

@@ -3,8 +3,8 @@ package droidefense.temp;
 import apkr.external.modules.controlflow.model.base.AbstractAtomNode;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.handler.FileIOHandler;
 import droidefense.sdk.helpers.InternalConstant;
-import droidefense.worker.handler.FileIOHandler;
 
 import java.io.File;
 import java.io.IOException;

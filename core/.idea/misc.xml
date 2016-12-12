@@ -11,7 +11,9 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/../batch/pom.xml" />
         <option value="$PROJECT_DIR$/../machine/pom.xml" />
+        <option value="$PROJECT_DIR$/../worker/pom.xml" />
       </set>
     </option>
   </component>

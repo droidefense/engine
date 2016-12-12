@@ -4,10 +4,10 @@ import apkr.external.modules.helpers.enums.ProcessStatus;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
+import droidefense.handler.base.AbstractHandler;
 import droidefense.om.handlers.DexStatsHandler;
 import droidefense.om.handlers.VMWorkersHandler;
 import droidefense.sdk.model.io.AbstractHashedFile;
-import droidefense.worker.handler.base.AbstractHandler;
 
 import java.util.ArrayList;
 

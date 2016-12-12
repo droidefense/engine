@@ -7,6 +7,9 @@ import apkr.external.modules.helpers.log4j.LoggerType;
 import apkr.external.modules.ml.MachineLearningResult;
 import apkr.external.modules.rulengine.Rule;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
+import droidefense.handler.DirScannerHandler;
+import droidefense.handler.FileIOHandler;
+import droidefense.handler.base.DirScannerFilter;
 import droidefense.mod.vfs.model.impl.VirtualFile;
 import droidefense.mod.vfs.model.impl.VirtualFileSystem;
 import droidefense.mod.vfs.model.impl.VirtualFolder;
@@ -35,9 +38,6 @@ import droidefense.sdk.model.manifest.Manifest;
 import droidefense.sdk.model.manifest.UsesPermission;
 import droidefense.sdk.model.manifest.base.AbstractManifestClass;
 import droidefense.util.JsonStyle;
-import droidefense.worker.handler.DirScannerHandler;
-import droidefense.worker.handler.FileIOHandler;
-import droidefense.worker.handler.base.DirScannerFilter;
 
 import java.awt.*;
 import java.io.File;
@@ -621,7 +621,7 @@ public final class DroidefenseProject implements Serializable {
                 openReportOnBorwser(reportFile);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, "Could not generate report template", e.getLocalizedMessage());
         }
 
         /*

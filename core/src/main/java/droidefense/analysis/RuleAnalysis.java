@@ -6,7 +6,7 @@ import apkr.external.modules.helpers.log4j.LoggerType;
 import apkr.external.modules.rulengine.Rule;
 import apkr.external.modules.rulengine.RuleEngine;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.worker.handler.FileIOHandler;
+import droidefense.handler.FileIOHandler;
 
 import java.util.ArrayList;
 

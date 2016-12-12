@@ -1,9 +1,9 @@
 package external.plugins.collection.dynmc;
 
+import droidefense.handler.FileIOHandler;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.helpers.Util;
 import droidefense.sdk.model.holder.StringAnalysisResultModel;
-import droidefense.worker.handler.FileIOHandler;
 
 import java.io.File;
 import java.io.IOException;
