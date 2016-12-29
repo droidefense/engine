@@ -2,6 +2,8 @@ package droidefense.worker.parser;
 
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
+import com.j256.simplemagic.ContentInfo;
+import com.j256.simplemagic.ContentInfoUtil;
 import droidefense.handler.MagicFileHandler;
 import droidefense.handler.SignatureHandler;
 import droidefense.mod.vfs.model.impl.VirtualFile;
@@ -43,13 +45,22 @@ public class AndroidResourcesParser extends AbstractFileParser {
             signatureHandler.setFile(resource);
             signatureHandler.setNameExtension(extension);
             signatureHandler.doTheJob();
-            //resource = signatureHandler.getUpdatedResource();
             signatureHandler.updateDescription();
-            //run magic file command
-            magicFileHandler.setResource(resource);
-            boolean success = magicFileHandler.doTheJob();
-            if (success)
-                resource.setMagicDescription(magicFileHandler.getAnswer());
+
+            //run magic file
+            runMagicFile(resource, vf);
+        }
+    }
+
+    private void runMagicFile(VirtualHashedFile resource, VirtualFile file) {
+        // create a magic utility using the internal magic file
+        ContentInfoUtil util = new ContentInfoUtil();
+        ContentInfo info = util.findMatch(file.getContent());
+        // display content type information
+        if (info != null) {
+            // other information in ContentInfo type
+            resource.setMagicDescription(info.getName());
+            resource.setContentInfo(info);
         }
     }
 }

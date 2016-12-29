@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public enum APKUnpacker {
 
-    APKTOOL_UNPACKER {
+    APKTOOL {
         @Override
         public ArrayList<VirtualFile> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile) {
             APKToolHandler handler = new APKToolHandler(currentProject, apkFile);
@@ -33,7 +33,7 @@ public enum APKUnpacker {
             return currentProject.getAppFiles();
         }
 
-    }, ZIP_UNPACKER {
+    }, ZIP {
         @Override
         public ArrayList<VirtualFile> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile) {
             //only unpacks

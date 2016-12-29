@@ -143,6 +143,14 @@
             <systemPath>${pom.basedir}/../lib/third-party/apktool_2.2.1.jar</systemPath>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.j256.simplemagic/simplemagic -->
+        <dependency>
+            <groupId>com.j256.simplemagic</groupId>
+            <artifactId>simplemagic</artifactId>
+            <version>1.10</version>
+        </dependency>
+
+
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
         <dependency>
             <groupId>servlet-api</groupId>
@@ -165,11 +173,6 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.droidefense</groupId>
-            <artifactId>worker</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
 
     </dependencies>

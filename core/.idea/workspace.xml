@@ -6,249 +6,18 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a844aef2-ee66-42fc-85be-c0a43555ea6c" name="Default" comment="* Code organized in different intellij modules&#10;&#10;[INFO] core&#10;[INFO] memapktool&#10;[INFO] worker&#10;[INFO] machine&#10;[INFO] batch&#10;[INFO] cli">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_droidefense_worker_1_0_SNAPSHOT.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/batch/BatchManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/batch/FileScan.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/batch/helper/DirScanner.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/batch/helper/DirectoryFilter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/batch/task/OutPutResult.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/batch/task/WekaCertTask.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/worker/loader/SignatureModelLoader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/worker/parser/APKMetaParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/worker/parser/AndroidCertParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/worker/parser/AndroidManifestParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/worker/parser/AndroidResourcesParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/worker/parser/ApkDecompilerParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/droidefense/worker/parser/SteganosParser.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../batch/batch.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../batch/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../batch/src/main/java/droidefense/batch/BatchManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../batch/src/main/java/droidefense/batch/FileScan.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../batch/src/main/java/droidefense/batch/helper/DirScanner.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../batch/src/main/java/droidefense/batch/helper/DirectoryFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../batch/src/main/java/droidefense/batch/task/OutPutResult.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../batch/src/main/java/droidefense/batch/task/WekaCertTask.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_droidefense_machine_1_0_SNAPSHOT.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../machine/machine.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../machine/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../worker/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/loader/SignatureModelLoader.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/parser/APKMetaParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/parser/AndroidCertParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/parser/AndroidManifestParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/parser/AndroidResourcesParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/parser/ApkDecompilerParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/parser/SteganosParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../worker/worker.iml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../batch/src/main/java/droidefense/batch/task/CSVFeatureExtractorTask.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/batch/task/CSVFeatureExtractorTask.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../batch/src/main/java/droidefense/batch/task/WekaFeatureExtractorTask.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/batch/task/WekaFeatureExtractorTask.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/Main.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/emulator/AndroidLogEmulator.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/emulator/AndroidLogEmulator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/emulator/GhostFSEmulator.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/emulator/GhostFSEmulator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/emulator/ReflectionEmulator.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/emulator/ReflectionEmulator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/emulator/SharedPreferencesEmulator.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/emulator/SharedPreferencesEmulator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/emulator/base/AbstractAndroidEmulator.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/emulator/base/AbstractAndroidEmulator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/flow/BasicControlFlowGraphWorker.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/flow/BasicControlFlowGraphWorker.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/flow/FollowCallsControlFlowGraphWorker.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/flow/FollowCallsControlFlowGraphWorker.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/flow/MultiFlowWorker.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/flow/MultiFlowWorker.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/flow/NodeGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/flow/NodeGenerator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/flow/OpCodeCheckerWorker.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/flow/OpCodeCheckerWorker.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/flow/RealFlowWorker.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/flow/RealFlowWorker.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/flow/ReflectionControlFlowGraphWorker.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/flow/ReflectionControlFlowGraphWorker.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/flow/base/AbstractFlowWorker.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/flow/base/AbstractFlowWorker.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/handlers/DexStatsHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/handlers/DexStatsHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/handlers/PscoutHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/handlers/PscoutHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/handlers/VMWorkersHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/handlers/VMWorkersHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/helper/DexFileStatistics.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/helper/DexFileStatistics.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/AbstractDVMThread.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/AbstractDVMThread.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/AbstractVirtualMachine.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/AbstractVirtualMachine.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/DalvikVM.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/DalvikVM.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/DynamicUtils.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/DynamicUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/VMWaitSet.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/VMWaitSet.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/constants/AccessFlag.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/constants/AccessFlag.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/constants/TypeDescriptorSemantics.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/constants/TypeDescriptorSemantics.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/constants/ValueFormat.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/constants/ValueFormat.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/exceptions/ChangeThreadRuntimeException.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/exceptions/ChangeThreadRuntimeException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/exceptions/MachineStateEndedException.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/exceptions/MachineStateEndedException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/exceptions/NoMainClassFoundException.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/exceptions/NoMainClassFoundException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/exceptions/NotSupportedValueTypeException.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/exceptions/NotSupportedValueTypeException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/exceptions/VirtualMachineRuntimeException.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/exceptions/VirtualMachineRuntimeException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/fake/DVMTaintClass.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/fake/DVMTaintClass.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/fake/DVMTaintField.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/fake/DVMTaintField.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/fake/DVMTaintMethod.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/fake/DVMTaintMethod.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/fake/EncapsulatedClass.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/fake/EncapsulatedClass.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/generic/IAtomClass.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/generic/IAtomClass.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/generic/IAtomField.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/generic/IAtomField.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/generic/IAtomFrame.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/generic/IAtomFrame.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/generic/IAtomInstance.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/generic/IAtomInstance.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/generic/IAtomMethod.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/generic/IAtomMethod.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/model/DVMClass.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/model/DVMClass.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/model/DVMField.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/model/DVMField.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/model/DVMFrame.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/model/DVMFrame.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/model/DVMInstance.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/model/DVMInstance.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/model/DVMMethod.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/model/DVMMethod.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/model/ReturnMethod.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/model/ReturnMethod.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/struct/model/SharedPool.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/base/struct/model/SharedPool.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/inst/DalvikInstruction.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/inst/DalvikInstruction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/inst/InstructionReturn.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/inst/InstructionReturn.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/reader/DexClassReader.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/reader/DexClassReader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/reader/DexHeaderReader.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/reader/DexHeaderReader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/reader/DexOperator.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/om/machine/reader/DexOperator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/handler/APKToolHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/APKToolHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/handler/AXMLDecoderHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/AXMLDecoderHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/handler/DetailedPermissionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/DetailedPermissionHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/handler/DirScannerHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/DirScannerHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/handler/FileIOHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/FileIOHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/handler/FileUnzipLocalHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/FileUnzipLocalHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/handler/FileUnzipVFSHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/FileUnzipVFSHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/handler/MagicFileHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/MagicFileHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/handler/ObjdumpHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/ObjdumpHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/handler/SignatureHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/SignatureHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/handler/WekaResultsHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/WekaResultsHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/handler/base/AbstractHandler.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/base/AbstractHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/handler/base/DirScannerFilter.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/handler/base/DirScannerFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/parser/base/AbstractFileParser.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/worker/base/AbstractFileParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/parser/base/ParserFactory.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/worker/base/ParserFactory.java" />
+    <list default="true" id="a844aef2-ee66-42fc-85be-c0a43555ea6c" name="Default" comment="* Stabilized in modules">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_j256_simplemagic_simplemagic_1_10.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_droidefense_worker_1_0_SNAPSHOT.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/droidefense/temp/FileScan.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cli/cli.iml" afterPath="$PROJECT_DIR$/../cli/cli.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseScan.java" afterPath="$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseScan.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidDynamicAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidDynamicAnalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidDynamicPluginAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidDynamicPluginAnalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidStaticAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidStaticAnalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidStaticPluginAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidStaticPluginAnalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/analysis/MachineLearningAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/analysis/MachineLearningAnalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/analysis/PScoutAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/analysis/PScoutAnalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/analysis/RuleAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/analysis/RuleAnalysis.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/APKUnpacker.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/APKUnpacker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/DroidDefenseParams.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/DroidDefenseParams.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/holder/InternalInfo.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/holder/InternalInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/social/GooglePlayChecker.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/social/GooglePlayChecker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/temp/DroidefenseIntel.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/temp/DroidefenseIntel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/util/UnpackAction.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/util/UnpackAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/external/plugins/collection/dynmc/StringAnalyzerPlugin.java" afterPath="$PROJECT_DIR$/src/main/java/external/plugins/collection/dynmc/StringAnalyzerPlugin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/inline.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/inline.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/UI/general.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/UI/general.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/UI/icons.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/UI/icons.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/UI/modals.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/UI/modals.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/UI/sliders.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/UI/sliders.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/calendar.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/calendar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/charts/chartjs.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/charts/chartjs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/charts/flot.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/charts/flot.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/charts/inline.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/charts/inline.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/charts/morris.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/charts/morris.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/examples/login.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/examples/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/examples/register.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/examples/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/forms/advanced.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/forms/advanced.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/forms/editors.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/forms/editors.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/mailbox/compose.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/mailbox/compose.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/mailbox/mailbox.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/pages/mailbox/mailbox.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/ckeditor/plugins/wsc/dialogs/ciframe.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/ckeditor/plugins/wsc/dialogs/ciframe.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/ckeditor/plugins/wsc/dialogs/tmp.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/ckeditor/plugins/wsc/dialogs/tmp.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/ckeditor/plugins/wsc/dialogs/tmpFrameset.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/ckeditor/plugins/wsc/dialogs/tmpFrameset.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/AutoFill/examples/columns.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/AutoFill/examples/columns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/AutoFill/examples/complete-callback.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/AutoFill/examples/complete-callback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/AutoFill/examples/fill-both.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/AutoFill/examples/fill-both.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/AutoFill/examples/fill-horizontal.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/AutoFill/examples/fill-horizontal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/AutoFill/examples/scrolling.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/AutoFill/examples/scrolling.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/AutoFill/examples/simple.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/AutoFill/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/AutoFill/examples/step-callback.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/AutoFill/examples/step-callback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/alt_insert.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/alt_insert.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/col_filter.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/col_filter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/colvis.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/colvis.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/fixedcolumns.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/fixedcolumns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/fixedheader.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/fixedheader.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/jqueryui.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/jqueryui.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/new_init.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/new_init.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/predefined.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/predefined.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/realtime.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/realtime.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/reset.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/reset.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/scrolling.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/scrolling.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/server_side.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/server_side.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/simple.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/state_save.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColReorder/examples/state_save.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/button_order.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/button_order.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/exclude_columns.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/exclude_columns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/group_columns.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/group_columns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/jqueryui.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/jqueryui.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/mouseover.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/mouseover.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/new_init.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/new_init.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/restore.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/restore.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/simple.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/text.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/text.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/title_callback.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/title_callback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/two_tables.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/two_tables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/two_tables_identical.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/ColVis/examples/two_tables_identical.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/bootstrap.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/bootstrap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/col_filter.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/col_filter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/colvis.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/colvis.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/css_size.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/css_size.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/index_column.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/index_column.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/left_right_columns.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/left_right_columns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/right_column.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/right_column.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/rowspan.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/rowspan.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/server-side-processing.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/server-side-processing.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/simple.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/size_fixed.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/size_fixed.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/size_fluid.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/size_fluid.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/two_columns.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedColumns/examples/two_columns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedHeader/examples/header_footer.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedHeader/examples/header_footer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedHeader/examples/simple.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedHeader/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedHeader/examples/top_left_right.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedHeader/examples/top_left_right.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedHeader/examples/two_tables.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedHeader/examples/two_tables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedHeader/examples/zIndexes.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/FixedHeader/examples/zIndexes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/KeyTable/examples/events.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/KeyTable/examples/events.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/KeyTable/examples/html.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/KeyTable/examples/html.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/KeyTable/examples/scrolling.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/KeyTable/examples/scrolling.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/KeyTable/examples/simple.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/KeyTable/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/child-rows/column-control.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/child-rows/column-control.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/child-rows/custom-renderer.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/child-rows/custom-renderer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/child-rows/disable-child-rows.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/child-rows/disable-child-rows.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/child-rows/right-column.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/child-rows/right-column.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/child-rows/whole-row-control.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/child-rows/whole-row-control.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/display-control/auto.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/display-control/auto.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/display-control/classes.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/display-control/classes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/display-control/complexHeader.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/display-control/complexHeader.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/display-control/fixedHeader.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/display-control/fixedHeader.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/display-control/init-classes.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/display-control/init-classes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/initialisation/ajax.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/initialisation/ajax.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/initialisation/className.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/initialisation/className.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/initialisation/default.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/initialisation/default.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/initialisation/new.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/initialisation/new.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/initialisation/option.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/initialisation/option.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/styling/bootstrap.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/styling/bootstrap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/styling/compact.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/styling/compact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/styling/foundation.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/styling/foundation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/styling/scrolling.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Responsive/examples/styling/scrolling.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Scroller/examples/api_scrolling.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Scroller/examples/api_scrolling.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Scroller/examples/large_js_source.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Scroller/examples/large_js_source.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Scroller/examples/server-side_processing.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Scroller/examples/server-side_processing.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Scroller/examples/simple.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Scroller/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Scroller/examples/state_saving.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/Scroller/examples/state_saving.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/ajax.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/ajax.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/alter_buttons.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/alter_buttons.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/bootstrap.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/bootstrap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/button_text.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/button_text.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/collection.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/collection.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/defaults.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/defaults.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/jqueryui.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/jqueryui.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/multi_instance.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/multi_instance.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/multiple_tables.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/multiple_tables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/new_init.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/new_init.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/pdf_message.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/pdf_message.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/plug-in.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/plug-in.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/select_column.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/select_column.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/select_multi.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/select_multi.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/select_os.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/select_os.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/select_single.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/select_single.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/simple.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/swf_path.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/reporter/plugins/datatables/extensions/TableTools/examples/swf_path.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/io/AbstractHashedFile.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/io/AbstractHashedFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/droidefense/worker/parser/AndroidResourcesParser.java" afterPath="$PROJECT_DIR$/src/main/java/droidefense/worker/parser/AndroidResourcesParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../memapktool/memapktool.iml" afterPath="$PROJECT_DIR$/../memapktool/memapktool.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../memapktool/pom.xml" afterPath="$PROJECT_DIR$/../memapktool/pom.xml" />
     </list>
     <ignored path="apkr.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -277,34 +46,113 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="DroidefenseScan.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseScan.java">
+      <file leaf-file-name="UnpackAnalysis.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/UnpackAnalysis.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-208">
-              <caret line="128" column="31" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
+            <state relative-caret-position="425">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DroidefenseSettings.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseSettings.java">
+      <file leaf-file-name="AndroidResourcesParser.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/worker/parser/AndroidResourcesParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="18" column="80" selection-start-line="18" selection-start-column="80" selection-end-line="18" selection-end-column="80" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DroidefenseProject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-555">
-              <caret line="623" column="78" selection-start-line="623" selection-start-column="78" selection-end-line="623" selection-end-column="78" />
+            <state relative-caret-position="544">
+              <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractHashedFile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/io/AbstractHashedFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+              <folding>
+                <element signature="e#6313#6314#0" expanded="true" />
+                <element signature="e#6359#6360#0" expanded="true" />
+                <element signature="e#6402#6403#0" expanded="true" />
+                <element signature="e#6436#6437#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SignatureHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/SignatureHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="APKUnpacker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/APKUnpacker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AXMLDecoderHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/AXMLDecoderHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidDynamicAnalysis.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidDynamicAnalysis.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DexStatsHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/om/handlers/DexStatsHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DexFileStatistics.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/om/helper/DexFileStatistics.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-84">
+              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -336,7 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../machine/src/main/java/droidefense/om/machine/base/AbstractVirtualMachine.java" />
         <option value="$PROJECT_DIR$/../cli/pom.xml" />
         <option value="$PROJECT_DIR$/../machine/pom.xml" />
         <option value="$PROJECT_DIR$/../memapktool/pom.xml" />
@@ -365,8 +212,6 @@
         <option value="$PROJECT_DIR$/src/main/java/droidefense/task/WekaFeatureExtractorTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/batch/task/CSVFeatureExtractorTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/batch/task/WekaCertTask.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/droidefense/worker/parser/AndroidResourcesParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/analysis/RuleAnalysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/batch/helper/DirScanner.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/om/handlers/VMWorkersHandler.java" />
@@ -387,6 +232,9 @@
         <option value="$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseSettings.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java" />
         <option value="$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseScan.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/io/AbstractHashedFile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/droidefense/worker/parser/AndroidResourcesParser.java" />
       </list>
     </option>
   </component>
@@ -403,68 +251,13 @@
     </option>
   </component>
   <component name="MavenProjectNavigator">
-    <treeState>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="core" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="core" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Lifecycle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="cli" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Dependencies" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="cli" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
-    </treeState>
+    <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="-8" />
+    <option name="y" value="-1088" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -890,8 +683,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -953,7 +746,7 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="droidefense.cli.DroidefenseScan" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="-i C:\Users\.local\Documents\projects\droidefense\droidefense-engine\temp\system-update-ransomware.apk" />
+      <option name="PROGRAM_PARAMETERS" value="-i C:\Users\.local\Documents\projects\droidefense\droidefense-engine\temp\system-update-ransomware.apk -u zip" />
       <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
@@ -1555,7 +1348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480884476139</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="* Stabilized in modules">
+      <created>1481564032256</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1481564032256</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1591,33 +1391,33 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-8" y="-1088" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32470587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32441473" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282353" sideWeight="0.50214595" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17864807" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1459431" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4117647" sideWeight="0.49785408" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41137123" sideWeight="0.49785408" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21351932" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24470589" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16950959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39529413" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39464882" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24470589" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1662,7 +1462,8 @@
     <MESSAGE value="* Added VFS integrity test" />
     <MESSAGE value="* Optimized android resource parser.&#10;* File identification is done first attempting to match provided file extension" />
     <MESSAGE value="* Code organized in different intellij modules&#10;&#10;[INFO] core&#10;[INFO] memapktool&#10;[INFO] worker&#10;[INFO] machine&#10;[INFO] batch&#10;[INFO] cli" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Code organized in different intellij modules&#10;&#10;[INFO] core&#10;[INFO] memapktool&#10;[INFO] worker&#10;[INFO] machine&#10;[INFO] batch&#10;[INFO] cli" />
+    <MESSAGE value="* Stabilized in modules" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Stabilized in modules" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1737,13 +1538,19 @@
           <option name="timeStamp" value="163" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/droidefense/worker/parser/AndroidResourcesParser.java</url>
-          <line>35</line>
+          <url>file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/APKUnpacker.java</url>
+          <line>21</line>
           <properties />
-          <option name="timeStamp" value="165" />
+          <option name="timeStamp" value="168" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/droidefense/om/helper/DexFileStatistics.java</url>
+          <line>54</line>
+          <properties />
+          <option name="timeStamp" value="169" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="166" />
+      <option name="time" value="173" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -1763,94 +1570,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/AXMLDecoderHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../worker/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../batch/src/main/java/droidefense/batch/FileScan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/APKUnpacker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-351">
-          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/DirScannerHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="68" column="41" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
-          <folding>
-            <element signature="e#2645#2646#0" expanded="true" />
-            <element signature="e#2673#2674#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/om/flow/BasicControlFlowGraphWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/om/flow/FollowCallsControlFlowGraphWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-250">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/om/flow/ReflectionControlFlowGraphWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidDynamicPluginAnalysis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidStaticPluginAnalysis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/MachineLearningAnalysis.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1858,9 +1581,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
           <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1868,27 +1588,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
           <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/parser/AndroidCertParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../worker/src/main/java/droidefense/worker/parser/AndroidCertParser.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/worker/base/ParserFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1896,7 +1603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1904,7 +1610,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1912,23 +1617,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../batch/src/main/java/droidefense/batch/helper/DirScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../batch/src/main/java/droidefense/batch/helper/DirScanner.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/batch/helper/DirectoryFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1936,7 +1632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1944,7 +1639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1952,9 +1646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
           <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1962,7 +1653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1970,9 +1660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1980,17 +1667,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1998,7 +1674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2006,15 +1681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
           <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/worker/parser/AndroidResourcesParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2022,10 +1688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
-          <folding>
-            <element signature="e#604#605#0" expanded="false" />
-            <element signature="e#677#678#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2033,7 +1695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2041,7 +1702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2055,27 +1715,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/om/handlers/DexStatsHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidDynamicAnalysis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/om/emulator/GhostFSEmulator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="3" column="60" selection-start-line="3" selection-start-column="60" selection-end-line="3" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2083,7 +1726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2091,9 +1733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="74">
           <caret line="3" column="53" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2101,9 +1740,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2111,7 +1747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
           <caret line="10" column="53" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2119,9 +1754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
           <caret line="24" column="81" selection-start-line="24" selection-start-column="81" selection-end-line="24" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2137,9 +1769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2147,7 +1776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2155,7 +1783,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2163,7 +1790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2171,33 +1797,156 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseSettings.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/GeneralAnalysis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="18" column="80" selection-start-line="18" selection-start-column="80" selection-end-line="18" selection-end-column="80" />
+        <state relative-caret-position="186">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-555">
-          <caret line="623" column="78" selection-start-line="623" selection-start-column="78" selection-end-line="623" selection-end-column="78" />
+        <state relative-caret-position="211">
+          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/base/AbstractAndroidAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="18" column="80" selection-start-line="18" selection-start-column="80" selection-end-line="18" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_77/jre/lib/rt.jar!/java/lang/Enum.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#508#509#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseScan.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
-          <caret line="128" column="31" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
+        <state relative-caret-position="386">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/io/LocalApkFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/APKUnpacker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/AXMLDecoderHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/AndroidDynamicAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/om/handlers/DexStatsHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/om/helper/DexFileStatistics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-84">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/UnpackAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/SignatureHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/io/AbstractHashedFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+          <folding>
+            <element signature="e#6313#6314#0" expanded="true" />
+            <element signature="e#6359#6360#0" expanded="true" />
+            <element signature="e#6402#6403#0" expanded="true" />
+            <element signature="e#6436#6437#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/worker/parser/AndroidResourcesParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

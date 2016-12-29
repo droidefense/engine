@@ -55,12 +55,12 @@ public class DroidefenseScan {
 
         //get user selected unpacker. default apktool
         String unpackerStr = settings.getUnpacker();
-        APKUnpacker unpacker = APKUnpacker.APKTOOL_UNPACKER;
+        APKUnpacker unpacker = APKUnpacker.APKTOOL;
         if (unpackerStr != null) {
-            if (unpackerStr.equalsIgnoreCase("apktool")) {
-                unpacker = APKUnpacker.APKTOOL_UNPACKER;
-            } else if (unpackerStr.equalsIgnoreCase("zip")) {
-                unpacker = APKUnpacker.ZIP_UNPACKER;
+            if (unpackerStr.equalsIgnoreCase(APKUnpacker.APKTOOL.name())) {
+                unpacker = APKUnpacker.APKTOOL;
+            } else if (unpackerStr.equalsIgnoreCase(APKUnpacker.ZIP.name())) {
+                unpacker = APKUnpacker.ZIP;
             }
         }
 
@@ -139,6 +139,7 @@ public class DroidefenseScan {
         //stop scan
         this.stop();
     }
+
 
     private void showAsciiBanner() {
         System.out.println();

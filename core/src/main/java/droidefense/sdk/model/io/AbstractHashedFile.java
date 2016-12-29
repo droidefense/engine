@@ -1,5 +1,6 @@
 package droidefense.sdk.model.io;
 
+import com.j256.simplemagic.ContentInfo;
 import droidefense.sdk.helpers.Util;
 
 import java.io.IOException;
@@ -18,6 +19,7 @@ public abstract class AbstractHashedFile implements Serializable {
     protected boolean signatureMatches;
     protected String filename, headerBasedExtension, declaredExtension, description;
     protected String magicDescription;
+    private ContentInfo contentInfo;
 
     public AbstractHashedFile(boolean generateInformation) {
         this.generateInformation = generateInformation;
@@ -36,6 +38,7 @@ public abstract class AbstractHashedFile implements Serializable {
         //extension info
         declaredExtension = Util.getFileExtension(this.filename);
         //hash info
+        contentInfo = null;
         if (generateInformation) {
             generateHashes();
             //TODO calculate header based extension vs declared extension
@@ -228,4 +231,12 @@ public abstract class AbstractHashedFile implements Serializable {
     public abstract InputStream getStream() throws IOException;
 
     public abstract byte[] getContent() throws IOException;
+
+    public ContentInfo getContentInfo() {
+        return contentInfo;
+    }
+
+    public void setContentInfo(ContentInfo contentInfo) {
+        this.contentInfo = contentInfo;
+    }
 }
