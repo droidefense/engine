@@ -1,0 +1,13 @@
+next build issues
+
+- save first seen date
+- save samples filenames
+- package internals tree view
+- user comments
+- add this domain to external scanners
+	- http://tracedroid.few.vu.nl/reports.php?md5=46a53f4a6637e2807d79102a6a937c2e
+- set app icon on the report
+- add dex date
+- check for ads libraries
+- parse this filed when available from certificate data EMAILADDRESS=lorenz@londatiga.net in subject and issuer
+- add permission description to each permission found
