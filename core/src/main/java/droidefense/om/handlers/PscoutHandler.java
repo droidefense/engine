@@ -1,8 +1,8 @@
 package droidefense.om.handlers;
 
 import apkr.external.module.pscout.PSCoutModel;
-import apkr.external.modules.controlflow.model.base.AbstractAtomNode;
-import apkr.external.modules.controlflow.model.nodes.MethodNode;
+import com.droidefense.base.AbstractAtomNode;
+import com.droidefense.nodes.MethodNode;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
@@ -32,7 +32,7 @@ public class PscoutHandler extends AbstractHandler {
     public boolean doTheJob() {
         Log.write(LoggerType.TRACE, "---- Mapping method calls with permissions -----");
         try {
-            PSCoutModel model = (PSCoutModel) FileIOHandler.getResourceObjectStream(DroidDefenseParams.getInstance().MODEL_FOLDER + File.separator + DroidDefenseParams.getInstance().PSCOUT_MODEL).readObject();
+            PSCoutModel model = (PSCoutModel) FileIOHandler.getResourceObjectStream(DroidDefenseParams.getInstance().RESOURCE_FOLDER + File.separator + DroidDefenseParams.getInstance().PSCOUT_MODEL).readObject();
             if (model == null) {
                 return false;
             }
@@ -41,10 +41,12 @@ public class PscoutHandler extends AbstractHandler {
                     if (node instanceof MethodNode) {
                         //get name and args
                         MethodNode mn = (MethodNode) node;
-                        String key = mn.getKey();
-                        String permissionName = model.getCallPermissions(key);
-                        if (permissionName != null) {
-                            System.out.println(permissionName + "\t" + key);
+                        if(mn.isOnscope()){
+                            String key = mn.getKey();
+                            String permissionName = model.getCallPermissions(key);
+                            if (permissionName != null) {
+                                System.out.println(permissionName + "\t" + key);
+                            }
                         }
                     }
                 }

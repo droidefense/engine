@@ -1,13 +1,13 @@
 package droidefense.om.machine.inst;
 
-import apkr.external.modules.controlflow.model.map.base.AbstractFlowMap;
-import apkr.external.modules.controlflow.model.nodes.ConstStrNode;
-import apkr.external.modules.controlflow.model.nodes.FieldNode;
-import apkr.external.modules.controlflow.model.nodes.MethodNode;
-import apkr.external.modules.controlflow.model.nodes.NormalNode;
+import com.droidefense.map.base.AbstractFlowMap;
+import com.droidefense.nodes.ConstStrNode;
+import com.droidefense.nodes.FieldNode;
+import com.droidefense.nodes.MethodNode;
+import com.droidefense.nodes.NormalNode;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
-import droidefense.om.flow.NodeGenerator;
+import droidefense.om.flow.base.NodeGenerator;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.exceptions.VirtualMachineRuntimeException;

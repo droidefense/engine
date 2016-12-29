@@ -1,6 +1,5 @@
 package droidefense.analysis;
 
-import apkr.external.modules.helpers.enums.ProcessStatus;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
@@ -11,11 +10,6 @@ import droidefense.handler.WekaResultsHandler;
  */
 public final class MachineLearningAnalysis extends AbstractAndroidAnalysis {
 
-    public MachineLearningAnalysis() {
-        this.executionSuccessful = false;
-        this.status = ProcessStatus.STARTED;
-    }
-
     @Override
     protected boolean analyze() {
         Log.write(LoggerType.TRACE, "\n\n --- Running Droidefense ML analysis ---\n\n");
@@ -23,11 +17,9 @@ public final class MachineLearningAnalysis extends AbstractAndroidAnalysis {
         WekaResultsHandler handler = new WekaResultsHandler();
         handler.setApk(apkFile);
         handler.setProject(currentProject);
-        handler.doTheJob();
-
-        //stop timer
-        stop();
-        return true;
+        //TODO in-memory weka scan. do not generate features file
+        executionSuccessful = handler.doTheJob();
+        return executionSuccessful;
     }
 
     @Override

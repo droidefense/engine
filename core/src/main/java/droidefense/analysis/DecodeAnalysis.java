@@ -12,9 +12,6 @@ import java.util.ArrayList;
  */
 public final class DecodeAnalysis extends AbstractAndroidAnalysis {
 
-    public DecodeAnalysis() {
-    }
-
     @Override
     public boolean analyze() {
         Log.write(LoggerType.INFO, "In-memory .apk decoder...");

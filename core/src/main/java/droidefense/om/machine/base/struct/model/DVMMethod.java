@@ -137,6 +137,8 @@ public class DVMMethod implements IAtomMethod, Serializable {
     }
 
     public byte[] getByteCode() {
+        if(byteCode==null)
+            return new byte[0];
         return byteCode;
     }
 

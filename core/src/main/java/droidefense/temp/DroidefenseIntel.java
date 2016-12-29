@@ -1,9 +1,10 @@
 package droidefense.temp;
 
-import apkr.external.modules.controlflow.model.base.AbstractAtomNode;
+import com.droidefense.base.AbstractAtomNode;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
+import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.helpers.InternalConstant;
 
 import java.io.File;
@@ -36,7 +37,7 @@ public class DroidefenseIntel implements Serializable {
         //load a list of native jdk8 classes
         javaClassList = new HashSet<String>();
         try {
-            ObjectInputStream jdk8ObjectFile = FileIOHandler.getResourceObjectStream(InternalConstant.INTERNAL_DATA_FOLDER + File.separator + InternalConstant.JAVA_SDK_CLASS_HASHSET_NAME);
+            ObjectInputStream jdk8ObjectFile = FileIOHandler.getResourceObjectStream(DroidDefenseParams.getInstance().RESOURCE_FOLDER + File.separator + InternalConstant.JAVA_SDK_CLASS_HASHSET_NAME);
             javaClassList = (HashSet<String>) FileIOHandler.readAsRAW(jdk8ObjectFile);
             Log.write(LoggerType.TRACE, "Java whitelisted dataset length: " + javaClassList.size());
         } catch (IOException e) {
@@ -50,7 +51,7 @@ public class DroidefenseIntel implements Serializable {
         //load a list of native android sdk classes
         androidClassList = new HashSet<String>();
         try {
-            ObjectInputStream sdkFile = FileIOHandler.getResourceObjectStream(InternalConstant.INTERNAL_DATA_FOLDER + File.separator + InternalConstant.ANDROID_SDK_CLASS_HASHSET_NAME);
+            ObjectInputStream sdkFile = FileIOHandler.getResourceObjectStream(DroidDefenseParams.getInstance().RESOURCE_FOLDER + File.separator + InternalConstant.ANDROID_SDK_CLASS_HASHSET_NAME);
             androidClassList = (HashSet<String>) FileIOHandler.readAsRAW(sdkFile);
             Log.write(LoggerType.TRACE, "Android whitelisted dataset length: " + androidClassList.size());
         } catch (IOException e) {
@@ -64,7 +65,7 @@ public class DroidefenseIntel implements Serializable {
         //load a list of native android support sdk classes
         androidSupportClassList = new HashSet<String>();
         try {
-            ObjectInputStream supportFile = FileIOHandler.getResourceObjectStream(InternalConstant.INTERNAL_DATA_FOLDER + File.separator + InternalConstant.ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME);
+            ObjectInputStream supportFile = FileIOHandler.getResourceObjectStream(DroidDefenseParams.getInstance().RESOURCE_FOLDER + File.separator + InternalConstant.ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME);
             androidSupportClassList = (HashSet<String>) FileIOHandler.readAsRAW(supportFile);
             Log.write(LoggerType.TRACE, "Android support whitelisted dataset length: " + androidSupportClassList.size());
         } catch (IOException e) {

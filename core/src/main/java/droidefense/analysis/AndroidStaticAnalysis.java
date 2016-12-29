@@ -5,7 +5,6 @@ import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.exception.UnknownParserException;
 import droidefense.handler.ObjdumpHandler;
-import droidefense.sdk.model.base.ExecutionTimer;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.worker.base.AbstractFileParser;
 import droidefense.worker.base.ParserFactory;
@@ -17,13 +16,8 @@ import java.util.ArrayList;
  */
 public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
 
-    public AndroidStaticAnalysis() {
-        timeStamp = new ExecutionTimer();
-    }
-
     @Override
     public boolean analyze() {
-        executionSuccessful = false;
         Log.write(LoggerType.TRACE, "\n\n --- Running Android static analysis ---\n\n");
 
         AbstractFileParser parser;
@@ -92,7 +86,6 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
             Log.write(LoggerType.INFO, "[OK] Skipping resource analysis");
         }
 
-        this.timeStamp.stop();
         this.currentProject.setStaticAnalysisDone(true);
         return true;
     }

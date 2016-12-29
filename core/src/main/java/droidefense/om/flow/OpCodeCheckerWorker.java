@@ -8,7 +8,6 @@ import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
-import droidefense.om.machine.reader.DexClassReader;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
 import droidefense.temp.DroidefenseIntel;
@@ -64,7 +63,7 @@ public final strictfp class OpCodeCheckerWorker extends AbstractFlowWorker {
     @Override
     public IAtomClass[] getInitialDVMClass() {
         //only return developer class and skip known java jdk and android sdk classes
-        IAtomClass[] alllist = DexClassReader.getInstance().getAllClasses();
+        IAtomClass[] alllist = currentProject.getInternalInfo().getAllClasses();
         ArrayList<IAtomClass> developerClasses = new ArrayList<>();
         for (IAtomClass cls : alllist) {
             if (DroidefenseIntel.getInstance().isDeveloperClass(cls.getName()))

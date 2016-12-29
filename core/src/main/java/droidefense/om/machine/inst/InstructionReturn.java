@@ -1,6 +1,6 @@
 package droidefense.om.machine.inst;
 
-import apkr.external.modules.controlflow.model.base.AbstractAtomNode;
+import com.droidefense.base.AbstractAtomNode;
 import droidefense.om.machine.base.exceptions.VirtualMachineRuntimeException;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;

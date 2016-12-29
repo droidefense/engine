@@ -1,11 +1,11 @@
 package droidefense.sdk.model.base;
 
-import apkr.external.modules.controlflow.model.map.BasicCFGFlowMap;
-import apkr.external.modules.controlflow.model.map.base.AbstractFlowMap;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import apkr.external.modules.ml.MachineLearningResult;
-import apkr.external.modules.rulengine.Rule;
+import com.droidefense.map.BasicCFGFlowMap;
+import com.droidefense.map.base.AbstractFlowMap;
+import com.droidefense.rulengine.Rule;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
@@ -15,6 +15,7 @@ import droidefense.mod.vfs.model.impl.VirtualFileSystem;
 import droidefense.mod.vfs.model.impl.VirtualFolder;
 import droidefense.om.helper.DexFileStatistics;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.base.struct.model.SharedPool;
 import droidefense.om.machine.reader.DexHeaderReader;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.AbstractStaticPlugin;
@@ -31,7 +32,7 @@ import droidefense.sdk.model.enums.SDK_VERSION;
 import droidefense.sdk.model.holder.DynamicInfo;
 import droidefense.sdk.model.holder.InternalInfo;
 import droidefense.sdk.model.holder.StaticInfo;
-import droidefense.sdk.model.holder.StringAnalysisResultModel;
+import droidefense.sdk.model.holder.StringInfo;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.sdk.model.manifest.Manifest;
@@ -121,7 +122,7 @@ public final class DroidefenseProject implements Serializable {
     /**
      * Result of opcode data
      */
-    private transient OpcodeInformation opcodeInfo;
+    private OpcodeInformation opcodeInfo;
 
     /**
      * Natural language summary section
@@ -133,15 +134,16 @@ public final class DroidefenseProject implements Serializable {
     private transient AbstractFlowMap reflectedFlowMap;
     private transient AbstractFlowMap multiFlowMap;
     private transient AbstractFlowMap followCallsMap;
+
     private MachineLearningResult machineLearningResult;
-    private transient boolean headerReaded;
+    private boolean headerReaded;
     private boolean correctUnpacked;
     private boolean correctDecoded;
     private boolean staticAnalysisDone;
     private boolean dynamicAnalysisDone;
-    private DexHeaderReader dexHeaderReader;
+    private transient DexHeaderReader dexHeaderReader;
     private IAtomClass[] dynamicEntryPoints;
-    private HashMap<String, IAtomClass> classMap;
+    private transient HashMap<String, IAtomClass> classMap;
     //private transient DexHeaderReader dexHeaderReader;
 
     public DroidefenseProject(final LocalApkFile file) {
@@ -162,6 +164,10 @@ public final class DroidefenseProject implements Serializable {
         vfs = new VirtualFileSystem();
         //save apk reference
         sourceFile = file;
+
+        //init enums
+        this.overallResult = OverallResultEnum.UNKNOWN;
+        this.malwareResult = MalwareResultEnum.UNKNOWN;
 
         this.classMap = new HashMap<>();
 
@@ -356,8 +362,8 @@ public final class DroidefenseProject implements Serializable {
     public void addDexClass(String name, IAtomClass newClass) {
     }
 
-    public IAtomClass[] getListClasses() {
-        //return this.internalInfo.getListClasses();
+    public IAtomClass[] getAllClasses() {
+        //return this.internalInfo.getAllClasses();
         return new IAtomClass[0];
     }
     */
@@ -446,11 +452,6 @@ public final class DroidefenseProject implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void generateEnumResults() {
-        this.overallResult = OverallResultEnum.UNKNOWN;
-        this.malwareResult = MalwareResultEnum.UNKNOWN;
     }
 
     public void setInstructionCount(int total) {
@@ -550,7 +551,7 @@ public final class DroidefenseProject implements Serializable {
         this.dynamicInfo.setMatchedRules(matchedRules);
     }
 
-    public void setStringAnalysisResult(StringAnalysisResultModel stringContent) {
+    public void setStringAnalysisResult(StringInfo stringContent) {
         this.dynamicInfo.setStringAnalysisResult(stringContent);
     }
 
@@ -571,14 +572,16 @@ public final class DroidefenseProject implements Serializable {
 
     public void setMachineLearningResult(MachineLearningResult machineLearningResult) {
         this.machineLearningResult = machineLearningResult;
+        if(this.machineLearningResult.getRatio()>0.7){
+            this.malwareResult = MalwareResultEnum.MALWARE;
+        }
+        else{
+            this.malwareResult = MalwareResultEnum.GOODWARE;
+        }
     }
 
     public void finish() {
         Log.write(LoggerType.TRACE, "Droidefense project finished");
-
-        Log.write(LoggerType.TRACE, "Generating scan results...");
-
-        this.generateEnumResults();
 
         Log.write(LoggerType.TRACE, "Generating natural description...");
 
@@ -598,10 +601,10 @@ public final class DroidefenseProject implements Serializable {
         this.updateMetadata();
 
         //save info as jsons
-        //this.save();
+        this.save();
 
         //save report as java object
-        //FileIOHandler.saveProjectReport(this);
+        FileIOHandler.saveProjectReport(this);
 
         Log.write(LoggerType.TRACE, "Sample analysis done.");
     }
@@ -820,5 +823,9 @@ public final class DroidefenseProject implements Serializable {
 
     public void addDexClass(String name, IAtomClass newClass) {
         this.classMap.put(name, newClass);
+    }
+
+    public void setPool(SharedPool pool) {
+        this.internalInfo.setPool(pool);
     }
 }

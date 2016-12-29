@@ -3,9 +3,8 @@ package external.plugins.collection.dynmc;
 import droidefense.handler.FileIOHandler;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.helpers.Util;
-import droidefense.sdk.model.holder.StringAnalysisResultModel;
+import droidefense.sdk.model.holder.StringInfo;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -15,14 +14,14 @@ import java.util.HashMap;
 public class StringAnalyzerPlugin extends AbstractDynamicPlugin {
 
     private static HashMap<String, Integer> methodNames;
-    private transient final StringAnalysisResultModel stringContent;
+    private transient final StringInfo stringContent;
     private transient String[] baseList;
 
     public StringAnalyzerPlugin() {
-        stringContent = new StringAnalysisResultModel();
+        stringContent = new StringInfo();
         if (methodNames == null) {
             try {
-                methodNames = (HashMap<String, Integer>) FileIOHandler.readAsRAW(FileIOHandler.getResourceFolder("internal_temp" + File.separator + "method-names-weighted.map"));
+                methodNames = (HashMap<String, Integer>) FileIOHandler.readAsRAW(FileIOHandler.getResourceFolder("method-names-weighted.map"));
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {

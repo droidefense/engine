@@ -23,7 +23,7 @@ public class SignatureModelLoader implements Serializable {
 
         try {
             InputStream csvFile = FileIOHandler.getApkrFileInputStream(
-                    InternalConstant.INTERNAL_DATA_FOLDER
+                    DroidDefenseParams.getInstance().RESOURCE_FOLDER
                             + File.separator
                             + DroidDefenseParams.getInstance().SIGNATURE_FILE
             );

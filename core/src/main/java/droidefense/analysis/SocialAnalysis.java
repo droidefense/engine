@@ -9,14 +9,11 @@ import droidefense.analysis.base.AbstractAndroidAnalysis;
  */
 public final class SocialAnalysis extends AbstractAndroidAnalysis {
 
-    public SocialAnalysis() {
-    }
-
     @Override
     public boolean analyze() {
         Log.write(LoggerType.TRACE, "\n\n --- Running social analysis ---\n\n");
-        this.timeStamp.stop();
-        return false;
+        executionSuccessful = false;
+        return executionSuccessful;
     }
 
     @Override

@@ -30,7 +30,10 @@ public class SSDeep {
     public static String generateSSDeep(final byte[] data) {
         SSDeep ssDeep = new SSDeep();
         SSDeepHash a;
-        return ssDeep.generateHash(data).toString();
+        SSDeepHash hash = ssDeep.generateHash(data);
+        if(hash!=null)
+            return hash.toString();
+        return "ssdeep-unknown";
     }
 
     /**
@@ -91,12 +94,18 @@ public class SSDeep {
      * @return The SSDeep hash of the byte array.
      */
     public SSDeepHash generateHash(final byte[] buf) {
-        final SSDeepContext ctx = new SSDeepContext(buf);
-        do {
-            ctx.digest(buf);
-        } while (!ctx.isFinished());
+        try{
+            final SSDeepContext ctx = new SSDeepContext(buf);
+            do {
+                ctx.digest(buf);
+            } while (!ctx.isFinished());
 
-        return ctx.generateHash();
+            return ctx.generateHash();
+        }
+        catch (Exception e){
+            System.err.println(e.getLocalizedMessage());
+        }
+        return null;
     }
 
     static private class RollState {

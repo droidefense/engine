@@ -20,8 +20,8 @@ public class DexHeaderReader implements Serializable {
     /**
      * Dex file byte content
      */
-    private byte[] dexFileContent;
-    private DexOperator operator;
+    private transient byte[] dexFileContent;
+    private transient DexOperator operator;
     private DalvikDexModel dexModel;
 
     public DexHeaderReader(byte[] dexFileContent, DroidefenseProject currentProject) {

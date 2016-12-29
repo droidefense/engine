@@ -1,6 +1,5 @@
 package droidefense.analysis;
 
-import apkr.external.modules.helpers.enums.ProcessStatus;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
@@ -16,11 +15,6 @@ import java.util.ArrayList;
  */
 public final class AndroidDynamicAnalysis extends AbstractAndroidAnalysis {
 
-    public AndroidDynamicAnalysis() {
-        this.executionSuccessful = false;
-        this.status = ProcessStatus.STARTED;
-    }
-
     @Override
     protected boolean analyze() {
 
@@ -31,16 +25,13 @@ public final class AndroidDynamicAnalysis extends AbstractAndroidAnalysis {
 
         //run dex file statistics handler
         AbstractHandler handler = new DexStatsHandler(currentProject, list);
-        handler.doTheJob();
+        executionSuccessful &= handler.doTheJob();
 
         //execute selected controlflow
         handler = new VMWorkersHandler(currentProject, list);
-        handler.doTheJob();
-
-        //stop timer
-        stop();
+        executionSuccessful &= handler.doTheJob();
         this.currentProject.setDynamicAnalysisDone(true);
-        return true;
+        return executionSuccessful;
     }
 
     @Override

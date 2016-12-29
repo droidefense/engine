@@ -2,10 +2,12 @@ package droidefense.sdk.model.holder;
 
 import droidefense.sdk.model.enums.SDK_VERSION;
 
+import java.io.Serializable;
+
 /**
  * Created by .local on 05/11/2016.
  */
-public class SDKCompatibility {
+public class SDKCompatibility implements Serializable{
 
     private SDK_VERSION minimum;
     private SDK_VERSION maximum;

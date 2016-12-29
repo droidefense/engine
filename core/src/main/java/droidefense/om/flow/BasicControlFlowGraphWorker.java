@@ -1,8 +1,8 @@
 package droidefense.om.flow;
 
 
-import apkr.external.modules.controlflow.model.map.BasicCFGFlowMap;
-import apkr.external.modules.controlflow.model.nodes.EntryPointNode;
+import com.droidefense.map.BasicCFGFlowMap;
+import com.droidefense.nodes.EntryPointNode;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
@@ -16,7 +16,6 @@ import droidefense.om.machine.base.struct.generic.IAtomFrame;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
-import droidefense.om.machine.reader.DexClassReader;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
 import droidefense.temp.DroidefenseIntel;
@@ -89,7 +88,7 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
     @Override
     public IAtomClass[] getInitialDVMClass() {
         //only return developer class and skip known java jdk and android sdk classes
-        IAtomClass[] alllist = DexClassReader.getInstance().getAllClasses();
+        IAtomClass[] alllist = currentProject.getInternalInfo().getAllClasses();
         ArrayList<IAtomClass> developerClasses = new ArrayList<>();
         for (IAtomClass cls : alllist) {
             if (DroidefenseIntel.getInstance().isDeveloperClass(cls.getName())

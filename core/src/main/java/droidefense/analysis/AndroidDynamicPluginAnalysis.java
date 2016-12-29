@@ -9,7 +9,6 @@ import droidefense.handler.base.DirScannerFilter;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.model.base.ExecutionTimer;
 import droidefense.sdk.model.io.AbstractHashedFile;
 
 import java.io.File;
@@ -20,15 +19,10 @@ import java.util.ArrayList;
  */
 public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis {
 
-    public transient static final String PLUGIN_PACKAGE_NAME = "droidefense.droidefense.om.plugins.collection.dynamicscan.";
-
-    public AndroidDynamicPluginAnalysis() {
-        timeStamp = new ExecutionTimer();
-    }
+    public transient static final String PLUGIN_PACKAGE_NAME = "external.plugins.collection.dynmc.";
 
     @Override
     public boolean analyze() {
-        executionSuccessful = false;
         //set current currentProject
         currentProject = DroidefenseProject.getProject(apkFile);
         Log.write(LoggerType.TRACE, "\n\n --- Running Droidefense dynamic plugin analysis ---\n\n");
@@ -47,7 +41,7 @@ public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis 
                 String pluginName = plugin.getName();
                 if (pluginName.endsWith(InternalConstant.COMPILED_JAVA_EXTENSION)) {
                     Log.write(LoggerType.TRACE, plugin.getAbsolutePath());
-                    Class aClass = null;
+                    Class aClass;
                     try {
                         ClassLoader classLoader = this.getClass().getClassLoader();
                         aClass = classLoader.loadClass(PLUGIN_PACKAGE_NAME + pluginName.replace(".class", ""));
@@ -63,6 +57,7 @@ public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis 
 
                         //add result to currentProject
                         currentProject.addDynamicPlugin(pluginDynamic);
+                        executionSuccessful &= true;
                     } catch (ClassNotFoundException e) {
                         e.printStackTrace();
                         addError(e);
@@ -82,10 +77,11 @@ public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis 
                 }
             }
         }
+        else{
+            Log.write(LoggerType.ERROR, "Dynamic plugin folder not found");
+            executionSuccessful = false;
+        }
         Log.write(LoggerType.TRACE, "\n--- RUNNING PLUGINS (DONE)---\n");
-        //stop timer
-        stop();
-        executionSuccessful = true;
         return executionSuccessful;
     }
 

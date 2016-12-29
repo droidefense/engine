@@ -28,6 +28,8 @@ public abstract class AbstractAndroidAnalysis implements Serializable {
 
     public AbstractAndroidAnalysis() {
         errorList = new ArrayList<>();
+        this.status = ProcessStatus.STARTED;
+        this.executionSuccessful = true;
     }
 
     public boolean analyzeCode() {
@@ -36,11 +38,17 @@ public abstract class AbstractAndroidAnalysis implements Serializable {
         name = getName();
 
         status = ProcessStatus.STARTED;
+        executionSuccessful = runAnalysis();
+        return executionSuccessful;
+    }
+
+    public boolean runAnalysis(){
         start();
         status = ProcessStatus.EXECUTING;
-        executionSuccessful = analyze();
+        boolean result = analyze();
         status = ProcessStatus.FINISHED;
-        return executionSuccessful;
+        stop();
+        return result;
     }
 
     public boolean noErrors() {

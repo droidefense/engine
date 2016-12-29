@@ -1,18 +1,16 @@
 package droidefense.sdk.model.holder;
 
-import java.io.Serializable;
 import java.util.HashMap;
 
 /**
- * Created by sergio on 7/6/16.
+ * Created by .local on 23/11/2016.
  */
-public class StringInfo implements Serializable {
-
-    private HashMap<String, String> classified;
-
+public class StringInfo {
     private int initialLength;
-    private boolean ofuscated;
+    private HashMap<String, String> classified;
     private int irrelevant;
+    private int numeric;
+    private int methodName;
     private int classname;
     private int javaName;
     private int innerclass;
@@ -20,6 +18,7 @@ public class StringInfo implements Serializable {
     private int param;
     private int hexstring;
     private int word;
+    private int sentences;
     private int underword;
     private int separatorWord;
     private int ipv4;
@@ -27,14 +26,9 @@ public class StringInfo implements Serializable {
     private int ipv6;
     private int email;
     private int url;
-    private int unknown;
-    private int numeric;
     private int ofuscatedString;
-    private int sentences;
-    private int methodName;
-
-    public StringInfo() {
-    }
+    private int unknown;
+    private boolean ofuscated;
 
     public int getInitialLength() {
         return initialLength;
@@ -44,20 +38,12 @@ public class StringInfo implements Serializable {
         this.initialLength = initialLength;
     }
 
-    public HashMap<String, String> getClassified() {
+    public HashMap getClassified() {
         return classified;
     }
 
-    public void setClassified(HashMap<String, String> classified) {
+    public void setClassified(HashMap classified) {
         this.classified = classified;
-    }
-
-    public boolean isOfuscated() {
-        return ofuscated;
-    }
-
-    public void setOfuscated(boolean ofuscated) {
-        this.ofuscated = ofuscated;
     }
 
     public int getIrrelevant() {
@@ -66,6 +52,22 @@ public class StringInfo implements Serializable {
 
     public void setIrrelevant(int irrelevant) {
         this.irrelevant = irrelevant;
+    }
+
+    public int getNumeric() {
+        return numeric;
+    }
+
+    public void setNumeric(int numeric) {
+        this.numeric = numeric;
+    }
+
+    public int getMethodName() {
+        return methodName;
+    }
+
+    public void setMethodName(int methodName) {
+        this.methodName = methodName;
     }
 
     public int getClassname() {
@@ -124,6 +126,14 @@ public class StringInfo implements Serializable {
         this.word = word;
     }
 
+    public int getSentences() {
+        return sentences;
+    }
+
+    public void setSentences(int sentences) {
+        this.sentences = sentences;
+    }
+
     public int getUnderword() {
         return underword;
     }
@@ -180,22 +190,6 @@ public class StringInfo implements Serializable {
         this.url = url;
     }
 
-    public int getUnknown() {
-        return unknown;
-    }
-
-    public void setUnknown(int unknown) {
-        this.unknown = unknown;
-    }
-
-    public int getNumeric() {
-        return numeric;
-    }
-
-    public void setNumeric(int numeric) {
-        this.numeric = numeric;
-    }
-
     public int getOfuscatedString() {
         return ofuscatedString;
     }
@@ -204,19 +198,19 @@ public class StringInfo implements Serializable {
         this.ofuscatedString = ofuscatedString;
     }
 
-    public int getSentences() {
-        return sentences;
+    public int getUnknown() {
+        return unknown;
     }
 
-    public void setSentences(int sentences) {
-        this.sentences = sentences;
+    public void setUnknown(int unknown) {
+        this.unknown = unknown;
     }
 
-    public int getMethodName() {
-        return methodName;
+    public boolean isOfuscated() {
+        return ofuscated;
     }
 
-    public void setMethodName(int methodName) {
-        this.methodName = methodName;
+    public void setOfuscated(boolean ofuscated) {
+        this.ofuscated = ofuscated;
     }
 }

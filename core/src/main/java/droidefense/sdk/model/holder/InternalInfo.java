@@ -1,49 +1,47 @@
 package droidefense.sdk.model.holder;
 
 import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.base.struct.model.SharedPool;
 import droidefense.om.machine.reader.DexClassReader;
-import droidefense.sdk.model.dex.DalvikDexModel;
 import droidefense.sdk.model.manifest.base.AbstractManifestClass;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
 
 /**
  * Created by sergio on 18/2/16.
  */
 public class InternalInfo implements Serializable {
 
-
-    private final ArrayList<DalvikDexModel> dexContentList;
-    private final Hashtable dexClasses;
-
     //entry points
-    private transient ArrayList<AbstractManifestClass> entryPoints;
+    private ArrayList<AbstractManifestClass> entryPoints;
     private transient IAtomClass[] dynamicEntryPoints;
+    private SharedPool dexContentList;
 
     public InternalInfo() {
         //init data structures
-        dexClasses = new Hashtable<>();
         entryPoints = new ArrayList<>();
-        dexContentList = new ArrayList<>();
     }
 
     public void addClass(String name, IAtomClass newClass) {
-        this.dexClasses.put(name, newClass);
+        this.dexContentList.addClass(name, newClass);
     }
 
 
-    public IAtomClass[] getListClasses() {
-        Collection<IAtomClass> data = this.dexClasses.values();
+    public IAtomClass[] getAllClasses() {
+        Collection<IAtomClass> data = this.dexContentList.getClasses().values();
         return data.toArray(new IAtomClass[data.size()]);
     }
 
     public boolean hasDexClass(String name) {
-        return dexClasses.containsKey(name);
+        return this.dexContentList.getClasses().containsKey(name);
     }
 
     public IAtomClass getDexClass(String name) {
-        return (IAtomClass) dexClasses.get(name);
+        return (IAtomClass) this.dexContentList.getClasses().get(name);
     }
 
     public void addDexInfo(DexClassReader dexClassReader) {
@@ -81,5 +79,13 @@ public class InternalInfo implements Serializable {
 
     public void setEntryPoints(ArrayList<AbstractManifestClass> entryArray) {
         this.entryPoints = entryArray;
+    }
+
+    public void setPool(SharedPool pool) {
+        this.dexContentList = pool;
+    }
+
+    public SharedPool getPool() {
+        return dexContentList;
     }
 }

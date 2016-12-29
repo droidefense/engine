@@ -1,12 +1,11 @@
 package droidefense.om.flow.base;
 
-import apkr.external.modules.controlflow.model.NodeConnection;
-import apkr.external.modules.controlflow.model.base.AbstractAtomNode;
-import apkr.external.modules.controlflow.model.map.base.AbstractFlowMap;
-import apkr.external.modules.controlflow.model.nodes.FieldNode;
-import apkr.external.modules.controlflow.model.nodes.MethodNode;
-import apkr.external.modules.controlflow.model.nodes.NormalNode;
-import droidefense.om.flow.NodeGenerator;
+import com.droidefense.NodeConnection;
+import com.droidefense.base.AbstractAtomNode;
+import com.droidefense.map.base.AbstractFlowMap;
+import com.droidefense.nodes.FieldNode;
+import com.droidefense.nodes.MethodNode;
+import com.droidefense.nodes.NormalNode;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.struct.generic.IAtomField;

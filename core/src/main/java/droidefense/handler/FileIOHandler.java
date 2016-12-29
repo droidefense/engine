@@ -34,7 +34,10 @@ public class FileIOHandler {
     }
 
     public static InputStream getApkrFileInputStream(String name) throws FileNotFoundException {
-        return new FileInputStream(DroidDefenseParams.getInstance().RESOURCE_FOLDER + File.separator + name);
+        if(!name.contains(File.separator))
+            return new FileInputStream(DroidDefenseParams.getInstance().RESOURCE_FOLDER + File.separator + name);
+        else
+            return new FileInputStream(name);
     }
 
     public static File getResourceFolder() {
@@ -153,6 +156,7 @@ public class FileIOHandler {
         //save call graph as dot format
         name = "normal-graphviz" + ".dot";
         data = project.getNormalControlFlowMap().getAsDotGraph();
+        data = cleanDot(data);
         boolean savedNormalDot = saveFile(name, outputPath, data, "Could not save .dot normal flowmap");
 
         //save call graph as .json
@@ -166,6 +170,7 @@ public class FileIOHandler {
         //save call graph as dot format
         name = "reflected-graphviz" + ".dot";
         data = project.getReflectedFlowMap().getAsDotGraph();
+        data = cleanDot(data);
         boolean savedReflectedDot = saveFile(name, outputPath, data, "Could not save .dot reflected flowmap");
 
         //save call graph as .json
@@ -179,6 +184,7 @@ public class FileIOHandler {
         //save call graph as dot format
         name = "follow-graphviz" + ".dot";
         data = project.getFollowCallsMap().getAsDotGraph();
+        data = cleanDot(data);
         boolean followDot = saveFile(name, outputPath, data, "Could not save .dot follow flowmap");
 
         //save call graph as .json
@@ -193,6 +199,12 @@ public class FileIOHandler {
         data = project.getProjectAsJson();
         boolean savedReport = saveFile(name, outputPath, data, "Could not save .json report");
 
+    }
+
+    private static String cleanDot(String data) {
+        data = data.replace("new <init>", "new()");
+        data = data.replace("new <clinit>", "new()");
+        return data;
     }
 
     private static boolean saveFile(String name, String outpath, String data, String msg) {
@@ -251,11 +263,19 @@ public class FileIOHandler {
 
     public static void saveFile(File f, byte[] data) {
         try {
+            createParentFolder(f);
             FileOutputStream fos = new FileOutputStream(f);
             fos.write(data);
             fos.close();
         } catch (IOException ioe) {
             ioe.printStackTrace();
+        }
+    }
+
+    private static void createParentFolder(File f) {
+        File parent = f.getParentFile();
+        if(!parent.exists()){
+            parent.mkdirs();
         }
     }
 

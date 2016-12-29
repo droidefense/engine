@@ -1,10 +1,10 @@
 package droidefense.analysis;
 
-import apkr.external.modules.controlflow.model.map.BasicCFGFlowMap;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
-import apkr.external.modules.rulengine.Rule;
-import apkr.external.modules.rulengine.RuleEngine;
+import com.droidefense.map.BasicCFGFlowMap;
+import com.droidefense.rulengine.Rule;
+import com.droidefense.rulengine.RuleEngine;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.FileIOHandler;
 
@@ -24,7 +24,6 @@ public final class RuleAnalysis extends AbstractAndroidAnalysis {
     @Override
     public boolean analyze() {
         Log.write(LoggerType.TRACE, "\n\n --- Running Droidefense rule droidefense.droidefense.om analysis ---\n\n");
-        executionSuccessful = false;
         log("loading droidefense.droidefense.om rules", 0);
         log("Current rules: " + engine.getRuleCount(), 1);
         log("Preparing to scan...", 1);
@@ -32,22 +31,22 @@ public final class RuleAnalysis extends AbstractAndroidAnalysis {
         if (flowmap != null) {
             log("Scanning...", 2);
             engine.analyzeFlow(flowmap);
+            log("Collecting results...", 1);
+            printMatchedRules(engine.getMatchedRules());
+            currentProject.setMatchedRules(engine.getMatchedRules());
+            log("Rule scan done", 1);
+            executionSuccessful = engine!=null && engine.getRuleCount() > 0;
         } else {
             log("Scan aborted: no flowmap information", 2);
+            executionSuccessful = false;
         }
-        log("Collecting results...", 1);
-        printMatchedRules(engine.getMatchedRules());
-        currentProject.setMatchedRules(engine.getMatchedRules());
-        log("Rule scan done", 1);
-        this.stop();
-        executionSuccessful = true;
         return executionSuccessful;
     }
 
     private void printMatchedRules(ArrayList<Rule> matchedRules) {
         if (matchedRules != null && !matchedRules.isEmpty()) {
             for (Rule r : matchedRules) {
-                Log.write(LoggerType.INFO, "Matched rule: " + r.getName());
+                Log.write(LoggerType.INFO, "Matched rule: " + r.getDesc());
             }
         }
     }

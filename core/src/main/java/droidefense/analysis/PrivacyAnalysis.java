@@ -201,6 +201,7 @@ public class PrivacyAnalysis extends AbstractAndroidAnalysis {
     private int interestingCount;
 
     public PrivacyAnalysis() {
+        super();
         this.risk = 0;
         this.comms = 0;
         this.usesPermissionsList = new ArrayList<>();
@@ -315,6 +316,7 @@ public class PrivacyAnalysis extends AbstractAndroidAnalysis {
         } else {
             this.risk = 0.0;
         }
+        this.executionSuccessful = true;
 
         log("Total permissions detected: " + interestingCount, 1);
 
@@ -325,11 +327,7 @@ public class PrivacyAnalysis extends AbstractAndroidAnalysis {
 
         //set result to project
         currentProject.setPrivacyResult(getPrivacyResult());
-
-        this.executionSuccessful = (risk == 0.0);
-        //stop timer
-        timeStamp.stop();
-        return this.executionSuccessful;
+        return executionSuccessful;
     }
 
     @Override

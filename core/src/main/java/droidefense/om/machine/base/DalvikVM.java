@@ -12,6 +12,7 @@ import droidefense.om.machine.base.struct.fake.DVMTaintClass;
 import droidefense.om.machine.base.struct.fake.EncapsulatedClass;
 import droidefense.om.machine.base.struct.generic.*;
 import droidefense.om.machine.reader.DexClassReader;
+import droidefense.om.machine.reader.DexClassReader2;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
 
@@ -27,7 +28,7 @@ public class DalvikVM extends AbstractVirtualMachine {
     private static final int TIMEOUT_THRESHOLD = 500000;
     private static final int TIME_ZERO = 0;
     private static final int TIME_MAX = 999999;
-    private final DexClassReader systemClassLoader;
+    private final DexClassReader2 systemClassLoader;
     private Object[] lastMethodArgs;
 
     /**
@@ -49,7 +50,7 @@ public class DalvikVM extends AbstractVirtualMachine {
     public DalvikVM(String mainClassName, String[] argument, DroidefenseProject project) {
         super(mainClassName, argument, project);
         DexClassReader.init(this, project);
-        systemClassLoader = DexClassReader.getInstance();
+        systemClassLoader = DexClassReader2.getInstance();
     }
 
     /**
@@ -61,7 +62,8 @@ public class DalvikVM extends AbstractVirtualMachine {
     public DalvikVM(String mainClassName, DroidefenseProject project) {
         super(mainClassName, null, project);
         DexClassReader.init(this, project);
-        systemClassLoader = DexClassReader.getInstance();
+        DexClassReader2.init(this, project);
+        systemClassLoader = DexClassReader2.getInstance();
     }
 
     public void load(AbstractHashedFile dex, byte[] bytes, boolean multidex) {
@@ -205,7 +207,7 @@ public class DalvikVM extends AbstractVirtualMachine {
         throw new ChangeThreadRuntimeException();
     }
 
-    public DexClassReader getSystemClassLoader() {
+    public DexClassReader2 getSystemClassLoader() {
         return systemClassLoader;
     }
 

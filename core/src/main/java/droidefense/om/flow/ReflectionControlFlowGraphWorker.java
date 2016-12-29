@@ -1,10 +1,10 @@
 package droidefense.om.flow;
 
 import apkr.external.module.entropy.EntropyCalculator;
-import apkr.external.modules.controlflow.model.map.BasicCFGFlowMap;
-import apkr.external.modules.controlflow.model.nodes.EntryPointNode;
-import apkr.external.modules.controlflow.model.nodes.FieldNode;
-import apkr.external.modules.controlflow.model.nodes.MethodNode;
+import com.droidefense.map.BasicCFGFlowMap;
+import com.droidefense.nodes.EntryPointNode;
+import com.droidefense.nodes.FieldNode;
+import com.droidefense.nodes.MethodNode;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
@@ -96,7 +96,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
     @Override
     public IAtomClass[] getInitialDVMClass() {
         //only return developer class and skip known java jdk and android sdk classes
-        IAtomClass[] alllist = DexClassReader.getInstance().getAllClasses();
+        IAtomClass[] alllist = currentProject.getInternalInfo().getAllClasses();
         ArrayList<IAtomClass> developerClasses = new ArrayList<>();
         for (IAtomClass cls : alllist) {
             if (DroidefenseIntel.getInstance().isDeveloperClass(cls.getName())

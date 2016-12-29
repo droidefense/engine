@@ -1,8 +1,8 @@
 package droidefense.om.flow;
 
-import apkr.external.modules.controlflow.model.map.BasicCFGFlowMap;
-import apkr.external.modules.controlflow.model.nodes.ConditionalNode;
-import apkr.external.modules.controlflow.model.nodes.EntryPointNode;
+import com.droidefense.map.BasicCFGFlowMap;
+import com.droidefense.nodes.ConditionalNode;
+import com.droidefense.nodes.EntryPointNode;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.om.flow.base.AbstractFlowWorker;
@@ -80,10 +80,10 @@ public final strictfp class MultiFlowWorker extends AbstractFlowWorker {
     public IAtomClass[] getInitialDVMClass() {
         //get all
         if (currentProject.hasMainClass())
-            return new IAtomClass[]{DexClassReader.getInstance().load(currentProject.getMainClassName())};
+            return new IAtomClass[]{currentProject.getInternalInfo().getDexClass(currentProject.getMainClassName())};
         else {
             //else, return all reveivers, services,...
-            IAtomClass[] alllist = DexClassReader.getInstance().getAllClasses();
+            IAtomClass[] alllist = currentProject.getInternalInfo().getAllClasses();
             ArrayList<IAtomClass> developerClasses = new ArrayList<>();
             for (IAtomClass cls : alllist) {
                 if (DroidefenseIntel.getInstance().isDeveloperClass(cls.getName()))

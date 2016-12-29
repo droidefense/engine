@@ -1,6 +1,5 @@
 package droidefense.analysis;
 
-import apkr.external.modules.helpers.enums.ProcessStatus;
 import apkr.external.modules.helpers.log4j.Log;
 import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
@@ -12,11 +11,6 @@ import droidefense.om.handlers.PscoutHandler;
  */
 public final class PScoutAnalysis extends AbstractAndroidAnalysis {
 
-    public PScoutAnalysis() {
-        this.executionSuccessful = false;
-        this.status = ProcessStatus.STARTED;
-    }
-
     @Override
     protected boolean analyze() {
 
@@ -25,11 +19,11 @@ public final class PScoutAnalysis extends AbstractAndroidAnalysis {
 
         //run pscout apimodel
         handler = new PscoutHandler(currentProject, currentProject.getNormalControlFlowMap().getNodeList());
-        handler.doTheJob();
+        executionSuccessful = handler.doTheJob();
 
         //stop timer
         stop();
-        return true;
+        return executionSuccessful;
     }
 
     @Override

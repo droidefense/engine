@@ -36,6 +36,11 @@ public final class ExecutionTimer implements Serializable {
         }
     }
 
+    public void forceStart() {
+        this.start = System.currentTimeMillis();
+        this.started = true;
+    }
+
     public void stop() {
         this.end = System.currentTimeMillis();
         getDuration();

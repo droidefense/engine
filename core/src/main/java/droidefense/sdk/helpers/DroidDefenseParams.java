@@ -15,7 +15,6 @@ import java.io.Serializable;
  */
 public class DroidDefenseParams implements Serializable {
 
-    public static final String SUPERCLASS = "Object";
     private final static String CONFIG_PROPERTIES = "config.json";
     private static DroidDefenseParams instance = new DroidDefenseParams();
 

@@ -1,7 +1,6 @@
 package droidefense.sdk.model.holder;
 
-
-import apkr.external.modules.rulengine.Rule;
+import com.droidefense.rulengine.Rule;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class DynamicInfo implements Serializable {
     /**
      * Classified strings and counters
      */
-    private StringAnalysisResultModel stringAnalysisResult;
+    private StringInfo stringAnalysisResult;
 
     public ArrayList<Rule> getMatchedRules() {
         return matchedRules;
@@ -29,11 +28,11 @@ public class DynamicInfo implements Serializable {
         this.matchedRules = matchedRules;
     }
 
-    public StringAnalysisResultModel getStringAnalysisResult() {
+    public StringInfo getStringAnalysisResult() {
         return stringAnalysisResult;
     }
 
-    public void setStringAnalysisResult(StringAnalysisResultModel stringAnalysisResult) {
+    public void setStringAnalysisResult(StringInfo stringAnalysisResult) {
         this.stringAnalysisResult = stringAnalysisResult;
     }
 }

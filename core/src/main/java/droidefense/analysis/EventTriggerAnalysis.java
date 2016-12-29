@@ -7,12 +7,10 @@ import droidefense.analysis.base.AbstractAndroidAnalysis;
  */
 public class EventTriggerAnalysis extends AbstractAndroidAnalysis {
 
-    public EventTriggerAnalysis() {
-    }
-
     @Override
     protected boolean analyze() {
-        return false;
+        executionSuccessful = false;
+        return executionSuccessful;
     }
 
 

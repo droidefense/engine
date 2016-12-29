@@ -1,7 +1,10 @@
 package droidefense.om.machine.base.struct.model;
 
+import droidefense.om.machine.base.struct.generic.IAtomClass;
+
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 
 /**
@@ -9,10 +12,10 @@ import java.util.Map;
  */
 public class SharedPool implements Serializable {
 
-
     private static SharedPool instance = new SharedPool();
 
-    private final Map<String, String> classNames;
+    private final transient Map<String, String> classNames;
+    private final transient Hashtable<String, IAtomClass> classes = new Hashtable<>();
     private String[] strings;
     private String[] types;
     private String[] descriptors;
@@ -31,6 +34,11 @@ public class SharedPool implements Serializable {
         return instance;
     }
 
+    public void addClass(IAtomClass cls){
+        if(cls!=null){
+            this.classes.put(cls.getName(), cls);
+        }
+    }
     public static void setInstance(SharedPool instance) {
         SharedPool.instance = instance;
     }
@@ -116,6 +124,14 @@ public class SharedPool implements Serializable {
 
     public String getClassName(String data) {
         return classNames.get(data);
+    }
+
+    public Hashtable<String, IAtomClass> getClasses() {
+        return classes;
+    }
+
+    public void addClass(String name, IAtomClass cls) {
+        this.classes.put(name, cls);
     }
 }
 
