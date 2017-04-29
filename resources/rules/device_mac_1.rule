@@ -1,0 +1,6 @@
+#description: This application reads your device's MAC address;
+#author: @zerjioang;
+#date: 29/12/2016;
+#family: Device;
+#variant: info;
+#rule: Object.ANY > android/net/wifi/WifiInfo.getMacAddress;

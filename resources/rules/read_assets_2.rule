@@ -1,0 +1,6 @@
+#description: Open a stream to access assets resources;
+#author: @zerjioang;
+#date: 29/12/2016;
+#family: Generic;
+#variant: Profiling;
+#rule: Object.onHandleIntent > android/content/res/AssetManager.open > java/io/FileOutputStream.CONSTRUCTOR;

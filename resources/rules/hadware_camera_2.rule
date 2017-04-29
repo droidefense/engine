@@ -1,0 +1,6 @@
+#description: Get the number of cameras installed on the device.
+#author: @zerjioang;
+#date: 29/12/2016;
+#family: SMS;
+#variant: Leak;
+#rule: Object.ANY > android/hardware/Camera.getNumberOfCameras;

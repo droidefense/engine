@@ -1,0 +1,6 @@
+#description: This application reads your device's installed applications.;
+#author: @zerjioang;
+#date: 29/12/2016;
+#family: Device;
+#variant: apps;
+#rule: Object.ANY > android/content/pm/PackageManager.getInstalledApplications;

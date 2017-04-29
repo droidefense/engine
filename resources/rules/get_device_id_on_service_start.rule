@@ -1,0 +1,6 @@
+#description: a;
+#author: b;
+#date: c;
+#family: d;
+#variant: e;
+#rule: BroadcastReceiver.onReceive > Service.ANY > Object.ANY > TelephonyManager.getDeviceId;

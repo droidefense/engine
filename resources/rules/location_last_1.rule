@@ -1,0 +1,6 @@
+#description: This application is able to know your last location.;
+#author: @zerjioang;
+#date: 29/12/2016;
+#family: GPS;
+#variant: location;
+#rule: Object.ANY > android/location/LocationManager.getLastKnownLocation;
