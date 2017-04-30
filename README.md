@@ -13,7 +13,7 @@
 <img src ="https://raw.githubusercontent.com/droidefense/engine/master/banner/report-template.png" />
 </p>
 
-#What droidefense is
+# What droidefense is
 <p align="justify">
 <b>droidefense</b> (originally named atom: <b>a</b>nalysis <b>t</b>hrough <b>o</b>bservation <b>m</b>achine)* is the codename for android apps/malware analysis/reversing tool. It was built focused on security issues and tricks that malware researcher have on they every day work. For those situations on where the malware has <b>anti-analysis</b> routines, droidefense attemps to bypass them in order to get to the code and 'bad boy' routine. Sometimes those techniques can be virtual machine detection, emulator detection, self certificate checking, pipes detection. tracer pid check, and so on.
 
@@ -32,6 +32,6 @@ To support this project you can:
   
 And any other comments will be very appreciate.
 
-#License
+# License
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
