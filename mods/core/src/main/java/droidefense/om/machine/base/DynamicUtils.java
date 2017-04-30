@@ -1,7 +1,7 @@
 package droidefense.om.machine.base;
 
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.om.machine.base.constants.TypeDescriptorSemantics;
 import droidefense.om.machine.base.struct.fake.EncapsulatedClass;
 import droidefense.om.machine.base.struct.generic.IAtomClass;

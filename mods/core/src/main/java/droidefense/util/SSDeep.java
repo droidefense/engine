@@ -8,12 +8,12 @@ import java.io.*;
 import java.util.Arrays;
 
 /**
- * A Java version of the ssdeep algorithm, based on the fuzzy.c source
- * code, taken from version 2.6 of the ssdeep package.
+ * A Java version of the droidefense.ssdeep algorithm, based on the fuzzy.c source
+ * code, taken from version 2.6 of the droidefense.ssdeep package.
  * <p>
  * Transliteration/port to Java from C by Andrew Jackson &lt;Andrew.Jackson@bl.uk&gt;
  * <p>
- * Additional bug fixes and modifications based off of the 2.13 ssdeep package were added by
+ * Additional bug fixes and modifications based off of the 2.13 droidefense.ssdeep package were added by
  * Russell Francis &lt;russell.francis@phishme.com&gt;
  */
 public class SSDeep {
@@ -33,7 +33,7 @@ public class SSDeep {
         SSDeepHash hash = ssDeep.generateHash(data);
         if(hash!=null)
             return hash.toString();
-        return "ssdeep-unknown";
+        return "droidefense.ssdeep-unknown";
     }
 
     /**

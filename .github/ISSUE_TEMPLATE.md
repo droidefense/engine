@@ -1,6 +1,6 @@
-### apkr issue template
+### droidefense issue template
 
-1. **apkr version (`apkr -version`)**
+1. **droidefense version (`java -jar droidefense.jar -version`)**
 2. **Operating System (Mac, Linux, Windows, etc)**
 3. **APK From? (Playstore, ROM, Other)**
 4. **Open an issue and attach this file**
@@ -33,4 +33,4 @@ If this APK can be freely shared, please upload/attach a link to it.
 
 ### Questions to ask before submission
 1. Are all resource files well referenced?
-3. Are you using the latest apkr version?
+3. Are you using the latest droidefense version?

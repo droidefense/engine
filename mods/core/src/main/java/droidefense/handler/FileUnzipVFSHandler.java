@@ -1,8 +1,8 @@
 package droidefense.handler;
 
 import droidefense.handler.base.AbstractHandler;
-import droidefense.mod.vfs.model.impl.VirtualFile;
-import droidefense.mod.vfs.model.impl.VirtualFolder;
+import droidefense.vfs.model.impl.VirtualFile;
+import droidefense.vfs.model.impl.VirtualFolder;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
 
@@ -75,7 +75,6 @@ public class FileUnzipVFSHandler extends AbstractHandler {
             project.getVFS().print();
             return true;
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
             error = e;
         } catch (IOException e) {
             e.printStackTrace();

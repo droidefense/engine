@@ -55,6 +55,6 @@
     <orderEntry type="library" name="Maven: com.github.fommil.netlib:core:1.1" level="project" />
     <orderEntry type="module" module-name="pscout" />
     <orderEntry type="module" module-name="batch" />
-    <orderEntry type="module" module-name="axml" />
+    <orderEntry type="library" name="Maven: com.droidefense:axml:1.0-SNAPSHOT" level="project" />
   </component>
 </module>

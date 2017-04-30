@@ -222,7 +222,7 @@ public class SSDeepHash {
     /**
      * Retrieve a Set of Long values representing the 6 byte sequences of the hash within the rolling window.  If there
      * is no overlap in the chunk sets from two different hashes their comparison will be 0, this can be used in certain
-     * circumstances to optimize ssdeep comparisons on large data sets.
+     * circumstances to optimize droidefense.ssdeep comparisons on large data sets.
      *
      * @param chunkHash The string representation of the chunk hash.
      * @return The Set of unique Long values represented within the rolling window of the hash value.
@@ -252,8 +252,8 @@ public class SSDeepHash {
     /**
      * given two spamsum strings return a value indicating the degree to which they match.
      *
-     * @param fh1 The first ssdeep hash to compare.
-     * @param fh2 The second ssdeep hash to compare.
+     * @param fh1 The first droidefense.ssdeep hash to compare.
+     * @param fh2 The second droidefense.ssdeep hash to compare.
      * @return The score indicating the degree to which the hashes match.
      */
     private int fuzzyCompare(final SSDeepHash fh1, final SSDeepHash fh2) {
@@ -404,8 +404,8 @@ public class SSDeepHash {
      * This program can be used, redistributed or modified under any of Boost Software License 1.0, GPL v2 or GPL v3
      * See the file COPYING for details.
      * <p>
-     * This method was ported from edit_dist.c distributed with the ssdeep source code from version 2.13, this is
-     * a slightly modified Levenshtein distince calculation which is used by the ssdeep application when calculating
+     * This method was ported from edit_dist.c distributed with the droidefense.ssdeep source code from version 2.13, this is
+     * a slightly modified Levenshtein distince calculation which is used by the droidefense.ssdeep application when calculating
      * the score between strings.
      * <p>
      * Copyright (C) 2014 kikairoya &lt;kikairoya@gmail.com&gt;

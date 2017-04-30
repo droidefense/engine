@@ -1,8 +1,8 @@
 package droidefense.worker.parser;
 
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
-import droidefense.mod.vfs.model.impl.VirtualFile;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
+import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.worker.base.AbstractFileParser;

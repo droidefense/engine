@@ -1,7 +1,7 @@
 package droidefense.om.handlers;
 
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.om.flow.BasicControlFlowGraphWorker;
 import droidefense.om.flow.OpCodeCheckerWorker;

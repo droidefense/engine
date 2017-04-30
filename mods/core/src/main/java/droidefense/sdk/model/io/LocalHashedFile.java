@@ -1,10 +1,10 @@
 package droidefense.sdk.model.io;
 
-import apkr.external.module.ssdeep.exception.SSDeepException;
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.sdk.helpers.CheckSumGen;
 import droidefense.sdk.helpers.Util;
+import droidefense.ssdeep.exception.SSDeepException;
 
 import java.io.*;
 import java.nio.file.Files;

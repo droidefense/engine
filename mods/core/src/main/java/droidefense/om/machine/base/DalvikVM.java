@@ -1,7 +1,7 @@
 package droidefense.om.machine.base;
 
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.om.emulator.AndroidLogEmulator;
 import droidefense.om.emulator.ReflectionEmulator;
 import droidefense.om.machine.base.constants.TypeDescriptorSemantics;

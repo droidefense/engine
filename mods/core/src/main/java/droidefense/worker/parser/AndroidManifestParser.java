@@ -1,13 +1,13 @@
 package droidefense.worker.parser;
 
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
-import droidefense.mod.manparser.ManifestParser;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.LocalApkFile;
-import droidefense.sdk.model.manifest.Manifest;
-import droidefense.sdk.model.manifest.UsesSDK;
 import droidefense.worker.base.AbstractFileParser;
+import droidefense.xmodel.base.ManifestParser;
+import droidefense.xmodel.manifest.Manifest;
+import droidefense.xmodel.manifest.UsesSDK;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;

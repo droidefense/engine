@@ -106,6 +106,10 @@ public class smaliFlexLexer implements TokenSource, LexerErrorInterface {
                     "\1\3\1\167\1\3\1\0\1\170\1\171\1\172\1\173"+
                     "\1\0\1\3\1\174\2\0\1\3\1\0\1\175\1\3"+
                     "\1\0\1\3\1\176\2\3\1\177";
+
+    //TODO remove fake values
+    private static final int VTABLE_OFFSET = 0;
+
     private static int [] zzUnpackAction() {
         int [] result = new int[1119];
         int offset = 0;
@@ -2728,7 +2732,8 @@ public class smaliFlexLexer implements TokenSource, LexerErrorInterface {
         }
         catch (java.io.IOException e) {
             System.err.println("shouldn't happen: " + e.getMessage());
-            return Token.EOF_TOKEN;
+            //return Token.EOF_TOKEN;
+            return null;
         }
     }
     public void setLine(int line) {
@@ -3246,7 +3251,9 @@ public class smaliFlexLexer implements TokenSource, LexerErrorInterface {
                 }
                 case 156: break;
                 case 124:
-                { return newToken(INSTRUCTION_FORMAT35s_METHOD);
+                {
+                    //return newToken(INSTRUCTION_FORMAT35s_METHOD);
+                    return null;
                 }
                 case 157: break;
                 case 17:
@@ -3531,7 +3538,9 @@ public class smaliFlexLexer implements TokenSource, LexerErrorInterface {
                 }
                 case 225: break;
                 case 103:
-                { return newToken(INSTRUCTION_FORMAT21h);
+                {
+                    //return newToken(INSTRUCTION_FORMAT21h);
+                    return null;
                 }
                 case 226: break;
                 case 75:
@@ -3563,7 +3572,9 @@ public class smaliFlexLexer implements TokenSource, LexerErrorInterface {
                 }
                 case 233: break;
                 case 34:
-                { return newToken(OFFSET);
+                {
+                    //return newToken(OFFSET);
+                    return null;
                 }
                 case 234: break;
                 case 18:
@@ -3639,7 +3650,9 @@ public class smaliFlexLexer implements TokenSource, LexerErrorInterface {
                 }
                 case 252: break;
                 case 70:
-                { return newToken(METHOD_NAME);
+                {
+                    //return newToken(METHOD_NAME);
+                    return null;
                 }
                 case 253: break;
                 case 62:

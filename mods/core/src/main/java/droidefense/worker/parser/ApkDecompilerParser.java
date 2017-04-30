@@ -1,14 +1,12 @@
 package droidefense.worker.parser;
 
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.worker.base.AbstractFileParser;
-import jadx.cli.JadxCLI;
-import jadx.core.utils.exceptions.JadxException;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -47,7 +45,7 @@ public class ApkDecompilerParser extends AbstractFileParser {
                 //TODO Decompile .jar
                 //options..., input_file
                 String[] args = {"-r", "--escape-unicode", "--show-bad-code", "-d", decompiledPath.getAbsolutePath(), dex.getAbsolutePath()};
-                try {
+                /*try {
                     new JadxCLI(args);
                     currentProject.setSuccessfullDecompilation(true);
                 } catch (JadxException e) {
@@ -58,7 +56,7 @@ public class ApkDecompilerParser extends AbstractFileParser {
                     Log.write(LoggerType.FATAL, "Fatal excepcion during decompilation ", dex, e.getLocalizedMessage(), e);
                     e.printStackTrace();
                     currentProject.setSuccessfullDecompilation(false);
-                }
+                }*/
             } else {
                 Log.write(LoggerType.FATAL, "Could not find, read or write output decompilation file", dex);
             }

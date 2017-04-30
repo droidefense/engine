@@ -1,8 +1,8 @@
 package droidefense.temp;
 
-import com.droidefense.base.AbstractAtomNode;
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.rulengine.base.AbstractAtomNode;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
 import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.helpers.InternalConstant;

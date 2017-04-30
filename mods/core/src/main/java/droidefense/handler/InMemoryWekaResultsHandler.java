@@ -1,11 +1,11 @@
 package droidefense.handler;
 
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
-import apkr.external.modules.ml.MachineLearningResult;
-import apkr.external.modules.ml.WekaClassifier;
 import droidefense.batch.task.OutPutResult;
 import droidefense.handler.base.AbstractHandler;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
+import droidefense.ml.MachineLearningResult;
+import droidefense.ml.WekaClassifier;
 import droidefense.sdk.helpers.InternalConstant;
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;

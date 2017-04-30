@@ -16,7 +16,7 @@ import brut.androlib.res.xml.ResXmlPatcher;
 import brut.common.BrutException;
 import brut.directory.DirectoryException;
 import brut.util.OS;
-import droidefense.mod.vfs.model.impl.VirtualFile;
+import droidefense.vfs.model.impl.VirtualFile;
 
 import java.io.File;
 import java.io.IOException;

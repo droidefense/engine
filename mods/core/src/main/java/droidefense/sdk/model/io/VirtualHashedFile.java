@@ -1,9 +1,9 @@
 package droidefense.sdk.model.io;
 
-import apkr.external.module.ssdeep.exception.SSDeepException;
-import droidefense.mod.vfs.model.impl.VirtualFile;
 import droidefense.sdk.helpers.CheckSumGen;
 import droidefense.sdk.helpers.Util;
+import droidefense.ssdeep.exception.SSDeepException;
+import droidefense.vfs.model.impl.VirtualFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

@@ -1,7 +1,7 @@
 package external.plugins.collection.sttc;
 
 import droidefense.sdk.AbstractStaticPlugin;
-import droidefense.sdk.model.manifest.Manifest;
+import droidefense.xmodel.manifest.Manifest;
 
 /**
  * Created by sergio on 1/2/16.

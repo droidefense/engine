@@ -1,15 +1,15 @@
 package droidefense.batch.task;
 
-import apkr.external.module.batch.base.IBatchTask;
-import apkr.external.module.batch.base.IWekaGenerator;
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.batch.base.IBatchTask;
+import droidefense.batch.base.IWekaGenerator;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
-import droidefense.mod.manparser.ManifestParser;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.sdk.model.io.AbstractHashedFile;
-import droidefense.sdk.model.manifest.UsesPermission;
+import droidefense.xmodel.base.ManifestParser;
+import droidefense.xmodel.manifest.UsesPermission;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;

@@ -1,10 +1,10 @@
 package droidefense.analysis;
 
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
-import com.droidefense.map.BasicCFGFlowMap;
-import com.droidefense.rulengine.Rule;
-import com.droidefense.rulengine.RuleEngine;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
+import droidefense.rulengine.map.BasicCFGFlowMap;
+import droidefense.rulengine.rulengine.Rule;
+import droidefense.rulengine.rulengine.RuleEngine;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.FileIOHandler;
 

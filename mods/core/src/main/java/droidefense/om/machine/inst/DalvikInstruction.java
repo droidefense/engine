@@ -1,12 +1,12 @@
 package droidefense.om.machine.inst;
 
-import com.droidefense.map.base.AbstractFlowMap;
-import com.droidefense.nodes.ConstStrNode;
-import com.droidefense.nodes.FieldNode;
-import com.droidefense.nodes.MethodNode;
-import com.droidefense.nodes.NormalNode;
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.rulengine.map.base.AbstractFlowMap;
+import droidefense.rulengine.nodes.ConstStrNode;
+import droidefense.rulengine.nodes.FieldNode;
+import droidefense.rulengine.nodes.MethodNode;
+import droidefense.rulengine.nodes.NormalNode;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.om.flow.base.NodeGenerator;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DynamicUtils;

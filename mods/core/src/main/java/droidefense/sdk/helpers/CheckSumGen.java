@@ -1,11 +1,10 @@
 package droidefense.sdk.helpers;
 
-
-import apkr.external.module.ssdeep.core.SsdeepHashGen;
-import apkr.external.module.ssdeep.exception.SSDeepException;
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.util.SSDeep;
+import droidefense.ssdeep.core.SsdeepHashGen;
+import droidefense.ssdeep.exception.SSDeepException;
 
 import java.io.*;
 import java.security.MessageDigest;

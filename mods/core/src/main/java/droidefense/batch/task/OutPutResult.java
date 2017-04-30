@@ -1,8 +1,7 @@
 package droidefense.batch.task;
 
-
-import apkr.external.module.batch.base.IWekaGenerator;
-import droidefense.sdk.model.manifest.UsesPermission;
+import droidefense.batch.base.IWekaGenerator;
+import droidefense.xmodel.manifest.UsesPermission;
 
 import java.io.Serializable;
 import java.util.*;

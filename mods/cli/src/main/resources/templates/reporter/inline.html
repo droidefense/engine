@@ -335,7 +335,7 @@
                                             </tr>
                                             <tr>
                                                 <th>SSDeep</th>
-                                                <td id="friendly-sample-info-ssdeep"></td>
+                                                <td id="friendly-sample-info-droidefense.ssdeep"></td>
                                             </tr>
                                             <tr>
                                                 <th>File type</th>
@@ -545,7 +545,7 @@
                                             </tr>
                                             <tr>
                                                 <th>SSDeep</th>
-                                                <td id="detailed-sample-info-ssdeep"></td>
+                                                <td id="detailed-sample-info-droidefense.ssdeep"></td>
                                             </tr>
                                             <tr>
                                                 <th>File type</th>
@@ -873,7 +873,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th>SSDeep</th>
-                                                    <td id="cert-file-ssdeep"></td>
+                                                    <td id="cert-file-droidefense.ssdeep"></td>
                                                 </tr>
                                                 <tr>
                                                     <th>File type</th>
@@ -2899,7 +2899,7 @@ function printCertificateInfo(json){
         $('#cert-file-sha1').html(certFile.sha1);
         $('#cert-file-sha256').html(certFile.sha256);
         $('#cert-file-sha512').html(certFile.sha512);
-        $('#cert-file-ssdeep').html(certFile.ssdeep);
+        $('#cert-file-droidefense.ssdeep').html(certFile.droidefense.ssdeep);
         $('#cert-file-type').html(certFile.declaredExtension);
         $('#cert-file-magic').html(certFile.description);
     }
@@ -3348,7 +3348,7 @@ function setFriendlyReport(json){
         $("#friendly-sample-info-sha1").html(json['sourceFile'].sha1);
         $("#friendly-sample-info-sha256").html(json['sourceFile'].sha256);
         $("#friendly-sample-info-sha512").html(json['sourceFile'].sha512);
-        $("#friendly-sample-info-ssdeep").html(json['sourceFile'].ssdeep);
+        $("#friendly-sample-info-droidefense.ssdeep").html(json['sourceFile'].droidefense.ssdeep);
         $("#friendly-sample-info-type").html(json['sourceFile'].ext);
         $("#friendly-sample-info-magic").html(json['sourceFile'].magicDescription);
     }
@@ -3484,7 +3484,7 @@ function printSampleInfo(json){
         $("#detailed-sample-info-sha1").html(json['sourceFile'].sha1);
         $("#detailed-sample-info-sha256").html(json['sourceFile'].sha256);
         $("#detailed-sample-info-sha512").html(json['sourceFile'].sha512);
-        $("#detailed-sample-info-ssdeep").html(json['sourceFile'].ssdeep);
+        $("#detailed-sample-info-droidefense.ssdeep").html(json['sourceFile'].droidefense.ssdeep);
         $("#detailed-sample-info-type").html(json['sourceFile'].ext);
         $("#detailed-sample-info-magic").html(json['sourceFile'].magicDescription);
     }

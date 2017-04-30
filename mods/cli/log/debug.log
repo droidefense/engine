@@ -138163,3 +138163,4476 @@ Simulating behaviour of net/prospectus/Obstetric/<init>()
 Simulating behaviour of net/prospectus/Obstetric/a()
 
 2017-04-30 12:36:24 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
+2017-04-30 18:55:10 DEBUG [main] DEBUG:18 - File\/\META-INF\MANIFEST.MF no need to decode
+2017-04-30 18:55:10 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.SF no need to decode
+2017-04-30 18:55:10 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.RSA no need to decode
+2017-04-30 18:55:10 DEBUG [main] DEBUG:18 - File\/\assets\empty.html no need to decode
+2017-04-30 18:55:10 DEBUG [main] DEBUG:18 - File\/\assets\form.html no need to decode
+2017-04-30 18:55:10 DEBUG [main] DEBUG:18 - Decoding file \/\res\drawable\empty.xml
+2017-04-30 18:55:10 DEBUG [main] DEBUG:18 - File\/\res\drawable\ic_launcher.png no need to decode
+2017-04-30 18:55:10 DEBUG [main] DEBUG:18 - Decoding file \/\res\xml\device_admin_data.xml
+2017-04-30 18:55:10 DEBUG [main] DEBUG:18 - Decoding file \/\AndroidManifest.xml
+2017-04-30 18:55:11 DEBUG [main] DEBUG:18 - File\/\classes.dex no need to decode
+2017-04-30 18:55:11 DEBUG [main] DEBUG:18 - File\/\resources.arsc no need to decode
+2017-04-30 18:55:11 DEBUG [main] DEBUG:18 - File NOT identified: MANIFEST.MF
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - File APP.SF identified as Generic Android Signature file
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - File APP.RSA identified as Android RSA Certificate
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - File NOT identified: empty.html
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - File NOT identified: form.html
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - File NOT identified: empty.xml
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - File ic_launcher.png identified as PNG image
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - File NOT identified: device_admin_data.xml
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - File classes.dex identified as Dalvik (Android) executable file 
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - File resources.arsc identified as Android resource file
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 18:55:12 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 18:55:13 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
+2017-04-30 19:01:00 DEBUG [main] DEBUG:18 - File//\META-INF\MANIFEST.MF no need to decode
+2017-04-30 19:01:00 DEBUG [main] DEBUG:18 - File//\META-INF\APP.SF no need to decode
+2017-04-30 19:01:00 DEBUG [main] DEBUG:18 - File//\META-INF\APP.RSA no need to decode
+2017-04-30 19:01:00 DEBUG [main] DEBUG:18 - File//\assets\empty.html no need to decode
+2017-04-30 19:01:00 DEBUG [main] DEBUG:18 - File//\assets\form.html no need to decode
+2017-04-30 19:01:00 DEBUG [main] DEBUG:18 - Decoding file //\res\drawable\empty.xml
+2017-04-30 19:01:00 DEBUG [main] DEBUG:18 - File//\res\drawable\ic_launcher.png no need to decode
+2017-04-30 19:01:00 DEBUG [main] DEBUG:18 - Decoding file //\res\xml\device_admin_data.xml
+2017-04-30 19:01:00 DEBUG [main] DEBUG:18 - Decoding file //\AndroidManifest.xml
+2017-04-30 19:01:00 DEBUG [main] DEBUG:18 - File//\classes.dex no need to decode
+2017-04-30 19:01:00 DEBUG [main] DEBUG:18 - File//\resources.arsc no need to decode
+2017-04-30 19:01:01 DEBUG [main] DEBUG:18 - File NOT identified: MANIFEST.MF
+2017-04-30 19:01:01 DEBUG [main] DEBUG:18 - File APP.SF identified as Generic Android Signature file
+2017-04-30 19:01:01 DEBUG [main] DEBUG:18 - File APP.RSA identified as Android RSA Certificate
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - File NOT identified: empty.html
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - File NOT identified: form.html
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - File NOT identified: empty.xml
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - File ic_launcher.png identified as PNG image
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - File NOT identified: device_admin_data.xml
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - File classes.dex identified as Dalvik (Android) executable file 
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - File resources.arsc identified as Android resource file
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:01:02 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:01:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 19:01:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 19:01:03 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
+2017-04-30 19:02:47 DEBUG [main] DEBUG:18 - File\/\META-INF\MANIFEST.MF no need to decode
+2017-04-30 19:02:47 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.SF no need to decode
+2017-04-30 19:02:47 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.RSA no need to decode
+2017-04-30 19:02:47 DEBUG [main] DEBUG:18 - File\/\assets\empty.html no need to decode
+2017-04-30 19:02:47 DEBUG [main] DEBUG:18 - File\/\assets\form.html no need to decode
+2017-04-30 19:02:47 DEBUG [main] DEBUG:18 - Decoding file \/\res\drawable\empty.xml
+2017-04-30 19:03:00 DEBUG [main] DEBUG:18 - File\/\res\drawable\ic_launcher.png no need to decode
+2017-04-30 19:03:00 DEBUG [main] DEBUG:18 - Decoding file \/\res\xml\device_admin_data.xml
+2017-04-30 19:03:26 DEBUG [main] DEBUG:18 - Decoding file \/\AndroidManifest.xml
+2017-04-30 19:03:45 DEBUG [main] DEBUG:18 - File\/\classes.dex no need to decode
+2017-04-30 19:03:45 DEBUG [main] DEBUG:18 - File\/\resources.arsc no need to decode
+2017-04-30 19:03:45 DEBUG [main] DEBUG:18 - File NOT identified: MANIFEST.MF
+2017-04-30 19:03:45 DEBUG [main] DEBUG:18 - File APP.SF identified as Generic Android Signature file
+2017-04-30 19:03:45 DEBUG [main] DEBUG:18 - File APP.RSA identified as Android RSA Certificate
+2017-04-30 19:03:45 DEBUG [main] DEBUG:18 - File NOT identified: empty.html
+2017-04-30 19:03:46 DEBUG [main] DEBUG:18 - File NOT identified: form.html
+2017-04-30 19:03:46 DEBUG [main] DEBUG:18 - File NOT identified: empty.xml
+2017-04-30 19:03:46 DEBUG [main] DEBUG:18 - File ic_launcher.png identified as PNG image
+2017-04-30 19:03:46 DEBUG [main] DEBUG:18 - File NOT identified: device_admin_data.xml
+2017-04-30 19:03:46 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2017-04-30 19:03:46 DEBUG [main] DEBUG:18 - File classes.dex identified as Dalvik (Android) executable file 
+2017-04-30 19:03:46 DEBUG [main] DEBUG:18 - File resources.arsc identified as Android resource file
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:04:06 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:05:06 DEBUG [main] DEBUG:18 - File\/\META-INF\MANIFEST.MF no need to decode
+2017-04-30 19:05:06 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.SF no need to decode
+2017-04-30 19:05:06 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.RSA no need to decode
+2017-04-30 19:05:06 DEBUG [main] DEBUG:18 - File\/\assets\empty.html no need to decode
+2017-04-30 19:05:06 DEBUG [main] DEBUG:18 - File\/\assets\form.html no need to decode
+2017-04-30 19:05:06 DEBUG [main] DEBUG:18 - Decoding file \/\res\drawable\empty.xml
+2017-04-30 19:05:13 DEBUG [main] DEBUG:18 - File\/\res\drawable\ic_launcher.png no need to decode
+2017-04-30 19:05:13 DEBUG [main] DEBUG:18 - Decoding file \/\res\xml\device_admin_data.xml
+2017-04-30 19:05:13 DEBUG [main] DEBUG:18 - Decoding file \/\AndroidManifest.xml
+2017-04-30 19:05:13 DEBUG [main] DEBUG:18 - File\/\classes.dex no need to decode
+2017-04-30 19:05:13 DEBUG [main] DEBUG:18 - File\/\resources.arsc no need to decode
+2017-04-30 19:05:13 DEBUG [main] DEBUG:18 - File NOT identified: MANIFEST.MF
+2017-04-30 19:05:14 DEBUG [main] DEBUG:18 - File APP.SF identified as Generic Android Signature file
+2017-04-30 19:05:14 DEBUG [main] DEBUG:18 - File APP.RSA identified as Android RSA Certificate
+2017-04-30 19:05:14 DEBUG [main] DEBUG:18 - File NOT identified: empty.html
+2017-04-30 19:05:14 DEBUG [main] DEBUG:18 - File NOT identified: form.html
+2017-04-30 19:05:14 DEBUG [main] DEBUG:18 - File NOT identified: empty.xml
+2017-04-30 19:05:14 DEBUG [main] DEBUG:18 - File ic_launcher.png identified as PNG image
+2017-04-30 19:05:14 DEBUG [main] DEBUG:18 - File NOT identified: device_admin_data.xml
+2017-04-30 19:05:14 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2017-04-30 19:05:14 DEBUG [main] DEBUG:18 - File classes.dex identified as Dalvik (Android) executable file 
+2017-04-30 19:05:14 DEBUG [main] DEBUG:18 - File resources.arsc identified as Android resource file
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 19:05:18 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 19:05:24 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
+2017-04-30 19:06:19 DEBUG [main] DEBUG:18 - File\/\META-INF\MANIFEST.MF no need to decode
+2017-04-30 19:06:19 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.SF no need to decode
+2017-04-30 19:06:19 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.RSA no need to decode
+2017-04-30 19:06:19 DEBUG [main] DEBUG:18 - File\/\assets\empty.html no need to decode
+2017-04-30 19:06:19 DEBUG [main] DEBUG:18 - File\/\assets\form.html no need to decode
+2017-04-30 19:06:19 DEBUG [main] DEBUG:18 - Decoding file \/\res\drawable\empty.xml
+2017-04-30 19:06:19 DEBUG [main] DEBUG:18 - File\/\res\drawable\ic_launcher.png no need to decode
+2017-04-30 19:06:19 DEBUG [main] DEBUG:18 - Decoding file \/\res\xml\device_admin_data.xml
+2017-04-30 19:06:19 DEBUG [main] DEBUG:18 - Decoding file \/\AndroidManifest.xml
+2017-04-30 19:06:20 DEBUG [main] DEBUG:18 - File\/\classes.dex no need to decode
+2017-04-30 19:06:20 DEBUG [main] DEBUG:18 - File\/\resources.arsc no need to decode
+2017-04-30 19:06:20 DEBUG [main] DEBUG:18 - File NOT identified: MANIFEST.MF
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - File APP.SF identified as Generic Android Signature file
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - File APP.RSA identified as Android RSA Certificate
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - File NOT identified: empty.html
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - File NOT identified: form.html
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - File NOT identified: empty.xml
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - File ic_launcher.png identified as PNG image
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - File NOT identified: device_admin_data.xml
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - File classes.dex identified as Dalvik (Android) executable file 
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - File resources.arsc identified as Android resource file
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 19:06:21 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
+2017-04-30 19:08:01 DEBUG [main] DEBUG:18 - File\/\META-INF\MANIFEST.MF no need to decode
+2017-04-30 19:08:01 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.SF no need to decode
+2017-04-30 19:08:01 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.RSA no need to decode
+2017-04-30 19:08:01 DEBUG [main] DEBUG:18 - File\/\assets\empty.html no need to decode
+2017-04-30 19:08:01 DEBUG [main] DEBUG:18 - File\/\assets\form.html no need to decode
+2017-04-30 19:08:01 DEBUG [main] DEBUG:18 - Decoding file \/\res\drawable\empty.xml
+2017-04-30 19:08:01 DEBUG [main] DEBUG:18 - File\/\res\drawable\ic_launcher.png no need to decode
+2017-04-30 19:08:01 DEBUG [main] DEBUG:18 - Decoding file \/\res\xml\device_admin_data.xml
+2017-04-30 19:08:01 DEBUG [main] DEBUG:18 - Decoding file \/\AndroidManifest.xml
+2017-04-30 19:08:01 DEBUG [main] DEBUG:18 - File\/\classes.dex no need to decode
+2017-04-30 19:08:01 DEBUG [main] DEBUG:18 - File\/\resources.arsc no need to decode
+2017-04-30 19:08:02 DEBUG [main] DEBUG:18 - File NOT identified: MANIFEST.MF
+2017-04-30 19:08:02 DEBUG [main] DEBUG:18 - File APP.SF identified as Generic Android Signature file
+2017-04-30 19:08:02 DEBUG [main] DEBUG:18 - File APP.RSA identified as Android RSA Certificate
+2017-04-30 19:08:02 DEBUG [main] DEBUG:18 - File NOT identified: empty.html
+2017-04-30 19:08:02 DEBUG [main] DEBUG:18 - File NOT identified: form.html
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - File NOT identified: empty.xml
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - File ic_launcher.png identified as PNG image
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - File NOT identified: device_admin_data.xml
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - File classes.dex identified as Dalvik (Android) executable file 
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - File resources.arsc identified as Android resource file
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 19:08:03 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
+2017-04-30 19:09:31 DEBUG [main] DEBUG:18 - File\/\META-INF\MANIFEST.MF no need to decode
+2017-04-30 19:09:31 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.SF no need to decode
+2017-04-30 19:09:31 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.RSA no need to decode
+2017-04-30 19:09:31 DEBUG [main] DEBUG:18 - File\/\assets\empty.html no need to decode
+2017-04-30 19:09:31 DEBUG [main] DEBUG:18 - File\/\assets\form.html no need to decode
+2017-04-30 19:09:31 DEBUG [main] DEBUG:18 - Decoding file \/\res\drawable\empty.xml
+2017-04-30 19:09:31 DEBUG [main] DEBUG:18 - File\/\res\drawable\ic_launcher.png no need to decode
+2017-04-30 19:09:31 DEBUG [main] DEBUG:18 - Decoding file \/\res\xml\device_admin_data.xml
+2017-04-30 19:09:31 DEBUG [main] DEBUG:18 - Decoding file \/\AndroidManifest.xml
+2017-04-30 19:09:31 DEBUG [main] DEBUG:18 - File\/\classes.dex no need to decode
+2017-04-30 19:09:31 DEBUG [main] DEBUG:18 - File\/\resources.arsc no need to decode
+2017-04-30 19:09:32 DEBUG [main] DEBUG:18 - File NOT identified: MANIFEST.MF
+2017-04-30 19:09:32 DEBUG [main] DEBUG:18 - File APP.SF identified as Generic Android Signature file
+2017-04-30 19:09:32 DEBUG [main] DEBUG:18 - File APP.RSA identified as Android RSA Certificate
+2017-04-30 19:09:32 DEBUG [main] DEBUG:18 - File NOT identified: empty.html
+2017-04-30 19:09:32 DEBUG [main] DEBUG:18 - File NOT identified: form.html
+2017-04-30 19:09:32 DEBUG [main] DEBUG:18 - File NOT identified: empty.xml
+2017-04-30 19:09:32 DEBUG [main] DEBUG:18 - File ic_launcher.png identified as PNG image
+2017-04-30 19:09:32 DEBUG [main] DEBUG:18 - File NOT identified: device_admin_data.xml
+2017-04-30 19:09:32 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2017-04-30 19:09:32 DEBUG [main] DEBUG:18 - File classes.dex identified as Dalvik (Android) executable file 
+2017-04-30 19:09:32 DEBUG [main] DEBUG:18 - File resources.arsc identified as Android resource file
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 19:09:33 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
+2017-04-30 19:10:12 DEBUG [main] DEBUG:18 - File\/\META-INF\MANIFEST.MF no need to decode
+2017-04-30 19:10:12 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.SF no need to decode
+2017-04-30 19:10:12 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.RSA no need to decode
+2017-04-30 19:10:12 DEBUG [main] DEBUG:18 - File\/\assets\empty.html no need to decode
+2017-04-30 19:10:12 DEBUG [main] DEBUG:18 - File\/\assets\form.html no need to decode
+2017-04-30 19:10:12 DEBUG [main] DEBUG:18 - Decoding file \/\res\drawable\empty.xml
+2017-04-30 19:10:12 DEBUG [main] DEBUG:18 - File\/\res\drawable\ic_launcher.png no need to decode
+2017-04-30 19:10:12 DEBUG [main] DEBUG:18 - Decoding file \/\res\xml\device_admin_data.xml
+2017-04-30 19:10:12 DEBUG [main] DEBUG:18 - Decoding file \/\AndroidManifest.xml
+2017-04-30 19:10:12 DEBUG [main] DEBUG:18 - File\/\classes.dex no need to decode
+2017-04-30 19:10:12 DEBUG [main] DEBUG:18 - File\/\resources.arsc no need to decode
+2017-04-30 19:10:12 DEBUG [main] DEBUG:18 - File NOT identified: MANIFEST.MF
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - File APP.SF identified as Generic Android Signature file
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - File APP.RSA identified as Android RSA Certificate
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - File NOT identified: empty.html
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - File NOT identified: form.html
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - File NOT identified: empty.xml
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - File ic_launcher.png identified as PNG image
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - File NOT identified: device_admin_data.xml
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - File classes.dex identified as Dalvik (Android) executable file 
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - File resources.arsc identified as Android resource file
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:13 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 19:10:14 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!
+2017-04-30 19:11:07 DEBUG [main] DEBUG:18 - File\/\META-INF\MANIFEST.MF no need to decode
+2017-04-30 19:11:07 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.SF no need to decode
+2017-04-30 19:11:07 DEBUG [main] DEBUG:18 - File\/\META-INF\APP.RSA no need to decode
+2017-04-30 19:11:07 DEBUG [main] DEBUG:18 - File\/\assets\empty.html no need to decode
+2017-04-30 19:11:07 DEBUG [main] DEBUG:18 - File\/\assets\form.html no need to decode
+2017-04-30 19:11:07 DEBUG [main] DEBUG:18 - Decoding file \/\res\drawable\empty.xml
+2017-04-30 19:11:07 DEBUG [main] DEBUG:18 - File\/\res\drawable\ic_launcher.png no need to decode
+2017-04-30 19:11:07 DEBUG [main] DEBUG:18 - Decoding file \/\res\xml\device_admin_data.xml
+2017-04-30 19:11:07 DEBUG [main] DEBUG:18 - Decoding file \/\AndroidManifest.xml
+2017-04-30 19:11:07 DEBUG [main] DEBUG:18 - File\/\classes.dex no need to decode
+2017-04-30 19:11:07 DEBUG [main] DEBUG:18 - File\/\resources.arsc no need to decode
+2017-04-30 19:11:08 DEBUG [main] DEBUG:18 - File NOT identified: MANIFEST.MF
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - File APP.SF identified as Generic Android Signature file
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - File APP.RSA identified as Android RSA Certificate
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - File NOT identified: empty.html
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - File NOT identified: form.html
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - File NOT identified: empty.xml
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - File ic_launcher.png identified as PNG image
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - File NOT identified: device_admin_data.xml
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - File NOT identified: AndroidManifest.xml
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - File classes.dex identified as Dalvik (Android) executable file 
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - File resources.arsc identified as Android resource file
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - WORKER: OpCodeCheckerWorker FINISHED!
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<clinit>()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/<init>()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/b()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/c()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/d()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/attachBaseContext()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/LoganberryApplication/onCreate()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p1()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p10()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p11()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p12()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p13()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p14()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p15()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p16()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p17()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p18()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p19()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p2()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p20()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p21()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p22()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p23()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p24()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p25()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p26()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p27()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p28()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p29()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p3()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p30()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p31()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p32()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p33()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p34()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p35()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p36()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p37()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p38()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p4()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p5()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p6()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p7()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p8()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/pu/p9()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<clinit>()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/<init>()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - 
+
+Simulating behaviour of net/prospectus/Obstetric/a()
+
+2017-04-30 19:11:09 DEBUG [main] DEBUG:18 - WORKER: BasicControlFlowGraphWorker FINISHED!

@@ -1,4 +1,4 @@
-package apkr.external.module.batch.exception;
+package droidefense.batch.exception;
 
 public class InvalidTaskException extends Exception {
 

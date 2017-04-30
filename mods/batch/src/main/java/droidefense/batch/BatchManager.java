@@ -1,9 +1,8 @@
-package apkr.external.module.batch;
+package droidefense.batch;
 
-
-import apkr.external.module.batch.base.IBatchTask;
-import apkr.external.module.batch.exception.EmptyTaskQueueException;
-import apkr.external.module.batch.exception.InvalidTaskException;
+import droidefense.batch.base.IBatchTask;
+import droidefense.batch.exception.EmptyTaskQueueException;
+import droidefense.batch.exception.InvalidTaskException;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,13 +1,9 @@
 package droidefense.om.flow;
 
-import apkr.external.module.entropy.EntropyCalculator;
-import com.droidefense.map.BasicCFGFlowMap;
-import com.droidefense.nodes.EntryPointNode;
-import com.droidefense.nodes.FieldNode;
-import com.droidefense.nodes.MethodNode;
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.entropy.EntropyCalculator;
 import droidefense.handler.FileIOHandler;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
@@ -19,6 +15,10 @@ import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
 import droidefense.om.machine.reader.DexClassReader;
+import droidefense.rulengine.map.BasicCFGFlowMap;
+import droidefense.rulengine.nodes.EntryPointNode;
+import droidefense.rulengine.nodes.FieldNode;
+import droidefense.rulengine.nodes.MethodNode;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
 import droidefense.temp.DroidefenseIntel;

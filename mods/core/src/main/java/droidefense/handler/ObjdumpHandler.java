@@ -1,8 +1,8 @@
 package droidefense.handler;
 
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
-import apkr.external.modules.helpers.system.OSDetection;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
+import droidefense.helpers.system.OSDetection;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.sdk.model.io.AbstractHashedFile;
 

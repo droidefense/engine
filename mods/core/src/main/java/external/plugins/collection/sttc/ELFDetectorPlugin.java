@@ -1,6 +1,6 @@
 package external.plugins.collection.sttc;
 
-import droidefense.mod.vfs.model.impl.VirtualFile;
+import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.AbstractStaticPlugin;
 import droidefense.sdk.helpers.Util;
 

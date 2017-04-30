@@ -1,12 +1,12 @@
 package droidefense.batch;
 
-import apkr.external.module.batch.base.IBatchTask;
-import apkr.external.module.batch.exception.EmptyTaskQueueException;
-import apkr.external.module.batch.exception.InvalidTaskException;
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.batch.base.IBatchTask;
+import droidefense.batch.exception.EmptyTaskQueueException;
+import droidefense.batch.exception.InvalidTaskException;
 import droidefense.batch.task.WekaCertTask;
 import droidefense.batch.task.WekaFeatureExtractorTask;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 
 import java.io.File;
 import java.io.Serializable;

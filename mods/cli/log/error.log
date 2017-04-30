@@ -8886,3 +8886,1958 @@
 2017-04-30 12:36:24 ERROR [main] ERROR:33 - Excepcion during observation
 2017-04-30 12:36:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 329
 2017-04-30 12:36:24 ERROR [main] ERROR:33 - 329
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/Obstetric
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.Obstetric
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/LoganberryApplication
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.LoganberryApplication
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Boolean
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Boolean
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/File
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.File.<init>()
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - Could not find class on java SDK android/content/pm/ApplicationInfo
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.content.pm.ApplicationInfo
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - Could not find class on java SDK android/os/Build$VERSION
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.os.Build$VERSION
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/FileOutputStream
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.FileOutputStream.<init>()
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/DataOutputStream
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.DataOutputStream.<init>()
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - java.lang.ClassCastException: droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 18:55:12 ERROR [main] ERROR:33 - droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Error when loading class from java SDK java/util/zip/ZipFile
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.util.zip.ZipFile.<init>()
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Could not find class on java SDK dalvik/system/DexFile
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: dalvik.system.DexFile
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Integer
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Integer
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Float
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Float
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.RuntimeException: not supported array type: [B
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - not supported array type: [B
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 128
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 128
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 137
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 137
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 150
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 150
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 168
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 168
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 185
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 185
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArithmeticException: / by zero
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - / by zero
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21316
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 21316
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7261
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 7261
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 22366
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 71
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 71
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 97
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 97
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22336
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 22336
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16392
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 16392
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32342
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 32342
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23635
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 23635
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 64
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 64
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 66
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 66
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21329
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 21329
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 93
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 22358
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 94
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 94
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22367
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 22367
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24385
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 24385
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16714
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 16714
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 81
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 81
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 87
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23361
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 23361
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 87
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 18003
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23902
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 23902
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16987
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 16987
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16970
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 16970
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32346
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 32346
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 24390
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30295
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 30295
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24183
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 24183
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 23639
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 69
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 69
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 91
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 91
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 22103
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23892
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 23892
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 24390
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21341
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 21341
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 19031
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 19031
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24155
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 24155
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16731
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 16731
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22353
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 22353
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 22366
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 18003
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 22358
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 93
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 23639
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 29510
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 29510
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 17985
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 17985
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7238
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 7238
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7257
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 7257
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22338
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 22338
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 22103
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23366
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 23366
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 85
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 85
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30278
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 30278
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21342
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 21342
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22363
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 22363
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24148
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 24148
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 90
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 90
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 329
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - 329
+2017-04-30 18:55:13 ERROR [main] ERROR:33 - Dynamic plugin folder not found
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/Obstetric
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.Obstetric
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/LoganberryApplication
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.LoganberryApplication
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Boolean
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Boolean
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/File
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.File.<init>()
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - Could not find class on java SDK android/content/pm/ApplicationInfo
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.content.pm.ApplicationInfo
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - Could not find class on java SDK android/os/Build$VERSION
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.os.Build$VERSION
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/FileOutputStream
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.FileOutputStream.<init>()
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/DataOutputStream
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.DataOutputStream.<init>()
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - java.lang.ClassCastException: droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - Error when loading class from java SDK java/util/zip/ZipFile
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.util.zip.ZipFile.<init>()
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - Could not find class on java SDK dalvik/system/DexFile
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: dalvik.system.DexFile
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Integer
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Integer
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Float
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Float
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - java.lang.RuntimeException: not supported array type: [B
+2017-04-30 19:01:02 ERROR [main] ERROR:33 - not supported array type: [B
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 128
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 128
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 137
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 137
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 150
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 150
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 168
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 168
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 185
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 185
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArithmeticException: / by zero
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - / by zero
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21316
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 21316
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7261
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 7261
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 22366
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 71
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 71
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 97
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 97
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22336
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 22336
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16392
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 16392
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32342
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 32342
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23635
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 23635
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 64
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 64
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 66
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 66
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21329
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 21329
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 93
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 22358
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 94
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 94
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22367
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 22367
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24385
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 24385
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16714
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 16714
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 81
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 81
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 87
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23361
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 23361
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 87
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 18003
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23902
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 23902
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16987
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 16987
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16970
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 16970
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32346
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 32346
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 24390
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30295
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 30295
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24183
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 24183
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 23639
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 69
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 69
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 91
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 91
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 22103
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23892
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 23892
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 24390
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21341
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 21341
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 19031
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 19031
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24155
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 24155
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16731
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 16731
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22353
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 22353
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 22366
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 18003
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 22358
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 93
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 23639
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 29510
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 29510
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 17985
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 17985
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7238
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 7238
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7257
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 7257
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22338
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 22338
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 22103
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23366
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 23366
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 85
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 85
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30278
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 30278
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21342
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 21342
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22363
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 22363
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24148
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 24148
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 90
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 90
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 329
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - 329
+2017-04-30 19:01:03 ERROR [main] ERROR:33 - Dynamic plugin folder not found
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/Obstetric
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.Obstetric
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/LoganberryApplication
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.LoganberryApplication
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Boolean
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Boolean
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/File
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.File.<init>()
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Could not find class on java SDK android/content/pm/ApplicationInfo
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.content.pm.ApplicationInfo
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Could not find class on java SDK android/os/Build$VERSION
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.os.Build$VERSION
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/FileOutputStream
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.FileOutputStream.<init>()
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/DataOutputStream
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.DataOutputStream.<init>()
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ClassCastException: droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Error when loading class from java SDK java/util/zip/ZipFile
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.util.zip.ZipFile.<init>()
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Could not find class on java SDK dalvik/system/DexFile
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: dalvik.system.DexFile
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Integer
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Integer
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Float
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Float
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.RuntimeException: not supported array type: [B
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - not supported array type: [B
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 128
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 128
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 137
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 137
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 150
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 150
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 168
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 168
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 185
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 185
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArithmeticException: / by zero
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - / by zero
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21316
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 21316
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7261
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 7261
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 22366
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 71
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 71
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 97
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 97
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22336
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 22336
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16392
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 16392
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32342
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 32342
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23635
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 23635
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 64
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 64
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 66
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 66
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21329
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 21329
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 93
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 22358
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 94
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 94
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22367
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 22367
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24385
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 24385
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16714
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 16714
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 81
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 81
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 87
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23361
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 23361
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 87
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 19:04:06 ERROR [main] ERROR:33 - 18003
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/Obstetric
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.Obstetric
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/LoganberryApplication
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.LoganberryApplication
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Boolean
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Boolean
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/File
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.File.<init>()
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Could not find class on java SDK android/content/pm/ApplicationInfo
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.content.pm.ApplicationInfo
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Could not find class on java SDK android/os/Build$VERSION
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.os.Build$VERSION
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/FileOutputStream
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.FileOutputStream.<init>()
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/DataOutputStream
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.DataOutputStream.<init>()
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ClassCastException: droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Error when loading class from java SDK java/util/zip/ZipFile
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.util.zip.ZipFile.<init>()
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Could not find class on java SDK dalvik/system/DexFile
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: dalvik.system.DexFile
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Integer
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Integer
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Float
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Float
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.RuntimeException: not supported array type: [B
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - not supported array type: [B
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 128
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 128
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 137
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 137
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 150
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 150
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 168
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 168
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 185
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 185
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArithmeticException: / by zero
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - / by zero
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21316
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 21316
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7261
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 7261
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 22366
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 71
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 71
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 97
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 97
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22336
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 22336
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16392
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 16392
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32342
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 32342
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23635
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 23635
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 64
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 64
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 66
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 66
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21329
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 21329
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 93
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 22358
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 94
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 94
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22367
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 22367
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24385
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 24385
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16714
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 16714
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 81
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 81
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 87
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23361
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 23361
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 87
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 18003
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23902
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 23902
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16987
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 16987
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16970
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 16970
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32346
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 32346
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 24390
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30295
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 30295
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24183
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 24183
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 23639
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 69
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 69
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 91
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 91
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 22103
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23892
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 23892
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 24390
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21341
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 21341
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 19031
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 19031
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24155
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 24155
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16731
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 16731
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22353
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 22353
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 22366
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 18003
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 22358
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 93
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 23639
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 29510
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 29510
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 17985
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 17985
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7238
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 7238
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7257
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 7257
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22338
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 22338
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 22103
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23366
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 23366
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 85
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 85
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30278
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 30278
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21342
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 21342
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22363
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 22363
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24148
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 24148
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 90
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 90
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 329
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - 329
+2017-04-30 19:05:24 ERROR [main] ERROR:33 - Dynamic plugin folder not found
+2017-04-30 19:05:26 ERROR [main] ERROR:33 - apkr.external.module.pscout.PSCoutModel
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/Obstetric
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.Obstetric
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/LoganberryApplication
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.LoganberryApplication
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Boolean
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Boolean
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/File
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.File.<init>()
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Could not find class on java SDK android/content/pm/ApplicationInfo
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.content.pm.ApplicationInfo
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Could not find class on java SDK android/os/Build$VERSION
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.os.Build$VERSION
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/FileOutputStream
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.FileOutputStream.<init>()
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/DataOutputStream
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.DataOutputStream.<init>()
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ClassCastException: droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Error when loading class from java SDK java/util/zip/ZipFile
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.util.zip.ZipFile.<init>()
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Could not find class on java SDK dalvik/system/DexFile
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: dalvik.system.DexFile
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Integer
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Integer
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Float
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Float
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.RuntimeException: not supported array type: [B
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - not supported array type: [B
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 128
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 128
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 137
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 137
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 150
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 150
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 168
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 168
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 185
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 185
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArithmeticException: / by zero
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - / by zero
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21316
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 21316
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7261
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 7261
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 22366
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 71
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 71
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 97
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 97
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22336
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 22336
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16392
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 16392
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32342
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 32342
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23635
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 23635
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 64
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 64
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 66
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 66
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21329
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 21329
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 93
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 22358
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 94
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 94
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22367
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 22367
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24385
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 24385
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16714
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 16714
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 81
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 81
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 87
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23361
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 23361
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 87
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 18003
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23902
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 23902
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16987
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 16987
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16970
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 16970
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32346
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 32346
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 24390
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30295
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 30295
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24183
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 24183
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 23639
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 69
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 69
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 91
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 91
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 22103
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23892
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 23892
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 24390
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21341
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 21341
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 19031
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 19031
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24155
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 24155
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16731
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 16731
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22353
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 22353
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 22366
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 18003
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 22358
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 93
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 23639
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 29510
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 29510
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 17985
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 17985
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7238
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 7238
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7257
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 7257
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22338
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 22338
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 22103
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23366
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 23366
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 85
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 85
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30278
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 30278
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21342
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 21342
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22363
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 22363
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24148
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 24148
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 90
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 90
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 329
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - 329
+2017-04-30 19:06:21 ERROR [main] ERROR:33 - Dynamic plugin folder not found
+2017-04-30 19:06:23 ERROR [main] ERROR:33 - apkr.external.module.pscout.PSCoutModel
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/Obstetric
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.Obstetric
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/LoganberryApplication
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.LoganberryApplication
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Boolean
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Boolean
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/File
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.File.<init>()
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Could not find class on java SDK android/content/pm/ApplicationInfo
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.content.pm.ApplicationInfo
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Could not find class on java SDK android/os/Build$VERSION
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.os.Build$VERSION
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/FileOutputStream
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.FileOutputStream.<init>()
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/DataOutputStream
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.DataOutputStream.<init>()
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ClassCastException: droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Error when loading class from java SDK java/util/zip/ZipFile
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.util.zip.ZipFile.<init>()
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Could not find class on java SDK dalvik/system/DexFile
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: dalvik.system.DexFile
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Integer
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Integer
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Float
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Float
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.RuntimeException: not supported array type: [B
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - not supported array type: [B
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 128
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 128
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 137
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 137
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 150
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 150
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 168
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 168
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 185
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 185
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArithmeticException: / by zero
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - / by zero
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21316
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 21316
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7261
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 7261
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 22366
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 71
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 71
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 97
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 97
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22336
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 22336
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16392
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 16392
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32342
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 32342
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23635
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 23635
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 64
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 64
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 66
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 66
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21329
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 21329
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 93
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 22358
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 94
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 94
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22367
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 22367
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24385
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 24385
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16714
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 16714
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 81
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 81
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 87
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23361
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 23361
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 87
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 18003
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23902
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 23902
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16987
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 16987
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16970
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 16970
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32346
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 32346
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 24390
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30295
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 30295
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24183
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 24183
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 23639
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 69
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 69
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 91
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 91
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 22103
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23892
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 23892
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 24390
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21341
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 21341
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 19031
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 19031
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24155
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 24155
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16731
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 16731
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22353
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 22353
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 22366
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 18003
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 22358
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 93
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 23639
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 29510
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 29510
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 17985
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 17985
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7238
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 7238
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7257
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 7257
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22338
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 22338
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 22103
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23366
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 23366
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 85
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 85
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30278
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 30278
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21342
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 21342
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22363
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 22363
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24148
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 24148
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 90
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 90
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 329
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - 329
+2017-04-30 19:08:03 ERROR [main] ERROR:33 - Dynamic plugin folder not found
+2017-04-30 19:08:05 ERROR [main] ERROR:33 - apkr.external.module.pscout.PSCoutModel
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/Obstetric
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.Obstetric
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/LoganberryApplication
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.LoganberryApplication
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Boolean
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Boolean
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/File
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.File.<init>()
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Could not find class on java SDK android/content/pm/ApplicationInfo
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.content.pm.ApplicationInfo
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Could not find class on java SDK android/os/Build$VERSION
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.os.Build$VERSION
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/FileOutputStream
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.FileOutputStream.<init>()
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/DataOutputStream
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.DataOutputStream.<init>()
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ClassCastException: droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Error when loading class from java SDK java/util/zip/ZipFile
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.util.zip.ZipFile.<init>()
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Could not find class on java SDK dalvik/system/DexFile
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: dalvik.system.DexFile
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Integer
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Integer
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Float
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Float
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.RuntimeException: not supported array type: [B
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - not supported array type: [B
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 128
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 128
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 137
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 137
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 150
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 150
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 168
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 168
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 185
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 185
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArithmeticException: / by zero
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - / by zero
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21316
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 21316
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7261
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 7261
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 22366
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 71
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 71
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 97
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 97
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22336
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 22336
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16392
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 16392
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32342
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 32342
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23635
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 23635
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 64
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 64
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 66
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 66
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21329
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 21329
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 93
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 22358
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 94
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 94
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22367
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 22367
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24385
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 24385
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16714
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 16714
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 81
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 81
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 87
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23361
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 23361
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 87
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 18003
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23902
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 23902
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16987
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 16987
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16970
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 16970
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32346
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 32346
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 24390
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30295
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 30295
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24183
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 24183
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 23639
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 69
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 69
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 91
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 91
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 22103
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23892
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 23892
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 24390
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21341
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 21341
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 19031
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 19031
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24155
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 24155
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16731
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 16731
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22353
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 22353
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 22366
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 18003
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 22358
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 93
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 23639
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 29510
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 29510
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 17985
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 17985
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7238
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 7238
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7257
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 7257
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22338
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 22338
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 22103
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23366
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 23366
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 85
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 85
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30278
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 30278
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21342
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 21342
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22363
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 22363
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24148
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 24148
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 90
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 90
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 329
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - 329
+2017-04-30 19:09:33 ERROR [main] ERROR:33 - Dynamic plugin folder not found
+2017-04-30 19:09:35 ERROR [main] ERROR:33 - apkr.external.module.pscout.PSCoutModel
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/Obstetric
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.Obstetric
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/LoganberryApplication
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.LoganberryApplication
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Boolean
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Boolean
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/File
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.File.<init>()
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - Could not find class on java SDK android/content/pm/ApplicationInfo
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.content.pm.ApplicationInfo
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - Could not find class on java SDK android/os/Build$VERSION
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.os.Build$VERSION
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/FileOutputStream
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.FileOutputStream.<init>()
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/DataOutputStream
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.DataOutputStream.<init>()
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - java.lang.ClassCastException: droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:10:13 ERROR [main] ERROR:33 - droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Error when loading class from java SDK java/util/zip/ZipFile
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.util.zip.ZipFile.<init>()
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Could not find class on java SDK dalvik/system/DexFile
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: dalvik.system.DexFile
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Integer
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Integer
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Float
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Float
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.RuntimeException: not supported array type: [B
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - not supported array type: [B
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 128
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 128
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 137
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 137
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 150
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 150
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 168
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 168
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 185
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 185
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArithmeticException: / by zero
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - / by zero
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21316
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 21316
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7261
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 7261
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 22366
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 71
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 71
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 97
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 97
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22336
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 22336
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16392
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 16392
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32342
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 32342
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23635
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 23635
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 64
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 64
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 66
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 66
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21329
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 21329
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 93
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 22358
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 94
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 94
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22367
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 22367
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24385
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 24385
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16714
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 16714
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 81
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 81
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 87
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23361
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 23361
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 87
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 18003
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23902
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 23902
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16987
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 16987
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16970
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 16970
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32346
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 32346
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 24390
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30295
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 30295
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24183
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 24183
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 23639
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 69
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 69
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 91
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 91
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 22103
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23892
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 23892
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 24390
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21341
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 21341
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 19031
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 19031
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24155
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 24155
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16731
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 16731
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22353
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 22353
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 22366
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 18003
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 22358
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 93
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 23639
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 29510
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 29510
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 17985
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 17985
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7238
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 7238
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7257
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 7257
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22338
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 22338
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 22103
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23366
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 23366
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 85
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 85
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30278
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 30278
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21342
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 21342
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22363
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 22363
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24148
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 24148
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 90
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 90
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 329
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - 329
+2017-04-30 19:10:14 ERROR [main] ERROR:33 - Dynamic plugin folder not found
+2017-04-30 19:10:15 ERROR [main] ERROR:33 - apkr.external.module.pscout.PSCoutModel
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/Obstetric
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.Obstetric
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Could not find class on java SDK net/prospectus/LoganberryApplication
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: net.prospectus.LoganberryApplication
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Boolean
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Boolean
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/File
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.File.<init>()
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Could not find class on java SDK android/content/pm/ApplicationInfo
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.content.pm.ApplicationInfo
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Could not find class on java SDK android/os/Build$VERSION
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: android.os.Build$VERSION
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/FileOutputStream
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.FileOutputStream.<init>()
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Error when loading class from java SDK java/io/DataOutputStream
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.io.DataOutputStream.<init>()
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ClassCastException: droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - droidefense.om.machine.base.struct.model.DVMInstance cannot be cast to java.lang.Throwable
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Error when loading class from java SDK java/util/zip/ZipFile
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.NoSuchMethodException: java.util.zip.ZipFile.<init>()
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Could not find class on java SDK dalvik/system/DexFile
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ClassNotFoundException: dalvik.system.DexFile
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Integer
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Integer
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Error when loading class from java SDK java/lang/Float
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.InstantiationException: java.lang.Float
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.RuntimeException: not supported array type: [B
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - not supported array type: [B
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 128
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 128
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 137
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 137
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 150
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 150
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 168
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 168
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 185
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 185
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArithmeticException: / by zero
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - / by zero
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21316
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 21316
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7261
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 7261
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 22366
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 71
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 71
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 97
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 97
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22336
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 22336
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16392
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 16392
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32342
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 32342
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23635
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 23635
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 64
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 64
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 66
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 66
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21329
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 21329
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 93
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 22358
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 94
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 94
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22367
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 22367
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24385
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 24385
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16714
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 16714
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 81
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 81
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 87
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23361
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 23361
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 87
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 87
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 18003
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23902
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 23902
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16987
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 16987
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16970
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 16970
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 32346
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 32346
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 24390
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30295
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 30295
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24183
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 24183
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 23639
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 69
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 69
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 91
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 91
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 22103
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23892
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 23892
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24390
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 24390
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21341
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 21341
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 19031
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 19031
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24155
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 24155
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 16731
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 16731
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22353
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 22353
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22366
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 22366
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 18003
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 18003
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22358
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 22358
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 93
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 93
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23639
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 23639
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 29510
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 29510
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 17985
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 17985
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7238
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 7238
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 7257
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 7257
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22338
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 22338
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22103
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 22103
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 23366
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 23366
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 85
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 85
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 30278
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 30278
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 21342
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 21342
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 22363
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 22363
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 24148
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 24148
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 90
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 90
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Excepcion during observation
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - java.lang.ArrayIndexOutOfBoundsException: 329
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - 329
+2017-04-30 19:11:09 ERROR [main] ERROR:33 - Dynamic plugin folder not found
+2017-04-30 19:11:11 ERROR [main] ERROR:33 - apkr.external.module.pscout.PSCoutModel

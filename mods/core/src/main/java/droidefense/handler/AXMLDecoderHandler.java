@@ -1,12 +1,11 @@
 package droidefense.handler;
 
-
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
-import axmlparser.AXMLPrinter;
+import droidefense.axml.AXMLPrinter;
 import droidefense.handler.base.AbstractHandler;
-import droidefense.mod.vfs.model.impl.VirtualFile;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.sdk.helpers.InternalConstant;
+import droidefense.vfs.model.impl.VirtualFile;
 
 /**
  * Created by sergio on 16/2/16.

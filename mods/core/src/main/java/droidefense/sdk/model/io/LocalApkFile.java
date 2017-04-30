@@ -1,6 +1,6 @@
 package droidefense.sdk.model.io;
 
-import droidefense.mod.vfs.model.impl.VirtualFile;
+import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.helpers.APKUnpacker;
 import droidefense.sdk.model.base.DroidefenseProject;
 
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class LocalApkFile extends LocalHashedFile {
 
     private final APKUnpacker unpackingTechnique;
-    private DroidefenseProject project;
+    private transient DroidefenseProject project;
 
     public LocalApkFile(File f, DroidefenseProject project, APKUnpacker unpacker) {
         super(f, true);

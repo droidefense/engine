@@ -1,7 +1,7 @@
 package droidefense.worker.parser;
 
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.certificate.CertificateModel;
 import droidefense.sdk.model.io.AbstractHashedFile;

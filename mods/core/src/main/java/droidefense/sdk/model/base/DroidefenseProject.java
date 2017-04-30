@@ -1,22 +1,19 @@
 package droidefense.sdk.model.base;
 
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
-import apkr.external.modules.ml.MachineLearningResult;
-import com.droidefense.map.BasicCFGFlowMap;
-import com.droidefense.map.base.AbstractFlowMap;
-import com.droidefense.rulengine.Rule;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
-import droidefense.mod.vfs.model.impl.VirtualFile;
-import droidefense.mod.vfs.model.impl.VirtualFileSystem;
-import droidefense.mod.vfs.model.impl.VirtualFolder;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
+import droidefense.ml.MachineLearningResult;
 import droidefense.om.helper.DexFileStatistics;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.model.SharedPool;
 import droidefense.om.machine.reader.DexHeaderReader;
+import droidefense.rulengine.map.BasicCFGFlowMap;
+import droidefense.rulengine.map.base.AbstractFlowMap;
+import droidefense.rulengine.rulengine.Rule;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.AbstractStaticPlugin;
 import droidefense.sdk.helpers.DroidDefenseParams;
@@ -35,10 +32,13 @@ import droidefense.sdk.model.holder.StaticInfo;
 import droidefense.sdk.model.holder.StringInfo;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.LocalApkFile;
-import droidefense.sdk.model.manifest.Manifest;
-import droidefense.sdk.model.manifest.UsesPermission;
-import droidefense.sdk.model.manifest.base.AbstractManifestClass;
 import droidefense.util.JsonStyle;
+import droidefense.vfs.model.impl.VirtualFile;
+import droidefense.vfs.model.impl.VirtualFileSystem;
+import droidefense.vfs.model.impl.VirtualFolder;
+import droidefense.xmodel.manifest.Manifest;
+import droidefense.xmodel.manifest.UsesPermission;
+import droidefense.xmodel.manifest.base.AbstractManifestClass;
 
 import java.awt.*;
 import java.io.File;
@@ -66,6 +66,10 @@ public final class DroidefenseProject implements Serializable {
      * Timestamp from creation to end
      */
     private final ExecutionTimer scanTime;
+    /**
+     * Sample info
+     */
+    private LocalApkFile sample;
     /**
      * Currently used analyzers on this .apk
      */
@@ -138,9 +142,8 @@ public final class DroidefenseProject implements Serializable {
     private boolean staticAnalysisDone;
     private boolean dynamicAnalysisDone;
     private transient DexHeaderReader dexHeaderReader;
-    private IAtomClass[] dynamicEntryPoints;
+    private transient IAtomClass[] dynamicEntryPoints;
     private transient HashMap<String, IAtomClass> classMap;
-    private LocalApkFile sample;
     //private transient DexHeaderReader dexHeaderReader;
 
     public DroidefenseProject() {

@@ -67,25 +67,25 @@
             <systemPath>${pom.basedir}/../lib/native/droidefense.mod.manparser.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>apkr.external.module.pscout</groupId>
+            <groupId>droidefense.external.module.pscout</groupId>
             <artifactId>pscout</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/../lib/native/apkr.external.module.pscout.jar</systemPath>
+            <systemPath>${pom.basedir}/../lib/native/droidefense.external.module.pscout.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>apkr.external.module.ssdeep</groupId>
-            <artifactId>ssdeep</artifactId>
+            <groupId>droidefense.external.module.ssdeep</groupId>
+            <artifactId>droidefense.ssdeep</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/../lib/native/apkr.external.module.entropy.jar</systemPath>
+            <systemPath>${pom.basedir}/../lib/native/droidefense.external.module.entropy.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>apkr.external.module.entropy</groupId>
+            <groupId>droidefense.external.module.entropy</groupId>
             <artifactId>entropy</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/../lib/native/apkr.external.module.ssdeep.jar</systemPath>
+            <systemPath>${pom.basedir}/../lib/native/droidefense.external.module.droidefense.ssdeep.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>jadx</groupId>
@@ -102,32 +102,32 @@
             <systemPath>${pom.basedir}/../lib/third-party/axml-parser-lib.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>apkr.external.modules.helpers</groupId>
+            <groupId>droidefense.external.modules.helpers</groupId>
             <artifactId>helpers</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/../lib/native/apkr.external.modules.helpers.jar</systemPath>
+            <systemPath>${pom.basedir}/../lib/native/droidefense.external.modules.helpers.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>apkr.external.modules.batch</groupId>
+            <groupId>droidefense.external.modules.batch</groupId>
             <artifactId>batch</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/../lib/native/apkr.external.batch.jar</systemPath>
+            <systemPath>${pom.basedir}/../lib/native/droidefense.external.batch.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>apkr.external.modules.ml</groupId>
+            <groupId>droidefense.external.modules.ml</groupId>
             <artifactId>ml</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/../lib/native/apkr.external.modules.ml.jar</systemPath>
+            <systemPath>${pom.basedir}/../lib/native/droidefense.external.modules.ml.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>apkr.external.modules.rulengine</groupId>
+            <groupId>droidefense.external.modules.rulengine</groupId>
             <artifactId>rulengine</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/../lib/native/apkr.external.modules.rulengine.jar</systemPath>
+            <systemPath>${pom.basedir}/../lib/native/droidefense.external.modules.rulengine.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>droidefense.mod.vfs</groupId>

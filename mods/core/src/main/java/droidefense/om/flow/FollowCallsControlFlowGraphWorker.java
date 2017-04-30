@@ -1,10 +1,10 @@
 package droidefense.om.flow;
 
-import com.droidefense.base.AbstractAtomNode;
-import com.droidefense.map.BasicCFGFlowMap;
-import com.droidefense.nodes.EntryPointNode;
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
+import droidefense.rulengine.base.AbstractAtomNode;
+import droidefense.rulengine.map.BasicCFGFlowMap;
+import droidefense.rulengine.nodes.EntryPointNode;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
 import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;

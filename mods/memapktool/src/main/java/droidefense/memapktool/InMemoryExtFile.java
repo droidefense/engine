@@ -5,7 +5,7 @@ import brut.directory.Directory;
 import brut.directory.DirectoryException;
 import brut.directory.FileDirectory;
 import brut.directory.ZipRODirectory;
-import droidefense.mod.vfs.model.impl.VirtualFile;
+import droidefense.vfs.model.impl.VirtualFile;
 
 import java.io.File;
 

@@ -1,6 +1,6 @@
 package droidefense.om.machine.inst;
 
-import com.droidefense.base.AbstractAtomNode;
+import droidefense.rulengine.base.AbstractAtomNode;
 import droidefense.om.machine.base.exceptions.VirtualMachineRuntimeException;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;

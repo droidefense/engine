@@ -1,12 +1,12 @@
 package droidefense.om.handlers;
 
-import apkr.external.module.pscout.PSCoutModel;
-import com.droidefense.base.AbstractAtomNode;
-import com.droidefense.nodes.MethodNode;
-import apkr.external.modules.helpers.log4j.Log;
-import apkr.external.modules.helpers.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.AbstractHandler;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
+import droidefense.pscout.PSCoutModel;
+import droidefense.rulengine.base.AbstractAtomNode;
+import droidefense.rulengine.nodes.MethodNode;
 import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.model.base.DroidefenseProject;
 
@@ -53,9 +53,9 @@ public class PscoutHandler extends AbstractHandler {
                 return true;
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, e.getLocalizedMessage());
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, e.getLocalizedMessage());
         }
         return false;
     }

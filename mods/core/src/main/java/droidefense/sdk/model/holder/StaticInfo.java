@@ -1,12 +1,12 @@
 package droidefense.sdk.model.holder;
 
 
-import droidefense.mod.vfs.model.impl.VirtualFile;
 import droidefense.sdk.model.certificate.CertificateModel;
 import droidefense.sdk.model.dex.DexBodyModel;
 import droidefense.sdk.model.enums.SDK_VERSION;
 import droidefense.sdk.model.io.AbstractHashedFile;
-import droidefense.sdk.model.manifest.Manifest;
+import droidefense.vfs.model.impl.VirtualFile;
+import droidefense.xmodel.manifest.Manifest;
 
 import java.io.IOException;
 import java.io.Serializable;

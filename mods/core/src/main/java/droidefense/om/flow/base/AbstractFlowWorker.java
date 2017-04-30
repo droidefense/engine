@@ -1,11 +1,11 @@
 package droidefense.om.flow.base;
 
-import com.droidefense.NodeConnection;
-import com.droidefense.base.AbstractAtomNode;
-import com.droidefense.map.base.AbstractFlowMap;
-import com.droidefense.nodes.FieldNode;
-import com.droidefense.nodes.MethodNode;
-import com.droidefense.nodes.NormalNode;
+import droidefense.rulengine.NodeConnection;
+import droidefense.rulengine.base.AbstractAtomNode;
+import droidefense.rulengine.map.base.AbstractFlowMap;
+import droidefense.rulengine.nodes.FieldNode;
+import droidefense.rulengine.nodes.MethodNode;
+import droidefense.rulengine.nodes.NormalNode;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.struct.generic.IAtomField;

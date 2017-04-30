@@ -1,4 +1,4 @@
-package apkr.external.module.batch.base;
+package droidefense.batch.base;
 
 public interface IWekaGenerator {
 
