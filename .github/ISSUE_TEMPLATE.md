@@ -1,6 +1,6 @@
 ### apkr issue template
 
-1. **apkr version (`apkr -version`)**
+1. **droidefense version (`apkr -version`)**
 2. **Operating System (Mac, Linux, Windows, etc)**
 3. **APK From? (Playstore, ROM, Other)**
 4. **Open an issue and attach this file**
