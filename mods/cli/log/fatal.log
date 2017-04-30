@@ -1,0 +1,18 @@
+2016-12-29 20:08:23 FATAL [main] FATAL:38 - not supported array type = android/content/res/Resources$Theme
+2016-12-29 20:08:23 FATAL [main] FATAL:38 - droidefense.om.handlers.VMWorkersHandler
+2016-12-29 20:10:00 FATAL [main] FATAL:38 - not supported array type = android/app/ActivityManager
+2016-12-29 20:10:00 FATAL [main] FATAL:38 - droidefense.om.handlers.VMWorkersHandler
+2016-12-29 20:11:43 FATAL [main] FATAL:38 - not supported array type = android/app/ActivityManager
+2016-12-29 20:11:43 FATAL [main] FATAL:38 - droidefense.om.handlers.VMWorkersHandler
+2016-12-29 20:13:27 FATAL [main] FATAL:38 - not supported array type = android/app/ActivityManager
+2016-12-29 20:13:27 FATAL [main] FATAL:38 - droidefense.om.handlers.VMWorkersHandler
+2016-12-29 20:14:18 FATAL [main] FATAL:38 - Error on DalvikInstruction (rem-double/2addr vA, vB) logic
+2016-12-29 20:14:18 FATAL [main] FATAL:38 - Error on DalvikInstruction (rem-double/2addr vA, vB) logic
+2016-12-29 20:17:36 FATAL [main] FATAL:38 - Error on DalvikInstruction (rem-double/2addr vA, vB) logic
+2016-12-29 20:17:36 FATAL [main] FATAL:38 - Error on DalvikInstruction (rem-double/2addr vA, vB) logic
+2016-12-29 20:50:39 FATAL [main] FATAL:38 - Error on DalvikInstruction (rem-double/2addr vA, vB) logic
+2016-12-29 20:50:39 FATAL [main] FATAL:38 - Error on DalvikInstruction (rem-double/2addr vA, vB) logic
+2017-03-09 16:23:28 FATAL [main] FATAL:38 - Error on DalvikInstruction (rem-double/2addr vA, vB) logic
+2017-03-09 16:23:28 FATAL [main] FATAL:38 - Error on DalvikInstruction (rem-double/2addr vA, vB) logic
+2017-03-12 14:20:10 FATAL [main] FATAL:38 - Error on DalvikInstruction (rem-double/2addr vA, vB) logic
+2017-03-12 14:20:11 FATAL [main] FATAL:38 - Error on DalvikInstruction (rem-double/2addr vA, vB) logic

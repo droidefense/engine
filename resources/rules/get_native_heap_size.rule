@@ -1,0 +1,6 @@
+#description: Get Native Heap size;
+#author: @zerjioang;
+#date: 29/12/2016;
+#family: Generic;
+#variant: Profiling;
+#rule: Object.ANY > android/os/Debug.getPackageManager;

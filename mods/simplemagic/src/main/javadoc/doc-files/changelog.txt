@@ -1,0 +1,81 @@
+1.8: 9/24/2016
+	* Fixed problems with the pstring type that were generating the wrong extracted string.
+	* Fixed problems with the ~ negation operation and byte, short, or int values.
+	* Fixed a number of problems around comparing two's complement numbers.
+	* Fixed problems with comparing floating point numbers.
+	* Major reworking of how the internal number types are processed and compared.
+	* Added a bunch more unit tests around numbers and integration tests.  Thanks much to rob stryker.
+
+1.7: 9/20/2016
+	* Added support for RIFF WEBP image type.  Thanks much to richid.
+	* Added support for an EMPTY ContentType if there is no bytes in the stream or file.  Thanks to se7en007.
+	* Added support for different binary magic line patterns that I had not seen before.
+	* Fixed bad bug with the string processing and <>=! operators.  Fixes SVG+ detection.  Thanks much to richid.
+	* Fixed some of the binary processing which now detects EXEs correctly.
+	* Fixed some size issues with short, id3, integer, and byte patterns.
+	* Moved to requiring java 1.6.
+
+1.6: 4/27/2014
+	* Added support for the 7zip file format.  Changed the name from 7z to 7zip.  Thanks to nfx.
+	* Fixed the processing of a directory of magic files which was very broken.  Thanks to nfx.
+
+1.5: 1/3/2014
+	* Fixed the search/## pattern which was extremely broken.
+	* Added better support for Microsoft Office OOXML document types.  Thanks again to zAlbee.
+	* Renamed types: PPTX to MICROSOFT_POWERPOINT_XML, XLSX to MICROSOFT_EXCEL_XML, DOCX to MICROSOFT_WORD_XML
+
+1.4: 1/3/2014
+	* Added initial support for optimization around starting strings.  Order of magnitude performance improvement.
+	* Added missing .pdf extension.  Thanks to Ali.
+	* Added better handling of OOXML Microsoft Office files.  Thanks to zAlbee.
+	* Fixed a problem with the no-space indicator being a ^H character instead of the \b string.
+	* Some internal refactoring to better encapsulate a collection of magic entries for matching.
+
+1.3: 11/12/2013
+	* Improved the content matching so partial matches still display information.
+	* Added ContentInfo.isPartial() to designate partial content matching.
+	* Added the ability to load magic information from a resource.
+
+1.2: 05/25/2013
+	* Removed duplicates from the internal list of mime-types and file-extensions.
+	* Added ContentTypeUtil.findExtensionMatch("file.ext") static method for file-extension matching.
+	* Added ContentTypeUtil.findMimeTypeMatch("audio/midi") static method for mime-type matching.
+
+1.1: 05/24/2013
+	* Added the ContentInfoInputStreamWrapper for getting content-info as the stream is being read.
+	* Added some initial file-extension mapping to the ContentType class.  A work in progress.
+
+1.0: 05/16/2013
+	* Renamed the ContentType.UNKNOWN to be ContentType.OTHER to not be confused with not known content.
+	* I think it is ready for a 1.X release.
+
+0.6: 05/15/2013
+	* Changed the name of the ContentType to be ContentDetails.
+	* Added an enumerated ContentType to map common mime-types to be known enumerated content types.
+
+0.5: 05/13/2013
+	* Added support for the extended and relative offsets.
+	* Added support for the ID3 7-bit lengths.
+	* Fixed a bug in the search type.
+	* Added by-hand parsing of the lines since the whitespace from magic files is very inconsistent. 
+
+0.4: 05/08/2013
+	* Added error callbacks and removed the System.err.println that got checked in by mistake.
+
+0.3: 05/08/2013
+	* Fixed some problems with the date types.  I assume now that the date (bedate, etc.) is in UTC timezone.
+	* Improved some more javadocs.
+
+0.2: 05/08/2013
+	* Fixed some magic bugs in the search and regex handling code exposed by better tests.  junit++.
+	* Got the date classes working.
+	* Renamed some of the external classes and methods to make more sense.
+	* Refactored a bunch of the code internals.  Passing back data from match and extract now.
+	* Added initial implementation of the search type.
+	* Improved some of the javadocs after going through all of them.
+	* Fixed some old references to Simple JMX that I copied the docs from.
+	* Added more test files.
+
+0.1: 05/06/2013
+	* Initial public release.  Tweaked javadocs and the like.
+	* Most functionality working.  Still not handling extended offset formats and the search type.

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>SimpleMagic Package Overview</title>
+</head>
+<body>
+
+	<p>
+		This package provides some simple magic value features that simulate the Unix file(1) command to determine the type of
+		a file or of
+		<tt>bytes</tt>
+		from the content. The <a href="com/j256/simplemagic/ContentInfoUtil.html">ContentInfoUtil</a> class is the main
+		external class that loads the rules and determines the content-types.
+	</p>
+
+	<p>
+		The <a target="_top" href="doc-files/changelog.txt">change log file</a> shows the various features and bug fixes in
+		each version.
+	</p>
+
+	<p>
+		<a target="_top" href="http://256.com/sources/simplemagic/">SimpleMagic home page</a>.
+	</p>
+
+	<p>
+	<pre>
+// create a magic utility using the internal magic file
+ContentInfoUtil util = new ContentInfoUtil();
+// get the content info for this file-path or null if no match
+ContentInfo info = util.findMatch(&quot;/tmp/upload.tmp&quot;);
+// display content type information
+if (info == null) {
+	System.out.println(&quot;Unknown content-type&quot;);
+} else {
+	// other information in ContentInfo type
+	System.out.println(&quot;Content-type is: &quot; + info.getName());
+}
+</pre>
+	</p>
+
+</body>
+</html>

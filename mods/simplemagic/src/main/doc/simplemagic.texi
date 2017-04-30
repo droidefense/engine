@@ -1,0 +1,345 @@
+\input texinfo @c -*-texinfo-*-
+@c %**start of header
+@setfilename simplemagic.info
+@settitle SimpleMagic Documentation
+@headings double
+@c %**end of header
+
+@c ----------------------------------------------------------------
+@set simplemagic_version 1.8
+@set simplemagic_year 2016
+@set simplemagic_date September @value{simplemagic_year}
+@set package SimpleMagic
+@c ----------------------------------------------------------------
+
+@titlepage
+@headings off
+@title SimpleMagic Package
+@subtitle Version @value{simplemagic_version}
+@subtitle @value{simplemagic_date}
+@author Gray Watson
+
+@page
+This manual is licensed by Gray Watson under the Creative Commons Attribution-Share Alike 3.0 License.
+
+Permission is granted to make and distribute verbatim copies of this manual provided this license
+notice and this permission notice are preserved on all copies.
+@end titlepage
+
+@c ----------------------------------------------------------------
+
+@c In the printed manual, we put the contents at the front.  For the digital manuals it is at the end. 
+@iftex
+@contents
+@end iftex
+
+@c ----------------------------------------------------------------
+@node Top, Quick Start, (dir), (dir)
+@top SimpleMagic
+@everyheading @thischapter @| @thispage @| @today{}
+
+Version @value{simplemagic_version} -- @value{simplemagic_date}
+
+@cindex introduction
+@cindex author
+@cindex simple magic
+This package provides some simple magic value features that simulate the Unix file(1) command to determine the type of a file
+or of @code{bytes} from the content.  It has an internal set of magic number information or it can process the magic files from
+local ~Unix system configuration.
+
+To get started quickly using SimpleMagic, @pxref{Quick Start}.
+@ifhtml
+There is also a @uref{http://256.com/sources/simplemagic/docs/simplemagic.pdf, PDF version of this documentation}.
+@end ifhtml
+@iftex
+There is also a @uref{http://256.com/sources/simplemagic/docs/simplemagic.html, HTML version of this documentation}.
+@end iftex
+
+Gray Watson @uref{http://256.com/gray/}
+
+@menu
+* Quick Start::                Start using SimpleMagic quickly.
+* Using::                      How to use SimpleMagic.
+* License::                    Open Source license for the project.
+* Index of Concepts::          Index of concepts in the manual.
+@end menu
+
+@c ----------------------------------------------------------------
+@node Quick Start, Using, Top, Top
+@chapter Start Using Quickly
+
+@cindex getting started
+@cindex how to get started
+@cindex quick start
+@cindex ContentInfoUtil
+To use SimpleMagic you need to do the following steps.  For more information, @pxref{Using}.
+
+@enumerate
+
+@item Download SimpleMagic from the @uref{http://256.com/sources/simplemagic/releases/, SimpleMagic release page}.  @xref{Downloading}.
+
+@item Optionally load in the magic entries from local file(s).  By default, if you construct a @code{ContentInfoUtil} instance
+with the default constructor, it will load the internal magic entries file.  @xref{Loading Magic Entries}.
+
+@item Use the @code{ContentInfoUtil} class to get content-types for files or @code{byte[]}:
+
+@example
+ContentInfoUtil util = new ContentInfoUtil();
+ContentInfo info = util.findMatch("/tmp/upload.tmp");
+// or   ContentInfo info = util.findMatch(inputStream);
+// or   ContentInfo info = util.findMatch(contentByteArray);
+// display content type information
+if (info == null) @{
+   System.out.println("Unknown content-type");
+@} else @{
+   // other information in ContentInfo type
+   System.out.println("Content-type is: " + info.getName());
+@}
+@end example
+
+@end enumerate
+
+If the @code{findMatch(...)} method does not recognize the content then it will return null.  If it does match one of the
+entries then it will return a @code{ContentInfo} class which provides:
+
+@itemize @bullet
+@item Enumerated type if the type is common otherwise set to @code{OTHER}
+@item Approximate content-name
+@item Full message produced by the magic file
+@item Mime-type string if one configured by the config file
+@item Associated file extensions if any associated
+@end itemize
+
+Here are some examples of @code{ContentInfo} output:
+
+@itemize @bullet
+@item HTML, mime 'text/html', msg 'HTML document text'
+@item PDF, mime 'application/pdf', msg 'PDF document, version 1.4'
+@item GIF, mime 'image/gif', msg 'GIF image data, version 89a, 16 x 16'
+@item JPEG, mime 'image/jpeg', msg 'JPEG image data, JFIF standard 1.01'
+@item Java, msg 'Java serialization data, version 5'
+@end itemize
+
+For somewhat more extensive instructions, @pxref{Using}.
+
+@c ----------------------------------------------------------------
+@node Using, Downloading, Quick Start, Top
+@chapter Using SimpleMagic
+
+@cindex how to use
+@cindex using SimpleMagic
+@menu
+* Downloading ::                Downloading the SimpleMagic jar.
+* Loading Magic Entries ::      Loading in the magic entries from files.
+* Finding Content Info ::       Finding the content type from data.
+* Content Info ::               Content type information returned.
+* Maven ::                      How to use with Maven.
+@end menu
+
+@c ----------------------------------------------------------------
+@node Downloading, Loading Magic Entries, Using, Using
+@section Downloading Jar
+
+@cindex how to download the jars
+@cindex downloading the jars
+@cindex where to get new jars
+To get started with SimpleMagic, you will need to download the jar file.  The @uref{http://256.com/sources/simplemagic/releases/, SimpleMagic
+release page} is the default repository but the jars are also available from the @uref{http://repo1.maven.org/maven2/com/j256/simplemagic/,
+central maven repository}.
+
+The code works with Java 6 or later.
+
+@c ----------------------------------------------------------------
+@node Loading Magic Entries, Finding Content Info, Downloading, Using
+@section How To Load Magic Entries
+
+@cindex default magic entries
+@cindex system magic entries
+The library uses various magic byte information to be able to find and determine details about random blocks of bytes.
+By default, SimpleMagic has a built in version of a magic file that was copied from a CentOS Linux system.  It contains, 
+~2400 magic file entries describing a number of different file types.  It also has an additional ~6600 lines which provide
+more details about the detected content types.
+
+@cindex loading magic entries
+@cindex magic files
+The magic entries are relatively complex but in general look something like the following.  The configuration line says to
+look at the start of the file for the string @code{"GIF8"}.  If it is there then the file is "GIF image data".
+
+@cindex sample magic definition
+@example
+0       string          GIF8            GIF image data
+@end example
+
+@cindex alternative magic files
+@cindex /etc/magic
+If you do not want to use the internal magic definitions, you can also construct the @code{ContentInfoUtil} class with a file
+or directory to have it parse and use another definition file.
+
+@example
+ContentInfoUtil util = new ContentInfoUtil("/etc/magic");
+@end example
+
+@emph{WARNING:} although we've tried to support different types of magic entries, there are local per-OS variations that may
+not be supported.  
+
+@c ----------------------------------------------------------------
+@node Finding Content Info, Content Info, Downloading, Using
+@section How To Find The Content Info
+
+Once you have loaded the magic entry information into your @code{ContentInfoUtil}, you can use the utility class to find
+the content info of files, byte arrays, or @code{InputStream}s.  The base method gets content info information from a
+@code{byte[]}.
+
+@cindex byte array content
+@example
+byte[] uploadedBytes = ...;
+ContentInfo info = util.findMatch(uploadedBytes);
+@end example
+
+You can also get the content type of a file which is read with a @code{FileInputStream}:
+
+@cindex file content
+@example
+ContentInfo info = util.findMatch("/tmp/uploadedFile.tmp");
+// File uploadedFile = ...
+// ContentInfo info = util.findMatch(uploadedFile);
+@end example
+
+@cindex input stream content
+If you have an @code{InputStream}, you can also use it directly:
+
+@example
+InputStream inputStream = ...
+ContentInfo info = util.findMatch(inputStream);
+@end example
+
+@cindex ContentInfoInputStreamWrapper
+@cindex wrapped input stream
+@cindex delegate to input stream
+@cindex input stream wrapper
+If you want to process a stream of bytes as the bytes are being read, you can use the @code{ContentInfoInputStreamWrapper}
+utility class.  This takes an @code{InputStream} which it wraps and delegates to.  After you have read the bytes through
+the wrapper, you can call the @code{findMatch()} method to get its content information.
+
+@example
+HttpServletRequest request = ...
+ContentInfoInputStreamWrapper inputStream
+   = new ContentInfoInputStreamWrapper(request.getInputStream());
+// read in the file from the http request, ...
+// after we have read it in, we can get its content-info 
+ContentInfo info = inputStream.findMatch();
+@end example
+
+For the file and stream versions, the first 10 kilobytes of the data is read and processed.
+
+There is also a long internal list of file types copied from the Apache list --
+@uref{http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co}.  Not all of the files in this list
+have associated magic number information.  However, with the list you can look up mime-types or by file-extension and
+get the associated information. 
+
+@cindex file extensions
+@cindex extensions
+You can use the internal list to lookup by file-extension:
+
+@example
+// find details about files with .pdf extension
+ContentInfo info =
+   ContentInfoUtil.findExtensionMatch("file.pdf");
+// you can even just pass in the extension name
+ContentInfo info =
+   ContentInfoUtil.findExtensionMatch("DOC");
+@end example
+
+@cindex mime-type
+Or you can look up by mime-type:
+
+@example
+// find details about this mime-type
+ContentInfo info =
+   ContentInfoUtil.findMimeTypeMatch("image/vnd.dwg");
+@end example
+
+Some internal entries provide more information than others.  This list is a work in progress.  Please submit improvements
+and edits as necessary.
+
+@c ----------------------------------------------------------------
+@node Content Info, License, Finding Content Info, Using
+@section Content Information
+
+If the @code{findMatch(...)} method does not recognize the content then it will return null.  If it does match one of the
+entries then it will return a @code{ContentInfo} class which provides:
+
+@itemize @bullet
+@item Enumerated content-type if the type is common otherwise set to @code{OTHER}.  This is determined by mapping the
+mime-type string to an internal enumerated type and is not determined from the magic file entries.
+@item Approximate content-name.  If the content-type is known then this will be a constant string.  If not know then this
+is usually the first word of the full message from the magic file. 
+@item Details about the content produced by the magic file.
+@cindex mime-type
+@item Mime-type string if one configured by the config file.
+@cindex file extensions
+@cindex extensions
+@item Associated file-extensions if in the internal list.
+@end itemize
+
+Here are some examples of @code{ContentInfo} output:
+
+@itemize @bullet
+@item html, mime 'text/html', msg 'HTML document text'
+@item java, msg 'Java serialization data, version 5'
+@item pdf, mime 'application/pdf', msg 'PDF document, version 1.4'
+@item gzip, mime 'application/x-gzip', msg 'gzip compressed data, was "", from Unix...'
+@item gif, mime 'image/gif', msg 'GIF image data, version 89a, 16 x 16'
+@item png, mime 'image/png', msg 'PNG image, 600 x 371, 8-bit/color RGB, non-interlaced'
+@item mp4a, mime 'audio/mp4', msg 'ISO Media, MPEG v4 system, iTunes AAC-LC'
+@item word, mime 'application/msword', msg 'Microsoft Word Document'
+@item wav, mime 'audio/x-wav', msg 'RIFF (little-endian) data, WAVE audio...'
+@item jpeg, mime 'image/jpeg', msg 'JPEG image data, JFIF standard 1.01'
+@end itemize
+
+@c ----------------------------------------------------------------
+@node Maven, License, Content Info, Using
+@section Using With Maven
+
+@cindex Maven, use with
+@cindex pom.xml dependency
+To use SimpleMagic with maven, include the following dependency in your @file{pom.xml} file:
+
+@example
+<dependency>
+	<groupId>com.j256.simplemagic</groupId>
+	<artifactId>simplemagic</artifactId>
+	<version>@value{simplemagic_version}</version>
+</dependency>
+@end example 
+
+@c ----------------------------------------------------------------
+@node License, Index of Concepts, Maven, Top
+@chapter Open Source License
+
+@cindex license
+@cindex open source license
+This document is part of the SimpleMagic project.
+
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby
+granted, provided that this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING
+ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL,
+DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE
+USE OR PERFORMANCE OF THIS SOFTWARE.
+
+The author may be contacted via @uref{http://256.com/sources/simplemagic/}
+
+@c ----------------------------------------------------------------
+@node Index of Concepts,, License, Top
+@unnumbered Index of Concepts
+
+@printindex cp
+
+@ifhtml
+@contents
+@end ifhtml
+
+@bye

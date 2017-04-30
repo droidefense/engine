@@ -9,6 +9,8 @@
 
     <artifactId>rulengine</artifactId>
 
+    <name>Droidefense-module Rule Engine</name>
+
     <properties>
         <jdk.version>1.8</jdk.version>
     </properties>

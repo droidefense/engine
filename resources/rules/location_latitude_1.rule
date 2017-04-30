@@ -1,0 +1,6 @@
+#description: This application reads your device's current GPS Location's latitude;
+#author: @zerjioang;
+#date: 29/12/2016;
+#family: GPS;
+#variant: location;
+#rule: Object.ANY > android/location/Location.getLatitude;

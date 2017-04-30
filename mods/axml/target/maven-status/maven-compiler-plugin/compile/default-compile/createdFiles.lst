@@ -1,0 +1,15 @@
+droidefense\mod\axml\value\TypeValueConfig.class
+droidefense\mod\axml\res\StringBlock.class
+droidefense\mod\axml\res\IntReader.class
+droidefense\mod\axml\value\TypedValue.class
+droidefense\mod\axml\exception\XmlPullParserException.class
+droidefense\mod\axml\base\AttributeSet.class
+droidefense\mod\axml\res\AXmlResourceParser$NamespaceStack.class
+droidefense\mod\axml\res\ChunkUtil.class
+droidefense\mod\axml\res\AXmlResourceParser$1.class
+droidefense\mod\axml\AXMLPrinter.class
+droidefense\mod\axml\base\XmlPullParser.class
+droidefense\mod\axml\base\XmlSerializer.class
+droidefense\mod\axml\res\AXmlResourceParser.class
+droidefense\mod\axml\XmlPullParserFactory.class
+droidefense\mod\axml\base\XmlResourceParser.class
