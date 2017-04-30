@@ -1,4 +1,4 @@
-### apkr issue template
+### droidefense issue template
 
 1. **droidefense version (`apkr -version`)**
 2. **Operating System (Mac, Linux, Windows, etc)**
