@@ -40,9 +40,14 @@ public class StaticInfo implements Serializable {
     private ArrayList<AbstractHashedFile> rawFiles;
 
     /**
-     * list of other files
+     * list of other developer made files
      */
     private ArrayList<AbstractHashedFile> otherFiles;
+
+    /**
+     * List of default android generated files
+     */
+    private ArrayList<AbstractHashedFile> defaultFiles;
 
     private AbstractHashedFile certFile;
 
@@ -330,5 +335,13 @@ public class StaticInfo implements Serializable {
 
     public void addDexBodyModel(DexBodyModel dexBodyModel) {
         this.dexBodyModel = dexBodyModel;
+    }
+
+    public void setDefaultFiles(ArrayList<AbstractHashedFile> defaultFiles) {
+        this.defaultFiles = defaultFiles;
+    }
+
+    public ArrayList<AbstractHashedFile> getDefaultFiles() {
+        return defaultFiles;
     }
 }

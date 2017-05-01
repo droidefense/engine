@@ -2,6 +2,7 @@ package droidefense.sdk.model.io;
 
 import com.j256.simplemagic.ContentInfo;
 import droidefense.sdk.helpers.Util;
+import droidefense.temp.DroidefenseIntel;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,6 +18,7 @@ public abstract class AbstractHashedFile implements Serializable {
     protected String crc32, md5, sha1, sha256, sha512, ssdeep;
     protected boolean suspiciousWin32File;
     protected boolean signatureMatches;
+    protected boolean isDefaultFile;
     protected String filename, headerBasedExtension, declaredExtension, description;
     protected String magicDescription;
     private ContentInfo contentInfo;
@@ -41,6 +43,7 @@ public abstract class AbstractHashedFile implements Serializable {
         contentInfo = null;
         if (generateInformation) {
             generateHashes();
+            isDefaultFile = DroidefenseIntel.getInstance().isDefaultFile(this.sha256);
             //TODO calculate header based extension vs declared extension
             //variables: signatureMatches, headerBasedExtension, description, magicDescription
         }
@@ -237,5 +240,33 @@ public abstract class AbstractHashedFile implements Serializable {
 
     public void setContentInfo(ContentInfo contentInfo) {
         this.contentInfo = contentInfo;
+    }
+
+    public boolean isGenerateInformation() {
+        return generateInformation;
+    }
+
+    public String getCrc32() {
+        return crc32;
+    }
+
+    public void setCrc32(String crc32) {
+        this.crc32 = crc32;
+    }
+
+    public boolean isDefaultFile() {
+        return isDefaultFile;
+    }
+
+    public void setDefaultFile(boolean defaultFile) {
+        isDefaultFile = defaultFile;
+    }
+
+    public String getDeclaredExtension() {
+        return declaredExtension;
+    }
+
+    public void setDeclaredExtension(String declaredExtension) {
+        this.declaredExtension = declaredExtension;
     }
 }

@@ -120,4 +120,15 @@ public final class CertificateSubject implements Serializable {
         return data != null ? data.equals(that.data) : that.data == null;
 
     }
+
+    public boolean hasDebugData() {
+        boolean debug = true;
+        debug &= this.commonName.equals("Android Debug");
+        debug &= this.organizationalUnit.equals("");
+        debug &= this.organization.equals("Android");
+        debug &= this.locality.equals("");
+        debug &= this.stateOrProvinceName.equals("");
+        debug &= this.countryName.equals("US");
+        return debug;
+    }
 }

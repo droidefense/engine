@@ -17,9 +17,12 @@ public class InternalConstant implements Serializable {
     public static final String WEKA_FEATURES_FILE = "features.arff";
     public static final int SHA256_LENGTH = 64;
     public static final String INTERNAL_DATA_FOLDER = "internal_temp";
-    public static final String ENGINE_VERSION = "1.0";
+    public static final String ENGINE_VERSION = "0.1";
     public static final String CVS_SPLIT = ",";
     public static final String SPACE = " ";
+    public static final String LEAD_DEVELOPER = "@zerjioang";
+    public static final String REPO_URL = "https://github.com/droidefense/";
+    public static final String ISSUES_URL = "https://github.com/droidefense/engine/issues";
     public static boolean IS_WINDOWS_HOST = System.getProperty("os.name").toLowerCase().contains("windows");
     public static String JARFILE_EXTENSION = ".jar";
     public static String COMPILED_JAVA_EXTENSION = ".class";

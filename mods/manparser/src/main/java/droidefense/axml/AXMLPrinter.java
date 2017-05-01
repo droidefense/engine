@@ -14,6 +14,10 @@ public class AXMLPrinter {
     private static final char NEW_LINE_CHAR = '\n';
 
     private StringBuffer buffer;
+    private byte[] content;
+
+    public AXMLPrinter(){
+    }
 
     public AXMLPrinter(byte[] data) throws XmlPullParserException, IOException {
         decode(new ByteArrayInputStream(data));
@@ -21,6 +25,10 @@ public class AXMLPrinter {
 
     public AXMLPrinter(File f) throws XmlPullParserException, IOException {
         decode(new FileInputStream(f));
+    }
+
+    public void decompress() throws IOException, XmlPullParserException {
+        decode(new ByteArrayInputStream(content));
     }
 
     private void decode(InputStream stream) throws IOException, XmlPullParserException {
@@ -96,5 +104,13 @@ public class AXMLPrinter {
 
     public String getResult() {
         return this.buffer.toString();
+    }
+
+    public void setContent(byte[] content) {
+        this.content = content;
+    }
+
+    public byte[] getContent() {
+        return content;
     }
 }

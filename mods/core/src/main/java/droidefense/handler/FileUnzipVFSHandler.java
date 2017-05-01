@@ -72,7 +72,7 @@ public class FileUnzipVFSHandler extends AbstractHandler {
             //close zip file access
             zipIn.close();
             project.setVFS(root);
-            project.getVFS().print();
+            project.getVFS().info();
             return true;
         } catch (FileNotFoundException e) {
             error = e;

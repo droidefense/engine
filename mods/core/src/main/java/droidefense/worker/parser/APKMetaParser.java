@@ -36,6 +36,7 @@ public class APKMetaParser extends AbstractFileParser {
         ArrayList<AbstractHashedFile> libFiles = new ArrayList<>();
         ArrayList<AbstractHashedFile> rawFiles = new ArrayList<>();
         ArrayList<AbstractHashedFile> otherFiles = new ArrayList<>();
+        ArrayList<AbstractHashedFile> defaultFiles = new ArrayList<>();
 
         //manifest file
         AbstractHashedFile manifest = null;
@@ -55,7 +56,13 @@ public class APKMetaParser extends AbstractFileParser {
             } else if (r.getPath().contains(File.separator + "res" + File.separator + "raw")) {
                 rawFiles.add(new VirtualHashedFile(r, true));
             } else {
-                otherFiles.add(new VirtualHashedFile(r, true));
+                VirtualHashedFile virtualFile = new VirtualHashedFile(r, true);
+                if(virtualFile.isDefaultFile()){
+                    defaultFiles.add(virtualFile);
+                }
+                else{
+                    otherFiles.add(virtualFile);
+                }
             }
         }
 
@@ -67,6 +74,7 @@ public class APKMetaParser extends AbstractFileParser {
         this.currentProject.setAssetsFiles(assetFiles);
         this.currentProject.setLibFiles(libFiles);
         this.currentProject.setOtherFiles(otherFiles);
+        this.currentProject.setDefaultFiles(defaultFiles);
 
         //set number of dex files
         this.currentProject.setNumberofDex(dexList.size());

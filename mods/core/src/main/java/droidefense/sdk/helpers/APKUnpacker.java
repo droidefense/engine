@@ -45,13 +45,14 @@ public enum APKUnpacker {
         public ArrayList<VirtualFile> decodeWithTechnique(DroidefenseProject currentProject, ArrayList<VirtualFile> files) {
             int folderCount = 0;
             int filesCount = 0;
+            AXMLDecoderHandler decoder = new AXMLDecoderHandler();
             //todo implement axml, 9.png and resource decoder
             for (VirtualFile file : files) {
                 folderCount += file.isFolder() ? 1 : 0;
                 filesCount += file.isFile() ? 1 : 0;
                 if (isXml(file)) {
                     Log.write(LoggerType.DEBUG, "Decoding file " + file.getPath());
-                    AXMLDecoderHandler decoder = new AXMLDecoderHandler(file);
+                    decoder.setFile(file);
                     decoder.doTheJob();
                 }
                 else {

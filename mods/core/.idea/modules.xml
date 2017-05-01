@@ -13,7 +13,6 @@
       <module fileurl="file://$PROJECT_DIR$/../ml/ml.iml" filepath="$PROJECT_DIR$/../ml/ml.iml" />
       <module fileurl="file://$PROJECT_DIR$/../pscout/pscout.iml" filepath="$PROJECT_DIR$/../pscout/pscout.iml" />
       <module fileurl="file://$PROJECT_DIR$/../rulengine/rulengine.iml" filepath="$PROJECT_DIR$/../rulengine/rulengine.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../mods/rulengine/rulengine.iml" filepath="$PROJECT_DIR$/../mods/rulengine/rulengine.iml" />
       <module fileurl="file://$PROJECT_DIR$/../simplemagic/simplemagic.iml" filepath="$PROJECT_DIR$/../simplemagic/simplemagic.iml" />
       <module fileurl="file://$PROJECT_DIR$/../ssdeep/ssdeep.iml" filepath="$PROJECT_DIR$/../ssdeep/ssdeep.iml" />
       <module fileurl="file://$PROJECT_DIR$/../vfs/vfs.iml" filepath="$PROJECT_DIR$/../vfs/vfs.iml" />

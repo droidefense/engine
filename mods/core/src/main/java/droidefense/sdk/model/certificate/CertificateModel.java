@@ -44,11 +44,13 @@ public final class CertificateModel implements Serializable {
         setSignatureAlgorithm("SHA256withRSA");
         setOid("1.2.840.113549.1.1.11");
         setType("X.509");
+        setCertType("RSA Public key");
         setPublicKeyAlgorithm("RSA");
         setExponent("65537");
         setValidity("10950 DAYS");
         setIssuer(new CertificateSubject("CN=Android Debug, O=Android, C=US"));
-        setSerialNumber("1188267067");
+        setSerialNumber("1");
+        setValidtime(946080000000L);
     }
 
     public CertificateModel(X509Certificate c) {
@@ -393,19 +395,9 @@ public final class CertificateModel implements Serializable {
     }
 
     public boolean seemsDebugCertificate(CertificateModel that) {
-        if (version != that.version)
-            return false;
         if (validtime != that.validtime)
             return false;
-        if (signatureAlgorithm != null ? !signatureAlgorithm.equals(that.signatureAlgorithm) : that.signatureAlgorithm != null)
-            return false;
-        if (oid != null ? !oid.equals(that.oid) : that.oid != null)
-            return false;
-        if (type != null ? !type.equals(that.type) : that.type != null)
-            return false;
         if (publicKeyAlgorithm != null ? !publicKeyAlgorithm.equals(that.publicKeyAlgorithm) : that.publicKeyAlgorithm != null)
-            return false;
-        if (key != null ? !key.equals(that.key) : that.key != null)
             return false;
         if (certType != null ? !certType.equals(that.certType) : that.certType != null)
             return false;
@@ -413,11 +405,12 @@ public final class CertificateModel implements Serializable {
             return false;
         if (validity != null ? !validity.equals(that.validity) : that.validity != null)
             return false;
-        if (subject != null ? !subject.equals(that.subject) : that.subject != null)
+        if(serialNumber!=null ? !serialNumber.equals(that.serialNumber) : that.serialNumber != null)
             return false;
-        if (subjectPrincipal != null ? !subjectPrincipal.equals(that.subjectPrincipal) : that.subjectPrincipal != null)
+        if (subject != null ? !subject.hasDebugData() : that.subject != null)
             return false;
-        return issuer != null ? issuer.equals(that.issuer) : that.issuer == null;
-
+        if (issuer != null ? !issuer.hasDebugData() : that.issuer != null)
+            return false;
+        return true;
     }
 }

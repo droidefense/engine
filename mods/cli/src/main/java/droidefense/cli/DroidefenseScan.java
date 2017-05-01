@@ -16,12 +16,9 @@ import droidefense.temp.DroidefenseIntel;
 
 import java.io.File;
 
-/**
- * Created by sergio on 3/9/16.
- */
 public class DroidefenseScan {
 
-    private static boolean init = loadVariables();
+    private static boolean init;
     private DroidefenseProject project;
 
     public DroidefenseScan(String[] args) throws InvalidScanParametersException {
@@ -30,10 +27,6 @@ public class DroidefenseScan {
 
         DroidefenseSettings settings = new DroidefenseSettings(args);
 
-        if (!init) {
-            Log.write(LoggerType.FATAL, "Droidefense initialization error");
-        }
-
         //help info if requested
         if (settings.isHelpRequested()) {
             settings.showUsage();
@@ -41,9 +34,12 @@ public class DroidefenseScan {
         }
         //version requested
         else if (settings.getVersion()) {
-            System.out.println("Current version of droidefense: " + InternalConstant.ENGINE_VERSION);
-            System.out.println("Check out on Github: https://github.com/droidefense");
-            System.out.println("Lead developer: @zerjioang");
+            System.out.println("################################################################################");
+            System.out.println("Current version of droidefense: \t" + InternalConstant.ENGINE_VERSION);
+            System.out.println("Check out on Github: \t\t\t\t" + InternalConstant.REPO_URL);
+            System.out.println("Report your issue: \t\t\t\t\t" + InternalConstant.ISSUES_URL);
+            System.out.println("Lead developer: \t\t\t\t\t" + InternalConstant.LEAD_DEVELOPER);
+            System.out.println("################################################################################");
             return;
         }
 
@@ -61,6 +57,13 @@ public class DroidefenseScan {
 
         //read user selected .apk
         if (settings.hasFile()) {
+            //initialize environment first
+            init = loadVariables();
+            if (!init) {
+                Log.write(LoggerType.FATAL, "Droidefense initialization error");
+                return;
+            }
+
             //security check
             File inputFile = settings.getInput();
             if (inputFile != null) {
@@ -150,12 +153,6 @@ public class DroidefenseScan {
         System.out.println("/_______  /__|   \\____/|__\\____ |\\___  >__|  \\___  >___|  /____  >\\___  >");
         System.out.println("        \\/                     \\/    \\/          \\/     \\/     \\/     \\/ ");
         System.out.println();
-        System.out.println();
-        System.out.println("\tEngine version: "+DroidDefenseParams.VERSION+"-"+DroidDefenseParams.TAG);
-        System.out.println("\tStatus: ALPHA");
-        System.out.println("\tOfficial repo: https://github.com/droidefense");
-        System.out.println();
-        System.out.println("\tLead developer: @zerjioang");
         System.out.println();
     }
 }

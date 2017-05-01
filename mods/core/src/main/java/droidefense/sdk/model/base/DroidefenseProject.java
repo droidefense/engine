@@ -750,6 +750,10 @@ public final class DroidefenseProject implements Serializable {
         this.staticInfo.setOtherFiles(otherFiles);
     }
 
+    public void setDefaultFiles(ArrayList<AbstractHashedFile> defaultFiles) {
+        this.staticInfo.setDefaultFiles(defaultFiles);
+    }
+
     public void setPrivacyResult(PrivacyResultEnum privacyResult) {
         this.privacyResult = privacyResult;
     }
@@ -846,4 +850,5 @@ public final class DroidefenseProject implements Serializable {
     public LocalApkFile getSample() {
         return sample;
     }
+
 }

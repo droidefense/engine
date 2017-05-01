@@ -1,8 +1,21 @@
 \.DS_Store
+
+# exclude target dirs
 */target/*
-*/log/*
 */out/*
-\.log
+
 .classpath
 .project
 .settings/
+
+# exclude log files
+*.log
+*.log.*
+*/log/*
+\.log
+
+#exclude compiled classes
+*.class
+
+#exclude sample .apk
+*.apk

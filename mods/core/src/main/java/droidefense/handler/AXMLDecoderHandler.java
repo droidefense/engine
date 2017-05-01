@@ -1,6 +1,6 @@
 package droidefense.handler;
 
-import droidefense.axml.AXMLPrinter;
+import droidefense.custom.CustomAXMLDecoder;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.helpers.log4j.Log;
 import droidefense.helpers.log4j.LoggerType;
@@ -12,22 +12,27 @@ import droidefense.vfs.model.impl.VirtualFile;
  */
 public final class AXMLDecoderHandler extends AbstractHandler {
 
-    private final VirtualFile vf;
+    private VirtualFile vf;
+
+    public AXMLDecoderHandler() {
+    }
 
     public AXMLDecoderHandler(VirtualFile vf) {
+        this();
         this.vf = vf;
     }
 
     @Override
     public boolean doTheJob() {
+
+        if(vf==null){
+            return false;
+        }
+
         if (vf.getName().toLowerCase().endsWith(InternalConstant.XML_EXTENSION)) {
-            AXMLPrinter printer;
             try {
-                printer = new AXMLPrinter(vf.getContent());
-                String decodedContent = printer.getResult();
-                if (decodedContent != null) {
-                    vf.setContent(decodedContent);
-                }
+                String decodedContent = CustomAXMLDecoder.decompressXML(vf.getContent());
+                vf.setContent(decodedContent);
             } catch (Exception e) {
                 //TODO it seems that xml decoding failed. try second methods
                 Log.write(LoggerType.ERROR, e.getLocalizedMessage());
@@ -39,6 +44,14 @@ public final class AXMLDecoderHandler extends AbstractHandler {
     }
 
     public VirtualFile getDecodedFile() {
+        return vf;
+    }
+
+    public void setFile(VirtualFile file) {
+        this.vf = file;
+    }
+
+    public VirtualFile getFile() {
         return vf;
     }
 }

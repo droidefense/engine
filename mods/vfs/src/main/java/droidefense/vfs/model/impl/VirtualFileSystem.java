@@ -59,6 +59,8 @@ public final class VirtualFileSystem {
         System.out.println("\t\tGb: " + sizeBytes / 1000 / 1000 / 1000);
         System.out.println("\t\tTb: " + sizeBytes / 1000 / 1000 / 1000 / 1000);
         System.out.println("-----------VFS INFO END-----------");
+        System.out.println();
+        print();
     }
 
     public void print() {
