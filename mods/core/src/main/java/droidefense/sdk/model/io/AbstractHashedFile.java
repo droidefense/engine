@@ -1,6 +1,10 @@
 package droidefense.sdk.model.io;
 
 import com.j256.simplemagic.ContentInfo;
+import com.j256.simplemagic.ContentInfoUtil;
+import com.j256.simplemagic.ContentType;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.sdk.helpers.Util;
 import droidefense.temp.DroidefenseIntel;
 
@@ -12,6 +16,7 @@ public abstract class AbstractHashedFile implements Serializable {
 
     private transient static final String NO_EXTENSION = "";
     private transient final boolean generateInformation;
+    private static final ContentInfoUtil util = new ContentInfoUtil();
 
     protected long filesize;
     protected String beautyFilesize;
@@ -20,8 +25,11 @@ public abstract class AbstractHashedFile implements Serializable {
     protected boolean signatureMatches;
     protected boolean isDefaultFile;
     protected String filename, headerBasedExtension, declaredExtension, description;
+    private String mimetype;
     protected String magicDescription;
     private ContentInfo contentInfo;
+
+    protected transient InputStream stream;
 
     public AbstractHashedFile(boolean generateInformation) {
         this.generateInformation = generateInformation;
@@ -44,9 +52,47 @@ public abstract class AbstractHashedFile implements Serializable {
         if (generateInformation) {
             generateHashes();
             isDefaultFile = DroidefenseIntel.getInstance().isDefaultFile(this.sha256);
-            //TODO calculate header based extension vs declared extension
-            //variables: signatureMatches, headerBasedExtension, description, magicDescription
+            calculateHeaderBasedExtension();
         }
+    }
+
+    private void calculateHeaderBasedExtension() {
+        ContentInfo info;
+        try {
+            if(getDataStream()!=null){
+                info = util.findMatch(getDataStream());
+                if(info!=null) {
+                    //get info
+                    this.description = info.getMessage();
+                    ContentType type = info.getContentType();
+                    if(type!=null){
+                        this.mimetype = type.getMimeType();
+                        this.headerBasedExtension = type.name();
+                        this.signatureMatches = this.headerBasedExtension.toLowerCase().equals(this.declaredExtension.toLowerCase()) || isApkFile();
+                    }
+                    else{
+                        Log.write(LoggerType.DEBUG, "No content type information is present");
+                        this.signatureMatches = false;
+                    }
+                }
+                else{
+                    Log.write(LoggerType.DEBUG, "No content information is present");
+                }
+            }
+            else{
+                Log.write(LoggerType.DEBUG, "Not data stream is present");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private boolean isApkFile() {
+        return this.declaredExtension.toLowerCase().equals("apk") && this.headerBasedExtension.toLowerCase().equals("zip");
+    }
+
+    protected InputStream getDataStream(){
+        return this.stream;
     }
 
     protected abstract void generateHashes();

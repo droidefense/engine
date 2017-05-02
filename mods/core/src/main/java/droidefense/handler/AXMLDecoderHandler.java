@@ -1,6 +1,6 @@
 package droidefense.handler;
 
-import droidefense.custom.CustomAXMLDecoder;
+import axml.ByteArrayAXMLDecoder;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.helpers.log4j.Log;
 import droidefense.helpers.log4j.LoggerType;
@@ -12,9 +12,11 @@ import droidefense.vfs.model.impl.VirtualFile;
  */
 public final class AXMLDecoderHandler extends AbstractHandler {
 
+    private final ByteArrayAXMLDecoder decoder;
     private VirtualFile vf;
 
     public AXMLDecoderHandler() {
+        this.decoder = new ByteArrayAXMLDecoder();
     }
 
     public AXMLDecoderHandler(VirtualFile vf) {
@@ -31,7 +33,8 @@ public final class AXMLDecoderHandler extends AbstractHandler {
 
         if (vf.getName().toLowerCase().endsWith(InternalConstant.XML_EXTENSION)) {
             try {
-                String decodedContent = CustomAXMLDecoder.decompressXML(vf.getContent());
+                decoder.setByteArray(vf.getContent());
+                String decodedContent = decoder.decompress();
                 vf.setContent(decodedContent);
             } catch (Exception e) {
                 //TODO it seems that xml decoding failed. try second methods

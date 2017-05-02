@@ -17,6 +17,11 @@ public class LocalHashedFile extends AbstractHashedFile implements Serializable 
     public LocalHashedFile(File f, boolean generateInformation) {
         super(generateInformation);
         this.f = f;
+        try {
+            this.stream = new FileInputStream(f);
+        } catch (FileNotFoundException e) {
+            Log.write(LoggerType.ERROR, "Could not find the requested file");
+        }
         init();
     }
 

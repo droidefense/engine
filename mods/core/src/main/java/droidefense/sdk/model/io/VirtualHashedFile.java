@@ -17,6 +17,7 @@ public final class VirtualHashedFile extends AbstractHashedFile implements Seria
     public VirtualHashedFile(VirtualFile vf, boolean generateInformation) {
         super(generateInformation);
         this.vf = vf;
+        this.stream = new ByteArrayInputStream(this.vf.getContent());
         init();
     }
 
@@ -53,6 +54,11 @@ public final class VirtualHashedFile extends AbstractHashedFile implements Seria
     @Override
     public byte[] getContent() throws IOException {
         return vf.getContent();
+    }
+
+    @Override
+    protected InputStream getDataStream() {
+        return stream;
     }
 
     @Override
