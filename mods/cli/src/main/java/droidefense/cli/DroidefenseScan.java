@@ -1,12 +1,12 @@
 package droidefense.cli;
 
-import droidefense.helpers.log4j.Log;
-import droidefense.helpers.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.analysis.base.AnalysisFactory;
 import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.exception.InvalidScanParametersException;
 import droidefense.exception.UnknownAnalyzerException;
+import droidefense.helpers.log4j.Log;
+import droidefense.helpers.log4j.LoggerType;
 import droidefense.sdk.helpers.APKUnpacker;
 import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.helpers.InternalConstant;
@@ -107,7 +107,10 @@ public class DroidefenseScan {
     private void profilingAlert(String status) {
         System.out.println("Profiling mode enabled. Waiting user to " + status + " profler. Press enter key when ready.");
         System.out.println("Press enter key to continue...");
-        try {System.in.read();} catch (Exception e) {}
+        try {
+            System.in.read();
+        } catch (Exception e) {
+        }
     }
 
     public void stop() {
