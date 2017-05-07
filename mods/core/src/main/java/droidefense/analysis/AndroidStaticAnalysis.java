@@ -1,7 +1,7 @@
 package droidefense.analysis;
 
-import droidefense.helpers.log4j.Log;
-import droidefense.helpers.log4j.LoggerType;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.exception.UnknownParserException;
 import droidefense.handler.ObjdumpHandler;
@@ -42,13 +42,13 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
         }
         */
 
-        //2 parse manifest
+        //2 parse droidefense.sdk.manifest
         try {
-            Log.write(LoggerType.TRACE, "\n\n --- Running Android manifest parser ---\n\n");
+            Log.write(LoggerType.TRACE, "\n\n --- Running Android droidefense.sdk.manifest parser ---\n\n");
             parser = ParserFactory.getParser(ParserFactory.MANIFEST_PARSER, currentProject, apkFile);
             parser.parse();
         } catch (UnknownParserException e) {
-            Log.write(LoggerType.FATAL, "Could not recover manifest parser", e.getLocalizedMessage());
+            Log.write(LoggerType.FATAL, "Could not recover droidefense.sdk.manifest parser", e.getLocalizedMessage());
             this.errorList.add(e);
         }
 

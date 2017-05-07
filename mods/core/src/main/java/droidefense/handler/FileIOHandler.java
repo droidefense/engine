@@ -1,9 +1,9 @@
 package droidefense.handler;
 
 
-import droidefense.helpers.log4j.Log;
-import droidefense.helpers.log4j.LoggerType;
-import droidefense.helpers.system.SystemCallReturn;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
+import droidefense.sdk.system.SystemCallReturn;
 import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.helpers.Util;

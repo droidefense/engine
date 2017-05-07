@@ -252,7 +252,7 @@ public enum ContentType {
 	RESOURCE_LISTS_DIFF("application/resource-lists-diff+xml", "resource-lists-diff", "rld"),
 	RLS_SERVICES("application/rls-services+xml", "rls-services", "rs"),
 	RPKI_GHOSTBUSTERS("application/rpki-ghostbusters", "rpki-ghostbusters", "gbr"),
-	RPKI_MANIFEST("application/rpki-manifest", "rpki-manifest", "mft"),
+	RPKI_MANIFEST("application/rpki-droidefense.sdk.manifest", "rpki-droidefense.sdk.manifest", "mft"),
 	RPKI_ROA("application/rpki-roa", "rpki-roa", "roa"),
 	RSD("application/rsd+xml", "rsd", "rsd"),
 	RSS("application/rss+xml", "rss", "rss"),

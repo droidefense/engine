@@ -6,7 +6,7 @@ import droidefense.sdk.model.dex.DexBodyModel;
 import droidefense.sdk.model.enums.SDK_VERSION;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.vfs.model.impl.VirtualFile;
-import droidefense.xmodel.manifest.Manifest;
+import droidefense.sdk.manifest.Manifest;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -71,12 +71,12 @@ public class StaticInfo implements Serializable {
     private ArrayList<CertificateModel> certificates;
 
     /**
-     * Parsed manifest info
+     * Parsed droidefense.sdk.manifest info
      */
     private Manifest manifestInfo;
 
     /**
-     * flag that indicates if manifest classnames has package name with them
+     * flag that indicates if droidefense.sdk.manifest classnames has package name with them
      */
     private boolean classNameWithPkgName;
 

@@ -1,9 +1,9 @@
 package droidefense.handler;
 
-import droidefense.batch.task.OutPutResult;
+import droidefense.batch.helper.OutPutResult;
 import droidefense.handler.base.AbstractHandler;
-import droidefense.helpers.log4j.Log;
-import droidefense.helpers.log4j.LoggerType;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.ml.MachineLearningResult;
 import droidefense.ml.WekaClassifier;
 import droidefense.sdk.helpers.InternalConstant;

@@ -1,14 +1,14 @@
 package droidefense.om.helper;
 
 
-import droidefense.helpers.log4j.Log;
-import droidefense.helpers.log4j.LoggerType;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.reader.DexHeaderReader;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
-import droidefense.temp.DroidefenseIntel;
+import droidefense.util.DroidefenseIntel;
 
 import java.io.IOException;
 import java.io.Serializable;

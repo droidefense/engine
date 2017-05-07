@@ -1,5 +1,6 @@
 package droidefense.batch.task;
 
+import droidefense.batch.helper.OutPutResult;
 import droidefense.batch.base.IBatchTask;
 import droidefense.batch.base.ICSVGenerator;
 import droidefense.handler.DirScannerHandler;
@@ -7,13 +8,13 @@ import droidefense.handler.FileIOHandler;
 import droidefense.handler.FileUnzipLocalHandler;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.handler.base.DirScannerFilter;
-import droidefense.helpers.log4j.Log;
-import droidefense.helpers.log4j.LoggerType;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.LocalHashedFile;
 import droidefense.xmodel.base.ManifestParser;
-import droidefense.xmodel.manifest.UsesPermission;
+import droidefense.sdk.manifest.UsesPermission;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
@@ -84,7 +85,7 @@ public class CSVFeatureExtractorTask implements IBatchTask, ICSVGenerator, Seria
                 handler.doTheJob();
                 Log.write(LoggerType.TRACE, i);
                 Log.write(LoggerType.TRACE, "Listing unpacked files...");
-                //get android manifest
+                //get android droidefense.sdk.manifest
                 LocalHashedFile manif = new LocalHashedFile(new File(out.getAbsolutePath() + File.separator + InternalConstant.ANDROID_MANIFEST), false);
                 if (manif.exists()) {
                     Log.write(LoggerType.TRACE, "Decoding XML resources");

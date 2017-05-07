@@ -106,7 +106,7 @@ public class Androlib {
             throws AndrolibException {
         try {
             Directory apk = apkFile.getDirectory();
-            LOGGER.info("Copying raw manifest...");
+            LOGGER.info("Copying raw droidefense.sdk.manifest...");
             apkFile.getDirectory().copyToDir(outDir, APK_MANIFEST_FILENAMES);
         } catch (DirectoryException ex) {
             throw new AndrolibException(ex);

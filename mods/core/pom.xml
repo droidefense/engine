@@ -21,11 +21,11 @@
         <module>../manparser</module>
         <module>../ssdeep</module>
         <module>../simplemagic</module>
-        <module>../helpers</module>
         <module>../entropy</module>
         <module>../ml</module>
         <module>../pscout</module>
         <module>../batch</module>
+        <module>../sdk</module>
     </modules>
 
     <properties>
@@ -79,12 +79,6 @@
 
         <dependency>
             <groupId>com.droidefense</groupId>
-            <artifactId>helpers</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.droidefense</groupId>
             <artifactId>entropy</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
@@ -107,6 +101,13 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>com.droidefense</groupId>
+            <artifactId>sdk</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- testing libs -->
 
         <dependency>
@@ -114,6 +115,11 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.0</version>
         </dependency>
 
     </dependencies>
@@ -141,12 +147,12 @@
                         <exclude>**/log4j.properties</exclude>
                     </excludes>
                     <archive>
-                        <manifest>
+                        <droidefense.sdk.manifest>
                             <!-- Jar file entry point -->
                             <mainClass>droidefense.cli.DroidefenseScan</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>${dependecy.directory}/</classpathPrefix>
-                        </manifest>
+                        </droidefense.sdk.manifest>
                     </archive>
                 </configuration>
             </plugin>

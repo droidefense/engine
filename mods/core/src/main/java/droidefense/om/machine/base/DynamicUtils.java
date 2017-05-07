@@ -1,7 +1,7 @@
 package droidefense.om.machine.base;
 
-import droidefense.helpers.log4j.Log;
-import droidefense.helpers.log4j.LoggerType;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.machine.base.constants.TypeDescriptorSemantics;
 import droidefense.om.machine.base.struct.fake.EncapsulatedClass;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
@@ -10,7 +10,7 @@ import droidefense.om.machine.base.struct.model.DVMInstance;
 import droidefense.om.machine.reader.DexClassReader;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.temp.DroidefenseIntel;
+import droidefense.util.DroidefenseIntel;
 
 import java.io.*;
 import java.util.ArrayList;

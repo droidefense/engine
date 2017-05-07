@@ -1,8 +1,8 @@
 package droidefense.xmodel.base;
 
 
-import droidefense.xmodel.manifest.*;
-import droidefense.xmodel.manifest.enums.*;
+import droidefense.sdk.manifest.*;
+import droidefense.sdk.manifest.enums.*;
 import org.xml.sax.Attributes;
 
 import java.io.Serializable;
@@ -257,7 +257,7 @@ public enum ManifestID implements Serializable {
             map.put("grant-uri-permission", ManifestID.GRANT_URI_PERMISSION);
             map.put("instrumentation", ManifestID.INTRUMENTATION);
             map.put("intent-filter", ManifestID.INTENT_FILTER);
-            map.put("manifest", ManifestID.MANIFEST);
+            map.put("droidefense.sdk.manifest", ManifestID.MANIFEST);
             map.put("meta-data", ManifestID.METADATA);
             map.put("permission", ManifestID.PERMISSION);
             map.put("path-permission", ManifestID.PATH_PERMISSION);

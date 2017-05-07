@@ -3,8 +3,8 @@ package droidefense.om.flow;
 
 import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.nodes.EntryPointNode;
-import droidefense.helpers.log4j.Log;
-import droidefense.helpers.log4j.LoggerType;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
 import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
@@ -18,7 +18,7 @@ import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
-import droidefense.temp.DroidefenseIntel;
+import droidefense.util.DroidefenseIntel;
 
 import java.io.File;
 import java.io.IOException;

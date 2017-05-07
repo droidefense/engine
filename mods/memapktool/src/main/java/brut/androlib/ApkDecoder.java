@@ -41,6 +41,23 @@ import java.util.logging.Logger;
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
  */
 public class ApkDecoder {
+
+    protected final Androlib mAndrolib;
+
+    protected final static Logger LOGGER = Logger.getLogger(Androlib.class.getName());
+
+    protected ExtFile mApkFile;
+    protected File mOutDir;
+    protected ResTable mResTable;
+    protected short mDecodeSources = DECODE_SOURCES_SMALI;
+    protected short mDecodeResources = DECODE_RESOURCES_FULL;
+    protected boolean mForceDelete = false;
+    protected boolean mKeepBrokenResources = false;
+    protected boolean mBakDeb = true;
+    protected Collection<String> mUncompressedFiles;
+    protected boolean mAnalysisMode = false;
+    protected int mApi = 15;
+
     public ApkDecoder() {
         this(new Androlib());
     }
@@ -108,7 +125,7 @@ public class ApkDecoder {
                     break;
             }
         } else {
-            // if there's no resources.asrc, decode the manifest without looking
+            // if there's no resources.asrc, decode the droidefense.sdk.manifest without looking
             // up attribute references
             if (hasManifest()) {
                 switch (mDecodeResources) {
@@ -347,7 +364,7 @@ public class ApkDecoder {
 
         meta.packageInfo = new PackageInfo();
 
-        // only put rename-manifest-package into apktool.yml, if the change will be required
+        // only put rename-droidefense.sdk.manifest-package into apktool.yml, if the change will be required
         if (!renamed.equalsIgnoreCase(original)) {
             meta.packageInfo.renameManifestPackage = renamed;
         }
@@ -376,20 +393,4 @@ public class ApkDecoder {
     private void putSharedLibraryInfo(MetaInfo meta) throws AndrolibException {
         meta.sharedLibrary = mResTable.getSharedLibrary();
     }
-
-    private final Androlib mAndrolib;
-
-    private final static Logger LOGGER = Logger.getLogger(Androlib.class.getName());
-
-    private ExtFile mApkFile;
-    private File mOutDir;
-    private ResTable mResTable;
-    private short mDecodeSources = DECODE_SOURCES_SMALI;
-    private short mDecodeResources = DECODE_RESOURCES_FULL;
-    private boolean mForceDelete = false;
-    private boolean mKeepBrokenResources = false;
-    private boolean mBakDeb = true;
-    private Collection<String> mUncompressedFiles;
-    private boolean mAnalysisMode = false;
-    private int mApi = 15;
 }

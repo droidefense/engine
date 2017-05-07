@@ -1,6 +1,6 @@
 package droidefense.sdk;
 
-import droidefense.helpers.enums.ProcessStatus;
+import droidefense.sdk.enums.ProcessStatus;
 import droidefense.analysis.base.PluginAnalysis;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;

@@ -1,7 +1,7 @@
 package droidefense.xmodel.base;
 
-import droidefense.xmodel.manifest.*;
-import droidefense.xmodel.manifest.base.AbstractManifestClass;
+import droidefense.sdk.manifest.*;
+import droidefense.sdk.manifest.base.AbstractManifestClass;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -32,7 +32,7 @@ public final class ManifestParser implements Serializable {
     public ManifestParser() {
         System.out.println("Running ManifestParser...");
         System.out.println("\tCompiled with JAVA SDK v" + JDK_LANGUAGE_LEVEL);
-        System.out.println("\tMax Android manifest version supported: " + MAX_ANDROID_VERSION);
+        System.out.println("\tMax Android droidefense.sdk.manifest version supported: " + MAX_ANDROID_VERSION);
     }
 
     public final AbstractManifestClass getMainClass() {
@@ -103,7 +103,7 @@ public final class ManifestParser implements Serializable {
         return manifest.getApplication().getProviders();
     }
 
-    //***** manifest parser utils ******
+    //***** droidefense.sdk.manifest parser utils ******
 
     public void parse(File f) throws ParserConfigurationException, SAXException, IOException {
         this.manifestFile = f;

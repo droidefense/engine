@@ -1,13 +1,13 @@
 package droidefense.handler;
 
-import droidefense.batch.task.OutPutResult;
+import droidefense.batch.helper.OutPutResult;
 import droidefense.handler.base.AbstractHandler;
-import droidefense.helpers.log4j.Log;
-import droidefense.helpers.log4j.LoggerType;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.ml.MachineLearningResult;
 import droidefense.ml.WekaClassifier;
 import droidefense.sdk.helpers.InternalConstant;
-import droidefense.xmodel.manifest.UsesPermission;
+import droidefense.sdk.manifest.UsesPermission;
 import weka.classifiers.Classifier;
 import weka.core.Instances;
 import weka.core.converters.ArffLoader;

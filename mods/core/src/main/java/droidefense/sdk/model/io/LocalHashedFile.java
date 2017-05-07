@@ -1,7 +1,7 @@
 package droidefense.sdk.model.io;
 
-import droidefense.helpers.log4j.Log;
-import droidefense.helpers.log4j.LoggerType;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.sdk.helpers.CheckSumGen;
 import droidefense.sdk.helpers.Util;
 import droidefense.ssdeep.exception.SSDeepException;

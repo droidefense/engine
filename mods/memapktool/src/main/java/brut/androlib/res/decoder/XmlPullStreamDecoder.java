@@ -59,7 +59,7 @@ public class XmlPullStreamDecoder implements ResStreamDecoder {
                     int type = pp.getEventType();
 
                     if (type == XmlPullParser.START_TAG) {
-                        if ("manifest".equalsIgnoreCase(pp.getName())) {
+                        if ("droidefense.sdk.manifest".equalsIgnoreCase(pp.getName())) {
                             try {
                                 hidePackageInfo = parseManifest(pp);
                             } catch (AndrolibException ignored) {}
@@ -75,7 +75,7 @@ public class XmlPullStreamDecoder implements ResStreamDecoder {
                             && "uses-sdk".equalsIgnoreCase(pp.getName())) {
                         return;
                     } else if (hidePackageInfo && type == XmlPullParser.END_TAG
-                            && "manifest".equalsIgnoreCase(pp.getName())) {
+                            && "droidefense.sdk.manifest".equalsIgnoreCase(pp.getName())) {
                         super.event(pp);
                         return;
                     }
@@ -86,7 +86,7 @@ public class XmlPullStreamDecoder implements ResStreamDecoder {
                         throws AndrolibException {
                     String attr_name;
 
-                    // read <manifest> for package:
+                    // read <droidefense.sdk.manifest> for package:
                     for (int i = 0; i < pp.getAttributeCount(); i++) {
                         attr_name = pp.getAttributeName(i);
 

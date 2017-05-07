@@ -221,7 +221,7 @@ public final class ResXmlPatcher {
         try {
             Document doc = loadDocument(file);
 
-            // Get the manifest line
+            // Get the droidefense.sdk.manifest line
             Node manifest = doc.getFirstChild();
 
             // update package attribute

@@ -1,6 +1,6 @@
 package droidefense.xmodel.base;
 
-import droidefense.xmodel.manifest.base.AbstractManifestClass;
+import droidefense.sdk.manifest.base.AbstractManifestClass;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;

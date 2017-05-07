@@ -183,9 +183,9 @@ final public class AndrolibResources {
         if (packageOriginal.equalsIgnoreCase(mPackageRenamed) ||
                 (Arrays.asList(IGNORED_PACKAGES).contains(packageOriginal) &&
                 ! Arrays.asList(ALLOWED_PACKAGES).contains(mPackageRenamed))) {
-            LOGGER.info("Regular manifest package...");
+            LOGGER.info("Regular droidefense.sdk.manifest package...");
         } else {
-            LOGGER.info("Renamed manifest package found! Replacing " + mPackageRenamed + " with " + packageOriginal);
+            LOGGER.info("Renamed droidefense.sdk.manifest package found! Replacing " + mPackageRenamed + " with " + packageOriginal);
             ResXmlPatcher.renameManifestPackage(new File(filePath), packageOriginal);
         }
     }
@@ -211,7 +211,7 @@ final public class AndrolibResources {
             if (!resTable.getAnalysisMode()) {
 
                 // check for a mismatch between resources.arsc package and the package listed in AndroidManifest
-                // also remove the android::versionCode / versionName from manifest for rebuild
+                // also remove the android::versionCode / versionName from droidefense.sdk.manifest for rebuild
                 // this is a required change to prevent aapt warning about conflicting versions
                 // it will be passed as a parameter to aapt like "--min-sdk-version" via apktool.yml
                 adjustPackageManifest(resTable, outDir.getAbsolutePath() + File.separator + "AndroidManifest.xml");
@@ -349,7 +349,7 @@ final public class AndrolibResources {
         if (apkOptions.updateFiles) {
             cmd.add("-u");
         }
-        if (apkOptions.debugMode) { // inject debuggable="true" into manifest
+        if (apkOptions.debugMode) { // inject debuggable="true" into droidefense.sdk.manifest
             cmd.add("--debug-mode");
         }
         // force package id so that some frameworks build with correct id
@@ -379,7 +379,7 @@ final public class AndrolibResources {
             cmd.add(mMaxSdkVersion);
         }
         if (mPackageRenamed != null) {
-            cmd.add("--rename-manifest-package");
+            cmd.add("--rename-droidefense.sdk.manifest-package");
             cmd.add(mPackageRenamed);
         }
         if (mVersionCode != null) {

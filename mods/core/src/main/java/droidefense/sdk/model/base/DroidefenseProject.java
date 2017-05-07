@@ -4,13 +4,14 @@ import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
-import droidefense.helpers.log4j.Log;
-import droidefense.helpers.log4j.LoggerType;
 import droidefense.ml.MachineLearningResult;
 import droidefense.om.helper.DexFileStatistics;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.model.SharedPool;
 import droidefense.om.machine.reader.DexHeaderReader;
+import droidefense.reporting.AbstractReporter;
+import droidefense.reporting.HTMLReporter;
+import droidefense.reporting.BeautifiedJSONReporter;
 import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.map.base.AbstractFlowMap;
 import droidefense.rulengine.rulengine.Rule;
@@ -19,6 +20,11 @@ import droidefense.sdk.AbstractStaticPlugin;
 import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.helpers.Util;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
+import droidefense.sdk.manifest.Manifest;
+import droidefense.sdk.manifest.UsesPermission;
+import droidefense.sdk.manifest.base.AbstractManifestClass;
 import droidefense.sdk.model.certificate.CertificateModel;
 import droidefense.sdk.model.dex.DexBodyModel;
 import droidefense.sdk.model.dex.OpcodeInformation;
@@ -36,11 +42,7 @@ import droidefense.util.JsonStyle;
 import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.vfs.model.impl.VirtualFileSystem;
 import droidefense.vfs.model.impl.VirtualFolder;
-import droidefense.xmodel.manifest.Manifest;
-import droidefense.xmodel.manifest.UsesPermission;
-import droidefense.xmodel.manifest.base.AbstractManifestClass;
 
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
@@ -144,6 +146,8 @@ public final class DroidefenseProject implements Serializable {
     private transient DexHeaderReader dexHeaderReader;
     private transient IAtomClass[] dynamicEntryPoints;
     private transient HashMap<String, IAtomClass> classMap;
+    private boolean settingAutoOpen;
+    private String settingsReportType;
     //private transient DexHeaderReader dexHeaderReader;
 
     public DroidefenseProject() {
@@ -608,69 +612,30 @@ public final class DroidefenseProject implements Serializable {
     }
 
     private void generateReportTemplate() {
-        //todo replace this code by enum
-        try {
-            File reportFile = null;
-            String content = "";
-            boolean generateHTML = false;
-            boolean generateJSON = true;
-            if(generateHTML) {
-                byte[] data = Files.readAllBytes(Paths.get("src/main/resources/templates/reporter/inline.html"));
-                content = new String(data, "utf-8");
-                content = content.replace("$jsonData", Util.toJson(this, JsonStyle.JSON_BEAUTY));
-                reportFile = FileIOHandler.getReportFolder(getProjectId() + ".html");
-            }
-            else if(generateJSON){
-                content = Util.toJson(this, JsonStyle.JSON_BEAUTY);
-                reportFile = FileIOHandler.getReportFolder(getProjectId() + ".json");
-            }
-            if(reportFile!=null){
-                FileIOHandler.saveFile(reportFile, content);
-            }
 
-            //open file if requested
-            //TODO add console flag
-            if (true) {
-                openReportOnBorwser(reportFile);
+        AbstractReporter reporter;
+        switch (getSettingsReportType()) {
+            case "html":
+                reporter = new HTMLReporter();
+                break;
+            case "json": {
+                String jsonData = Util.toJson(this, JsonStyle.JSON_BEAUTY);
+                File reportFile = FileIOHandler.getReportFolder(getProjectId() + ".json");
+                reporter = new BeautifiedJSONReporter(reportFile, jsonData);
+                break;
             }
-        } catch (IOException e) {
-            Log.write(LoggerType.ERROR, "Could not generate report template", e.getLocalizedMessage());
+            default: {
+                //default output as beautified json
+                String jsonData = Util.toJson(this, JsonStyle.JSON_BEAUTY);
+                File reportFile = FileIOHandler.getReportFolder(getProjectId() + ".json");
+                reporter = new BeautifiedJSONReporter(reportFile, jsonData);
+                break;
+            }
         }
+        reporter.generateReport();
 
-        /*
-
-        try {
-            VelocityEngine ve = new VelocityEngine();
-            ve.init();
-            Template t = ve.getTemplate("src/main/resources/templates/report.html", "UTF-8");
-            VelocityContext context = new VelocityContext();
-
-            context.put("app_name", this.getProjectName());
-            context.put("package_name", this.getManifestInfo().getPackageName());
-            context.put("sha_256", this.getProjectId());
-            context.put("app_size", this.getSample().getBeautyFilesize());
-            context.put("app_logo_base_64", this.getAppLogoasB64());
-            context.put("total_permissions", this.getManifestInfo().getUsesPermissionList().size());
-            context.put("matched_rules", this.dynamicInfo.getMatchedRules().size());
-            context.put("goodware", this.machineLearningResult.getTotal() - this.machineLearningResult.getPositives());
-            context.put("malware", this.machineLearningResult.getPositives());
-            context.put("expert_info", this.getSummary());
-
-            StringWriter writer = new StringWriter();
-            t.merge(context, writer);
-            String data = writer.toString();
-            FileIOHandler.saveFile(FileIOHandler.getReportFolder(getProjectId() + ".html"), data);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        */
-    }
-
-    private void openReportOnBorwser(File reportFile) {
-        try {
-            Desktop.getDesktop().browse(reportFile.toURI());
-        } catch (Exception e) {
-            Log.write(LoggerType.ERROR, "Could no automatically open sample report on user browser", e.getLocalizedMessage());
+        if (isSettingAutoOpen()) {
+            reporter.open();
         }
     }
 
@@ -851,4 +816,24 @@ public final class DroidefenseProject implements Serializable {
         return sample;
     }
 
+
+    public void setSettingAutoOpen(boolean settingAutoOpen) {
+        this.settingAutoOpen = settingAutoOpen;
+    }
+
+    public boolean isSettingAutoOpen() {
+        return settingAutoOpen;
+    }
+
+    public String getSettingsReportType() {
+        if(settingsReportType==null)
+            return "json";
+        return settingsReportType;
+    }
+
+    public void setSettingsReportType(String settingsReportType) {
+        if(settingsReportType!=null){
+            this.settingsReportType = settingsReportType;
+        }
+    }
 }

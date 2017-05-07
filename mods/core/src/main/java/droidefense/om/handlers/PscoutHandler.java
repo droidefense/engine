@@ -2,8 +2,8 @@ package droidefense.om.handlers;
 
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.AbstractHandler;
-import droidefense.helpers.log4j.Log;
-import droidefense.helpers.log4j.LoggerType;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.pscout.PSCoutModel;
 import droidefense.rulengine.base.AbstractAtomNode;
 import droidefense.rulengine.nodes.MethodNode;

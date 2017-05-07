@@ -292,7 +292,7 @@ public class Main {
                 .create();
 
         Option debugBuiOption = OptionBuilder.withLongOpt("debug")
-                .withDescription("Sets android:debuggable to \"true\" in the APK's compiled manifest")
+                .withDescription("Sets android:debuggable to \"true\" in the APK's compiled droidefense.sdk.manifest")
                 .create("d");
 
         Option noDbgOption = OptionBuilder.withLongOpt("no-debug-info")

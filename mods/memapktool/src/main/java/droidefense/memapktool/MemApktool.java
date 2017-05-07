@@ -108,7 +108,7 @@ public class MemApktool {
                     break;
             }
         } else {
-            // if there's no resources.asrc, decode the manifest without looking
+            // if there's no resources.asrc, decode the droidefense.sdk.manifest without looking
             // up attribute references
             if (hasManifest()) {
                 switch (mDecodeResources) {
@@ -346,7 +346,7 @@ public class MemApktool {
 
         meta.packageInfo = new PackageInfo();
 
-        // only put rename-manifest-package into apktool.yml, if the change will be required
+        // only put rename-droidefense.sdk.manifest-package into apktool.yml, if the change will be required
         if (!renamed.equalsIgnoreCase(original)) {
             meta.packageInfo.renameManifestPackage = renamed;
         }

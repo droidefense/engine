@@ -1,7 +1,7 @@
 package droidefense.om.emulator;
 
-import droidefense.helpers.log4j.Log;
-import droidefense.helpers.log4j.LoggerType;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.emulator.base.AbstractAndroidEmulator;
 
 import java.util.Arrays;

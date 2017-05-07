@@ -3,10 +3,10 @@ package droidefense.sdk.model.io;
 import com.j256.simplemagic.ContentInfo;
 import com.j256.simplemagic.ContentInfoUtil;
 import com.j256.simplemagic.ContentType;
-import droidefense.helpers.log4j.Log;
-import droidefense.helpers.log4j.LoggerType;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.sdk.helpers.Util;
-import droidefense.temp.DroidefenseIntel;
+import droidefense.util.DroidefenseIntel;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -71,16 +71,17 @@ public abstract class AbstractHashedFile implements Serializable {
                         this.signatureMatches = this.headerBasedExtension.toLowerCase().equals(this.declaredExtension.toLowerCase()) || isApkFile();
                     }
                     else{
-                        Log.write(LoggerType.DEBUG, "No content type information is present");
+                        Log.write(LoggerType.ERROR, "No content type information is present"+this.filename);
                         this.signatureMatches = false;
                     }
                 }
                 else{
-                    Log.write(LoggerType.DEBUG, "No content information is present");
+                    Log.write(LoggerType.ERROR, "No content information is present for "+this.filename);
+                    this.signatureMatches = false;
                 }
             }
             else{
-                Log.write(LoggerType.DEBUG, "Not data stream is present");
+                Log.write(LoggerType.ERROR, "Not data stream is present for "+this.filename);
             }
         } catch (IOException e) {
             e.printStackTrace();

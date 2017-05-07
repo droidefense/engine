@@ -3,7 +3,7 @@ package droidefense.sdk.model.holder;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.model.SharedPool;
 import droidefense.om.machine.reader.DexClassReader;
-import droidefense.xmodel.manifest.base.AbstractManifestClass;
+import droidefense.sdk.manifest.base.AbstractManifestClass;
 
 import java.io.Serializable;
 import java.util.ArrayList;

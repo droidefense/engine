@@ -22,11 +22,11 @@
                         <exclude>**/log4j.properties</exclude>
                     </excludes>
                     <archive>
-                        <manifest>
+                        <droidefense.sdk.manifest>
                             <mainClass>droidefense.cli.DroidefenseScan</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>${dependecy.directory}/</classpathPrefix>
-                        </manifest>
+                        </droidefense.sdk.manifest>
                     </archive>
                 </configuration>
             </plugin>
@@ -61,7 +61,7 @@
         </dependency>
         <dependency>
             <groupId>droidefense.mod.manparser</groupId>
-            <artifactId>manifest</artifactId>
+            <artifactId>droidefense.sdk.manifest</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${pom.basedir}/../lib/native/droidefense.mod.manparser.jar</systemPath>

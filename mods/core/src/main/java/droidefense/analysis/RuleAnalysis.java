@@ -1,7 +1,7 @@
 package droidefense.analysis;
 
-import droidefense.helpers.log4j.Log;
-import droidefense.helpers.log4j.LoggerType;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.rulengine.Rule;
 import droidefense.rulengine.rulengine.RuleEngine;
