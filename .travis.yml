@@ -16,7 +16,7 @@ env:
     - JAVA_OPTS="-XX:MaxPermSize=2g -Xmx4g"
     - TRAVIS_CARGO_NIGHTLY_FEATURE=""
     
-before_install: cd core
+before_install: cd mods/core
 script: mvn build
 
 after_success:
