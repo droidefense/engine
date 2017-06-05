@@ -7,6 +7,7 @@ environment:
 branches:
   only:
     - master
+    - develop
   except:
     - gh-pages
 os: Windows Server 2012
@@ -17,7 +18,7 @@ install:
   - cmd: mvn --version
   - cmd: java -version
 before_build:
-  - cd core
+  - cd mods\core
 build_script:
   - mvn clean package -B -Dmaven.test.skip=true
 test_script:

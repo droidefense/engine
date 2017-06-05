@@ -13,7 +13,6 @@
     <name>Droidefense CORE</name>
 
     <modules>
-        <module>../cli</module>
         <module>../memapktool</module>
         <module>../rulengine</module>
         <module>../vfs</module>

@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: droidefense.cli.DroidefenseScan
-Entry-Point: ApkrScanner
-Created-By: @zerjioang
-Application-Name: Apkr scanner

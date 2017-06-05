@@ -9,15 +9,14 @@ os:
 cache:
   directories:
     - $HOME/.m2
-    - cargo
 env:
   global:
     - MAVEN_OPTS="-XX:MaxPermSize=2g -Xmx4g"
     - JAVA_OPTS="-XX:MaxPermSize=2g -Xmx4g"
     - TRAVIS_CARGO_NIGHTLY_FEATURE=""
     
-before_install: cd mods/core
-script: mvn build
+before_install: cd mods/core; mvn clean
+script: mvn compilei
 
 after_success:
   - mvn clean test jacoco:report coveralls:report
