@@ -5,7 +5,7 @@ jdk:
 
 os:
   - linux
-  
+
 cache:
   directories:
     - $HOME/.m2
@@ -14,14 +14,9 @@ env:
     - MAVEN_OPTS="-XX:MaxPermSize=2g -Xmx4g"
     - JAVA_OPTS="-XX:MaxPermSize=2g -Xmx4g"
     - TRAVIS_CARGO_NIGHTLY_FEATURE=""
-    
-before_install: cd mods/core; mvn clean
-script: mvn compilei
 
-after_success:
-  - mvn clean test jacoco:report coveralls:report
-  
+before_install: cd mods/core
 script: mvn clean compile
-
 after_success:
-  - mvn clean test verify jacoco:report coveralls:report
+  - mvn clean # jacoco:report coveralls:report
+  # - mvn clean test verify jacoco:report coveralls:report

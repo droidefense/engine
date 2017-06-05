@@ -3,6 +3,8 @@
 # exclude target dirs
 */target/*
 */out/*
+target/
+**/target/**
 
 .classpath
 .project

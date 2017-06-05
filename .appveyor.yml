@@ -20,9 +20,9 @@ install:
 before_build:
   - cd mods\core
 build_script:
-  - mvn clean package -B -Dmaven.test.skip=true
-test_script:
-  - mvn clean install --batch-mode -Pqulice
+  - mvn clean compile -B -Dmaven.test.skip=true
+#test_script:
+#  - mvn clean test --batch-mode -Pqulice
 cache:
   - C:\maven\
   - C:\Users\appveyor\.m2
