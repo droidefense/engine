@@ -11,7 +11,7 @@
 
     <name>Droidefense CORE</name>
     <url>http://github.com/droidefense/engine</url>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <modules>
         <module>../memapktool</module>
