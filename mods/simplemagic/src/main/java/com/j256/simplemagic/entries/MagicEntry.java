@@ -1,10 +1,13 @@
 package com.j256.simplemagic.entries;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.j256.simplemagic.ContentInfo;
 import com.j256.simplemagic.endian.EndianConverter;
 import com.j256.simplemagic.entries.MagicMatcher.MutableOffset;
-
-import java.util.Arrays;
+import com.j256.simplemagic.logger.Logger;
+import com.j256.simplemagic.logger.LoggerFactory;
 
 /**
  * Representation of a line of information from the magic (5) format. A number of methods are package protected because
@@ -15,6 +18,7 @@ import java.util.Arrays;
 public class MagicEntry {
 
 	private static final String UNKNOWN_NAME = "unknown";
+	private static Logger logger = LoggerFactory.getLogger(MagicEntry.class);
 
 	private final String name;
 	private final int level;
@@ -30,12 +34,10 @@ public class MagicEntry {
 	private final boolean clearFormat;
 	private final MagicFormatter formatter;
 
-	/** if this entry matches then check the child entry which may provide more content type details */
-	private MagicEntry child;
-	private int strength;
+	/** if this entry matches then check the children entry(s) which may provide more content type details */
+	private List<MagicEntry> children;
 	private String mimeType;
-	/** pointer to the next entry we should test */
-	private MagicEntry next;
+	private boolean optional;
 
 	/**
 	 * Package protected constructor.
@@ -55,14 +57,13 @@ public class MagicEntry {
 		this.formatSpacePrefix = formatSpacePrefix;
 		this.clearFormat = clearFormat;
 		this.formatter = formatter;
-		this.strength = 1;
 	}
 
 	/**
 	 * Returns the content type associated with the bytes or null if it does not match.
 	 */
 	ContentInfo matchBytes(byte[] bytes) {
-		ContentData data = matchBytes(bytes, 0, null);
+		ContentData data = matchBytes(bytes, 0, 0, null);
 		if (data == null || data.name == UNKNOWN_NAME) {
 			return null;
 		} else {
@@ -78,13 +79,6 @@ public class MagicEntry {
 		return level;
 	}
 
-	/**
-	 * Get the strength of the rule. Not well supported right now.
-	 */
-	int getStrength() {
-		return strength;
-	}
-
 	byte[] getStartsWithByte() {
 		if (offset != 0) {
 			return null;
@@ -93,24 +87,23 @@ public class MagicEntry {
 		}
 	}
 
-	void setStrength(int strength) {
-		this.strength = strength;
+	boolean isOptional() {
+		return optional;
 	}
 
-	void setChild(MagicEntry child) {
-		this.child = child;
+	void setOptional(boolean optional) {
+		this.optional = optional;
+	}
+
+	void addChild(MagicEntry child) {
+		if (children == null) {
+			children = new ArrayList<MagicEntry>();
+		}
+		children.add(child);
 	}
 
 	void setMimeType(String mimeType) {
 		this.mimeType = mimeType;
-	}
-
-	MagicEntry getNext() {
-		return next;
-	}
-
-	void setNext(MagicEntry next) {
-		this.next = next;
 	}
 
 	@Override
@@ -135,7 +128,7 @@ public class MagicEntry {
 	/**
 	 * Main processing method which can go recursive.
 	 */
-	private ContentData matchBytes(byte[] bytes, int prevOffset, ContentData contentData) {
+	private ContentData matchBytes(byte[] bytes, int prevOffset, int level, ContentData contentData) {
 		int offset = this.offset;
 		if (offsetInfo != null) {
 			offset = offsetInfo.getOffset(bytes);
@@ -143,7 +136,8 @@ public class MagicEntry {
 		if (addOffset) {
 			offset = prevOffset + offset;
 		}
-		Object val = matcher.extractValueFromBytes(offset, bytes);
+		boolean required = (testValue == null && formatter != null);
+		Object val = matcher.extractValueFromBytes(offset, bytes, required);
 		if (val == null) {
 			return null;
 		}
@@ -157,7 +151,7 @@ public class MagicEntry {
 		}
 
 		if (contentData == null) {
-			contentData = new ContentData(name, mimeType);
+			contentData = new ContentData(name, mimeType, level);
 			// default is a child didn't match, set a partial so the matcher will keep looking
 			contentData.partial = true;
 		}
@@ -171,15 +165,24 @@ public class MagicEntry {
 			}
 			matcher.renderValue(contentData.sb, val, formatter);
 		}
+		logger.trace("matched data: {}: {}", this, contentData);
 
-		if (child == null) {
+		if (children == null) {
 			// no children so we have a full match and can set partial to false
 			contentData.partial = false;
 		} else {
 			// run through the children to add more content-type details
-			for (MagicEntry entry = child; entry != null; entry = entry.getNext()) {
-				entry.matchBytes(bytes, offset, contentData);
-				// NOTE: we continue to match to see if we can add additional information to the name
+			boolean allOptional = true;
+			for (MagicEntry entry : children) {
+				if (!entry.isOptional()) {
+					allOptional = false;
+				}
+				// goes recursive here
+				entry.matchBytes(bytes, offset, level + 1, contentData);
+				// we continue to match to see if we can add additional children info to the name
+			}
+			if (allOptional) {
+				contentData.partial = false;
 			}
 		}
 
@@ -193,8 +196,14 @@ public class MagicEntry {
 		if (name != UNKNOWN_NAME && contentData.name == UNKNOWN_NAME) {
 			contentData.name = name;
 		}
-		if (mimeType != null && contentData.mimeType == null) {
+		/*
+		 * Set the mime-type if it is not set already or if we've gotten more specific in the processing of a pattern
+		 * and determine that it's actually a different type so we can override the previous mime-type. Example of this
+		 * is Adobe Illustrator which looks like a PDF but has extra stuff in it.
+		 */
+		if (mimeType != null && (contentData.mimeType == null || level > contentData.mimeTypeLevel)) {
 			contentData.mimeType = mimeType;
+			contentData.mimeTypeLevel = level;
 		}
 		return contentData;
 	}
@@ -202,15 +211,17 @@ public class MagicEntry {
 	/**
 	 * Internal processing data about the content.
 	 */
-	private static class ContentData {
+	static class ContentData {
 		String name;
 		boolean partial;
 		String mimeType;
+		int mimeTypeLevel;
 		final StringBuilder sb = new StringBuilder();
 
-		private ContentData(String name, String mimeType) {
+		private ContentData(String name, String mimeType, int mimeTypeLevel) {
 			this.name = name;
 			this.mimeType = mimeType;
+			this.mimeTypeLevel = mimeTypeLevel;
 		}
 
 		@Override
@@ -222,31 +233,6 @@ public class MagicEntry {
 			} else {
 				return name;
 			}
-		}
-	}
-
-	/**
-	 * Wrapper around an array of bytes to provide a hashcode and equals.
-	 */
-	static class ByteArray {
-		final byte[] bytes;
-
-		public ByteArray(byte[] bytes) {
-			this.bytes = bytes;
-		}
-
-		@Override
-		public int hashCode() {
-			return Arrays.hashCode(bytes);
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (obj == null || obj.getClass() != getClass()) {
-				return false;
-			}
-			ByteArray other = (ByteArray) obj;
-			return Arrays.equals(bytes, other.bytes);
 		}
 	}
 

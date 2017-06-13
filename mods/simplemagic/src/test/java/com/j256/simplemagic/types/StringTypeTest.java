@@ -4,8 +4,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import java.io.IOException;
+import java.io.StringReader;
+
 import org.junit.Test;
 
+import com.j256.simplemagic.ContentInfoUtil;
 import com.j256.simplemagic.entries.MagicFormatter;
 import com.j256.simplemagic.entries.MagicMatcher.MutableOffset;
 
@@ -27,7 +31,7 @@ public class StringTypeTest {
 		StringType type = new StringType();
 		Object info = type.convertTestString("string", "hello");
 		byte[] bytes = new byte[] { 'h', 'e', 'l', 'l' };
-		Object extract = type.extractValueFromBytes(0, bytes);
+		Object extract = type.extractValueFromBytes(0, bytes, true);
 		assertNull(type.isMatch(info, null, false, extract, new MutableOffset(0), bytes));
 		bytes = new byte[] { 'h', 'e', 'l', 'l', 'p' };
 		assertNull(type.isMatch(info, null, false, extract, new MutableOffset(0), bytes));
@@ -38,7 +42,7 @@ public class StringTypeTest {
 		StringType type = new StringType();
 		Object info = type.convertTestString("string", "hello");
 		byte[] bytes = new byte[] { 'w', 'o', 'w', 'h', 'e', 'l', 'l', 'o', '2', '3' };
-		Object extract = type.extractValueFromBytes(0, bytes);
+		Object extract = type.extractValueFromBytes(0, bytes, true);
 		assertNotNull(type.isMatch(info, null, false, extract, new MutableOffset(3), bytes));
 	}
 
@@ -47,7 +51,7 @@ public class StringTypeTest {
 		StringType type = new StringType();
 		Object info = type.convertTestString("string/c", "hello");
 		byte[] bytes = new byte[] { 'h', 'e', 'l', 'l', 'o' };
-		Object extract = type.extractValueFromBytes(0, bytes);
+		Object extract = type.extractValueFromBytes(0, bytes, true);
 		assertNotNull(type.isMatch(info, null, false, extract, new MutableOffset(0), bytes));
 		bytes = new byte[] { 'h', 'E', 'l', 'l', 'o' };
 		assertNotNull(type.isMatch(info, null, false, extract, new MutableOffset(0), bytes));
@@ -64,7 +68,7 @@ public class StringTypeTest {
 		StringType type = new StringType();
 		Object info = type.convertTestString("string/b", "hello");
 		byte[] bytes = new byte[] { 'h', ' ', 'e', ' ', 'l', ' ', 'l', ' ', 'o' };
-		Object extract = type.extractValueFromBytes(0, bytes);
+		Object extract = type.extractValueFromBytes(0, bytes, true);
 		assertNotNull(type.isMatch(info, null, false, extract, new MutableOffset(0), bytes));
 		bytes = new byte[] { 'h', 'e', 'l', 'l', 'o' };
 		assertNotNull(type.isMatch(info, null, false, extract, new MutableOffset(0), bytes));
@@ -77,7 +81,7 @@ public class StringTypeTest {
 		StringType type = new StringType();
 		Object info = type.convertTestString("string/B", "h ello");
 		byte[] bytes = new byte[] { 'h', ' ', 'e', 'l', 'l', 'o' };
-		Object extract = type.extractValueFromBytes(0, bytes);
+		Object extract = type.extractValueFromBytes(0, bytes, true);
 		assertNotNull(type.isMatch(info, null, false, extract, new MutableOffset(0), bytes));
 		bytes = new byte[] { 'h', ' ', 'e', ' ', 'l', ' ', 'l', ' ', 'o' };
 		assertNull(type.isMatch(info, null, false, extract, new MutableOffset(0), bytes));
@@ -95,7 +99,7 @@ public class StringTypeTest {
 		StringType type = new StringType();
 		Object info = type.convertTestString("string/Bc", "h ello");
 		byte[] bytes = new byte[] { 'h', ' ', 'e', 'l', 'l', 'o' };
-		Object extract = type.extractValueFromBytes(0, bytes);
+		Object extract = type.extractValueFromBytes(0, bytes, true);
 		assertNotNull(type.isMatch(info, null, false, extract, new MutableOffset(0), bytes));
 		bytes = new byte[] { 'h', ' ', ' ', 'e', 'l', 'l', 'o' };
 		assertNotNull(type.isMatch(info, null, false, extract, new MutableOffset(0), bytes));
@@ -110,7 +114,7 @@ public class StringTypeTest {
 		StringType type = new StringType();
 		Object info = type.convertTestString("string/Bb", "h ello");
 		byte[] bytes = new byte[] { 'h', ' ', 'e', 'l', 'l', 'o' };
-		Object extract = type.extractValueFromBytes(0, bytes);
+		Object extract = type.extractValueFromBytes(0, bytes, true);
 		assertNotNull(type.isMatch(info, null, false, extract, new MutableOffset(0), bytes));
 		bytes = new byte[] { 'h', ' ', ' ', 'e', 'l', 'l', 'o' };
 		assertNotNull(type.isMatch(info, null, false, extract, new MutableOffset(0), bytes));
@@ -206,4 +210,12 @@ public class StringTypeTest {
 		bytes = new byte[] { 'f' };
 		assertNull(type.isMatch(info, null, false, null, new MutableOffset(0), bytes));
 	}
+
+	@Test
+	public void testGetStartingBytesInvalid() throws IOException {
+		StringReader reader = new StringReader("0  string/b  x\n");
+		// getting the starting bytes failed in this example
+		new ContentInfoUtil(reader);
+	}
+
 }

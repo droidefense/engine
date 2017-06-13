@@ -86,7 +86,7 @@ public class ContentInfo implements Serializable {
 	 * Whether or not this was a partial match. For some of the types, there is a main matching pattern and then more
 	 * specific patterns which detect additional features of the type. A partial match means that none of the more
 	 * specific patterns fully matched the content. It's probably still of the type but just not a variant that the
-	 * library knows about.
+	 * entries from the magic file(s) know about.
 	 */
 	public boolean isPartial() {
 		return partial;

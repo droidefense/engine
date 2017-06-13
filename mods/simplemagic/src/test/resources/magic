@@ -220,14 +220,17 @@
 >8	string/B	qt		\b, Apple QuickTime movie
 !:mime	video/quicktime
 
-0	 belong		    0x00000001     
+# MPEG sequences
+# Scans for all common MPEG header start codes
+0	 belong		    0x00000001
 >4	 byte&0x1F	    0x07	   JVT NAL sequence, H.264 video
 >>5      byte               66             \b, baseline
 >>5      byte               77             \b, main
 >>5      byte               88             \b, extended
 >>7      byte               x              \b @ L %u
-0        belong&0xFFFFFF00  0x00000100     
+0        belong&0xFFFFFF00  0x00000100
 >3       byte               0xBA           MPEG sequence
+!:mime  video/mpeg
 >>4      byte               &0x40          \b, v2, program multiplex
 >>4      byte               ^0x40          \b, v1, system multiplex
 >3       byte               0xBB           MPEG sequence, v1/2, multiplex (missing pack header)
@@ -236,7 +239,11 @@
 >>4      byte               77             \b, main
 >>4      byte               88             \b, extended
 >>6      byte               x              \b @ L %u
+# GRR too general as it catches also FoxPro Memo example NG.FPT
 >3       byte               0xB0           MPEG sequence, v4
+# TODO: maybe this extra line exclude FoxPro Memo example NG.FPT starting with 000001b0 00000100 00000000
+#>>4      byte               !0             MPEG sequence, v4
+!:mime  video/mpeg4-generic
 >>5      belong             0x000001B5
 >>>9     byte               &0x80
 >>>>10   byte&0xF0          16             \b, video
@@ -306,6 +313,7 @@
 >>4      byte               252            \b, FGS @ L4
 >>4      byte               253            \b, FGS @ L5
 >3       byte               0xB5           MPEG sequence, v4
+!:mime  video/mpeg4-generic
 >>4      byte               &0x80
 >>>5     byte&0xF0          16             \b, video (missing profile header)
 >>>5     byte&0xF0          32             \b, still texture (missing profile header)
@@ -316,6 +324,7 @@
 >>4      byte&0xF8          24             \b, mesh (missing profile header)
 >>4      byte&0xF8          32             \b, face (missing profile header)
 >3       byte               0xB3           MPEG sequence
+!:mime  video/mpeg
 >>12     belong             0x000001B8     \b, v1, progressive Y'CbCr 4:2:0 video
 >>12     belong             0x000001B2     \b, v1, progressive Y'CbCr 4:2:0 video
 >>12     belong             0x000001B5     \b, v2,
@@ -338,20 +347,20 @@
 >>>>140  belong             0x000001B8     \b, v1, progressive Y'CbCr 4:2:0 video
 >>>>140  belong             0x000001B2     \b, v1, progressive Y'CbCr 4:2:0 video
 >>>>140  belong             0x000001B5     \b, v2,
->>>>>144  byte&0x0F          1              \b HP
->>>>>144  byte&0x0F          2              \b Spt
->>>>>144  byte&0x0F          3              \b SNR
->>>>>144  byte&0x0F          4              \b MP
->>>>>144  byte&0x0F          5              \b SP
->>>>>145  byte&0xF0          64             \b@HL
->>>>>145  byte&0xF0          96             \b@H-14
->>>>>145  byte&0xF0          128            \b@ML
->>>>>145  byte&0xF0          160            \b@LL
->>>>>145  byte               &0x08          \b progressive
->>>>>145  byte               ^0x08          \b interlaced
->>>>>145  byte&0x06          2              \b Y'CbCr 4:2:0 video
->>>>>145  byte&0x06          4              \b Y'CbCr 4:2:2 video
->>>>>145  byte&0x06          6              \b Y'CbCr 4:4:4 video
+>>>>>144 byte&0x0F          1              \b HP
+>>>>>144 byte&0x0F          2              \b Spt
+>>>>>144 byte&0x0F          3              \b SNR
+>>>>>144 byte&0x0F          4              \b MP
+>>>>>144 byte&0x0F          5              \b SP
+>>>>>145 byte&0xF0          64             \b@HL
+>>>>>145 byte&0xF0          96             \b@H-14
+>>>>>145 byte&0xF0          128            \b@ML
+>>>>>145 byte&0xF0          160            \b@LL
+>>>>>145 byte               &0x08          \b progressive
+>>>>>145 byte               ^0x08          \b interlaced
+>>>>>145 byte&0x06          2              \b Y'CbCr 4:2:0 video
+>>>>>145 byte&0x06          4              \b Y'CbCr 4:2:2 video
+>>>>>145 byte&0x06          6              \b Y'CbCr 4:4:4 video
 >>76    belong             0x000001B8     \b, v1, progressive Y'CbCr 4:2:0 video
 >>76    belong             0x000001B2     \b, v1, progressive Y'CbCr 4:2:0 video
 >>76    belong             0x000001B5     \b, v2,
@@ -5860,6 +5869,14 @@
 >6	string		JFIF		\b, JFIF standard
 >>11	byte		x		\b %d.
 >>12	byte		x		\b%02d
+# Next, the resolution or aspect ratio of the image:
+>>13	byte		0		\b, aspect ratio
+>>13	byte		1		\b, resolution (DPI)
+>>13	byte		2		\b, resolution (DPCM)
+>>14	beshort		x		\b, density %dx
+>>16	beshort		x		\b%d
+>>4		beshort		x		\b, segment length %d
+# Next, show thumbnail info, if it exists:
 >>18	byte		!0		\b, thumbnail %dx
 >>>19	byte		x		\b%d
 
@@ -5902,6 +5919,15 @@
 >>>>>(150.l+72)	byte	x		\b.%c
 >>>>>(150.l+73)	byte	!0x30		\b%c
 >>12	string		MM		
+>>>94	beshort		0x8769          
+>>>>(102.L+38)	beshort	0x9000		
+>>>>>(102.L+47)	byte	x		%c
+>>>>>(102.L+48)	byte	x		\b.%c
+>>>>>(102.L+49)	byte	!0x30		\b%c
+>>>>(102.L+62)	beshort	0x9000		
+>>>>>(102.L+71)	byte	x		%c
+>>>>>(102.L+72)	byte	x		\b.%c
+>>>>>(102.L+73)	byte	!0x30		\b%c
 >>>118	beshort		0x8769          
 >>>>(126.L+14)	beshort	0x9000		
 >>>>>(126.L+23)	byte	x		%c
@@ -7894,6 +7920,8 @@
 
 0	string		%PDF-		PDF document
 !:mime	application/pdf
+>1	search/2048	\<dc:format>application/vnd.adobe.illustrator</dc:format>	\rAdobe Illustrator
+!:mime	application/vnd.adobe.illustrator
 >5	byte		x		\b, version %c
 >7	byte		x		\b.%c
 
@@ -8576,6 +8604,27 @@
 >>23	search/400	\<urlset		XML Sitemap document text
 !:mime	application/xml-sitemap
 
+0	string		\<?xml\ version\ "	XML
+!:mime	application/xml
+0	string		\<?xml\ version="	XML
+!:mime	application/xml
+>15	search/1	>\0			%.3s document text
+>>23	search/1	\<xsl:stylesheet	(XSL stylesheet)
+!:optional
+>>24	search/1	\<xsl:stylesheet	(XSL stylesheet)
+!:optional
+0	string		\<?xml\ version='	XML
+!:mime	application/xml
+>15	search/1	>\0			%.3s document text
+>>23	search/1	\<xsl:stylesheet	(XSL stylesheet)
+!:optional
+>>24	search/1	\<xsl:stylesheet	(XSL stylesheet)
+!:optional
+0	search/1/cb	\<?xml			XML document text
+!:mime	application/xml
+0	search/1/b	\<?XML			broken XML document text
+!:mime	application/xml
+
 0	search/1/cB	\<!doctype\ html	HTML document text
 !:mime	text/html
 0	search/1/cb	\<head			HTML document text
@@ -8584,26 +8633,6 @@
 !:mime	text/html
 0	search/1/cb	\<html			HTML document text
 !:mime	text/html
-
-0	search/1/cb	\<?xml			XML document text
-!:mime	application/xml
-0	string		\<?xml\ version\ "	XML
-!:mime	application/xml
-0	string		\<?xml\ version="	XML
-!:mime	application/xml
->15	search/1	>\0			%.3s document text
->>23	search/1	\<xsl:stylesheet	(XSL stylesheet)
->>24	search/1	\<xsl:stylesheet	(XSL stylesheet)
-0	string		\<?xml\ version='	XML
-!:mime	application/xml
->15	search/1	>\0			%.3s document text
->>23	search/1	\<xsl:stylesheet	(XSL stylesheet)
->>24	search/1	\<xsl:stylesheet	(XSL stylesheet)
-0	search/1/b	\<?xml			XML document text
-!:mime	application/xml
-0	search/1/b	\<?XML			broken XML document text
-!:mime	application/xml
-
 
 0	search/1/cb	\<!doctype		exported SGML document text
 0	search/1/cb	\<!subdoc		exported SGML subdocument text
@@ -10298,3 +10327,13 @@
 >10	byte&0x0B	3		- ADPCM4 encoding
 >10	byte&0x0B	8		- New ADPCM3 encoding
 >10	byte&0x04	4		with resync
+
+# EBML id:
+0		belong		0x1a45dfa3
+# DocType id:
+>4		search/4096	\x42\x82
+# DocType contents:
+>>&1	string		webm				WebM
+!:mime  video/webm
+>>&1	string		matroska			Matroska data
+!:mime  video/x-matroska

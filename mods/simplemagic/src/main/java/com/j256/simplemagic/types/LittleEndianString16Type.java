@@ -9,6 +9,6 @@ public class LittleEndianString16Type extends BigEndianString16Type {
 
 	@Override
 	protected char bytesToChar(int firstByte, int secondByte) {
-		return (char) (secondByte << 8 + firstByte);
+		return (char) ((secondByte << 8) + firstByte);
 	}
 }

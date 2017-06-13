@@ -44,7 +44,7 @@ public abstract class NumberType implements MagicMatcher {
 	}
 
 	@Override
-	public Object extractValueFromBytes(int offset, byte[] bytes) {
+	public Object extractValueFromBytes(int offset, byte[] bytes, boolean required) {
 		return endianConverter.convertNumber(offset, bytes, getBytesPerType());
 	}
 

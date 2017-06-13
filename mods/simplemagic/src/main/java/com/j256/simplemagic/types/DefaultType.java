@@ -24,7 +24,7 @@ public class DefaultType implements MagicMatcher {
 	}
 
 	@Override
-	public Object extractValueFromBytes(int offset, byte[] bytes) {
+	public Object extractValueFromBytes(int offset, byte[] bytes, boolean required) {
 		return EMPTY;
 	}
 

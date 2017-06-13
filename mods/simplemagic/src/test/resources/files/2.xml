@@ -1,0 +1,14 @@
+<?xml version="2.0" encoding="UTF-8" ?>
+<result count="1" response="20">
+	<adlistings>
+		<listing>
+			<title><![CDATA[Official Site]]></title>
+			<ad_id>5123742</ad_id>
+			<campaign_id>118564</campaign_id>
+			<description><![CDATA[Transfer Your 2011 Tax Information. Quick & Easy-Max Refund Guaranteed!]]></description>
+			<bid_price>0.850</bid_price>
+			<clickurl><![CDATA[http://foo.j256.com/ct?version=10.0.0&key=31742361220.3&ci=1360879407123.10590]]></clickurl>
+			<displayurl><![CDATA[TaxGuy]]></displayurl>
+		</listing>
+	</adlistings>
+</result>

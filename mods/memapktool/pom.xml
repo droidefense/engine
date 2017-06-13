@@ -3,14 +3,14 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <groupId>com.droidefense</groupId>
-    <version>1.0-SNAPSHOT</version>
-    <artifactId>memapktool</artifactId>
     <modelVersion>4.0.0</modelVersion>
 
-    <name>Droidefense-module In-Memory APKTOOL</name>
+    <groupId>com.droidefense</groupId>
+    <artifactId>memapktool</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-    <packaging>pom</packaging>
+    <name>Droidefense-module In-Memory APKTOOL</name>
 
     <properties>
         <jdk.version>1.8</jdk.version>

@@ -12,4 +12,4 @@ WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING O
 USE OR PERFORMANCE OF THIS SOFTWARE.
 
 This license is the ISC License: https://opensource.org/licenses/ISC
-The author may be contacted via http://256.com/sources/simplemagic/
+The author may be contacted via http://256stuff.com/sources/simplemagic/

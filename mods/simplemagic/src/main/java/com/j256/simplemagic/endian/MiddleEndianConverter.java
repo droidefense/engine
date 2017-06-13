@@ -7,6 +7,10 @@ package com.j256.simplemagic.endian;
  */
 public class MiddleEndianConverter implements EndianConverter {
 
+	MiddleEndianConverter() {
+		// only EndiaType should construct this
+	}
+
 	@Override
 	public Long convertNumber(int offset, byte[] bytes, int size) {
 		return convertNumber(offset, bytes, size, 8, 0xFF);
@@ -37,10 +41,10 @@ public class MiddleEndianConverter implements EndianConverter {
 		}
 		long value = 0;
 		// BADC
-		value = value << shift | (bytes[1] & mask);
-		value = value << shift | (bytes[0] & mask);
-		value = value << shift | (bytes[3] & mask);
-		value = value << shift | (bytes[2] & mask);
+		value = (value << shift) | (bytes[1] & mask);
+		value = (value << shift) | (bytes[0] & mask);
+		value = (value << shift) | (bytes[3] & mask);
+		value = (value << shift) | (bytes[2] & mask);
 		return value;
 	}
 }

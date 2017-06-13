@@ -14,12 +14,19 @@ public interface MagicMatcher {
 	public Object convertTestString(String typeStr, String testStr);
 
 	/**
-	 * Extract the value from the bytes.
+	 * Extract the value from the bytes either for doing the match or rendering it in the format.
 	 * 
+	 * @param offset
+	 *            Number of bytes into the bytes array that we are extracting from.
+	 * @param bytes
+	 *            Array of bytes we are extracting from.
+	 * @param required
+	 *            Whether or not the extracted value is required for later. If it is not then the type may opt to not
+	 *            extract the value and to do the matching directly.
 	 * @return The object to be passed to {@link #isMatch(Object, Long, boolean, Object, MutableOffset, byte[])} or null
 	 *         if not enough bytes.
 	 */
-	public Object extractValueFromBytes(int offset, byte[] bytes);
+	public Object extractValueFromBytes(int offset, byte[] bytes, boolean required);
 
 	/**
 	 * Matches if the bytes match at a certain offset.
@@ -47,6 +54,11 @@ public interface MagicMatcher {
 
 		public MutableOffset(int offset) {
 			this.offset = offset;
+		}
+
+		@Override
+		public String toString() {
+			return Integer.toString(offset);
 		}
 	}
 }

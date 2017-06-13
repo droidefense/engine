@@ -2,6 +2,7 @@ package droidefense.sdk.helpers;
 
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
+import droidefense.sdk.system.OSDetection;
 import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.handler.FileIOHandler;
 import droidefense.util.JsonStyle;
@@ -15,7 +16,10 @@ import java.io.Serializable;
  */
 public class DroidDefenseParams implements Serializable {
 
-    private final static String CONFIG_PROPERTIES = "config.json";
+    private final static String UNIX_CONFIG_PROPERTIES = "config.linux.json";
+    private final static String WINDOWS_CONFIG_PROPERTIES = "config.windows.json";
+    private final static String MAC_CONFIG_PROPERTIES = "config.mac.json";
+    private final static String CONFIG_PROPERTIES = UNIX_CONFIG_PROPERTIES;
     public static final String VERSION = "1.0";
     public static final String TAG = "alpha-unstable";
     private static DroidDefenseParams instance = new DroidDefenseParams();
@@ -92,28 +96,50 @@ public class DroidDefenseParams implements Serializable {
     }
 
     public static void init() throws ConfigFileNotFoundException {
+        File base = new File("");
+        Log.write(LoggerType.INFO, "Execution base path is: "+base.getAbsolutePath());
+
+        if(OSDetection.isWindows()){
+            Log.write(LoggerType.INFO, "System detected is MS Windows");
+            runconfig(base.getAbsolutePath()+File.separator+WINDOWS_CONFIG_PROPERTIES);
+        }
+        else if(OSDetection.isMacOSX()){
+            Log.write(LoggerType.INFO, "System detected is Mac OS");
+            runconfig(base.getAbsolutePath()+File.separator+MAC_CONFIG_PROPERTIES);
+        }
+        else if(OSDetection.isUnix()){
+            Log.write(LoggerType.INFO, "System detected is Unix");
+            runconfig(base.getAbsolutePath()+File.separator+UNIX_CONFIG_PROPERTIES);
+        }
+        else{
+            //load linux as default
+            runconfig(base.getAbsolutePath()+File.separator+CONFIG_PROPERTIES);
+        }
+    }
+
+    private static void runconfig(String configFilePath) throws ConfigFileNotFoundException {
         try {
-            if (new File(CONFIG_PROPERTIES).exists()) {
-                byte[] jsonData = Util.loadFileAsBytes(CONFIG_PROPERTIES);
+            if (new File(configFilePath).exists()) {
+                byte[] jsonData = Util.loadFileAsBytes(configFilePath);
                 if (jsonData.length == 0) {
-                    throw new ConfigFileNotFoundException(CONFIG_PROPERTIES + " file content is not valid");
+                    throw new ConfigFileNotFoundException(configFilePath + " file content is not valid");
                 } else {
                     DroidDefenseParams params = (DroidDefenseParams) Util.toObjectFromJson(new String(jsonData), DroidDefenseParams.class);
                     deserialize(params);
                 }
             } else {
                 //create mockup file
-                FileIOHandler.saveFile(CONFIG_PROPERTIES, Util.toJson(instance, JsonStyle.JSON_BEAUTY));
+                FileIOHandler.saveFile(configFilePath, Util.toJson(instance, JsonStyle.JSON_BEAUTY));
                 //throw no file found exception
-                Log.write(LoggerType.ERROR, "Config file, " + CONFIG_PROPERTIES + " was not found");
-                throw new ConfigFileNotFoundException("Config file, " + CONFIG_PROPERTIES + " was not found");
+                Log.write(LoggerType.ERROR, "Config file, " + configFilePath + " was not found");
+                throw new ConfigFileNotFoundException("Config file, " + configFilePath + " was not found");
             }
         } catch (IOException e) {
-            Log.write(LoggerType.ERROR, "Could not deserialize " + CONFIG_PROPERTIES + " file data", e, e.getLocalizedMessage());
-            throw new ConfigFileNotFoundException("Error reading " + CONFIG_PROPERTIES + " file." + e.getLocalizedMessage());
+            Log.write(LoggerType.ERROR, "Could not deserialize " + configFilePath + " file data", e, e.getLocalizedMessage());
+            throw new ConfigFileNotFoundException("Error reading " + configFilePath + " file." + e.getLocalizedMessage());
         } catch (Exception e) {
             Log.write(LoggerType.ERROR, e.getLocalizedMessage());
-            throw new ConfigFileNotFoundException("Invalid " + CONFIG_PROPERTIES + " file content." + e.getLocalizedMessage());
+            throw new ConfigFileNotFoundException("Invalid " + configFilePath + " file content." + e.getLocalizedMessage());
         }
     }
 }

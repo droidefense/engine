@@ -18,11 +18,9 @@ install:
   - cmd: mvn --version
   - cmd: java -version
 before_build:
-  - cd mods\core
+  - cd mods\cli
 build_script:
-  - mvn clean compile -B -Dmaven.test.skip=true
-#test_script:
-#  - mvn clean test --batch-mode -Pqulice
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -Ptest
 cache:
   - C:\maven\
   - C:\Users\appveyor\.m2

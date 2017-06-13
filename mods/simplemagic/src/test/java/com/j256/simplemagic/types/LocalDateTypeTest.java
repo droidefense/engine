@@ -20,7 +20,7 @@ public class LocalDateTypeTest {
 		int secs = 1367982937;
 		Date date = new Date(secs * 1000L);
 		String dateStr = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss Z").format(date);
-		Object val = type.extractValueFromBytes(0, integerToBytes(secs));
+		Object val = type.extractValueFromBytes(0, integerToBytes(secs), true);
 		val = type.isMatch(testInfo, null, false, val, new MutableOffset(0), null);
 		StringBuilder sb = new StringBuilder();
 		type.renderValue(sb, val, new MagicFormatter("%s"));

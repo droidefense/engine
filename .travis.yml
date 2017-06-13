@@ -15,8 +15,10 @@ env:
     - JAVA_OPTS="-XX:MaxPermSize=2g -Xmx4g"
     - TRAVIS_CARGO_NIGHTLY_FEATURE=""
 
-before_install: cd mods/core
-script: mvn clean compile
+before_install: cd mods/cli
+install:
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -Ptest
+script:
+  - mvn test jacoco:report
 after_success:
-  - mvn clean # jacoco:report coveralls:report
-  # - mvn clean test verify jacoco:report coveralls:report
+  - mvn coveralls:report

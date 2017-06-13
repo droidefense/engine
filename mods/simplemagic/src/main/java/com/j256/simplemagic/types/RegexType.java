@@ -47,7 +47,7 @@ public class RegexType implements MagicMatcher {
 	}
 
 	@Override
-	public Object extractValueFromBytes(int offset, byte[] bytes) {
+	public Object extractValueFromBytes(int offset, byte[] bytes, boolean required) {
 		return EMPTY;
 	}
 
@@ -99,7 +99,6 @@ public class RegexType implements MagicMatcher {
 
 	private static class PatternInfo {
 		int patternFlags;
-		// TODO: need to implement this flag
 		@SuppressWarnings("unused")
 		boolean updateOffsetStart;
 		Pattern pattern;

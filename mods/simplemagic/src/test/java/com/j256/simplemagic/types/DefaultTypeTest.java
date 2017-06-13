@@ -14,7 +14,7 @@ public class DefaultTypeTest {
 	public void testConverage() {
 		DefaultType type = new DefaultType();
 		type.convertTestString(null, null);
-		type.extractValueFromBytes(0, null);
+		type.extractValueFromBytes(0, null, true);
 		assertTrue(type.isMatch(null, null, false, null, new MutableOffset(0), null) != null);
 		String str = "weofjwepfj";
 		StringBuilder sb = new StringBuilder();

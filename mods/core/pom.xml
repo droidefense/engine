@@ -7,10 +7,11 @@
 
     <groupId>com.droidefense</groupId>
     <artifactId>core</artifactId>
-    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <name>Droidefense CORE</name>
+    <url>http://github.com/droidefense/engine</url>
+    <packaging>jar</packaging>
 
     <modules>
         <module>../memapktool</module>
@@ -29,7 +30,6 @@
 
     <properties>
         <jdk.version>1.8</jdk.version>
-        <dependecy.directory>lib</dependecy.directory>
     </properties>
 
     <dependencies>
@@ -71,12 +71,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.j256.simplemagic</groupId>
-            <artifactId>simplemagic</artifactId>
-            <version>1.9-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>entropy</artifactId>
             <version>1.0-SNAPSHOT</version>
@@ -107,6 +101,12 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.j256.simplemagic</groupId>
+            <artifactId>simplemagic</artifactId>
+            <version>1.9-SNAPSHOT</version>
+        </dependency>
+
         <!-- testing libs -->
 
         <dependency>
@@ -115,6 +115,7 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -135,100 +136,7 @@
                     <target>${jdk.version}</target>
                 </configuration>
             </plugin>
-            <!-- Make this jar executable -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                    <!-- DO NOT include log4j.properties file in your Jar -->
-                    <excludes>
-                        <exclude>**/log4j.properties</exclude>
-                    </excludes>
-                    <archive>
-                        <droidefense.sdk.manifest>
-                            <!-- Jar file entry point -->
-                            <mainClass>droidefense.cli.DroidefenseScan</mainClass>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>${dependecy.directory}/</classpathPrefix>
-                        </droidefense.sdk.manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-
-            <!-- build jar with dependencies in an in-jar folder -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>2.4.3</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <finalName>${project.artifactId}-${project.version}</finalName>
-                </configuration>
-            </plugin>
-
-            <!-- build jar with dependencies in an external folder -->
-            <!--
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.5.1</version>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <includeScope>runtime</includeScope>
-                            <outputDirectory>${project.build.directory}/${dependecy.directory}/</outputDirectory>
-                        </configuration>
-                        </execution>
-                    </executions>
-            </plugin>
-            -->
-
-            <!-- optimize jar with proguard -->
-            <!--
-            <plugin>
-                <groupId>com.github.wvengen</groupId>
-                <artifactId>proguard-maven-plugin</artifactId>
-                <version>2.0.10</version>
-
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals><goal>proguard</goal></goals>
-                    </execution>
-                </executions>
-
-                <configuration>
-                    <maxMemory>1024m</maxMemory>
-
-                    <proguardInclude>${basedir}/proguard.conf</proguardInclude>
-                    <libs>
-                        <lib>${java.home}/lib/rt.jar</lib>
-                    </libs>
-                </configuration>
-
-                <dependencies>
-                    <dependency>
-                        <groupId>net.sf.proguard</groupId>
-                        <artifactId>proguard-base</artifactId>
-                        <version>5.3</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-            -->
-
         </plugins>
     </build>
+
 </project>

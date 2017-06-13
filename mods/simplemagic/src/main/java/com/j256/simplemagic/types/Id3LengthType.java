@@ -14,7 +14,7 @@ public class Id3LengthType extends IntegerType {
 	}
 
 	@Override
-	public Object extractValueFromBytes(int offset, byte[] bytes) {
+	public Object extractValueFromBytes(int offset, byte[] bytes, boolean required) {
 		// because we only use the lower 7-bits of each byte, we need to copy into a local byte array
 		int bytesPerType = getBytesPerType();
 		byte[] sevenBitBytes = new byte[bytesPerType];

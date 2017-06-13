@@ -36,7 +36,7 @@ public class PerformanceTest {
 			assertEquals("bad content-type", ContentType.JPEG, details.getContentType());
 			assertEquals("bad name", "jpeg", details.getName());
 			assertEquals("bad mime-type", "image/jpeg", details.getMimeType());
-			assertEquals("bad message", "JPEG image data, EXIF standard", details.getMessage());
+			assertEquals("bad message", "JPEG image data, EXIF standard 2.2", details.getMessage());
 		}
 	}
 }

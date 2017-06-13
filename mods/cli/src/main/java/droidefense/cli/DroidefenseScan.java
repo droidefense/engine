@@ -95,6 +95,11 @@ public class DroidefenseScan {
                 profilingAlert("deactivate");
             }
         }
+        else{
+            //as default action
+            options.showVersion();
+            options.showHelp();
+        }
     }
 
     private void showParsingError(ParseException e) {

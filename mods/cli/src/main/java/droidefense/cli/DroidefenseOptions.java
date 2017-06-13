@@ -55,9 +55,9 @@ public class DroidefenseOptions extends Options {
     public void showVersion() {
         System.out.println("################################################################################");
         System.out.println("Current version of droidefense: \t" + InternalConstant.ENGINE_VERSION);
-        System.out.println("Check out on Github: \t\t\t\t" + InternalConstant.REPO_URL);
-        System.out.println("Report your issue: \t\t\t\t\t" + InternalConstant.ISSUES_URL);
-        System.out.println("Lead developer: \t\t\t\t\t" + InternalConstant.LEAD_DEVELOPER);
+        System.out.println("Check out on Github: \t\t\t" + InternalConstant.REPO_URL);
+        System.out.println("Report your issue: \t\t\t" + InternalConstant.ISSUES_URL);
+        System.out.println("Lead developer: \t\t\t" + InternalConstant.LEAD_DEVELOPER);
         System.out.println("################################################################################");
     }
 

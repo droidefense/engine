@@ -9,8 +9,8 @@ import java.util.Arrays;
  * after you are done, call {@link #findMatch()} to determine the content-type information of the bytes read.
  * 
  * <p>
- * <b> NOTE: </b> This keeps a buffer of the first {@link ContentInfoUtil#DEFAULT_READ_SIZE} bytes read or skipped to
- * determine the content-type of the bytes read.
+ * <b> NOTE: </b> This keeps a buffer of the first {@link ContentInfoUtil#DEFAULT_READ_SIZE} (maybe 10k) bytes read or
+ * skipped to determine the content-type of the bytes read.
  * </p>
  * 
  * @author graywatson

@@ -6,8 +6,11 @@ Used to maintain requested features or future work.
 - maybe compile the magic file into a serialized compressed file for size reasons?
 	- at least pre-process it to normalize whitespace
 - need to handle the indirect type?
-- need more tests on floating point numbers, find magics that use them
 - is the quad date in seconds or millis?? find a magic that uses them
+- need to support the &( (& and the &(& constructs, I don't understand the man pages on it yet even
+- need to support the "recursive" patterns such as tiff.jpg with under linux outputs
+	tiff.jpg: JPEG image data, Exif standard: [TIFF image data, little-endian, direntries=0], baseline, precision 8, 1800x2400, frames 3
+	I think the [...] stuff is recursive
 
 ------------------------------------------------------------------------------------------------------------
 
@@ -15,9 +18,5 @@ Speed improvements:
 
 - categorize the file as ~ascii or not, only run the search and regex on the ascii files
 	- maybe process the file by lines and search each rule instead of having each rule search the file
-- for the binary types, return the starting offset and starting byte (watch network byte order)
-	- then walk the first X bytes and only call the rules if they have the appropriate starting byte
-	- all other rules then in an "other" rule list
-	- try to get down to as few rules in the "other" list
 
 ------------------------------------------------------------------------------------------------------------

@@ -6,9 +6,9 @@
 @c %**end of header
 
 @c ----------------------------------------------------------------
-@set simplemagic_version 1.8
-@set simplemagic_year 2016
-@set simplemagic_date September @value{simplemagic_year}
+@set simplemagic_version 1.12
+@set simplemagic_year 2017
+@set simplemagic_date June @value{simplemagic_year}
 @set package SimpleMagic
 @c ----------------------------------------------------------------
 
@@ -232,10 +232,10 @@ ContentInfo info = inputStream.findMatch();
 
 For the file and stream versions, the first 10 kilobytes of the data is read and processed.
 
-There is also a long internal list of file types copied from the Apache list --
-@uref{http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co}.  Not all of the files in this list
-have associated magic number information.  However, with the list you can look up mime-types or by file-extension and
-get the associated information. 
+There is also a long internal list of file types copied from the 
+@uref{http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co, Apache list}.  Not all of the files
+in this list have associated magic number information.  However, with the list you can look up mime-types or by
+file-extension and get the associated information. 
 
 @cindex file extensions
 @cindex extensions
@@ -330,7 +330,7 @@ DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING F
 WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE
 USE OR PERFORMANCE OF THIS SOFTWARE.
 
-The author may be contacted via @uref{http://256.com/sources/simplemagic/}
+The author may be contacted via the @uref{http://256.com/sources/simplemagic/, SimpleMagic home page}.
 
 @c ----------------------------------------------------------------
 @node Index of Concepts,, License, Top

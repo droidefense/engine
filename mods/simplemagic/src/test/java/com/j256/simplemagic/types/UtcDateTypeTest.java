@@ -23,7 +23,7 @@ public class UtcDateTypeTest {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss Z");
 		format.setTimeZone(TimeZone.getTimeZone("UTC"));
 		String dateStr = format.format(date);
-		Object val = type.extractValueFromBytes(0, integerToBytes(secs));
+		Object val = type.extractValueFromBytes(0, integerToBytes(secs), true);
 		val = type.isMatch(testInfo, null, false, val, new MutableOffset(0), null);
 		StringBuilder sb = new StringBuilder();
 		type.renderValue(sb, val, new MagicFormatter("%s"));

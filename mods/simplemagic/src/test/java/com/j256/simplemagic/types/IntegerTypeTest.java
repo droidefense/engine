@@ -16,7 +16,7 @@ public class IntegerTypeTest extends BaseMagicTypeTest {
 		IntegerType longType = new IntegerType(EndianType.LITTLE);
 		String hexBytes = "0x03cbc6c5";
 		Object testString = longType.convertTestString("lelong", hexBytes);
-		Object value = longType.extractValueFromBytes(0, hexToBytes("c5c6cb03"));
+		Object value = longType.extractValueFromBytes(0, hexToBytes("c5c6cb03"), true);
 		assertNotNull(longType.isMatch(testString, null, false, value, new MutableOffset(0), null /* unused */));
 	}
 
@@ -25,7 +25,7 @@ public class IntegerTypeTest extends BaseMagicTypeTest {
 		IntegerType longType = new IntegerType(EndianType.BIG);
 		String hexBytes = "0x03c7b3a1";
 		Object testString = longType.convertTestString("lelong", hexBytes);
-		Object value = longType.extractValueFromBytes(0, hexToBytes("03c7b3a1"));
+		Object value = longType.extractValueFromBytes(0, hexToBytes("03c7b3a1"), true);
 		assertNotNull(longType.isMatch(testString, null, false, value, new MutableOffset(0), null /* unused */));
 	}
 

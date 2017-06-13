@@ -1,3 +1,24 @@
+1.12: 6/9/2017
+	* Fixed a bug with negative pstring lengths.  Thanks to charles-jacobsen.
+
+1.11: 3/18/2017
+	* Added support for webm file type.  Thanks to t6nand.
+	* Added initial support for adobe illustrator files.  Thanks to markwoon.
+	* Fixed some of the mpeg file type handling.  Thanks to air-hermes.
+	* Fixed some jpeg file handling although some not working due to recursive patterns.  Thanks to saurabheights.
+
+1.10: 12/13/2016
+	* Fixed problems with the big and little endian string types.  Thanks to yongminyan.
+	* Fixed problem with string match but null pattern.  Thanks to CalebFenton.
+	* Fixed matching of 2 byte characters.  Thanks much to yongminyan.
+	* Refactored the internals to reduce the extracted strings.  Should use less memory.
+	* Fixed problems with leading newlines to HTML and other text types.  Thanks to Abdull.
+
+1.9: 11/20/2016
+	* Fixed problem with first bytes optimization not taking into account optional match chars.  Thanks to yongminyan.
+	* Added support for !:optional special flag for flagging more specific lines that aren't required.
+	* Removed the linked list of entries for lists of entries because they may be in multiple places.
+
 1.8: 9/24/2016
 	* Fixed problems with the pstring type that were generating the wrong extracted string.
 	* Fixed problems with the ~ negation operation and byte, short, or int values.

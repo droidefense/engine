@@ -16,8 +16,9 @@ public class LongTypeTest extends BaseMagicTypeTest {
 		LongType longType = new LongType(EndianType.LITTLE);
 		String hexBytes = "0xc3cbc6c5c7b3a1";
 		Object testString = longType.convertTestString("lelong", hexBytes);
-		Object value = longType.extractValueFromBytes(0, new byte[] { hexToByte("0xa1"), hexToByte("0xb3"),
-				hexToByte("0xc7"), hexToByte("0xc5"), hexToByte("0xc6"), hexToByte("0xcb"), hexToByte("0xc3"), 0 });
+		Object value =
+				longType.extractValueFromBytes(0, new byte[] { hexToByte("0xa1"), hexToByte("0xb3"), hexToByte("0xc7"),
+						hexToByte("0xc5"), hexToByte("0xc6"), hexToByte("0xcb"), hexToByte("0xc3"), 0 }, true);
 		assertNotNull(longType.isMatch(testString, null, false, value, new MutableOffset(0), null /* unused */));
 	}
 
@@ -27,7 +28,7 @@ public class LongTypeTest extends BaseMagicTypeTest {
 		String hexBytes = "0xc3cbc6c5c7b3a1";
 		Object testString = longType.convertTestString("lelong", hexBytes);
 		Object value = longType.extractValueFromBytes(0, new byte[] { 0, hexToByte("0xc3"), hexToByte("0xcb"),
-				hexToByte("0xc6"), hexToByte("0xc5"), hexToByte("0xc7"), hexToByte("0xb3"), hexToByte("0xa1") });
+				hexToByte("0xc6"), hexToByte("0xc5"), hexToByte("0xc7"), hexToByte("0xb3"), hexToByte("0xa1") }, true);
 		assertNotNull(longType.isMatch(testString, null, false, value, new MutableOffset(0), null /* unused */));
 	}
 

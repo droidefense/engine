@@ -32,7 +32,7 @@ public class RegexTypeTest {
 
 	@Test
 	public void testExtractValueFromBytes() {
-		new RegexType().extractValueFromBytes(0, null);
+		new RegexType().extractValueFromBytes(0, null, true);
 	}
 
 	private String renderValue(Object extracted, RegexType type, MagicFormatter formatter) {

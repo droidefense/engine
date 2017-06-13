@@ -1,0 +1,4 @@
+# config file for circleci
+machine:
+  java:
+    version: openjdk8

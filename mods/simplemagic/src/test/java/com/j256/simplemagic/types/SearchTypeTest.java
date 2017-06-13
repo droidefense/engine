@@ -72,7 +72,7 @@ public class SearchTypeTest {
 
 	@Test
 	public void testCoverage() {
-		new SearchType().extractValueFromBytes(0, null);
+		new SearchType().extractValueFromBytes(0, null, true);
 	}
 
 	@Test

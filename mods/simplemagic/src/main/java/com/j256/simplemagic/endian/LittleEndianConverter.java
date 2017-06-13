@@ -7,6 +7,10 @@ package com.j256.simplemagic.endian;
  */
 public class LittleEndianConverter implements EndianConverter {
 
+	LittleEndianConverter() {
+		// only EndiaType should construct this
+	}
+
 	@Override
 	public Long convertNumber(int offset, byte[] bytes, int size) {
 		return convertNumber(offset, bytes, size, 8, 0xFF);
