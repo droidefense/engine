@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.HashSet;
 
 /**
@@ -506,9 +507,7 @@ public class DroidefenseIntel implements Serializable {
         }
 
         //init default app list map with array data
-        for (String hash : DEFAULT_ANDROID_APP_FILES_HASH_LIST){
-            DEFAULT_APP_FILES_MAP.add(hash);
-        }
+        DEFAULT_APP_FILES_MAP.addAll(Arrays.asList(DEFAULT_ANDROID_APP_FILES_HASH_LIST));
     }
 
     public static DroidefenseIntel getInstance() {

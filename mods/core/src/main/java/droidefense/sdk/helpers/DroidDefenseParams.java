@@ -17,7 +17,7 @@ import java.io.Serializable;
 public class DroidDefenseParams implements Serializable {
 
     private final static String UNIX_CONFIG_PROPERTIES = "config.linux.json";
-    private final static String WINDOWS_CONFIG_PROPERTIES = "config.windows.json";
+    private final static String WINDOWS_CONFIG_PROPERTIES = "config.win.json";
     private final static String MAC_CONFIG_PROPERTIES = "config.mac.json";
     private final static String CONFIG_PROPERTIES = UNIX_CONFIG_PROPERTIES;
     public static final String VERSION = "1.0";
@@ -97,15 +97,17 @@ public class DroidDefenseParams implements Serializable {
 
     public static void init() throws ConfigFileNotFoundException {
         File base = new File("");
-        Log.write(LoggerType.INFO, "Execution base path is: "+base.getAbsolutePath());
+        String execPath = base.getAbsolutePath();
+        String basePath = execPath+File.separator+InternalConstant.CONFIG_FOLDER;
+        Log.write(LoggerType.INFO, "Execution base path is: "+execPath);
 
         if(OSDetection.isWindows()){
             Log.write(LoggerType.INFO, "System detected is MS Windows");
-            runconfig(base.getAbsolutePath()+File.separator+WINDOWS_CONFIG_PROPERTIES);
+            runconfig(basePath+File.separator+WINDOWS_CONFIG_PROPERTIES);
         }
         else if(OSDetection.isMacOSX()){
             Log.write(LoggerType.INFO, "System detected is Mac OS");
-            runconfig(base.getAbsolutePath()+File.separator+MAC_CONFIG_PROPERTIES);
+            runconfig(basePath+File.separator+MAC_CONFIG_PROPERTIES);
         }
         else if(OSDetection.isUnix()){
             Log.write(LoggerType.INFO, "System detected is Unix");
