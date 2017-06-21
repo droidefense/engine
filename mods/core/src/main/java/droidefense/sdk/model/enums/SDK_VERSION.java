@@ -48,7 +48,7 @@ public enum SDK_VERSION {
 
     public static SDK_VERSION getSdkVersion(int apiLevel) {
         if (apiLevel >= MIN_API_LEVEL && apiLevel <= MAX_API_LEVEL) {
-            return enumValues[apiLevel - 1];
+            return enumValues[MAX_API_LEVEL - apiLevel];
         }
         return SDK_VERSION.UNKNOWN;
     }

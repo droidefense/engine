@@ -29,11 +29,13 @@ public class AndroidManifestParser extends AbstractFileParser {
             byte[] manifestContent = currentProject.getManifestFile();
             externalParser.parse(manifestContent);
             man = externalParser.getManifest();
-            currentProject.setManifestInfo(man);
-            currentProject.setEntryPoints(externalParser.getEntryPoints());
-            definePackageNameTypes();
-            defineMainClass(externalParser);
-            defineCompatibilityWindow();
+            if(man!=null){
+                currentProject.setManifestInfo(man);
+                currentProject.setEntryPoints(externalParser.getEntryPoints());
+                definePackageNameTypes();
+                defineMainClass(externalParser);
+                defineCompatibilityWindow();
+            }
         } catch (ParserConfigurationException e) {
             Log.write(LoggerType.ERROR, e.getLocalizedMessage());
         } catch (IOException e) {

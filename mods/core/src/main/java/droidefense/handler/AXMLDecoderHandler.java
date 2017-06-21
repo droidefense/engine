@@ -12,6 +12,8 @@ public final class AXMLDecoderHandler extends AbstractHandler {
     private static final InMemoryAXMLParser decoder = new InMemoryAXMLParser();
     private VirtualFile vf;
 
+    public AXMLDecoderHandler() {}
+
     public AXMLDecoderHandler(VirtualFile vf) {
         this.vf = vf;
     }
@@ -21,10 +23,12 @@ public final class AXMLDecoderHandler extends AbstractHandler {
         if(vf==null){
             return false;
         }
-        decoder.setInputFile(this.vf);
-        decoder.decode();
-        this.vf = decoder.getDecodedFile();
-        return this.vf != null;
+        else{
+            decoder.setInputFile(this.vf);
+            decoder.decode();
+            this.vf = decoder.getDecodedFile();
+            return this.vf != null;
+        }
     }
 
     public VirtualFile getDecodedFile() {

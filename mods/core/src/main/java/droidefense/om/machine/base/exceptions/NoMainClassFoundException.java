@@ -8,6 +8,6 @@ import java.io.Serializable;
 public class NoMainClassFoundException extends VirtualMachineRuntimeException implements Serializable {
 
     public NoMainClassFoundException(String message) {
-        super("Atom could not find a valid MAIN entry point: " + message);
+        super("Droidefense could not find a valid MAIN entry point: " + message);
     }
 }

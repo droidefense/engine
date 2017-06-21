@@ -146,8 +146,10 @@ public final class DroidefenseProject implements Serializable {
     private transient DexHeaderReader dexHeaderReader;
     private transient IAtomClass[] dynamicEntryPoints;
     private transient HashMap<String, IAtomClass> classMap;
-    private boolean settingAutoOpen;
-    private String settingsReportType;
+
+    //config params
+    private transient boolean settingAutoOpen;
+    private transient String settingsReportType;
     //private transient DexHeaderReader dexHeaderReader;
 
     public DroidefenseProject() {

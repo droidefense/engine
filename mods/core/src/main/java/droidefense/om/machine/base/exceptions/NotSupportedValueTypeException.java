@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class NotSupportedValueTypeException extends RuntimeException implements Serializable {
 
     public NotSupportedValueTypeException(ValueFormat type) {
-        super("\nAtom Engine detected an unsupported value type in the current .dex file.\nPlease see the next information:"
+        super("\nDroidefense Engine detected an unsupported value type in the current .dex file.\nPlease see the next information:"
                 + "\n\tUnsupported value type:\t0x" + Integer.toHexString(type.getInstructionByteId())
                 + "\n\tResolved as:\t" + type.getName() + " value type"
         );
