@@ -1,204 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<!-- simplemagic pom configuration file for Maven (http://maven.apache.org/) -->
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.j256.simplemagic</groupId>
-	<artifactId>simplemagic</artifactId>
-	<version>1.13-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	<name>Simple Magic</name>
-	<url>http://256stuff.com/sources/simplemagic/</url>
-	<description>Simple Magic Classes</description>
-	<licenses>
-		<license>
-			<name>ISC License</name>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
-	</parent>
-	<properties>
-		<!-- optional dependency versions -->
-		<log4j-version>1.2.12</log4j-version>
-		<log4j2-version>2.0-beta4</log4j2-version>
-		<!-- test dependency versions -->
-		<easymock-version>3.4</easymock-version>
-		<junit-version>4.8.1</junit-version>
-	</properties>
-	<scm>
-		<url>https://github.com/j256/simplemagic</url>
-		<connection>scm:git:ssh://git@github.com/j256/simplemagic.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/j256/simplemagic.git</developerConnection>
-	</scm>
-	<developers>
-		<developer>
-			<id>gray</id>
-			<name>Gray Watson</name>
-			<url>http://256stuff.com/gray/</url>
-			<organization>256stuff.com</organization>
-			<organizationUrl>http://256stuff.com/</organizationUrl>
-			<roles>
-				<role>architect</role>
-				<role>developer</role>
-			</roles>
-			<timezone>-5</timezone>
-		</developer>
-	</developers>
-	<profiles>
-		<profile>
-			<id>st</id>
-			<distributionManagement>
-				<repository>
-					<id>sonatype-nexus-staging</id>
-					<name>Nexus Release Repository</name>
-					<url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-				</repository>
-				<snapshotRepository>
-					<id>sonatype-nexus-snapshots</id>
-					<name>Sonatype Nexus Snapshots</name>
-					<url>http://oss.sonatype.org/content/repositories/snapshots/</url>
-				</snapshotRepository>
-			</distributionManagement>
-		</profile>
-	</profiles>
-	<build>
-		<finalName>simplemagic</finalName>
-		<!-- Resources -->
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-			</resource>
-		</resources>
-		<!-- Test Resources -->
-		<testResources>
-			<testResource>
-				<directory>src/test/resources</directory>
-			</testResource>
-		</testResources>
-		<!-- Plugins -->
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<configuration>
-					<mavenExecutorId>forked-path</mavenExecutorId>
-					<useReleaseProfile>false</useReleaseProfile>
-					<arguments>-Psonatype-oss-release -DgpgPhase=${gpgPhase} -Dgpg.passphrase=${gpg.passphrase}</arguments>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.5.1</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.2.1</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9.1</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-						<configuration>
-							<showPackage>false</showPackage>
-							<additionalparam>-tag inheritDoc:X -Xdoclint:none</additionalparam>
-						</configuration>
-					</execution>
-				</executions>
-				<configuration>
-					<showPackage>false</showPackage>
-					<bottom>
-						This content is licensed by Gray Watson under the
-						&lt;a
-						href="http://creativecommons.org/licenses/by-sa/3.0/" &gt;Creative Commons Attribution-Share Alike 3.0 License.
-						&lt;/a&gt; </bottom>
-					<additionalparam>-tag inheritDoc:X -Xdoclint:none</additionalparam>
-					<excludePackageNames>
-					</excludePackageNames>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9</version>
-			</plugin>
-		</plugins>
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.apache.maven.plugins</groupId>
-										<artifactId>maven-enforcer-plugin</artifactId>
-										<versionRange>[1.0,)</versionRange>
-										<goals>
-											<goal>enforce</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
-	<dependencies>
-		<!-- optional dependencies -->
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log4j-version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>${log4j2-version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- test dependencies -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit-version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.easymock</groupId>
-			<artifactId>easymock</artifactId>
-			<version>${easymock-version}</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <!-- simplemagic pom configuration file for Maven (http://maven.apache.org/) -->
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.j256.simplemagic</groupId>
+    <artifactId>simplemagic</artifactId>
+    <version>1.13-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>Simple Magic</name>
+    <url>http://256stuff.com/sources/simplemagic/</url>
+    <description>Simple Magic Classes</description>
+
+    <licenses>
+        <license>
+            <name>ISC License</name>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <properties>
+        <!-- optional dependency versions -->
+        <log4j-version>1.2.12</log4j-version>
+        <log4j2-version>2.0-beta4</log4j2-version>
+        <!-- test dependency versions -->
+        <easymock-version>3.4</easymock-version>
+        <junit-version>4.8.1</junit-version>
+    </properties>
+
+    <developers>
+        <developer>
+            <id>gray</id>
+            <name>Gray Watson</name>
+            <url>http://256stuff.com/gray/</url>
+            <organization>256stuff.com</organization>
+            <organizationUrl>http://256stuff.com/</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>-5</timezone>
+        </developer>
+    </developers>
+
+    <build>
+        <finalName>simplemagic</finalName>
+        <!-- Resources -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <!-- Test Resources -->
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+        <!-- Plugins -->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <mavenExecutorId>forked-path</mavenExecutorId>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <arguments>-Psonatype-oss-release -DgpgPhase=${gpgPhase} -Dgpg.passphrase=${gpg.passphrase}
+                    </arguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.4</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <additionalparam>-tag inheritDoc:X -Xdoclint:none</additionalparam>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <bottom>
+                        This content is licensed by Gray Watson under the
+                        &lt;a
+                        href="http://creativecommons.org/licenses/by-sa/3.0/" &gt;Creative Commons Attribution-Share
+                        Alike 3.0 License.
+                        &lt;/a&gt;
+                    </bottom>
+                    <additionalparam>-tag inheritDoc:X -Xdoclint:none</additionalparam>
+                    <excludePackageNames>
+                    </excludePackageNames>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-enforcer-plugin</artifactId>
+                                        <versionRange>[1.0,)</versionRange>
+                                        <goals>
+                                            <goal>enforce</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore/>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <dependencies>
+
+        <!-- optional dependencies -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j-version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j2-version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- test dependencies -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.7</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+    </dependencies>
 </project>

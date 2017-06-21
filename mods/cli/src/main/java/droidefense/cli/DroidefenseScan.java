@@ -77,7 +77,7 @@ public class DroidefenseScan {
         //read user selected .apk
         if (cmd.hasOption("input")) {
             //initialize environment first
-            init = loadVariables();
+            init = loadEnvironment();
             if (!init) {
                 Log.write(LoggerType.FATAL, "Droidefense initialization error");
                 return;
@@ -107,13 +107,13 @@ public class DroidefenseScan {
         options.showHelp();
     }
 
-    private static boolean loadVariables() {
+    private static boolean loadEnvironment() {
         //init data structs
         try {
             DroidDefenseParams.init();
             Log.write(LoggerType.TRACE, "Loading Droidefense data structs...");
             //create singleton instance of AtomIntelligence
-            DroidefenseIntel.getInstance();
+            DroidefenseIntel.init();
             Log.write(LoggerType.TRACE, "Data loaded!!");
         } catch (ConfigFileNotFoundException e) {
             Log.write(LoggerType.FATAL, e.getLocalizedMessage());
@@ -136,8 +136,7 @@ public class DroidefenseScan {
     }
 
     private void initScan(DroidefenseProject project, File f, APKUnpacker unpacker) {
-
-        if(f.exists() && f.canRead()) {
+        if(f.exists() && f.canRead() && false) {
             Log.write(LoggerType.TRACE, "Building project");
 
             //set sample

@@ -444,7 +444,7 @@ public class DroidefenseIntel implements Serializable {
     /**
      * DroidefenseIntel singleton variable.
      */
-    private static DroidefenseIntel instance = new DroidefenseIntel();
+    private static DroidefenseIntel instance;
 
     /**
      * Bayesian classifier harcoded apimodel instance for singleton access
@@ -455,47 +455,54 @@ public class DroidefenseIntel implements Serializable {
     private HashSet<String> androidClassList;
     private HashSet<String> androidSupportClassList;
 
+    public static void init() {
+        instance = DroidefenseIntel.getInstance();
+    }
+
     private DroidefenseIntel() {
         //load a list of native jdk8 classes
-        javaClassList = new HashSet<String>();
+
+        String path = "";
         try {
-            ObjectInputStream jdk8ObjectFile = FileIOHandler.getResourceObjectStream(DroidDefenseParams.getInstance().RESOURCE_FOLDER + File.separator + InternalConstant.JAVA_SDK_CLASS_HASHSET_NAME);
+            javaClassList = new HashSet<String>();
+            path = DroidDefenseParams.getInstance().RESOURCE_FOLDER + File.separator + InternalConstant.JAVA_SDK_CLASS_HASHSET_NAME;
+            ObjectInputStream jdk8ObjectFile = FileIOHandler.getResourceObjectStream(path);
             javaClassList = (HashSet<String>) FileIOHandler.readAsRAW(jdk8ObjectFile);
             Log.write(LoggerType.TRACE, "Java whitelisted dataset length: " + javaClassList.size());
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, "Could not get java whitelist data on path: "+path+"\nError details: "+e.getLocalizedMessage());
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, "Invalid whitelist file given on path "+path+"\nError details: "+e.getLocalizedMessage());
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, "Droidefense error. Error details: "+e.getLocalizedMessage());
         }
 
-        //load a list of native android sdk classes
-        androidClassList = new HashSet<String>();
         try {
+            //load a list of native android sdk classes
+            androidClassList = new HashSet<>();
             ObjectInputStream sdkFile = FileIOHandler.getResourceObjectStream(DroidDefenseParams.getInstance().RESOURCE_FOLDER + File.separator + InternalConstant.ANDROID_SDK_CLASS_HASHSET_NAME);
             androidClassList = (HashSet<String>) FileIOHandler.readAsRAW(sdkFile);
             Log.write(LoggerType.TRACE, "Android whitelisted dataset length: " + androidClassList.size());
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, "Could not get android whitelist data on path: "+path+"\nError details: "+e.getLocalizedMessage());
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, "Invalid android whitelist file given on path "+path+"\nError details: "+e.getLocalizedMessage());
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, "Droidefense error. Error details: " + e.getLocalizedMessage());
         }
 
-        //load a list of native android support sdk classes
-        androidSupportClassList = new HashSet<String>();
         try {
+            //load a list of native android support sdk classes
+            androidSupportClassList = new HashSet<>();
             ObjectInputStream supportFile = FileIOHandler.getResourceObjectStream(DroidDefenseParams.getInstance().RESOURCE_FOLDER + File.separator + InternalConstant.ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME);
             androidSupportClassList = (HashSet<String>) FileIOHandler.readAsRAW(supportFile);
             Log.write(LoggerType.TRACE, "Android support whitelisted dataset length: " + androidSupportClassList.size());
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, "Could not get android support whitelist data on path: "+path+"\nError details: "+e.getLocalizedMessage());
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, "Invalid android support whitelist file given on path "+path+"\nError details: "+e.getLocalizedMessage());
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, "Droidefense error. Error details: " + e.getLocalizedMessage());
         }
 
         //init default app list map with array data
@@ -505,6 +512,9 @@ public class DroidefenseIntel implements Serializable {
     }
 
     public static DroidefenseIntel getInstance() {
+        if(instance==null){
+            instance = new DroidefenseIntel();
+        }
         return instance;
     }
 

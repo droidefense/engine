@@ -3,9 +3,9 @@ package droidefense.sdk.model.io;
 import com.j256.simplemagic.ContentInfo;
 import com.j256.simplemagic.ContentInfoUtil;
 import com.j256.simplemagic.ContentType;
+import droidefense.sdk.helpers.Util;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
-import droidefense.sdk.helpers.Util;
 import droidefense.util.DroidefenseIntel;
 
 import java.io.IOException;

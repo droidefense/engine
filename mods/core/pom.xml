@@ -104,7 +104,7 @@
         <dependency>
             <groupId>com.j256.simplemagic</groupId>
             <artifactId>simplemagic</artifactId>
-            <version>1.9-SNAPSHOT</version>
+            <version>1.13-SNAPSHOT</version>
         </dependency>
 
         <!-- testing libs -->
@@ -130,7 +130,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>3.6.0</version>
                 <configuration>
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>
