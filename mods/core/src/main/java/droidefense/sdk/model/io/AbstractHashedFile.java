@@ -18,15 +18,17 @@ public abstract class AbstractHashedFile implements Serializable {
     private transient final boolean generateInformation;
     private static final ContentInfoUtil util = new ContentInfoUtil();
 
+    protected String filename;
     protected long filesize;
-    protected String beautyFilesize;
+
     protected String crc32, md5, sha1, sha256, sha512, ssdeep;
+    protected String beautyFilesize;
+
     protected boolean suspiciousWin32File;
-    protected boolean signatureMatches;
-    protected boolean isDefaultFile;
-    protected String filename, headerBasedExtension, declaredExtension, description;
-    private String mimetype;
-    protected String magicDescription;
+    protected boolean androidDefaultFile;
+    protected boolean extensionMatches;
+    protected String extensionFromHeader, extensionFromFilename;
+    private String mimetype, description, magicDescription;
     private ContentInfo contentInfo;
 
     protected transient InputStream stream;
@@ -46,12 +48,12 @@ public abstract class AbstractHashedFile implements Serializable {
         //filename info
         filename = getName();
         //extension info
-        declaredExtension = Util.getFileExtension(this.filename);
+        extensionFromFilename = Util.getFileExtension(this.filename);
         //hash info
         contentInfo = null;
         if (generateInformation) {
             generateHashes();
-            isDefaultFile = DroidefenseIntel.getInstance().isDefaultFile(this.sha256);
+            androidDefaultFile = DroidefenseIntel.getInstance().isDefaultFile(this.sha256);
             calculateHeaderBasedExtension();
         }
     }
@@ -67,17 +69,17 @@ public abstract class AbstractHashedFile implements Serializable {
                     ContentType type = info.getContentType();
                     if(type!=null){
                         this.mimetype = type.getMimeType();
-                        this.headerBasedExtension = type.name();
-                        this.signatureMatches = this.headerBasedExtension.toLowerCase().equals(this.declaredExtension.toLowerCase()) || isApkFile();
+                        this.extensionFromHeader = type.name();
+                        this.extensionMatches = this.extensionFromHeader.toLowerCase().equals(this.extensionFromFilename.toLowerCase()) || isApkFile();
                     }
                     else{
                         Log.write(LoggerType.ERROR, "No content type information is present"+this.filename);
-                        this.signatureMatches = false;
+                        this.extensionMatches = false;
                     }
                 }
                 else{
                     Log.write(LoggerType.ERROR, "No content information is present for "+this.filename);
-                    this.signatureMatches = false;
+                    this.extensionMatches = false;
                 }
             }
             else{
@@ -89,7 +91,7 @@ public abstract class AbstractHashedFile implements Serializable {
     }
 
     private boolean isApkFile() {
-        return this.declaredExtension.toLowerCase().equals("apk") && this.headerBasedExtension.toLowerCase().equals("zip");
+        return this.extensionFromFilename.toLowerCase().equals("apk") && this.extensionFromHeader.toLowerCase().equals("zip");
     }
 
     protected InputStream getDataStream(){
@@ -155,58 +157,58 @@ public abstract class AbstractHashedFile implements Serializable {
     }
 
     /**
-     * @return the signatureMatches
+     * @return the extensionMatches
      */
-    public boolean isSignatureMatches() {
-        return signatureMatches && !suspiciousFile();
+    public boolean isExtensionMatches() {
+        return extensionMatches && !suspiciousFile();
     }
 
     /**
-     * @param signatureMatches the signatureMatches to set
+     * @param extensionMatches the extensionMatches to set
      */
-    public void setSignatureMatches(boolean signatureMatches) {
-        this.signatureMatches = signatureMatches;
+    public void setExtensionMatches(boolean extensionMatches) {
+        this.extensionMatches = extensionMatches;
     }
 
     public void setSignatureMatches() {
-        if (getHeaderBasedExtension() != null && getExtension() != null)
-            this.signatureMatches = getHeaderBasedExtension().equalsIgnoreCase(getExtension());
+        if (getExtensionFromHeader() != null && getExtension() != null)
+            this.extensionMatches = getExtensionFromHeader().equalsIgnoreCase(getExtension());
     }
 
     /**
-     * @return the headerBasedExtension
+     * @return the extensionFromHeader
      */
-    public String getHeaderBasedExtension() {
-        return headerBasedExtension;
+    public String getExtensionFromHeader() {
+        return extensionFromHeader;
     }
 
     /**
-     * @param headerBasedExtension the headerBasedExtension to set
+     * @param extensionFromHeader the extensionFromHeader to set
      */
-    public void setHeaderBasedExtension(String headerBasedExtension) {
-        this.headerBasedExtension = headerBasedExtension.toUpperCase();
+    public void setExtensionFromHeader(String extensionFromHeader) {
+        this.extensionFromHeader = extensionFromHeader.toUpperCase();
     }
 
     private boolean suspiciousFile() {
-        suspiciousWin32File = headerBasedExtension.equals("exe")
-                || headerBasedExtension.equals("dll")
-                || headerBasedExtension.equals("vbs")
-                || headerBasedExtension.equals("com")
-                || headerBasedExtension.equals("js")
-                || headerBasedExtension.equals("jar")
-                || headerBasedExtension.equals("zip")
-                || headerBasedExtension.equals("js")
-                || headerBasedExtension.equals("html")
-                || headerBasedExtension.equals("elf");
+        suspiciousWin32File = extensionFromHeader.equals("exe")
+                || extensionFromHeader.equals("dll")
+                || extensionFromHeader.equals("vbs")
+                || extensionFromHeader.equals("com")
+                || extensionFromHeader.equals("js")
+                || extensionFromHeader.equals("jar")
+                || extensionFromHeader.equals("zip")
+                || extensionFromHeader.equals("js")
+                || extensionFromHeader.equals("html")
+                || extensionFromHeader.equals("elf");
         return suspiciousWin32File;
     }
 
     public String getExtension() {
-        return declaredExtension;
+        return extensionFromFilename;
     }
 
     public void setExtension(String extension) {
-        this.declaredExtension = extension.toUpperCase();
+        this.extensionFromFilename = extension.toUpperCase();
     }
 
     public String getDescription() {
@@ -301,19 +303,19 @@ public abstract class AbstractHashedFile implements Serializable {
         this.crc32 = crc32;
     }
 
-    public boolean isDefaultFile() {
-        return isDefaultFile;
+    public boolean isAndroidDefaultFile() {
+        return androidDefaultFile;
     }
 
-    public void setDefaultFile(boolean defaultFile) {
-        isDefaultFile = defaultFile;
+    public void setAndroidDefaultFile(boolean androidDefaultFile) {
+        this.androidDefaultFile = androidDefaultFile;
     }
 
-    public String getDeclaredExtension() {
-        return declaredExtension;
+    public String getExtensionFilename() {
+        return extensionFromFilename;
     }
 
-    public void setDeclaredExtension(String declaredExtension) {
-        this.declaredExtension = declaredExtension;
+    public void setExtensionFilename(String extensionFilename) {
+        this.extensionFromFilename = extensionFilename;
     }
 }

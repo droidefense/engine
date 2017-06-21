@@ -21,3 +21,8 @@ target/
 
 #exclude sample .apk
 *.apk
+
+#exclude demo dirs
+/unpacked
+/static-reports
+

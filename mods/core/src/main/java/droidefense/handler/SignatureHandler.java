@@ -85,13 +85,13 @@ public class SignatureHandler extends AbstractHandler {
             Log.write(LoggerType.DEBUG, "File " + getFile().getName() + " identified as " + description);
             getFile().setExtension(nameExtension);
             getFile().setDescription(description);
-            getFile().setHeaderBasedExtension(expectedFiletype);
+            getFile().setExtensionFromHeader(expectedFiletype);
             getFile().setSignatureMatches();
         } else {
             Log.write(LoggerType.DEBUG, "File NOT identified: " + getFile().getName());
             getFile().setExtension(nameExtension);
             getFile().setDescription("unknown");
-            getFile().setHeaderBasedExtension("unknown");
+            getFile().setExtensionFromHeader("unknown");
         }
     }
 

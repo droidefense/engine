@@ -57,7 +57,7 @@ public class APKMetaParser extends AbstractFileParser {
                 rawFiles.add(new VirtualHashedFile(r, true));
             } else {
                 VirtualHashedFile virtualFile = new VirtualHashedFile(r, true);
-                if(virtualFile.isDefaultFile()){
+                if(virtualFile.isAndroidDefaultFile()){
                     defaultFiles.add(virtualFile);
                 }
                 else{

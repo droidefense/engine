@@ -68,8 +68,8 @@ public class DroidefenseScan {
 
         DroidefenseProject project = new DroidefenseProject();
 
-        if(cmd.hasOption("format")){
-            project.setSettingsReportType(cmd.getOptionValue("format"));
+        if(cmd.hasOption("output")){
+            project.setSettingsReportType(cmd.getOptionValue("output"));
         }
         project.setSettingAutoOpen(cmd.hasOption("show"));
         Log.beVerbose(cmd.hasOption("verbose"));
@@ -136,7 +136,7 @@ public class DroidefenseScan {
     }
 
     private void initScan(DroidefenseProject project, File f, APKUnpacker unpacker) {
-        if(f.exists() && f.canRead() && false) {
+        if(f.exists() && f.canRead()) {
             Log.write(LoggerType.TRACE, "Building project");
 
             //set sample

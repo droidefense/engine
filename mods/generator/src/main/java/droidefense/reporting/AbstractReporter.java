@@ -21,7 +21,7 @@ public abstract class AbstractReporter {
 
     private void openReportOnBorwser() {
         try {
-            Desktop.getDesktop().browse(reportFile.toURI());
+            Desktop.getDesktop().open(reportFile);
         } catch (Exception e) {
             Log.write(LoggerType.ERROR, "Could no automatically open sample report on user browser", e.getLocalizedMessage());
         }

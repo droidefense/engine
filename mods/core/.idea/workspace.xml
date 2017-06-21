@@ -46,10 +46,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="DroidefenseProject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="629" column="52" lean-forward="false" selection-start-line="629" selection-start-column="52" selection-end-line="629" selection-end-column="52" />
+              <folding>
+                <element signature="e#33364#33365#0" expanded="true" />
+                <element signature="e#33418#33419#0" expanded="true" />
+                <element signature="e#33460#33461#0" expanded="true" />
+                <element signature="e#33498#33499#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BeautifiedJSONReporter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../generator/src/main/java/droidefense/reporting/BeautifiedJSONReporter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="9" column="49" lean-forward="false" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractReporter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../generator/src/main/java/droidefense/reporting/AbstractReporter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="DroidefenseOptions.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseOptions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
+            <state relative-caret-position="-322">
               <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -58,51 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../cli/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2800">
-              <caret line="132" column="30" lean-forward="false" selection-start-line="132" selection-start-column="30" selection-end-line="132" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MinimizedJSONReporter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../generator/src/main/java/droidefense/reporting/MinimizedJSONReporter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="18" column="47" lean-forward="false" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DroidefenseScan.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseScan.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.win.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../cli/config/config.win.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+            <state relative-caret-position="150">
+              <caret line="73" column="25" lean-forward="false" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -111,9 +106,22 @@
       <file leaf-file-name="FileIOHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/FileIOHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="362">
+              <caret line="323" column="71" lean-forward="false" selection-start-line="323" selection-start-column="71" selection-end-line="323" selection-end-column="71" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractHashedFile.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/io/AbstractHashedFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding>
+                <element signature="e#8934#8935#0" expanded="true" />
+                <element signature="e#8996#8997#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,7 +130,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/util/DroidefenseIntel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="266">
-              <caret line="468" column="61" lean-forward="false" selection-start-line="468" selection-start-column="61" selection-end-line="468" selection-end-column="61" />
+              <caret line="468" column="0" lean-forward="false" selection-start-line="468" selection-start-column="0" selection-end-line="468" selection-end-column="0" />
               <folding>
                 <element signature="e#34575#34576#0" expanded="true" />
                 <element signature="e#34632#34633#0" expanded="true" />
@@ -131,21 +139,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DroidDefenseParams.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/DroidDefenseParams.java">
+      <file leaf-file-name="APKMetaParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/worker/parser/APKMetaParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="19" column="71" lean-forward="false" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
+            <state relative-caret-position="189">
+              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InternalConstant.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/InternalConstant.java">
+      <file leaf-file-name="DroidDefenseParams.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/DroidDefenseParams.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="25" column="55" lean-forward="false" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
+            <state relative-caret-position="178">
+              <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -181,6 +189,7 @@
       <find>droidefense.xmodel.manifest,</find>
       <find>droidefense.sdk.manifest,</find>
       <find>import droidefense.xmodel.manifest.</find>
+      <find>signatureMatches</find>
     </findStrings>
     <replaceStrings>
       <replace>getSample()</replace>
@@ -213,7 +222,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../manparser/src/main/java/axml/android/content/res/XmlResourceParser.java" />
         <option value="$PROJECT_DIR$/../manparser/src/main/java/axml/AXMLPrinter.java" />
         <option value="$PROJECT_DIR$/../manparser/src/main/java/axml/ByteArrayAXMLDecoder.java" />
         <option value="$PROJECT_DIR$/../manparser/src/main/java/axml/android/content/res/AXmlResourceParser.java" />
@@ -224,7 +232,6 @@
         <option value="$PROJECT_DIR$/../memapktool/src/main/java/brut/androlib/ApkDecoder.java" />
         <option value="$PROJECT_DIR$/../memapktool/src/main/java/brut/androlib/Androlib.java" />
         <option value="$PROJECT_DIR$/../memapktool/src/main/java/droidefense/memapktool/InMemoryApkDecoder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/io/AbstractHashedFile.java" />
         <option value="$PROJECT_DIR$/../helpers/src/main/resources/template/index.html" />
         <option value="$PROJECT_DIR$/../helpers/pom.xml" />
         <option value="$PROJECT_DIR$/../generator/pom.xml" />
@@ -244,7 +251,6 @@
         <option value="$PROJECT_DIR$/../manparser/src/main/java/droidefense/xmodel/base/ManifestID.java" />
         <option value="$PROJECT_DIR$/src/main/java/external/plugins/collection/sttc/SystemUIDDetectorPlugin.java" />
         <option value="$PROJECT_DIR$/../generator/src/main/java/droidefense/reporting/JSONReporter.java" />
-        <option value="$PROJECT_DIR$/../generator/src/main/java/droidefense/reporting/AbstractReporter.java" />
         <option value="$PROJECT_DIR$/../generator/src/main/java/droidefense/reporting/BeautifiedJSONReporter.java" />
         <option value="$PROJECT_DIR$/../generator/src/main/java/droidefense/reporting/MinimizedJSONReporter.java" />
         <option value="$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseSettings.java" />
@@ -260,10 +266,13 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseOptions.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/util/DroidefenseIntel.java" />
-        <option value="$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseScan.java" />
         <option value="$PROJECT_DIR$/../cli/config/config.win.json" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/InternalConstant.java" />
         <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/DroidDefenseParams.java" />
+        <option value="$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseScan.java" />
+        <option value="$PROJECT_DIR$/src/main/java/droidefense/handler/FileIOHandler.java" />
+        <option value="$PROJECT_DIR$/../generator/src/main/java/droidefense/reporting/AbstractReporter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/droidefense/sdk/model/io/AbstractHashedFile.java" />
       </list>
     </option>
   </component>
@@ -336,7 +345,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-9" />
-    <option name="y" value="-1089" />
+    <option name="y" value="-9" />
     <option name="width" value="1938" />
     <option name="height" value="1048" />
   </component>
@@ -1938,7 +1947,7 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="droidefense.cli.DroidefenseScan" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="--input &quot;C:\Users\.local\Documents\projects\droidefense\test apps\2ecd250ff813687fb8c97dbeffeeba0f09a703ba0ab174e8e4dcaf30d08fb9f7.ransomware.apk&quot; --unpacker zip --show -v" />
+      <option name="PROGRAM_PARAMETERS" value="--input &quot;C:\Users\.local\Documents\projects\droidefense\test apps\2ecd250ff813687fb8c97dbeffeeba0f09a703ba0ab174e8e4dcaf30d08fb9f7.ransomware.apk&quot; --unpacker zip --output json -show -v" />
       <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
@@ -2533,8 +2542,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-1089" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2546,9 +2554,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282353" sideWeight="0.50214595" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24597207" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32744405" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36984688" sideWeight="0.49785408" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36984688" sideWeight="0.49785408" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32744405" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32744405" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1970999" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -2672,12 +2680,6 @@
           <option name="timeStamp" value="176" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/droidefense/handler/FileIOHandler.java</url>
-          <line>170</line>
-          <properties />
-          <option name="timeStamp" value="221" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../lib/native/apkr.external.modules.rulengine.jar!/apkr/external/modules/rulengine/RuleEngine.class</url>
           <line>128</line>
           <properties />
@@ -2738,31 +2740,13 @@
           <option name="timeStamp" value="275" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/droidefense/worker/parser/APKMetaParser.java</url>
-          <line>48</line>
+          <url>file://$PROJECT_DIR$/../generator/src/main/java/droidefense/reporting/AbstractReporter.java</url>
+          <line>23</line>
           <properties />
-          <option name="timeStamp" value="286" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/droidefense/util/DroidefenseIntel.java</url>
-          <line>468</line>
-          <properties />
-          <option name="timeStamp" value="291" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/DroidDefenseParams.java</url>
-          <line>103</line>
-          <properties />
-          <option name="timeStamp" value="292" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/DroidDefenseParams.java</url>
-          <line>123</line>
-          <properties />
-          <option name="timeStamp" value="293" />
+          <option name="timeStamp" value="298" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="294" />
+      <option name="time" value="301" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -2780,14 +2764,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/PrivacyAnalysis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="45" lean-forward="false" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/analysis/base/AbstractAndroidAnalysis.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -2830,183 +2806,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../generator/src/main/java/droidefense/reporting/AbstractReporter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="21" column="37" lean-forward="false" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseSettings.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/commons-cli/commons-cli/1.4/commons-cli-1.4.jar!/org/apache/commons/cli/CommandLine.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2450">
-          <caret line="149" column="38" lean-forward="false" selection-start-line="149" selection-start-column="38" selection-end-line="149" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#5939#5940#0" expanded="false" />
-            <element signature="e#5981#5982#0" expanded="false" />
-            <element signature="e#6045#6046#0" expanded="false" />
-            <element signature="e#6072#6073#0" expanded="false" />
-            <element signature="e#6510#6511#0" expanded="false" />
-            <element signature="e#6570#6571#0" expanded="false" />
-            <element signature="e#6610#6611#0" expanded="false" />
-            <element signature="e#6662#6663#0" expanded="false" />
-            <element signature="e#6702#6703#0" expanded="false" />
-            <element signature="e#6757#6758#0" expanded="false" />
-            <element signature="e#6818#6819#0" expanded="false" />
-            <element signature="e#6882#6883#0" expanded="false" />
-            <element signature="e#6933#6934#0" expanded="false" />
-            <element signature="e#6980#6981#0" expanded="false" />
-            <element signature="e#7041#7042#0" expanded="false" />
-            <element signature="e#7086#7087#0" expanded="false" />
-            <element signature="e#7120#7121#0" expanded="false" />
-            <element signature="e#7162#7163#0" expanded="false" />
-            <element signature="e#7194#7195#0" expanded="false" />
-            <element signature="e#7234#7235#0" expanded="false" />
-            <element signature="e#7302#7303#0" expanded="false" />
-            <element signature="e#7338#7339#0" expanded="false" />
-            <element signature="e#7387#7388#0" expanded="false" />
-            <element signature="e#7444#7445#0" expanded="false" />
-            <element signature="e#7502#7503#0" expanded="false" />
-            <element signature="e#7550#7551#0" expanded="false" />
-            <element signature="e#7589#7590#0" expanded="false" />
-            <element signature="e#7673#7674#0" expanded="false" />
-            <element signature="e#7737#7738#0" expanded="false" />
-            <element signature="e#7794#7795#0" expanded="false" />
-            <element signature="e#8010#8011#0" expanded="false" />
-            <element signature="e#8071#8072#0" expanded="false" />
-            <element signature="e#8097#8098#0" expanded="false" />
-            <element signature="e#8133#8134#0" expanded="false" />
-            <element signature="e#8342#8343#0" expanded="false" />
-            <element signature="e#8396#8397#0" expanded="false" />
-            <element signature="e#8437#8438#0" expanded="false" />
-            <element signature="e#8491#8492#0" expanded="false" />
-            <element signature="e#8548#8549#0" expanded="false" />
-            <element signature="e#8599#8600#0" expanded="false" />
-            <element signature="e#8839#8840#0" expanded="false" />
-            <element signature="e#8897#8898#0" expanded="false" />
-            <element signature="e#9114#9115#0" expanded="false" />
-            <element signature="e#9147#9148#0" expanded="false" />
-            <element signature="e#9192#9193#0" expanded="false" />
-            <element signature="e#9227#9228#0" expanded="false" />
-            <element signature="e#9282#9283#0" expanded="false" />
-            <element signature="e#9342#9343#0" expanded="false" />
-            <element signature="e#9389#9390#0" expanded="false" />
-            <element signature="e#9446#9447#0" expanded="false" />
-            <element signature="e#9491#9492#0" expanded="false" />
-            <element signature="e#9545#9546#0" expanded="false" />
-            <element signature="e#9609#9610#0" expanded="false" />
-            <element signature="e#9654#9655#0" expanded="false" />
-            <element signature="e#9720#9721#0" expanded="false" />
-            <element signature="e#9766#9767#0" expanded="false" />
-            <element signature="e#9806#9807#0" expanded="false" />
-            <element signature="e#9873#9874#0" expanded="false" />
-            <element signature="e#9911#9912#0" expanded="false" />
-            <element signature="e#9989#9990#0" expanded="false" />
-            <element signature="e#10060#10061#0" expanded="false" />
-            <element signature="e#10113#10114#0" expanded="false" />
-            <element signature="e#10189#10190#0" expanded="false" />
-            <element signature="e#10246#10247#0" expanded="false" />
-            <element signature="e#10317#10318#0" expanded="false" />
-            <element signature="e#10370#10371#0" expanded="false" />
-            <element signature="e#10424#10425#0" expanded="false" />
-            <element signature="e#10482#10483#0" expanded="false" />
-            <element signature="e#10533#10534#0" expanded="false" />
-            <element signature="e#10580#10581#0" expanded="false" />
-            <element signature="e#11285#11286#0" expanded="false" />
-            <element signature="e#11341#11342#0" expanded="false" />
-            <element signature="e#11388#11389#0" expanded="false" />
-            <element signature="e#11439#11440#0" expanded="false" />
-            <element signature="e#11992#11993#0" expanded="false" />
-            <element signature="e#12046#12047#0" expanded="false" />
-            <element signature="e#12084#12085#0" expanded="false" />
-            <element signature="e#12158#12159#0" expanded="false" />
-            <element signature="e#13329#13330#0" expanded="false" />
-            <element signature="e#13373#13374#0" expanded="false" />
-            <element signature="e#13955#13956#0" expanded="false" />
-            <element signature="e#14013#14014#0" expanded="false" />
-            <element signature="e#14711#14712#0" expanded="false" />
-            <element signature="e#14767#14768#0" expanded="false" />
-            <element signature="e#14832#14833#0" expanded="false" />
-            <element signature="e#14880#14881#0" expanded="false" />
-            <element signature="e#14916#14917#0" expanded="false" />
-            <element signature="e#14962#14963#0" expanded="false" />
-            <element signature="e#15010#15011#0" expanded="false" />
-            <element signature="e#15043#15044#0" expanded="false" />
-            <element signature="e#18239#18240#0" expanded="false" />
-            <element signature="e#18292#18293#0" expanded="false" />
-            <element signature="e#18357#18358#0" expanded="false" />
-            <element signature="e#18419#18420#0" expanded="false" />
-            <element signature="e#18838#18839#0" expanded="false" />
-            <element signature="e#18890#18891#0" expanded="false" />
-            <element signature="e#18953#18954#0" expanded="false" />
-            <element signature="e#18997#18998#0" expanded="false" />
-            <element signature="e#29548#29549#0" expanded="false" />
-            <element signature="e#29583#29584#0" expanded="false" />
-            <element signature="e#29640#29641#0" expanded="false" />
-            <element signature="e#29688#29689#0" expanded="false" />
-            <element signature="e#29949#29950#0" expanded="false" />
-            <element signature="e#29979#29980#0" expanded="false" />
-            <element signature="e#30248#30249#0" expanded="false" />
-            <element signature="e#30279#30280#0" expanded="false" />
-            <element signature="e#30325#30326#0" expanded="false" />
-            <element signature="e#30364#30365#0" expanded="false" />
-            <element signature="e#30424#30425#0" expanded="false" />
-            <element signature="e#30478#30479#0" expanded="false" />
-            <element signature="e#30553#30554#0" expanded="false" />
-            <element signature="e#30610#30611#0" expanded="false" />
-            <element signature="e#30819#30820#0" expanded="false" />
-            <element signature="e#30869#30870#0" expanded="false" />
-            <element signature="e#30911#30912#0" expanded="false" />
-            <element signature="e#30949#30950#0" expanded="false" />
-            <element signature="e#31012#31013#0" expanded="false" />
-            <element signature="e#31066#31067#0" expanded="false" />
-            <element signature="e#31107#31108#0" expanded="false" />
-            <element signature="e#31144#31145#0" expanded="false" />
-            <element signature="e#31205#31206#0" expanded="false" />
-            <element signature="e#31257#31258#0" expanded="false" />
-            <element signature="e#31302#31303#0" expanded="false" />
-            <element signature="e#31343#31344#0" expanded="false" />
-            <element signature="e#31412#31413#0" expanded="false" />
-            <element signature="e#31472#31473#0" expanded="false" />
-            <element signature="e#31518#31519#0" expanded="false" />
-            <element signature="e#31560#31561#0" expanded="false" />
-            <element signature="e#31631#31632#0" expanded="false" />
-            <element signature="e#31693#31694#0" expanded="false" />
-            <element signature="e#32178#32179#0" expanded="false" />
-            <element signature="e#32216#32217#0" expanded="false" />
-            <element signature="e#32287#32288#0" expanded="false" />
-            <element signature="e#32341#32342#0" expanded="false" />
-            <element signature="e#32540#32541#0" expanded="false" />
-            <element signature="e#32601#32602#0" expanded="false" />
-            <element signature="e#32652#32653#0" expanded="false" />
-            <element signature="e#32693#32694#0" expanded="false" />
-            <element signature="e#32767#32768#0" expanded="false" />
-            <element signature="e#32827#32828#0" expanded="false" />
-            <element signature="e#32871#32872#0" expanded="false" />
-            <element signature="e#32941#32942#0" expanded="false" />
-            <element signature="e#33006#33007#0" expanded="false" />
-            <element signature="e#33055#33056#0" expanded="false" />
-            <element signature="e#33099#33100#0" expanded="false" />
-            <element signature="e#33146#33147#0" expanded="false" />
-            <element signature="e#33196#33197#0" expanded="false" />
-            <element signature="e#33232#33233#0" expanded="false" />
-            <element signature="e#33271#33272#0" expanded="false" />
-            <element signature="e#33300#33301#0" expanded="false" />
-            <element signature="e#33364#33365#0" expanded="false" />
-            <element signature="e#33418#33419#0" expanded="false" />
-            <element signature="e#33460#33461#0" expanded="false" />
-            <element signature="e#33498#33499#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3187,16 +2992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/io/AbstractHashedFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/commons-cli/commons-cli/1.4/commons-cli-1.4.jar!/org/apache/commons/cli/Option.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -3258,14 +3053,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../generator/src/main/java/droidefense/reporting/BeautifiedJSONReporter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../generator/src/main/java/droidefense/reporting/MinimizedJSONReporter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -3298,6 +3085,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/InternalConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="25" column="55" lean-forward="false" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../cli/config/config.win.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -3306,17 +3101,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/FileIOHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/DroidDefenseParams.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state relative-caret-position="178">
+          <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/util/DroidefenseIntel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="468" column="0" lean-forward="false" selection-start-line="468" selection-start-column="0" selection-end-line="468" selection-end-column="0" />
+          <folding>
+            <element signature="e#34575#34576#0" expanded="true" />
+            <element signature="e#34632#34633#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/worker/parser/APKMetaParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseOptions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
+        <state relative-caret-position="-322">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -3326,36 +3140,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../cli/src/main/java/droidefense/cli/DroidefenseScan.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        <state relative-caret-position="150">
+          <caret line="73" column="25" lean-forward="false" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/util/DroidefenseIntel.java">
+    <entry file="file://$PROJECT_DIR$/../generator/src/main/java/droidefense/reporting/BeautifiedJSONReporter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="468" column="61" lean-forward="false" selection-start-line="468" selection-start-column="61" selection-end-line="468" selection-end-column="61" />
+        <state relative-caret-position="173">
+          <caret line="9" column="49" lean-forward="false" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/base/DroidefenseProject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="629" column="52" lean-forward="false" selection-start-line="629" selection-start-column="52" selection-end-line="629" selection-end-column="52" />
           <folding>
-            <element signature="e#34575#34576#0" expanded="true" />
-            <element signature="e#34632#34633#0" expanded="true" />
+            <element signature="e#33364#33365#0" expanded="true" />
+            <element signature="e#33418#33419#0" expanded="true" />
+            <element signature="e#33460#33461#0" expanded="true" />
+            <element signature="e#33498#33499#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/InternalConstant.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/handler/FileIOHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="25" column="55" lean-forward="false" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
+        <state relative-caret-position="362">
+          <caret line="323" column="71" lean-forward="false" selection-start-line="323" selection-start-column="71" selection-end-line="323" selection-end-column="71" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/helpers/DroidDefenseParams.java">
+    <entry file="file://$PROJECT_DIR$/../generator/src/main/java/droidefense/reporting/AbstractReporter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="19" column="71" lean-forward="false" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
+        <state relative-caret-position="225">
+          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/droidefense/sdk/model/io/AbstractHashedFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="e#8934#8935#0" expanded="true" />
+            <element signature="e#8996#8997#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -319,6 +319,16 @@ public class FileIOHandler {
     }
 
     public static File getReportFolder(String projectId) {
-        return new File(DroidDefenseParams.getInstance().STATIC_REPORT_FOLDER + File.separator + projectId);
+        String reportFolderPath = DroidDefenseParams.getInstance().STATIC_REPORT_FOLDER;
+        builDir(reportFolderPath);
+        return new File(reportFolderPath + File.separator + projectId);
+    }
+
+    private static boolean builDir(String path) {
+        File dir = new File(path);
+        if(!dir.exists()){
+            return dir.mkdirs();
+        }
+        return true;
     }
 }
