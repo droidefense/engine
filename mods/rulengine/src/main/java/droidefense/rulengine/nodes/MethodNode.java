@@ -187,7 +187,7 @@ public class MethodNode extends AbstractAtomNode {
     }
 
     public String getKey(){
-        return className + "." + methodName + params;
+        return className + "." + methodName;
     }
 
     @Override

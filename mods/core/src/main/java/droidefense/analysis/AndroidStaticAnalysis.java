@@ -42,7 +42,7 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
         }
         */
 
-        //2 parse droidefense.sdk.manifest
+        //2 parse manifest
         try {
             Log.write(LoggerType.TRACE, "\n\n --- Running Android droidefense.sdk.manifest parser ---\n\n");
             parser = ParserFactory.getParser(ParserFactory.MANIFEST_PARSER, currentProject, apkFile);

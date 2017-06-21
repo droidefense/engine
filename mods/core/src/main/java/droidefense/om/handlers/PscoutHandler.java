@@ -41,7 +41,10 @@ public class PscoutHandler extends AbstractHandler {
                     if (node instanceof MethodNode) {
                         //get name and args
                         MethodNode mn = (MethodNode) node;
-                        if(mn.isOnscope()){
+                        boolean filterByScopeEnabled = false;
+                        if(
+                                ( mn.isOnscope() && filterByScopeEnabled) ||
+                                !filterByScopeEnabled ){
                             String key = mn.getKey();
                             String permissionName = model.getCallPermissions(key);
                             if (permissionName != null) {

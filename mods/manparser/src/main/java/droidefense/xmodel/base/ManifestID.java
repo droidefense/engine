@@ -247,6 +247,7 @@ public enum ManifestID implements Serializable {
 
     private static ManifestID getResolvedManifestEntry(String id) {
         if (map.isEmpty()) {
+            map.put("manifest", ManifestID.MANIFEST);
             map.put("action", ManifestID.ACTION);
             map.put("activity", ManifestID.ACTIVITY);
             map.put("activity-alias", ManifestID.ACTIVITY_ALIAS);
@@ -257,7 +258,6 @@ public enum ManifestID implements Serializable {
             map.put("grant-uri-permission", ManifestID.GRANT_URI_PERMISSION);
             map.put("instrumentation", ManifestID.INTRUMENTATION);
             map.put("intent-filter", ManifestID.INTENT_FILTER);
-            map.put("droidefense.sdk.manifest", ManifestID.MANIFEST);
             map.put("meta-data", ManifestID.METADATA);
             map.put("permission", ManifestID.PERMISSION);
             map.put("path-permission", ManifestID.PATH_PERMISSION);
@@ -296,11 +296,11 @@ public enum ManifestID implements Serializable {
         tag = tag.replace("android:", "");
         ManifestID id = getResolvedManifestEntry(tag);
         if (id == null) {
-            throw new InstantiationException("Atom Manifest parser could not map <" + tag + "> tag");
+            throw new InstantiationException("Droidefense Manifest parser could not map <" + tag + "> tag");
         } else {
             Class classToInstantiate = id.getClassName();
             if (classToInstantiate == null) {
-                throw new InstantiationException("Atom Manifest parser could not map <" + tag + "> tag");
+                throw new InstantiationException("Droidefense Manifest parser could not map <" + tag + "> tag");
             }
             return classToInstantiate;
         }

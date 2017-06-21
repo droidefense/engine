@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public final class PScoutItem implements Serializable {
 
+    private static final boolean USER_PARAMS_AS_KEY = false;
     private String callerClass, callerMethod, callerMethodDesc, permission, version;
 
     //Constructor
@@ -58,7 +59,10 @@ public final class PScoutItem implements Serializable {
     }
 
     public String getKey() {
-        return getCallerClass() + "." + getCallerMethod() + getCallerMethodDesc();
+        if(USER_PARAMS_AS_KEY){
+            return getCallerClass() + "." + getCallerMethod() + getCallerMethodDesc();
+        }
+        return getCallerClass() + "." + getCallerMethod();
     }
 
 
