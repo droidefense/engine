@@ -1,7 +1,7 @@
 package droidefense.mod.axml;
 
-import droidefense.mod.axml.res.AXmlResourceParser;
 import droidefense.mod.axml.exception.XmlPullParserException;
+import droidefense.mod.axml.res.AXmlResourceParser;
 
 import java.io.*;
 
@@ -21,6 +21,10 @@ public class AXMLPrinter {
 
     public AXMLPrinter(File f) throws XmlPullParserException, IOException {
         decode(new FileInputStream(f));
+    }
+
+    private static float complexToFloat(int complex) {
+        return (float) (complex & -256) * RADIX_MULTS[complex >> 4 & 3];
     }
 
     private void decode(InputStream stream) throws IOException, XmlPullParserException {
@@ -71,10 +75,6 @@ public class AXMLPrinter {
         }
     }
 
-    private static float complexToFloat(int complex) {
-        return (float) (complex & -256) * RADIX_MULTS[complex >> 4 & 3];
-    }
-
     private String getNamespacePrefix(String prefix) {
         return prefix != null && prefix.length() != 0 ? prefix + ":" : "";
     }
@@ -96,5 +96,9 @@ public class AXMLPrinter {
 
     public String getResult() {
         return this.buffer.toString();
+    }
+
+    public byte[] getResultAsByteArray() {
+        return String.valueOf(buffer).getBytes();
     }
 }

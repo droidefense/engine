@@ -1,6 +1,8 @@
 package droidefense.handler;
 
 import droidefense.handler.base.AbstractHandler;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.vfs.model.impl.VirtualFolder;
 import droidefense.sdk.model.base.DroidefenseProject;
@@ -75,11 +77,12 @@ public class FileUnzipVFSHandler extends AbstractHandler {
             return true;
         } catch (FileNotFoundException e) {
             error = e;
+            Log.write(LoggerType.ERROR, "Could not find target file to unzip", e.getLocalizedMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, "An IO error ocurred while unpacking", e.getLocalizedMessage());
             error = e;
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.droidefenseGenericError(e);
             error = e;
         }
         return false;

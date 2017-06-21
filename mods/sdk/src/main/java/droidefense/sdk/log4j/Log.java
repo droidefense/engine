@@ -33,5 +33,9 @@ public class Log extends HashMap<String, LoggerType> implements Serializable {
     public static boolean isVerboseEnabled(){
         return VERBOSE;
     }
+
+    public static void droidefenseGenericError(Exception e) {
+        Log.write(LoggerType.ERROR, "Droidefense error, please report", e.getLocalizedMessage());
+    }
 }
 
