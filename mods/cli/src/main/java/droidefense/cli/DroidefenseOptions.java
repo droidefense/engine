@@ -1,15 +1,11 @@
 package droidefense.cli;
 
-
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.system.OSDetection;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 
-/**
- * Created by .local on 07/05/2017.
- */
 public class DroidefenseOptions extends Options {
 
     public DroidefenseOptions() {

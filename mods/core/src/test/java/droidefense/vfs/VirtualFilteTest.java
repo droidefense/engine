@@ -18,8 +18,9 @@ public class VirtualFilteTest {
     @Test
     public void test() {
         File currentDir = new File("");
+        System.out.println("PATH: "+currentDir.getAbsolutePath());
         LocalHashedFile localRead = new LocalHashedFile(
-                new File(currentDir.getAbsolutePath() + "\\src\\test\\resources\\vfs\\classes.dex"),
+                new File(currentDir.getAbsolutePath() + "/src/test/resources/vfs/classes.dex"),
                 true
         );
 

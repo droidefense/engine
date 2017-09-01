@@ -1,10 +1,10 @@
 \.DS_Store
 
 # exclude target dirs
-*/target/*
-*/out/*
+dist/
+out/
 target/
-**/target/**
+
 
 .classpath
 .project

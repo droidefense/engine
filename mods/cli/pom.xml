@@ -13,6 +13,7 @@
         <jdk.version>1.8</jdk.version>
         <dependecy.directory>lib</dependecy.directory>
         <releasename>droidefense-cli</releasename>
+        <maven.assembly.plugin.version>2.4</maven.assembly.plugin.version>
     </properties>
 
     <dependencies>
@@ -22,12 +23,6 @@
             <groupId>commons-cli</groupId>
             <artifactId>commons-cli</artifactId>
             <version>1.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.droidefense</groupId>
-            <artifactId>sdk</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -161,19 +156,19 @@
         <profile>
             <id>debug</id>
             <build>
-                <directory>../../target/debug</directory>
+                <directory>../../dist/debug</directory>
             </build>
         </profile>
         <profile>
             <id>test</id>
             <build>
-                <directory>../../target/test</directory>
+                <directory>../../dist/test</directory>
             </build>
         </profile>
         <profile>
             <id>release</id>
             <build>
-                <directory>../../target/release</directory>
+                <directory>../../dist/release</directory>
             </build>
         </profile>
     </profiles>

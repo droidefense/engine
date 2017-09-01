@@ -11,26 +11,11 @@
 
     <name>Droidefense CORE</name>
     <url>http://github.com/droidefense/engine</url>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>../axml</module>
-        <module>../memapktool</module>
-        <module>../rulengine</module>
-        <module>../vfs</module>
-        <module>../generator</module>
-        <module>../manparser</module>
-        <module>../ssdeep</module>
-        <module>../simplemagic</module>
-        <module>../entropy</module>
-        <module>../ml</module>
-        <module>../pscout</module>
-        <module>../batch</module>
-        <module>../sdk</module>
-    </modules>
+    <packaging>jar</packaging>
 
     <properties>
         <jdk.version>1.8</jdk.version>
+        <releasename>core</releasename>
     </properties>
 
     <dependencies>
@@ -39,66 +24,77 @@
             <groupId>com.droidefense</groupId>
             <artifactId>axml</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>memapktool</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>rulengine</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>vfs</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>generator</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>manparser</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>ssdeep</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>entropy</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>ml</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>pscout</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>batch</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
 
@@ -106,6 +102,7 @@
             <groupId>com.droidefense</groupId>
             <artifactId>sdk</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
@@ -141,6 +138,25 @@
                 <configuration>
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>
+                </configuration>
+            </plugin>
+
+            <!-- build jar with dependencies in an in-jar folder -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.3</version>
+                <executions>
+                    <execution>
+                        <id>shade</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <finalName>${releasename}-${project.version}</finalName>
                 </configuration>
             </plugin>
         </plugins>

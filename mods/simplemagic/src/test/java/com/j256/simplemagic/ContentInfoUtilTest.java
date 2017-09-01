@@ -266,11 +266,16 @@ public class ContentInfoUtilTest {
         if (fileType.expectedName == null) {
             assertNull("expecting the content type of " + fileType.fileName + " to be null", details);
         } else {
+            String expectedMessage = fileType.expectedMessage;
+            expectedMessage = expectedMessage.replace(",", ".");
+
+            String detailsMessage = details.getMessage();
+            detailsMessage = detailsMessage.replace(",", ".");
             assertNotNull("not expecting the content name of " + fileType.fileName + " to be null", details);
             assertEquals("bad content-type of " + fileType.fileName, fileType.expectedType, details.getContentType());
             assertEquals("bad name of " + fileType.fileName, fileType.expectedName, details.getName());
             assertEquals("bad mime-type of " + fileType.fileName, fileType.expectedMimeType, details.getMimeType());
-            assertEquals("bad message for " + fileType.fileName, fileType.expectedMessage, details.getMessage());
+            assertEquals("bad message for " + fileType.fileName, expectedMessage, detailsMessage);
             assertEquals("partial flag should be  " + fileType.expectedPartial + " for " + fileType.fileName,
                     fileType.expectedPartial, details.isPartial());
         }
@@ -301,7 +306,7 @@ public class ContentInfoUtilTest {
             this.expectedType = expectedType;
             this.expectedName = expectedName;
             this.expectedMimeType = expectedMimeType;
-            this.expectedMessage = description;
+            this.expectedMessage = description.replace(",", ".");
             this.expectedPartial = expectedPartial;
         }
     }

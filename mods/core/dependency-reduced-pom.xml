@@ -10,26 +10,10 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
+        <version>3.6.0</version>
         <configuration>
           <source>${jdk.version}</source>
           <target>${jdk.version}</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <excludes>
-            <exclude>**/log4j.properties</exclude>
-          </excludes>
-          <archive>
-            <manifest>
-              <mainClass>droidefense.cli.DroidefenseScan</mainClass>
-              <addClasspath>true</addClasspath>
-              <classpathPrefix>${dependecy.directory}/</classpathPrefix>
-            </manifest>
-          </archive>
         </configuration>
       </plugin>
       <plugin>
@@ -45,39 +29,11 @@
           </execution>
         </executions>
         <configuration>
-          <finalName>${project.artifactId}-${project.version}</finalName>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.eluder.coveralls</groupId>
-        <artifactId>coveralls-maven-plugin</artifactId>
-        <version>4.3.0</version>
-        <configuration>
-          <repoToken>public-token-here</repoToken>
+          <finalName>${releasename}-${project.version}</finalName>
         </configuration>
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>debug</id>
-      <build>
-        <directory>../../target/debug</directory>
-      </build>
-    </profile>
-    <profile>
-      <id>test</id>
-      <build>
-        <directory>../../target/test</directory>
-      </build>
-    </profile>
-    <profile>
-      <id>release</id>
-      <build>
-        <directory>../../target/release</directory>
-      </build>
-    </profile>
-  </profiles>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -93,8 +49,8 @@
     </dependency>
   </dependencies>
   <properties>
-    <dependecy.directory>lib</dependecy.directory>
     <jdk.version>1.8</jdk.version>
+    <releasename>core</releasename>
   </properties>
 </project>
 
