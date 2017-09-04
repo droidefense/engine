@@ -6,39 +6,41 @@ import java.io.Serializable;
 /**
  * Created by .local on 08/10/2016.
  */
-public abstract class VirtualNode implements IVirtualNode, Serializable {
+public abstract class VirtualNode implements IVirtualNode {
 
     protected static final int NEW_CLASS_ALLOCATION_HEAP_SIZE = 8;
+    private static final String DEFAULT_INODE_NAME = "undefined";
 
     protected final IVirtualNode parentNode;
     protected final String name;
     protected int virtualFoldersInside;
     protected int virtualFilesInside;
+    private String precalculatedPath;
 
     public VirtualNode(VirtualNode parentNode, String name) {
         this.name = name;
         this.parentNode = parentNode;
-        virtualFilesInside=0;
-        virtualFoldersInside=0;
+        this.virtualFilesInside=0;
+        this.virtualFoldersInside=0;
+        this.precalculatedPath = "";
     }
 
     public VirtualNode(String name) {
-        this.name = name;
-        this.parentNode = null;
+        this(null, name);
     }
 
     public final boolean hasParentNode() {
-        return parentNode != null;
+        return this.parentNode != null;
     }
 
     public final IVirtualNode getParentNode() {
-        return parentNode;
+        return this.parentNode;
     }
 
     //TODO Add cache in next version
 
     /**
-     * Escalate until top domain inode.
+     * Escalate until top level inode.
      *
      * @return top level IVirtualNode. something similar to / on linux o C:\ in Windows
      */
@@ -57,19 +59,25 @@ public abstract class VirtualNode implements IVirtualNode, Serializable {
 
     @Override
     public String getName() {
-        return name;
+        if(this.name == null){
+            return DEFAULT_INODE_NAME;
+        }
+        return this.name;
     }
 
-    //TODO Add cache in next version
     @Override
     public String getPath() {
-        if (parentNode == null)
-            return File.separator + name;
-        return parentNode.getPath() + File.separator + name;
+        if(this.precalculatedPath == null){
+            if (parentNode == null)
+                this.precalculatedPath = File.separator + name;
+            else
+                this.precalculatedPath = parentNode.getPath() + File.separator + name;
+        }
+        return this.precalculatedPath;
     }
 
     public int getVirtualFoldersInside() {
-        return virtualFoldersInside;
+        return this.virtualFoldersInside;
     }
 
     public void setVirtualFoldersInside(int virtualFoldersInside) {
@@ -77,7 +85,7 @@ public abstract class VirtualNode implements IVirtualNode, Serializable {
     }
 
     public int getVirtualFilesInside() {
-        return virtualFilesInside;
+        return this.virtualFilesInside;
     }
 
     public void setVirtualFilesInside(int virtualFilesInside) {

@@ -15,9 +15,10 @@ import java.util.HashMap;
 public final class VirtualFileSystem {
 
     private final HashMap<String, IVirtualNode> storage;
+    private IVirtualNode firstRootNode;
+
     private int totalElements;
     private long sizeBytes;
-    private IVirtualNode firstRootNode;
 
     public VirtualFileSystem() {
         storage = new HashMap<>();
@@ -44,7 +45,10 @@ public final class VirtualFileSystem {
     }
 
     public IVirtualNode get(String key) {
-        return storage.get(key);
+        if(key!=null){
+            return storage.get(key);
+        }
+        return null;
     }
 
     public void info() {
@@ -96,7 +100,7 @@ public final class VirtualFileSystem {
 
     @Override
     public String toString() {
-        return this.tree();
+        return "VFS: elements -> "+this.totalElements+" and bytes -> "+this.sizeBytes;
     }
 
     public void dump(String path) {
@@ -126,5 +130,17 @@ public final class VirtualFileSystem {
                 dumpInPath(path, iv);
             }
         }
+    }
+
+    public IVirtualNode getFirstRootNode() {
+        return firstRootNode;
+    }
+
+    public int getTotalElements() {
+        return totalElements;
+    }
+
+    public long getSizeBytes() {
+        return sizeBytes;
     }
 }

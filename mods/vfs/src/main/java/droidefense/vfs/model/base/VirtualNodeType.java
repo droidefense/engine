@@ -5,5 +5,5 @@ package droidefense.vfs.model.base;
  */
 public enum VirtualNodeType {
 
-    FOLDER, FILE;
+    FOLDER, FILE
 }

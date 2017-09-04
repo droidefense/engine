@@ -47,6 +47,8 @@ public final class VirtualFile extends VirtualNode {
         else{
             this.setVirtualFilesInside(1);
         }
+        content = new ArrayList<>();
+        charset = "";
     }
 
     private VirtualFile(VirtualFolder parent, String name) {
@@ -81,7 +83,9 @@ public final class VirtualFile extends VirtualNode {
     }
 
     private void updateParentContentLength(int length) {
-        this.getParentNode().updateItemsInsideSize(length);
+        if(this.parentNode!=null){
+            parentNode.updateItemsInsideSize(length);
+        }
     }
 
     public void setContent(String content, String charset) {
@@ -128,12 +132,9 @@ public final class VirtualFile extends VirtualNode {
             throw new IndexOutOfBoundsException();
         }
 
-        for(int i=0; i<off; i++){
-            this.content.add(buf[len+i]);
+        for(int i = 0; i < endoff; i++){
+            this.content.add(buf[i]);
         }
-        //update virtualFile size indicator too
-
-        //add new indicator
         this.updateParentContentLength(len);
     }
 
@@ -181,6 +182,20 @@ public final class VirtualFile extends VirtualNode {
         for(int i =0; i< content.size();i++)
             data[i]=content.get(i);
         return data;
+    }
+
+    public void write(String data) {
+        if(data!=null){
+            byte[] byteData = data.getBytes();
+            this.addContent(byteData, byteData.length, 0);
+        }
+    }
+
+    public void append(String data) {
+        if(data!=null){
+            byte[] byteData = data.getBytes();
+            this.addContent(byteData, byteData.length, this.getContentLength());
+        }
     }
 
     @Override
