@@ -26,3 +26,5 @@ target/
 /unpacked
 /static-reports
 
+#exclude idea folder
+\.idea
