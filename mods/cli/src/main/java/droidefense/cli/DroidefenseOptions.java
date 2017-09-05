@@ -1,10 +1,15 @@
 package droidefense.cli;
 
 import droidefense.sdk.helpers.InternalConstant;
+import droidefense.sdk.helpers.Util;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.sdk.system.OSDetection;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
+
+import java.io.IOException;
 
 public class DroidefenseOptions extends Options {
 
@@ -18,46 +23,74 @@ public class DroidefenseOptions extends Options {
 
         this.addOption(
                 Option.builder("u")
-                        .longOpt( "unpacker" )
-                        .desc( "select prefered unpacker: \n zip \n memapktool" )
+                        .longOpt("unpacker")
+                        .desc("select prefered unpacker: \n zip \n memapktool")
                         .hasArg()
-                        .argName( "unpacker" )
+                        .argName("unpacker")
                         .build()
         );
 
         this.addOption(
                 Option.builder("i")
-                        .longOpt( "input" )
-                        .desc( "input .apk to be analyzed" )
+                        .longOpt("input")
+                        .desc("input .apk to be analyzed")
                         .hasArg()
-                        .argName( "apk" )
+                        .argName("apk")
                         .build()
         );
 
         this.addOption(
                 Option.builder("o")
-                        .longOpt( "output" )
-                        .desc( "select prefered output: \n json \n json.min \n html" )
+                        .longOpt("output")
+                        .desc("select prefered output: \n json \n json.min \n html")
                         .hasArg()
-                        .argName( "format" )
+                        .argName("format")
                         .build()
         );
     }
 
-    public void showHelp(){
+    public void showHelp() {
         // automatically generate the help statement
         HelpFormatter formatter = new HelpFormatter();
-        formatter.printHelp( "droidefense", this );
+        formatter.printHelp("droidefense", this);
     }
 
     public void showVersion() {
+        separator();
+        newAsciiLine();
         String offset = OSDetection.isUnix() ? "" : "\t";
-        System.out.println("################################################################################");
-        System.out.println("Current version of droidefense: \t" + InternalConstant.ENGINE_VERSION);
-        System.out.println("Check out on Github: \t\t\t" + offset + InternalConstant.REPO_URL);
-        System.out.println("Report your issue: \t\t\t" + offset + offset + InternalConstant.ISSUES_URL);
-        System.out.println("Lead developer: \t\t\t" + offset + offset + InternalConstant.LEAD_DEVELOPER);
-        System.out.println("################################################################################");
+        System.out.println("# Current version of droidefense: \t" + readVersion());
+        System.out.println("# Check out on Github: \t\t\t" + offset + InternalConstant.REPO_URL);
+        System.out.println("# Report your issue: \t\t\t" + offset + offset + InternalConstant.ISSUES_URL);
+        System.out.println("# Lead developer: \t\t\t" + offset + offset + InternalConstant.LEAD_DEVELOPER);
+        System.out.println("# ");
+        newAsciiLine();
+        separator();
+    }
+
+    private String readVersion() {
+        try {
+            return Util.readFileFromInternalResourcesAsString(
+                    DroidefenseOptions.class.getClassLoader(),
+                    "src/resources/lastbuild");
+        } catch (IOException e) {
+            Log.write(LoggerType.ERROR, "Could not read software version");
+            return "unknown";
+        }
+    }
+
+    private void separator() {
+        String separator = "################################################################################";
+        separator = OSDetection.isUnix() ? separator : separator + "####";
+        System.out.println(separator);
+    }
+
+    private void newAsciiLine() {
+        if (OSDetection.isUnix()) {
+            System.out.println("#                                                                              #");
+        } else {
+            System.out.println("#                                                                                  #");
+        }
     }
 
     public void showAsciiBanner() {
@@ -74,6 +107,9 @@ public class DroidefenseOptions extends Options {
     }
 
     public void readKeyBoard() {
-        try {System.in.read();} catch (Exception e) {}
+        try {
+            System.in.read();
+        } catch (Exception e) {
+        }
     }
 }

@@ -50,6 +50,7 @@
   </dependencies>
   <properties>
     <jdk.version>1.8</jdk.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <releasename>core</releasename>
   </properties>
 </project>

@@ -25,6 +25,7 @@
         <!-- test dependency versions -->
         <easymock-version>3.4</easymock-version>
         <junit-version>4.8.1</junit-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <developers>

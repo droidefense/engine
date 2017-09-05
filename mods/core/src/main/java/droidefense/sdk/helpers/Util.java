@@ -5,6 +5,7 @@ import droidefense.util.JsonStyle;
 
 import javax.activation.MimetypesFileTypeMap;
 import java.io.*;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -359,12 +360,12 @@ public class Util {
         return Integer.valueOf(s);
     }
 
-    public static String loadFileAsString(FileInputStream ApkrFileInputStream) {
+    public static String loadFileAsString(FileInputStream stream) {
         BufferedReader br = null;
         String line;
         String data = "";
         try {
-            br = new BufferedReader(new InputStreamReader(ApkrFileInputStream));
+            br = new BufferedReader(new InputStreamReader(stream));
             while ((line = br.readLine()) != null) {
                 data += line;
             }
@@ -385,5 +386,29 @@ public class Util {
             }
         }
         return data;
+    }
+
+    public static String readFileFromInternalResourcesAsString(String path) throws IOException {
+        return readFileFromInternalResourcesAsString(null, path);
+    }
+
+    public static String readFileFromInternalResourcesAsString(ClassLoader classLoader, String path) throws IOException {
+
+        if(classLoader == null){
+            classLoader = Util.class.getClassLoader();
+        }
+
+        if(path.startsWith("/"))
+            path = path.substring(1, path.length());
+
+        System.out.println("Reading file from internal path");
+        System.out.println("Path is: "+path);
+        URL url = classLoader.getResource(path);
+        if(url!=null){
+            File file = new File(url.getFile());
+            System.out.println(file.getAbsolutePath());
+            return loadFileAsString(file);
+        }
+        throw new IOException("Could not read from specified URL");
     }
 }

@@ -61,30 +61,32 @@ public class DroidDefenseParams implements Serializable {
     public String XML_EXTENSION;
 
     public DroidDefenseParams() {
-        //initialize string variables
-        SERVER_FOLDER = "";
-        RESOURCE_FOLDER = "";
-        MODEL_FOLDER = "";
-        UNPACK_FOLDER = "";
-        UPLOAD_FOLDER = "";
-        RULE_FOLDER = "";
-        STATIC_REPORT_FOLDER = "";
-        STATIC_PLG_FOLDER = "";
-        DYNAMIC_PLG_FOLDER = "";
-        CVS_SPLIT = "";
-        SIGNATURE_FILE = "";
-        DEX_MAGIC_NUMBER_STR = "";
-        BEAUTIFIER_FILE = "";
-        NATIVE_METHOD_FILE = "";
-        PLG_FOLDER_NAME = "";
-        BIN_MANIFEST_FOLDER = "";
-        JAVA_SDK_CLASS_HASHSET_NAME = "";
-        ANDROID_SDK_CLASS_HASHSET_NAME = "";
-        ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME = "";
-        XML_EXTENSION = "";
-        PROJECT_DATA_FILE = "";
-        PROJECT_JSON_FILE = "";
-        PSCOUT_MODEL = "";
+        //initialize string variables with default values
+        OVERWRITE_DECODE_FOLDER = false;
+        MULTITHREAD = false;
+        DECOMPILE = false;
+        DB_STORAGE = false;
+        UNPACK_FOLDER = "../unpack";
+        UPLOAD_FOLDER = "../upload";
+        SERVER_FOLDER = "../server";
+        RESOURCE_FOLDER = "../resources";
+        MODEL_FOLDER = "../resources/data/models";
+        RULE_FOLDER = "../resources/data/rules";
+        STATIC_REPORT_FOLDER = "../reports";
+        CVS_SPLIT = ";";
+        SIGNATURE_FILE = "../resources/data/csv/filetypes.csv";
+        DEX_MAGIC_NUMBER_STR = "6465780A30333500";
+        BEAUTIFIER_FILE = "../resources/data/list/beautifiers-dex.list";
+        NATIVE_METHOD_FILE = "../resources/data/csv/sdk-classes.csv";
+        PLG_FOLDER_NAME = "plugins";
+        BIN_MANIFEST_FOLDER = "original";
+        JAVA_SDK_CLASS_HASHSET_NAME = "../resources/data/map/jdk8-classlist.map";
+        ANDROID_SDK_CLASS_HASHSET_NAME = "../resources/data/map/android-sdk-classlist.map";
+        ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME = "../resources/data/map/android-support-classlist.map";
+        XML_EXTENSION = ".xml";
+        PROJECT_DATA_FILE = "project.data";
+        PROJECT_JSON_FILE = "report.json";
+        PSCOUT_MODEL = "../resources/data/map/pscout.map";
     }
 
     private static void deserialize(DroidDefenseParams params) {
@@ -103,24 +105,26 @@ public class DroidDefenseParams implements Serializable {
 
         if(OSDetection.isWindows()){
             Log.write(LoggerType.INFO, "System detected is MS Windows");
-            runconfig(basePath+File.separator+WINDOWS_CONFIG_PROPERTIES);
+            runconfig(basePath+File.separator, WINDOWS_CONFIG_PROPERTIES);
         }
         else if(OSDetection.isMacOSX()){
             Log.write(LoggerType.INFO, "System detected is Mac OS");
-            runconfig(basePath+File.separator+MAC_CONFIG_PROPERTIES);
+            runconfig(basePath+File.separator, MAC_CONFIG_PROPERTIES);
         }
         else if(OSDetection.isUnix()){
             Log.write(LoggerType.INFO, "System detected is Unix");
-            runconfig(base.getAbsolutePath()+File.separator+UNIX_CONFIG_PROPERTIES);
+            runconfig(base.getAbsolutePath()+File.separator, UNIX_CONFIG_PROPERTIES);
         }
         else{
             //load linux as default
-            runconfig(base.getAbsolutePath()+File.separator+CONFIG_PROPERTIES);
+            runconfig(base.getAbsolutePath()+File.separator, CONFIG_PROPERTIES);
         }
     }
 
-    private static void runconfig(String configFilePath) throws ConfigFileNotFoundException {
+    private static void runconfig(String configFilePath, String name) throws ConfigFileNotFoundException {
+        configFilePath = configFilePath+name;
         try {
+            Log.write(LoggerType.DEBUG, "Reading config file: " + configFilePath);
             if (new File(configFilePath).exists()) {
                 byte[] jsonData = Util.loadFileAsBytes(configFilePath);
                 if (jsonData.length == 0) {
@@ -130,11 +134,10 @@ public class DroidDefenseParams implements Serializable {
                     deserialize(params);
                 }
             } else {
-                //create mockup file
-                FileIOHandler.saveFile(configFilePath, Util.toJson(instance, JsonStyle.JSON_BEAUTY));
-                //throw no file found exception
-                Log.write(LoggerType.ERROR, "Config file, " + configFilePath + " was not found");
-                throw new ConfigFileNotFoundException("Config file, " + configFilePath + " was not found");
+                Log.write(LoggerType.ERROR, "Config file  " + configFilePath + " was not found");
+                Log.write(LoggerType.DEBUG, "Creating default config file at " + configFilePath);
+                //copy and paste config file from default folder
+                FileIOHandler.saveFile(configFilePath, getDefaultFileContent(name));
             }
         } catch (IOException e) {
             Log.write(LoggerType.ERROR, "Could not deserialize " + configFilePath + " file data", e, e.getLocalizedMessage());
@@ -143,5 +146,17 @@ public class DroidDefenseParams implements Serializable {
             Log.write(LoggerType.ERROR, e.getLocalizedMessage());
             throw new ConfigFileNotFoundException("Invalid " + configFilePath + " file content." + e.getLocalizedMessage());
         }
+    }
+
+    private static String getDefaultFileContent(String name) {
+        String defaultContent;
+        try {
+            defaultContent = Util.readFileFromInternalResourcesAsString("config/"+name);
+        } catch (IOException e) {
+            Log.write(LoggerType.ERROR, e.getLocalizedMessage());
+            defaultContent = Util.toJson(instance, JsonStyle.JSON_BEAUTY);
+        }
+        System.out.println("Readed file content is: "+defaultContent);
+        return defaultContent;
     }
 }

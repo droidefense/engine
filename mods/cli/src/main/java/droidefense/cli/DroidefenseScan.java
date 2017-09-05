@@ -23,10 +23,7 @@ public class DroidefenseScan {
 
     private static boolean init;
     private DroidefenseOptions options;
-
-    public static void main(String[] args) throws InvalidScanParametersException {
-        new DroidefenseScan(args);
-    }
+    private DroidefenseProject project;
 
     public DroidefenseScan(String[] args) throws InvalidScanParametersException {
         options = new DroidefenseOptions();
@@ -40,14 +37,31 @@ public class DroidefenseScan {
         }
     }
 
+    public static void main(String[] args) throws InvalidScanParametersException {
+        new DroidefenseScan(args);
+    }
+
+    private static boolean loadEnvironment() {
+        //init data structs
+        try {
+            DroidDefenseParams.init();
+            Log.write(LoggerType.TRACE, "Loading Droidefense data structs...");
+            //create singleton instance of AtomIntelligence
+            DroidefenseIntel.init();
+            Log.write(LoggerType.TRACE, "Data loaded!!");
+        } catch (ConfigFileNotFoundException e) {
+            Log.write(LoggerType.FATAL, e.getLocalizedMessage());
+            return false;
+        }
+        return true;
+    }
+
     private void executeUserCmd(CommandLine cmd) {
         if (cmd.hasOption("-help")) {
             options.showHelp();
-        }
-        else if (cmd.hasOption("-version")) {
+        } else if (cmd.hasOption("-version")) {
             options.showVersion();
-        }
-        else{
+        } else {
             executeCustom(cmd);
         }
     }
@@ -55,7 +69,7 @@ public class DroidefenseScan {
     private void executeCustom(CommandLine cmd) {
         //get user selected unpacker. default apktool
         APKUnpacker unpacker = APKUnpacker.ZIP;
-        if(cmd.hasOption("unpacker")){
+        if (cmd.hasOption("unpacker")) {
             String unpackerStr = cmd.getOptionValue("unpacker");
             if (unpackerStr != null) {
                 if (unpackerStr.equalsIgnoreCase(APKUnpacker.APKTOOL.name())) {
@@ -66,9 +80,9 @@ public class DroidefenseScan {
             }
         }
 
-        DroidefenseProject project = new DroidefenseProject();
+        this.project = new DroidefenseProject();
 
-        if(cmd.hasOption("output")){
+        if (cmd.hasOption("output")) {
             project.setSettingsReportType(cmd.getOptionValue("output"));
         }
         project.setSettingAutoOpen(cmd.hasOption("show"));
@@ -94,8 +108,7 @@ public class DroidefenseScan {
             if (profilingEnabled) {
                 profilingAlert("deactivate");
             }
-        }
-        else{
+        } else {
             //as default action
             options.showVersion();
             options.showHelp();
@@ -103,23 +116,8 @@ public class DroidefenseScan {
     }
 
     private void showParsingError(ParseException e) {
-        Log.write(LoggerType.ERROR, e.getLocalizedMessage()+"\n");
+        Log.write(LoggerType.ERROR, e.getLocalizedMessage() + "\n");
         options.showHelp();
-    }
-
-    private static boolean loadEnvironment() {
-        //init data structs
-        try {
-            DroidDefenseParams.init();
-            Log.write(LoggerType.TRACE, "Loading Droidefense data structs...");
-            //create singleton instance of AtomIntelligence
-            DroidefenseIntel.init();
-            Log.write(LoggerType.TRACE, "Data loaded!!");
-        } catch (ConfigFileNotFoundException e) {
-            Log.write(LoggerType.FATAL, e.getLocalizedMessage());
-            return false;
-        }
-        return true;
     }
 
     private void profilingAlert(String status) {
@@ -128,15 +126,15 @@ public class DroidefenseScan {
         options.readKeyBoard();
     }
 
-    public void stop(DroidefenseProject project) {
+    public void stop() {
         //save report .json to file
         Log.write(LoggerType.TRACE, "Saving report file...");
-        project.finish();
+        this.project.finish();
         Log.write(LoggerType.TRACE, "Droidefense scan finished");
     }
 
     private void initScan(DroidefenseProject project, File f, APKUnpacker unpacker) {
-        if(f.exists() && f.canRead()) {
+        if (f.exists() && f.canRead()) {
             Log.write(LoggerType.TRACE, "Building project");
 
             //set sample
@@ -158,11 +156,10 @@ public class DroidefenseScan {
             }
 
             //stop scan
-            this.stop(project);
-        }
-        else{
+            this.stop();
+        } else {
             Log.write(LoggerType.FATAL, "Could not read selected file");
-            Log.write(LoggerType.FATAL, "Source file was: "+f.getAbsolutePath());
+            Log.write(LoggerType.FATAL, "Source file was: " + f.getAbsolutePath());
         }
     }
 }

@@ -31,7 +31,7 @@
     <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.0.0-RC3" level="project" />
     <orderEntry type="library" name="Maven: com.droidefense:manparser:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.droidefense:ssdeep:1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: com.droidefense:entropy:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="entropy" />
     <orderEntry type="library" name="Maven: com.droidefense:ml:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: nz.ac.waikato.cms.weka:weka-stable:3.8.0" level="project" />
     <orderEntry type="library" name="Maven: nz.ac.waikato.cms.weka.thirdparty:java-cup-11b:2015.03.26" level="project" />
@@ -57,7 +57,7 @@
     <orderEntry type="library" name="Maven: com.googlecode.netlib-java:netlib-java:1.1" level="project" />
     <orderEntry type="library" name="Maven: com.github.fommil.netlib:core:1.1" level="project" />
     <orderEntry type="library" name="Maven: com.droidefense:pscout:1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: com.droidefense:batch:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="batch" />
     <orderEntry type="library" name="Maven: com.droidefense:sdk:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: com.j256.simplemagic:simplemagic:1.13-SNAPSHOT" level="project" />

@@ -10,6 +10,11 @@
 
     <name>Droidefense-module Machine Learning</name>
 
+    <properties>
+        <jdk.version>1.8</jdk.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
 
         <!-- http://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/weka-stable -->
@@ -20,10 +25,6 @@
         </dependency>
 
     </dependencies>
-
-    <properties>
-        <jdk.version>1.8</jdk.version>
-    </properties>
 
     <build>
         <plugins>

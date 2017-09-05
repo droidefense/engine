@@ -18,7 +18,7 @@ public class LastBuildTest {
 
     @Test
     public void t00_scan_creation() throws InvalidScanParametersException, FileNotFoundException {
-        String path = "src"+File.separator+"main"+File.separator+"resources"+File.separator+"lastbuild";
+        String path = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "lastbuild";
         File last = new File(path);
         Assert.assertNotNull(last);
 

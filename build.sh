@@ -5,12 +5,12 @@ echo " ########################################## "
 
 cd mods/core
 mvn clean install
-cd ../mods/cli
 
 echo " ######################################## "
 echo " Building Command Line Tools..."
 echo " ######################################## "
 
+cd ../cli
 mvn clean install -P debug
 cd  ../../dist/debug
 
@@ -18,8 +18,7 @@ echo " ######################################## "
 echo " Cleaning old files..."
 echo " ######################################## "
 
-rm -rf classes cli-1.0-SNAPSHOT.jar generated-sources maven-archiver maven-status
-cd dist/debug
+rm -rf classes cli-1.0-SNAPSHOT.jar generated-sources generated-test-sources surefire-reports test-classes maven-archiver maven-status
 
 ls -alh
 
@@ -28,9 +27,10 @@ echo " Creating 'droidefense' alias..."
 echo " ######################################## "
 
 now=$(pwd)
-echo $now/droidefense-cli-1.0-SNAPSHOT.jar
+jarname=$(ls *jar)
+echo $now/$jarname
 echo "Creating alias"
-aliasName="'java -jar "$now"/droidefense-cli-1.0-SNAPSHOT.jar'"
+aliasName="'java -jar "$now"/"$jarname"'"
 echo "ALIAS: " $aliasName
 cmd='alias droidefense='$aliasName
 
