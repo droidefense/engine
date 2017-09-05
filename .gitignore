@@ -23,8 +23,11 @@ target/
 *.apk
 
 #exclude demo dirs
-/unpacked
-/static-reports
+unpacked/
+static-reports/
+
+#exclude resource folder. too heavy for git
+resources/
 
 #exclude idea folder
 \.idea
