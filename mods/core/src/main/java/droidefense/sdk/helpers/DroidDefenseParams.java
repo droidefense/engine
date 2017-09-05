@@ -69,24 +69,24 @@ public class DroidDefenseParams implements Serializable {
         UNPACK_FOLDER = "../unpack";
         UPLOAD_FOLDER = "../upload";
         SERVER_FOLDER = "../server";
-        RESOURCE_FOLDER = "../resources";
-        MODEL_FOLDER = "../resources/data/models";
-        RULE_FOLDER = "../resources/data/rules";
+        RESOURCE_FOLDER = "../lib/data";
+        MODEL_FOLDER = "../lib/data/models";
+        RULE_FOLDER = "../lib/data/rules";
         STATIC_REPORT_FOLDER = "../reports";
         CVS_SPLIT = ";";
-        SIGNATURE_FILE = "../resources/data/csv/filetypes.csv";
+        SIGNATURE_FILE = "../lib/data/csv/filetypes.csv";
         DEX_MAGIC_NUMBER_STR = "6465780A30333500";
-        BEAUTIFIER_FILE = "../resources/data/list/beautifiers-dex.list";
-        NATIVE_METHOD_FILE = "../resources/data/csv/sdk-classes.csv";
+        BEAUTIFIER_FILE = "../lib/data/list/beautifiers-dex.list";
+        NATIVE_METHOD_FILE = "../lib/data/csv/sdk-classes.csv";
         PLG_FOLDER_NAME = "plugins";
         BIN_MANIFEST_FOLDER = "original";
-        JAVA_SDK_CLASS_HASHSET_NAME = "../resources/data/map/jdk8-classlist.map";
-        ANDROID_SDK_CLASS_HASHSET_NAME = "../resources/data/map/android-sdk-classlist.map";
-        ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME = "../resources/data/map/android-support-classlist.map";
+        JAVA_SDK_CLASS_HASHSET_NAME = "../lib/data/map/jdk8-classlist.map";
+        ANDROID_SDK_CLASS_HASHSET_NAME = "../lib/data/map/android-sdk-classlist.map";
+        ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME = "../lib/data/map/android-support-classlist.map";
         XML_EXTENSION = ".xml";
         PROJECT_DATA_FILE = "project.data";
         PROJECT_JSON_FILE = "report.json";
-        PSCOUT_MODEL = "../resources/data/map/pscout.map";
+        PSCOUT_MODEL = "../lib/data/map/pscout.map";
     }
 
     private static void deserialize(DroidDefenseParams params) {

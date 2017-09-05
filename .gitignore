@@ -26,8 +26,8 @@ target/
 unpacked/
 static-reports/
 
-#exclude resource folder. too heavy for git
-resources/
+#exclude lib folder. too heavy for git
+lib/
 
 #exclude idea folder
 \.idea

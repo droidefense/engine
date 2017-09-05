@@ -56,16 +56,11 @@ public class DroidefenseOptions extends Options {
     }
 
     public void showVersion() {
-        separator();
-        newAsciiLine();
         String offset = OSDetection.isUnix() ? "" : "\t";
-        System.out.println("# Current version of droidefense: \t" + readVersion());
-        System.out.println("# Check out on Github: \t\t\t" + offset + InternalConstant.REPO_URL);
-        System.out.println("# Report your issue: \t\t\t" + offset + offset + InternalConstant.ISSUES_URL);
-        System.out.println("# Lead developer: \t\t\t" + offset + offset + InternalConstant.LEAD_DEVELOPER);
-        System.out.println("# ");
-        newAsciiLine();
-        separator();
+        System.out.println("\t* Current version of droidefense: \t" + readVersion());
+        System.out.println("\t* Check out on Github: \t\t\t" + offset + InternalConstant.REPO_URL);
+        System.out.println("\t* Report your issue: \t\t\t" + offset + offset + InternalConstant.ISSUES_URL);
+        System.out.println("\t* Lead developer: \t\t\t" + offset + offset + InternalConstant.LEAD_DEVELOPER);
     }
 
     private String readVersion() {
@@ -74,22 +69,7 @@ public class DroidefenseOptions extends Options {
                     DroidefenseOptions.class.getClassLoader(),
                     "src/resources/lastbuild");
         } catch (IOException e) {
-            Log.write(LoggerType.ERROR, "Could not read software version");
             return "unknown";
-        }
-    }
-
-    private void separator() {
-        String separator = "################################################################################";
-        separator = OSDetection.isUnix() ? separator : separator + "####";
-        System.out.println(separator);
-    }
-
-    private void newAsciiLine() {
-        if (OSDetection.isUnix()) {
-            System.out.println("#                                                                              #");
-        } else {
-            System.out.println("#                                                                                  #");
         }
     }
 

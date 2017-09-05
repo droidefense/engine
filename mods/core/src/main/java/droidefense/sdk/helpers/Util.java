@@ -400,9 +400,7 @@ public class Util {
 
         if(path.startsWith("/"))
             path = path.substring(1, path.length());
-
-        System.out.println("Reading file from internal path");
-        System.out.println("Path is: "+path);
+        
         URL url = classLoader.getResource(path);
         if(url!=null){
             File file = new File(url.getFile());

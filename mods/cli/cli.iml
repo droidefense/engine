@@ -59,11 +59,11 @@
     <orderEntry type="library" name="Maven: com.github.fommil.netlib:core:1.1" level="project" />
     <orderEntry type="library" name="Maven: com.droidefense:pscout:1.0-SNAPSHOT" level="project" />
     <orderEntry type="module" module-name="batch" />
-    <orderEntry type="library" name="Maven: com.droidefense:sdk:1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: com.j256.simplemagic:simplemagic:1.13-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.7" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.0" level="project" />
+    <orderEntry type="library" name="Maven: com.droidefense:sdk:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
   </component>

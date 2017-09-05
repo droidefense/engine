@@ -39,6 +39,7 @@ awk '!/droidefense/' ~/.bashrc > ~/.bashrc.temp && mv ~/.bashrc.temp ~/.bashrc
 
 echo "Updating droidefense alias..."
 echo $cmd >> ~/.bashrc
+$cmd
 
 echo "Content written in ~/.bashrc"
 cat ~/.bashrc | grep droidefense

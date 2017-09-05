@@ -19,12 +19,14 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
 
         //UNPACK_AND_DECODE
         AbstractAndroidAnalysis analyzer;
+
+        boolean stophere = false;
         try {
 
             analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.UNPACK);
             currentProject.analyze(analyzer);
 
-            if (currentProject.isCorrectUnpacked()) {
+            if (currentProject.isCorrectUnpacked() && stophere) {
 
                 analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.DECODE);
                 currentProject.analyze(analyzer);
