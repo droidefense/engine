@@ -73,6 +73,8 @@ public class DroidDefenseParams implements Serializable {
         MODEL_FOLDER = "../lib/data/models";
         RULE_FOLDER = "../lib/data/rules";
         STATIC_REPORT_FOLDER = "../reports";
+        STATIC_PLG_FOLDER = "";
+        DYNAMIC_PLG_FOLDER = "";
         CVS_SPLIT = ";";
         SIGNATURE_FILE = "../lib/data/csv/filetypes.csv";
         DEX_MAGIC_NUMBER_STR = "6465780A30333500";

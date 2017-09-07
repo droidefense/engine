@@ -4,7 +4,7 @@ import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.base.AbstractHandler;
-import droidefense.om.handlers.DexStatsHandler;
+import droidefense.om.handlers.DexMetadataHandler;
 import droidefense.om.handlers.VMWorkersHandler;
 import droidefense.sdk.model.io.AbstractHashedFile;
 
@@ -24,11 +24,11 @@ public final class AndroidDynamicAnalysis extends AbstractAndroidAnalysis {
         ArrayList<AbstractHashedFile> list = currentProject.getDexList();
 
         //run dex file statistics handler
-        AbstractHandler handler = new DexStatsHandler(currentProject, list);
+        AbstractHandler handler = new DexMetadataHandler(currentProject);
         executionSuccessful &= handler.doTheJob();
 
         //execute selected controlflow
-        handler = new VMWorkersHandler(currentProject, list);
+        handler = new VMWorkersHandler(currentProject);
         executionSuccessful &= handler.doTheJob();
         this.currentProject.setDynamicAnalysisDone(true);
         return executionSuccessful;

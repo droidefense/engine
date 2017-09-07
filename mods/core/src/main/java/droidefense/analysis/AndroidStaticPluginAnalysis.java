@@ -69,11 +69,11 @@ public final class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
                     Log.write(LoggerType.TRACE, plugin.getAbsolutePath());
                 }
             }
+            executionSuccessful = true;
         }
         Log.write(LoggerType.TRACE, "\n--- RUNNING PLUGINS (DONE)---\n");
         //stop timer
         stop();
-        executionSuccessful = true;
         this.timeStamp.stop();
         return executionSuccessful;
     }

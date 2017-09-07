@@ -61,6 +61,7 @@ public class DroidefenseOptions extends Options {
         System.out.println("\t* Check out on Github: \t\t\t" + offset + InternalConstant.REPO_URL);
         System.out.println("\t* Report your issue: \t\t\t" + offset + offset + InternalConstant.ISSUES_URL);
         System.out.println("\t* Lead developer: \t\t\t" + offset + offset + InternalConstant.LEAD_DEVELOPER);
+        System.out.println();
     }
 
     private String readVersion() {

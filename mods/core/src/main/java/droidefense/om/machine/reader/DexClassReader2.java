@@ -195,7 +195,7 @@ public final class DexClassReader2 implements Serializable {
         return newClass;
     }
 
-    public void loadClasses(final byte[] dexFileContent, boolean multidex) {
+    public boolean loadClasses(final byte[] dexFileContent, boolean multidex) {
         //todo add support for multiple dex files
         synchronized (loadClassesMutex) {
             this.dexFileContent = dexFileContent;
@@ -222,6 +222,7 @@ public final class DexClassReader2 implements Serializable {
             readClassContents();
         }
         currentProject.setPool(pool);
+        return true;
     }
 
     private void readClassContents() {

@@ -20,11 +20,10 @@ import java.util.Iterator;
  * Created by sergio on 3/5/16.
  */
 public class DexFileStatistics implements Serializable {
+
     private transient final DroidefenseProject currentProject;
     private transient final ArrayList<AbstractHashedFile> list;
     private transient final DalvikVM vm;
-
-    //interesting variables
 
     //packages info
     private HashSet<String> developerPackages, realDeveloperPackages;
@@ -39,21 +38,18 @@ public class DexFileStatistics implements Serializable {
     private int developerClassCount, realDeveloperClassCount;
     private int realDeveloperInnerClassCount;
 
-    public DexFileStatistics(DroidefenseProject currentProject, ArrayList<AbstractHashedFile> list) {
+    public DexFileStatistics(DroidefenseProject currentProject) {
         //create VM
-        vm = new DalvikVM(currentProject);
+        vm = currentProject.getDalvikMachine();
         this.currentProject = currentProject;
-        this.list = list;
+        this.list = currentProject.getDexList();
         this.list.forEach(this::process);
     }
 
     private void process(AbstractHashedFile dexFile) {
         byte[] data;
         try {
-            data = currentProject.getDexData(dexFile);
-            //first use my class loader and check for file integrity,...
-            DexHeaderReader loader = new DexHeaderReader(data, currentProject);
-            loader.loadClasses(dexFile);
+            data = dexFile.getContent();
             ///then use default class loader
             vm.load(dexFile, data, DalvikVM.MULTIDEX);
             //once file is loaded, we can read the info

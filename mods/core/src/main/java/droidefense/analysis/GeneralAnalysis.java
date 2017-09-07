@@ -26,7 +26,7 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
             analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.UNPACK);
             currentProject.analyze(analyzer);
 
-            if (currentProject.isCorrectUnpacked() && stophere) {
+            if (currentProject.isCorrectUnpacked()) {
 
                 analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.DECODE);
                 currentProject.analyze(analyzer);
@@ -55,7 +55,7 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
                         analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.DYNAMIC_ANALYSIS);
                         currentProject.analyze(analyzer);
 
-                        if (currentProject.isDynamicAnalysisDone()) {
+                        if (currentProject.isDynamicAnalysisDone() && stophere) {
                             //RUN DYNAMIC ANALYSIS PLUGINS
                             analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.DYNAMIC_PLUGIN_ANALYSIS);
                             currentProject.analyze(analyzer);
@@ -75,7 +75,7 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
 
                         } else {
                             //dynamic plugin failed
-                            Log.write(LoggerType.ERROR, "Error executing dynamic analysis");
+                            Log.write(LoggerType.ERROR, "Error executing dynamic analysis plugins and contextual scans");
                         }
 
                     } else {

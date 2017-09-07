@@ -44,11 +44,11 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
 
         //2 parse manifest
         try {
-            Log.write(LoggerType.TRACE, "\n\n --- Running Android droidefense.sdk.manifest parser ---\n\n");
+            Log.write(LoggerType.TRACE, "\n\n --- Running Android Manifest Parser ---\n\n");
             parser = ParserFactory.getParser(ParserFactory.MANIFEST_PARSER, currentProject, apkFile);
             parser.parse();
         } catch (UnknownParserException e) {
-            Log.write(LoggerType.FATAL, "Could not recover droidefense.sdk.manifest parser", e.getLocalizedMessage());
+            Log.write(LoggerType.FATAL, "Could not recover manifest parser", e.getLocalizedMessage());
             this.errorList.add(e);
         }
 
@@ -75,7 +75,6 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
         }
 
         //5 parse resources
-
         ArrayList<AbstractHashedFile> resourceList = currentProject.getStaticInfo().getResourceFiles();
         if (!resourceList.isEmpty()) {
             try {

@@ -228,4 +228,8 @@ public class DexOperator implements Serializable {
     public void setAdler(long adler) {
         this.adler = adler;
     }
+
+    public int getFileSize() {
+        return this.data.length;
+    }
 }

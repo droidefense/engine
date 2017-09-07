@@ -76,6 +76,7 @@ public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis 
                     Log.write(LoggerType.TRACE, plugin.getAbsolutePath());
                 }
             }
+            executionSuccessful = true;
         }
         else{
             Log.write(LoggerType.ERROR, "Dynamic plugin folder not found");

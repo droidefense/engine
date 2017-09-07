@@ -6,6 +6,7 @@ import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
 import droidefense.ml.MachineLearningResult;
 import droidefense.om.helper.DexFileStatistics;
+import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.model.SharedPool;
 import droidefense.om.machine.reader.DexHeaderReader;
@@ -63,7 +64,7 @@ public final class DroidefenseProject implements Serializable {
     /**
      * Virtual file system for sample files
      */
-    private final transient VirtualFileSystem vfs;
+    private transient VirtualFileSystem vfs;
     /**
      * Timestamp from creation to end
      */
@@ -150,6 +151,7 @@ public final class DroidefenseProject implements Serializable {
     //config params
     private transient boolean settingAutoOpen;
     private transient String settingsReportType;
+    private DalvikVM dalvikMachine;
     //private transient DexHeaderReader dexHeaderReader;
 
     public DroidefenseProject() {
@@ -705,8 +707,8 @@ public final class DroidefenseProject implements Serializable {
         return this.vfs;
     }
 
-    public void setVFS(VirtualFolder root) {
-        this.vfs.add("/", root);
+    public void setVFS(VirtualFileSystem vfs) {
+        this.vfs = vfs;
     }
 
     public ArrayList<AbstractHashedFile> getOtherFiles() {
@@ -837,5 +839,16 @@ public final class DroidefenseProject implements Serializable {
         if(settingsReportType!=null){
             this.settingsReportType = settingsReportType;
         }
+    }
+
+    public DalvikVM getDalvikMachine() {
+        if(dalvikMachine == null){
+            this.dalvikMachine = new DalvikVM(this);
+        }
+        return dalvikMachine;
+    }
+
+    public void setDalvikMachine(DalvikVM dalvikMachine) {
+        this.dalvikMachine = dalvikMachine;
     }
 }

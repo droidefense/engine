@@ -5,6 +5,12 @@ dist/
 out/
 target/
 
+#exclude demo dirs
+static-reports/
+reports/
+unpack/
+lib/
+
 
 .classpath
 .project
@@ -22,12 +28,6 @@ target/
 #exclude sample .apk
 *.apk
 
-#exclude demo dirs
-unpacked/
-static-reports/
-
-#exclude lib folder. too heavy for git
-lib/
 
 #exclude idea folder
 \.idea

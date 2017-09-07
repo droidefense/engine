@@ -56,7 +56,7 @@ public enum APKUnpacker {
                     decoder.doTheJob();
                 }
                 else {
-                    Log.write(LoggerType.TRACE, "File" + file.getPath() + " no need to decode");
+                    Log.write(LoggerType.TRACE, "Skipping " + file.getPath());
                 }
             }
             currentProject.setFolderCount(folderCount);

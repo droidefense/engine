@@ -68,7 +68,8 @@ public class DalvikVM extends AbstractVirtualMachine {
 
     public void load(AbstractHashedFile dex, byte[] bytes, boolean multidex) {
         Log.write(LoggerType.INFO, "Loading .dex contents...");
-        systemClassLoader.loadClasses(bytes, multidex);
+        boolean successRead = systemClassLoader.loadClasses(bytes, multidex);
+        this.currentProject.setDexFileReaded(successRead);
     }
 
     @Override

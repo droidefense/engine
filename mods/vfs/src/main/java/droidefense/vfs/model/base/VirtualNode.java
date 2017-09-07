@@ -10,6 +10,8 @@ public abstract class VirtualNode implements IVirtualNode {
 
     protected static final int NEW_CLASS_ALLOCATION_HEAP_SIZE = 8;
     private static final String DEFAULT_INODE_NAME = "undefined";
+    private static final String NO_PATH = "";
+    private static final String FILE_SEPARATOR = "/";
 
     protected final IVirtualNode parentNode;
     protected final String name;
@@ -22,7 +24,7 @@ public abstract class VirtualNode implements IVirtualNode {
         this.parentNode = parentNode;
         this.virtualFilesInside=0;
         this.virtualFoldersInside=0;
-        this.precalculatedPath = "";
+        this.precalculatedPath = NO_PATH;
     }
 
     public VirtualNode(String name) {
@@ -67,11 +69,11 @@ public abstract class VirtualNode implements IVirtualNode {
 
     @Override
     public String getPath() {
-        if(this.precalculatedPath == null){
+        if(this.precalculatedPath.equals(NO_PATH)){
             if (parentNode == null)
-                this.precalculatedPath = File.separator + name;
+                this.precalculatedPath = this.name;
             else
-                this.precalculatedPath = parentNode.getPath() + File.separator + name;
+                this.precalculatedPath = parentNode.getPath() + FILE_SEPARATOR + name;
         }
         return this.precalculatedPath;
     }

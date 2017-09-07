@@ -4,6 +4,7 @@ import droidefense.handler.base.AbstractHandler;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.vfs.model.impl.VirtualFile;
+import droidefense.vfs.model.impl.VirtualFileSystem;
 import droidefense.vfs.model.impl.VirtualFolder;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
@@ -20,7 +21,7 @@ import java.util.zip.ZipInputStream;
 public class FileUnzipVFSHandler extends AbstractHandler {
 
     private static final int BUFFER_SIZE = 4096;
-    private static final String ROOT_FOLDER = "/";
+    private static final String ROOT_FOLDER = "";
     private final VirtualFolder root;
     private VirtualFolder parentNode;
     private AbstractHashedFile source;
@@ -36,6 +37,7 @@ public class FileUnzipVFSHandler extends AbstractHandler {
 
     @Override
     public boolean doTheJob() {
+        Log.write(LoggerType.DEBUG, "[START] Unpacking...");
         //read zip file
         ZipInputStream zipIn;
         try {
@@ -47,14 +49,14 @@ public class FileUnzipVFSHandler extends AbstractHandler {
                 //reset parent node
                 parentNode = root;
                 String entryName = entry.getName();
+                Log.write(LoggerType.DEBUG, "\t"+entryName);
                 if (!entry.isDirectory()) {
                     //check if entry parent directory exists on vfs
                     String[] items = entryName.split("/");
                     if (items.length > 1) {
                         //subfolder found
                         for (int i = 0; i < items.length - 1; i++) {
-                            VirtualFolder vf = VirtualFolder.createFolder(parentNode, items[i]);
-                            parentNode = vf;
+                            parentNode = VirtualFolder.createFolder(parentNode, items[i]);
                         }
                         entryName = items[items.length - 1];
                     }
@@ -63,7 +65,6 @@ public class FileUnzipVFSHandler extends AbstractHandler {
                     files.add(virtualFile);
                     byte[] bytesIn = new byte[BUFFER_SIZE];
                     int read;
-                    int offset = 0;
                     while ((read = zipIn.read(bytesIn)) != -1) {
                         virtualFile.addContent(bytesIn, 0, read);
                     }
@@ -73,7 +74,12 @@ public class FileUnzipVFSHandler extends AbstractHandler {
             }
             //close zip file access
             zipIn.close();
-            project.setVFS(root);
+
+            VirtualFileSystem vfs = new VirtualFileSystem();
+            vfs.add(ROOT_FOLDER, root);
+            project.setVFS(vfs);
+            Log.write(LoggerType.DEBUG, "Virtual file system created");
+            vfs.info();
             return true;
         } catch (FileNotFoundException e) {
             error = e;

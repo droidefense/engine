@@ -26,7 +26,6 @@ public final class AXMLDecoderHandler extends AbstractHandler {
         else{
             decoder.setInputFile(this.vf);
             decoder.decode();
-            this.vf = decoder.getDecodedFile();
             return this.vf != null;
         }
     }
