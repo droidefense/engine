@@ -131,6 +131,8 @@ public class DroidefenseScan {
         Log.write(LoggerType.TRACE, "Saving report file...");
         this.project.finish();
         Log.write(LoggerType.TRACE, "Droidefense scan finished");
+        //force exit
+        System.exit(0);
     }
 
     private void initScan(DroidefenseProject project, File f, APKUnpacker unpacker) {

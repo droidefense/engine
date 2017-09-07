@@ -24,8 +24,8 @@ import java.util.Vector;
 
 public final strictfp class MultiFlowWorker extends AbstractFlowWorker {
 
-    public MultiFlowWorker(final DalvikVM vm, DroidefenseProject project) {
-        super(vm, project);
+    public MultiFlowWorker(DroidefenseProject project) {
+        super(project.getDalvikMachine(), project);
         flowMap = new BasicCFGFlowMap();
     }
 

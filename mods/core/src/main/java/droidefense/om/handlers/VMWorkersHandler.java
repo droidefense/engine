@@ -1,9 +1,9 @@
 package droidefense.om.handlers;
 
+import droidefense.om.flow.*;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.handler.base.AbstractHandler;
-import droidefense.om.flow.OpCodeCheckerWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.reader.DexHeaderReader;
@@ -38,14 +38,21 @@ public class VMWorkersHandler extends AbstractHandler {
 
                 //add workes to run
                 //opcode analysis
-                worklist.add(new OpCodeCheckerWorker(vm, currentProject));
-                //reflection solver model generator
-                //worklist.add(new ReflectionControlFlowGraphWorker(vm, currentProject));
+                worklist.add(new OpCodeCheckerWorker(currentProject));
+
                 //normal model generator
-                //worklist.add(new BasicControlFlowGraphWorker(vm, currentProject));
-                //worklist.add(new FollowCallsControlFlowGraphWorker(vm, currentProject));
+                worklist.add(new BasicControlFlowGraphWorker(currentProject));
+
+                //follow model generator
+                //worklist.add(new FollowCallsControlFlowGraphWorker(currentProject));
+
+                //reflection solver model generator
+                //worklist.add(new ReflectionControlFlowGraphWorker(currentProject));
+
                 //multiflow machine state
-                //worklist.add(new MultiFlowWorker(vm, currentProject));
+                //worklist.add(new MultiFlowWorker(currentProject));
+
+                //TODO replace all flow workers by MULTIFLOW + REFLECTION type worker
 
                 //run all controlflow
                 for (AbstractDVMThread worker : worklist) {

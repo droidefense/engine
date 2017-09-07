@@ -38,7 +38,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
     private boolean reflected;
 
     public ReflectionControlFlowGraphWorker(DroidefenseProject project) {
-        super(new DalvikVM(project), project);
+        super(project.getDalvikMachine(), project);
         flowMap = new BasicCFGFlowMap();
         fromNode = null;
     }

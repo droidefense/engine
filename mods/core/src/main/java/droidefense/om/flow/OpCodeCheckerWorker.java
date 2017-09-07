@@ -21,7 +21,7 @@ public final strictfp class OpCodeCheckerWorker extends AbstractFlowWorker {
     private static int total = 0;
 
     public OpCodeCheckerWorker(DroidefenseProject project) {
-        super(new DalvikVM(project), project);
+        super(project.getDalvikMachine(), project);
     }
 
     public OpCodeCheckerWorker(final DalvikVM vm, DroidefenseProject project) {

@@ -30,12 +30,9 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
     private int[] lowerCodes;
     private int[] upperCodes;
     private int[] codes;
-    private String lastStringReaded;
-    private IAtomClass lastReflectedClass;
-    private boolean reflected;
 
-    public BasicControlFlowGraphWorker(final DalvikVM vm, DroidefenseProject project) {
-        super(vm, project);
+    public BasicControlFlowGraphWorker(DroidefenseProject project) {
+        super(project.getDalvikMachine(), project);
         flowMap = new BasicCFGFlowMap();
         fromNode = null;
     }
@@ -53,7 +50,7 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
         try {
             execute(false);
         } catch (Throwable throwable) {
-            throwable.printStackTrace();
+            Log.write(LoggerType.ERROR, throwable.getLocalizedMessage());
         }
     }
 
@@ -77,17 +74,18 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
 
     @Override
     public int getInitialArgumentCount(IAtomClass cls, IAtomMethod m) {
-        return 0;
+        return 0; //do not use arguments
     }
 
     @Override
     public Object getInitialArguments(IAtomClass cls, IAtomMethod m) {
-        return null;
+        return null; //do not use arguments
     }
 
     @Override
     public IAtomClass[] getInitialDVMClass() {
         //only return developer class and skip known java jdk and android sdk classes
+
         IAtomClass[] alllist = currentProject.getInternalInfo().getAllClasses();
         ArrayList<IAtomClass> developerClasses = new ArrayList<>();
         for (IAtomClass cls : alllist) {

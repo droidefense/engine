@@ -31,8 +31,8 @@ public final strictfp class FollowCallsControlFlowGraphWorker extends AbstractFl
     private int[] upperCodes;
     private int[] codes;
 
-    public FollowCallsControlFlowGraphWorker(final DalvikVM vm, DroidefenseProject project) {
-        super(vm, project);
+    public FollowCallsControlFlowGraphWorker(DroidefenseProject project) {
+        super(project.getDalvikMachine(), project);
         fromNode = null;
         flowMap = new BasicCFGFlowMap();
     }

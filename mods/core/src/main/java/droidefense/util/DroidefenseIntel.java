@@ -573,6 +573,8 @@ public class DroidefenseIntel implements Serializable {
                 || className.endsWith("R$color")
                 || className.endsWith("R$anim")
                 || className.endsWith("R$string")
+                || className.endsWith("R$xml")
+                || className.endsWith("R$menu")
                 || className.endsWith("R$layout");
     }
 
