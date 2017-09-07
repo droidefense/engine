@@ -105,11 +105,12 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
 
             if(entry!=null){
                 IAtomField field = entry.getValue();
-                String value = field.getName();
+                String name = field.getName();
+                int value = field.getIntValue();
                 String owner = field.getOwnerClass().getName();
                 //clean owner from com/haxor/R$id to id
                 owner = owner.split("\\$")[1];
-                references.add(new AndroidRField(owner, entry.getKey(), value));
+                references.add(new AndroidRField(owner, name, value));
             }
         }
     }

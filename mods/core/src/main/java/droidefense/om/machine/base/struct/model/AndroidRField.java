@@ -2,9 +2,10 @@ package droidefense.om.machine.base.struct.model;
 
 public class AndroidRField {
 
-    private String owner, name, value;
+    private String owner, name;
+    private int value;
 
-    public AndroidRField(String owner, String name, String value) {
+    public AndroidRField(String owner, String name, int value) {
         this.owner = owner;
         this.name = name;
         this.value = value;
@@ -18,11 +19,11 @@ public class AndroidRField {
         this.name = name;
     }
 
-    public String getValue() {
+    public int getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(int value) {
         this.value = value;
     }
 
