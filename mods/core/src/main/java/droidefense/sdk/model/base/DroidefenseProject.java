@@ -151,7 +151,7 @@ public final class DroidefenseProject implements Serializable {
     //config params
     private transient boolean settingAutoOpen;
     private transient String settingsReportType;
-    private DalvikVM dalvikMachine;
+    private transient DalvikVM dalvikMachine;
     //private transient DexHeaderReader dexHeaderReader;
 
     public DroidefenseProject() {
