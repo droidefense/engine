@@ -1,16 +1,14 @@
 package droidefense.om.handlers;
 
-import droidefense.om.flow.*;
+import droidefense.om.flow.stable.OpCodeCheckerWorker;
+import droidefense.om.flow.stable.ReferencesResolverWorker;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
-import droidefense.om.machine.reader.DexHeaderReader;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.model.io.AbstractHashedFile;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**

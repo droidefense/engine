@@ -1,4 +1,4 @@
-package droidefense.om.flow;
+package droidefense.om.flow.experimental;
 
 import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.nodes.ConditionalNode;
@@ -7,7 +7,6 @@ import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
-import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.exceptions.NoMainClassFoundException;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;

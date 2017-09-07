@@ -1,6 +1,6 @@
-package droidefense.om.flow;
+package droidefense.om.flow.experimental;
 
-
+import droidefense.rulengine.base.AbstractAtomNode;
 import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.nodes.EntryPointNode;
 import droidefense.sdk.log4j.Log;
@@ -24,24 +24,25 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWorker {
+public final strictfp class FollowCallsControlFlowGraphWorker extends AbstractFlowWorker {
 
     private int[] lowerCodes;
     private int[] upperCodes;
     private int[] codes;
 
-    public BasicControlFlowGraphWorker(DroidefenseProject project) {
+    public FollowCallsControlFlowGraphWorker(DroidefenseProject project) {
         super(project.getDalvikMachine(), project);
-        flowMap = new BasicCFGFlowMap();
         fromNode = null;
+        flowMap = new BasicCFGFlowMap();
     }
 
     @Override
     public void preload() {
-        Log.write(LoggerType.DEBUG, "WORKER: BasicControlFlowGraphWorker");
+        Log.write(LoggerType.DEBUG, "WORKER: FollowCallsControlFlowGraphWorker");
         this.setStatus(AbstractDVMThread.STATUS_NOT_STARTED);
         vm.setThreads(new Vector());
         vm.addThread(this);
+        this.removeFrames();
     }
 
     @Override
@@ -49,15 +50,14 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
         try {
             execute(false);
         } catch (Throwable throwable) {
-            Log.write(LoggerType.ERROR, throwable.getLocalizedMessage());
+            throwable.printStackTrace();
         }
     }
 
     @Override
     public void finish() {
-        currentProject.setNormalControlFlowMap(flowMap);
-
-        Log.write(LoggerType.DEBUG, "WORKER: BasicControlFlowGraphWorker FINISHED!");
+        currentProject.setFollowCallsMap(flowMap);
+        Log.write(LoggerType.DEBUG, "WORKER: FollowCallsControlFlowGraphWorker FINISHED!");
         //generate image as svg
         //dot -Tsvg *.dot > flowMap.svg
         try {
@@ -67,24 +67,23 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
             //TODO fix map generation
             FileIOHandler.callSystemExec("dot -Tsvg " + currentUnpackDir + File.separator + "graphviz.dot" + " > " + currentUnpackDir + File.separator + "flowMap.svg");
         } catch (IOException e) {
-            Log.write(LoggerType.ERROR, e.getLocalizedMessage());
+            e.printStackTrace();
         }
     }
 
     @Override
     public int getInitialArgumentCount(IAtomClass cls, IAtomMethod m) {
-        return 0; //do not use arguments
+        return 0;
     }
 
     @Override
     public Object getInitialArguments(IAtomClass cls, IAtomMethod m) {
-        return null; //do not use arguments
+        return null;
     }
 
     @Override
     public IAtomClass[] getInitialDVMClass() {
         //only return developer class and skip known java jdk and android sdk classes
-
         IAtomClass[] alllist = currentProject.getInternalInfo().getAllClasses();
         ArrayList<IAtomClass> developerClasses = new ArrayList<>();
         for (IAtomClass cls : alllist) {
@@ -111,7 +110,6 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
 
     @Override
     public AbstractDVMThread reset() {
-        //reset 'thread' status
         this.setStatus(STATUS_NOT_STARTED);
         this.removeFrames();
         this.timestamp = new ExecutionTimer();
@@ -129,7 +127,6 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
         codes = method.getIndex();
 
         keepScanning = true;
-        boolean methodEnded = false;
 
         fromNode = EntryPointNode.builder();
         toNode = buildMethodNode(DalvikInstruction.DALVIK_0x0, frame, method);
@@ -138,11 +135,10 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
         toNode = null;
 
         while (keepScanning) {
-
             int currentPc = frame.getPc();
-            int currentInstructionOpcode;
+            int inst;
 
-            //1 ask if we have more currentInstructionOpcode to execute
+            //1 ask if we have more inst to execute
             if (currentPc >= lowerCodes.length || getFrames() == null || getFrames().isEmpty())
                 break;
 
@@ -152,41 +148,49 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
                 continue;
             }
 
-            currentInstructionOpcode = lowerCodes[currentPc];
-            DalvikInstruction currentInstruction = instructions[currentInstructionOpcode];
+            inst = lowerCodes[currentPc];
+            DalvikInstruction currentInstruction = instructions[inst];
             Log.write(LoggerType.TRACE, currentInstruction.name() + " " + currentInstruction.description());
 
             try {
-                InstructionReturn ret;
-                if (isGetterOrSetterInstruction(currentInstructionOpcode)) {
+                if (inst >= 0x44 && inst <= 0x6D) {
                     //GETTER SETTER
                     //do not execute that DalvikInstruction. just act like if it was executed incrementing pc value properly
-                    ret = currentInstruction.execute(flowMap, this, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
-                } else if (isCallMethodInstruction(currentInstructionOpcode)) {
+                    InstructionReturn ret = currentInstruction.execute(flowMap, this, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
+                    //create node
+                    toNode = builNormalNode(currentInstruction);
+                } else if ((inst >= 0x6E && inst <= 0x78) || (inst == 0xF0) || (inst >= 0xF8 && inst <= 0xFB)) {
                     //CALLS
                     InstructionReturn fakeCallReturn = fakeMethodCall(frame.getMethod());
-                    //create invokated method as node
                     toNode = buildMethodNode(currentInstruction, frame, fakeCallReturn.getMethod());
-                    //create the connection
-                    createNewConnection(fromNode, toNode, currentInstruction);
-                } else if (isNOPInstruction(currentInstructionOpcode)) {
+                } else if (inst == 0x00) {
                     //NOP
                     //nop of increases pc by one
                     frame.increasePc(1);
-                } else if (isVoidInstruction(currentInstructionOpcode)) {
+                    toNode = builNormalNode(currentInstruction, "op", "NOP");
+                } else if (inst >= 0xE && inst <= 0x11) {
                     //return-void
-                    methodEnded = true;
+                    //nop of increases pc by one
+                    frame.increasePc(1);
+                    toNode = builNormalNode(currentInstruction, "return", "void");
                 } else {
                     //OTHER INST
                     //do not execute that DalvikInstruction. just act like if it was executed incrementing pc value properly
-                    ret = currentInstruction.execute(flowMap, this, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
+                    InstructionReturn ret = currentInstruction.execute(flowMap, this, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
+                    AbstractAtomNode node = ret.getNode();
+                    if (node == null) {
+                        node = builNormalNode(currentInstruction);
+                    }
+                    toNode = node;
                 }
-
+                //create the connection
+                createNewConnection(fromNode, toNode, currentInstruction);
+                fromNode = toNode;
+                toNode = null;
                 //check if there are more instructions to execute
-                if (methodEnded) {
+                if (frame.getPc() >= lowerCodes.length) {
                     //method instructions are all executed. this method is ended. stop loop
                     keepScanning = false;
-                    methodEnded = false;
                     //keepScanning = goBack(1);
                 }
             } catch (Exception e) {

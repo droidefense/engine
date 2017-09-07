@@ -1,4 +1,4 @@
-package droidefense.om.flow;
+package droidefense.om.flow.stable;
 
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.struct.fake.DVMTaintMethod;

@@ -1,4 +1,4 @@
-package droidefense.om.flow;
+package droidefense.om.flow.experimental;
 
 import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.nodes.EntryPointNode;

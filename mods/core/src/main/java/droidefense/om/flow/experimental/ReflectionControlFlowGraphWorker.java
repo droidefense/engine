@@ -1,4 +1,4 @@
-package droidefense.om.flow;
+package droidefense.om.flow.experimental;
 
 import droidefense.entropy.EntropyCalculator;
 import droidefense.handler.FileIOHandler;

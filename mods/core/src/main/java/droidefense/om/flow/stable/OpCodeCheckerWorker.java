@@ -1,4 +1,4 @@
-package droidefense.om.flow;
+package droidefense.om.flow.stable;
 
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
