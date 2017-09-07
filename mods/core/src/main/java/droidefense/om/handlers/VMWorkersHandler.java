@@ -40,8 +40,11 @@ public class VMWorkersHandler extends AbstractHandler {
                 //opcode analysis
                 worklist.add(new OpCodeCheckerWorker(currentProject));
 
+                //R references resolver analysis
+                worklist.add(new ReferencesResolverWorker(currentProject));
+
                 //normal model generator
-                worklist.add(new BasicControlFlowGraphWorker(currentProject));
+                //worklist.add(new BasicControlFlowGraphWorker(currentProject));
 
                 //follow model generator
                 //worklist.add(new FollowCallsControlFlowGraphWorker(currentProject));

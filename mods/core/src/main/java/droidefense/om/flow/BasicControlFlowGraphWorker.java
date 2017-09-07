@@ -8,7 +8,6 @@ import droidefense.sdk.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
 import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
-import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.struct.fake.DVMTaintClass;
 import droidefense.om.machine.base.struct.fake.DVMTaintMethod;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
@@ -68,7 +67,7 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
             //TODO fix map generation
             FileIOHandler.callSystemExec("dot -Tsvg " + currentUnpackDir + File.separator + "graphviz.dot" + " > " + currentUnpackDir + File.separator + "flowMap.svg");
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, e.getLocalizedMessage());
         }
     }
 
@@ -130,6 +129,7 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
         codes = method.getIndex();
 
         keepScanning = true;
+        boolean methodEnded = false;
 
         fromNode = EntryPointNode.builder();
         toNode = buildMethodNode(DalvikInstruction.DALVIK_0x0, frame, method);
@@ -138,10 +138,11 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
         toNode = null;
 
         while (keepScanning) {
-            int currentPc = frame.getPc();
-            int inst;
 
-            //1 ask if we have more inst to execute
+            int currentPc = frame.getPc();
+            int currentInstructionOpcode;
+
+            //1 ask if we have more currentInstructionOpcode to execute
             if (currentPc >= lowerCodes.length || getFrames() == null || getFrames().isEmpty())
                 break;
 
@@ -151,40 +152,41 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
                 continue;
             }
 
-            inst = lowerCodes[currentPc];
-            DalvikInstruction currentInstruction = instructions[inst];
+            currentInstructionOpcode = lowerCodes[currentPc];
+            DalvikInstruction currentInstruction = instructions[currentInstructionOpcode];
             Log.write(LoggerType.TRACE, currentInstruction.name() + " " + currentInstruction.description());
 
             try {
                 InstructionReturn ret;
-                if (inst >= 0x44 && inst <= 0x6D) {
+                if (isGetterOrSetterInstruction(currentInstructionOpcode)) {
                     //GETTER SETTER
                     //do not execute that DalvikInstruction. just act like if it was executed incrementing pc value properly
                     ret = currentInstruction.execute(flowMap, this, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
-                } else if ((inst >= 0x6E && inst <= 0x78) || (inst == 0xF0) || (inst >= 0xF8 && inst <= 0xFB)) {
+                } else if (isCallMethodInstruction(currentInstructionOpcode)) {
                     //CALLS
                     InstructionReturn fakeCallReturn = fakeMethodCall(frame.getMethod());
                     //create invokated method as node
                     toNode = buildMethodNode(currentInstruction, frame, fakeCallReturn.getMethod());
                     //create the connection
                     createNewConnection(fromNode, toNode, currentInstruction);
-                } else if (inst == 0x00) {
+                } else if (isNOPInstruction(currentInstructionOpcode)) {
                     //NOP
                     //nop of increases pc by one
                     frame.increasePc(1);
-                } else if (inst >= 0xE && inst <= 0x11) {
+                } else if (isVoidInstruction(currentInstructionOpcode)) {
                     //return-void
-                    //nop of increases pc by one
-                    frame.increasePc(1);
+                    methodEnded = true;
                 } else {
                     //OTHER INST
                     //do not execute that DalvikInstruction. just act like if it was executed incrementing pc value properly
                     ret = currentInstruction.execute(flowMap, this, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
                 }
+
                 //check if there are more instructions to execute
-                if (frame.getPc() >= lowerCodes.length) {
+                if (methodEnded) {
                     //method instructions are all executed. this method is ended. stop loop
                     keepScanning = false;
+                    methodEnded = false;
                     //keepScanning = goBack(1);
                 }
             } catch (Exception e) {

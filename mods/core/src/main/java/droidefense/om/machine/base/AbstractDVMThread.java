@@ -64,8 +64,8 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
     protected int priority = Thread.NORM_PRIORITY;
     protected Vector joinedThreads = new Vector();
 
-    public AbstractDVMThread(final DalvikVM vm, final DroidefenseProject currentProject) {
-        this.vm = vm;
+    public AbstractDVMThread(final DroidefenseProject currentProject) {
+        this.vm = currentProject.getDalvikMachine();
         this.currentProject = currentProject;
         this.name = currentProject.getProjectName();
         this.timestamp = new ExecutionTimer();

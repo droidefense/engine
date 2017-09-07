@@ -25,7 +25,7 @@ public abstract class AbstractFlowWorker extends AbstractDVMThread {
     protected AbstractAtomNode toNode;
 
     public AbstractFlowWorker(DalvikVM vm, DroidefenseProject currentProject) {
-        super(vm, currentProject);
+        super(currentProject);
     }
 
     protected final MethodNode buildMethodNode(DalvikInstruction inst, IAtomFrame frame, IAtomMethod method) {
@@ -52,5 +52,21 @@ public abstract class AbstractFlowWorker extends AbstractDVMThread {
             NodeConnection conn = new NodeConnection(from, to, currentInstruction.description());
             flowMap.addConnection(conn);
         }
+    }
+
+    protected boolean isVoidInstruction(int currentInstructionOpcode) {
+        return currentInstructionOpcode >= 0xE && currentInstructionOpcode <= 0x11;
+    }
+
+    protected boolean isNOPInstruction(int currentInstructionOpcode) {
+        return currentInstructionOpcode == 0x00;
+    }
+
+    protected boolean isCallMethodInstruction(int currentInstructionOpcode) {
+        return (currentInstructionOpcode >= 0x6E && currentInstructionOpcode <= 0x78) || (currentInstructionOpcode == 0xF0) || (currentInstructionOpcode >= 0xF8 && currentInstructionOpcode <= 0xFB);
+    }
+
+    protected boolean isGetterOrSetterInstruction(int currentInstructionOpcode) {
+        return currentInstructionOpcode >= 0x44 && currentInstructionOpcode <= 0x6D;
     }
 }
