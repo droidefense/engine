@@ -30,9 +30,9 @@ public class VMWorkersHandler extends AbstractHandler {
         //create VM
         DalvikVM vm = currentProject.getDalvikMachine();
 
-        boolean readError = currentProject.isDexFileReaded();
+        boolean successReading = currentProject.isDexFileReaded();
 
-        if (!readError) {
+        if (successReading) {
             try {
                 ArrayList<AbstractDVMThread> worklist = new ArrayList<>();
 

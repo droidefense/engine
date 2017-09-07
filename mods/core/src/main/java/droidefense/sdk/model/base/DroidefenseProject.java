@@ -60,6 +60,7 @@ import java.util.Map;
 public final class DroidefenseProject implements Serializable {
 
     private static final Map<LocalApkFile, DroidefenseProject> projectMap = new HashMap<>();
+    private static final String VFS_ROOT_FOLDER = "";
 
     /**
      * Virtual file system for sample files
@@ -189,10 +190,6 @@ public final class DroidefenseProject implements Serializable {
         return projectMap.get(apk);
     }
 
-    public static DroidefenseProject getProject(String hash) {
-        return null;
-    }
-
     public void analyze(AbstractAndroidAnalysis analyzer) {
         //add this analyzer to used analyzer stack
         usedAnalyzers.add(analyzer);
@@ -252,7 +249,7 @@ public final class DroidefenseProject implements Serializable {
     }
 
     public byte[] getManifestFile() {
-        return this.vfs.get("/").getItem("AndroidManifest.xml").getContent();
+        return this.vfs.get(VFS_ROOT_FOLDER).getItem("AndroidManifest.xml").getContent();
     }
 
     public void setManifestFile(AbstractHashedFile manifest) {
@@ -274,6 +271,7 @@ public final class DroidefenseProject implements Serializable {
 
     public void printProjectInfo() {
         Log.write(LoggerType.TRACE, " -- PROJECT OUTPUT -- ");
+        Log.write(LoggerType.TRACE, "");
         Log.write(LoggerType.TRACE, getProjectAsJson());
     }
 
@@ -589,9 +587,7 @@ public final class DroidefenseProject implements Serializable {
     public void finish() {
         Log.write(LoggerType.TRACE, "Droidefense project finished");
 
-        Log.write(LoggerType.TRACE, "Generating natural description...");
-
-        this.writeNaturalReport();
+        datasource
 
         Log.write(LoggerType.TRACE, "Generating report template...");
 

@@ -42,7 +42,7 @@ public class APKMetaParser extends AbstractFileParser {
         AbstractHashedFile manifest = null;
         AbstractHashedFile certFile = null;
         for (VirtualFile r : files) {
-            //count dex files and search droidefense.sdk.manifest file
+            //count dex files and search manifest file
             if (r.getName().toLowerCase().endsWith(InternalConstant.DEX_EXTENSION)) {
                 dexList.add(new VirtualHashedFile(r, true));
             } else if (r.getName().toLowerCase().endsWith(InternalConstant.CERTIFICATE_EXTENSION)) {
