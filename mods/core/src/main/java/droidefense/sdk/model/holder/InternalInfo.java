@@ -44,25 +44,8 @@ public class InternalInfo implements Serializable {
         return this.dexContentList.getClasses().get(name);
     }
 
-    public void addDexInfo(DexClassReader dexClassReader) {
-        /*
-        this.dexStrings = removeRepeatedStrings(dexClassReader.getStrings());
-        this.dexTypes = removeRepeatedStrings(dexClassReader.getTypes());
-        this.dexDescriptors = removeRepeatedStrings(dexClassReader.getDescriptors());
-        this.dexFieldClasses = removeRepeatedStrings(dexClassReader.getFieldClasses());
-        this.dexFieldTypes = removeRepeatedStrings(dexClassReader.getFieldTypes());
-        this.dexFieldNames = removeRepeatedStrings(dexClassReader.getFieldNames());
-        this.dexMethodClasses = removeRepeatedStrings(dexClassReader.getMethodClasses());
-        this.dexMethodTypes = removeRepeatedStrings(dexClassReader.getMethodTypes());
-        this.dexMethodNames = removeRepeatedStrings(dexClassReader.getMethodNames());
-        this.dexClasses = dexClassReader.getClasses();
-        */
-    }
-
-    private String[] removeRepeatedStrings(String[] source) {
-        String[] data = new HashSet<>(Arrays.asList(source)).toArray(new String[0]);
-        Arrays.sort(data);
-        return data;
+    public void cleanup() {
+        this.dexContentList.cleanup();
     }
 
     public IAtomClass[] getDynamicEntryPoints() {

@@ -586,10 +586,10 @@ public final class DroidefenseProject implements Serializable {
 
     public void finish() {
         Log.write(LoggerType.TRACE, "Droidefense project finished");
-
-        datasource
-
         Log.write(LoggerType.TRACE, "Generating report template...");
+
+        //cleanup
+        internalInfo.cleanup();
 
         //stop timer
         this.stop();

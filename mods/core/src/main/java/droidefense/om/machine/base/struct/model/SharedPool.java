@@ -3,9 +3,7 @@ package droidefense.om.machine.base.struct.model;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by sergio on 31/5/16.
@@ -132,6 +130,24 @@ public class SharedPool implements Serializable {
 
     public void addClass(String name, IAtomClass cls) {
         this.classes.put(name, cls);
+    }
+
+    public void cleanup() {
+        this.strings = removeRepeatedStrings(getStrings());
+        this.types = removeRepeatedStrings(getTypes());
+        this.descriptors = removeRepeatedStrings(getDescriptors());
+        this.fieldClasses = removeRepeatedStrings(getFieldClasses());
+        this.fieldTypes = removeRepeatedStrings(getFieldTypes());
+        this.fieldNames = removeRepeatedStrings(getFieldNames());
+        this.methodClasses = removeRepeatedStrings(getMethodClasses());
+        this.methodTypes = removeRepeatedStrings(getMethodTypes());
+        this.methodNames = removeRepeatedStrings(getMethodNames());
+    }
+
+    private String[] removeRepeatedStrings(String[] source) {
+        String[] data = new HashSet<>(Arrays.asList(source)).toArray(new String[0]);
+        Arrays.sort(data);
+        return data;
     }
 }
 
