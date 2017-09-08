@@ -145,25 +145,96 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
 
         //R.drawable
 
-        //R.fraction
+        //R.fraction [DONE]
 
         //R.id
 
-        //R.integer
+        //R.integer [DONE]
+        keymap.put("@android:010e0002", "@integer/config_longAnimTime");
+        keymap.put("@android:010e0001", "@integer/config_mediumAnimTime");
+        keymap.put("@android:010e0000", "@integer/config_shortAnimTime");
+        keymap.put("@android:010e0003", "@integer/status_bar_notification_info_maxnum");
 
-        //R.interpolar
+        //R.interpolar [DONE]
+        keymap.put("@android:010c0002", "@interpolator/accelerate_cubic");
+        keymap.put("@android:010c0006", "@interpolator/accelerate_decelerate");
+        keymap.put("@android:010c0000", "@interpolator/accelerate_quad");
+        keymap.put("@android:010c0004", "@interpolator/accelerate_quint");
+        keymap.put("@android:010c0007", "@interpolator/anticipate");
+        keymap.put("@android:010c0009", "@interpolator/anticipate_overshoot");
+        keymap.put("@android:010c000a", "@interpolator/bounce");
+        keymap.put("@android:010c000c", "@interpolator/cycle");
+        keymap.put("@android:010c0003", "@interpolator/decelerate_cubic");
+        keymap.put("@android:010c0001", "@interpolator/decelerate_quad");
+        keymap.put("@android:010c0005", "@interpolator/decelerate_quint");
+        keymap.put("@android:010c000f", "@interpolator/fast_out_linear_in");
+        keymap.put("@android:010c000d", "@interpolator/fast_out_slow_in");
+        keymap.put("@android:010c000b", "@interpolator/linear");
+        keymap.put("@android:010c000e", "@interpolator/linear_out_slow_in");
+        keymap.put("@android:010c0008", "@interpolator/overshoot");
 
-        //R.layout
+        //R.layout [DONE]
+        keymap.put("@android:01090000", "@layout/activity_list_item");
+        keymap.put("@android:0109000e", "@layout/browser_link_context_header");
+        keymap.put("@android:01090001", "@layout/expandable_list_content");
+        keymap.put("@android:01090014", "@layout/list_content");
+        keymap.put("@android:01090002", "@layout/preference_category");
+        keymap.put("@android:01090011", "@layout/select_dialog_item");
+        keymap.put("@android:01090013", "@layout/select_dialog_multichoice");
+        keymap.put("@android:01090012", "@layout/select_dialog_singlechoice");
+        keymap.put("@android:0109000a", "@layout/simple_dropdown_item_1line");
+        keymap.put("@android:01090006", "@layout/simple_expandable_list_item_1");
+        keymap.put("@android:01090007", "@layout/simple_expandable_list_item_2");
+        keymap.put("@android:0109000b", "@layout/simple_gallery_item");
+        keymap.put("@android:01090003", "@layout/simple_list_item_1");
+        keymap.put("@android:01090004", "@layout/simple_list_item_2");
+        keymap.put("@android:01090016", "@layout/simple_list_item_activated_1");
+        keymap.put("@android:01090017", "@layout/simple_list_item_activated_2");
+        keymap.put("@android:01090005", "@layout/simple_list_item_checked");
+        keymap.put("@android:01090010", "@layout/simple_list_item_multiple_choice");
+        keymap.put("@android:0109000f", "@layout/simple_list_item_single_choice");
+        keymap.put("@android:01090015", "@layout/simple_selectable_list_item");
+        keymap.put("@android:01090009", "@layout/simple_spinner_dropdown_item");
+        keymap.put("@android:01090008", "@layout/simple_spinner_item");
+        keymap.put("@android:0109000c", "@layout/test_list_item");
+        keymap.put("@android:0109000d", "@layout/two_line_list_item");
 
-        //R.menu
+        //R.menu [DONE]
 
         //R.mipmap
+        keymap.put("@android:010d0000", "@layout/sym_def_app_icon");
 
-        //R.plurals
+        //R.plurals [DONE]
 
-        //R.raw
+        //R.raw [DONE]
 
-        //R.string
+        //R.string [DONE]
+        keymap.put("@android:01040010", "@string/VideoView_error_button");
+        keymap.put("@android:01040015", "@string/VideoView_error_text_invalid_progressive_playback");
+        keymap.put("@android:01040011", "@string/VideoView_error_text_unknown");
+        keymap.put("@android:01040012", "@string/VideoView_error_title");
+        keymap.put("@android:01040000", "@string/cancel");
+        keymap.put("@android:01040001", "@string/copy");
+        keymap.put("@android:01040002", "@string/copyUrl");
+        keymap.put("@android:01040003", "@string/cut");
+        keymap.put("@android:01040005", "@string/defaultMsisdnAlphaTag");
+        keymap.put("@android:01040004", "@string/defaultVoiceMailAlphaTag");
+        keymap.put("@android:01040014", "@string/dialog_alert_title");
+        keymap.put("@android:01040006", "@string/emptyPhoneNumber");
+        keymap.put("@android:01040018", "@string/fingerprint_icon_content_description");
+        keymap.put("@android:01040007", "@string/httpErrorBadUrl");
+        keymap.put("@android:01040008", "@string/httpErrorUnsupportedScheme");
+        keymap.put("@android:01040009", "@string/no");
+        keymap.put("@android:0104000a", "@string/ok");
+        keymap.put("@android:0104000b", "@string/paste");
+        keymap.put("@android:01040019", "@string/paste_as_plain_text");
+        keymap.put("@android:0104000c", "@string/search_go");
+        keymap.put("@android:0104000d", "@string/selectAll");
+        keymap.put("@android:01040016", "@string/selectTextMode");
+        keymap.put("@android:01040017", "@string/status_bar_notification_info_overflow");
+        keymap.put("@android:0104000e", "@string/unknownName");
+        keymap.put("@android:0104000f", "@string/untitled");
+        keymap.put("@android:01040013", "@string/yes");
 
         //R.style
 
