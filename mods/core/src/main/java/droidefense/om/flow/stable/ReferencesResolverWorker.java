@@ -72,18 +72,10 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
             data = data.replaceAll(idOriginal, idReversed);
         }
         HashMap<String, String> keymap = new HashMap<>();
-        //R.array
-        keymap.put("@android:01070000", "@array/emailAddressTypes");
-        keymap.put("@android:01070001", "@array/imProtocols");
-        keymap.put("@android:01070002", "@array/organizationTypes");
-        keymap.put("@android:01070003", "@array/phoneTypes");
-        keymap.put("@android:01070004", "@array/postalAddressTypes");
 
-        //R.animator
-        keymap.put("@android:010b0000", "@animator/fade_in");
-        keymap.put("@android:010b0001", "@animator/fade_out");
+        //https://developer.android.com/reference/android/R.html
 
-        //R.anim
+         //R.anim [DONE]
         keymap.put("@android:010a0004", "@anim/accelerate_interpolator");
         keymap.put("@android:010a0005", "@anim/anticipate_interpolator");
         keymap.put("@android:010a0007", "@anim/anticipate_overshoot_interpolator");
@@ -96,8 +88,81 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
         keymap.put("@android:010a000b", "@anim/overshoot_interpolator");
         keymap.put("@android:010a0008", "@anim/slide_in_left");
         keymap.put("@android:010a0002", "@anim/slide_out_right");
-        
-        //r.transition
+
+        //R.animator [DONE]
+        keymap.put("@android:010b0000", "@animator/fade_in");
+        keymap.put("@android:010b0001", "@animator/fade_out");
+
+        //R.array [DONE]
+        keymap.put("@android:01070000", "@array/emailAddressTypes");
+        keymap.put("@android:01070001", "@array/imProtocols");
+        keymap.put("@android:01070002", "@array/organizationTypes");
+        keymap.put("@android:01070003", "@array/phoneTypes");
+        keymap.put("@android:01070004", "@array/postalAddressTypes");
+
+        //R.attr
+
+        //R.bool [DONE]
+
+        //R.color [DONE]
+        keymap.put("@android:0106000e", "@color/background_dark");
+        keymap.put("@android:0106000f", "@color/background_light");
+        keymap.put("@android:0106000c", "@color/black");
+        keymap.put("@android:01060000", "@color/darker_gray");
+        keymap.put("@android:0106001b", "@color/holo_blue_bright");
+        keymap.put("@android:01060013", "@color/holo_blue_dark");
+        keymap.put("@android:01060012", "@color/holo_blue_light");
+        keymap.put("@android:01060015", "@color/holo_green_dark");
+        keymap.put("@android:01060014", "@color/holo_green_light");
+        keymap.put("@android:01060019", "@color/holo_orange_dark");
+        keymap.put("@android:01060018", "@color/holo_orange_light");
+        keymap.put("@android:0106001a", "@color/holo_purple");
+        keymap.put("@android:01060017", "@color/holo_red_dark");
+        keymap.put("@android:01060016", "@color/holo_red_light");
+        keymap.put("@android:01060001", "@color/primary_text_dark");
+        keymap.put("@android:01060002", "@color/primary_text_dark_nodisable");
+        keymap.put("@android:01060003", "@color/primary_text_light");
+        keymap.put("@android:01060004", "@color/primary_text_light_nodisable");
+        keymap.put("@android:01060005", "@color/secondary_text_dark");
+        keymap.put("@android:01060006", "@color/secondary_text_dark_nodisable");
+        keymap.put("@android:01060007", "@color/secondary_text_light");
+        keymap.put("@android:01060008", "@color/secondary_text_light_nodisable");
+        keymap.put("@android:01060009", "@color/tab_indicator_text");
+        keymap.put("@android:01060010", "@color/tertiary_text_dark");
+        keymap.put("@android:01060011", "@color/tertiary_text_light");
+        keymap.put("@android:0106000d", "@color/transparent");
+        keymap.put("@android:0106000b", "@color/white");
+        keymap.put("@android:0106000a", "@color/widget_edittext_dark");
+
+        //R.dimen
+
+        //R.drawable
+
+        //R.fraction
+
+        //R.id
+
+        //R.integer
+
+        //R.interpolar
+
+        //R.layout
+
+        //R.menu
+
+        //R.mipmap
+
+        //R.plurals
+
+        //R.raw
+
+        //R.string
+
+        //R.style
+
+        //R.styleable
+
+        //R.transition [DONE]
         keymap.put("@android:010f0003", "@transation/explode");
         keymap.put("@android:010f0002", "@transation/fade");
         keymap.put("@android:010f0001", "@transation/move");
@@ -106,6 +171,8 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
         keymap.put("@android:010f0007", "@transation/slide_left");
         keymap.put("@android:010f0006", "@transation/slide_right");
         keymap.put("@android:010f0005", "@transation/slide_top");
+
+        //R.xml [DONE]
 
         data = reverseAndroidRefs(data, keymap);
 
