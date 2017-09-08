@@ -2,10 +2,8 @@ language: java
 sudo: false
 jdk:
   - oraclejdk8
-
 os:
   - linux
-
 cache:
   directories:
     - $HOME/.m2
@@ -13,11 +11,11 @@ env:
   global:
     - MAVEN_OPTS="-XX:MaxPermSize=2g -Xmx4g"
     - JAVA_OPTS="-XX:MaxPermSize=2g -Xmx4g"
-    - TRAVIS_CARGO_NIGHTLY_FEATURE=""
-
-before_install: cd mods/core
+before_install:
+  cd mods/core
 install:
-  - mvn test-compile -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - ./build.sh
+  #- mvn test-compile -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
   - mvn test jacoco:report
 after_success:
