@@ -431,7 +431,10 @@ public class Util {
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", String.valueOf(indent));
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", String.valueOf(indent));
             transformer.transform(xmlInput, xmlOutput);
-            return xmlOutput.getWriter().toString();
+            String data = xmlOutput.getWriter().toString();
+            data = data.replaceAll("\"&gt;", "\">");
+            data = data.replaceAll("\"&lt;", "\"<");
+            return data;
         } catch (Exception e) {
             Log.write(LoggerType.ERROR, e.getLocalizedMessage());
             return input;

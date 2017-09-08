@@ -505,29 +505,25 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
         secondaryKeymap.put("android:orientation=\"1\"", "android:orientation=\"portrait\"");
         secondaryKeymap.put("android:orientation=\"2\"", "android:orientation=\"landscape\"");
 
-        //android:orientation="1"
+        secondaryKeymap.put("android:layout_height=\"-2\"", "android:layout_height=\"wrap_content\"");
+        secondaryKeymap.put("android:showAsAction=\"0x00000002\"", "android:showAsAction=\"always\"");
+        secondaryKeymap.put("android:showAsAction=\"0x00000008\"", "android:showAsAction=\"collapse_action_view\"");
+        secondaryKeymap.put("android:showAsAction=\"0x00000001\"", "android:showAsAction=\"if_room\"");
+        secondaryKeymap.put("android:showAsAction=\"0x00000000\"", "android:showAsAction=\"never\"");
+        secondaryKeymap.put("android:showAsAction=\"0x00000004\"", "android:showAsAction=\"with_text\"");
+        secondaryKeymap.put("android:configChanges=\"0x000000A0\"", "android:configChanges=\"0x000000A0\"");
+
         data = reverseAndroidRefs(ANDROID_ID_REGEX, data, secondaryKeymap);
-
-
-        //more remappings
-        /*mapper = new String[]{
-                "android:layout_height=\"-2\"",        "android:layout_height=\"wrap_content\"",
-                "android:showAsAction=\"0x00000002\"", "android:showAsAction=\"SHOW_AS_ACTION_ALWAYS\"",
-                "android:showAsAction=\"0x00000008\"", "android:showAsAction=\"SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW\"",
-                "android:showAsAction=\"0x00000001\"", "android:showAsAction=\"SHOW_AS_ACTION_IF_ROOM\"",
-                "android:showAsAction=\"0x00000000\"", "android:showAsAction=\"SHOW_AS_ACTION_NEVER\"",
-                "android:showAsAction=\"0x00000004\"", "android:showAsAction=\"SHOW_AS_ACTION_WITH_TEXT\"",
-
-                "android:configChanges=\"0x000000A0\"", "android:configChanges=\"0x000000A0\""
-        };*/
-        //data = reverseAndroidRefs(data, mapper);
 
         data = Util.prettyFormatXML(data);
         System.out.println(data);
     }
 
     private String reverseAndroidRefs(String key, String data, HashMap<String, String> db) {
-        List<String> allMatches = new ArrayList<String>();
+
+        String hash;
+
+        List<String> allMatches = new ArrayList<>();
         Matcher m = Pattern.compile(key)
                 .matcher(data);
         while (m.find()) {
@@ -535,7 +531,8 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
         }
         //replace found data
         for (String match : allMatches){
-            String decoded = (db.get(match) !=null) ? db.get(match) : match;
+            hash = match.toLowerCase();
+            String decoded = (db.get(hash) !=null) ? db.get(hash) : match;
             data = data.replaceAll(match, decoded);
         }
         return data;
