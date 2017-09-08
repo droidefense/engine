@@ -135,6 +135,13 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
         keymap.put("@android:0106000a", "@color/widget_edittext_dark");
 
         //R.dimen
+        keymap.put("@android:01050000", "@dimen/app_icon_size");
+        keymap.put("@android:01050003", "@dimen/dialog_min_width_major");
+        keymap.put("@android:01050004", "@dimen/dialog_min_width_minor");
+        keymap.put("@android:01050006", "@dimen/notification_large_icon_height");
+        keymap.put("@android:01050005", "@dimen/notification_large_icon_width");
+        keymap.put("@android:01050001", "@dimen/thumbnail_height");
+        keymap.put("@android:01050002", "@dimen/thumbnail_width");
 
         //R.drawable
 
