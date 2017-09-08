@@ -49,6 +49,11 @@ public class StaticInfo implements Serializable {
      */
     private ArrayList<AbstractHashedFile> defaultFiles;
 
+    /**
+     * List of internal xml files
+     */
+    private transient ArrayList<VirtualFile> xmlFiles;
+
     private AbstractHashedFile certFile;
 
     /**
@@ -343,5 +348,13 @@ public class StaticInfo implements Serializable {
 
     public ArrayList<AbstractHashedFile> getDefaultFiles() {
         return defaultFiles;
+    }
+
+    public ArrayList<VirtualFile> getXmlFiles() {
+        return xmlFiles;
+    }
+
+    public void setXmlFiles(ArrayList<VirtualFile> xmlFiles) {
+        this.xmlFiles = xmlFiles;
     }
 }

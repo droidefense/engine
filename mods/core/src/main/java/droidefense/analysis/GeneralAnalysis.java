@@ -55,7 +55,7 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
                         analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.DYNAMIC_ANALYSIS);
                         currentProject.analyze(analyzer);
 
-                        if (currentProject.isDynamicAnalysisDone() && stophere) {
+                        if (currentProject.isDynamicAnalysisDone()) {
                             //RUN DYNAMIC ANALYSIS PLUGINS
                             analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.DYNAMIC_PLUGIN_ANALYSIS);
                             currentProject.analyze(analyzer);

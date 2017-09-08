@@ -8,6 +8,7 @@ import droidefense.ml.MachineLearningResult;
 import droidefense.om.helper.DexFileStatistics;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.base.struct.model.AndroidRField;
 import droidefense.om.machine.base.struct.model.SharedPool;
 import droidefense.om.machine.reader.DexHeaderReader;
 import droidefense.reporting.AbstractReporter;
@@ -42,7 +43,6 @@ import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.util.JsonStyle;
 import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.vfs.model.impl.VirtualFileSystem;
-import droidefense.vfs.model.impl.VirtualFolder;
 
 import java.io.File;
 import java.io.IOException;
@@ -66,14 +66,17 @@ public final class DroidefenseProject implements Serializable {
      * Virtual file system for sample files
      */
     private transient VirtualFileSystem vfs;
+
     /**
      * Timestamp from creation to end
      */
     private final ExecutionTimer scanTime;
+
     /**
      * Sample info
      */
     private LocalApkFile sample;
+
     /**
      * Currently used analyzers on this .apk
      */
@@ -126,7 +129,12 @@ public final class DroidefenseProject implements Serializable {
     /**
      * Result of opcode data
      */
-    private OpcodeInformation opcodeInfo;
+    private transient OpcodeInformation opcodeInfo;
+
+    /**
+     * Result of decode android.R references
+     */
+    private transient ArrayList<AndroidRField> androidReferences;
 
     /**
      * Natural language summary section
@@ -145,6 +153,7 @@ public final class DroidefenseProject implements Serializable {
     private boolean correctDecoded;
     private boolean staticAnalysisDone;
     private boolean dynamicAnalysisDone;
+
     private transient DexHeaderReader dexHeaderReader;
     private transient IAtomClass[] dynamicEntryPoints;
     private transient HashMap<String, IAtomClass> classMap;
@@ -153,7 +162,6 @@ public final class DroidefenseProject implements Serializable {
     private transient boolean settingAutoOpen;
     private transient String settingsReportType;
     private transient DalvikVM dalvikMachine;
-    //private transient DexHeaderReader dexHeaderReader;
 
     public DroidefenseProject() {
         //create new timestamp now
@@ -846,5 +854,21 @@ public final class DroidefenseProject implements Serializable {
 
     public void setDalvikMachine(DalvikVM dalvikMachine) {
         this.dalvikMachine = dalvikMachine;
+    }
+
+    public void setAndroidReferences(ArrayList<AndroidRField> androidReferences) {
+        this.androidReferences = androidReferences;
+    }
+
+    public ArrayList<AndroidRField> getAndroidReferences() {
+        return androidReferences;
+    }
+
+    public ArrayList<VirtualFile> getXmlFiles() {
+        return this.staticInfo.getXmlFiles();
+    }
+
+    public void setXmlFiles(ArrayList<VirtualFile> xmlFileList) {
+        this.staticInfo.setXmlFiles(xmlFileList);
     }
 }
