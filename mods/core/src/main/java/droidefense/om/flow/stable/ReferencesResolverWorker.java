@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
 
     private static final String ANDROID_R_ID_REGEX = "@android\\:(0x){0,1}([0-9a-zA-Z]{8})";
+    private static final String ANDROID_ID_REGEX = "android\\:([a-zA-Z0-9]+(_[a-zA-Z0-9]+)*)=\"(\\w|\\s|\\d|[-,\\.\\$])*\"";
     private transient ArrayList<AndroidRField> references;
 
     public ReferencesResolverWorker(DroidefenseProject currentProject) {
@@ -148,6 +149,74 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
         //R.fraction [DONE]
 
         //R.id
+        keymap.put("@android:0102003c", "@id/accessibilityActionContextClick");
+        keymap.put("@android:01020042", "@id/accessibilityActionMoveWindow");
+        keymap.put("@android:0102003a", "@id/accessibilityActionScrollDown");
+        keymap.put("@android:01020039", "@id/accessibilityActionScrollLeft");
+        keymap.put("@android:0102003b", "@id/accessibilityActionScrollRight");
+        keymap.put("@android:01020037", "@id/accessibilityActionScrollToPosition");
+        keymap.put("@android:01020038", "@id/accessibilityActionScrollUp");
+        keymap.put("@android:0102003d", "@id/accessibilityActionSetProgress");
+        keymap.put("@android:01020036", "@id/accessibilityActionShowOnScreen");
+        keymap.put("@android:0102002a", "@id/addToDictionary");
+        keymap.put("@android:01020043", "@id/autofill");
+        keymap.put("@android:01020000", "@id/background");
+        keymap.put("@android:01020019", "@id/button1");
+        keymap.put("@android:0102001a", "@id/button2");
+        keymap.put("@android:0102001b", "@id/button3");
+        keymap.put("@android:0102001d", "@id/candidatesArea");
+        keymap.put("@android:01020001", "@id/checkbox");
+        keymap.put("@android:01020027", "@id/closeButton");
+        keymap.put("@android:01020002", "@id/content");
+        keymap.put("@android:01020021", "@id/copy");
+        keymap.put("@android:01020023", "@id/copyUrl");
+        keymap.put("@android:0102002b", "@id/custom");
+        keymap.put("@android:01020020", "@id/cut");
+        keymap.put("@android:01020003", "@id/edit");
+        keymap.put("@android:01020004", "@id/empty");
+        keymap.put("@android:0102001c", "@id/extractArea");
+        keymap.put("@android:01020005", "@id/hint");
+        keymap.put("@android:0102002c", "@id/home");
+        keymap.put("@android:01020006", "@id/icon");
+        keymap.put("@android:01020007", "@id/icon1");
+        keymap.put("@android:01020008", "@id/icon2");
+        keymap.put("@android:0102003e", "@id/icon_frame");
+        keymap.put("@android:01020009", "@id/input");
+        keymap.put("@android:0102001e", "@id/inputArea");
+        keymap.put("@android:01020025", "@id/inputExtractEditText");
+        keymap.put("@android:01020026", "@id/keyboardView");
+        keymap.put("@android:0102000a", "@id/list");
+        keymap.put("@android:0102003f", "@id/list_container");
+        keymap.put("@android:0102002e", "@id/mask");
+        keymap.put("@android:0102000b", "@id/message");
+        keymap.put("@android:01020030", "@id/navigationBarBackground");
+        keymap.put("@android:01020022", "@id/paste");
+        keymap.put("@android:01020031", "@id/pasteAsPlainText");
+        keymap.put("@android:0102000c", "@id/primary");
+        keymap.put("@android:0102000d", "@id/progress");
+        keymap.put("@android:01020033", "@id/redo");
+        keymap.put("@android:01020034", "@id/replaceText");
+        keymap.put("@android:0102000f", "@id/secondaryProgress");
+        keymap.put("@android:0102001f", "@id/selectAll");
+        keymap.put("@android:0102002d", "@id/selectTextMode");
+        keymap.put("@android:0102000e", "@id/selectedIcon");
+        keymap.put("@android:01020035", "@id/shareText");
+        keymap.put("@android:01020028", "@id/startSelectingText");
+        keymap.put("@android:0102002f", "@id/statusBarBackground");
+        keymap.put("@android:01020029", "@id/stopSelectingText");
+        keymap.put("@android:01020010", "@id/summary");
+        keymap.put("@android:01020024", "@id/switchInputMethod");
+        keymap.put("@android:01020040", "@id/switch_widget");
+        keymap.put("@android:01020011", "@id/tabcontent");
+        keymap.put("@android:01020012", "@id/tabhost");
+        keymap.put("@android:01020013", "@id/tabs");
+        keymap.put("@android:01020014", "@id/text1");
+        keymap.put("@android:01020015", "@id/text2");
+        keymap.put("@android:01020041", "@id/textAssist");
+        keymap.put("@android:01020016", "@id/title");
+        keymap.put("@android:01020017", "@id/toggle");
+        keymap.put("@android:01020032", "@id/undo");
+        keymap.put("@android:01020018", "@id/widget_frame");
 
         //R.integer [DONE]
         keymap.put("@android:010e0002", "@integer/config_longAnimTime");
@@ -252,7 +321,19 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
 
         //R.xml [DONE]
 
-        data = reverseAndroidRefs(data, keymap);
+        data = reverseAndroidRefs(ANDROID_R_ID_REGEX, data, keymap);
+
+        HashMap<String, String> secondaryKeymap = new HashMap<>();
+
+        //res/configuration
+        secondaryKeymap.put("android:orientation=\"0\"", "android:orientation=\"undefined\"");
+        secondaryKeymap.put("android:orientation=\"3\"", "android:orientation=\"square\"");
+        secondaryKeymap.put("android:orientation=\"1\"", "android:orientation=\"portrait\"");
+        secondaryKeymap.put("android:orientation=\"2\"", "android:orientation=\"landscape\"");
+
+        //android:orientation="1"
+        data = reverseAndroidRefs(ANDROID_ID_REGEX, data, secondaryKeymap);
+
 
         //more remappings
         /*mapper = new String[]{
@@ -271,9 +352,9 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
         System.out.println(data);
     }
 
-    private String reverseAndroidRefs(String data, HashMap<String, String> db) {
+    private String reverseAndroidRefs(String key, String data, HashMap<String, String> db) {
         List<String> allMatches = new ArrayList<String>();
-        Matcher m = Pattern.compile(ANDROID_R_ID_REGEX)
+        Matcher m = Pattern.compile(key)
                 .matcher(data);
         while (m.find()) {
             allMatches.add(m.group());
