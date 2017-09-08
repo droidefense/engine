@@ -1,7 +1,7 @@
 package droidefense.rulengine.nodes;
 
 import droidefense.rulengine.base.AbstractAtomNode;
-import droidefense.rulengine.map.base.AbstractFlowMap;
+import droidefense.rulengine.base.AbstractFlowMap;
 
 public class FieldNode extends AbstractAtomNode {
 

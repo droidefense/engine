@@ -1,7 +1,5 @@
-package droidefense.rulengine;
+package droidefense.rulengine.base;
 
-import droidefense.rulengine.base.AbstractAtomNode;
-import droidefense.rulengine.base.IDotGraphNode;
 import droidefense.rulengine.nodes.EntryPointNode;
 
 import java.io.Serializable;

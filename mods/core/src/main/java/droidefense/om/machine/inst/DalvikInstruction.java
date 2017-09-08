@@ -1,6 +1,6 @@
 package droidefense.om.machine.inst;
 
-import droidefense.rulengine.map.base.AbstractFlowMap;
+import droidefense.rulengine.base.AbstractFlowMap;
 import droidefense.rulengine.nodes.ConstStrNode;
 import droidefense.rulengine.nodes.FieldNode;
 import droidefense.rulengine.nodes.MethodNode;

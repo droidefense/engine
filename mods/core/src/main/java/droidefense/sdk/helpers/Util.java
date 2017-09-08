@@ -1,9 +1,17 @@
 package droidefense.sdk.helpers;
 
 import com.google.gson.Gson;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.util.JsonStyle;
 
 import javax.activation.MimetypesFileTypeMap;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
@@ -408,5 +416,32 @@ public class Util {
             return loadFileAsString(file);
         }
         throw new IOException("Could not read from specified URL");
+    }
+
+    private static String prettyFormatXML(String input, int indent) {
+        try {
+            Source xmlInput = new StreamSource(new StringReader(input));
+            StringWriter stringWriter = new StringWriter();
+            StreamResult xmlOutput = new StreamResult(stringWriter);
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            transformerFactory.setAttribute("indent-number", indent);
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.DOCTYPE_PUBLIC,"yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", String.valueOf(indent));
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", String.valueOf(indent));
+            transformer.transform(xmlInput, xmlOutput);
+            String data = xmlOutput.getWriter().toString();
+            data = data.replaceAll("\"&gt;", "\">");
+            data = data.replaceAll("\"&lt;", "\"<");
+            return data;
+        } catch (Exception e) {
+            Log.write(LoggerType.ERROR, e.getLocalizedMessage());
+            return input;
+        }
+    }
+
+    public static String prettyFormatXML(String input) {
+        return prettyFormatXML(input, 4);
     }
 }

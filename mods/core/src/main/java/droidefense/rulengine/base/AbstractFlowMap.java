@@ -1,7 +1,7 @@
-package droidefense.rulengine.map.base;
+package droidefense.rulengine.base;
 
-import droidefense.rulengine.NodeConnection;
 import droidefense.rulengine.base.AbstractAtomNode;
+import droidefense.rulengine.base.NodeConnection;
 
 import java.io.Serializable;
 import java.util.ArrayList;

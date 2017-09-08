@@ -1,7 +1,7 @@
 package droidefense.rulengine.nodes;
 
 import droidefense.rulengine.base.AbstractAtomNode;
-import droidefense.rulengine.map.base.AbstractFlowMap;
+import droidefense.rulengine.base.AbstractFlowMap;
 
 /**
  * Created by sergio on 10/4/16.

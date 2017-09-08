@@ -9,6 +9,7 @@ import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.LocalApkFile;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -46,6 +47,8 @@ public enum APKUnpacker {
             int folderCount = 0;
             int filesCount = 0;
             AXMLDecoderHandler decoder = new AXMLDecoderHandler();
+
+            ArrayList<VirtualFile> xmlFileList = new ArrayList<>();
             //todo implement axml, 9.png and resource decoder
             for (VirtualFile file : files) {
                 folderCount += file.isFolder() ? 1 : 0;
@@ -54,6 +57,7 @@ public enum APKUnpacker {
                     Log.write(LoggerType.DEBUG, "Decoding file " + file.getPath());
                     decoder.setFile(file);
                     decoder.doTheJob();
+                    xmlFileList.add(file);
                 }
                 else {
                     Log.write(LoggerType.TRACE, "Skipping " + file.getPath());
@@ -62,6 +66,7 @@ public enum APKUnpacker {
             currentProject.setFolderCount(folderCount);
             currentProject.setFilesCount(filesCount);
             currentProject.setCorrectDecoded(files.size() > 0);
+            currentProject.setXmlFiles(xmlFileList);
             return files;
         }
     };

@@ -1,10 +1,10 @@
 package droidefense.analysis;
 
+import droidefense.rulengine.Rule;
+import droidefense.rulengine.RuleEngine;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.rulengine.map.BasicCFGFlowMap;
-import droidefense.rulengine.rulengine.Rule;
-import droidefense.rulengine.rulengine.RuleEngine;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.FileIOHandler;
 
@@ -47,6 +47,7 @@ public final class RuleAnalysis extends AbstractAndroidAnalysis {
         if (matchedRules != null && !matchedRules.isEmpty()) {
             for (Rule r : matchedRules) {
                 Log.write(LoggerType.INFO, "Matched rule: " + r.getDesc());
+                Log.write(LoggerType.INFO, "Rule details:" + r.toString());
             }
         }
     }

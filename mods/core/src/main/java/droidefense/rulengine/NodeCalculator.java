@@ -15,12 +15,16 @@ public class NodeCalculator {
     }
 
     public static String nodeTypeResolver(String sc) {
-        if (sc.equals("java/lang/Object")) {
-            return "Developer | Generic";
-        } else if (sc.equals("android/database/sqlite/SQLiteOpenHelper")) {
-            return "Developer | Database";
-        } else {
-            return "Developer | " + getClassNameForFullPath(sc);
+        switch (sc) {
+            case "java/lang/Object":
+                return "Developer | Generic";
+            case "android/app/Activity":
+            case "android/app/AppCompatActivity":
+                return "Activity";
+            case "android/database/sqlite/SQLiteOpenHelper":
+                return "Developer | Database";
+            default:
+                return "Developer | " + getClassNameForFullPath(sc);
         }
     }
 }

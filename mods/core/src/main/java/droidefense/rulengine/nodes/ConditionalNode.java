@@ -1,7 +1,7 @@
 package droidefense.rulengine.nodes;
 
 import droidefense.rulengine.base.AbstractAtomNode;
-import droidefense.rulengine.map.base.NodeCondition;
+import droidefense.rulengine.base.NodeCondition;
 
 public class ConditionalNode extends AbstractAtomNode {
 

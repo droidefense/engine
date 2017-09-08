@@ -1,5 +1,7 @@
 package droidefense.om.handlers;
 
+import droidefense.om.flow.experimental.BasicControlFlowGraphWorker;
+import droidefense.om.flow.experimental.FollowCallsControlFlowGraphWorker;
 import droidefense.om.flow.stable.OpCodeCheckerWorker;
 import droidefense.om.flow.stable.ReferencesResolverWorker;
 import droidefense.sdk.log4j.Log;
@@ -42,10 +44,10 @@ public class VMWorkersHandler extends AbstractHandler {
                 worklist.add(new ReferencesResolverWorker(currentProject));
 
                 //normal model generator
-                //worklist.add(new BasicControlFlowGraphWorker(currentProject));
+                worklist.add(new BasicControlFlowGraphWorker(currentProject));
 
                 //follow model generator
-                //worklist.add(new FollowCallsControlFlowGraphWorker(currentProject));
+                worklist.add(new FollowCallsControlFlowGraphWorker(currentProject));
 
                 //reflection solver model generator
                 //worklist.add(new ReflectionControlFlowGraphWorker(currentProject));
