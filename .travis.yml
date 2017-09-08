@@ -11,12 +11,7 @@ env:
   global:
     - MAVEN_OPTS="-XX:MaxPermSize=2g -Xmx4g"
     - JAVA_OPTS="-XX:MaxPermSize=2g -Xmx4g"
-before_install:
-  cd mods/core
-install:
-  - ./build.sh
-  #- mvn test-compile -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
-  - mvn test jacoco:report
+  - ./build.sh
 after_success:
   - mvn coveralls:report
