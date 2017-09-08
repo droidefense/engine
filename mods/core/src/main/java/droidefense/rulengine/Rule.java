@@ -1,4 +1,4 @@
-package droidefense.rulengine.rulengine;
+package droidefense.rulengine;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package droidefense.rulengine.map.base;
+package droidefense.rulengine.base;
 
 public interface NodeCondition {
 

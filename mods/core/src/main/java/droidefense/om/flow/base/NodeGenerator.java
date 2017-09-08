@@ -6,7 +6,7 @@ import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.om.machine.inst.DalvikInstruction;
-import droidefense.rulengine.map.base.AbstractFlowMap;
+import droidefense.rulengine.base.AbstractFlowMap;
 import droidefense.rulengine.nodes.ConstStrNode;
 import droidefense.rulengine.nodes.FieldNode;
 import droidefense.rulengine.nodes.MethodNode;

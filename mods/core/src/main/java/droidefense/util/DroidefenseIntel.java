@@ -1,6 +1,11 @@
 package droidefense.util;
 
+import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.base.struct.generic.IAtomMethod;
+import droidefense.om.machine.reader.DexClassReader;
+import droidefense.om.machine.reader.DexClassReader2;
 import droidefense.rulengine.base.AbstractAtomNode;
+import droidefense.sdk.helpers.Util;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
@@ -13,6 +18,8 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashSet;
+
+import static droidefense.rulengine.NodeCalculator.nodeTypeResolver;
 
 /**
  * Created by sergio on 3/2/16.
@@ -606,30 +613,30 @@ public class DroidefenseIntel implements Serializable {
     }
 
     //http://www.graphviz.org/doc/info/colors.html
-    public String classifyNodeColor(String fullClassName, String methodName, AbstractAtomNode node) {
+    public String classifyNodeColor(String fullClassName, AbstractAtomNode node) {
         boolean innerClass = fullClassName.contains("$");
         if (isAndroidNative(fullClassName)) {
             //android native class
             if (innerClass) {
-                return "gray86";
+                return "antiquewhite2";
             } else {
-                return "gray58";
+                return "antiquewhite3";
             }
         } else {
             String type = node.getType();
-            if (type.equals("Developer | InnerClass")) {
-                return "gold";
-            } else if (
-                    type.equals("Developer | Activity")
-                            || type.equals("Developer | AppCompatActivity")
-                    ) {
-                return "chartreuse1";
-            } else if (type.equals("Developer | Service")) {
-                return "orangered";
-            } else if (type.equals("Developer | BroadcastReceiver")) {
-                return "firebrick1";
-            } else {
-                return "deepskyblue";
+            //http://www.graphviz.org/doc/info/colors.html
+            switch (type) {
+                case "Developer | InnerClass":
+                    return "gold";
+                case "Developer | Activity":
+                case "Developer | AppCompatActivity":
+                    return "chartreuse1";
+                case "Developer | Service":
+                    return "orangered";
+                case "Developer | BroadcastReceiver":
+                    return "firebrick1";
+                default:
+                    return "deepskyblue";
             }
         }
     }
@@ -638,9 +645,7 @@ public class DroidefenseIntel implements Serializable {
         return DEFAULT_APP_FILES_MAP.contains(sha256);
     }
 
-    //TODO enable when droidefense.droidefense.om added
-    /*
-    public String classifyNode(IAtomMethod method, String fullClassName, String methodName) {
+    public String classifyNode(String fullClassName) {
 
         if (isAndroidNative(fullClassName)) {
             return "Android | SDK";
@@ -651,13 +656,13 @@ public class DroidefenseIntel implements Serializable {
             return "Developer | InnerClass";
         } else {
 
-            IAtomClass owner = method.getOwnerClass();
+            IAtomClass owner = DexClassReader2.getInstance().load(fullClassName);
             String sc;
             sc = owner.getSuperClass();
 
             if (owner.isFake()) {
                 //set the type of holding class
-                IAtomClass cls = DexClassReader.getInstance().load(owner.getName());
+                IAtomClass cls = DexClassReader2.getInstance().load(owner.getName());
                 return nodeTypeResolver(cls.getSuperClass());
             } else {
                 return nodeTypeResolver(sc);
@@ -678,5 +683,4 @@ public class DroidefenseIntel implements Serializable {
             return Util.getClassNameForFullPath(sc);
         }
     }
-    */
 }

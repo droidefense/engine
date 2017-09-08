@@ -1,6 +1,6 @@
 package droidefense.sdk.model.holder;
 
-import droidefense.rulengine.rulengine.Rule;
+import droidefense.rulengine.Rule;
 
 import java.io.Serializable;
 import java.util.ArrayList;

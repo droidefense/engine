@@ -1,8 +1,8 @@
 package droidefense.rulengine.map;
 
-import droidefense.rulengine.NodeConnection;
 import droidefense.rulengine.base.AbstractAtomNode;
-import droidefense.rulengine.map.base.AbstractFlowMap;
+import droidefense.rulengine.base.NodeConnection;
+import droidefense.rulengine.base.AbstractFlowMap;
 import droidefense.rulengine.nodes.EntryPointNode;
 
 import java.util.ArrayList;

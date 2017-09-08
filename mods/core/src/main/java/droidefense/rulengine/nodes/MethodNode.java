@@ -1,7 +1,8 @@
 package droidefense.rulengine.nodes;
 
 import droidefense.rulengine.base.AbstractAtomNode;
-import droidefense.rulengine.map.base.AbstractFlowMap;
+import droidefense.rulengine.base.AbstractFlowMap;
+import droidefense.util.DroidefenseIntel;
 
 public class MethodNode extends AbstractAtomNode {
 
@@ -107,20 +108,16 @@ public class MethodNode extends AbstractAtomNode {
     public String getNodeLabel() {
         //get node label
         String dotName = methodName;
-        if (methodName.endsWith("<init>")) {
-            dotName = "new " + methodName;
-        } else if (methodName.endsWith("<clinit>")) {
-            dotName = "new " + methodName; //Util.getClassNameForFullPath(getClassName());
+        String nodeType = "type";
+        if (methodName.equals("<init>") || methodName.equals("<clinit>")) {
+            dotName = "new "+this.getSimpleClassName();
         } else {
-            dotName = "'"+methodName+"'";
+            dotName = methodName;
         }
-        //String nodeType = ApkrIntelligence.getInstance().classifyNode(method, getClassName(), getMethodName());
-        //setType(nodeType);
-        //String color = ApkrIntelligence.getInstance().classifyNodeColor(getClassName(), getMethodName(), this);
+        nodeType = DroidefenseIntel.getInstance().classifyNode(getClassName());
+        setType(nodeType);
+        String color = DroidefenseIntel.getInstance().classifyNodeColor(getClassName(), this);
 
-        //Todo fix node type and color
-        String color = "blue";
-        String nodeType = className;
         /*if(args!=null && args.length()>0)
             return nodeType+" | "+Util.quote(getClassName())+" |"+Util.quote(getMethodName())+"|"+args;
         else
@@ -135,6 +132,15 @@ public class MethodNode extends AbstractAtomNode {
                         "<tr><td port=\"port4\" border=\"1\">" + arguments + "</td></tr>" +
                         "</table>>";
         return html;
+    }
+
+    private String getSimpleClassName() {
+        String name = this.className;
+        if(className.contains("/")){
+            String[] splitted = name.split("/");
+            return splitted[splitted.length-1];
+        }
+        return name;
     }
 
     @Override
