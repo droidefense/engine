@@ -20,9 +20,6 @@ public final class AndroidDynamicAnalysis extends AbstractAndroidAnalysis {
 
         Log.write(LoggerType.TRACE, "\n\n --- Running Droidefense dynamic analysis ---\n\n");
 
-        //dex file list
-        ArrayList<AbstractHashedFile> list = currentProject.getDexList();
-
         //run dex file statistics handler
         AbstractHandler handler = new DexMetadataHandler(currentProject);
         executionSuccessful &= handler.doTheJob();

@@ -1,6 +1,0 @@
-#description: This application is able to create system PIPES;
-#author: @zerjioang;
-#date: 29/12/2016;
-#family: System;
-#variant: shell;
-#rule: Object.ANY > android/os/ParcelFileDescriptor.createPipe;

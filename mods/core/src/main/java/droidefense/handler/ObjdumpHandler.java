@@ -30,30 +30,31 @@ public class ObjdumpHandler extends AbstractHandler {
         Log.write(LoggerType.TRACE, "Dumping .so file content...");
 
         String path = null;
+        File exec = null;
+
+        //linux found
+        boolean isLinux = false;
 
         if (OSDetection.isMacOSX()) {
-            path = FileIOHandler.getRuleEngineDir().getAbsolutePath() + File.separator + "mac" + File.separator + "bin" + File.separator + "objdump";
+            path = FileIOHandler.getToolsDir().getAbsolutePath() + File.separator + "mac" + File.separator + "bin" + File.separator + "objdump";
+            exec = new File(path);
         } else if (OSDetection.isUnix()) {
-            path = FileIOHandler.getRuleEngineDir().getAbsolutePath() + File.separator + "nix" + File.separator + "bin" + File.separator + "objdump";
+            isLinux = true;
+            path = "objdump";
         } else if (OSDetection.isWindows()) {
-            path = FileIOHandler.getRuleEngineDir().getAbsolutePath() + File.separator + "win" + File.separator + "bin" + File.separator + "objdump.exe";
+            path = FileIOHandler.getToolsDir().getAbsolutePath() + File.separator + "win" + File.separator + "bin" + File.separator + "objdump.exe";
+            exec = new File(path);
         } else {
             path = null;
         }
 
-        if (path != null) {
-            File exec = new File(path);
-            if (exec.exists()) {
+        if(isLinux){
+            runObjdump(path);
+        }
+        else{
+            if (exec!=null && exec.exists() ) {
                 if (exec.canExecute()) {
-                    for (AbstractHashedFile r : list) {
-                        String params = "-archive-header -c -D –file-header –debugging –stabs –help –info –private-headers –prefix-addresses –reloc –dynamic-reloc –full-contents –source –all-headers –disassemble-zeroes";
-                        String command = path + " " + params + " " + r.getAbsolutePath();
-                        try {
-                            FileIOHandler.callSystemExec(command);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                    runObjdump(path);
                 } else {
                     error = new IllegalArgumentException("Dumper can not be executed.");
                 }
@@ -63,6 +64,18 @@ public class ObjdumpHandler extends AbstractHandler {
         }
         Log.write(LoggerType.TRACE, "OBJDUMP finished!");
         return path == null;
+    }
+
+    private void runObjdump(String path) {
+        for (AbstractHashedFile r : list) {
+            String params = "-archive-header -c -D –file-header –debugging –stabs –help –info –private-headers –prefix-addresses –reloc –dynamic-reloc –full-contents –source –all-headers –disassemble-zeroes";
+            String command = path + " " + params + " " + r.getAbsolutePath();
+            try {
+                FileIOHandler.callSystemExec(command);
+            } catch (IOException e) {
+                Log.write(LoggerType.ERROR, e.getLocalizedMessage());
+            }
+        }
     }
 
     public ArrayList<AbstractHashedFile> getList() {

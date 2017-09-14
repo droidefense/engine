@@ -1,6 +1,0 @@
-#description: This application reads your device's SIM information, specifically, your network provider name;
-#author: @zerjioang;
-#date: 29/12/2016;
-#family: Device;
-#variant: info;
-#rule: Object.ANY > android/telephony/TelephonyManager.getNetworkOperatorName;

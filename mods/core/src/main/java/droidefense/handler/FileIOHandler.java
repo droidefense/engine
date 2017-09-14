@@ -307,11 +307,11 @@ public class FileIOHandler {
     }
 
     public static File getRuleEngineDir() {
-        return new File(DroidDefenseParams.getInstance().RULE_FOLDER);
+        return new File(DroidDefenseParams.getInstance().RESOURCE_FOLDER + File.separator + DroidDefenseParams.getInstance().RULE_FOLDER);
     }
 
     public static File getToolsDir() {
-        return new File(getBaseDirPath() + File.separator + "resources" + File.separator + "tools");
+        return new File(DroidDefenseParams.getInstance().RESOURCE_FOLDER + File.separator + "tools");
     }
 
     public static File getModelsDir() {

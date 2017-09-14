@@ -36,10 +36,6 @@ public class AndroidManifestParser extends AbstractFileParser {
                 defineMainClass(externalParser);
                 defineCompatibilityWindow();
             }
-        } catch (ParserConfigurationException e) {
-            Log.write(LoggerType.ERROR, e.getLocalizedMessage());
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             Log.write(LoggerType.ERROR, e.getLocalizedMessage());
         }

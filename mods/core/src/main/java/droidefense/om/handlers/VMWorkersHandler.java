@@ -29,13 +29,10 @@ public class VMWorkersHandler extends AbstractHandler {
     public boolean doTheJob() {
         //create VM
         DalvikVM vm = currentProject.getDalvikMachine();
-
         boolean successReading = currentProject.isDexFileReaded();
-
         if (successReading) {
             try {
                 ArrayList<AbstractDVMThread> worklist = new ArrayList<>();
-
                 //add workes to run
                 //opcode analysis
                 worklist.add(new OpCodeCheckerWorker(currentProject));
@@ -47,7 +44,7 @@ public class VMWorkersHandler extends AbstractHandler {
                 worklist.add(new BasicControlFlowGraphWorker(currentProject));
 
                 //follow model generator
-                worklist.add(new FollowCallsControlFlowGraphWorker(currentProject));
+                //worklist.add(new FollowCallsControlFlowGraphWorker(currentProject));
 
                 //reflection solver model generator
                 //worklist.add(new ReflectionControlFlowGraphWorker(currentProject));

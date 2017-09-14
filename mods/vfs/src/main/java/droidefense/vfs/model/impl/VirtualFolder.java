@@ -30,9 +30,8 @@ public class VirtualFolder extends VirtualNode {
 
     private VirtualFolder getFolder(String name) {
         ArrayList<VirtualFolder> list = getFolderList();
-        for(int i=0; i<list.size(); i++){
-            VirtualFolder item = list.get(i);
-            if(item.getName().equals(name))
+        for (VirtualFolder item : list) {
+            if (item.getName().equals(name))
                 return item;
         }
         return null;
@@ -41,9 +40,8 @@ public class VirtualFolder extends VirtualNode {
     private ArrayList<VirtualFolder> getFolderList() {
         ArrayList<VirtualFolder> list = new ArrayList<>();
         ArrayList<IVirtualNode> content = getItemList();
-        for(int i=0; i<content.size(); i++){
-            IVirtualNode item = content.get(i);
-            if(item.getType()== VirtualNodeType.FOLDER)
+        for (IVirtualNode item : content) {
+            if (item.getType() == VirtualNodeType.FOLDER)
                 list.add((VirtualFolder) item);
         }
         return list;
@@ -52,9 +50,8 @@ public class VirtualFolder extends VirtualNode {
     private ArrayList<VirtualFile> getFileList() {
         ArrayList<VirtualFile> list = new ArrayList<>();
         ArrayList<IVirtualNode> content = getItemList();
-        for(int i=0; i<content.size(); i++){
-            IVirtualNode item = content.get(i);
-            if(item.getType()== VirtualNodeType.FILE)
+        for (IVirtualNode item : content) {
+            if (item.getType() == VirtualNodeType.FILE)
                 list.add((VirtualFile) item);
         }
         return list;
@@ -62,10 +59,10 @@ public class VirtualFolder extends VirtualNode {
 
     private VirtualFolder(VirtualFolder parentFolder, String name) {
         super(parentFolder, name);
-        itemsInside = new ArrayList<>();
+        this.itemsInside = new ArrayList<>();
         parentFolder.addAsFolderFile(this);
         parentFolder.setVirtualFoldersInside(parentFolder.getVirtualFoldersInside()+1);
-        itemsInsideSize = 0;
+        this.itemsInsideSize = 0;
     }
 
     private VirtualFolder(String name) {
@@ -92,10 +89,9 @@ public class VirtualFolder extends VirtualNode {
 
     @Override
     public String toString() {
-        String sb = "VirtualNode{" + "parentNode=" + parentNode +
+        return "VirtualNode{" + "parentNode=" + parentNode +
                 ", name='" + name + '\'' +
                 '}';
-        return sb;
     }
 
     @Override
@@ -135,8 +131,12 @@ public class VirtualFolder extends VirtualNode {
 
     public void addAsFolderFile(IVirtualNode virtualFile) {
         if (virtualFile != null) {
-            itemsInside.add(virtualFile);
-            itemsInsideSize += virtualFile.estimatedInMemorySize();
+            this.itemsInside.add(virtualFile);
+            this.itemsInsideSize += virtualFile.estimatedInMemorySize();
+            //increment also parent node
+            if( this.parentNode!=null && this.parentNode.isFolder() ){
+                ((VirtualFolder) this.parentNode).addAsFolderFile(virtualFile);
+            }
         }
     }
 
@@ -157,9 +157,8 @@ public class VirtualFolder extends VirtualNode {
     @Override
     public IVirtualNode getItem(String name) {
         ArrayList<VirtualFile> list = getFileList();
-        for(int i=0; i<list.size();i++){
-            VirtualFile item = list.get(i);
-            if(item.getName().equals(name))
+        for (VirtualFile item : list) {
+            if (item.getName().equals(name))
                 return item;
         }
         return null;
@@ -171,9 +170,8 @@ public class VirtualFolder extends VirtualNode {
 
     public VirtualFile getFile(String name) {
         ArrayList<VirtualFile> list = getFileList();
-        for(int i=0; i<list.size(); i++){
-            VirtualFile item = list.get(i);
-            if(item.getName().equals(name))
+        for (VirtualFile item : list) {
+            if (item.getName().equals(name))
                 return item;
         }
         return null;

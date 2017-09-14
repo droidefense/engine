@@ -1,5 +1,6 @@
 package droidefense.batch.helper;
 
+import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.model.io.AbstractHashedFile;
 
@@ -34,7 +35,7 @@ public enum DirectoryFilter {
 
         @Override
         public String getResultName() {
-            return InternalConstant.JAVA_SDK_CLASS_HASHSET_NAME;
+            return DroidDefenseParams.getInstance().JAVA_SDK_CLASS_HASHSET_NAME;
         }
     },
 
@@ -58,7 +59,7 @@ public enum DirectoryFilter {
 
         @Override
         public String getResultName() {
-            return InternalConstant.ANDROID_SDK_CLASS_HASHSET_NAME;
+            return DroidDefenseParams.getInstance().ANDROID_SDK_CLASS_HASHSET_NAME;
         }
     },
 
@@ -86,7 +87,7 @@ public enum DirectoryFilter {
 
         @Override
         public String getResultName() {
-            return InternalConstant.ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME;
+            return DroidDefenseParams.getInstance().ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME;
         }
     },
 

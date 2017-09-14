@@ -1,6 +1,0 @@
-#description: Get Information from Installed Applications;
-#author: @zerjioang;
-#date: 29/12/2016;
-#family: Generic;
-#variant: Profiling;
-#rule: Object.ANY > android/content/pm/PackageManager.getApplicationInfo;

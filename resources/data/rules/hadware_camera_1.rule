@@ -1,6 +1,0 @@
-#description: Re-locks the camera to prevent other processes from accessing it.;
-#author: @zerjioang;
-#date: 29/12/2016;
-#family: SMS;
-#variant: Leak;
-#rule: Object.ANY > android/hardware/Camera.lock;

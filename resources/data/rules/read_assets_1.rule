@@ -1,6 +1,0 @@
-#description: Read assets;
-#author: @zerjioang;
-#date: 29/12/2016;
-#family: Generic;
-#variant: Profiling;
-#rule: Object.onHandleIntent > android/content/Context.getAssets

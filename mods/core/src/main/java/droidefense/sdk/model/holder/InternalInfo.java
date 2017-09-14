@@ -45,7 +45,9 @@ public class InternalInfo implements Serializable {
     }
 
     public void cleanup() {
-        this.dexContentList.cleanup();
+        if(this.dexContentList != null){
+            this.dexContentList.cleanup();
+        }
     }
 
     public IAtomClass[] getDynamicEntryPoints() {

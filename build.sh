@@ -3,6 +3,8 @@ echo " ########################################## "
 echo ' Building droidefense from current version'
 echo " ########################################## "
 
+base=$(pwd)
+
 cd mods/core
 mvn clean install
 
@@ -10,9 +12,12 @@ echo " ######################################## "
 echo " Building Command Line Tools..."
 echo " ######################################## "
 
-cd ../cli
+cd $base
+cd mods/cli
 mvn clean install -P debug
-cd  ../../dist/debug
+
+cd $base
+cd dist/debug
 
 echo " ######################################## "
 echo " Cleaning old files..."
@@ -26,20 +31,25 @@ echo " ######################################## "
 echo " Creating 'droidefense' alias..."
 echo " ######################################## "
 
-now=$(pwd)
+cd $base
+version='dist/debug'
+cd $version
+
 jarname=$(ls *jar)
-echo $now/$jarname
+path=$base'/'$version/$jarname
+echo $path
 echo "Creating alias"
-aliasName="'java -jar "$now"/"$jarname"'"
-echo "ALIAS: " $aliasName
+aliasName="'java -jar "$path"'"
+echo "alias content: " $aliasName
 cmd='alias droidefense='$aliasName
 
 echo "Deleting previous droidefense alias..."
 awk '!/droidefense/' ~/.bashrc > ~/.bashrc.temp && mv ~/.bashrc.temp ~/.bashrc
 
 echo "Updating droidefense alias..."
+echo "new alias value: "$cmd
 echo $cmd >> ~/.bashrc
-$cmd
+eval $cmd
 
 echo "Content written in ~/.bashrc"
 cat ~/.bashrc | grep droidefense

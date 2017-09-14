@@ -79,7 +79,7 @@ public class FileUnzipVFSHandler extends AbstractHandler {
             vfs.add(ROOT_FOLDER, root);
             project.setVFS(vfs);
             Log.write(LoggerType.DEBUG, "Virtual file system created");
-            vfs.info();
+            //vfs.info(); //only show if verbose is true
             return true;
         } catch (FileNotFoundException e) {
             error = e;

@@ -24,7 +24,7 @@ public final class RuleAnalysis extends AbstractAndroidAnalysis {
     @Override
     public boolean analyze() {
         Log.write(LoggerType.TRACE, "\n\n --- Running Droidefense rule droidefense.droidefense.om analysis ---\n\n");
-        log("loading droidefense.droidefense.om rules", 0);
+        log("loading droidefense rules", 0);
         log("Current rules: " + engine.getRuleCount(), 1);
         log("Preparing to scan...", 1);
         BasicCFGFlowMap flowmap = currentProject.getNormalControlFlowMap();

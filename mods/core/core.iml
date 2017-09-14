@@ -13,9 +13,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="axml" />
-    <orderEntry type="library" name="Maven: com.droidefense:memapktool:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="memapktool" />
+    <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.2" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
-    <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.4" level="project" />
     <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.11" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.4" level="project" />
     <orderEntry type="library" name="Maven: com.beust:jcommander:1.58" level="project" />
@@ -25,9 +25,10 @@
     <orderEntry type="module" module-name="vfs" />
     <orderEntry type="library" name="Maven: com.droidefense:generator:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.26-incubating" level="project" />
-    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-api:5.0.0-RC3" level="project" />
-    <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.0.0-RC1" level="project" />
-    <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.0.0-RC3" level="project" />
+    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-api:5.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apiguardian:apiguardian-api:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: com.droidefense:manparser:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.droidefense:ssdeep:1.0-SNAPSHOT" level="project" />
     <orderEntry type="module" module-name="entropy" />

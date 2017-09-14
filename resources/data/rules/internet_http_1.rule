@@ -1,6 +1,0 @@
-#description: This application is able to receive data using HTTP and it also is able to get its content;
-#author: @zerjioang;
-#date: 29/12/2016;
-#family: HTTP;
-#variant: streams;
-#rule: Object.ANY > org/apache/http/HttpResponse.getEntity > org/apache/http/HttpEntity.getContent;

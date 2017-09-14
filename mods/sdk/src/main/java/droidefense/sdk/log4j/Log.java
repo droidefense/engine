@@ -19,10 +19,14 @@ public class Log extends HashMap<String, LoggerType> implements Serializable {
     }
 
     public static void write(LoggerType type, Object... oarray) {
-        LoggerType selectedLogger = instance.get(type.name());
-        if (selectedLogger != null) {
-            for (Object o : oarray)
-                selectedLogger.log(o);
+        boolean alwaysPrintsErrors = type == LoggerType.ERROR || type == LoggerType.FATAL;
+        if( isVerboseEnabled() || alwaysPrintsErrors) {
+            //verbose enabled, print it
+            LoggerType selectedLogger = instance.get(type.name());
+            if (selectedLogger != null) {
+                for (Object o : oarray)
+                    selectedLogger.log(o);
+            }
         }
     }
 

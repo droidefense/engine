@@ -1,6 +1,0 @@
-#description: This application open a Socket stream.
-#author: @zerjioang;
-#date: 29/12/2016;
-#family: Crypto;
-#variant: usage;
-#rule: Object.ANY > java/net/Socket.getInputStream

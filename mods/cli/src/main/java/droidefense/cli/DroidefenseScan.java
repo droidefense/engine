@@ -21,7 +21,6 @@ import java.io.File;
 
 public class DroidefenseScan {
 
-    private static boolean init;
     private DroidefenseOptions options;
     private DroidefenseProject project;
 
@@ -91,7 +90,7 @@ public class DroidefenseScan {
         //read user selected .apk
         if (cmd.hasOption("input")) {
             //initialize environment first
-            init = loadEnvironment();
+            boolean init = loadEnvironment();
             if (!init) {
                 Log.write(LoggerType.FATAL, "Droidefense initialization error");
                 return;
