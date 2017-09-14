@@ -7,7 +7,7 @@ import java.io.IOException;
 public class StringBlock {
 
     private static final int CHUNK_TYPE = 1835009;
-    private static final String RETURN_ON_WRONG_OFFSET = "error";
+    private static final String RETURN_ON_WRONG_OFFSET = "";
     private int[] m_stringOffsets;
     private int[] m_strings;
     private int[] m_styleOffsets;
@@ -15,7 +15,7 @@ public class StringBlock {
 
 
     public static StringBlock read(IntReader reader) throws IOException {
-        ChunkUtil.readCheckType(reader, 1835009);
+        ChunkUtil.readCheckType(reader, CHUNK_TYPE);
         int chunkSize = reader.readInt();
         int stringCount = reader.readInt();
         int styleOffsetCount = reader.readInt();

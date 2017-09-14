@@ -1,11 +1,12 @@
 package droidefense.sdk.model.holder;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  * Created by .local on 23/11/2016.
  */
-public class StringInfo {
+public class StringInfo implements Serializable{
     private int initialLength;
     private HashMap<String, String> classified;
     private int irrelevant;
@@ -38,7 +39,7 @@ public class StringInfo {
         this.initialLength = initialLength;
     }
 
-    public HashMap getClassified() {
+    public HashMap<String, String> getClassified() {
         return classified;
     }
 

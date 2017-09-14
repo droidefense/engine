@@ -19,11 +19,7 @@ public class ManifestCheckerPlugin extends AbstractStaticPlugin {
 
     @Override
     protected void postExecute() {
-        if (positiveMatch) {
-            this.html = "";
-        } else {
-            this.html = "";
-        }
+
     }
 
     @Override

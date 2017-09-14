@@ -29,8 +29,6 @@ public final class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
     @Override
     public boolean analyze() {
         executionSuccessful = false;
-        //set current currentProject
-        currentProject = DroidefenseProject.getProject(apkFile);
         Log.write(LoggerType.TRACE, "\n\n --- Running Android static plugin analysis ---\n\n");
         File plFolder = FileIOHandler.getStaticPluginsFolderFile();
         if (plFolder.exists()) {
@@ -46,7 +44,11 @@ public final class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
                 //run each plugin in a different thread
                 String pluginName = plugin.getName();
                 if (pluginName.endsWith(InternalConstant.COMPILED_JAVA_EXTENSION)) {
+                    System.out.println();
+                    Log.write(LoggerType.TRACE, " ######## PLUGIN ########");
                     Log.write(LoggerType.TRACE, plugin.getAbsolutePath());
+                    Log.write(LoggerType.TRACE, " ######## PLUGIN ########");
+                    System.out.println();
                     Class aClass;
                     try {
                         ClassLoader classLoader = this.getClass().getClassLoader();
@@ -61,7 +63,7 @@ public final class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
                         //add result to currentProject
                         currentProject.addStaticPlugin(staticPlugin);
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        Log.write(LoggerType.FATAL, "Fatal error while executing external plugin", e.getLocalizedMessage());
                         addError(e);
                     }
                 } else {

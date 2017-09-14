@@ -688,4 +688,22 @@ public class DroidefenseIntel implements Serializable {
             return Util.getClassNameForFullPath(sc);
         }
     }
+
+    public IAtomClass getParentClass(IAtomClass target){
+
+        if(target.isFake()){
+            return target;
+        }
+
+        String superClassname = null;
+        IAtomClass owner = null;
+        do{
+            superClassname = target.getSuperClass();
+            if(superClassname!=null){
+                owner = DexClassReader2.getInstance().load(superClassname);
+                superClassname = owner.getSuperClass();
+            }
+        }while (owner!=null && owner.getSuperClass()!=null && !owner.isFake());
+        return owner;
+    }
 }

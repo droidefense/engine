@@ -21,12 +21,10 @@ public abstract class PluginAnalysis implements Serializable {
     protected ProcessStatus status;
     protected ExecutionTimer timeStamp;
     protected transient LocalApkFile apk;
-    protected String html;
     protected String pluginName;
 
     public PluginAnalysis() {
         this.pluginName = getPluginName();
-        html = "";
     }
 
     public void log(Object o, int level) {
@@ -45,9 +43,5 @@ public abstract class PluginAnalysis implements Serializable {
 
     protected String getResultAsJson() {
         return Util.toJson(this, JsonStyle.JSON_COMPRESSED);
-    }
-
-    protected String getResultAsHTML() {
-        return html;
     }
 }

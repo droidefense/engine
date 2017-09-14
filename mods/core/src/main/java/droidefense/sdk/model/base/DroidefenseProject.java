@@ -788,8 +788,7 @@ public final class DroidefenseProject implements Serializable {
     }
 
     public String[] getInternalStrings() {
-        //todo
-        return null;
+        return this.internalInfo.getStrings();
     }
 
     public void addDexBodyModel(DexBodyModel dexBodyModel) {

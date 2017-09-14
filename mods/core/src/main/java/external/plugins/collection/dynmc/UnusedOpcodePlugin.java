@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class UnusedOpcodePlugin extends AbstractDynamicPlugin {
 
-    private static final int THRESHOLD_INSTRUCTIONS = 3;
+    private static final int THRESHOLD_INSTRUCTIONS = 0;
     private transient ArrayList<Integer> opcodesTypes;
     private int unusedCount;
 
@@ -46,29 +46,10 @@ public class UnusedOpcodePlugin extends AbstractDynamicPlugin {
 
     @Override
     protected void postExecute() {
-        if (positiveMatch) {
-            this.html = "<div class=\"info-box\">" +
-                    "<span class=\"info-box-icon bg-red\"><i id=\"plugin-icon\"class=\"fa fa-flag-o\"></i></span>" +
-                    "<div class=\"info-box-content\">" +
-                    "<span class=\"info-box-text\" id=\"plugin-name\">" + getPluginName() + "</span>" +
-                    "<span class=\"info-box-number\" id=\"plugin-result\">Detected " + unusedCount + " unused opcodes (TR=" + THRESHOLD_INSTRUCTIONS + ")</span>" +
-                    "</div>" +
-                    "<!-- /.info-box-content -->" +
-                    "</div>";
-        } else {
-            this.html = "<div class=\"info-box\">" +
-                    "<span class=\"info-box-icon bg-green\"><i id=\"plugin-icon\"class=\"fa fa-flag-o\"></i></span>" +
-                    "<div class=\"info-box-content\">" +
-                    "<span class=\"info-box-text\" id=\"plugin-name\">" + getPluginName() + "</span>" +
-                    "<span class=\"info-box-number\" id=\"plugin-result\">No unused opcode detected</span>" +
-                    "</div>" +
-                    "<!-- /.info-box-content -->" +
-                    "</div>";
-        }
     }
 
     @Override
-    protected String getPluginName() {
+    public String getPluginName() {
         return "Unused Opcode Plugin";
     }
 

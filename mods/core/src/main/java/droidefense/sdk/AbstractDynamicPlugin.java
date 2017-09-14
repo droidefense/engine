@@ -34,7 +34,7 @@ public abstract class AbstractDynamicPlugin extends PluginAnalysis {
 
     protected abstract void postExecute();
 
-    protected abstract String getPluginName();
+    public abstract String getPluginName();
 
     public DroidefenseProject getCurrentProject() {
         return currentProject;

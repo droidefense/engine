@@ -73,4 +73,8 @@ public class InternalInfo implements Serializable {
     public SharedPool getPool() {
         return dexContentList;
     }
+
+    public String[] getStrings() {
+        return this.getPool().getStrings();
+    }
 }
