@@ -1,57 +1,94 @@
-#!/bin/sh
-echo " ########################################## "
-echo ' Building droidefense from current version'
-echo " ########################################## "
+#!/bin/bash
 
-base=$(pwd)
+function compile(){
+	module=$1
+	#compile module
+	echo "Compiling module: $module"
+	cd $base && cd mods/$1 && mvn clean install && cd $base
+}
 
-cd mods/core
-mvn clean install
+function prerequirements(){
+	echo " ########################################## "
+	echo ' Installing prerequisites...'
+	echo " ########################################## "
 
-echo " ######################################## "
-echo " Building Command Line Tools..."
-echo " ######################################## "
+	#sudo apt install -y maven
+}
 
-cd $base
-cd mods/cli
-mvn clean install -P debug
+function main(){
 
-cd $base
-cd dist/debug
+	echo " ########################################## "
+	echo ' Building droidefense from current version'
+	echo " ########################################## "
 
-echo " ######################################## "
-echo " Cleaning old files..."
-echo " ######################################## "
+	export base=$(pwd)
 
-rm -rf classes cli-1.0-SNAPSHOT.jar generated-sources generated-test-sources surefire-reports test-classes maven-archiver maven-status
+	compile axml
+	compile batch
+	compile vfs
+	compile ssdeep
+	compile pscout
+	compile entropy
+	compile generator
+	compile manparser
+	compile memapktool
+	compile ml
+	compile portex
+	compile sdk
+	#compile mqtt
+	compile simplemagic
 
-ls -alh
+	compile core
 
-echo " ######################################## "
-echo " Creating 'droidefense' alias..."
-echo " ######################################## "
+	echo " ######################################## "
+	echo " Building Command Line Tools..."
+	echo " ######################################## "
 
-cd $base
-version='dist/debug'
-cd $version
+	cd $base
+	cd mods/cli
+	mvn clean install -P debug
 
-jarname=$(ls *jar)
-path=$base'/'$version/$jarname
-echo $path
-echo "Creating alias"
-aliasName="'java -jar "$path"'"
-echo "alias content: " $aliasName
-cmd='alias droidefense='$aliasName
+	cd $base
+	cd dist/debug
 
-echo "Deleting previous droidefense alias..."
-awk '!/droidefense/' ~/.bashrc > ~/.bashrc.temp && mv ~/.bashrc.temp ~/.bashrc
+	echo " ######################################## "
+	echo " Cleaning old files..."
+	echo " ######################################## "
 
-echo "Updating droidefense alias..."
-echo "new alias value: "$cmd
-echo $cmd >> ~/.bashrc
-eval $cmd
+	rm -rf classes cli-1.0-SNAPSHOT.jar generated-sources generated-test-sources surefire-reports test-classes maven-archiver maven-status
 
-echo "Content written in ~/.bashrc"
-cat ~/.bashrc | grep droidefense
+	ls -alh
 
-echo " Building done "
+	echo " ######################################## "
+	echo " Creating 'droidefense' alias..."
+	echo " ######################################## "
+
+	cd $base
+	version='dist/debug'
+	cd $version
+
+	jarname=$(ls *jar)
+	path=$base'/'$version/$jarname
+	echo $path
+	echo "Creating alias"
+	aliasName="'java -jar "$path"'"
+	echo "alias content: " $aliasName
+	cmd='alias droidefense='$aliasName
+
+	echo "Deleting previous droidefense alias..."
+	awk '!/droidefense/' ~/.bashrc > ~/.bashrc.temp && mv ~/.bashrc.temp ~/.bashrc
+
+	echo "Updating droidefense alias..."
+	echo "new alias value: "$cmd
+	echo $cmd >> ~/.bashrc
+	eval $cmd
+
+	echo "Content written in ~/.bashrc"
+	cat ~/.bashrc | grep droidefense
+
+	echo " Building done "
+}
+
+set -e
+prerequirements
+main
