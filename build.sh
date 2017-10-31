@@ -29,12 +29,12 @@ function main(){
 	compile ssdeep
 	compile pscout
 	compile entropy
+	compile sdk
 	compile generator
 	compile manparser
 	compile memapktool
 	compile ml
 	compile portex
-	compile sdk
 	#compile mqtt
 	compile simplemagic
 
