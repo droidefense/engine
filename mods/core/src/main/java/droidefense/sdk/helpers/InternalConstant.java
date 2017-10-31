@@ -33,9 +33,6 @@ public class InternalConstant implements Serializable {
     public static int ENDIAN_CONSTANT = 0x12345678;
     public static int REVERSE_ENDIAN_CONSTANT = 0x78563412;
     public static int NO_INDEX = 0xffffffff;// == -1 if treated as a signed int
-    public static String JAVA_SDK_CLASS_HASHSET_NAME = "jdk8-classlist.map";
-    public static String ANDROID_SDK_CLASS_HASHSET_NAME = "android-sdk-classlist.map";
-    public static String ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME = "android-support-classlist.map";
     public static String XML_EXTENSION = ".xml";
     public static byte[] DEX_FILE_MAGIC = {0x64, 0x65, 0x78, 0x0a, 0x30, 0x33, 0x35, 0x00}; //"dex\n035\0"
     public String OS_NAME = System.getProperty("os.name");

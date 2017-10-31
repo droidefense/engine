@@ -1,6 +1,0 @@
-#description: a;
-#author: b;
-#date: c;
-#family: d;
-#variant: e;
-#rule: Entry > Activity.onCreate > PreferenceManager.getDefaultSharedPreferences;

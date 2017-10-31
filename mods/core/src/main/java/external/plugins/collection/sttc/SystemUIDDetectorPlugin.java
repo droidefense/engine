@@ -30,25 +30,6 @@ public class SystemUIDDetectorPlugin extends AbstractStaticPlugin {
 
     @Override
     protected void postExecute() {
-        if (positiveMatch) {
-            this.html = "<div class=\"info-box\">" +
-                    "<span class=\"info-box-icon bg-red\"><i id=\"plugin-icon\"class=\"fa fa-bomb\"></i></span>" +
-                    "<div class=\"info-box-content\">" +
-                    "<span class=\"info-box-text\" id=\"plugin-name\">" + getPluginName() + "</span>" +
-                    "<span class=\"info-box-number\" id=\"plugin-result\">" + APP_SYSTEM_UI + "</span>" +
-                    "</div>" +
-                    "<!-- /.info-box-content -->" +
-                    "</div>";
-        } else {
-            this.html = "<div class=\"info-box\">" +
-                    "<span class=\"info-box-icon bg-green\"><i id=\"plugin-icon\"class=\"fa fa-bomb\"></i></span>" +
-                    "<div class=\"info-box-content\">" +
-                    "<span class=\"info-box-text\" id=\"plugin-name\">" + getPluginName() + "</span>" +
-                    "<span class=\"info-box-number\" id=\"plugin-result\">" + APP_NOT_SYSTEM_UI + "</span>" +
-                    "</div>" +
-                    "<!-- /.info-box-content -->" +
-                    "</div>";
-        }
     }
 
     @Override

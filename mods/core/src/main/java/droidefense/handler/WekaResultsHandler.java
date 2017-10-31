@@ -13,6 +13,7 @@ import weka.core.Instances;
 import weka.core.converters.ArffLoader;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -72,8 +73,22 @@ public class WekaResultsHandler extends AbstractHandler {
 
         Log.write(LoggerType.TRACE, "Starting WEKA classifier...");
 
+        File modelDir = FileIOHandler.getModelsDir();
+
+        if(featuresFile==null || !featuresFile.exists()){
+            throw new IOException("Sample feature file was not found");
+        }
+        if(!modelDir.exists()){
+            throw new IOException("Machine Learning model dir not found");
+        }
+
         //classifier names
-        File[] modelFiles = FileIOHandler.getModelsDir().listFiles();
+        File[] modelFiles = modelDir.listFiles();
+
+        if(modelFiles == null || modelFiles.length==0){
+            throw new IOException("There are no machine learning models available on specified folder");
+        }
+
 
         /*
          * First we load the training data from our ARFF file

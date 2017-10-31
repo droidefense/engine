@@ -13,6 +13,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -408,12 +410,10 @@ public class Util {
 
         if(path.startsWith("/"))
             path = path.substring(1, path.length());
-        
-        URL url = classLoader.getResource(path);
-        if(url!=null){
-            File file = new File(url.getFile());
-            System.out.println(file.getAbsolutePath());
-            return loadFileAsString(file);
+
+        InputStream datastream = classLoader.getResourceAsStream(path);
+        if(datastream!=null){
+            return readFully(datastream, "utf-8");
         }
         throw new IOException("Could not read from specified URL");
     }

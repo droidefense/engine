@@ -42,25 +42,6 @@ public class ELFDetectorPlugin extends AbstractStaticPlugin {
 
     @Override
     protected void postExecute() {
-        if (positiveMatch) {
-            this.html = "<div class=\"info-box\">" +
-                    "<span class=\"info-box-icon bg-red\"><i id=\"plugin-icon\"class=\"fa fa-flag-o\"></i></span>" +
-                    "<div class=\"info-box-content\">" +
-                    "<span class=\"info-box-text\" id=\"plugin-name\">" + getPluginName() + "</span>" +
-                    "<span class=\"info-box-number\" id=\"plugin-result\">Detected " + hidden + " ELF files</span>" +
-                    "</div>" +
-                    "<!-- /.info-box-content -->" +
-                    "</div>";
-        } else {
-            this.html = "<div class=\"info-box\">" +
-                    "<span class=\"info-box-icon bg-green\"><i id=\"plugin-icon\"class=\"fa fa-flag-o\"></i></span>" +
-                    "<div class=\"info-box-content\">" +
-                    "<span class=\"info-box-text\" id=\"plugin-name\">" + getPluginName() + "</span>" +
-                    "<span class=\"info-box-number\" id=\"plugin-result\">No hidden ELF files</span>" +
-                    "</div>" +
-                    "<!-- /.info-box-content -->" +
-                    "</div>";
-        }
     }
 
     @Override

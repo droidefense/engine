@@ -39,38 +39,43 @@ public class AXMLPrinter {
                 return;
             }
 
-            switch (type) {
-                default:
-                    break;
-                case 0:
-                    buffer.append(XML_HEADER);
-                    buffer.append(NEW_LINE_CHAR);
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    this.log("%s<%s%s", indent, this.getNamespacePrefix(parser.getPrefix()), parser.getName());
-                    indent.append("\t");
-                    int namespaceCountBefore = parser.getNamespaceCount(parser.getDepth() - 1);
-                    int namespaceCount = parser.getNamespaceCount(parser.getDepth());
+            try{
+                switch (type) {
+                    default:
+                        break;
+                    case 0:
+                        buffer.append(XML_HEADER);
+                        buffer.append(NEW_LINE_CHAR);
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        this.log("%s<%s%s", indent, this.getNamespacePrefix(parser.getPrefix()), parser.getName());
+                        indent.append("\t");
+                        int namespaceCountBefore = parser.getNamespaceCount(parser.getDepth() - 1);
+                        int namespaceCount = parser.getNamespaceCount(parser.getDepth());
 
-                    int i;
-                    for (i = namespaceCountBefore; i != namespaceCount; ++i) {
-                        this.log("%sxmlns:%s=\"%s\"", indent, parser.getNamespacePrefix(i), parser.getNamespaceUri(i));
-                    }
+                        int i;
+                        for (i = namespaceCountBefore; i != namespaceCount; ++i) {
+                            this.log("%sxmlns:%s=\"%s\"", indent, parser.getNamespacePrefix(i), parser.getNamespaceUri(i));
+                        }
 
-                    for (i = 0; i != parser.getAttributeCount(); ++i) {
-                        this.log("%s%s%s=\"%s\"", indent, this.getNamespacePrefix(parser.getAttributePrefix(i)), parser.getAttributeName(i), this.getAttributeValue(parser, i));
-                    }
+                        for (i = 0; i != parser.getAttributeCount(); ++i) {
+                            this.log("%s%s%s=\"%s\"", indent, this.getNamespacePrefix(parser.getAttributePrefix(i)), parser.getAttributeName(i), this.getAttributeValue(parser, i));
+                        }
 
-                    this.log("%s>", indent);
-                    break;
-                case 3:
-                    indent.setLength(indent.length() - "\t".length());
-                    this.log("%s</%s%s>", indent, this.getNamespacePrefix(parser.getPrefix()), parser.getName());
-                    break;
-                case 4:
-                    this.log("%s%s", indent, parser.getText());
+                        this.log("%s>", indent);
+                        break;
+                    case 3:
+                        indent.setLength(indent.length() - "\t".length());
+                        this.log("%s</%s%s>", indent, this.getNamespacePrefix(parser.getPrefix()), parser.getName());
+                        break;
+                    case 4:
+                        this.log("%s%s", indent, parser.getText());
+                }
+            }
+            catch (Exception e){
+                System.err.println("Error decoding xml: "+e.getLocalizedMessage());
             }
         }
     }

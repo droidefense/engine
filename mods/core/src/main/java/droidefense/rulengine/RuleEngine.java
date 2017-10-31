@@ -90,7 +90,7 @@ public class RuleEngine {
             ArrayList<AbstractAtomNode> returnList = new ArrayList<>();
             return parseRuleInNode(rule, returnList, nodelist, 0);
         }
-        return new ArrayList<AbstractAtomNode>();
+        return new ArrayList<>();
     }
 
     private ArrayList<AbstractAtomNode> parseRuleInNode(Rule rule, ArrayList<AbstractAtomNode> returnList, ArrayList<AbstractAtomNode> nodelist, int idx) {
@@ -118,25 +118,28 @@ public class RuleEngine {
                         methodMask = "[^<>]+";
                     }
                     boolean sameMethodName = mn.getMethodName().equals(data[1]) || checkByRegex(mn.getMethodName(), methodMask);
-                    if(data[0].equals("Object") && sameMethodName){
-                        returnList.add(node);
-                    }
-                    else if(data[0].equals(mn.getClassName())){
-                        returnList.add(node);
-                    }
-                    else if (sameMethodName) {
-                        //check class name
-                        String parentClass = mn.getClassName(); //ApkrIntelligence.getInstance().getSimpleNodeType(mn.getMethod());
-                        boolean sameParentClass = false;
-                        if (parentClass.equals("Object")) {
-                            //check class name
-                            sameParentClass = NodeCalculator.getClassNameForFullPath(mn.getClassName()).equals(data[0]) || checkByRegex(parentClass, data[0]);
-                        } else {
-                            //compare parent class
-                            sameParentClass = parentClass.equals(data[0]) || checkByRegex(parentClass, data[0]);
-                        }
-                        if (sameParentClass) {
+                    if(sameMethodName) {
+                        //current method name matches rule method name
+                        if(data[0].equals("Object")){
                             returnList.add(node);
+                        }
+                        else if(data[0].equals(mn.getClassName())){
+                            returnList.add(node);
+                        }
+                        else {
+                            //check class name
+                            String parentClass = mn.getTopClassName(); //ApkrIntelligence.getInstance().getSimpleNodeType(mn.getMethod());
+                            boolean sameParentClass = false;
+                            if (parentClass.equals("Object")) {
+                                //check class name
+                                sameParentClass = NodeCalculator.getClassNameForFullPath(mn.getClassName()).equals(data[0]) || checkByRegex(parentClass, data[0]);
+                            } else {
+                                //compare parent class
+                                sameParentClass = parentClass.equals(data[0]) || checkByRegex(parentClass, data[0]);
+                            }
+                            if (sameParentClass) {
+                                returnList.add(node);
+                            }
                         }
                     }
                 }

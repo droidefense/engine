@@ -17,13 +17,15 @@ public class MethodNode extends AbstractAtomNode {
     private boolean reflected;
     private String args;
     private boolean isFakeMethod;
+    private String topClassName;
 
-    private MethodNode(String instructionName, String methodName, int instructionCount, String ownerClassName, boolean onScope,
+    private MethodNode(String instructionName, String methodName, int instructionCount, String ownerClassName, String topClassName, boolean onScope,
                        String params, String returnType, double entropy, int pc, boolean isFakeMethod) {
         super(instructionName);
         this.methodName = methodName;
         this.instruction_count = instructionCount;
         this.className = ownerClassName; //DynamicUtils.classNameToJava(method.getOwnerClass().getName());
+        this.topClassName = topClassName;
         this.pc = pc;
         this.onscope = onScope; //!method.isFake();
         this.params = params; //DynamicUtils.getParamStringFromDescriptor(method.getDescriptor());
@@ -39,16 +41,16 @@ public class MethodNode extends AbstractAtomNode {
         }
     }
 
-    private MethodNode(String instructionName, String methodName, int instructionCount, String ownerClassName, boolean onScope,
+    private MethodNode(String instructionName, String methodName, int instructionCount, String ownerClassName, String topClassName, boolean onScope,
                        String params, String returnType, double entropy, int pc, String args, boolean isFakeMethod) {
-        this(instructionName, methodName, instructionCount, ownerClassName, onScope, params, returnType, entropy, pc, isFakeMethod);
+        this(instructionName, methodName, instructionCount, ownerClassName, topClassName, onScope, params, returnType, entropy, pc, isFakeMethod);
         this.args = args;
     }
 
-    public static MethodNode builder(AbstractFlowMap map, String instructionName, String methodName, int instructionCount, String ownerClassName, boolean onScope,
+    public static MethodNode builder(AbstractFlowMap map, String instructionName, String methodName, int instructionCount, String ownerClassName, String topClassName, boolean onScope,
                                      String params, String returnType, double entropy, int pc, boolean isFakeMethod) {
         //check if a node with this method exist;
-        MethodNode temp = new MethodNode(instructionName, methodName, instructionCount, ownerClassName, onScope, params, returnType, entropy, pc, isFakeMethod);
+        MethodNode temp = new MethodNode(instructionName, methodName, instructionCount, ownerClassName, topClassName, onScope, params, returnType, entropy, pc, isFakeMethod);
         AbstractAtomNode node = map.getNode(temp.getId());
         MethodNode cn;
         if (node != null) {
@@ -58,10 +60,10 @@ public class MethodNode extends AbstractAtomNode {
         return temp;
     }
 
-    public static MethodNode builder(AbstractFlowMap map, String instructionName, String methodName, int instructionCount, String ownerClassName, boolean onScope,
+    public static MethodNode builder(AbstractFlowMap map, String instructionName, String methodName, int instructionCount, String ownerClassName, String topClassName, boolean onScope,
                                      String params, String returnType, double entropy, int pc, boolean isFakeMethod, String args) {
         //check if a node with this method exist;
-        MethodNode temp = new MethodNode(instructionName, methodName, instructionCount, ownerClassName, onScope, params, returnType, entropy, pc, args, isFakeMethod);
+        MethodNode temp = new MethodNode(instructionName, methodName, instructionCount, ownerClassName, topClassName, onScope, params, returnType, entropy, pc, args, isFakeMethod);
         AbstractAtomNode node = map.getNode(temp.getId());
         MethodNode cn;
         if (node != null) {
@@ -219,5 +221,13 @@ public class MethodNode extends AbstractAtomNode {
 
     public String getArgs() {
         return args;
+    }
+
+    public String getTopClassName() {
+        return topClassName;
+    }
+
+    public void setTopClassName(String topClassName) {
+        this.topClassName = topClassName;
     }
 }

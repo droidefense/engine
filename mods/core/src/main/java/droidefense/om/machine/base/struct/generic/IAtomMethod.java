@@ -138,4 +138,6 @@ public interface IAtomMethod {
     String getReturnType();
 
     boolean isFake();
+
+    IAtomClass getTopClass();
 }

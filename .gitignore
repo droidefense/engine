@@ -22,12 +22,12 @@ lib/
 */log/*
 \.log
 
-#exclude compiled classes
-*.class
-
 #exclude sample .apk
 *.apk
 
 
 #exclude idea folder
 \.idea
+
+#ignore lastbuild tag
+mods/cli/src/main/resources/lastbuild

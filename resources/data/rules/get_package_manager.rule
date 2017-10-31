@@ -1,6 +1,0 @@
-#description: Get's Android package manager;
-#author: @zerjioang;
-#date: 29/12/2016;
-#family: Generic;
-#variant: Profilinh;
-#rule: Object.ANY > android/content/Context.getPackageManager;

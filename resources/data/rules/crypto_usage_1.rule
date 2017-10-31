@@ -1,6 +1,0 @@
-#description: This application uses crypto algorithms;
-#author: @zerjioang;
-#date: 29/12/2016;
-#family: Crypto;
-#variant: usage;
-#rule: Object.ANY > javax/crypto/Cipher.doFinal;

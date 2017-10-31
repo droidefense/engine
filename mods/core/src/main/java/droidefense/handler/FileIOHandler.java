@@ -41,7 +41,9 @@ public class FileIOHandler {
     }
 
     public static File getResourceFolder() {
-        return new File(DroidDefenseParams.getInstance().RESOURCE_FOLDER);
+        return new File(
+                getBaseDirPath() + File.separator +
+                        DroidDefenseParams.getInstance().RESOURCE_FOLDER);
     }
 
     public static File getResourceFolder(String path) {
@@ -53,11 +55,13 @@ public class FileIOHandler {
     }
 
     public static File getStaticPluginsFolderFile() {
-        return new File(DroidDefenseParams.getInstance().STATIC_PLG_FOLDER);
+        return new File(getResourceFolder() + File.separator +
+                DroidDefenseParams.getInstance().STATIC_PLG_FOLDER);
     }
 
     public static File getDynamicPluginsFolderFile() {
-        return new File(DroidDefenseParams.getInstance().DYNAMIC_PLG_FOLDER);
+        return new File(getResourceFolder() + File.separator +
+                DroidDefenseParams.getInstance().DYNAMIC_PLG_FOLDER);
     }
 
     public static File getPluginsFile(String pluginName) {
@@ -307,15 +311,22 @@ public class FileIOHandler {
     }
 
     public static File getRuleEngineDir() {
-        return new File(DroidDefenseParams.getInstance().RULE_FOLDER);
+        return new File(
+                getResourceFolder() + File.separator +
+                        DroidDefenseParams.getInstance().RULE_FOLDER);
     }
 
     public static File getToolsDir() {
-        return new File(getBaseDirPath() + File.separator + "resources" + File.separator + "tools");
+        return new File(
+                getResourceFolder() + File.separator +
+                DroidDefenseParams.getInstance().RESOURCE_FOLDER + File.separator +
+                        "tools");
     }
 
     public static File getModelsDir() {
-        return new File(DroidDefenseParams.getInstance().MODEL_FOLDER);
+        return new File(
+                getResourceFolder() + File.separator +
+                        DroidDefenseParams.getInstance().MODEL_FOLDER);
     }
 
     public static File getReportFolder(String projectId) {

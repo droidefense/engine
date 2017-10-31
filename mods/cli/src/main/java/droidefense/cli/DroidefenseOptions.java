@@ -57,7 +57,7 @@ public class DroidefenseOptions extends Options {
 
     public void showVersion() {
         String offset = OSDetection.isUnix() ? "" : "\t";
-        System.out.println("\t* Current version of droidefense: \t" + readVersion());
+        System.out.println("\t* Current build: \t\t\t" + offset + readVersion());
         System.out.println("\t* Check out on Github: \t\t\t" + offset + InternalConstant.REPO_URL);
         System.out.println("\t* Report your issue: \t\t\t" + offset + offset + InternalConstant.ISSUES_URL);
         System.out.println("\t* Lead developer: \t\t\t" + offset + offset + InternalConstant.LEAD_DEVELOPER);
@@ -68,8 +68,10 @@ public class DroidefenseOptions extends Options {
         try {
             return Util.readFileFromInternalResourcesAsString(
                     DroidefenseOptions.class.getClassLoader(),
-                    "src/resources/lastbuild");
+                    "/lastbuild");
         } catch (IOException e) {
+            Log.write(LoggerType.ERROR, "Could not get version information");
+            Log.write(LoggerType.ERROR, e.getLocalizedMessage());
             return "unknown";
         }
     }

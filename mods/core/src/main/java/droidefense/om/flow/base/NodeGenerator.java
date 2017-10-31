@@ -11,6 +11,7 @@ import droidefense.rulengine.nodes.ConstStrNode;
 import droidefense.rulengine.nodes.FieldNode;
 import droidefense.rulengine.nodes.MethodNode;
 import droidefense.rulengine.nodes.NormalNode;
+import droidefense.util.DroidefenseIntel;
 
 /**
  * Created by .local on 07/10/2016.
@@ -30,6 +31,7 @@ public class NodeGenerator {
                 method.getName(),
                 method.getByteCode().length,
                 method.getOwnerClass().getName(),
+                method.getTopClass().getName(),
                 !method.isFake(),
                 DynamicUtils.getParamStringFromDescriptor(method.getDescriptor()),
                 DynamicUtils.getReturnTypeFromDescriptor(method.getDescriptor()),

@@ -45,7 +45,9 @@ public class InternalInfo implements Serializable {
     }
 
     public void cleanup() {
-        this.dexContentList.cleanup();
+        if(this.dexContentList != null){
+            this.dexContentList.cleanup();
+        }
     }
 
     public IAtomClass[] getDynamicEntryPoints() {
@@ -70,5 +72,9 @@ public class InternalInfo implements Serializable {
 
     public SharedPool getPool() {
         return dexContentList;
+    }
+
+    public String[] getStrings() {
+        return this.getPool().getStrings();
     }
 }

@@ -140,6 +140,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
                 method.getName(),
                 method.getByteCode().length,
                 method.getOwnerClass().getName(),
+                method.getTopClass().getName(),
                 !method.isFake(),
                 DynamicUtils.getParamStringFromDescriptor(method.getDescriptor()),
                 DynamicUtils.getReturnTypeFromDescriptor(method.getDescriptor()),

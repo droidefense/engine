@@ -21,10 +21,12 @@ public class StringAnalyzerPlugin extends AbstractDynamicPlugin {
         stringContent = new StringInfo();
         if (methodNames == null) {
             try {
-                methodNames = (HashMap<String, Integer>) FileIOHandler.readAsRAW(FileIOHandler.getResourceFolder("method-names-weighted.map"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
+                methodNames = (HashMap<String, Integer>) FileIOHandler.readAsRAW(
+                        FileIOHandler.getResourceFolder(
+                                "map/method-names-weighted.map"
+                        )
+                );
+            } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
@@ -124,6 +126,9 @@ public class StringAnalyzerPlugin extends AbstractDynamicPlugin {
             } else if (s.matches("[a-zA-Z0-9]{1,2}+")) {
                 stringContent.getClassified().put(s, "Ofuscated");
                 stringContent.setOfuscatedString(stringContent.getOfuscatedString() + 1);
+            } else if(s.matches("[a-zA-Z0-9]+(\\.|,|(\\s[a-zA-Z0-9]+))*")) {
+                stringContent.getClassified().put(s, "sentence");
+                stringContent.setSentences(stringContent.getSentences() + 1);
             } else {
                 stringContent.getClassified().put(s, "unknown");
                 stringContent.setUnknown(stringContent.getUnknown() + 1);
@@ -149,11 +154,11 @@ public class StringAnalyzerPlugin extends AbstractDynamicPlugin {
 
     @Override
     protected void postExecute() {
-
+        System.out.println("\tString analysis finish");
     }
 
     @Override
-    protected String getPluginName() {
+    public String getPluginName() {
         return "String analyzer plugin";
     }
 }

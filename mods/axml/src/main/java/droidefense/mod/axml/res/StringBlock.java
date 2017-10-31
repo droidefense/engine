@@ -1,10 +1,13 @@
 package droidefense.mod.axml.res;
 
+import droidefense.mod.axml.exception.OffsetErrorException;
+
 import java.io.IOException;
 
 public class StringBlock {
 
     private static final int CHUNK_TYPE = 1835009;
+    private static final String RETURN_ON_WRONG_OFFSET = "";
     private int[] m_stringOffsets;
     private int[] m_strings;
     private int[] m_styleOffsets;
@@ -12,7 +15,7 @@ public class StringBlock {
 
 
     public static StringBlock read(IntReader reader) throws IOException {
-        ChunkUtil.readCheckType(reader, 1835009);
+        ChunkUtil.readCheckType(reader, CHUNK_TYPE);
         int chunkSize = reader.readInt();
         int stringCount = reader.readInt();
         int styleOffsetCount = reader.readInt();
@@ -43,9 +46,16 @@ public class StringBlock {
         }
     }
 
-    private static int getShort(int[] array, int offset) {
-        int value = array[offset / 4];
-        return offset % 4 / 2 == 0 ? value & '\uffff' : value >>> 16;
+    private static int getShort(int[] array, int offset) throws OffsetErrorException{
+        int idx = offset / 4;
+        boolean valid = isValidOffset(array, idx) ;
+        if(!valid){
+            throw new OffsetErrorException("axml_decoder: offset error detected at position "+offset+" with index value at "+idx+" and length of "+array.length);
+        }
+        else{
+            int value = array[idx];
+            return offset % 4 / 2 == 0 ? value & '\uffff' : value >>> 16;
+        }
     }
 
     public int getCount() {
@@ -55,23 +65,31 @@ public class StringBlock {
     public String getString(int index) {
         if (index >= 0 && this.m_stringOffsets != null && index < this.m_stringOffsets.length) {
             int offset = this.m_stringOffsets[index];
-            int length = getShort(this.m_strings, offset);
+            int length;
+
+            try{
+                length = getShort(this.m_strings, offset);
+            }
+            catch (OffsetErrorException e){
+                System.err.println(e.getLocalizedMessage());
+                return RETURN_ON_WRONG_OFFSET;
+            }
 
             StringBuilder result;
             for (result = new StringBuilder(length); length != 0; --length) {
                 offset += 2;
 
-                try {
+                try{
                     result.append((char) getShort(this.m_strings, offset));
-                } catch (Exception var6) {
-                    var6.printStackTrace();
-                    break;
+                }
+                catch (OffsetErrorException e){
+                    System.err.println(e.getLocalizedMessage());
+                    return RETURN_ON_WRONG_OFFSET;
                 }
             }
-
             return result.toString();
         } else {
-            return null;
+            return RETURN_ON_WRONG_OFFSET;
         }
     }
 
@@ -188,5 +206,9 @@ public class StringBlock {
         } else {
             return null;
         }
+    }
+
+    private static boolean isValidOffset(int[] array, int offset) {
+        return array!=null && offset >= 0 && offset < array.length;
     }
 }

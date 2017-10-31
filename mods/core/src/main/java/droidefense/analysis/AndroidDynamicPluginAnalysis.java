@@ -23,8 +23,6 @@ public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis 
 
     @Override
     public boolean analyze() {
-        //set current currentProject
-        currentProject = DroidefenseProject.getProject(apkFile);
         Log.write(LoggerType.TRACE, "\n\n --- Running Droidefense dynamic plugin analysis ---\n\n");
         File plFolder = FileIOHandler.getDynamicPluginsFolderFile();
         if (plFolder.exists()) {
@@ -48,13 +46,17 @@ public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis 
                         Log.write(LoggerType.TRACE, "Executing " + aClass.getName());
                         AbstractDynamicPlugin pluginDynamic = (AbstractDynamicPlugin) aClass.newInstance();
 
+                        System.out.println();
+                        Log.write(LoggerType.TRACE, " ######## PLUGIN ########");
+                        Log.write(LoggerType.TRACE, pluginDynamic.getPluginName());
+                        Log.write(LoggerType.TRACE, " ######## PLUGIN ########");
+                        System.out.println();
+
                         pluginDynamic.setApk(apkFile);
                         pluginDynamic.setCurrentProject(currentProject);
                         //TODO fix this name
                         //name = pluginDynamic.getPluginName();
                         pluginDynamic.analyze();
-                        //result = pluginDynamic.getResult();
-
                         //add result to currentProject
                         currentProject.addDynamicPlugin(pluginDynamic);
                         executionSuccessful &= true;

@@ -12,7 +12,7 @@ import java.util.Set;
  */
 public class ReflectionUsageDetectionPlugin extends AbstractDynamicPlugin {
 
-    private float founded;
+    private float found;
 
     @Override
     public void onPreExecute() {
@@ -50,35 +50,16 @@ public class ReflectionUsageDetectionPlugin extends AbstractDynamicPlugin {
             found += mclasses.contains(key) ? 1 : 0;
         }
         log("Found: " + found, 1);
-        founded = (found / total) * 100;
-        positiveMatch = founded >= 0.5;
+        this.found = (found / total) * 100;
+        positiveMatch = this.found >= 0.5;
     }
 
     @Override
     protected void postExecute() {
-        if (positiveMatch) {
-            this.html = "<div class=\"info-box\">" +
-                    "<span class=\"info-box-icon bg-red\"><i id=\"plugin-icon\"class=\"fa fa-flag-o\"></i></span>" +
-                    "<div class=\"info-box-content\">" +
-                    "<span class=\"info-box-text\" id=\"plugin-name\">" + getPluginName() + "</span>" +
-                    "<span class=\"info-box-number\" id=\"plugin-result\">Java Reflection usage detected (" + founded + "%)</span>" +
-                    "</div>" +
-                    "<!-- /.info-box-content -->" +
-                    "</div>";
-        } else {
-            this.html = "<div class=\"info-box\">" +
-                    "<span class=\"info-box-icon bg-green\"><i id=\"plugin-icon\"class=\"fa fa-flag-o\"></i></span>" +
-                    "<div class=\"info-box-content\">" +
-                    "<span class=\"info-box-text\" id=\"plugin-name\">" + getPluginName() + "</span>" +
-                    "<span class=\"info-box-number\" id=\"plugin-result\">No Java Reflection usage detected</span>" +
-                    "</div>" +
-                    "<!-- /.info-box-content -->" +
-                    "</div>";
-        }
     }
 
     @Override
-    protected String getPluginName() {
+    public String getPluginName() {
         return "Reflection usage detection plugin";
     }
 }

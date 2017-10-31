@@ -1,6 +1,0 @@
-#description: a;
-#author: b;
-#date: c;
-#family: d;
-#variant: e;
-#rule: Service.ANY > Object.ANY > TelephonyManager.getSubscriberId;
