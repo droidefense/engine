@@ -1,8 +1,5 @@
 # Droidefense
-[![Build status](https://ci.appveyor.com/api/projects/status/e1o3djbyvgo7m5u0?svg=true)](https://ci.appveyor.com/project/droidefense/engine)
-[![Build Status](https://travis-ci.org/Droidefense/engine.svg?branch=master)](https://travis-ci.org/droidefense/engine)
-[![Coverage Status](https://coveralls.io/repos/github/Droidefense/engine/badge.svg?branch=master)](https://coveralls.io/github/droidefense/engine?branch=master)
-[![Join the chat at https://gitter.im/Droidefense/Lobby](https://badges.gitter.im/Droidefense/engine.svg)](https://gitter.im/Droidefense/Lobby)
+[![Build Status](https://travis-ci.org/droidefense/engine.svg?branch=develop)](https://travis-ci.org/droidefense/engine)
 [![License](http://img.shields.io/:license-gpl3-blue.svg)](https://raw.githubusercontent.com/Droidefense/engine/master/LICENSE)
 
 ## First release coming soon
@@ -24,6 +21,21 @@
 
 ```
 java -jar droidefense-cli-1.0-SNAPSHOT.jar -i /path/to/your/sample.apk
+```
+
+# Citing
+
+Feel free to cite droidefense on your works. We added next boilerplate for your references:
+
+```
+@Manual{,
+  title        = {Droidefense: Advance Android Malware Analysis Framework},
+  author       = {{zerjioang}},
+  organization = {opensource},
+  address      = {Bilbao, Spain},
+  year         = 2017,
+  url          = {https://droidefense.wordpress.com/}
+}
 ```
 
 # Contribution
