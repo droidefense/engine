@@ -26,7 +26,8 @@ public class FileIOHandler {
     }
 
     public static File getBaseDirFile() {
-        return new File(new File("").getAbsolutePath());
+        File base = new File("");
+        return new File(base.getAbsolutePath());
     }
 
     public static File getUnpackOutputFile(AbstractHashedFile source) {
@@ -341,5 +342,13 @@ public class FileIOHandler {
             return dir.mkdirs();
         }
         return true;
+    }
+
+    public static String getConfigPath() {
+        return  getBaseDirPath()+File.separator+InternalConstant.CONFIG_FOLDER;
+    }
+
+    public static File getConfigPathDir() {
+        return new File( getConfigPath() );
     }
 }

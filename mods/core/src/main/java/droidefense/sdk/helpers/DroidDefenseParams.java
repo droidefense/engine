@@ -100,34 +100,34 @@ public class DroidDefenseParams implements Serializable {
     }
 
     public static void init() throws ConfigFileNotFoundException {
-        File base = new File("");
-        String execPath = base.getAbsolutePath();
-        String basePath = execPath+File.separator+InternalConstant.CONFIG_FOLDER;
-        Log.write(LoggerType.INFO, "Execution base path is: "+execPath);
+        Log.write(LoggerType.TRACE, "Loading Droidefense data structs...");
+        String executablePath = FileIOHandler.getBaseDirPath();
+        String configPath = FileIOHandler.getConfigPath();
+        Log.write(LoggerType.INFO, "Execution base path is: "+executablePath);
 
         if(OSDetection.isWindows()){
             Log.write(LoggerType.INFO, "System detected is MS Windows");
-            runconfig(basePath+File.separator, WINDOWS_CONFIG_PROPERTIES);
+            runconfig(configPath, WINDOWS_CONFIG_PROPERTIES);
         }
         else if(OSDetection.isMacOSX()){
             Log.write(LoggerType.INFO, "System detected is Mac OS");
-            runconfig(basePath+File.separator, MAC_CONFIG_PROPERTIES);
+            runconfig(configPath, MAC_CONFIG_PROPERTIES);
         }
         else if(OSDetection.isUnix()){
             Log.write(LoggerType.INFO, "System detected is Unix");
-            runconfig(base.getAbsolutePath()+File.separator, UNIX_CONFIG_PROPERTIES);
+            runconfig(configPath, UNIX_CONFIG_PROPERTIES);
         }
         else{
             //load linux as default
-            runconfig(base.getAbsolutePath()+File.separator, CONFIG_PROPERTIES);
+            runconfig(configPath, CONFIG_PROPERTIES);
         }
     }
 
     private static void runconfig(String configFilePath, String name) throws ConfigFileNotFoundException {
-        configFilePath = configFilePath+name;
+        File configFile = new File(configFilePath, name);
         try {
             Log.write(LoggerType.DEBUG, "Reading config file: " + configFilePath);
-            if (new File(configFilePath).exists()) {
+            if (configFile.exists()) {
                 byte[] jsonData = Util.loadFileAsBytes(configFilePath);
                 if (jsonData.length == 0) {
                     throw new ConfigFileNotFoundException(configFilePath + " file content is not valid");

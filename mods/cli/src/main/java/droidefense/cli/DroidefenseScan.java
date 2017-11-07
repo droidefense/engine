@@ -44,10 +44,8 @@ public class DroidefenseScan {
         //init data structs
         try {
             DroidDefenseParams.init();
-            Log.write(LoggerType.TRACE, "Loading Droidefense data structs...");
-            //create singleton instance of AtomIntelligence
             DroidefenseIntel.init();
-            Log.write(LoggerType.TRACE, "Data loaded!!");
+            Log.write(LoggerType.TRACE, "Droidefense environment loaded!!");
         } catch (ConfigFileNotFoundException e) {
             Log.write(LoggerType.FATAL, e.getLocalizedMessage());
             return false;
@@ -70,13 +68,7 @@ public class DroidefenseScan {
         APKUnpacker unpacker = APKUnpacker.ZIP;
         if (cmd.hasOption("unpacker")) {
             String unpackerStr = cmd.getOptionValue("unpacker");
-            if (unpackerStr != null) {
-                if (unpackerStr.equalsIgnoreCase(APKUnpacker.APKTOOL.name())) {
-                    unpacker = APKUnpacker.APKTOOL;
-                } else if (unpackerStr.equalsIgnoreCase(APKUnpacker.ZIP.name())) {
-                    unpacker = APKUnpacker.ZIP;
-                }
-            }
+            unpacker = APKUnpacker.getUnpackerFromStringName(unpackerStr);
         }
 
         this.project = new DroidefenseProject();
@@ -84,6 +76,7 @@ public class DroidefenseScan {
         if (cmd.hasOption("output")) {
             project.setSettingsReportType(cmd.getOptionValue("output"));
         }
+        //set boolean values
         project.setSettingAutoOpen(cmd.hasOption("show"));
         Log.beVerbose(cmd.hasOption("verbose"));
 
@@ -93,19 +86,19 @@ public class DroidefenseScan {
             boolean init = loadEnvironment();
             if (!init) {
                 Log.write(LoggerType.FATAL, "Droidefense initialization error");
-                return;
             }
-
-            boolean profilingEnabled = cmd.hasOption("profile");
-            File inputFile = new File(cmd.getOptionValue("input"));
-            //profiler wait time | start
-            if (profilingEnabled) {
-                profilingAlert("activate");
-            }
-            initScan(project, inputFile, unpacker);
-            //profiler wait time | stop
-            if (profilingEnabled) {
-                profilingAlert("deactivate");
+            else{
+                boolean profilingEnabled = cmd.hasOption("profile");
+                File inputFile = new File(cmd.getOptionValue("input"));
+                //profiler wait time | start
+                if (profilingEnabled) {
+                    profilingAlert("activate");
+                }
+                initScan(project, inputFile, unpacker);
+                //profiler wait time | forceStop
+                if (profilingEnabled) {
+                    profilingAlert("deactivate");
+                }
             }
         } else {
             //as default action
@@ -125,11 +118,14 @@ public class DroidefenseScan {
         options.readKeyBoard();
     }
 
-    public void stop() {
-        //save report .json to file
-        Log.write(LoggerType.TRACE, "Saving report file...");
-        this.project.finish();
+    private void forceStop() {
+        if(this.project!=null){
+            //save report .json to file
+            Log.write(LoggerType.TRACE, "Saving report file...");
+            this.project.finish();
+        }
         Log.write(LoggerType.TRACE, "Droidefense scan finished");
+        Log.write(LoggerType.TRACE, "Exiting...");
         //force exit
         System.exit(0);
     }
@@ -156,8 +152,8 @@ public class DroidefenseScan {
                 Log.write(LoggerType.ERROR, "Analyzer not found" + e.getLocalizedMessage());
             }
 
-            //stop scan
-            this.stop();
+            //forceStop scan
+            this.forceStop();
         } else {
             Log.write(LoggerType.FATAL, "Could not read selected file");
             Log.write(LoggerType.FATAL, "Source file was: " + f.getAbsolutePath());

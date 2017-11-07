@@ -13,6 +13,24 @@
     <url>http://github.com/droidefense/engine</url>
     <packaging>jar</packaging>
 
+    <modules>
+        <module>../axml</module>
+        <module>../batch</module>
+        <module>../datamanager</module>
+        <module>../entropy</module>
+        <module>../generator</module>
+        <module>../manparser</module>
+        <module>../memapktool</module>
+        <module>../ml</module>
+        <module>../mqtt</module>
+        <module>../portex</module>
+        <module>../pscout</module>
+        <module>../sdk</module>
+        <module>../simplemagic</module>
+        <module>../ssdeep</module>
+        <module>../vfs</module>
+    </modules>
+
     <properties>
         <jdk.version>1.8</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

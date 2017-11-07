@@ -16,10 +16,6 @@
     <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-api:5.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.26-incubating" level="project" />
-    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-api:5.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.0.0" level="project" />
-    <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.0.1" level="project" />
     <orderEntry type="module" module-name="sdk" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
   </component>

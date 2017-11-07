@@ -89,4 +89,16 @@ public enum APKUnpacker {
      * @return a list of internal sample files decoded
      */
     public abstract ArrayList<VirtualFile> decodeWithTechnique(DroidefenseProject currentProject, ArrayList<VirtualFile> files);
+
+    public static APKUnpacker getUnpackerFromStringName(String name) {
+        if(name != null){
+            if (name.equalsIgnoreCase(APKUnpacker.APKTOOL.name())) {
+                return APKUnpacker.APKTOOL;
+            } else if (name.equalsIgnoreCase(APKUnpacker.ZIP.name())) {
+                return APKUnpacker.ZIP;
+            }
+        }
+        //return as default unpacker if none selected
+        return APKUnpacker.ZIP;
+    }
 }
