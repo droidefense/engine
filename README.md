@@ -1,14 +1,19 @@
 # Droidefense
-[![Build Status](https://travis-ci.org/droidefense/engine.svg?branch=develop)](https://travis-ci.org/droidefense/engine)
-[![License](http://img.shields.io/:license-gpl3-blue.svg)](https://raw.githubusercontent.com/Droidefense/engine/master/LICENSE)
-
-## First release coming soon
 
 <p align="center">
+</br>
 <img src ="https://raw.githubusercontent.com/droidefense/engine/develop/banner/banner.png" />
 </p>
 
+[![Build Status](https://travis-ci.org/droidefense/engine.svg?branch=develop)](https://travis-ci.org/droidefense/engine)
+[![License](http://img.shields.io/:license-gpl3-blue.svg)](https://raw.githubusercontent.com/Droidefense/engine/develop/LICENSE)
+
+## Latest release
+
+[**Download**](https://github.com/droidefense/engine/releases/)
+
 # What Droidefense is
+
 <p align="justify">
 <b>Droidefense</b> (originally named atom: <b>a</b>nalysis <b>t</b>hrough <b>o</b>bservation <b>m</b>achine)* is the codename for android apps/malware analysis/reversing tool. It was built focused on security issues and tricks that malware researcher have on they every day work. For those situations on where the malware has <b>anti-analysis</b> routines, Droidefense attemps to bypass them in order to get to the code and 'bad boy' routine. Sometimes those techniques can be virtual machine detection, emulator detection, self certificate checking, pipes detection. tracer pid check, and so on.
 
@@ -22,6 +27,13 @@
 ```
 java -jar droidefense-cli-1.0-SNAPSHOT.jar -i /path/to/your/sample.apk
 ```
+
+# Contributing
+
+Everybody is welcome to contribute to **DROIDEFENSE**. Please check out the [**DROIDEFENSE Contribution Steps**](https://raw.githubusercontent.com/droidefense/engine/develop/CONTRIBUTING.md) for instructions about how to proceed.
+  
+And any other comments will be very appreciate.
+
 
 # Citing
 
@@ -37,18 +49,6 @@ Feel free to cite droidefense on your works. We added next boilerplate for your 
   url          = {https://droidefense.wordpress.com/}
 }
 ```
-
-# Contribution
-
-To support this project you can:
-
-  - Post thoughts about new features/optimizations that important to you
-  - Submit bug using one of following ways:
-    * Error stacktrace string and log files.
-    * Error log and link to public available apk file.
-  - Do NOT forget to fullfil [issue template](https://raw.githubusercontent.com/droidefense/engine/master/.github/ISSUE_TEMPLATE.md)
-  
-And any other comments will be very appreciate.
 
 # License
 
