@@ -1,5 +1,6 @@
 package droidefense.om.machine.base;
 
+import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.machine.base.constants.TypeDescriptorSemantics;
@@ -10,13 +11,14 @@ import droidefense.om.machine.base.struct.model.DVMInstance;
 import droidefense.om.machine.reader.DexClassReader;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.util.DroidefenseIntel;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DynamicUtils {
+
+    private static DroidDefenseEnvironment environment = DroidDefenseEnvironment.getInstance();
 
     public static String fromTypeToClassName(final String type) {
         return type.substring(1, type.length() - 1);
@@ -228,7 +230,7 @@ public class DynamicUtils {
     private static boolean isAndroidNative(IAtomClass c) {
         String clname = c.getName();
         clname = DynamicUtils.classNameToJava(clname);
-        boolean full = DroidefenseIntel.getInstance().isAndroidNative(clname);
+        boolean full = environment.isAndroidNative(clname);
         boolean parentb = false;
         int lastPoint;
         do {
@@ -238,7 +240,7 @@ public class DynamicUtils {
                 parent = clname.substring(0, lastPoint);
             }
             if (parent != null) {
-                parentb |= DroidefenseIntel.getInstance().isAndroidNative(parent);
+                parentb |= environment.isAndroidNative(parent);
                 clname = parent;
             }
         } while (lastPoint != -1);

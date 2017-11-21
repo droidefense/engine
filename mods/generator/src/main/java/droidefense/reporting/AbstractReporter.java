@@ -11,7 +11,7 @@ import java.io.File;
  */
 public abstract class AbstractReporter {
 
-    protected File reportFile;
+    private File reportFile;
 
     public abstract boolean generateReport();
 
@@ -25,5 +25,9 @@ public abstract class AbstractReporter {
         } catch (Exception e) {
             Log.write(LoggerType.ERROR, "Could no automatically open sample report on user browser", e.getLocalizedMessage());
         }
+    }
+
+    public File getReportFile() {
+        return reportFile;
     }
 }

@@ -1,5 +1,7 @@
 package droidefense.rulengine.base;
 
+import droidefense.sdk.helpers.DroidDefenseEnvironment;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -16,14 +18,16 @@ public abstract class AbstractAtomNode implements IDotGraphNode, Serializable {
     protected final int id;
     protected String instructionName;
 
+    protected transient DroidDefenseEnvironment environment = DroidDefenseEnvironment.getInstance();
+
     public AbstractAtomNode() {
         counter++;
         this.id = counter;
         in = 0;
         out = 0;
         type = "";
-        outList = new ArrayList<AbstractAtomNode>();
-        inList = new ArrayList<AbstractAtomNode>();
+        outList = new ArrayList<>();
+        inList = new ArrayList<>();
     }
 
     public AbstractAtomNode(String instructionName) {

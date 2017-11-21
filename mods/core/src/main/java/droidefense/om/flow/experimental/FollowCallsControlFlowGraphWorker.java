@@ -17,7 +17,6 @@ import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
-import droidefense.util.DroidefenseIntel;
 
 import java.io.File;
 import java.io.IOException;
@@ -87,8 +86,8 @@ public final strictfp class FollowCallsControlFlowGraphWorker extends AbstractFl
         IAtomClass[] alllist = currentProject.getInternalInfo().getAllClasses();
         ArrayList<IAtomClass> developerClasses = new ArrayList<>();
         for (IAtomClass cls : alllist) {
-            if (DroidefenseIntel.getInstance().isDeveloperClass(cls.getName())
-                    && !DroidefenseIntel.getInstance().isAndroidRclass(cls.getName())
+            if (environment.isDeveloperClass(cls.getName())
+                    && !environment.isAndroidRclass(cls.getName())
                     )
                 developerClasses.add(cls);
         }

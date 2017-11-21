@@ -1,7 +1,7 @@
 package droidefense.worker.loader;
 
 import droidefense.handler.FileIOHandler;
-import droidefense.sdk.helpers.DroidDefenseParams;
+import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
@@ -21,13 +21,13 @@ public class SignatureModelLoader implements Serializable {
         model = new SignatureMap();
         BufferedReader br = null;
         String line;
-        String cvsSplitBy = DroidDefenseParams.getInstance().CVS_SPLIT;
+        String cvsSplitBy = DroidDefenseEnvironmentConfig.getInstance().CVS_SPLIT;
 
         try {
             InputStream csvFile = FileIOHandler.getApkrFileInputStream(
-                    DroidDefenseParams.getInstance().RESOURCE_FOLDER
+                    DroidDefenseEnvironmentConfig.getInstance().RESOURCE_FOLDER
                             + File.separator
-                            + DroidDefenseParams.getInstance().SIGNATURE_FILE
+                            + DroidDefenseEnvironmentConfig.getInstance().SIGNATURE_FILE
             );
             br = new BufferedReader(new InputStreamReader(csvFile));
             while ((line = br.readLine()) != null) {

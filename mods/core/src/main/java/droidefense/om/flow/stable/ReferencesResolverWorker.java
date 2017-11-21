@@ -11,7 +11,6 @@ import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
-import droidefense.util.DroidefenseIntel;
 import droidefense.vfs.model.impl.VirtualFile;
 
 import java.util.*;
@@ -555,7 +554,7 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
         IAtomClass[] alllist = currentProject.getInternalInfo().getAllClasses();
         ArrayList<IAtomClass> developerClasses = new ArrayList<>();
         for (IAtomClass cls : alllist) {
-            if ( DroidefenseIntel.getInstance().isAndroidRclass(cls.getName()) )
+            if ( environment.isAndroidRclass(cls.getName()) )
                 developerClasses.add(cls);
         }
         IAtomClass[] list = developerClasses.toArray(new IAtomClass[developerClasses.size()]);

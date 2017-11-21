@@ -26,7 +26,7 @@ package droidefense.om.machine.base.struct.model;
 import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
-import droidefense.util.DroidefenseIntel;
+import droidefense.sdk.helpers.DroidDefenseEnvironment;
 
 import java.io.Serializable;
 
@@ -335,6 +335,6 @@ public class DVMMethod implements IAtomMethod, Serializable {
 
     @Override
     public IAtomClass getTopClass() {
-        return DroidefenseIntel.getInstance().getParentClass(this.getOwnerClass());
+        return DroidDefenseEnvironment.getInstance().getParentClass(this.getOwnerClass());
     }
 }

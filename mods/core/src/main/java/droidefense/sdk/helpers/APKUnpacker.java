@@ -9,7 +9,6 @@ import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.LocalApkFile;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -72,7 +71,7 @@ public enum APKUnpacker {
     };
 
     private static boolean isXml(VirtualFile file) {
-        return file.getName().endsWith(DroidDefenseParams.getInstance().XML_EXTENSION);
+        return file.getName().endsWith(DroidDefenseEnvironmentConfig.getInstance().XML_EXTENSION);
     }
 
     /**

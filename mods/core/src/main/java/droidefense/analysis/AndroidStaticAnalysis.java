@@ -34,7 +34,7 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
         //1 decompile if enabled
         //TODO make in-memory decompilation
         /*
-        if (DroidDefenseParams.getInstance().DECOMPILE) {
+        if (DroidDefenseEnvironmentConfig.getInstance().DECOMPILE) {
             Log.write(LoggerType.TRACE, "\n\n --- Running Android decompiler ---\n\n");
             //2 parse certificates
             parser = ParserFactory.getParser(ParserFactory.CODE_DECOMPILER, currentProject, apkFile);

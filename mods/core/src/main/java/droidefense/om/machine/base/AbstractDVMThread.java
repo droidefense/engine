@@ -31,6 +31,7 @@ import droidefense.om.machine.base.struct.model.DVMFrame;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
 import droidefense.om.machine.reader.DexClassReader;
+import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
 
@@ -63,6 +64,8 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
     protected int currentFrame = -1;
     protected int priority = Thread.NORM_PRIORITY;
     protected Vector joinedThreads = new Vector();
+
+    protected transient static final DroidDefenseEnvironment environment = DroidDefenseEnvironment.getInstance();
 
     public AbstractDVMThread(final DroidefenseProject currentProject) {
         this.vm = currentProject.getDalvikMachine();

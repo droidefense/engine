@@ -2,7 +2,7 @@ package droidefense.rulengine.nodes;
 
 import droidefense.rulengine.base.AbstractAtomNode;
 import droidefense.rulengine.base.AbstractFlowMap;
-import droidefense.util.DroidefenseIntel;
+import droidefense.sdk.helpers.DroidDefenseEnvironment;
 
 public class MethodNode extends AbstractAtomNode {
 
@@ -116,9 +116,9 @@ public class MethodNode extends AbstractAtomNode {
         } else {
             dotName = methodName;
         }
-        nodeType = DroidefenseIntel.getInstance().classifyNode(getClassName());
+        nodeType = environment.classifyNode(getClassName());
         setType(nodeType);
-        String color = DroidefenseIntel.getInstance().classifyNodeColor(getClassName(), this);
+        String color = environment.classifyNodeColor(getClassName(), this);
 
         /*if(args!=null && args.length()>0)
             return nodeType+" | "+Util.quote(getClassName())+" |"+Util.quote(getMethodName())+"|"+args;

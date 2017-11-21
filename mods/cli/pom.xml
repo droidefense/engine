@@ -7,7 +7,8 @@
     <version>1.0-SNAPSHOT</version>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>cli</artifactId>
-    <name>Droidefense CLI</name>
+    
+    <name>Droidefense - cli</name>
 
     <properties>
         <jdk.version>1.8</jdk.version>
@@ -17,45 +18,39 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <modules>
-        <module>../core</module>
-    </modules>
+    <dependencies>
 
-    <dependencyManagement>
-        <dependencies>
+        <!-- https://mvnrepository.com/artifact/commons-cli/commons-cli -->
+        <dependency>
+            <groupId>commons-cli</groupId>
+            <artifactId>commons-cli</artifactId>
+            <version>1.4</version>
+            <scope>compile</scope>
+        </dependency>
 
-            <!-- https://mvnrepository.com/artifact/commons-cli/commons-cli -->
-            <dependency>
-                <groupId>commons-cli</groupId>
-                <artifactId>commons-cli</artifactId>
-                <version>1.4</version>
-                <scope>compile</scope>
-            </dependency>
+        <dependency>
+            <groupId>com.droidefense</groupId>
+            <artifactId>core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
 
-            <dependency>
-                <groupId>com.droidefense</groupId>
-                <artifactId>core</artifactId>
-                <version>1.0-SNAPSHOT</version>
-                <scope>compile</scope>
-            </dependency>
+        <dependency>
+            <groupId>com.droidefense</groupId>
+            <artifactId>sdk</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
 
-            <dependency>
-                <groupId>com.droidefense</groupId>
-                <artifactId>sdk</artifactId>
-                <version>1.0-SNAPSHOT</version>
-                <scope>compile</scope>
-            </dependency>
+        <!-- testing libs -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
 
-            <!-- testing libs -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.12</version>
-                <scope>test</scope>
-            </dependency>
-
-        </dependencies>
-    </dependencyManagement>
+    </dependencies>
 
     <build>
         <plugins>

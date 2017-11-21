@@ -19,7 +19,7 @@ import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.base.AbstractFlowMap;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.AbstractStaticPlugin;
-import droidefense.sdk.helpers.DroidDefenseParams;
+import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.helpers.Util;
 import droidefense.sdk.log4j.Log;
@@ -162,6 +162,7 @@ public final class DroidefenseProject implements Serializable {
     private transient boolean settingAutoOpen;
     private transient String settingsReportType;
     private transient DalvikVM dalvikMachine;
+    private AbstractReporter reporter;
 
     public DroidefenseProject() {
         //create new timestamp now
@@ -459,8 +460,8 @@ public final class DroidefenseProject implements Serializable {
         try {
             String path = FileIOHandler.getUnpackOutputFile().getAbsolutePath();
             String samplehash = this.sample.getSha256();
-            File projectFile = new File(path + File.separator + samplehash + File.separator + DroidDefenseParams.getInstance().PROJECT_DATA_FILE);
-            FileIOHandler.saveAsRAW(this, DroidDefenseParams.getInstance().PROJECT_DATA_FILE, projectFile.getParentFile());
+            File projectFile = new File(path + File.separator + samplehash + File.separator + DroidDefenseEnvironmentConfig.getInstance().PROJECT_DATA_FILE);
+            FileIOHandler.saveAsRAW(this, DroidDefenseEnvironmentConfig.getInstance().PROJECT_DATA_FILE, projectFile.getParentFile());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -593,6 +594,7 @@ public final class DroidefenseProject implements Serializable {
     }
 
     public void finish() {
+        Log.write(LoggerType.TRACE, "Saving report file...");
         Log.write(LoggerType.TRACE, "Droidefense project finished");
         Log.write(LoggerType.TRACE, "Generating report template...");
 
@@ -620,8 +622,6 @@ public final class DroidefenseProject implements Serializable {
     }
 
     private void generateReportTemplate() {
-
-        AbstractReporter reporter;
         switch (getSettingsReportType()) {
             case "html":
                 reporter = new HTMLReporter();

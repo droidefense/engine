@@ -16,7 +16,6 @@ import droidefense.om.machine.inst.InstructionReturn;
 import droidefense.om.machine.reader.DexClassReader;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
-import droidefense.util.DroidefenseIntel;
 
 import java.util.ArrayList;
 import java.util.Vector;
@@ -88,7 +87,7 @@ public final strictfp class RealFlowWorker extends AbstractFlowWorker {
             IAtomClass[] alllist = currentProject.getInternalInfo().getAllClasses();
             ArrayList<IAtomClass> developerClasses = new ArrayList<>();
             for (IAtomClass cls : alllist) {
-                if (DroidefenseIntel.getInstance().isDeveloperClass(cls.getName()))
+                if (environment.isDeveloperClass(cls.getName()))
                     developerClasses.add(cls);
             }
             return developerClasses.toArray(new IAtomClass[developerClasses.size()]);

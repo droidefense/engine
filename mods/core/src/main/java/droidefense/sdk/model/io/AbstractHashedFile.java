@@ -3,10 +3,10 @@ package droidefense.sdk.model.io;
 import com.j256.simplemagic.ContentInfo;
 import com.j256.simplemagic.ContentInfoUtil;
 import com.j256.simplemagic.ContentType;
+import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.helpers.Util;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
-import droidefense.util.DroidefenseIntel;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -53,7 +53,7 @@ public abstract class AbstractHashedFile implements Serializable {
         contentInfo = null;
         if (generateInformation) {
             generateHashes();
-            androidDefaultFile = DroidefenseIntel.getInstance().isDefaultFile(this.sha256);
+            androidDefaultFile = DroidDefenseEnvironment.getInstance().isDefaultFile(this.sha256);
             calculateHeaderBasedExtension();
         }
     }

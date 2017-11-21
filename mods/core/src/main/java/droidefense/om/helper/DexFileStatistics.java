@@ -1,14 +1,13 @@
 package droidefense.om.helper;
 
 
+import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
-import droidefense.om.machine.reader.DexHeaderReader;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
-import droidefense.util.DroidefenseIntel;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -38,6 +37,8 @@ public class DexFileStatistics implements Serializable {
     private int developerClassCount, realDeveloperClassCount;
     private int realDeveloperInnerClassCount;
 
+    private DroidDefenseEnvironment environment = DroidDefenseEnvironment.getInstance();
+
     public DexFileStatistics(DroidefenseProject currentProject) {
         //create VM
         vm = currentProject.getDalvikMachine();
@@ -60,8 +61,6 @@ public class DexFileStatistics implements Serializable {
             realDeveloperClassList = new HashSet<>();
             realDeveloperInnerClassList = new HashSet<>();
 
-            DroidefenseIntel intel = DroidefenseIntel.getInstance();
-
             //1 generate package names
 
             //2 get the classnames of developer handmade
@@ -71,10 +70,10 @@ public class DexFileStatistics implements Serializable {
                 if (idx != -1)
                     full = full.substring(0, idx).replace("/", ".");
                 developerPackages.add(full);
-                if (!intel.isAndroidv4v7Class(full)) {
+                if (!environment.isAndroidv4v7Class(full)) {
                     realDeveloperPackages.add(full);
                 }
-                if (intel.isDeveloperClass(cls.getName())) {
+                if (environment.isDeveloperClass(cls.getName())) {
                     developerClassList.add(cls.getName().replace("/", "."));
                 }
             }

@@ -2,16 +2,14 @@ package droidefense.cli;
 
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.analysis.base.AnalysisFactory;
-import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.exception.InvalidScanParametersException;
 import droidefense.exception.UnknownAnalyzerException;
 import droidefense.sdk.helpers.APKUnpacker;
-import droidefense.sdk.helpers.DroidDefenseParams;
+import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.LocalApkFile;
-import droidefense.util.DroidefenseIntel;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -24,36 +22,21 @@ public class DroidefenseScan {
     private DroidefenseOptions options;
     private DroidefenseProject project;
 
-    public DroidefenseScan(String[] args) throws InvalidScanParametersException {
+    /**
+     * Default constructor
+     * @param args command line arguments
+     * @throws InvalidScanParametersException
+     */
+    public DroidefenseScan(String[] args) throws InvalidScanParametersException, UnknownAnalyzerException, ParseException {
         options = new DroidefenseOptions();
         options.showAsciiBanner();
-        try {
-            CommandLineParser parser = new DefaultParser();
-            CommandLine cmd = parser.parse(options, args);
-            executeUserCmd(cmd);
-        } catch (ParseException e) {
-            showParsingError(e);
-        }
+
+        CommandLineParser parser = new DefaultParser();
+        CommandLine cmd = parser.parse(options, args);
+        executeUserCmd(cmd);
     }
 
-    public static void main(String[] args) throws InvalidScanParametersException {
-        new DroidefenseScan(args);
-    }
-
-    private static boolean loadEnvironment() {
-        //init data structs
-        try {
-            DroidDefenseParams.init();
-            DroidefenseIntel.init();
-            Log.write(LoggerType.TRACE, "Droidefense environment loaded!!");
-        } catch (ConfigFileNotFoundException e) {
-            Log.write(LoggerType.FATAL, e.getLocalizedMessage());
-            return false;
-        }
-        return true;
-    }
-
-    private void executeUserCmd(CommandLine cmd) {
+    private void executeUserCmd(CommandLine cmd) throws UnknownAnalyzerException {
         if (cmd.hasOption("-help")) {
             options.showHelp();
         } else if (cmd.hasOption("-version")) {
@@ -63,7 +46,7 @@ public class DroidefenseScan {
         }
     }
 
-    private void executeCustom(CommandLine cmd) {
+    private void executeCustom(CommandLine cmd) throws UnknownAnalyzerException {
         //get user selected unpacker. default apktool
         APKUnpacker unpacker = APKUnpacker.ZIP;
         if (cmd.hasOption("unpacker")) {
@@ -82,24 +65,7 @@ public class DroidefenseScan {
 
         //read user selected .apk
         if (cmd.hasOption("input")) {
-            //initialize environment first
-            boolean init = loadEnvironment();
-            if (!init) {
-                Log.write(LoggerType.FATAL, "Droidefense initialization error");
-            }
-            else{
-                boolean profilingEnabled = cmd.hasOption("profile");
-                File inputFile = new File(cmd.getOptionValue("input"));
-                //profiler wait time | start
-                if (profilingEnabled) {
-                    profilingAlert("activate");
-                }
-                initScan(project, inputFile, unpacker);
-                //profiler wait time | forceStop
-                if (profilingEnabled) {
-                    profilingAlert("deactivate");
-                }
-            }
+            processInput(cmd, unpacker);
         } else {
             //as default action
             options.showVersion();
@@ -107,9 +73,27 @@ public class DroidefenseScan {
         }
     }
 
-    private void showParsingError(ParseException e) {
-        Log.write(LoggerType.ERROR, e.getLocalizedMessage() + "\n");
-        options.showHelp();
+    private void processInput(CommandLine cmd, APKUnpacker unpacker) throws UnknownAnalyzerException {
+        //initialize environment first
+        if (!DroidDefenseEnvironment.isLoaded()) {
+            Log.write(LoggerType.FATAL, "Droidefense initialization error");
+        }
+        else{
+            boolean profilingEnabled = cmd.hasOption("profile");
+            File inputFile = new File(cmd.getOptionValue("input"));
+
+            //profiler wait time | start
+            if (profilingEnabled) {
+                profilingAlert("activate");
+            }
+
+            readSampleForScan(project, inputFile, unpacker);
+
+            //profiler wait time | forceStop
+            if (profilingEnabled) {
+                profilingAlert("deactivate");
+            }
+        }
     }
 
     private void profilingAlert(String status) {
@@ -119,44 +103,56 @@ public class DroidefenseScan {
     }
 
     private void forceStop() {
-        if(this.project!=null){
-            //save report .json to file
-            Log.write(LoggerType.TRACE, "Saving report file...");
+        if(this.project != null){
             this.project.finish();
         }
+        forceExit();
+    }
+
+    private void forceExit() {
         Log.write(LoggerType.TRACE, "Droidefense scan finished");
         Log.write(LoggerType.TRACE, "Exiting...");
         //force exit
         System.exit(0);
     }
 
-    private void initScan(DroidefenseProject project, File f, APKUnpacker unpacker) {
-        if (f.exists() && f.canRead()) {
+    private void readSampleForScan(DroidefenseProject project, File f, APKUnpacker unpacker) throws UnknownAnalyzerException {
+        if(!f.exists()){
+            Log.write(LoggerType.FATAL, "target file ("+f.getAbsolutePath()+") does not exist");
+        }
+        else if(!f.canRead()){
+            Log.write(LoggerType.FATAL, "target file ("+f.getAbsolutePath()+") can not be read. Please check your permissions");
+        }
+        else {
             Log.write(LoggerType.TRACE, "Building project");
 
             //set sample
             LocalApkFile sample = new LocalApkFile(f, project, unpacker);
             project.setSample(sample);
 
-            Log.write(LoggerType.TRACE, "Running Droidefense [ANALYSIS]");
-
-            Log.write(LoggerType.TRACE, "Project ID:\t" + project.getProjectId());
-
-            AbstractAndroidAnalysis analyzer;
-            try {
-                analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.GENERAL);
-                //Start analysis
-                project.analyze(analyzer);
-            } catch (UnknownAnalyzerException e) {
-                Log.write(LoggerType.FATAL, e.getLocalizedMessage());
-                Log.write(LoggerType.ERROR, "Analyzer not found" + e.getLocalizedMessage());
-            }
+            //start sample scan
+            startSampleScan(project);
 
             //forceStop scan
             this.forceStop();
-        } else {
-            Log.write(LoggerType.FATAL, "Could not read selected file");
-            Log.write(LoggerType.FATAL, "Source file was: " + f.getAbsolutePath());
+        }
+    }
+
+    private void startSampleScan(DroidefenseProject project) throws UnknownAnalyzerException {
+        Log.write(LoggerType.TRACE, "Project ID:\t" + project.getProjectId());
+        AbstractAndroidAnalysis analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.GENERAL);
+        project.analyze(analyzer);
+    }
+
+    public static void main(String[] args) throws InvalidScanParametersException {
+        try {
+            new DroidefenseScan(args);
+        } catch (UnknownAnalyzerException e) {
+            Log.write(LoggerType.FATAL, e.getLocalizedMessage());
+            Log.write(LoggerType.ERROR, "Analyzer not found: " + e.getLocalizedMessage());
+        } catch (ParseException e) {
+            Log.write(LoggerType.FATAL, e.getLocalizedMessage());
+            Log.write(LoggerType.ERROR, "Parsing exception detected: " + e.getLocalizedMessage());
         }
     }
 }

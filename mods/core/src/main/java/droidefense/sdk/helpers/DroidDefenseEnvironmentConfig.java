@@ -14,15 +14,15 @@ import java.io.Serializable;
 /**
  * Created by sergio on 29/4/16.
  */
-public class DroidDefenseParams implements Serializable {
+public class DroidDefenseEnvironmentConfig implements Serializable {
 
     private final static String UNIX_CONFIG_PROPERTIES = "config.linux.json";
     private final static String WINDOWS_CONFIG_PROPERTIES = "config.win.json";
     private final static String MAC_CONFIG_PROPERTIES = "config.mac.json";
     private final static String CONFIG_PROPERTIES = UNIX_CONFIG_PROPERTIES;
-    public static final String VERSION = "1.0";
-    public static final String TAG = "alpha-unstable";
-    private static DroidDefenseParams instance = new DroidDefenseParams();
+    public static final String VERSION = "0.1";
+    public static final String TAG = "alpha";
+    private static DroidDefenseEnvironmentConfig instance = new DroidDefenseEnvironmentConfig();
 
     //object var - flags
     public boolean OVERWRITE_DECODE_FOLDER;
@@ -60,7 +60,7 @@ public class DroidDefenseParams implements Serializable {
     public String ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME;
     public String XML_EXTENSION;
 
-    public DroidDefenseParams() {
+    public DroidDefenseEnvironmentConfig() {
         //initialize string variables with default values
         OVERWRITE_DECODE_FOLDER = false;
         MULTITHREAD = false;
@@ -91,11 +91,11 @@ public class DroidDefenseParams implements Serializable {
         PSCOUT_MODEL = "map/pscout.map";
     }
 
-    private static void deserialize(DroidDefenseParams params) {
+    private static void deserialize(DroidDefenseEnvironmentConfig params) {
         instance = params;
     }
 
-    public static DroidDefenseParams getInstance() {
+    public static DroidDefenseEnvironmentConfig getInstance() {
         return instance;
     }
 
@@ -132,7 +132,7 @@ public class DroidDefenseParams implements Serializable {
                 if (jsonData.length == 0) {
                     throw new ConfigFileNotFoundException(configFilePath + " file content is not valid");
                 } else {
-                    DroidDefenseParams params = (DroidDefenseParams) Util.toObjectFromJson(new String(jsonData), DroidDefenseParams.class);
+                    DroidDefenseEnvironmentConfig params = (DroidDefenseEnvironmentConfig) Util.toObjectFromJson(new String(jsonData), DroidDefenseEnvironmentConfig.class);
                     deserialize(params);
                 }
             } else {

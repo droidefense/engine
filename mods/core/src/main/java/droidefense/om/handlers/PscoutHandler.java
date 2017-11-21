@@ -2,12 +2,12 @@ package droidefense.om.handlers;
 
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.AbstractHandler;
+import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.pscout.PSCoutModel;
 import droidefense.rulengine.base.AbstractAtomNode;
 import droidefense.rulengine.nodes.MethodNode;
-import droidefense.sdk.helpers.DroidDefenseParams;
 import droidefense.sdk.model.base.DroidefenseProject;
 
 import java.io.File;
@@ -32,7 +32,7 @@ public class PscoutHandler extends AbstractHandler {
     public boolean doTheJob() {
         Log.write(LoggerType.TRACE, "---- Mapping method calls with permissions -----");
         try {
-            PSCoutModel model = (PSCoutModel) FileIOHandler.getResourceObjectStream(DroidDefenseParams.getInstance().RESOURCE_FOLDER + File.separator + DroidDefenseParams.getInstance().PSCOUT_MODEL).readObject();
+            PSCoutModel model = (PSCoutModel) FileIOHandler.getResourceObjectStream(DroidDefenseEnvironmentConfig.getInstance().RESOURCE_FOLDER + File.separator + DroidDefenseEnvironmentConfig.getInstance().PSCOUT_MODEL).readObject();
             if (model == null) {
                 return false;
             }
