@@ -1,7 +1,10 @@
 package droidefense.batch.helper;
 
+import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
 import droidefense.sdk.helpers.InternalConstant;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.sdk.model.io.AbstractHashedFile;
 
 import java.io.File;
@@ -35,7 +38,12 @@ public enum DirectoryFilter {
 
         @Override
         public String getResultName() {
-            return DroidDefenseEnvironmentConfig.getInstance().JAVA_SDK_CLASS_HASHSET_NAME;
+            try {
+                return DroidDefenseEnvironmentConfig.getInstance().JAVA_SDK_CLASS_HASHSET_NAME;
+            } catch (ConfigFileNotFoundException e) {
+                Log.write(LoggerType.FATAL, "Could not retrieve JAVA_SDK_CLASS_HASHSET_NAME  from external config file", e.getLocalizedMessage());
+                return null;
+            }
         }
     },
 
@@ -59,7 +67,12 @@ public enum DirectoryFilter {
 
         @Override
         public String getResultName() {
-            return DroidDefenseEnvironmentConfig.getInstance().ANDROID_SDK_CLASS_HASHSET_NAME;
+            try {
+                return DroidDefenseEnvironmentConfig.getInstance().ANDROID_SDK_CLASS_HASHSET_NAME;
+            } catch (ConfigFileNotFoundException e) {
+                Log.write(LoggerType.FATAL, "Could not retrieve ANDROID_SDK_CLASS_HASHSET_NAME  from external config file", e.getLocalizedMessage());
+                return null;
+            }
         }
     },
 
@@ -87,7 +100,12 @@ public enum DirectoryFilter {
 
         @Override
         public String getResultName() {
-            return DroidDefenseEnvironmentConfig.getInstance().ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME;
+            try {
+                return DroidDefenseEnvironmentConfig.getInstance().ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME;
+            } catch (ConfigFileNotFoundException e) {
+                Log.write(LoggerType.FATAL, "Could not retrieve ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME  from external config file", e.getLocalizedMessage());
+                return null;
+            }
         }
     },
 

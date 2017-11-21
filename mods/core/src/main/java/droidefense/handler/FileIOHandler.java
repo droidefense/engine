@@ -1,6 +1,7 @@
 package droidefense.handler;
 
 
+import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
@@ -21,8 +22,18 @@ import java.nio.file.Paths;
  */
 public class FileIOHandler {
 
+    private static DroidDefenseEnvironmentConfig environmentConfig;
+
+    public static void init(){
+        try {
+            environmentConfig = DroidDefenseEnvironmentConfig.getInstance();
+        } catch (ConfigFileNotFoundException e) {
+            Log.write(LoggerType.FATAL, "could not read external configuration file");
+        }
+    }
+
     public static File getUnpackOutputFile() {
-        return new File(DroidDefenseEnvironmentConfig.getInstance().UNPACK_FOLDER);
+        return new File(environmentConfig.UNPACK_FOLDER);
     }
 
     public static File getBaseDirFile() {
@@ -36,7 +47,7 @@ public class FileIOHandler {
 
     public static InputStream getApkrFileInputStream(String name) throws FileNotFoundException {
         if(!name.contains(File.separator))
-            return new FileInputStream(DroidDefenseEnvironmentConfig.getInstance().RESOURCE_FOLDER + File.separator + name);
+            return new FileInputStream(environmentConfig.RESOURCE_FOLDER + File.separator + name);
         else
             return new FileInputStream(name);
     }
@@ -44,7 +55,7 @@ public class FileIOHandler {
     public static File getResourceFolder() {
         return new File(
                 getBaseDirPath() + File.separator +
-                        DroidDefenseEnvironmentConfig.getInstance().RESOURCE_FOLDER);
+                        environmentConfig.RESOURCE_FOLDER);
     }
 
     public static File getResourceFolder(String path) {
@@ -57,12 +68,12 @@ public class FileIOHandler {
 
     public static File getStaticPluginsFolderFile() {
         return new File(getResourceFolder() + File.separator +
-                DroidDefenseEnvironmentConfig.getInstance().STATIC_PLG_FOLDER);
+                environmentConfig.STATIC_PLG_FOLDER);
     }
 
     public static File getDynamicPluginsFolderFile() {
         return new File(getResourceFolder() + File.separator +
-                DroidDefenseEnvironmentConfig.getInstance().DYNAMIC_PLG_FOLDER);
+                environmentConfig.DYNAMIC_PLG_FOLDER);
     }
 
     public static File getPluginsFile(String pluginName) {
@@ -250,7 +261,7 @@ public class FileIOHandler {
     }
 
     public static File getUploadsFolder() {
-        File f = new File(DroidDefenseEnvironmentConfig.getInstance().UPLOAD_FOLDER);
+        File f = new File(environmentConfig.UPLOAD_FOLDER);
         if (!f.exists())
             f.mkdirs();
         return f;
@@ -314,24 +325,24 @@ public class FileIOHandler {
     public static File getRuleEngineDir() {
         return new File(
                 getResourceFolder() + File.separator +
-                        DroidDefenseEnvironmentConfig.getInstance().RULE_FOLDER);
+                        environmentConfig.RULE_FOLDER);
     }
 
     public static File getToolsDir() {
         return new File(
                 getResourceFolder() + File.separator +
-                DroidDefenseEnvironmentConfig.getInstance().RESOURCE_FOLDER + File.separator +
+                environmentConfig.RESOURCE_FOLDER + File.separator +
                         "tools");
     }
 
     public static File getModelsDir() {
         return new File(
                 getResourceFolder() + File.separator +
-                        DroidDefenseEnvironmentConfig.getInstance().MODEL_FOLDER);
+                        environmentConfig.MODEL_FOLDER);
     }
 
     public static File getReportFolder(String projectId) {
-        String reportFolderPath = DroidDefenseEnvironmentConfig.getInstance().STATIC_REPORT_FOLDER;
+        String reportFolderPath = environmentConfig.STATIC_REPORT_FOLDER;
         builDir(reportFolderPath);
         return new File(reportFolderPath + File.separator + projectId);
     }

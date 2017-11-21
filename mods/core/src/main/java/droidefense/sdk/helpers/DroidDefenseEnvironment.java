@@ -1,5 +1,6 @@
 package droidefense.sdk.helpers;
 
+import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.handler.FileIOHandler;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
@@ -18,7 +19,7 @@ import java.util.HashSet;
 
 import static droidefense.rulengine.NodeCalculator.nodeTypeResolver;
 
-public class DroidDefenseEnvironment implements Serializable{
+public class DroidDefenseEnvironment implements Serializable {
 
         private static final String[] DEFAULT_ANDROID_APP_FILES_HASH_LIST = {
                 "9290AB0FAF0BC754FC50223250F303F717F275056801AF8E9C3E9218C429597B",
@@ -440,10 +441,10 @@ public class DroidDefenseEnvironment implements Serializable{
                 "500419896D42EE0818F210DB317439DF7458AD9F6F68F8B33690BD6F18C7D05A"
         };
 
-    private static final String DEFAULT_NAIVE_BAYES_RESULT = "Unknown";
     private static final HashSet<String> DEFAULT_APP_FILES_MAP = new HashSet<>();
 
-    private static final DroidDefenseEnvironment instance = new DroidDefenseEnvironment();;
+    private static DroidDefenseEnvironmentConfig config;
+    private static final DroidDefenseEnvironment instance = new DroidDefenseEnvironment();
 
     /* Extracted from official source folders */
     private transient HashSet<String> javaClassList;
@@ -451,12 +452,23 @@ public class DroidDefenseEnvironment implements Serializable{
     private transient HashSet<String> androidSupportClassList;
 
     private DroidDefenseEnvironment() {
+
+        //read external config
+        try {
+            config = DroidDefenseEnvironmentConfig.getInstance();
+            readEnvironmentalFiles();
+        } catch (ConfigFileNotFoundException e) {
+            Log.write(LoggerType.FATAL, "Error reading configuration file", e.getLocalizedMessage());
+        }
+    }
+
+    private void readEnvironmentalFiles() {
         //load a list of native jdk8 classes
 
         String path = "";
         try {
-            javaClassList = new HashSet<String>();
-            path = DroidDefenseEnvironmentConfig.getInstance().RESOURCE_FOLDER + File.separator + DroidDefenseEnvironmentConfig.getInstance().JAVA_SDK_CLASS_HASHSET_NAME;
+            javaClassList = new HashSet<>();
+            path = config.RESOURCE_FOLDER + File.separator + config.JAVA_SDK_CLASS_HASHSET_NAME;
             path = convertToAbsolute(path);
             ObjectInputStream jdk8ObjectFile = FileIOHandler.getResourceObjectStream(path);
             javaClassList = (HashSet<String>) FileIOHandler.readAsRAW(jdk8ObjectFile);
@@ -472,7 +484,7 @@ public class DroidDefenseEnvironment implements Serializable{
         try {
             //load a list of native android sdk classes
             androidClassList = new HashSet<>();
-            ObjectInputStream sdkFile = FileIOHandler.getResourceObjectStream(DroidDefenseEnvironmentConfig.getInstance().RESOURCE_FOLDER + File.separator + DroidDefenseEnvironmentConfig.getInstance().ANDROID_SDK_CLASS_HASHSET_NAME);
+            ObjectInputStream sdkFile = FileIOHandler.getResourceObjectStream(config.RESOURCE_FOLDER + File.separator + config.ANDROID_SDK_CLASS_HASHSET_NAME);
             androidClassList = (HashSet<String>) FileIOHandler.readAsRAW(sdkFile);
             Log.write(LoggerType.TRACE, "Android whitelisted dataset length: " + androidClassList.size());
         } catch (IOException e) {
@@ -486,7 +498,7 @@ public class DroidDefenseEnvironment implements Serializable{
         try {
             //load a list of native android support sdk classes
             androidSupportClassList = new HashSet<>();
-            ObjectInputStream supportFile = FileIOHandler.getResourceObjectStream(DroidDefenseEnvironmentConfig.getInstance().RESOURCE_FOLDER + File.separator + DroidDefenseEnvironmentConfig.getInstance().ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME);
+            ObjectInputStream supportFile = FileIOHandler.getResourceObjectStream(config.RESOURCE_FOLDER + File.separator + config.ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME);
             androidSupportClassList = (HashSet<String>) FileIOHandler.readAsRAW(supportFile);
             Log.write(LoggerType.TRACE, "Android support whitelisted dataset length: " + androidSupportClassList.size());
         } catch (IOException e) {
@@ -504,6 +516,7 @@ public class DroidDefenseEnvironment implements Serializable{
     }
 
     private String convertToAbsolute(String path) {
+        path = path.replaceAll(File.separator+File.separator, File.separator);
         return new File("").getAbsolutePath()+File.separator+path;
     }
 
@@ -590,13 +603,6 @@ public class DroidDefenseEnvironment implements Serializable{
         className = cleanClassName(className);
         //todo falta comprobar si un developer puede crear una clase con el nombre BuilConfig.java
         return className.endsWith(".BuildConfig");
-    }
-
-    public String getPredictedStringClass(String content) {
-        String category = null;
-        if (category == null)
-            return DEFAULT_NAIVE_BAYES_RESULT;
-        return category;
     }
 
     //http://www.graphviz.org/doc/info/colors.html

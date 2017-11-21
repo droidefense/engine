@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>ssdeep</artifactId>
 
-    <name>Droidefense-module SSDEEP</name>
+    <name>Droidefense - ssdeep</name>
 
     <properties>
         <jdk.version>1.8</jdk.version>

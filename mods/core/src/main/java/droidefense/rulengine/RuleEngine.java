@@ -4,6 +4,8 @@ import droidefense.rulengine.base.AbstractAtomNode;
 import droidefense.rulengine.base.AbstractFlowMap;
 import droidefense.rulengine.nodes.EntryPointNode;
 import droidefense.rulengine.nodes.MethodNode;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,23 +21,24 @@ public class RuleEngine {
     private ArrayList<AbstractAtomNode> nodeList;
     private ArrayList<Rule> matchedRules;
 
-    public RuleEngine(File ruleDir) {
+    public RuleEngine(File ruleDir) throws IOException {
         this.ruleDir = ruleDir;
         nodeList = new ArrayList<>();
         matchedRules = new ArrayList<>();
         readDir(ruleDir.listFiles());
     }
 
-    private void readDir(File[] files) {
+    private void readDir(File[] files) throws IOException {
         dataset = new ArrayList<>();
-        for (int i = 0; i < files.length; i++) {
-            try {
+        if(files!=null){
+            for (int i = 0; i < files.length; i++) {
                 String base = new String(Files.readAllBytes(Paths.get(files[i].getAbsolutePath())));
                 Rule r = new Rule(base, files[i].getName());
                 dataset.add(r);
-            } catch (IOException e) {
-                e.printStackTrace();
             }
+        }
+        else{
+            Log.write(LoggerType.INFO, "No rules available on folder"+ruleDir.getAbsolutePath());
         }
     }
 

@@ -14,6 +14,7 @@ import weka.core.*;
 import weka.core.converters.ArffLoader;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by sergio on 6/3/16.
@@ -127,6 +128,10 @@ public class InMemoryWekaResultsHandler extends AbstractHandler {
 
         //classifier names
         File[] modelFiles = FileIOHandler.getModelsDir().listFiles();
+
+        if(modelFiles==null || modelFiles.length==0){
+            throw new IOException("Could not find any valid model files on specified folder");
+        }
 
         /*
          * First we load the training data from our ARFF file

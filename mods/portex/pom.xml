@@ -8,6 +8,8 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>portex</artifactId>
 
+    <name>Droidefense - portex</name>
+
     <dependencies>
         <dependency>
             <groupId>com.github.katjahahn</groupId>

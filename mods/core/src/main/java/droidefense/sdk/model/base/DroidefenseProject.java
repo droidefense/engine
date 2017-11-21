@@ -1,6 +1,7 @@
 package droidefense.sdk.model.base;
 
 import droidefense.analysis.base.AbstractAndroidAnalysis;
+import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
@@ -58,6 +59,8 @@ import java.util.Map;
  * Created by sergio on 16/2/16.
  */
 public final class DroidefenseProject implements Serializable {
+
+    private static DroidDefenseEnvironmentConfig environmentConfig;
 
     private static final Map<LocalApkFile, DroidefenseProject> projectMap = new HashMap<>();
     private static final String VFS_ROOT_FOLDER = "";
@@ -158,7 +161,7 @@ public final class DroidefenseProject implements Serializable {
     private transient IAtomClass[] dynamicEntryPoints;
     private transient HashMap<String, IAtomClass> classMap;
 
-    //config params
+    //environmentConfig params
     private transient boolean settingAutoOpen;
     private transient String settingsReportType;
     private transient DalvikVM dalvikMachine;
@@ -186,6 +189,12 @@ public final class DroidefenseProject implements Serializable {
         this.malwareResult = MalwareResultEnum.UNKNOWN;
 
         this.classMap = new HashMap<>();
+
+        try {
+            environmentConfig = DroidDefenseEnvironmentConfig.getInstance();
+        } catch (ConfigFileNotFoundException e) {
+            Log.write(LoggerType.FATAL, "Could not retrieve external configuration file data", e.getLocalizedMessage());
+        }
 
         setSummary("No summary created yet!");
 
@@ -460,10 +469,14 @@ public final class DroidefenseProject implements Serializable {
         try {
             String path = FileIOHandler.getUnpackOutputFile().getAbsolutePath();
             String samplehash = this.sample.getSha256();
-            File projectFile = new File(path + File.separator + samplehash + File.separator + DroidDefenseEnvironmentConfig.getInstance().PROJECT_DATA_FILE);
-            FileIOHandler.saveAsRAW(this, DroidDefenseEnvironmentConfig.getInstance().PROJECT_DATA_FILE, projectFile.getParentFile());
+            File projectFile = new File(path + File.separator + samplehash + File.separator + environmentConfig.PROJECT_DATA_FILE);
+            FileIOHandler.saveAsRAW(
+                    this,
+                    environmentConfig.PROJECT_DATA_FILE,
+                    projectFile.getParentFile()
+            );
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, "IO Exception when saving file", e.getLocalizedMessage());
         }
     }
 
@@ -605,7 +618,11 @@ public final class DroidefenseProject implements Serializable {
         this.stop();
 
         //generate template
-        this.generateReportTemplate();
+        try {
+            this.generateReportTemplate();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Log.write(LoggerType.TRACE, "Saving scan results...");
 
@@ -621,7 +638,7 @@ public final class DroidefenseProject implements Serializable {
         Log.write(LoggerType.TRACE, "Sample analysis done.");
     }
 
-    private void generateReportTemplate() {
+    private void generateReportTemplate() throws IOException {
         switch (getSettingsReportType()) {
             case "html":
                 reporter = new HTMLReporter();

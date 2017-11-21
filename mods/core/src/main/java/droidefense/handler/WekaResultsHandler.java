@@ -37,7 +37,7 @@ public class WekaResultsHandler extends AbstractHandler {
             evaluate();
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.write(LoggerType.FATAL, "Exception while evaluating Machine Learning models", e.getLocalizedMessage());
             return false;
         }
     }

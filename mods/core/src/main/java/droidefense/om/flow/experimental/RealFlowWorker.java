@@ -136,7 +136,7 @@ public final strictfp class RealFlowWorker extends AbstractFlowWorker {
                     break;
                 }
                 int instVal = lowerCodes[frame.getPc()];
-                System.out.println("DalvikInstruction: 0x" + Integer.toHexString(instVal));
+                Log.write(LoggerType.TRACE, "DalvikInstruction: 0x" + Integer.toHexString(instVal));
                 DalvikInstruction currentInstruction = instructions[instVal];
                 InstructionReturn returnValue = currentInstruction.execute(flowMap, this, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
                 if (returnValue != null) {

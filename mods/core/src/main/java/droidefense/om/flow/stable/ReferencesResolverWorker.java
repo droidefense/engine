@@ -515,7 +515,7 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
         data = reverseAndroidRefs(ANDROID_ID_REGEX, data, secondaryKeymap);
 
         data = Util.prettyFormatXML(data);
-        System.out.println(data);
+        Log.write(LoggerType.TRACE, data);
     }
 
     private String reverseAndroidRefs(String key, String data, HashMap<String, String> db) {

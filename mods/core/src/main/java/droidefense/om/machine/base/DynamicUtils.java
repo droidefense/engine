@@ -160,11 +160,11 @@ public class DynamicUtils {
     public static boolean verifyDexFile(byte[] dexData) {
         boolean valid = true;
         byte[] signature = InternalConstant.DEX_FILE_MAGIC;
-        System.out.println("Checking .dex file signature");
+        Log.write(LoggerType.TRACE,"Checking .dex file signature");
         for (int i = 0; i < signature.length; i++) {
             valid &= dexData[i] == signature[i];
         }
-        System.out.println(".dex file seems to be " + (valid ? "valid." : "not valid."));
+        Log.write(LoggerType.TRACE,".dex file seems to be " + (valid ? "valid." : "not valid."));
         return true;
     }
 

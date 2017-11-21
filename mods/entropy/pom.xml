@@ -8,7 +8,7 @@
     <version>1.0-SNAPSHOT</version>
     <artifactId>entropy</artifactId>
 
-    <name>Droidefense-module entropy</name>
+    <name>Droidefense - entropy</name>
 
     <properties>
         <jdk.version>1.8</jdk.version>

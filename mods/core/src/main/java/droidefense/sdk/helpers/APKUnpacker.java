@@ -71,7 +71,7 @@ public enum APKUnpacker {
     };
 
     private static boolean isXml(VirtualFile file) {
-        return file.getName().endsWith(DroidDefenseEnvironmentConfig.getInstance().XML_EXTENSION);
+        return file.getName().endsWith(".xml");
     }
 
     /**

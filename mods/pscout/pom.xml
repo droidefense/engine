@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>pscout</artifactId>
 
-    <name>PSCout</name>
+    <name>Droidefense - pscout</name>
 
     <properties>
         <jdk.version>1.8</jdk.version>

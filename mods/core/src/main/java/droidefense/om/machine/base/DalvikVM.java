@@ -74,7 +74,7 @@ public class DalvikVM extends AbstractVirtualMachine {
 
     @Override
     public void run() throws Throwable {
-        System.out.println("\n--- SIMULATION START ---\n");
+        Log.write(LoggerType.TRACE, "\n--- SIMULATION START ---\n");
 
         isEnd = false;
 
@@ -151,7 +151,7 @@ public class DalvikVM extends AbstractVirtualMachine {
             }
         }
         main.finish();
-        System.out.println("\n--- SIMULATION FINISHED ---\n");
+        Log.write(LoggerType.TRACE, "\n--- SIMULATION FINISHED ---\n");
     }
 
     private AbstractDVMThread reloadThread(AbstractDVMThread old, IAtomClass currentClass, IAtomFrame frame, IAtomMethod currentMethod) {

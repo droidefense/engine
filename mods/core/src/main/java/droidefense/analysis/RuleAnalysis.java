@@ -8,6 +8,8 @@ import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.FileIOHandler;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -15,10 +17,16 @@ import java.util.ArrayList;
  */
 public final class RuleAnalysis extends AbstractAndroidAnalysis {
 
+    private final File ruleDir;
     private transient RuleEngine engine;
 
     public RuleAnalysis() {
-        engine = new RuleEngine(FileIOHandler.getRuleEngineDir());
+        ruleDir = FileIOHandler.getRuleEngineDir();
+        try {
+            engine = new RuleEngine(ruleDir);
+        } catch (IOException e) {
+            Log.write(LoggerType.ERROR, "Rule analysis canceled", e.getLocalizedMessage());
+        }
     }
 
     @Override

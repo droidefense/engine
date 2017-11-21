@@ -4,6 +4,8 @@ import droidefense.rulengine.base.AbstractAtomNode;
 import droidefense.rulengine.base.NodeConnection;
 import droidefense.rulengine.base.AbstractFlowMap;
 import droidefense.rulengine.nodes.EntryPointNode;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -83,7 +85,7 @@ public class BasicCFGFlowMap extends AbstractFlowMap {
     public String getAsDotGraph() {
         if (nodes == 0)
             return "";
-        System.out.println("Generating .dot graph...");
+        Log.write(LoggerType.TRACE,"Generating .dot graph...");
         String begin = "digraph flowmap{\n";
         begin += "\trankdir=LR\n";
         begin += "\tnodesep=0.5 // increases the separation between nodes\n";
@@ -150,7 +152,7 @@ public class BasicCFGFlowMap extends AbstractFlowMap {
         }
         connections += "\n";
 
-        System.out.println("Graph generated!!");
+        Log.write(LoggerType.TRACE,"Graph generated!!");
         return begin + connections + end;
     }
 }

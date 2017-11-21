@@ -27,6 +27,8 @@ public class InMemoryAXMLParser {
                 Log.write(LoggerType.ERROR, "Could not decode axml file", e.getLocalizedMessage());
             } catch (IOException e) {
                 Log.write(LoggerType.ERROR, "IO error when decoding axml file", e.getLocalizedMessage());
+            } catch (ArrayIndexOutOfBoundsException e){
+                Log.write(LoggerType.FATAL, "Current axml decoder is not 100% compatible with given input", e.getLocalizedMessage());
             }
         }
     }

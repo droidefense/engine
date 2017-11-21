@@ -1,5 +1,7 @@
 package droidefense.xmodel.base;
 
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.sdk.manifest.*;
 import droidefense.sdk.manifest.base.AbstractManifestClass;
 import org.xml.sax.InputSource;
@@ -30,9 +32,9 @@ public final class ManifestParser implements Serializable {
     private AbstractManifestClass parent = null;
 
     public ManifestParser() {
-        System.out.println("Running ManifestParser...");
-        System.out.println("\tCompiled with JAVA SDK v" + JDK_LANGUAGE_LEVEL);
-        System.out.println("\tMax Android droidefense.sdk.manifest version supported: " + MAX_ANDROID_VERSION);
+        Log.write(LoggerType.TRACE,"Running ManifestParser...");
+        Log.write(LoggerType.TRACE, "Compiled with JAVA SDK v" + JDK_LANGUAGE_LEVEL);
+        Log.write(LoggerType.TRACE,"Max AndroidManifest.xml version supported: " + MAX_ANDROID_VERSION);
     }
 
     public final AbstractManifestClass getMainClass() {

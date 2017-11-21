@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * Created by sergio on 29/4/16.
+ * Created by sergio on 29/4/16.Serializable
  */
 public class DroidDefenseEnvironmentConfig implements Serializable {
 
@@ -22,7 +22,7 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
     private final static String CONFIG_PROPERTIES = UNIX_CONFIG_PROPERTIES;
     public static final String VERSION = "0.1";
     public static final String TAG = "alpha";
-    private static DroidDefenseEnvironmentConfig instance = new DroidDefenseEnvironmentConfig();
+    private transient static DroidDefenseEnvironmentConfig instance;
 
     //object var - flags
     public boolean OVERWRITE_DECODE_FOLDER;
@@ -60,19 +60,27 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
     public String ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME;
     public String XML_EXTENSION;
 
-    public DroidDefenseEnvironmentConfig() {
+    public static DroidDefenseEnvironmentConfig getInstance() throws ConfigFileNotFoundException {
+        if(instance==null){
+            instance = new DroidDefenseEnvironmentConfig();
+            instance.init();
+        }
+        return instance;
+    }
+
+    private DroidDefenseEnvironmentConfig() throws ConfigFileNotFoundException {
         //initialize string variables with default values
         OVERWRITE_DECODE_FOLDER = false;
         MULTITHREAD = false;
         DECOMPILE = false;
         DB_STORAGE = false;
-        UNPACK_FOLDER = "../unpack";
-        UPLOAD_FOLDER = "../upload";
-        SERVER_FOLDER = "../server";
-        RESOURCE_FOLDER = "../lib/data/";
-        MODEL_FOLDER = "models";
+        UNPACK_FOLDER = "./unpack";
+        UPLOAD_FOLDER = "./upload";
+        SERVER_FOLDER = "./server";
+        RESOURCE_FOLDER = "./lib/data/";
+        MODEL_FOLDER = "ml";
         RULE_FOLDER = "rules";
-        STATIC_REPORT_FOLDER = "../reports";
+        STATIC_REPORT_FOLDER = "./reports";
         STATIC_PLG_FOLDER = "";
         DYNAMIC_PLG_FOLDER = "";
         CVS_SPLIT = ";";
@@ -88,18 +96,14 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
         XML_EXTENSION = ".xml";
         PROJECT_DATA_FILE = "project.data";
         PROJECT_JSON_FILE = "report.json";
-        PSCOUT_MODEL = "map/pscout.map";
+        PSCOUT_MODEL = "map/pscout.model";
     }
 
-    private static void deserialize(DroidDefenseEnvironmentConfig params) {
-        instance = params;
+    private void deserialize(DroidDefenseEnvironmentConfig params) {
+        this.instance = params;
     }
 
-    public static DroidDefenseEnvironmentConfig getInstance() {
-        return instance;
-    }
-
-    public static void init() throws ConfigFileNotFoundException {
+    private void init() throws ConfigFileNotFoundException {
         Log.write(LoggerType.TRACE, "Loading Droidefense data structs...");
         String executablePath = FileIOHandler.getBaseDirPath();
         String configPath = FileIOHandler.getConfigPath();
@@ -123,23 +127,26 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
         }
     }
 
-    private static void runconfig(String configFilePath, String name) throws ConfigFileNotFoundException {
+    private void runconfig(String configFilePath, String name) throws ConfigFileNotFoundException {
         File configFile = new File(configFilePath, name);
+        String configFullPath = configFile.getAbsolutePath();
         try {
-            Log.write(LoggerType.DEBUG, "Reading config file: " + configFilePath);
+            Log.write(LoggerType.DEBUG, "Reading config file: " + configFullPath);
             if (configFile.exists()) {
-                byte[] jsonData = Util.loadFileAsBytes(configFilePath);
+                byte[] jsonData = Util.loadFileAsBytes(configFullPath);
                 if (jsonData.length == 0) {
-                    throw new ConfigFileNotFoundException(configFilePath + " file content is not valid");
+                    throw new ConfigFileNotFoundException(configFullPath + " file content is not valid");
                 } else {
                     DroidDefenseEnvironmentConfig params = (DroidDefenseEnvironmentConfig) Util.toObjectFromJson(new String(jsonData), DroidDefenseEnvironmentConfig.class);
                     deserialize(params);
+                    FileIOHandler.init();
                 }
             } else {
-                Log.write(LoggerType.ERROR, "Config file  " + configFilePath + " was not found");
-                Log.write(LoggerType.DEBUG, "Creating default config file at " + configFilePath);
+                Log.write(LoggerType.ERROR, "Config file  " + configFullPath + " was not found");
+                Log.write(LoggerType.DEBUG, "Creating default config file at " + configFullPath);
                 //copy and paste config file from default folder
-                FileIOHandler.saveFile(configFilePath, getDefaultFileContent(name));
+                FileIOHandler.saveFile(configFullPath, getDefaultFileContent(name));
+                FileIOHandler.init();
             }
         } catch (IOException e) {
             Log.write(LoggerType.ERROR, "Could not deserialize " + configFilePath + " file data", e, e.getLocalizedMessage());
@@ -150,7 +157,7 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
         }
     }
 
-    private static String getDefaultFileContent(String name) {
+    private String getDefaultFileContent(String name) {
         String defaultContent;
         try {
             defaultContent = Util.readFileFromInternalResourcesAsString("config/"+name);

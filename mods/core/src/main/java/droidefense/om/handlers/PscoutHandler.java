@@ -32,7 +32,7 @@ public class PscoutHandler extends AbstractHandler {
     public boolean doTheJob() {
         Log.write(LoggerType.TRACE, "---- Mapping method calls with permissions -----");
         try {
-            PSCoutModel model = (PSCoutModel) FileIOHandler.getResourceObjectStream(DroidDefenseEnvironmentConfig.getInstance().RESOURCE_FOLDER + File.separator + DroidDefenseEnvironmentConfig.getInstance().PSCOUT_MODEL).readObject();
+            PSCoutModel model = (PSCoutModel) FileIOHandler.getResourceObjectStream(environment.RESOURCE_FOLDER + File.separator + environment.PSCOUT_MODEL).readObject();
             if (model == null) {
                 return false;
             }
