@@ -1,9 +1,12 @@
-### droidefense issue template
+# droidefense issue template
 
 1. **droidefense version (`java -jar droidefense-cli-1.0-SNAPSHOT.jar -v`)**
+2. **Executed commands with arguments**
 2. **Operating System (Mac, Linux, Windows, etc)**
 3. **APK from? (Playstore, ROM, Other)**
 4. **Open an issue and fullfil this template**
+
+## Logs
 
 ### Java JVM Stacktrace Log
 
@@ -22,6 +25,20 @@ Include ERROR and FATAL log files here if exists
 
 ```
 Include steps to reproduce the error here
+```
+
+## Output
+
+### Expected output
+
+```
+Include expected result here
+```
+
+### Given output
+
+```
+Include current result here
 ```
 
 ### Frameworks
