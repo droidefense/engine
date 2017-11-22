@@ -17,6 +17,11 @@ public class EntropyCalculator {
     }
 
     public double getShannonEntropy(String s) {
+
+        if(s==null){
+            return 0.0;
+        }
+
         int n = 0;
         Map<Character, Integer> occ = new HashMap<>();
 
@@ -40,6 +45,11 @@ public class EntropyCalculator {
     }
 
     private double getShannonEntropy(byte[] data) {
+
+        if(data == null || data.length==0){
+            return 0.0;
+        }
+
         int n = 0;
         Map<Byte, Integer> occ = new HashMap<>();
 
@@ -63,14 +73,18 @@ public class EntropyCalculator {
     }
 
     public double getMethodEntropy(int[] data) {
+
+        if(data == null || data.length==0){
+            return 0.0;
+        }
+
         int n = 0;
         Map<Integer, Integer> occ = new HashMap<>();
 
         //remove nop instructions
         data = removeNOP(data);
 
-        for (int c_ = 0; c_ < data.length; ++c_) {
-            int cx = data[c_];
+        for (int cx : data) {
             if (occ.containsKey(cx)) {
                 occ.put(cx, occ.get(cx) + 1);
             } else {
@@ -88,7 +102,12 @@ public class EntropyCalculator {
         return -e;
     }
 
-    public double getMethodEntropy(byte[] opcodes) {
+    public double getOpcodesMethodEntropy(byte[] opcodes) {
+
+        if(opcodes == null || opcodes.length==0){
+            return 0.0;
+        }
+
         //remove nop instruction before calculation
         ArrayList<Byte> list = new ArrayList<>();
         for (byte inst : opcodes) {
@@ -105,13 +124,17 @@ public class EntropyCalculator {
     //PRIVATE METHODS
 
     private int[] removeNOP(int[] data) {
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i : data) {
-            if (i != 0x00)
-                list.add(i);
+
+        if(data!=null) {
+            ArrayList<Integer> list = new ArrayList<>();
+            for (int i : data) {
+                if (i != 0x00)
+                    list.add(i);
+            }
+            //convert arraylist to array
+            return toIntArray(list);
         }
-        //convert arraylist to array
-        return toIntArray(list);
+        return new int[]{};
     }
 
 
@@ -120,6 +143,11 @@ public class EntropyCalculator {
     }
 
     private byte[] toByteArray(List<Byte> in) {
+
+        if(in == null){
+            return new byte[]{};
+        }
+
         final int n = in.size();
         byte ret[] = new byte[n];
         for (int i = 0; i < n; i++) {
@@ -129,6 +157,11 @@ public class EntropyCalculator {
     }
 
     private int[] toIntArray(List<Integer> in) {
+
+        if(in == null){
+            return new int[]{};
+        }
+
         final int n = in.size();
         int ret[] = new int[n];
         for (int i = 0; i < n; i++) {

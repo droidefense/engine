@@ -22,10 +22,9 @@ public class Main {
 
         for (String ss : sstr) {
             double entropy = EntropyCalculator.getInstance().getShannonEntropy(ss);
-            double e = EntropyCalculator.getInstance().getMethodEntropy(ss.getBytes());
+            double e = EntropyCalculator.getInstance().getOpcodesMethodEntropy(ss.getBytes());
             System.out.printf("Shannon entropy of %40s: %.12f%n", "\"" + ss + "\"", entropy);
             System.out.printf("Method entropy of %40s: %.12f%n", "\"" + ss + "\"", e);
         }
-        return;
     }
 }
