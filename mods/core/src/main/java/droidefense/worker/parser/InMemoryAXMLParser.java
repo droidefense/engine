@@ -1,7 +1,7 @@
 package droidefense.worker.parser;
 
-import droidefense.mod.axml.AXMLPrinter;
-import droidefense.mod.axml.exception.XmlPullParserException;
+import droidefense.axml.AXMLPrinter;
+import droidefense.axml.exception.XmlPullParserException;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.vfs.model.impl.VirtualFile;

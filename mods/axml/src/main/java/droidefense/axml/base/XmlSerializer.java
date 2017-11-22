@@ -1,4 +1,4 @@
-package droidefense.mod.axml.base;
+package droidefense.axml.base;
 
 import java.io.IOException;
 import java.io.OutputStream;

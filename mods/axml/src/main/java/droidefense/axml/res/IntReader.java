@@ -1,4 +1,4 @@
-package droidefense.mod.axml.res;
+package droidefense.axml.res;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -28,7 +28,7 @@ public final class IntReader {
                 var2.printStackTrace();
             }
 
-            this.reset((InputStream) null, false);
+            this.reset(null, false);
         }
     }
 

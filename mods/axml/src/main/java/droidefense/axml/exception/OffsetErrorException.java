@@ -1,4 +1,4 @@
-package droidefense.mod.axml.exception;
+package droidefense.axml.exception;
 
 public class OffsetErrorException extends IllegalArgumentException {
 

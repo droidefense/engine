@@ -1,6 +1,6 @@
-package droidefense.mod.axml.base;
+package droidefense.axml.base;
 
-import droidefense.mod.axml.exception.XmlPullParserException;
+import droidefense.axml.exception.XmlPullParserException;
 
 import java.io.IOException;
 import java.io.InputStream;

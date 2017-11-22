@@ -1,4 +1,4 @@
-package droidefense.mod.axml.value;
+package droidefense.axml.value;
 
 /**
  * Created by .local on 18/10/2016.

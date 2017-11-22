@@ -1,4 +1,4 @@
-package droidefense.mod.axml.res;
+package droidefense.axml.res;
 
 import java.io.IOException;
 

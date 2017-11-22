@@ -1,8 +1,8 @@
-package droidefense.mod.axml;
+package droidefense.axml;
 
-import droidefense.mod.axml.base.XmlPullParser;
-import droidefense.mod.axml.base.XmlSerializer;
-import droidefense.mod.axml.exception.XmlPullParserException;
+import droidefense.axml.base.XmlPullParser;
+import droidefense.axml.base.XmlSerializer;
+import droidefense.axml.exception.XmlPullParserException;
 
 import java.io.InputStream;
 import java.util.Enumeration;

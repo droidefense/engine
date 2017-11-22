@@ -1,4 +1,4 @@
-package droidefense.mod.axml.value;
+package droidefense.axml.value;
 
 
 public final class TypedValue {

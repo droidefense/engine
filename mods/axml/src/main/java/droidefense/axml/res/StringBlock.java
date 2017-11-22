@@ -1,6 +1,6 @@
-package droidefense.mod.axml.res;
+package droidefense.axml.res;
 
-import droidefense.mod.axml.exception.OffsetErrorException;
+import droidefense.axml.exception.OffsetErrorException;
 
 import java.io.IOException;
 
@@ -46,7 +46,7 @@ public class StringBlock {
         }
     }
 
-    private static int getShort(int[] array, int offset) throws OffsetErrorException{
+    private static int getShort(int[] array, int offset) throws OffsetErrorException {
         int idx = offset / 4;
         boolean valid = isValidOffset(array, idx) ;
         if(!valid){
