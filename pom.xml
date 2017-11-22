@@ -131,6 +131,49 @@
                         </execution>
                     </executions>
                 </plugin>
+                <plugin>
+                    <groupId>com.github.wvengen</groupId>
+                    <artifactId>proguard-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals><goal>proguard</goal></goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <!-- Our application is so big that ProGuard had ran out of memory -->
+                        <maxMemory>1024m</maxMemory>
+
+                        <!-- File with proguard configuration -->
+                        <proguardInclude>${basedir}/proguard.conf</proguardInclude>
+
+                        <!-- Now exclude all modules that are embedded in the jar, so that
+                            ProGuard won't see a redefinition of each single class.
+                            You don't have to write down your main module. -->
+                        <exclusions>
+                            <exclusion>
+                                <groupId>droidefense</groupId>
+                                <artifactId>data</artifactId>
+                            </exclusion>
+
+                            <!-- And so on -->
+                        </exclusions>
+
+                        <!--
+                            List external jars your application depends on
+                            (that not listed in maven dependencies).
+                            You probably depend on Java runtime (rt.jar).
+
+                            JCE stands for Java Cryptography Extension.
+                            You probably don't need it, but my application does.
+                        -->
+                        <libs>
+                            <lib>${java.home}/lib/rt.jar</lib>
+                            <lib>${java.home}/lib/jce.jar</lib>
+                            <lib>${java.home}/lib/ext/sunjce_provider.jar</lib>
+                        </libs>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
