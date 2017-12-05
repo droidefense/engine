@@ -1,0 +1,6 @@
+#description: a;
+#author: b;
+#date: c;
+#family: d;
+#variant: e;
+#rule: Activity.onCreate > Service.callAccessAdmin > Service.getAccessAdmin > Activity.startActivityForResult;

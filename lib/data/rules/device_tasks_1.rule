@@ -1,0 +1,6 @@
+#description: This application reads your devices's running tasks;
+#author: @zerjioang;
+#date: 29/12/2016;
+#family: Device;
+#variant: tasks;
+#rule: Object.ANY > android/app/ActivityManager.getRunningTasks();

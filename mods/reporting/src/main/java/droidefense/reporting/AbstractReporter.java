@@ -6,11 +6,12 @@ import droidefense.sdk.log4j.LoggerType;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Created by .local on 03/05/2017.
  */
-public abstract class AbstractReporter {
+public abstract class AbstractReporter implements Serializable{
 
     protected File reportFile;
 

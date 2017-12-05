@@ -9,7 +9,6 @@ target/
 static-reports/
 reports/
 unpack/
-lib/
 
 
 .classpath

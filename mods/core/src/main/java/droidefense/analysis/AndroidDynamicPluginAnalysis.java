@@ -61,16 +61,16 @@ public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis 
                         currentProject.addDynamicPlugin(pluginDynamic);
                         executionSuccessful &= true;
                     } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
+                        Log.write(LoggerType.ERROR, "Out of date external plugin",  e.getLocalizedMessage());
                         addError(e);
                     } catch (InstantiationException e) {
-                        e.printStackTrace();
+                        Log.write(LoggerType.ERROR, "Error instantiating external plugin", e.getLocalizedMessage());
                         addError(e);
                     } catch (IllegalAccessException e) {
-                        e.printStackTrace();
+                        Log.write(LoggerType.ERROR, "Illegal access from external plugin", e.getLocalizedMessage());
                         addError(e);
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        Log.write(LoggerType.ERROR, "An error occur while executing external plugin",  e.getLocalizedMessage());
                         addError(e);
                     }
                 } else {

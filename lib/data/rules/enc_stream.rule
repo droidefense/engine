@@ -1,0 +1,6 @@
+#description: Cipher streams usage detected.;
+#author: @zerjioang;
+#date: 29/12/2016;
+#family: Generic;
+#variant: Profiling;
+#rule: javax/crypto/CipherOutputStream.flush > javax/crypto/CipherOutputStream.close > java/io/InputStream.close
