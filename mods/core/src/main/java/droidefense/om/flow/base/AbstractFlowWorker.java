@@ -19,7 +19,7 @@ import droidefense.sdk.model.base.DroidefenseProject;
  */
 public abstract class AbstractFlowWorker extends AbstractDVMThread {
 
-    private final static NodeGenerator generator = NodeGenerator.getInstance();
+    private final static NodeGenerator reporting = NodeGenerator.getInstance();
     protected static AbstractFlowMap flowMap;
     protected AbstractAtomNode fromNode;
     protected AbstractAtomNode toNode;
@@ -29,19 +29,19 @@ public abstract class AbstractFlowWorker extends AbstractDVMThread {
     }
 
     protected final MethodNode buildMethodNode(DalvikInstruction inst, IAtomFrame frame, IAtomMethod method) {
-        return generator.buildMethodNode(flowMap, inst, frame, method);
+        return reporting.buildMethodNode(flowMap, inst, frame, method);
     }
 
     protected final NormalNode builNormalNode(DalvikInstruction currentInstruction) {
-        return generator.builNormalNode(flowMap, currentInstruction);
+        return reporting.builNormalNode(flowMap, currentInstruction);
     }
 
     protected final NormalNode builNormalNode(DalvikInstruction currentInstruction, String key, String value) {
-        return generator.builNormalNode(flowMap, currentInstruction, key, value);
+        return reporting.builNormalNode(flowMap, currentInstruction, key, value);
     }
 
     protected final FieldNode buildFieldNode(DalvikInstruction inst, IAtomField field, int pc) {
-        return generator.buildFieldNode(flowMap, inst, field, pc);
+        return reporting.buildFieldNode(flowMap, inst, field, pc);
     }
 
     protected final void createNewConnection(AbstractAtomNode from, AbstractAtomNode to, DalvikInstruction currentInstruction) {

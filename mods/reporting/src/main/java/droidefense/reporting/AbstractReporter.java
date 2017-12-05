@@ -5,7 +5,6 @@ import droidefense.sdk.log4j.LoggerType;
 
 import java.awt.*;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**

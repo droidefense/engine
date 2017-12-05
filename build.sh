@@ -1,12 +1,5 @@
 #!/bin/bash
 
-function compile(){
-	module=$1
-	#compile module
-	echo "Compiling module: $module"
-	cd $base && cd mods/$1 && mvn clean install && cd $base
-}
-
 function prerequirements(){
 	echo " ########################################## "
 	echo ' Installing prerequisites...'
@@ -21,43 +14,7 @@ function main(){
 	echo ' Building droidefense from current version'
 	echo " ########################################## "
 
-	export base=$(pwd)
-
-	compile axml
-	compile batch
-	compile vfs
-	compile ssdeep
-	compile pscout
-	compile entropy
-	compile sdk
-	compile generator
-	compile manparser
-	compile memapktool
-	compile ml
-	compile portex
-	#compile mqtt
-	compile simplemagic
-
-	compile core
-
-	echo " ######################################## "
-	echo " Building Command Line Tools..."
-	echo " ######################################## "
-
-	cd $base
-	cd mods/cli
-	mvn clean install -P debug
-
-	cd $base
-	cd dist/debug
-
-	echo " ######################################## "
-	echo " Cleaning old files..."
-	echo " ######################################## "
-
-	rm -rf classes cli-1.0-SNAPSHOT.jar generated-sources generated-test-sources surefire-reports test-classes maven-archiver maven-status
-
-	ls -alh
+	mvn clean install
 
 	echo " ######################################## "
 	echo " Creating 'droidefense' alias..."

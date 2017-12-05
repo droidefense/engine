@@ -580,7 +580,7 @@ public enum DalvikInstruction implements Serializable {
             int value = codes[thread.getCurrentFrame().increasePc()];
             thread.getCurrentFrame().getIntRegisters()[destination] = (short) value;
             thread.getCurrentFrame().getIsObjectRegister()[destination] = false;
-            NormalNode node = generator.builNormalNode(map, this, "int16:", "v" + destination + "=" + value);
+            NormalNode node = reporting.builNormalNode(map, this, "int16:", "v" + destination + "=" + value);
             return new InstructionReturn(thread.getCurrentFrame(), thread.getCurrentFrame().getMethod(), lowerCodes, upperCodes, codes, null, node);
         }
     },
@@ -608,7 +608,7 @@ public enum DalvikInstruction implements Serializable {
             value |= codes[thread.getCurrentFrame().increasePc()] << 16;
             thread.getCurrentFrame().getIntRegisters()[destination] = value;
             thread.getCurrentFrame().getIsObjectRegister()[destination] = false;
-            NormalNode node = generator.builNormalNode(map, this, "int:", "v" + destination + "=" + value);
+            NormalNode node = reporting.builNormalNode(map, this, "int:", "v" + destination + "=" + value);
             return new InstructionReturn(thread.getCurrentFrame(), thread.getCurrentFrame().getMethod(), lowerCodes, upperCodes, codes, null, node);
         }
     },
@@ -769,7 +769,7 @@ public enum DalvikInstruction implements Serializable {
             String str = thread.getCurrentFrame().getMethod().getStrings()[codes[thread.getCurrentFrame().increasePc()]];
             thread.getCurrentFrame().getObjectRegisters()[destination] = str;
             thread.getCurrentFrame().getIsObjectRegister()[destination] = true;
-            ConstStrNode node = generator.buildStringNode(map, this, thread.getCurrentFrame(), destination, str);
+            ConstStrNode node = reporting.buildStringNode(map, this, thread.getCurrentFrame(), destination, str);
             IAtomFrame frame = thread.getCurrentFrame();
             return new InstructionReturn(frame, frame.getMethod(), lowerCodes, upperCodes, codes, null, node);
         }
@@ -3044,7 +3044,7 @@ public enum DalvikInstruction implements Serializable {
             int destination = upperCodes[thread.getCurrentFrame().increasePc()];
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
             IAtomField field = thread.getField(frame, 0, fieldIndex, destination);
-            FieldNode node = generator.buildFieldNode(map, this, field, frame.getPc());
+            FieldNode node = reporting.buildFieldNode(map, this, field, frame.getPc());
             return new InstructionReturn(frame, frame.getMethod(), lowerCodes, upperCodes, codes, null, node);
         }
     },
@@ -3098,7 +3098,7 @@ public enum DalvikInstruction implements Serializable {
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
             IAtomField field = thread.getField(frame, 0, fieldIndex, destination);
 
-            FieldNode node = generator.buildFieldNode(map, this, field, frame.getPc());
+            FieldNode node = reporting.buildFieldNode(map, this, field, frame.getPc());
             return new InstructionReturn(frame, frame.getMethod(), lowerCodes, upperCodes, codes, null, node);
         }
     },
@@ -3446,7 +3446,7 @@ public enum DalvikInstruction implements Serializable {
                     lowerCodes = method.getOpcodes();
                     upperCodes = method.getRegistercodes();
                     codes = method.getIndex();
-                    MethodNode node = generator.buildMethodNode(map, this, frame, method);
+                    MethodNode node = reporting.buildMethodNode(map, this, frame, method);
                     return new InstructionReturn(frame, method, lowerCodes, upperCodes, codes, null, node);
                 } else if (clazzName.equals(instance.getOwnerClass().getName())) {
                     clazzName = instance.getOwnerClass().getSuperClass();
@@ -3513,7 +3513,7 @@ public enum DalvikInstruction implements Serializable {
                 lowerCodes = thread.getCurrentFrame().getMethod().getOpcodes();
                 upperCodes = thread.getCurrentFrame().getMethod().getRegistercodes();
                 codes = thread.getCurrentFrame().getMethod().getIndex();
-                MethodNode calledNode = generator.buildMethodNode(map, this, frame, method);
+                MethodNode calledNode = reporting.buildMethodNode(map, this, frame, method);
                 return new InstructionReturn(frame, method, lowerCodes, upperCodes, codes, null, calledNode);
             } else {
                 if (methodName.equals("<init>")) {
@@ -3596,7 +3596,7 @@ public enum DalvikInstruction implements Serializable {
                 lowerCodes = method.getOpcodes();
                 upperCodes = method.getRegistercodes();
                 codes = method.getIndex();
-                MethodNode node = generator.buildMethodNode(map, this, frame, method);
+                MethodNode node = reporting.buildMethodNode(map, this, frame, method);
                 return new InstructionReturn(frame, method, lowerCodes, upperCodes, codes, null, node);
             } else {
                 if (methodName.equals("<init>")) {
@@ -7572,7 +7572,7 @@ public enum DalvikInstruction implements Serializable {
     public static final byte CFG_EXECUTION = 0x0;
     public static final byte REAL_EXECUTION = 0x1;
     public static final byte MULTIPATH_EXECUTION = 0x2;
-    private static final NodeGenerator generator = NodeGenerator.getInstance();
+    private static final NodeGenerator reporting = NodeGenerator.getInstance();
 
     public abstract String description();
 

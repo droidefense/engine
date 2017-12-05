@@ -40,13 +40,13 @@ public class VMWorkersHandler extends AbstractHandler {
                 //R references resolver analysis
                 worklist.add(new ReferencesResolverWorker(currentProject));
 
-                //normal model generator
+                //normal model reporting
                 worklist.add(new BasicControlFlowGraphWorker(currentProject));
 
-                //follow model generator
+                //follow model reporting
                 //worklist.add(new FollowCallsControlFlowGraphWorker(currentProject));
 
-                //reflection solver model generator
+                //reflection solver model reporting
                 //worklist.add(new ReflectionControlFlowGraphWorker(currentProject));
 
                 //multiflow machine state
