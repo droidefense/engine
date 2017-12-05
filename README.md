@@ -30,7 +30,7 @@ java -jar droidefense-cli-1.0-SNAPSHOT.jar -i /path/to/your/sample.apk
 
 # Contributing
 
-Everybody is welcome to contribute to **DROIDEFENSE**. Please check out the [**DROIDEFENSE Contribution Steps**](https://raw.githubusercontent.com/droidefense/engine/develop/CONTRIBUTING.md) for instructions about how to proceed.
+Everybody is welcome to contribute to **DROIDEFENSE**. Please check out the [**DROIDEFENSE Contribution Steps**](https://github.com/droidefense/engine/blob/develop/CONTRIBUTING.md) for instructions about how to proceed.
   
 And any other comments will be very appreciate.
 
