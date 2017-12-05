@@ -20,6 +20,7 @@ function main(){
 	echo " Creating 'droidefense' alias..."
 	echo " ######################################## "
 
+	'''
 	cd $base
 	version='target'
 	cd $version
@@ -42,6 +43,7 @@ function main(){
 
 	echo "Content written in ~/.bashrc"
 	cat ~/.bashrc | grep droidefense
+	'''
 
 	echo " Building done "
 }
