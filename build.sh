@@ -21,7 +21,7 @@ function main(){
 	echo " ######################################## "
 
 	cd $base
-	version='dist/debug'
+	version='target'
 	cd $version
 
 	jarname=$(ls *jar)
