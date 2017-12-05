@@ -70,6 +70,8 @@ usage: droidefense
   * https://github.com/droidefense/engine/wiki/Compilation 
 * Checkout report example at:
   * https://github.com/droidefense/engine/wiki/Pornoplayer-report
+* Checkout execution logs at:
+  * https://github.com/droidefense/engine/wiki/Execution-logs
 
 ## Contributing
 
