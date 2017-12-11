@@ -27,10 +27,10 @@ public class GooglePlayChecker {
         }
     }
 
-    private String getGooglePlayData(String url) {
+    protected String getGooglePlayData(String url) {
         if (url != null && url.length() > 0)
             return FileIOHandler.getWebsiteContent(url);
-        return null;
+        return "";
     }
 
     public void onExecute() {

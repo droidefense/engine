@@ -25,7 +25,7 @@ public class RemoteFileDownloader {
      */
     public String downloadFileFromUrlUsingNio(String url) throws MalformedURLException {
 
-        StringBuffer content = new StringBuffer();
+        StringBuilder content = new StringBuilder();
         URL urlObj = null;
         ReadableByteChannel inChannel = null;
 
@@ -40,14 +40,11 @@ public class RemoteFileDownloader {
                 ByteBuffer buffer = ByteBuffer.allocate(8192);
                 int read;
 
-                while ((read = inChannel.read(buffer)) > 0) {
+                while ((read = inChannel.read(buffer)) != -1) {
                     buffer.rewind();
                     buffer.limit(read);
-                    while (read > 0) {
-                        CharBuffer contentToAdd = StandardCharsets.UTF_8.decode(buffer);
-                        content.append( contentToAdd );
-                        read -= contentToAdd.length();
-                    }
+                    CharBuffer contentToAdd = StandardCharsets.UTF_8.decode(buffer);
+                    content.append( contentToAdd );
                     buffer.clear();
                 }
                 return content.toString();

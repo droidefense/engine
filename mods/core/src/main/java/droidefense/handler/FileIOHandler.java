@@ -10,9 +10,11 @@ import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.helpers.Util;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.social.RemoteFileDownloader;
 import droidefense.util.JsonStyle;
 
 import java.io.*;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -23,6 +25,7 @@ import java.nio.file.Paths;
 public class FileIOHandler {
 
     private static DroidDefenseEnvironmentConfig environmentConfig;
+    private static RemoteFileDownloader remoteDownloader = new RemoteFileDownloader();
 
     public static void init(){
         try {
@@ -237,19 +240,14 @@ public class FileIOHandler {
     }
 
     public static String getWebsiteContent(String urlString) {
-        try {
-            URL url = new URL(urlString);
-            BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
-            StringBuilder buffer = new StringBuilder();
-            String line;
-            while (null != (line = br.readLine())) {
-                buffer.append(line);
+        if(urlString!=null){
+            try {
+                return remoteDownloader.downloadFileFromUrlUsingNio(urlString);
+            } catch (MalformedURLException e) {
+                Log.write(LoggerType.ERROR, "Could not retrieve Google Play Store information", e.getLocalizedMessage());
             }
-            return buffer.toString();
-        } catch (Exception ex) {
-            Log.write(LoggerType.ERROR, "Could not retrieve Google Play Store information", ex.getLocalizedMessage());
         }
-        return null;
+        return "";
     }
 
     public static File getDecompiledPath(DroidefenseProject currentProject) {
