@@ -8,6 +8,7 @@ import weka.core.Instances;
 import weka.core.SerializationHelper;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class WekaClassifier {
 
@@ -22,18 +23,18 @@ public class WekaClassifier {
         return evaluation;
     }
 
-    public double calculateAccuracy(FastVector predictions) {
-
+    public double calculateAccuracy(ArrayList predictions) {
         double correct = 0;
-
-        for (int i = 0; i < predictions.size(); i++) {
-            NominalPrediction np = (NominalPrediction) predictions.elementAt(i);
-            if (np.predicted() == np.actual()) {
-                correct++;
+        if ( predictions!=null && predictions.size() > 0){
+            for (Object prediction : predictions) {
+                NominalPrediction np = (NominalPrediction) prediction;
+                if (np.predicted() == np.actual()) {
+                    correct++;
+                }
             }
+            return 100 * correct / predictions.size();
         }
-
-        return 100 * correct / predictions.size();
+        return 0.0;
     }
 
     public Instances[][] crossValidationSplit(Instances data, int numberOfFolds) {
@@ -54,7 +55,7 @@ public class WekaClassifier {
         }
         Classifier[] classList = new Classifier[modelFiles.length];
         for (int i = 0; i < classList.length; i++) {
-            classList[i] = (Classifier) SerializationHelper.read(modelFiles[i].getAbsolutePath());
+            classList[i] = (Classifier) SerializationHelper.read( modelFiles[i].getAbsolutePath() );
         }
         return classList;
     }

@@ -4,14 +4,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class MachineLearningResult implements Serializable {
+public class MLResultHolder implements Serializable {
 
     private ArrayList<MLResult> results;
     private int positives;
     private int total;
     private double ratio;
 
-    public MachineLearningResult() {
+    public MLResultHolder() {
         results = new ArrayList<>();
     }
 
