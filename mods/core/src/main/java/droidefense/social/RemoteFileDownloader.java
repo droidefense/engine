@@ -1,6 +1,7 @@
 package droidefense.social;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -28,9 +29,10 @@ public class RemoteFileDownloader {
         StringBuilder content = new StringBuilder();
         URL urlObj = null;
         ReadableByteChannel inChannel = null;
+        String data = null;
 
         if(url==null || url.trim().length()==0){
-            return null;
+            data = null;
         }
         else {
             try {
@@ -47,8 +49,11 @@ public class RemoteFileDownloader {
                     content.append( contentToAdd );
                     buffer.clear();
                 }
-                return content.toString();
-            } catch (Exception e){
+                data = content.toString();
+            } catch( FileNotFoundException e){
+                data = "404";
+            }
+            catch (Exception e){
                 e.printStackTrace();
             } finally {
                 try {
@@ -60,6 +65,6 @@ public class RemoteFileDownloader {
                 }
             }
         }
-        return null;
+        return data;
     }
 }

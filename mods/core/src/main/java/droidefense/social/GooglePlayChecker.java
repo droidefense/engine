@@ -9,7 +9,7 @@ import droidefense.sdk.model.base.DroidefenseProject;
 public class GooglePlayChecker {
 
     private static final String BASE_URL = "https://play.google.com/store/apps/details?id=";
-    private static final String NOT_FOUND_MSG = "We're sorry, the requested URL was not found on this server.";
+    private static final String NOT_FOUND_ERROR = "404";
     private final DroidefenseProject currentProject;
     private String url;
     private String packageName;
@@ -27,6 +27,10 @@ public class GooglePlayChecker {
         }
     }
 
+    protected boolean existsOnGooglePlay(String url) {
+        return !FileIOHandler.getWebsiteContent(url).equals(NOT_FOUND_ERROR);
+    }
+
     protected String getGooglePlayData(String url) {
         if (url != null && url.length() > 0)
             return FileIOHandler.getWebsiteContent(url);
@@ -35,8 +39,18 @@ public class GooglePlayChecker {
 
     public void onExecute() {
         //TODO parse retrieved web data and get stuff
-        String webdata = getGooglePlayData(url);
-        executionSuccessful = webdata != null && !webdata.contains(NOT_FOUND_MSG);
+        boolean exists = existsOnGooglePlay(url);
+        if(exists){
+            String webdata = getGooglePlayData(url);
+            executionSuccessful = webdata != null && webdata.trim().length()>0;
+        }
+        else{
+            executionSuccessful = false;
+        }
+    }
+
+    public void getStarts(){
+        //Document doc = Jsoup.parse(input, "UTF-8", "http://example.com/");
     }
 
     public void postExecute() {

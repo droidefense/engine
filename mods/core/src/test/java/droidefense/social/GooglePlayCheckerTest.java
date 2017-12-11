@@ -45,4 +45,23 @@ public class GooglePlayCheckerTest {
         );
     }
 
+    @Test
+    public void checkAppExistanceFailed(){
+        GooglePlayChecker gpc = new GooglePlayChecker(null);
+        Assert.assertFalse(
+                gpc.existsOnGooglePlay(
+                        "https://play.google.com/store/apps/details?id=org.videolan.vlcfghjfghfghfg"
+                )
+        );
+    }
+
+    @Test
+    public void checkAppExistanceSuccess(){
+        GooglePlayChecker gpc = new GooglePlayChecker(null);
+        Assert.assertTrue(
+                gpc.existsOnGooglePlay(
+                        "https://play.google.com/store/apps/details?id=org.videolan.vlc"
+                )
+        );
+    }
 }
