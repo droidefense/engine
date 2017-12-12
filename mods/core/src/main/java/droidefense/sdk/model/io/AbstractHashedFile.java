@@ -64,29 +64,44 @@ public abstract class AbstractHashedFile implements Serializable {
             if(getDataStream()!=null){
                 info = util.findMatch(getDataStream());
                 if(info!=null) {
-                    //get info
-                    this.description = info.getMessage();
-                    ContentType type = info.getContentType();
-                    if(type!=null){
-                        this.mimetype = type.getMimeType();
-                        this.extensionFromHeader = type.name();
-                        this.extensionMatches = this.extensionFromHeader.toLowerCase().equals(this.extensionFromFilename.toLowerCase()) || isApkFile();
-                    }
-                    else{
-                        Log.write(LoggerType.ERROR, "No content type information is present"+this.filename);
-                        this.extensionMatches = false;
-                    }
+                    getContentInfoFromMagicGz(info);
                 }
                 else{
-                    Log.write(LoggerType.ERROR, "No content information is present for "+this.filename);
-                    this.extensionMatches = false;
+                    //try to detect filetype using our custom header based content detector
+                    boolean fileClassified = getContentInfoFromCustom();
+                    if(!fileClassified){
+                        Log.write(LoggerType.ERROR, "No content information is present for "+this.filename);
+                        this.extensionMatches = false;
+                    }
                 }
             }
             else{
                 Log.write(LoggerType.ERROR, "Not data stream is present for "+this.filename);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, "IO Error", e.getLocalizedMessage());
+        }
+    }
+
+    private boolean getContentInfoFromCustom() {
+        Log.write(LoggerType.TRACE, "getting content info from custom file classifier...");
+        return false;
+    }
+
+    private void getContentInfoFromMagicGz(ContentInfo info) {
+        Log.write(LoggerType.TRACE, "getting content info from magic.gz...");
+
+        //get info
+        this.description = info.getMessage();
+        ContentType type = info.getContentType();
+        if(type!=null){
+            this.mimetype = type.getMimeType();
+            this.extensionFromHeader = type.name();
+            this.extensionMatches = this.extensionFromHeader.toLowerCase().equals(this.extensionFromFilename.toLowerCase()) || isApkFile();
+        }
+        else{
+            Log.write(LoggerType.ERROR, "No content type information is present"+this.filename);
+            this.extensionMatches = false;
         }
     }
 

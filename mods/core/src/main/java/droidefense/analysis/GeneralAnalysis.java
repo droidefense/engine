@@ -17,10 +17,7 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
         executionSuccessful = false;
         Log.write(LoggerType.TRACE, "\n\n --- Running Droidefense general scan ---\n\n");
 
-        //UNPACK_AND_DECODE
         AbstractAndroidAnalysis analyzer;
-
-        boolean stophere = false;
         try {
 
             analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.UNPACK);
@@ -45,10 +42,6 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
 
                         //RUN PRIVACY SCAN
                         analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.PRIVACY_ANALYSIS);
-                        currentProject.analyze(analyzer);
-
-                        //RUN SOCIAL ANALYSIS
-                        analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.SOCIAL_ANALYSIS);
                         currentProject.analyze(analyzer);
 
                         //RUN DYNAMIC ANALYSIS

@@ -52,7 +52,12 @@ public class StaticInfo implements Serializable {
     /**
      * List of internal xml files
      */
-    private transient ArrayList<VirtualFile> xmlFiles;
+    private ArrayList<VirtualFile> xmlFiles;
+
+    /**
+     * List of internal nine patch image files
+     */
+    private ArrayList<VirtualFile> ninePatchImageFiles;
 
     private AbstractHashedFile certFile;
 
@@ -356,5 +361,13 @@ public class StaticInfo implements Serializable {
 
     public void setXmlFiles(ArrayList<VirtualFile> xmlFiles) {
         this.xmlFiles = xmlFiles;
+    }
+
+    public void setNinePatchImageFiles(ArrayList<VirtualFile> ninePatchImageFiles) {
+        this.ninePatchImageFiles = ninePatchImageFiles;
+    }
+
+    public ArrayList<VirtualFile> getNinePatchImageFiles() {
+        return ninePatchImageFiles;
     }
 }
