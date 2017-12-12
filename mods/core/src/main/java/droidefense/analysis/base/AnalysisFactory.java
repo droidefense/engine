@@ -19,8 +19,7 @@ public abstract class AnalysisFactory {
     public static final byte GENERAL = 0x08;
     public static final byte PRIVACY_ANALYSIS = 0x09;
     public static final byte EVENT_ANALYSIS = 0x10;
-    public static final byte SOCIAL_ANALYSIS = 0x11;
-    public static final byte PSOCUT_ANALYSIS = 0x12;
+    public static final byte PSOCUT_ANALYSIS = 0x11;
 
     public static AbstractAndroidAnalysis getAnalyzer(byte id) throws UnknownAnalyzerException {
         switch (id) {
@@ -46,8 +45,6 @@ public abstract class AnalysisFactory {
                 return new PrivacyAnalysis();
             case EVENT_ANALYSIS:
                 return new EventTriggerAnalysis();
-            case SOCIAL_ANALYSIS:
-                return new SocialAnalysis();
             case PSOCUT_ANALYSIS:
                 return new PScoutAnalysis();
         }

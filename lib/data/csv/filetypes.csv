@@ -273,9 +273,7 @@ MAR;4D 41 52 31 00;Mozilla archive
 MDB;00 01 00 00 53 74 61 6E 64 61 72 64 20 4A 65 74 20 44 42;Microsoft Access
 MDF;01 0F 00 00;SQL Data Base
 MDI;45 50;MS Document Imaging file
-MF;4D 61 6E 69 66 65 73 74 2D 56 65 72 73 69 6F 6E 3A 20 31 2E 30 0D 0A 43 72 65 61 74 65 64 2D 42 79 3A 20 31 2E 30 20 28 41 6E 64 72 6F 69 64 29;Android manifest checksum file v1.0 - Created By Android
-MF;82 03 04 06 09 2A;Android manifest checksum file v1.0 - Created By Android
-MF;4d 61 6e 69 66 65 73 74 2d 56 65 72 73 69 6f 6e 3a 20 31 2e 30 0d 0a 43 72 65 61 74 65 64 2d 42 79 3a 20 31 2e 36 2e 30 5f 32 30 20 28 53 75 6e 20 4d 69 63 72 6f 73 79 73 74 65 6d 73 20 49 6e 63 2e 29 0d;Android manifest checksum file v1.0 Created-By: 1.6.0_20 (Sun Microsystems Inc.)
+MF;4D 61 6E 69 66 65 73 74 2D 56 65 72 73 69 6F 6E 3A 20 31 2E 30 0D 0A 43 72 65 61 74 65 64 2D 42 79 3A 20 31;Android manifest checksum file
 MID;4D 54 68 64;MIDI sound file
 MIDI;4D 54 68 64;MIDI sound file
 MIF;3C 4D 61 6B 65 72 46 69;Adobe FrameMaker

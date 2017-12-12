@@ -22,6 +22,7 @@ public class SignatureHandler extends AbstractHandler {
     private static final int MAX_SIGNATURE_SIZE = 40;
     private static boolean loaded;
     private static SignatureMap model;
+    private static SignatureHandler instance;
 
     //instance vars
     private String description;
@@ -30,7 +31,7 @@ public class SignatureHandler extends AbstractHandler {
     private boolean valid;
     private String nameExtension;
 
-    public SignatureHandler() {
+    private SignatureHandler() {
         if (!loaded) {
             SignatureModelLoader loader = new SignatureModelLoader();
             loader.load();
@@ -61,7 +62,6 @@ public class SignatureHandler extends AbstractHandler {
                 valid = expectedFiletype.equalsIgnoreCase(nameExtension);
             }
         } catch (IOException e) {
-            e.printStackTrace();
             Log.write(LoggerType.ERROR, "Droidefense could not 'do the job'", e.getLocalizedMessage(), e);
             return false;
         }
@@ -105,5 +105,16 @@ public class SignatureHandler extends AbstractHandler {
 
     public void setNameExtension(String nameExtension) {
         this.nameExtension = nameExtension;
+    }
+
+    public static SignatureHandler getInstance() {
+        if(instance==null){
+            instance = new SignatureHandler();
+        }
+        return instance;
+    }
+
+    public boolean isSignatureFound() {
+        return this.valid;
     }
 }

@@ -48,15 +48,37 @@ public enum APKUnpacker {
             AXMLDecoderHandler decoder = new AXMLDecoderHandler();
 
             ArrayList<VirtualFile> xmlFileList = new ArrayList<>();
+            ArrayList<VirtualFile> ninePatchImageList = new ArrayList<>();
             //todo implement axml, 9.png and resource decoder
             for (VirtualFile file : files) {
                 folderCount += file.isFolder() ? 1 : 0;
                 filesCount += file.isFile() ? 1 : 0;
                 if (isXml(file)) {
-                    Log.write(LoggerType.DEBUG, "Decoding file " + file.getPath());
+                    Log.write(LoggerType.DEBUG, "Decoding XML file " + file.getPath());
                     decoder.setFile(file);
                     decoder.doTheJob();
                     xmlFileList.add(file);
+                }
+                else if(isManifestMF(file)){
+                    //skipping. no need to decode. it is raw file.
+                    //parsing might be useful
+                    Log.write(LoggerType.DEBUG, "Decoding *.MF file " + file.getPath());
+                }
+                else if(isManifestSF(file)){
+                    //skipping. no need to decode. it is raw file.
+                    //parsing might be useful
+                    Log.write(LoggerType.DEBUG, "Decoding *.SF file " + file.getPath());
+                }
+                else if(isRSA(file)){
+                    Log.write(LoggerType.DEBUG, "Decoding *.RSA file " + file.getPath());
+                }
+                else if(is9patch(file)){
+                    //skipping. no need to decode. it is raw file
+                    Log.write(LoggerType.DEBUG, "Decoding *.9.png image file " + file.getPath());
+                    ninePatchImageList.add(file);
+                }
+                else if(isResourcesARSC(file)){
+                    Log.write(LoggerType.DEBUG, "Decoding resources.arsc file " + file.getPath());
                 }
                 else {
                     Log.write(LoggerType.TRACE, "Skipping " + file.getPath());
@@ -66,9 +88,35 @@ public enum APKUnpacker {
             currentProject.setFilesCount(filesCount);
             currentProject.setCorrectDecoded(files.size() > 0);
             currentProject.setXmlFiles(xmlFileList);
+            currentProject.ninePatchImageFiles(ninePatchImageList);
             return files;
         }
     };
+
+    private static boolean isResourcesARSC(VirtualFile file) {
+        return (file != null) &&
+                (
+                        file.getPath().toLowerCase().equals("resources.arsc")
+                        ||
+                        file.getPath().toLowerCase().endsWith(".arsc")
+                );
+    }
+
+    private static boolean is9patch(VirtualFile file) {
+        return (file != null) && file.getPath().toLowerCase().endsWith(".9.png");
+    }
+
+    private static boolean isManifestMF(VirtualFile file) {
+        return (file != null) && file.getPath().toUpperCase().matches("META-INF/\\w+\\.MF");
+    }
+
+    private static boolean isRSA(VirtualFile file) {
+        return (file != null) && file.getPath().toUpperCase().matches("META-INF/\\w+\\.RSA");
+    }
+
+    private static boolean isManifestSF(VirtualFile file) {
+        return (file != null) && file.getPath().toUpperCase().matches("META-INF/\\w+\\.SF");
+    }
 
     private static boolean isXml(VirtualFile file) {
         return file.getName().endsWith(".xml");

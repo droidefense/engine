@@ -887,4 +887,8 @@ public final class DroidefenseProject implements Serializable {
     public void setXmlFiles(ArrayList<VirtualFile> xmlFileList) {
         this.staticInfo.setXmlFiles(xmlFileList);
     }
+
+    public void ninePatchImageFiles(ArrayList<VirtualFile> ninePatchImageList) {
+        this.staticInfo.setNinePatchImageFiles(ninePatchImageList);
+    }
 }

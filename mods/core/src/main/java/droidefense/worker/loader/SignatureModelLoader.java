@@ -28,7 +28,7 @@ public class SignatureModelLoader implements Serializable {
             cvsSplitBy = environmentConfig.CVS_SPLIT;
 
             try {
-                InputStream csvFile = FileIOHandler.getApkrFileInputStream(
+                InputStream csvFile = FileIOHandler.getFileInputStream(
                         environmentConfig.RESOURCE_FOLDER
                                 + File.separator
                                 + environmentConfig.SIGNATURE_FILE
