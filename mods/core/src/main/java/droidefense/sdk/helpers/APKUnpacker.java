@@ -1,14 +1,22 @@
 package droidefense.sdk.helpers;
 
+import droidefense.handler.FileIOHandler;
+import droidefense.handler.apktool.MemAPKToolHandler;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.handler.apktool.APKToolHandler;
 import droidefense.handler.AXMLDecoderHandler;
 import droidefense.handler.FileUnzipVFSHandler;
+import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.model.io.LocalHashedFile;
 import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.LocalApkFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 /**
@@ -18,13 +26,46 @@ public enum APKUnpacker {
 
     APKTOOL {
         @Override
-        public ArrayList<VirtualFile> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile) {
+        public boolean unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile) {
             APKToolHandler handler = new APKToolHandler(currentProject, apkFile);
+            handler.doTheJob();
+            //TODO enable file, folder counting
+            currentProject.setCorrectDecoded(true);
+            //TODO currentProject.getAppFiles(); returns 0 files
+
+            //count extracted files
+            ArrayList<AbstractHashedFile> filelist = new ArrayList<>();
+            File outDir = FileIOHandler.getApkUnpackDir(currentProject);
+            try {
+                Files.walk(Paths.get(outDir.getAbsolutePath()))
+                        .filter(Files::isRegularFile)
+                        .forEach(path -> filelist.add(
+                                new LocalHashedFile(path.toFile(), LocalHashedFile.ENABLE_HASHING)
+                        ));
+                currentProject.setLocalAppFiles(filelist);
+            } catch (IOException e) {
+                Log.write(LoggerType.ERROR, "Could not read unpacked apk files", e.getLocalizedMessage());
+            }
+            return filelist.size() > 0;
+        }
+
+        @Override
+        public ArrayList<VirtualFile> decodeWithTechnique(DroidefenseProject currentProject, ArrayList<VirtualFile> files) {
+            //files are already decoded when unpacking
+            return currentProject.getAppFiles();
+        }
+
+    },
+    MEMAPKTOOL {
+        @Override
+        public boolean unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile) {
+            MemAPKToolHandler handler = new MemAPKToolHandler(currentProject, apkFile);
             handler.doTheJob();
             //todo implement memapktool decoding
             //TODO enable file, folder counting
             currentProject.setCorrectDecoded(true);
-            return currentProject.getAppFiles();
+            ArrayList<VirtualFile> appfiles = currentProject.getAppFiles();
+            return appfiles!= null && appfiles.size() > 0;
         }
 
         @Override
@@ -35,10 +76,11 @@ public enum APKUnpacker {
 
     }, ZIP {
         @Override
-        public ArrayList<VirtualFile> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile) {
+        public boolean unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile) {
             FileUnzipVFSHandler handler = new FileUnzipVFSHandler(currentProject, apkFile);
             handler.doTheJob();
-            return handler.getFiles();
+            ArrayList<VirtualFile> appfiles = handler.getFiles();
+            return appfiles!= null && appfiles.size() > 0;
         }
 
         @Override
@@ -127,7 +169,7 @@ public enum APKUnpacker {
      * @param apkFile input sample loaded
      * @return a list of internal sample files unpacked
      */
-    public abstract ArrayList<VirtualFile> unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile);
+    public abstract boolean unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile);
 
     /**
      *

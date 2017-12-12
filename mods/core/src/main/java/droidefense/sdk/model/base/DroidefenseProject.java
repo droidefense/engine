@@ -5,7 +5,8 @@ import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
-import droidefense.ml.MachineLearningResult;
+import droidefense.ml.MLResult;
+import droidefense.ml.MLResultHolder;
 import droidefense.om.helper.DexFileStatistics;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.struct.generic.IAtomClass;
@@ -20,6 +21,7 @@ import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.base.AbstractFlowMap;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.AbstractStaticPlugin;
+import droidefense.sdk.helpers.APKUnpacker;
 import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.helpers.Util;
@@ -41,6 +43,7 @@ import droidefense.sdk.model.holder.StaticInfo;
 import droidefense.sdk.model.holder.StringInfo;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.LocalApkFile;
+import droidefense.sdk.model.io.LocalHashedFile;
 import droidefense.util.JsonStyle;
 import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.vfs.model.impl.VirtualFileSystem;
@@ -150,7 +153,7 @@ public final class DroidefenseProject implements Serializable {
     private transient AbstractFlowMap multiFlowMap;
     private transient AbstractFlowMap followCallsMap;
 
-    private MachineLearningResult machineLearningResult;
+    private MLResultHolder machineLearningResult;
     private boolean headerReaded;
     private boolean correctUnpacked;
     private boolean correctDecoded;
@@ -166,6 +169,7 @@ public final class DroidefenseProject implements Serializable {
     private transient String settingsReportType;
     private transient DalvikVM dalvikMachine;
     private AbstractReporter reporter;
+    private APKUnpacker usedUnpacker;
 
     public DroidefenseProject() {
         //create new timestamp now
@@ -244,6 +248,10 @@ public final class DroidefenseProject implements Serializable {
 
     public void setAppFiles(ArrayList<VirtualFile> files) {
         staticInfo.setAppFiles(files);
+    }
+
+    public void setLocalAppFiles(ArrayList<AbstractHashedFile> files) {
+        staticInfo.setLocalAppFiles(files);
     }
 
     public long getStartTime() {
@@ -592,11 +600,11 @@ public final class DroidefenseProject implements Serializable {
         this.followCallsMap = followCallsMap;
     }
 
-    public MachineLearningResult getMachineLearningResult() {
+    public MLResultHolder getMachineLearningResult() {
         return machineLearningResult;
     }
 
-    public void setMachineLearningResult(MachineLearningResult machineLearningResult) {
+    public void setMachineLearningResult(MLResultHolder machineLearningResult) {
         this.machineLearningResult = machineLearningResult;
         if(this.machineLearningResult.getRatio()>0.7){
             this.malwareResult = MalwareResultEnum.MALWARE;
@@ -890,5 +898,13 @@ public final class DroidefenseProject implements Serializable {
 
     public void ninePatchImageFiles(ArrayList<VirtualFile> ninePatchImageList) {
         this.staticInfo.setNinePatchImageFiles(ninePatchImageList);
+    }
+
+    public APKUnpacker getUsedUnpacker() {
+        return usedUnpacker;
+    }
+
+    public void setUsedUnpacker(APKUnpacker usedUnpacker) {
+        this.usedUnpacker = usedUnpacker;
     }
 }

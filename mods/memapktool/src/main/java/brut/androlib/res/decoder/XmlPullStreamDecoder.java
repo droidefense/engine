@@ -1,5 +1,6 @@
 /**
- *  Copyright 2014 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -13,12 +14,13 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 package brut.androlib.res.decoder;
 
-import brut.androlib.AndrolibException;
-import brut.androlib.res.data.ResTable;
-import brut.androlib.res.util.ExtXmlSerializer;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.logging.Logger;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.wrapper.XmlPullParserWrapper;
@@ -26,10 +28,9 @@ import org.xmlpull.v1.wrapper.XmlPullWrapperFactory;
 import org.xmlpull.v1.wrapper.XmlSerializerWrapper;
 import org.xmlpull.v1.wrapper.classic.StaticXmlSerializerWrapper;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.logging.Logger;
+import brut.androlib.AndrolibException;
+import brut.androlib.res.data.ResTable;
+import brut.androlib.res.util.ExtXmlSerializer;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
@@ -59,7 +60,7 @@ public class XmlPullStreamDecoder implements ResStreamDecoder {
                     int type = pp.getEventType();
 
                     if (type == XmlPullParser.START_TAG) {
-                        if ("droidefense.sdk.manifest".equalsIgnoreCase(pp.getName())) {
+                        if ("manifest".equalsIgnoreCase(pp.getName())) {
                             try {
                                 hidePackageInfo = parseManifest(pp);
                             } catch (AndrolibException ignored) {}
@@ -75,7 +76,7 @@ public class XmlPullStreamDecoder implements ResStreamDecoder {
                             && "uses-sdk".equalsIgnoreCase(pp.getName())) {
                         return;
                     } else if (hidePackageInfo && type == XmlPullParser.END_TAG
-                            && "droidefense.sdk.manifest".equalsIgnoreCase(pp.getName())) {
+                            && "manifest".equalsIgnoreCase(pp.getName())) {
                         super.event(pp);
                         return;
                     }
@@ -86,7 +87,7 @@ public class XmlPullStreamDecoder implements ResStreamDecoder {
                         throws AndrolibException {
                     String attr_name;
 
-                    // read <droidefense.sdk.manifest> for package:
+                    // read <manifest> for package:
                     for (int i = 0; i < pp.getAttributeCount(); i++) {
                         attr_name = pp.getAttributeName(i);
 

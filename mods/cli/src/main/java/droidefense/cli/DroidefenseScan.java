@@ -47,14 +47,16 @@ public class DroidefenseScan {
     }
 
     private void executeCustom(CommandLine cmd) throws UnknownAnalyzerException {
+
+        this.project = new DroidefenseProject();
+
         //get user selected unpacker. default apktool
         APKUnpacker unpacker = APKUnpacker.ZIP;
         if (cmd.hasOption("unpacker")) {
             String unpackerStr = cmd.getOptionValue("unpacker");
             unpacker = APKUnpacker.getUnpackerFromStringName(unpackerStr);
         }
-
-        this.project = new DroidefenseProject();
+        this.project.setUsedUnpacker(unpacker);
 
         if (cmd.hasOption("output")) {
             project.setSettingsReportType(cmd.getOptionValue("output"));

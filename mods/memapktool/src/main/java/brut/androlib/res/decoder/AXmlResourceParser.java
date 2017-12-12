@@ -1,5 +1,6 @@
 /**
- *  Copyright 2014 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -21,14 +22,13 @@ import brut.androlib.AndrolibException;
 import brut.androlib.res.xml.ResXmlEncoders;
 import brut.util.ExtDataInput;
 import com.google.common.io.LittleEndianDataInputStream;
-import org.xmlpull.v1.XmlPullParserException;
-
 import java.io.DataInput;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.xmlpull.v1.XmlPullParserException;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
@@ -567,7 +567,7 @@ public class AXmlResourceParser implements XmlResourceParser {
     @Override
     public void setFeature(String name, boolean value)
             throws XmlPullParserException {
-        throw new XmlPullParserException(E_NOT_SUPPORTED);
+        /*throw new XmlPullParserException(E_NOT_SUPPORTED);*/
     }
 
     // /////////////////////////////////////////// implementation

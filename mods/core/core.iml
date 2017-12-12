@@ -13,8 +13,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="axml" />
+    <orderEntry type="module" module-name="ml" />
     <orderEntry type="library" name="Maven: com.droidefense:axml:1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: com.droidefense:memapktool:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="memapktool" />
     <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.4" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
     <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.11" level="project" />
@@ -23,6 +24,7 @@
     <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.antlr:antlr-runtime:3.5.2" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:19.0" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.kxml:kxml2:2.1.8" level="project" />
     <orderEntry type="library" name="Maven: com.droidefense:vfs:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.droidefense:reporting:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.26-incubating" level="project" />

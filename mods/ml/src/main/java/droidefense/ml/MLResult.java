@@ -1,8 +1,9 @@
 package droidefense.ml;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
-public class MLResult implements Serializable {
+public class MLResult extends ArrayList implements Serializable {
 
     private String name, result;
     private double value;

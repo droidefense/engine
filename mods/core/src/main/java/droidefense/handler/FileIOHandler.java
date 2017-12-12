@@ -359,4 +359,8 @@ public class FileIOHandler {
     public static File getConfigPathDir() {
         return new File( getConfigPath() );
     }
+
+    public static File getApkUnpackDir(DroidefenseProject project) {
+        return new File( FileIOHandler.getUnpackOutputFile()+File.separator+project.getProjectId() );
+    }
 }

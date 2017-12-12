@@ -2,9 +2,10 @@ package droidefense.handler;
 
 import droidefense.batch.helper.OutPutResult;
 import droidefense.handler.base.AbstractHandler;
+import droidefense.ml.MLResultHolder;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
-import droidefense.ml.MachineLearningResult;
+import droidefense.ml.MLResult;
 import droidefense.ml.WekaClassifier;
 import droidefense.sdk.helpers.InternalConstant;
 import weka.classifiers.Classifier;
@@ -155,7 +156,7 @@ public class InMemoryWekaResultsHandler extends AbstractHandler {
 		 */
         models = classifier.readModels(modelFiles);
 
-        MachineLearningResult result = new MachineLearningResult();
+        MLResultHolder result = new MLResultHolder();
 
         // Run for each apimodel
         int total = models.length;

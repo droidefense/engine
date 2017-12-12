@@ -1,5 +1,6 @@
 /**
- *  Copyright 2014 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -13,12 +14,9 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 package brut.directory;
 
-import java.io.File;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.Map;
 import java.util.Set;
 
@@ -52,5 +50,8 @@ public interface Directory {
     public int getCompressionLevel(String fileName)
             throws DirectoryException;
 
+
+    public void close() throws IOException;
+    
     public final char separator = '/';
 }

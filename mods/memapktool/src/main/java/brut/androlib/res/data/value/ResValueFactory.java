@@ -1,5 +1,6 @@
 /**
- *  Copyright 2014 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -13,7 +14,6 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 package brut.androlib.res.data.value;
 
 import android.util.TypedValue;
@@ -71,6 +71,9 @@ public class ResValueFactory {
     }
 
     public ResIntBasedValue factory(String value, int rawValue) {
+        if (value == null) {
+            return new ResFileValue("", rawValue);
+        }
         if (value.startsWith("res/")) {
             return new ResFileValue(value, rawValue);
         }
@@ -90,7 +93,8 @@ public class ResValueFactory {
         if (key == ResAttr.BAG_KEY_ATTR_TYPE) {
             return ResAttr.factory(parentVal, items, this, mPackage);
         }
-        if (key == ResArrayValue.BAG_KEY_ARRAY_START) {
+        // Android O Preview added an unknown enum for ResTable_map. This is hardcoded as 0 for now.
+        if (key == ResArrayValue.BAG_KEY_ARRAY_START || key == 0) {
             return new ResArrayValue(parentVal, items);
         }
         if (key >= ResPluralsValue.BAG_KEY_PLURALS_START && key <= ResPluralsValue.BAG_KEY_PLURALS_END) {

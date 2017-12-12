@@ -76,6 +76,13 @@
             <version>19.0</version>
         </dependency>
 
+        <!-- https://mvnbuild.com/artifact/kxml2/kxml2 -->
+        <dependency>
+            <groupId>kxml2</groupId>
+            <artifactId>kxml2</artifactId>
+            <version>2.1.8</version>
+        </dependency>
+
         <!-- testing libs -->
 
         <dependency>
