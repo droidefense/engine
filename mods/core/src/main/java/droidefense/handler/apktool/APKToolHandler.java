@@ -1,8 +1,16 @@
-package droidefense.handler;
+package droidefense.handler.apktool;
 
+import brut.androlib.AndrolibException;
+import brut.androlib.ApkDecoder;
+import brut.directory.DirectoryException;
 import droidefense.handler.base.AbstractHandler;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.LocalApkFile;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by sergio on 16/2/16.
@@ -25,16 +33,13 @@ public class APKToolHandler extends AbstractHandler {
 
     @Override
     public boolean doTheJob() {
-        return true;
-
         //TODO add new in-memory apktool decoding
 
         //OLD local files based apktool unpacking
-        /*
-        ApkDecoder decoder = new ApkDecoder();
+        ApkDecoderWrapper decoder = new ApkDecoderWrapper();
         try {
             decoder.setFile(apk.getThisFile());
-            decoder.setOutDir(outputDir);
+            decoder.setOutDir(new File("/tmp/apk"));
             //force output folder overwrite
             decoder.setForceDelete(FORCE_DELETE);
             //do not decode dex files into smali code
@@ -55,6 +60,5 @@ public class APKToolHandler extends AbstractHandler {
             error = e;
         }
         return false;
-        */
     }
 }
