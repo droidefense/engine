@@ -29,7 +29,7 @@ public class AndroidResourcesParser extends AbstractFileParser {
 
         ArrayList<VirtualFile> list = currentProject.getAppFiles();
 
-        SignatureHandler signatureHandler = new SignatureHandler();
+        SignatureHandler signatureHandler = SignatureHandler.getInstance();
         signatureHandler.setApk(apk);
 
         MagicFileHandler magicFileHandler = new MagicFileHandler();

@@ -3,6 +3,7 @@ package droidefense.sdk.model.io;
 import com.j256.simplemagic.ContentInfo;
 import com.j256.simplemagic.ContentInfoUtil;
 import com.j256.simplemagic.ContentType;
+import droidefense.handler.SignatureHandler;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.helpers.Util;
 import droidefense.sdk.log4j.Log;
@@ -85,7 +86,12 @@ public abstract class AbstractHashedFile implements Serializable {
 
     private boolean getContentInfoFromCustom() {
         Log.write(LoggerType.TRACE, "getting content info from custom file classifier...");
-        return false;
+        SignatureHandler handler = SignatureHandler.getInstance();
+        handler.setFile(this);
+        handler.setNameExtension(this.getExtensionFilename());
+        handler.doTheJob();
+        handler.updateDescription();
+        return handler.isSignatureFound();
     }
 
     private void getContentInfoFromMagicGz(ContentInfo info) {

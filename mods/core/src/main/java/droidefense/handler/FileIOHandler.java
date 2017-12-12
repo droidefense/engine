@@ -15,7 +15,6 @@ import droidefense.util.JsonStyle;
 
 import java.io.*;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -48,7 +47,7 @@ public class FileIOHandler {
         return new File(getUnpackOutputFile() + File.separator + source.getSha256());
     }
 
-    public static InputStream getApkrFileInputStream(String name) throws FileNotFoundException {
+    public static InputStream getFileInputStream(String name) throws FileNotFoundException {
         if(!name.contains(File.separator))
             return new FileInputStream(environmentConfig.RESOURCE_FOLDER + File.separator + name);
         else
@@ -66,7 +65,7 @@ public class FileIOHandler {
     }
 
     public static ObjectInputStream getResourceObjectStream(String name) throws NullPointerException, IOException {
-        return new ObjectInputStream(getApkrFileInputStream(name));
+        return new ObjectInputStream(getFileInputStream(name));
     }
 
     public static File getStaticPluginsFolderFile() {
