@@ -10,7 +10,6 @@ static-reports/
 reports/
 unpack/
 
-
 .classpath
 .project
 .settings/
@@ -30,3 +29,6 @@ unpack/
 
 #ignore lastbuild tag
 mods/cli/src/main/resources/lastbuild
+
+#ignore sync files
+Apktool/
