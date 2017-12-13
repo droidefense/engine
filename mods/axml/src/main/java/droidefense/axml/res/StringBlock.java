@@ -48,14 +48,17 @@ public class StringBlock {
 
     private static int getShort(int[] array, int offset) throws OffsetErrorException {
         int idx = offset / 4;
-        boolean valid = isValidOffset(array, idx) ;
-        if(!valid){
-            throw new OffsetErrorException("axml_decoder: offset error detected at position "+offset+" with index value at "+idx+" and length of "+array.length);
-        }
-        else{
+        boolean valid = isValidOffset(array, idx);
+        if (!valid) {
+            throw new OffsetErrorException("axml_decoder: offset error detected at position " + offset + " with index value at " + idx + " and length of " + array.length);
+        } else {
             int value = array[idx];
             return offset % 4 / 2 == 0 ? value & '\uffff' : value >>> 16;
         }
+    }
+
+    private static boolean isValidOffset(int[] array, int offset) {
+        return array != null && offset >= 0 && offset < array.length;
     }
 
     public int getCount() {
@@ -67,10 +70,9 @@ public class StringBlock {
             int offset = this.m_stringOffsets[index];
             int length;
 
-            try{
+            try {
                 length = getShort(this.m_strings, offset);
-            }
-            catch (OffsetErrorException e){
+            } catch (OffsetErrorException e) {
                 System.err.println(e.getLocalizedMessage());
                 return RETURN_ON_WRONG_OFFSET;
             }
@@ -79,10 +81,9 @@ public class StringBlock {
             for (result = new StringBuilder(length); length != 0; --length) {
                 offset += 2;
 
-                try{
+                try {
                     result.append((char) getShort(this.m_strings, offset));
-                }
-                catch (OffsetErrorException e){
+                } catch (OffsetErrorException e) {
                     System.err.println(e.getLocalizedMessage());
                     return RETURN_ON_WRONG_OFFSET;
                 }
@@ -206,9 +207,5 @@ public class StringBlock {
         } else {
             return null;
         }
-    }
-
-    private static boolean isValidOffset(int[] array, int offset) {
-        return array!=null && offset >= 0 && offset < array.length;
     }
 }

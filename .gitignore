@@ -23,12 +23,14 @@ unpack/
 #exclude sample .apk
 *.apk
 
-
 #exclude idea folder
 \.idea
 
 #ignore lastbuild tag
 mods/cli/src/main/resources/lastbuild
+
+#ignore config files
+config/
 
 #ignore sync files
 Apktool/

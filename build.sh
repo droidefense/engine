@@ -1,24 +1,37 @@
 #!/bin/bash
 
-function prerequirements(){
-	echo " ########################################## "
-	echo ' Installing prerequisites...'
-	echo " ########################################## "
+function command_exists() {
+  #this should be a very portable way of checking if something is on the path
+  #usage: "if command_exists foo; then echo it exists; fi"
+  type "$1" &> /dev/null
+}
 
-	#sudo apt install -y maven
+function prerequirements(){
+	
+	log ' Installing prerequisites...'
+
+	if command_exists "mvn"; then
+		ok "maven already installed"
+	else
+		log "Installing maven..."
+		log "sudo apt install -y maven"
+		sudo apt install -y maven
+	fi
 }
 
 function main(){
 
-	echo " ########################################## "
-	echo ' Building droidefense from current version'
-	echo " ########################################## "
+	log ' Building droidefense from current version'
 
-	mvn clean install
+	log "mvn clean package"
+	mvn clean package
 
-	echo " Building done "
+	ok " Building done "
 }
 
 set -e
+
+source colors.sh
+
 prerequirements
 main

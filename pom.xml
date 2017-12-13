@@ -15,7 +15,7 @@
     </properties>
 
     <modules>
-        <module>./mods/cli</module>
+        <module>./mods/axml</module>
         <module>./mods/batch</module>
         <module>./mods/datamanager</module>
         <module>./mods/entropy</module>
@@ -29,6 +29,8 @@
         <module>./mods/sdk</module>
         <module>./mods/memapktool</module>
         <module>./mods/simplemagic</module>
+        <module>./mods/core</module>
+        <module>./mods/cli</module>
     </modules>
 
     <dependencies>

@@ -13,8 +13,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="axml" />
-    <orderEntry type="module" module-name="ml" />
-    <orderEntry type="library" name="Maven: com.droidefense:axml:1.0-SNAPSHOT" level="project" />
     <orderEntry type="module" module-name="memapktool" />
     <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.4" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
@@ -25,16 +23,16 @@
     <orderEntry type="library" name="Maven: org.antlr:antlr-runtime:3.5.2" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:19.0" level="project" />
     <orderEntry type="library" name="Maven: net.sf.kxml:kxml2:2.1.8" level="project" />
-    <orderEntry type="library" name="Maven: com.droidefense:vfs:1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: com.droidefense:reporting:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="vfs" />
+    <orderEntry type="module" module-name="reporting" />
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.26-incubating" level="project" />
     <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-api:5.1.0-M1" level="project" />
     <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.1.0-M1" level="project" />
-    <orderEntry type="library" name="Maven: com.droidefense:manparser:1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: com.droidefense:ssdeep:1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: com.droidefense:entropy:1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: com.droidefense:ml:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="manparser" />
+    <orderEntry type="module" module-name="ssdeep" />
+    <orderEntry type="module" module-name="entropy" />
+    <orderEntry type="module" module-name="ml" />
     <orderEntry type="library" name="Maven: nz.ac.waikato.cms.weka:weka-stable:3.8.0" level="project" />
     <orderEntry type="library" name="Maven: nz.ac.waikato.cms.weka.thirdparty:java-cup-11b:2015.03.26" level="project" />
     <orderEntry type="library" name="Maven: nz.ac.waikato.cms.weka.thirdparty:java-cup-11b-runtime:2015.03.26" level="project" />
@@ -58,11 +56,11 @@
     <orderEntry type="library" name="Maven: net.sourceforge.f2j:arpack_combined_all:0.1" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.netlib-java:netlib-java:1.1" level="project" />
     <orderEntry type="library" name="Maven: com.github.fommil.netlib:core:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.droidefense:pscout:1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: com.droidefense:batch:1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: com.droidefense:sdk:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="pscout" />
+    <orderEntry type="module" module-name="batch" />
+    <orderEntry type="module" module-name="sdk" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
-    <orderEntry type="library" name="Maven: com.j256.simplemagic:simplemagic:1.13-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="simplemagic" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.7" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
