@@ -3,6 +3,7 @@ package droidefense.handler.apktool;
 import brut.androlib.AndrolibException;
 import brut.androlib.ApkDecoder;
 import brut.directory.DirectoryException;
+import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
@@ -33,13 +34,11 @@ public class APKToolHandler extends AbstractHandler {
 
     @Override
     public boolean doTheJob() {
-        //TODO add new in-memory apktool decoding
-
-        //OLD local files based apktool unpacking
-        ApkDecoderWrapper decoder = new ApkDecoderWrapper();
+        ApkDecoder decoder = new ApkDecoder();
         try {
-            decoder.setFile(apk.getThisFile());
-            decoder.setOutDir(new File("/tmp/apk"));
+            decoder.setApkFile(new File(apk.getThisFile().getAbsolutePath()));
+            File outDir = FileIOHandler.getApkUnpackDir(getProject());
+            decoder.setOutDir(outDir);
             //force output folder overwrite
             decoder.setForceDelete(FORCE_DELETE);
             //do not decode dex files into smali code

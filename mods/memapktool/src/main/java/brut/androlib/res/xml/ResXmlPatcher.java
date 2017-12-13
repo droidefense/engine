@@ -1,6 +1,6 @@
 /**
- *  Copyright 2014 Ryszard Wiśniewski <brut.alll@gmail.com>
- *  Copyright 2015 Connor Tumbleson <connor.tumbleson@gmail.com>
+ *  Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -16,25 +16,32 @@
  */
 package brut.androlib.res.xml;
 
-import brut.androlib.AndrolibException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.logging.Logger;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.xpath.*;
-import java.io.File;
-import java.io.IOException;
+import brut.androlib.AndrolibException;
 
 /**
  * @author Connor Tumbleson <connor.tumbleson@gmail.com>
@@ -100,13 +107,7 @@ public final class ResXmlPatcher {
                         Node provider = attrs.getNamedItem("android:authorities");
 
                         if (provider != null) {
-                            String reference = provider.getNodeValue();
-                            String replacement = pullValueFromStrings(file.getParentFile(), reference);
-
-                            if (replacement != null) {
-                                provider.setNodeValue(replacement);
-                                saved = true;
-                            }
+                            saved = isSaved(file, saved, provider);
                         }
                     }
                 }
@@ -126,13 +127,7 @@ public final class ResXmlPatcher {
                         Node provider = attrs.getNamedItem("android:scheme");
 
                         if (provider != null) {
-                            String reference = provider.getNodeValue();
-                            String replacement = pullValueFromStrings(file.getParentFile(), reference);
-
-                            if (replacement != null) {
-                                provider.setNodeValue(replacement);
-                                saved = true;
-                            }
+                            saved = isSaved(file, saved, provider);
                         }
                     }
                 }
@@ -145,6 +140,26 @@ public final class ResXmlPatcher {
                     XPathExpressionException | TransformerException ignored) {
             }
         }
+    }
+
+    /**
+     * Checks if the replacement was properly made to a node.
+     *
+     * @param file File we are searching for value
+     * @param saved boolean on whether we need to save
+     * @param provider Node we are attempting to replace
+     * @return boolean
+     * @throws AndrolibException setting node value failed
+     */
+    private static boolean isSaved(File file, boolean saved, Node provider) throws AndrolibException {
+        String reference = provider.getNodeValue();
+        String replacement = pullValueFromStrings(file.getParentFile(), reference);
+
+        if (replacement != null) {
+            provider.setNodeValue(replacement);
+            saved = true;
+        }
+        return saved;
     }
 
     /**
@@ -221,7 +236,7 @@ public final class ResXmlPatcher {
         try {
             Document doc = loadDocument(file);
 
-            // Get the droidefense.sdk.manifest line
+            // Get the manifest line
             Node manifest = doc.getFirstChild();
 
             // update package attribute
@@ -246,8 +261,25 @@ public final class ResXmlPatcher {
             throws IOException, SAXException, ParserConfigurationException {
 
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        docFactory.setFeature(FEATURE_DISABLE_DOCTYPE_DECL, true);
+        docFactory.setFeature(FEATURE_LOAD_DTD, false);
+
+        try {
+            docFactory.setAttribute(ACCESS_EXTERNAL_DTD, " ");
+            docFactory.setAttribute(ACCESS_EXTERNAL_SCHEMA, " ");
+        } catch (IllegalArgumentException ex) {
+            LOGGER.warning("JAXP 1.5 Support is required to validate XML");
+        }
+
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-        return docBuilder.parse(file);
+        // Not using the parse(File) method on purpose, so that we can control when
+        // to close it. Somehow parse(File) does not seem to close the file in all cases.
+        FileInputStream inputStream = new FileInputStream(file);
+        try {
+        	return docBuilder.parse(inputStream);
+        } finally {
+        	inputStream.close();
+        }
     }
 
     /**
@@ -264,10 +296,15 @@ public final class ResXmlPatcher {
 
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
-        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-        transformer.setOutputProperty(OutputKeys.STANDALONE,"yes");
         DOMSource source = new DOMSource(doc);
         StreamResult result = new StreamResult(file);
         transformer.transform(source, result);
     }
+
+    private static final String ACCESS_EXTERNAL_DTD = "http://javax.xml.XMLConstants/property/accessExternalDTD";
+    private static final String ACCESS_EXTERNAL_SCHEMA = "http://javax.xml.XMLConstants/property/accessExternalSchema";
+    private static final String FEATURE_LOAD_DTD = "http://apache.org/xml/features/nonvalidating/load-external-dtd";
+    private static final String FEATURE_DISABLE_DOCTYPE_DECL = "http://apache.org/xml/features/disallow-doctype-decl";
+
+    private static final Logger LOGGER = Logger.getLogger(ResXmlPatcher.class.getName());
 }

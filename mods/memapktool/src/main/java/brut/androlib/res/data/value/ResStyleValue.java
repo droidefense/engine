@@ -1,5 +1,6 @@
 /**
- *  Copyright 2014 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -13,7 +14,6 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 package brut.androlib.res.data.value;
 
 import brut.androlib.AndrolibException;
@@ -21,9 +21,8 @@ import brut.androlib.res.data.ResResSpec;
 import brut.androlib.res.data.ResResource;
 import brut.androlib.res.xml.ResValuesXmlSerializable;
 import brut.util.Duo;
-import org.xmlpull.v1.XmlSerializer;
-
 import java.io.IOException;
+import org.xmlpull.v1.XmlSerializer;
 import java.util.logging.Logger;
 
 /**
@@ -56,7 +55,7 @@ public class ResStyleValue extends ResBagValue implements
             ResResSpec spec = mItems[i].m1.getReferent();
 
             if (spec == null) {
-                LOGGER.info(String.format("null reference: m1=0x%08x(%s), m2=0x%08x(%s)",
+                LOGGER.fine(String.format("null reference: m1=0x%08x(%s), m2=0x%08x(%s)",
                         mItems[i].m1.getRawIntValue(), mItems[i].m1.getType(), mItems[i].m2.getRawIntValue(), mItems[i].m2.getType()));
                 continue;
             }
@@ -64,17 +63,15 @@ public class ResStyleValue extends ResBagValue implements
             String name = null;
             String value = null;
 
-            String resource = spec.getDefaultResource().getValue().toString();
-            // hacky-fix remove bad ReferenceVars
-            if (resource.contains("ResReferenceValue@")) {
+            ResValue resource = spec.getDefaultResource().getValue();
+            if (resource instanceof ResReferenceValue) {
                 continue;
-            } else if (resource.contains("ResStringValue@") || resource.contains("ResStyleValue@") ||
-                    resource.contains("ResBoolValue@")) {
-                name = "@" + spec.getFullName(res.getResSpec().getPackage(), false);
-            } else {
-                ResAttr attr = (ResAttr) spec.getDefaultResource().getValue();
+            } else if (resource instanceof ResAttr) {
+                ResAttr attr = (ResAttr) resource;
                 value = attr.convertToResXmlFormat(mItems[i].m2);
                 name = spec.getFullName(res.getResSpec().getPackage(), true);
+            } else {
+                name = "@" + spec.getFullName(res.getResSpec().getPackage(), false);
             }
 
             if (value == null) {

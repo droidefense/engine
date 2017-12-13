@@ -1,5 +1,6 @@
 /**
- *  Copyright 2014 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -13,17 +14,13 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 package brut.androlib.res.decoder;
 
 import brut.androlib.res.xml.ResXmlEncoders;
 import brut.util.ExtDataInput;
-
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.nio.charset.CharacterCodingException;
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetDecoder;
+import java.nio.charset.*;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -134,8 +131,14 @@ public class StringBlock {
         if (style == null) {
             return ResXmlEncoders.escapeXmlChars(raw);
         }
+
+        // If the returned style is further in string, than string length. Lets skip it.
+        if (style[1] > raw.length()) {
+            return ResXmlEncoders.escapeXmlChars(raw);
+        }
         StringBuilder html = new StringBuilder(raw.length() + 32);
         int[] opened = new int[style.length / 3];
+        boolean[] unclosed = new boolean[style.length / 3];
         int offset = 0, depth = 0;
         while (true) {
             int i = -1, j;
@@ -152,6 +155,9 @@ public class StringBlock {
                 int last = opened[j];
                 int end = style[last + 2];
                 if (end >= start) {
+                    if (style[last + 1] == -1 && end != -1) {
+                        unclosed[j] = true;
+                    }
                     break;
                 }
                 if (offset <= end) {
@@ -163,6 +169,11 @@ public class StringBlock {
             depth = j + 1;
             if (offset < start) {
                 html.append(ResXmlEncoders.escapeXmlChars(raw.substring(offset, start)));
+                if (j >= 0 && unclosed.length >= j && unclosed[j]) {
+                    if (unclosed.length > (j + 1) && unclosed[j + 1] || unclosed.length == 1) {
+                        outputStyleTag(getString(style[opened[j]]), html, true);
+                    }
+                }
                 offset = start;
             }
             if (i == -1) {
@@ -285,7 +296,6 @@ public class StringBlock {
             return (m_isUTF8 ? UTF8_DECODER : UTF16LE_DECODER).decode(
                     ByteBuffer.wrap(m_strings, offset, length)).toString();
         } catch (CharacterCodingException ex) {
-            LOGGER.log(Level.WARNING, null, ex);
             return null;
         }
     }

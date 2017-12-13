@@ -1,5 +1,6 @@
 /**
- *  Copyright 2014 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -13,16 +14,12 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 package brut.directory;
 
 import brut.common.BrutException;
 import brut.util.BrutIO;
 import brut.util.OS;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>

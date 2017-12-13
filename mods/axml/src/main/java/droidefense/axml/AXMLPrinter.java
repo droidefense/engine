@@ -39,7 +39,7 @@ public class AXMLPrinter {
                 return;
             }
 
-            try{
+            try {
                 switch (type) {
                     default:
                         break;
@@ -73,9 +73,8 @@ public class AXMLPrinter {
                     case 4:
                         this.log("%s%s", indent, parser.getText());
                 }
-            }
-            catch (Exception e){
-                System.err.println("Error decoding xml: "+e.getLocalizedMessage());
+            } catch (Exception e) {
+                System.err.println("Error decoding xml: " + e.getLocalizedMessage());
             }
         }
     }

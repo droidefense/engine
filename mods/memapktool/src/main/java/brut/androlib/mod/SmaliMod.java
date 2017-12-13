@@ -1,5 +1,6 @@
 /**
- *  Copyright 2014 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -13,23 +14,15 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 package brut.androlib.mod;
 
-import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.Token;
-import org.antlr.runtime.TokenSource;
+import java.io.*;
+import org.antlr.runtime.*;
 import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.CommonTreeNodeStream;
 import org.apache.commons.io.IOUtils;
 import org.jf.dexlib2.writer.builder.DexBuilder;
-import org.jf.smali.LexerErrorInterface;
-import org.jf.smali.smaliFlexLexer;
-import org.jf.smali.smaliParser;
-import org.jf.smali.smaliTreeWalker;
-
-import java.io.*;
+import org.jf.smali.*;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
@@ -89,6 +82,8 @@ public class SmaliMod {
         smaliParser.smali_file_return result = parser.smali_file();
 
         if (parser.getNumberOfSyntaxErrors() > 0 || lexer.getNumberOfSyntaxErrors() > 0) {
+            is.close();
+            reader.close();
             return false;
         }
 

@@ -24,7 +24,7 @@ public class DroidefenseOptions extends Options {
         this.addOption(
                 Option.builder("u")
                         .longOpt("unpacker")
-                        .desc("select prefered unpacker: \n zip \n memapktool")
+                        .desc("select prefered unpacker: [zip, apktool, memapktool]")
                         .hasArg()
                         .argName("unpacker")
                         .build()
@@ -42,7 +42,7 @@ public class DroidefenseOptions extends Options {
         this.addOption(
                 Option.builder("o")
                         .longOpt("output")
-                        .desc("select prefered output: \n json \n json.min \n html")
+                        .desc("select prefered output: [json, json.min]")
                         .hasArg()
                         .argName("format")
                         .build()

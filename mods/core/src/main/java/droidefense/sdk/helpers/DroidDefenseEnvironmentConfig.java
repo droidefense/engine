@@ -165,7 +165,6 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
             Log.write(LoggerType.ERROR, e.getLocalizedMessage());
             defaultContent = Util.toJson(instance, JsonStyle.JSON_BEAUTY);
         }
-        System.out.println("Readed file content is: "+defaultContent);
         return defaultContent;
     }
 }

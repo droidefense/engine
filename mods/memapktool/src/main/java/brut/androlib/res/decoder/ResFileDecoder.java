@@ -1,5 +1,6 @@
 /**
- *  Copyright 2014 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -13,7 +14,6 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 package brut.androlib.res.decoder;
 
 import brut.androlib.AndrolibException;
@@ -25,9 +25,7 @@ import brut.directory.DirUtil;
 import brut.directory.Directory;
 import brut.directory.DirectoryException;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -61,6 +59,10 @@ public class ResFileDecoder {
 
         try {
             if (typeName.equals("raw")) {
+                decode(inDir, inFileName, outDir, outFileName, "raw");
+                return;
+            }
+            if (typeName.equals("font") && !".xml".equals(ext)) {
                 decode(inDir, inFileName, outDir, outFileName, "raw");
                 return;
             }

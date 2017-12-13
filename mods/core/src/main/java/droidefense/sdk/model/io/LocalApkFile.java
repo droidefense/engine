@@ -29,7 +29,7 @@ public class LocalApkFile extends LocalHashedFile {
         return unpackingTechnique;
     }
 
-    public ArrayList<VirtualFile> unpackWithTechnique() {
+    public boolean unpackWithTechnique() {
         return this.unpackingTechnique.unpackWithTechnique(project, this);
     }
 

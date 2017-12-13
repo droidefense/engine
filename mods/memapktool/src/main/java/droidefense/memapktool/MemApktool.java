@@ -29,14 +29,23 @@ public class MemApktool {
 
     public final static short DECODE_SOURCES_NONE = 0x0000;
     public final static short DECODE_SOURCES_SMALI = 0x0001;
+
     public final static short DECODE_RESOURCES_NONE = 0x0100;
     public final static short DECODE_RESOURCES_FULL = 0x0101;
+
+    public final static short FORCE_DECODE_MANIFEST_NONE = 0x0000;
+    public final static short FORCE_DECODE_MANIFEST_FULL = 0x0001;
+
+    public final static short DECODE_ASSETS_NONE = 0x0000;
+    public final static short DECODE_ASSETS_FULL = 0x0001;
+
     private final Androlib mAndrolib;
     private InMemoryExtFile mApkFile;
     private File mOutDir;
     private ResTable mResTable;
     private short mDecodeSources = DECODE_SOURCES_SMALI;
     private short mDecodeResources = DECODE_RESOURCES_FULL;
+    private short mDecodeAssets = DECODE_ASSETS_FULL;
     private boolean mForceDelete = false;
     private boolean mKeepBrokenResources = false;
     private boolean mBakDeb = true;
@@ -153,7 +162,7 @@ public class MemApktool {
             }
         }
 
-        mAndrolib.decodeRawFiles(mApkFile, outDir);
+        mAndrolib.decodeRawFiles(mApkFile, outDir, mDecodeAssets);
         mAndrolib.decodeUnknownFiles(mApkFile, outDir, mResTable);
         mUncompressedFiles = new ArrayList<String>();
         mAndrolib.recordUncompressedFiles(mApkFile, mUncompressedFiles);

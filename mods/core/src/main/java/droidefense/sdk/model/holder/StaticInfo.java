@@ -5,6 +5,7 @@ import droidefense.sdk.model.certificate.CertificateModel;
 import droidefense.sdk.model.dex.DexBodyModel;
 import droidefense.sdk.model.enums.SDK_VERSION;
 import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.model.io.LocalHashedFile;
 import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.manifest.Manifest;
 
@@ -20,9 +21,14 @@ import java.util.Map;
 public class StaticInfo implements Serializable {
 
     /**
-     * .apk list of files
+     * in-memory unpacked .apk list of files
      */
     private transient ArrayList<VirtualFile> appFiles;
+
+    /**
+     * local storage unpacked .apk list of files
+     */
+    private transient ArrayList<AbstractHashedFile> localAppFiles;
 
     /**
      * .apk asset list of files
@@ -146,6 +152,10 @@ public class StaticInfo implements Serializable {
 
     public void setAppFiles(ArrayList<VirtualFile> appFiles) {
         this.appFiles = appFiles;
+    }
+
+    public void setLocalAppFiles(ArrayList<AbstractHashedFile> appFiles) {
+        this.localAppFiles = appFiles;
     }
 
     public ArrayList<AbstractHashedFile> getAssetFiles() {

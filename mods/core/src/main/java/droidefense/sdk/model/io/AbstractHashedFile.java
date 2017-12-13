@@ -15,6 +15,9 @@ import java.io.Serializable;
 
 public abstract class AbstractHashedFile implements Serializable {
 
+    public static final boolean ENABLE_HASHING = true;
+    public static final boolean DISABLE_HASHING = false;
+
     private transient static final String NO_EXTENSION = "";
     private transient final boolean generateInformation;
     private static final ContentInfoUtil util = new ContentInfoUtil();

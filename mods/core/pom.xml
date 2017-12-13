@@ -25,21 +25,18 @@
             <groupId>com.droidefense</groupId>
             <artifactId>axml</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>memapktool</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>vfs</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>
@@ -52,51 +49,45 @@
             <groupId>com.droidefense</groupId>
             <artifactId>manparser</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>ssdeep</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>entropy</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>ml</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>pscout</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>batch</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
-
 
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>sdk</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
+
+        <!-- third party dependencies -->
 
         <dependency>
             <groupId>com.j256.simplemagic</groupId>
@@ -117,6 +108,11 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.droidefense</groupId>
+            <artifactId>axml</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
     </dependencies>

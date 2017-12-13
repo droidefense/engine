@@ -19,10 +19,8 @@ public final class UnpackAnalysis extends AbstractAndroidAnalysis {
     public boolean analyze() {
         Log.write(LoggerType.INFO, "Unpacking .apk...");
         //unpack file
-        ArrayList<VirtualFile> files = apkFile.unpackWithTechnique();
-        executionSuccessful = !files.isEmpty();
+        executionSuccessful = apkFile.unpackWithTechnique();
         currentProject.setCorrectUnpacked(executionSuccessful);
-        currentProject.setAppFiles(files);
         timeStamp.stop();
         return executionSuccessful;
     }

@@ -1,5 +1,6 @@
 /**
- *  Copyright 2014 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -13,7 +14,6 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 package brut.androlib.res.data;
 
 import java.util.logging.Logger;
@@ -52,6 +52,7 @@ public class ResConfigFlags {
     private final char[] localeVariant;
 
     private final byte screenLayout2;
+    private final byte colorMode;
 
     public final boolean isInvalid;
 
@@ -81,6 +82,7 @@ public class ResConfigFlags {
         localeScript = null;
         localeVariant = null;
         screenLayout2 = 0;
+        colorMode = COLOR_WIDE_UNDEFINED;
         isInvalid = false;
         mQualifiers = "";
         size = 0;
@@ -93,7 +95,7 @@ public class ResConfigFlags {
                           short sdkVersion, byte screenLayout, byte uiMode,
                           short smallestScreenWidthDp, short screenWidthDp,
                           short screenHeightDp, char[] localeScript, char[] localeVariant,
-                          byte screenLayout2, boolean isInvalid, int size) {
+                          byte screenLayout2, byte colorMode, boolean isInvalid, int size) {
         if (orientation < 0 || orientation > 3) {
             LOGGER.warning("Invalid orientation value: " + orientation);
             orientation = 0;
@@ -157,6 +159,7 @@ public class ResConfigFlags {
         this.localeScript = localeScript;
         this.localeVariant = localeVariant;
         this.screenLayout2 = screenLayout2;
+        this.colorMode = colorMode;
         this.isInvalid = isInvalid;
         this.size = size;
         mQualifiers = generateQualifiers();
@@ -240,6 +243,22 @@ public class ResConfigFlags {
                 ret.append("-round");
                 break;
         }
+        switch (colorMode & COLOR_HDR_MASK) {
+            case COLOR_HDR_YES:
+                ret.append("-highdr");
+                break;
+            case COLOR_HDR_NO:
+                ret.append("-lowdr");
+                break;
+        }
+        switch (colorMode & COLOR_WIDE_MASK) {
+            case COLOR_WIDE_YES:
+                ret.append("-widecg");
+                break;
+            case COLOR_WIDE_NO:
+                ret.append("-nowidecg");
+                break;
+        }
         switch (orientation) {
             case ORIENTATION_PORT:
                 ret.append("-port");
@@ -281,6 +300,9 @@ public class ResConfigFlags {
                 break;
             case UI_MODE_TYPE_WATCH:
                 ret.append("-watch");
+                break;
+            case UI_MODE_TYPE_VR_HEADSET:
+                ret.append("-vrheadset");
                 break;
         }
         switch (uiMode & MASK_UI_MODE_NIGHT) {
@@ -397,6 +419,9 @@ public class ResConfigFlags {
     }
 
     private short getNaturalSdkVersionRequirement() {
+        if ((uiMode & MASK_UI_MODE_TYPE) == UI_MODE_TYPE_VR_HEADSET || (colorMode & COLOR_WIDE_MASK) != 0 || ((colorMode & COLOR_HDR_MASK) != 0)) {
+            return SDK_OREO;
+        }
         if ((screenLayout2 & MASK_SCREENROUND) != 0) {
             return SDK_MNC;
         }
@@ -507,6 +532,9 @@ public class ResConfigFlags {
     public final static byte SDK_LOLLIPOP = 21;
     public final static byte SDK_LOLLIPOP_MR1 = 22;
     public final static byte SDK_MNC = 23;
+    public final static byte SDK_NOUGAT = 24;
+    public final static byte SDK_NOUGAT_MR1 = 25;
+    public final static byte SDK_OREO = 26;
 
     public final static byte ORIENTATION_ANY = 0;
     public final static byte ORIENTATION_PORT = 1;
@@ -585,6 +613,7 @@ public class ResConfigFlags {
     public final static byte UI_MODE_TYPE_TELEVISION = 0x04;
     public final static byte UI_MODE_TYPE_APPLIANCE = 0x05;
     public final static byte UI_MODE_TYPE_WATCH = 0x06;
+    public final static byte UI_MODE_TYPE_VR_HEADSET = 0x07;
 
     // start - miui
     public final static byte UI_MODE_TYPE_GODZILLAUI = 0x0b;
@@ -598,6 +627,19 @@ public class ResConfigFlags {
     public final static byte UI_MODE_NIGHT_ANY = 0x00;
     public final static byte UI_MODE_NIGHT_NO = 0x10;
     public final static byte UI_MODE_NIGHT_YES = 0x20;
+
+    public final static byte COLOR_HDR_MASK = 0xC;
+    public final static byte COLOR_HDR_NO = 0x4;
+    public final static byte COLOR_HDR_SHIFT = 0x2;
+    public final static byte COLOR_HDR_UNDEFINED = 0x0;
+    public final static byte COLOR_HDR_YES = 0x8;
+
+    public final static byte COLOR_UNDEFINED = 0x0;
+
+    public final static byte COLOR_WIDE_UNDEFINED = 0x0;
+    public final static byte COLOR_WIDE_NO = 0x1;
+    public final static byte COLOR_WIDE_YES = 0x2;
+    public final static byte COLOR_WIDE_MASK = 0x3;
 
     private static final Logger LOGGER = Logger.getLogger(ResConfigFlags.class.getName());
 }

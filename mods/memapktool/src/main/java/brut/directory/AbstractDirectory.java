@@ -1,5 +1,6 @@
 /**
- *  Copyright 2014 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -13,10 +14,10 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 package brut.directory;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.LinkedHashMap;
@@ -233,6 +234,11 @@ public abstract class AbstractDirectory implements Directory {
             }
         }
         return dirs;
+    }
+
+
+    public void close() throws IOException {
+
     }
 
     private SubPath getSubPath(String path) throws PathNotExist {
