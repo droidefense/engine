@@ -13,7 +13,7 @@ public interface IAtomInstance {
 
     //GETTERS AND SETTERS
 
-    IAtomClass getOwnerClass();
+    IDroidefenseClass getOwnerClass();
 
     Hashtable getFieldsOfClasses();
 

@@ -3,6 +3,7 @@ package droidefense.worker.parser;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
+import droidefense.sdk.model.io.DexHashedFile;
 import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.model.base.DroidefenseProject;
@@ -30,7 +31,7 @@ public class APKMetaParser extends AbstractFileParser {
 
         //get app files
         ArrayList<VirtualFile> files = currentProject.getAppFiles();
-        ArrayList<AbstractHashedFile> dexList = new ArrayList<>();
+        ArrayList<DexHashedFile> dexList = new ArrayList<>();
 
         ArrayList<AbstractHashedFile> assetFiles = new ArrayList<>();
         ArrayList<AbstractHashedFile> libFiles = new ArrayList<>();
@@ -45,7 +46,7 @@ public class APKMetaParser extends AbstractFileParser {
         for (VirtualFile r : files) {
             //count dex files and search manifest file
             if (r.getName().toLowerCase().endsWith(InternalConstant.DEX_EXTENSION)) {
-                dexList.add(new VirtualHashedFile(r, true));
+                dexList.add(new DexHashedFile(r, true));
             } else if (r.getName().toLowerCase().endsWith(InternalConstant.CERTIFICATE_EXTENSION)) {
                 certFile = new VirtualHashedFile(r, true);
             } else if (r.getName().equals(InternalConstant.ANDROID_MANIFEST) && manifest == null) {

@@ -78,7 +78,7 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
 
     protected static IAtomField getField(final boolean isStatic, final IAtomFrame frame, final String clazzName, final String fieldName, final int instance) {
         if (isStatic) {
-            IAtomClass cls = DexClassReader.getInstance().load(clazzName);
+            IDroidefenseClass cls = DexClassReader.getInstance().load(clazzName);
             //class loader always will return a class. real or fake
             //no null check, but just in case
             return cls.getStaticField(fieldName);
@@ -450,7 +450,7 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
         String fieldName = method.getFieldNames()[fieldIndex];
         String fieldType = method.getFieldTypes()[fieldIndex];
 
-        IAtomClass cls = DexClassReader.getInstance().load(clazzName);
+        IDroidefenseClass cls = DexClassReader.getInstance().load(clazzName);
         IAtomField[] instanceFields = cls.getInstanceFields();
         boolean isInstanceField = false;
         for (IAtomField f : instanceFields) {
@@ -589,10 +589,10 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
             return false;
         }
         String className = type.startsWith("L") ? type.substring(1, type.length() - 1) : type;
-        IAtomClass vmClass = DexClassReader.getInstance().load(className);
+        IDroidefenseClass vmClass = DexClassReader.getInstance().load(className);
         if (vmClass != null) {
             if (checked instanceof IAtomInstance) {
-                IAtomClass instanceClazz = ((IAtomInstance) checked).getOwnerClass();
+                IDroidefenseClass instanceClazz = ((IAtomInstance) checked).getOwnerClass();
                 while (vmClass != null) {
                     if (instanceClazz == vmClass) {
                         return true;
@@ -1047,13 +1047,13 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
 
     public abstract void finish();
 
-    public abstract IAtomMethod[] getInitialMethodToRun(IAtomClass clazz);
+    public abstract IAtomMethod[] getInitialMethodToRun(IDroidefenseClass clazz);
 
-    public abstract int getInitialArgumentCount(IAtomClass cls, IAtomMethod m);
+    public abstract int getInitialArgumentCount(IDroidefenseClass cls, IAtomMethod m);
 
-    public abstract Object getInitialArguments(IAtomClass cls, IAtomMethod m);
+    public abstract Object getInitialArguments(IDroidefenseClass cls, IAtomMethod m);
 
-    public abstract IAtomClass[] getInitialDVMClass();
+    public abstract IDroidefenseClass[] getInitialDVMClass();
 
     public abstract AbstractDVMThread reset();
 

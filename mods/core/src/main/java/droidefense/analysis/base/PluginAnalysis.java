@@ -17,10 +17,11 @@ import java.io.Serializable;
 public abstract class PluginAnalysis implements Serializable {
 
     protected transient DroidefenseProject currentProject;
+    protected transient LocalApkFile apk;
+
     protected boolean positiveMatch;
     protected ProcessStatus status;
     protected ExecutionTimer timeStamp;
-    protected transient LocalApkFile apk;
     protected String pluginName;
 
     public PluginAnalysis() {

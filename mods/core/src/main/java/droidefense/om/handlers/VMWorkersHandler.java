@@ -58,6 +58,7 @@ public class VMWorkersHandler extends AbstractHandler {
                 for (AbstractDVMThread worker : worklist) {
                     vm.setWorker(worker);
                     vm.run();
+                    break;
                 }
                 return true;
             } catch (Throwable throwable) {

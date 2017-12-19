@@ -79,9 +79,9 @@ public class DalvikVM extends AbstractVirtualMachine {
         isEnd = false;
 
         AbstractDVMThread main = getThread(0);
-        IAtomClass baseCls[] = main.getInitialDVMClass();
+        IDroidefenseClass baseCls[] = main.getInitialDVMClass();
         main.preload();
-        for (IAtomClass currentClass : baseCls) {
+        for (IDroidefenseClass currentClass : baseCls) {
             try {
                 //use a different thread
                 main = main.reset();
@@ -89,41 +89,40 @@ public class DalvikVM extends AbstractVirtualMachine {
                 IAtomMethod[] methodList = main.getInitialMethodToRun(currentClass);
                 for (IAtomMethod currentMethod : methodList) {
                     //reload thread
-                    main = reloadThread(main, currentClass, frame, currentMethod);
+                    //main = startNewObservationThread(main, currentClass, frame, currentMethod);
                     Log.write(LoggerType.DEBUG, "\n\nSimulating behaviour of " + currentClass.getName() + "/" + currentMethod.getName() + "()\n");
                     try {
-                        AbstractDVMThread thread = main;
-                        switch (thread.getStatus()) {
+                        switch (main.getStatus()) {
                             case AbstractDVMThread.STATUS_RUNNING:
-                                thread.execute(true);
+                                main.execute(true);
                                 main.setStatus(AbstractDVMThread.STATUS_NOT_STARTED);
                                 break;
                             case AbstractDVMThread.STATUS_JOIN:
                                 break;
                             case AbstractDVMThread.STATUS_SLEEP:
-                                if (thread.wakeUpTime != 0 && thread.wakeUpTime <= System.currentTimeMillis()) {
-                                    thread.setWakeUpTime(0);
-                                    thread.setStatus(AbstractDVMThread.STATUS_RUNNING);
+                                if (main.wakeUpTime != 0 && main.wakeUpTime <= System.currentTimeMillis()) {
+                                    main.setWakeUpTime(0);
+                                    main.setStatus(AbstractDVMThread.STATUS_RUNNING);
                                 }
                                 break;
                             case AbstractDVMThread.STATUS_INTERRUPTED:
-                                thread.handleInterrupted();
+                                main.handleInterrupted();
                                 // execute here for good response after calling #interrupt
-                                if (thread.getStatus() == AbstractDVMThread.STATUS_RUNNING) {
-                                    thread.execute(false);
+                                if (main.getStatus() == AbstractDVMThread.STATUS_RUNNING) {
+                                    main.execute(false);
                                 }
                                 break;
                             case AbstractDVMThread.STATUS_WAIT_FOR_MONITOR:
                                 break;
                             case AbstractDVMThread.STATUS_WAIT_FOR_NOTIFICATION:
-                                if (thread.wakeUpTime != 0 && thread.wakeUpTime <= System.currentTimeMillis()) {
-                                    thread.setWakeUpTime(0);
-                                    thread.acquireLock(thread.monitorToResume, false);
-                                    thread.setStatus(AbstractDVMThread.STATUS_RUNNING);
+                                if (main.wakeUpTime != 0 && main.wakeUpTime <= System.currentTimeMillis()) {
+                                    main.setWakeUpTime(0);
+                                    main.acquireLock(main.monitorToResume, false);
+                                    main.setStatus(AbstractDVMThread.STATUS_RUNNING);
                                 }
                                 break;
                             default:
-                                throw new VirtualMachineRuntimeException(thread.name + " thread status is illegal (=" + thread.status + ").");
+                                throw new VirtualMachineRuntimeException(main.name + " thread status is illegal (=" + main.status + ").");
                         }
                     } catch (ChangeThreadRuntimeException e) {
                         Throwable throwable = e.getCause();
@@ -154,7 +153,7 @@ public class DalvikVM extends AbstractVirtualMachine {
         Log.write(LoggerType.TRACE, "\n--- SIMULATION FINISHED ---\n");
     }
 
-    private AbstractDVMThread reloadThread(AbstractDVMThread old, IAtomClass currentClass, IAtomFrame frame, IAtomMethod currentMethod) {
+    private AbstractDVMThread startNewObservationThread(AbstractDVMThread old, IDroidefenseClass currentClass, IAtomFrame frame, IAtomMethod currentMethod) {
         AbstractDVMThread main;
         main = getThread(0).reset();
         frame = main.pushFrame();
@@ -217,7 +216,11 @@ public class DalvikVM extends AbstractVirtualMachine {
     }
 
     public void setWorker(AbstractDVMThread worker) {
-        clearThreads();
+        setSingleWorker(worker);
+    }
+
+    private void setSingleWorker(AbstractDVMThread worker) {
+        resetThreads();
         addThread(worker);
     }
 
@@ -225,7 +228,7 @@ public class DalvikVM extends AbstractVirtualMachine {
 
     public IAtomField getField(final boolean isStatic, final IAtomFrame frame, final String dexClassName, final String fieldName, final int instance, String fieldType) {
         if (isStatic) {
-            IAtomClass dexClass = DexClassReader.getInstance().load(dexClassName);
+            IDroidefenseClass dexClass = DexClassReader.getInstance().load(dexClassName);
             if (dexClass != null) {
                 //get field from .apk cls data
                 return dexClass.getStaticField(fieldName);
@@ -779,15 +782,15 @@ public class DalvikVM extends AbstractVirtualMachine {
         }
     }
 
-    public boolean isInstance(final IAtomClass checked, final String type) throws ClassNotFoundException {
+    public boolean isInstance(final IDroidefenseClass checked, final String type) throws ClassNotFoundException {
         if (checked == null) {
             return false;
         }
         String className = type.startsWith(String.valueOf(TypeDescriptorSemantics.DESC_CLASSNAME)) ? type.substring(1, type.length() - 1) : type;
-        IAtomClass vmClass = DexClassReader.getInstance().load(className);
+        IDroidefenseClass vmClass = DexClassReader.getInstance().load(className);
         //TODO
         /*if (vmClass != null) {
-            IAtomClass instanceClazz = checked.getDexClass();
+            IDroidefenseClass instanceClazz = checked.getDexClass();
             while (vmClass != null) {
                 if (instanceClazz == vmClass) {
                     return true;
@@ -954,7 +957,7 @@ public class DalvikVM extends AbstractVirtualMachine {
     public boolean handleClassMethod(final IAtomFrame frame, IAtomMethod method, final String absoluteClassName, final String methodName, final String methodDescriptor, Object[] args) throws Exception {
 
         //RETURN REFLECTED CLASS IF POSSIBLE
-        IAtomClass cl = DexClassReader.getInstance().load(absoluteClassName);
+        IDroidefenseClass cl = DexClassReader.getInstance().load(absoluteClassName);
         if (cl instanceof EncapsulatedClass) {
             EncapsulatedClass tc = (EncapsulatedClass) cl;
             if (tc.isReflected() && tc.getJavaObject() != null) {
@@ -1323,7 +1326,7 @@ public class DalvikVM extends AbstractVirtualMachine {
 
     public boolean handleConstructor(final IAtomFrame frame, final String absoluteClassName, final String methodName, final String methodDescriptor) throws Exception {
         //HANDLE CONSTRUCTOR FOR TAINTED CLASS ONLY
-        IAtomClass dclass = DexClassReader.getInstance().load(absoluteClassName);
+        IDroidefenseClass dclass = DexClassReader.getInstance().load(absoluteClassName);
         if (dclass instanceof DVMTaintClass) {
             DVMTaintClass tainted = (DVMTaintClass) dclass;
             replaceObjects(frame, frame.getObjectArguments()[0], tainted);
@@ -1931,7 +1934,7 @@ public class DalvikVM extends AbstractVirtualMachine {
     }
 
     public boolean handleInstanceMethod(final IAtomFrame frame, final String absoluteClassName, final String methodName, final String methodDescriptor) throws Exception {
-        IAtomClass dclass = DexClassReader.getInstance().load(absoluteClassName);
+        IDroidefenseClass dclass = DexClassReader.getInstance().load(absoluteClassName);
         if (dclass instanceof EncapsulatedClass) {
             EncapsulatedClass tainted = (EncapsulatedClass) dclass;
             IAtomMethod method = tainted.getMethod(methodName, methodDescriptor, true);
@@ -1965,7 +1968,7 @@ public class DalvikVM extends AbstractVirtualMachine {
                     break;
                 case TypeDescriptorSemantics.DESC_RESOLVED_CLASSNAME:
                     String returnClass = methodDescriptor.replace("()L", "").replace(";", "");
-                    IAtomClass cl = DexClassReader.getInstance().load(returnClass);
+                    IDroidefenseClass cl = DexClassReader.getInstance().load(returnClass);
                     frame.setObjectReturn(toTargetInstance(cl));
                     break;
             }

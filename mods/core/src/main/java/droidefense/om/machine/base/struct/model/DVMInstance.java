@@ -1,7 +1,7 @@
 package droidefense.om.machine.base.struct.model;
 
 
-import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomInstance;
 import droidefense.om.machine.reader.DexClassReader;
@@ -13,13 +13,13 @@ public final class DVMInstance implements IAtomInstance, Serializable {
 
     private final Hashtable fieldsOfClasses = new Hashtable();
 
-    private final IAtomClass ownerClass;
+    private final IDroidefenseClass ownerClass;
     private Object parentInstance;
 
-    public DVMInstance(final IAtomClass cls) {
+    public DVMInstance(final IDroidefenseClass cls) {
         this.ownerClass = cls;
 
-        IAtomClass current = cls;
+        IDroidefenseClass current = cls;
         do {
             Hashtable fields = new Hashtable();
             IAtomField[] currentFields = current.getInstanceFields();
@@ -51,7 +51,7 @@ public final class DVMInstance implements IAtomInstance, Serializable {
             if (field != null) {
                 return field;
             }
-            IAtomClass currentClazz = DexClassReader.getInstance().load(currentClassName);
+            IDroidefenseClass currentClazz = DexClassReader.getInstance().load(currentClassName);
             if (currentClazz == null) {
                 return null;
             }
@@ -62,7 +62,7 @@ public final class DVMInstance implements IAtomInstance, Serializable {
     //GETTERS AND SETTERS
 
 
-    public IAtomClass getOwnerClass() {
+    public IDroidefenseClass getOwnerClass() {
         return ownerClass;
     }
 

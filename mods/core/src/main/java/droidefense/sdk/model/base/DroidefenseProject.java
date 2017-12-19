@@ -5,11 +5,10 @@ import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
-import droidefense.ml.MLResult;
 import droidefense.ml.MLResultHolder;
 import droidefense.om.helper.DexFileStatistics;
 import droidefense.om.machine.base.DalvikVM;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.model.AndroidRField;
 import droidefense.om.machine.base.struct.model.SharedPool;
 import droidefense.om.machine.reader.DexHeaderReader;
@@ -42,8 +41,8 @@ import droidefense.sdk.model.holder.InternalInfo;
 import droidefense.sdk.model.holder.StaticInfo;
 import droidefense.sdk.model.holder.StringInfo;
 import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.model.io.DexHashedFile;
 import droidefense.sdk.model.io.LocalApkFile;
-import droidefense.sdk.model.io.LocalHashedFile;
 import droidefense.util.JsonStyle;
 import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.vfs.model.impl.VirtualFileSystem;
@@ -161,14 +160,14 @@ public final class DroidefenseProject implements Serializable {
     private boolean dynamicAnalysisDone;
 
     private transient DexHeaderReader dexHeaderReader;
-    private transient IAtomClass[] dynamicEntryPoints;
-    private transient HashMap<String, IAtomClass> classMap;
+    private transient IDroidefenseClass[] dynamicEntryPoints;
+    private transient HashMap<String, IDroidefenseClass> classMap;
 
     //environmentConfig params
     private transient boolean settingAutoOpen;
     private transient String settingsReportType;
     private transient DalvikVM dalvikMachine;
-    private AbstractReporter reporter;
+    private transient AbstractReporter reporter;
     private APKUnpacker usedUnpacker;
 
     public DroidefenseProject() {
@@ -309,22 +308,22 @@ public final class DroidefenseProject implements Serializable {
         this.staticInfo.setNumberOfDexFiles(i);
     }
 
-    public ArrayList<AbstractHashedFile> getDexList() {
+    public ArrayList<DexHashedFile> getDexList() {
         return this.staticInfo.getDexList();
     }
 
-    public void setDexList(ArrayList<AbstractHashedFile> dexList) {
+    public void setDexList(ArrayList<DexHashedFile> dexList) {
         this.staticInfo.setDexList(dexList);
         this.staticInfo.setDexFileReaded(true);
     }
 
-    public void addDexData(String filePath, AbstractHashedFile file) {
+    public void addDexData(String filePath, DexHashedFile file) {
         this.staticInfo.addDexData(filePath, file);
     }
 
     //DYNAMIC INFORMATION GETTERS & SETTERS
 
-    public byte[] getDexData(AbstractHashedFile file) throws IOException {
+    public byte[] getDexData(DexHashedFile file) throws IOException {
         return this.staticInfo.getDexData(file);
     }
 
@@ -389,12 +388,12 @@ public final class DroidefenseProject implements Serializable {
     }
 
     /*
-    public void addDexClass(String name, IAtomClass newClass) {
+    public void addDexClass(String name, IDroidefenseClass newClass) {
     }
 
-    public IAtomClass[] getAllClasses() {
+    public IDroidefenseClass[] getAllClasses() {
         //return this.internalInfo.getAllClasses();
-        return new IAtomClass[0];
+        return new IDroidefenseClass[0];
     }
     */
 
@@ -403,7 +402,7 @@ public final class DroidefenseProject implements Serializable {
     }
 
     /*
-        public void addDexClass(String name, IAtomClass newClass) {
+        public void addDexClass(String name, IDroidefenseClass newClass) {
             this.internalInfo.addDexClass(name, newClass);
         }
      */
@@ -422,7 +421,7 @@ public final class DroidefenseProject implements Serializable {
         return this.internalInfo.hasDexClass(name);
     }
 
-    public IAtomClass getDexClass(String name) {
+    public IDroidefenseClass getDexClass(String name) {
         return null;
         //return this.internalInfo.getDexClass(name);
     }
@@ -431,7 +430,7 @@ public final class DroidefenseProject implements Serializable {
         this.internalInfo.addDexInfo(dexClassReader);
     }
 
-    public void setDynamicEntryPoints(IAtomClass[] entryArray) {
+    public void setDynamicEntryPoints(IDroidefenseClass[] entryArray) {
         this.internalInfo.setDynamicEntryPoints(entryArray);
     }
     */
@@ -606,7 +605,7 @@ public final class DroidefenseProject implements Serializable {
 
     public void setMachineLearningResult(MLResultHolder machineLearningResult) {
         this.machineLearningResult = machineLearningResult;
-        if(this.machineLearningResult.getRatio()>0.7){
+        if(this.machineLearningResult.getRatio()> InternalConstant.MALWARE_THRESHOLD_VALUE){
             this.malwareResult = MalwareResultEnum.MALWARE;
         }
         else{
@@ -629,7 +628,7 @@ public final class DroidefenseProject implements Serializable {
         try {
             this.generateReportTemplate();
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.write(LoggerType.ERROR, "An error ocurred while generating scan output");
         }
 
         Log.write(LoggerType.TRACE, "Saving scan results...");
@@ -654,6 +653,12 @@ public final class DroidefenseProject implements Serializable {
             case "json": {
                 String jsonData = Util.toJson(this, JsonStyle.JSON_BEAUTY);
                 File reportFile = FileIOHandler.getReportFolder(getProjectId() + ".json");
+                reporter = new BeautifiedJSONReporter(reportFile, jsonData);
+                break;
+            }
+            case "jsonmin": {
+                String jsonData = Util.toJson(this, JsonStyle.JSON_COMPRESSED);
+                File reportFile = FileIOHandler.getReportFolder(getProjectId() + ".min.json");
                 reporter = new BeautifiedJSONReporter(reportFile, jsonData);
                 break;
             }
@@ -708,7 +713,7 @@ public final class DroidefenseProject implements Serializable {
         return headerReaded;
     }
 
-    public void setHeaderReaded(boolean headerReaded) {
+    public void setAllDexHeadersReaded(boolean headerReaded) {
         this.headerReaded = headerReaded;
     }
 
@@ -820,19 +825,19 @@ public final class DroidefenseProject implements Serializable {
         this.staticInfo.addDexBodyModel(dexBodyModel);
     }
 
-    public IAtomClass[] getDynamicEntryPoints() {
+    public IDroidefenseClass[] getDynamicEntryPoints() {
         return dynamicEntryPoints;
     }
 
-    public void setDynamicEntryPoints(IAtomClass[] dynamicEntryPoints) {
+    public void setDynamicEntryPoints(IDroidefenseClass[] dynamicEntryPoints) {
         this.dynamicEntryPoints = dynamicEntryPoints;
     }
 
-    public IAtomClass[] getListClasses() {
-        return (IAtomClass[]) this.classMap.values().toArray();
+    public IDroidefenseClass[] getListClasses() {
+        return (IDroidefenseClass[]) this.classMap.values().toArray();
     }
 
-    public void addDexClass(String name, IAtomClass newClass) {
+    public void addDexClass(String name, IDroidefenseClass newClass) {
         this.classMap.put(name, newClass);
     }
 

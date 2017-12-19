@@ -1,7 +1,7 @@
 package droidefense.om.machine.base.struct.fake;
 
 import droidefense.om.machine.base.DynamicUtils;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.sdk.helpers.InternalConstant;
@@ -14,7 +14,7 @@ import java.util.Hashtable;
 /**
  * Created by r00t on 25/10/15.
  */
-public class EncapsulatedClass implements IAtomClass, Serializable {
+public class EncapsulatedClass extends IDroidefenseClass implements Serializable {
 
     //encapsulated vars
     protected String name;

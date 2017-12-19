@@ -5,6 +5,7 @@ import droidefense.sdk.model.certificate.CertificateModel;
 import droidefense.sdk.model.dex.DexBodyModel;
 import droidefense.sdk.model.enums.SDK_VERSION;
 import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.model.io.DexHashedFile;
 import droidefense.sdk.model.io.LocalHashedFile;
 import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.manifest.Manifest;
@@ -139,7 +140,7 @@ public class StaticInfo implements Serializable {
     /**
      * list of .dex files detected
      */
-    private transient Map<String, AbstractHashedFile> dexList;
+    private transient Map<String, DexHashedFile> dexList;
 
     /**
      * SDK compatibility window
@@ -310,12 +311,12 @@ public class StaticInfo implements Serializable {
 
     //useful methods
 
-    public byte[] getDexData(AbstractHashedFile file) throws IOException {
+    public byte[] getDexData(DexHashedFile file) throws IOException {
         AbstractHashedFile recovered = this.dexList.get(file.getName());
         return recovered.getContent();
     }
 
-    public void addDexData(String name, AbstractHashedFile file) {
+    public void addDexData(String name, DexHashedFile file) {
         this.dexList.put(name, file);
     }
 
@@ -357,13 +358,13 @@ public class StaticInfo implements Serializable {
         this.compatibilityWindow.setMaximum(sdkVersion);
     }
 
-    public ArrayList<AbstractHashedFile> getDexList() {
+    public ArrayList<DexHashedFile> getDexList() {
         return new ArrayList<>(dexList.values());
     }
 
-    public void setDexList(ArrayList<AbstractHashedFile> dexList) {
+    public void setDexList(ArrayList<DexHashedFile> dexList) {
         this.dexList.clear();
-        for (AbstractHashedFile ahf : dexList) {
+        for (DexHashedFile ahf : dexList) {
             this.dexList.put(ahf.getName(), ahf);
         }
     }

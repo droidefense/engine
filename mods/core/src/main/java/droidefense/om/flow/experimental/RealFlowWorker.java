@@ -1,5 +1,6 @@
 package droidefense.om.flow.experimental;
 
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.nodes.EntryPointNode;
 import droidefense.sdk.log4j.Log;
@@ -8,7 +9,6 @@ import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.exceptions.NoMainClassFoundException;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.om.machine.inst.DalvikInstruction;
@@ -57,7 +57,7 @@ public final strictfp class RealFlowWorker extends AbstractFlowWorker {
     }
 
     @Override
-    public IAtomMethod[] getInitialMethodToRun(IAtomClass clazz) {
+    public IAtomMethod[] getInitialMethodToRun(IDroidefenseClass clazz) {
         ArrayList<IAtomMethod> list = new ArrayList<>();
         /*IAtomMethod[] l0 = clazz.getMethod("<init>");
         for (IAtomMethod m : l0) {
@@ -68,29 +68,29 @@ public final strictfp class RealFlowWorker extends AbstractFlowWorker {
     }
 
     @Override
-    public int getInitialArgumentCount(IAtomClass cls, IAtomMethod m) {
+    public int getInitialArgumentCount(IDroidefenseClass cls, IAtomMethod m) {
         return 0;
     }
 
     @Override
-    public Object getInitialArguments(IAtomClass cls, IAtomMethod m) {
+    public Object getInitialArguments(IDroidefenseClass cls, IAtomMethod m) {
         return null;
     }
 
     @Override
-    public IAtomClass[] getInitialDVMClass() {
+    public IDroidefenseClass[] getInitialDVMClass() {
         //get all
         if (currentProject.hasMainClass())
-            return new IAtomClass[]{currentProject.getInternalInfo().getDexClass(currentProject.getMainClassName())};
+            return new IDroidefenseClass[]{currentProject.getInternalInfo().getDexClass(currentProject.getMainClassName())};
         else {
             //else, return all reveivers, services,...
-            IAtomClass[] alllist = currentProject.getInternalInfo().getAllClasses();
-            ArrayList<IAtomClass> developerClasses = new ArrayList<>();
-            for (IAtomClass cls : alllist) {
-                if (environment.isDeveloperClass(cls.getName()))
+            IDroidefenseClass[] alllist = currentProject.getInternalInfo().getAllClasses();
+            ArrayList<IDroidefenseClass> developerClasses = new ArrayList<>();
+            for (IDroidefenseClass cls : alllist) {
+                if (environment.isDeveloperClass(cls))
                     developerClasses.add(cls);
             }
-            return developerClasses.toArray(new IAtomClass[developerClasses.size()]);
+            return developerClasses.toArray(new IDroidefenseClass[developerClasses.size()]);
         }
     }
 

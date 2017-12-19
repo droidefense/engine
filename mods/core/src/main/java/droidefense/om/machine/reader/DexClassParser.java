@@ -3,7 +3,7 @@ package droidefense.om.machine.reader;
 import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.constants.AccessFlag;
 import droidefense.om.machine.base.constants.ValueFormat;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.om.machine.base.struct.model.DVMClass;
@@ -35,7 +35,7 @@ public class DexClassParser {
 
     private DexClassReader[] readerList;
 
-    private final Hashtable<String, IAtomClass> classes = new Hashtable<>();
+    private final Hashtable<String, IDroidefenseClass> classes = new Hashtable<>();
 
     public DexClassParser(DroidefenseProject project) {
         this.project = project;
@@ -77,7 +77,7 @@ public class DexClassParser {
         if (offset != 0) {
             pushOffset(offset);
             for (int i = 0; i < count; i++) {
-                IAtomClass cls = new DVMClass();
+                IDroidefenseClass cls = new DVMClass();
 
                 String clsName = DynamicUtils.fromTypeToClassName(dexBodyModel.getTypes()[readUInt()]);
                 DexBodyModel.pool.addClassName(clsName);
@@ -166,7 +166,7 @@ public class DexClassParser {
         return readSigned(typeArgument + 1);
     }
 
-    private void readMethodContents(final IAtomClass cls, final IAtomMethod[] methods) {
+    private void readMethodContents(final IDroidefenseClass cls, final IAtomMethod[] methods) {
 
         DexBodyModel.pool.setStrings(dexBodyModel.getStrings());
         DexBodyModel.pool.setTypes(dexBodyModel.getTypes());
@@ -279,7 +279,7 @@ public class DexClassParser {
         }
     }
 
-    private void readFields(final IAtomClass cls, final IAtomField[] fields, final boolean isInstance) {
+    private void readFields(final IDroidefenseClass cls, final IAtomField[] fields, final boolean isInstance) {
         int fieldIndex = 0;
         for (int i = 0, length = fields.length; i < length; i++) {
             if (i == 0) {
@@ -533,7 +533,7 @@ public class DexClassParser {
         this.dexBodyModel.setMethodNames(methodNames);
     }
 
-    public Hashtable<String, IAtomClass> getClasses() {
+    public Hashtable<String, IDroidefenseClass> getClasses() {
         return classes;
     }
 
@@ -637,8 +637,8 @@ public class DexClassParser {
         this.dexBodyModel.setMethodTypes(methodTypes);
     }
 
-    public IAtomClass[] getAllClasses() {
-        Collection<IAtomClass> data = classes.values();
-        return data.toArray(new IAtomClass[data.size()]);
+    public IDroidefenseClass[] getAllClasses() {
+        Collection<IDroidefenseClass> data = classes.values();
+        return data.toArray(new IDroidefenseClass[data.size()]);
     }
 }

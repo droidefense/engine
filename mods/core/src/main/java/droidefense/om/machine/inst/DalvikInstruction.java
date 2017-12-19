@@ -1018,7 +1018,7 @@ public enum DalvikInstruction implements Serializable {
             int destination = upperCodes[thread.getCurrentFrame().increasePc()];
             String type = thread.getCurrentFrame().getMethod().getTypes()[codes[thread.getCurrentFrame().increasePc()]];
             String className = type.substring(1, type.length() - 1);
-            IAtomClass cls = DexClassReader.getInstance().load(className);
+            IDroidefenseClass cls = DexClassReader.getInstance().load(className);
             if (cls != null) {
                 thread.getCurrentFrame().getObjectRegisters()[destination] = new DVMInstance(cls);
             } else {
@@ -3505,7 +3505,7 @@ public enum DalvikInstruction implements Serializable {
                 object = new DVMInstance(method.getOwnerClass());
             }
 
-            IAtomClass cls = DexClassReader.getInstance().load(clazzName);
+            IDroidefenseClass cls = DexClassReader.getInstance().load(clazzName);
             if (cls != null) {
                 frame = thread.callMethod(false, cls.getDirectMethod(methodName, methodDescriptor, true), frame);
 
@@ -3583,7 +3583,7 @@ public enum DalvikInstruction implements Serializable {
                 object = new DVMInstance(method.getOwnerClass());
             }
 
-            IAtomClass cls;
+            IDroidefenseClass cls;
             if (object == null)
                 cls = DexClassReader.getInstance().load(clazzName);
             else {
@@ -3657,7 +3657,7 @@ public enum DalvikInstruction implements Serializable {
 
             AbstractDVMThread.setArguments(false, frame, methodDescriptor, registers);
 
-            IAtomClass cls = DexClassReader.getInstance().load(clazzName);
+            IDroidefenseClass cls = DexClassReader.getInstance().load(clazzName);
             if (cls != null) {
                 frame = thread.callMethod(false, cls.getDirectMethod(methodName, methodDescriptor, true), frame);
 
@@ -3721,7 +3721,7 @@ public enum DalvikInstruction implements Serializable {
             }
 
             if (object instanceof IAtomInstance) {
-                IAtomClass cls = ((IAtomInstance) object).getOwnerClass();
+                IDroidefenseClass cls = ((IAtomInstance) object).getOwnerClass();
                 frame = thread.callMethod(false, cls.getVirtualMethod(methodName, methodDescriptor, true), frame);
 
                 method = frame.getMethod();
@@ -3895,7 +3895,7 @@ public enum DalvikInstruction implements Serializable {
                 object = new DVMInstance(method.getOwnerClass());
             }
 
-            IAtomClass cls = DexClassReader.getInstance().load(clazzName);
+            IDroidefenseClass cls = DexClassReader.getInstance().load(clazzName);
             Exception error = null;
             if (cls != null) {
                 frame = thread.callMethod(false, cls.getDirectMethod(methodName, methodDescriptor, true), frame);
@@ -3960,7 +3960,7 @@ public enum DalvikInstruction implements Serializable {
             String methodDescriptor = thread.getCurrentFrame().getMethod().getMethodTypes()[methodIndex];
 
             AbstractDVMThread.setArguments(false, frame, methodDescriptor, firstRegister, range);
-            IAtomClass cls = DexClassReader.getInstance().load(clazzName);
+            IDroidefenseClass cls = DexClassReader.getInstance().load(clazzName);
             Exception error = null;
             if (cls != null) {
                 frame = thread.callMethod(false, cls.getDirectMethod(methodName, methodDescriptor, true), frame);
@@ -4024,7 +4024,7 @@ public enum DalvikInstruction implements Serializable {
 
             Exception error = null;
             if (object instanceof IAtomInstance) {
-                IAtomClass cls = ((IAtomInstance) object).getOwnerClass();
+                IDroidefenseClass cls = ((IAtomInstance) object).getOwnerClass();
                 frame = thread.callMethod(false, cls.getVirtualMethod(methodName, methodDescriptor, true), frame);
 
                 method = frame.getMethod();

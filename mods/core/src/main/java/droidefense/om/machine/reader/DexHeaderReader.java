@@ -5,6 +5,7 @@ import droidefense.sdk.log4j.LoggerType;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.dex.DalvikDexModel;
 import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.model.io.DexHashedFile;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -24,9 +25,9 @@ public class DexHeaderReader implements Serializable {
     /**
      * Dex file byte content
      */
-    private transient ArrayList<AbstractHashedFile> dexFileList;
+    private transient ArrayList<DexHashedFile> dexFileList;
     private transient ArrayList<DexOperator> operator;
-    private ArrayList<DalvikDexModel> dexModel;
+    private transient ArrayList<DalvikDexModel> dexModel;
 
     public DexHeaderReader(DroidefenseProject currentProject) {
         this.dexFileList = currentProject.getDexList();
@@ -37,7 +38,7 @@ public class DexHeaderReader implements Serializable {
         this.operator = new ArrayList<>();
 
         //populate dexmodel and operator
-        for ( AbstractHashedFile dex :dexFileList){
+        for ( DexHashedFile dex :dexFileList){
             this.dexModel.add(new DalvikDexModel());
             try {
                 this.operator.add(new DexOperator(dex.getContent()));
@@ -49,25 +50,26 @@ public class DexHeaderReader implements Serializable {
     }
 
     public void readAllDexAvailable() {
+        currentProject.setDexHeaderReader(this);
         for (int i = 0; i < this.dexFileList.size(); i++){
             DalvikDexModel model = this.dexModel.get(i);
             DexOperator op = this.operator.get(i);
-            AbstractHashedFile dex = this.dexFileList.get(i);
+            DexHashedFile dex = this.dexFileList.get(i);
             readSingleDexFile(model, op, dex);
         }
+        currentProject.setAllDexHeadersReaded(true);
     }
 
-    private void readSingleDexFile(DalvikDexModel model, DexOperator op, AbstractHashedFile dex) {
-        if (!currentProject.isHeaderReaded()) {
+    private void readSingleDexFile(DalvikDexModel model, DexOperator op, DexHashedFile dex) {
+        if (!dex.isHeaderReaded()) {
             try {
                 readHeader(model, op);
+                dex.setDexHeaderReaded(true);
             } catch (IllegalArgumentException e) {
                 Log.write(LoggerType.ERROR, "Could not read header of dex file " + dex.getAbsolutePath());
                 Log.write(LoggerType.ERROR, "Error details: "+e.getLocalizedMessage());
             }
             readData(model, op);
-            currentProject.setHeaderReaded(true);
-            currentProject.setDexHeaderReader(this);
         }
     }
 
@@ -75,16 +77,7 @@ public class DexHeaderReader implements Serializable {
 
         Log.write(LoggerType.DEBUG, "Reading DEX file data...");
 
-        //read strings
-        int totalStrings = operator.toInt(dexModel.getString_ids());
-        //dexStrings = new DexString[totalStrings];
-        int counter = 0;
-        int currentOffset = operator.toInt(dexModel.getString_table());
-        while (counter < totalStrings) {
-            byte[] strData = operator.readRangeUntil(currentOffset, (byte) 0x0);
-            counter++;
-            currentOffset += strData.length;
-        }
+        //TODO implement a secondary .dex file content reader
     }
 
     private void readHeader(DalvikDexModel dexModel, DexOperator operator) throws IllegalArgumentException {

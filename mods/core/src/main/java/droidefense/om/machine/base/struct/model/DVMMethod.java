@@ -24,7 +24,7 @@
 package droidefense.om.machine.base.struct.model;
 
 import droidefense.om.machine.base.DynamicUtils;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
 
@@ -36,7 +36,7 @@ public class DVMMethod implements IAtomMethod, Serializable {
 
     private static SharedPool pool = SharedPool.getInstance();
 
-    private IAtomClass ownerClass;
+    private IDroidefenseClass ownerClass;
 
     private int flag;
     private boolean isInstance;
@@ -60,7 +60,7 @@ public class DVMMethod implements IAtomMethod, Serializable {
     private String[][] exceptionHandlerTypes;
     private int[][] exceptionHandlerAddresses;
 
-    public DVMMethod(final IAtomClass cls) {
+    public DVMMethod(final IDroidefenseClass cls) {
         this.ownerClass = cls;
     }
 
@@ -72,12 +72,12 @@ public class DVMMethod implements IAtomMethod, Serializable {
 
     //GETTERS AND SETTERS
 
-    public IAtomClass getOwnerClass() {
+    public IDroidefenseClass getOwnerClass() {
         return ownerClass;
     }
 
     @Override
-    public void setOwnerClass(IAtomClass cls) {
+    public void setOwnerClass(IDroidefenseClass cls) {
         this.ownerClass = cls;
     }
 
@@ -334,7 +334,7 @@ public class DVMMethod implements IAtomMethod, Serializable {
     }
 
     @Override
-    public IAtomClass getTopClass() {
+    public IDroidefenseClass getTopClass() {
         return DroidDefenseEnvironment.getInstance().getParentClass(this.getOwnerClass());
     }
 }

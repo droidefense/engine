@@ -1,11 +1,11 @@
 package droidefense.om.flow.stable;
 
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.sdk.model.base.DroidefenseProject;
@@ -30,9 +30,13 @@ public final strictfp class OpCodeCheckerWorker extends AbstractFlowWorker {
     @Override
     public void preload() {
         Log.write(LoggerType.DEBUG, "WORKER: OpCodeCheckerWorker");
+        /*
+        seems to be not needed
+
         this.setStatus(AbstractDVMThread.STATUS_NOT_STARTED);
         vm.setThreads(new Vector());
         vm.addThread(this);
+        */
         this.timestamp.start();
     }
 
@@ -50,29 +54,29 @@ public final strictfp class OpCodeCheckerWorker extends AbstractFlowWorker {
     }
 
     @Override
-    public int getInitialArgumentCount(IAtomClass cls, IAtomMethod m) {
+    public int getInitialArgumentCount(IDroidefenseClass cls, IAtomMethod m) {
         return 0;
     }
 
     @Override
-    public Object getInitialArguments(IAtomClass cls, IAtomMethod m) {
+    public Object getInitialArguments(IDroidefenseClass cls, IAtomMethod m) {
         return null;
     }
 
     @Override
-    public IAtomClass[] getInitialDVMClass() {
+    public IDroidefenseClass[] getInitialDVMClass() {
         //only return developer class and skip known java jdk and android sdk classes
-        IAtomClass[] alllist = currentProject.getInternalInfo().getAllClasses();
-        ArrayList<IAtomClass> developerClasses = new ArrayList<>();
-        for (IAtomClass cls : alllist) {
-            if (environment.isDeveloperClass(cls.getName()))
+        IDroidefenseClass[] alllist = currentProject.getInternalInfo().getAllClasses();
+        ArrayList<IDroidefenseClass> developerClasses = new ArrayList<>();
+        for (IDroidefenseClass cls : alllist) {
+            if (environment.isDeveloperClass(cls) && cls.isDeveloperClass())
                 developerClasses.add(cls);
         }
-        return developerClasses.toArray(new IAtomClass[developerClasses.size()]);
+        return developerClasses.toArray(new IDroidefenseClass[developerClasses.size()]);
     }
 
     @Override
-    public IAtomMethod[] getInitialMethodToRun(IAtomClass dexClass) {
+    public IAtomMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
         return dexClass.getAllMethods();
     }
 
@@ -91,12 +95,9 @@ public final strictfp class OpCodeCheckerWorker extends AbstractFlowWorker {
         IAtomFrame frame = getCurrentFrame();
         IAtomMethod method = frame.getMethod();
 
-        int[] lowerCodes = method.getOpcodes();
-
-        for (int idx : lowerCodes) {
+        for (int idx : method.getOpcodes()) {
             codeCount[idx]++;
             total++;
         }
-
     }
 }

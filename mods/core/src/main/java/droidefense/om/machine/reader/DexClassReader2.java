@@ -1,5 +1,6 @@
 package droidefense.om.machine.reader;
 
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.machine.base.AbstractDVMThread;
@@ -11,7 +12,6 @@ import droidefense.om.machine.base.exceptions.NotSupportedValueTypeException;
 import droidefense.om.machine.base.struct.fake.DVMTaintClass;
 import droidefense.om.machine.base.struct.fake.DVMTaintField;
 import droidefense.om.machine.base.struct.fake.EncapsulatedClass;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
@@ -76,8 +76,8 @@ public final class DexClassReader2 implements Serializable {
         return value == -1;
     }
 
-    public IAtomClass load(String name) {
-        IAtomClass cls;
+    public IDroidefenseClass load(String name) {
+        IDroidefenseClass cls;
         name = name.replace(".", "/");
         if (pool.getClasses().containsKey(name)) {
             //class exist on dex file
@@ -108,12 +108,12 @@ public final class DexClassReader2 implements Serializable {
         return cls;
     }
 
-    private IAtomClass findClass(final String name) {
+    private IDroidefenseClass findClass(final String name) {
         //class does not exists on .dex file.
         //check if class belongs to java sdk or to android sdk.
         //anyway, if does not exist, send a fake class
 
-        IAtomClass javaClass = null;
+        IDroidefenseClass javaClass = null;
         String cname = name.replace(".", "/");
 
         //1 try to load cls from java jdk via reflection
@@ -159,7 +159,7 @@ public final class DexClassReader2 implements Serializable {
                 Constructor<?> constructor = s.getConstructor(classes);
                 if (constructor != null) {
                     Object newInstance = constructor.newInstance(lastCallArgs);
-                    IAtomClass newClass = buildFakeClss(name, newInstance);
+                    IDroidefenseClass newClass = buildFakeClss(name, newInstance);
                     currentProject.addDexClass(name, newClass);
                     return newClass;
                 }
@@ -231,7 +231,7 @@ public final class DexClassReader2 implements Serializable {
         if (offset != 0) {
             pushOffset(offset);
             for (int i = 0; i < count; i++) {
-                IAtomClass cls = new DVMClass();
+                IDroidefenseClass cls = new DVMClass();
 
                 String clsName = DynamicUtils.fromTypeToClassName(types[readUInt()]);
                 pool.addClassName(clsName);
@@ -320,7 +320,7 @@ public final class DexClassReader2 implements Serializable {
         return readSigned(typeArgument + 1);
     }
 
-    private void readMethodContents(final IAtomClass cls, final IAtomMethod[] methods) {
+    private void readMethodContents(final IDroidefenseClass cls, final IAtomMethod[] methods) {
 
         pool.setStrings(strings);
         pool.setTypes(types);
@@ -433,7 +433,7 @@ public final class DexClassReader2 implements Serializable {
         }
     }
 
-    private void readFields(final IAtomClass cls, final IAtomField[] fields, final boolean isInstance) {
+    private void readFields(final IDroidefenseClass cls, final IAtomField[] fields, final boolean isInstance) {
         int fieldIndex = 0;
         for (int i = 0, length = fields.length; i < length; i++) {
             if (i == 0) {
@@ -684,7 +684,7 @@ public final class DexClassReader2 implements Serializable {
         return vm;
     }
 
-    public Hashtable<String, IAtomClass> getClasses() {
+    public Hashtable<String, IDroidefenseClass> getClasses() {
         return pool.getClasses();
     }
 
@@ -788,8 +788,8 @@ public final class DexClassReader2 implements Serializable {
         this.methodTypes = methodTypes;
     }
 
-    public IAtomClass[] getAllClasses() {
-        Collection<IAtomClass> data = pool.getClasses().values();
-        return data.toArray(new IAtomClass[data.size()]);
+    public IDroidefenseClass[] getAllClasses() {
+        Collection<IDroidefenseClass> data = pool.getClasses().values();
+        return data.toArray(new IDroidefenseClass[data.size()]);
     }
 }

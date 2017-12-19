@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
 
-public final class VirtualHashedFile extends AbstractHashedFile implements Serializable {
+public class VirtualHashedFile extends AbstractHashedFile implements Serializable {
 
     private transient VirtualFile vf;
 

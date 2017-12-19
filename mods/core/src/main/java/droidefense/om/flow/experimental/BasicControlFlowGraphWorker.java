@@ -1,6 +1,7 @@
 package droidefense.om.flow.experimental;
 
 
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.nodes.EntryPointNode;
 import droidefense.sdk.log4j.Log;
@@ -10,7 +11,6 @@ import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.struct.fake.DVMTaintClass;
 import droidefense.om.machine.base.struct.fake.DVMTaintMethod;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.om.machine.inst.DalvikInstruction;
@@ -71,31 +71,31 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
     }
 
     @Override
-    public int getInitialArgumentCount(IAtomClass cls, IAtomMethod m) {
+    public int getInitialArgumentCount(IDroidefenseClass cls, IAtomMethod m) {
         return 0; //do not use arguments
     }
 
     @Override
-    public Object getInitialArguments(IAtomClass cls, IAtomMethod m) {
+    public Object getInitialArguments(IDroidefenseClass cls, IAtomMethod m) {
         return null; //do not use arguments
     }
 
     @Override
-    public IAtomClass[] getInitialDVMClass() {
+    public IDroidefenseClass[] getInitialDVMClass() {
         //only return developer class and skip known java jdk and android sdk classes
 
-        IAtomClass[] alllist = currentProject.getInternalInfo().getAllClasses();
-        ArrayList<IAtomClass> developerClasses = new ArrayList<>();
-        for (IAtomClass cls : alllist) {
-            if (environment.isDeveloperClass(cls.getName())
-                    && !environment.isAndroidRclass(cls.getName())
+        IDroidefenseClass[] alllist = currentProject.getInternalInfo().getAllClasses();
+        ArrayList<IDroidefenseClass> developerClasses = new ArrayList<>();
+        for (IDroidefenseClass cls : alllist) {
+            if (environment.isDeveloperClass(cls)
+                    && !cls.isAndroidRclass()
                     )
                 developerClasses.add(cls);
         }
-        IAtomClass[] list = developerClasses.toArray(new IAtomClass[developerClasses.size()]);
+        IDroidefenseClass[] list = developerClasses.toArray(new IDroidefenseClass[developerClasses.size()]);
         Log.write(LoggerType.TRACE, "Estimated node count: ");
         int nodes = 0;
-        for (IAtomClass cls : list) {
+        for (IDroidefenseClass cls : list) {
             nodes += cls.getAllMethods().length;
         }
         Log.write(LoggerType.TRACE, nodes + " developer nodes");
@@ -104,7 +104,7 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
     }
 
     @Override
-    public IAtomMethod[] getInitialMethodToRun(IAtomClass dexClass) {
+    public IAtomMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
         return dexClass.getAllMethods();
     }
 
@@ -251,11 +251,11 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
             methodDescriptor = method.getMethodTypes()[methodIndex];
         }
 
-        IAtomClass cls = new DVMTaintClass(clazzName);
+        IDroidefenseClass cls = new DVMTaintClass(clazzName);
         return getInstructionReturn(clazzName, methodName, methodDescriptor, cls);
     }
 
-    private InstructionReturn getInstructionReturn(String clazzName, String methodName, String methodDescriptor, IAtomClass cls) {
+    private InstructionReturn getInstructionReturn(String clazzName, String methodName, String methodDescriptor, IDroidefenseClass cls) {
         IAtomMethod methodToCall = cls.getMethod(methodName, methodDescriptor, false);
         //if class is an interface, It will not have the method to be called
         if (methodToCall == null) {

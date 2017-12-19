@@ -1,7 +1,7 @@
 package droidefense.om.machine.base.struct.model;
 
 import droidefense.om.machine.base.DynamicUtils;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.om.machine.reader.DexClassReader;
@@ -11,8 +11,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-public class DVMClass implements IAtomClass, Serializable {
-
+public class DVMClass extends IDroidefenseClass implements Serializable {
 
     protected int flag;
 
@@ -63,7 +62,7 @@ public class DVMClass implements IAtomClass, Serializable {
         IAtomMethod method;
         String supercls = this.getSuperClass();
         do {
-            IAtomClass cls = DexClassReader.getInstance().load(supercls);
+            IDroidefenseClass cls = DexClassReader.getInstance().load(supercls);
             method = cls.getDirectMethod(name, descriptor);
             supercls = cls.getSuperClass();
         } while (method != null && !supercls.equals(DroidefenseParams.SUPERCLASS));
@@ -86,7 +85,7 @@ public class DVMClass implements IAtomClass, Serializable {
             }
         }
         if (!getSuperClass().equalsIgnoreCase(InternalConstant.SUPERCLASS)) {
-            IAtomClass c = DexClassReader.getInstance().load(getSuperClass());
+            IDroidefenseClass c = DexClassReader.getInstance().load(getSuperClass());
             return c.getMethod(name, descriptor, getRealMethod);
         }
         return null;
@@ -129,7 +128,7 @@ public class DVMClass implements IAtomClass, Serializable {
 
     public IAtomMethod getVirtualMethod(final String name, final String descriptor, boolean getRealMethod) {
         //TODO check this endlesss loop in some conditions
-        IAtomClass current = this;
+        IDroidefenseClass current = this;
         do {
             IAtomMethod[] currentMethods = current.getVirtualMethods();
             for (int i = 0, length = currentMethods.length; i < length; i++) {

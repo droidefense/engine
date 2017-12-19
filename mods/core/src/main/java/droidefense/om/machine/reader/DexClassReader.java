@@ -1,5 +1,6 @@
 package droidefense.om.machine.reader;
 
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.machine.base.AbstractDVMThread;
@@ -7,7 +8,6 @@ import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.struct.fake.DVMTaintClass;
 import droidefense.om.machine.base.struct.fake.DVMTaintField;
 import droidefense.om.machine.base.struct.fake.EncapsulatedClass;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
 import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.sdk.helpers.InternalConstant;
@@ -24,7 +24,7 @@ public final class DexClassReader implements Serializable {
 
     private final DalvikVM vm;
     private final DexClassParser parser;
-    private final Hashtable<String, IAtomClass> classes = new Hashtable<>();
+    private final Hashtable<String, IDroidefenseClass> classes = new Hashtable<>();
     private DroidefenseProject currentProject;
     private boolean loaded;
 
@@ -50,8 +50,8 @@ public final class DexClassReader implements Serializable {
         return value == -1;
     }
 
-    public IAtomClass load(String name) {
-        IAtomClass cls;
+    public IDroidefenseClass load(String name) {
+        IDroidefenseClass cls;
         name = name.replace(".", "/");
         if (classes.containsKey(name)) {
             //class exist on dex file
@@ -82,12 +82,12 @@ public final class DexClassReader implements Serializable {
         return cls;
     }
 
-    private IAtomClass findClass(final String name) {
+    private IDroidefenseClass findClass(final String name) {
         //class does not exists on .dex file.
         //check if class belongs to java sdk or to android sdk.
         //anyway, if does not exist, send a fake class
 
-        IAtomClass javaClass = null;
+        IDroidefenseClass javaClass = null;
         String cname = name.replace(".", "/");
 
         //1 try to load cls from java jdk via reflection
@@ -133,7 +133,7 @@ public final class DexClassReader implements Serializable {
                 Constructor<?> constructor = s.getConstructor(classes);
                 if (constructor != null) {
                     Object newInstance = constructor.newInstance(lastCallArgs);
-                    IAtomClass newClass = buildFakeClss(name, newInstance);
+                    IDroidefenseClass newClass = buildFakeClss(name, newInstance);
                     currentProject.addDexClass(name, newClass);
                     return newClass;
                 }
@@ -176,7 +176,7 @@ public final class DexClassReader implements Serializable {
         }
     }
 
-    public IAtomClass[] getAllClasses() {
+    public IDroidefenseClass[] getAllClasses() {
         return parser.getAllClasses();
     }
 }

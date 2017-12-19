@@ -106,7 +106,7 @@ public class WekaResultsHandler extends AbstractHandler {
         unlabeled.setClassIndex(unlabeled.size() - 1);
 
         // Use a set of classifiers
-        Classifier[] models = {};
+        Classifier[] models;
 
         /*
          * Now we read in the serialized apimodel from disk
@@ -127,7 +127,7 @@ public class WekaResultsHandler extends AbstractHandler {
             */
             double clsLabel = models[j].classifyInstance(unlabeled.instance(0));
             positive += (int) clsLabel;
-            result.add(modelFiles[j].getName().replace(".apimodel", ""), clsLabel);
+            result.add(modelFiles[j].getName().replace(".model", ""), clsLabel);
         }
         //generate json output for report
         //class 1: goodware

@@ -33,7 +33,7 @@ public abstract class AbstractHashedFile implements Serializable {
     protected boolean extensionMatches;
     protected String extensionFromHeader, extensionFromFilename;
     private String mimetype, description, magicDescription;
-    private ContentInfo contentInfo;
+    private transient ContentInfo contentInfo;
 
     protected transient InputStream stream;
 
