@@ -9,6 +9,7 @@ public class InternalConstant implements Serializable {
     public static final String DEX_EXTENSION = ".dex";
     public static final String APK_EXTENSION = ".apk";
     public static final String ANDROID_MANIFEST = "AndroidManifest.xml";
+    public static final String METAINF_MANIFEST = "MANIFEST.MF";
     public static final String NONE = "";
     public static final String ANALYSIS_METADATA_FILE = "analysis.metadata";
     public static final String EMPTY_STRING = "";

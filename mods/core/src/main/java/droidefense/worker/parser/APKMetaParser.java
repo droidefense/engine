@@ -40,6 +40,7 @@ public class APKMetaParser extends AbstractFileParser {
 
         //droidefense.sdk.manifest file
         AbstractHashedFile manifest = null;
+        AbstractHashedFile metamanifest = null;
         AbstractHashedFile certFile = null;
         for (VirtualFile r : files) {
             //count dex files and search manifest file
@@ -49,6 +50,8 @@ public class APKMetaParser extends AbstractFileParser {
                 certFile = new VirtualHashedFile(r, true);
             } else if (r.getName().equals(InternalConstant.ANDROID_MANIFEST) && manifest == null) {
                 manifest = new VirtualHashedFile(r, true);
+            } else if (r.getName().equals(InternalConstant.METAINF_MANIFEST) && manifest == null) {
+                metamanifest = new VirtualHashedFile(r, true);
             } else if (r.getPath().contains(File.separator + "assets" + File.separator)) {
                 assetFiles.add(new VirtualHashedFile(r, true));
             } else if (r.getPath().contains(File.separator + "lib" + File.separator)) {
@@ -79,8 +82,10 @@ public class APKMetaParser extends AbstractFileParser {
         //set number of dex files
         this.currentProject.setNumberofDex(dexList.size());
 
-        //set droidefense.sdk.manifest file
+        //set manifest file
         this.currentProject.setManifestFile(manifest);
+
+        this.currentProject.setMetainfManifestFile(metamanifest);
 
         //set certificate file
         this.currentProject.setCertificateFile(certFile);

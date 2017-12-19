@@ -907,4 +907,20 @@ public final class DroidefenseProject implements Serializable {
     public void setUsedUnpacker(APKUnpacker usedUnpacker) {
         this.usedUnpacker = usedUnpacker;
     }
+
+    public AbstractHashedFile getMetainfManifestFile() {
+        return this.staticInfo.getMetainfManifestFile();
+    }
+
+    public void setMetainfManifestFile(AbstractHashedFile manifestFile) {
+        this.staticInfo.setMetainfManifestFile(manifestFile);
+    }
+
+    public void setMetaManifestVersion(String version) {
+        this.staticInfo.setMetaManifestVersion(version);
+    }
+
+    public void setMetaManifestCreator(String creator) {
+        this.staticInfo.setMetaManifestCreator(creator);
+    }
 }

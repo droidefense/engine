@@ -80,6 +80,7 @@ public enum APKUnpacker {
             FileUnzipVFSHandler handler = new FileUnzipVFSHandler(currentProject, apkFile);
             handler.doTheJob();
             ArrayList<VirtualFile> appfiles = handler.getFiles();
+            currentProject.setAppFiles(appfiles);
             return appfiles!= null && appfiles.size() > 0;
         }
 

@@ -82,6 +82,16 @@ public class StaticInfo implements Serializable {
     private int certNumber;
 
     /**
+     * name/version of the tool used to build manifest.mf file
+     */
+    private String metaManifestCreator;
+
+    /**
+     * version of the manifest.mf file
+     */
+    private String metaManifestVersion;
+
+    /**
      * apk certificates info
      */
     private ArrayList<CertificateModel> certificates;
@@ -90,6 +100,11 @@ public class StaticInfo implements Serializable {
      * Parsed droidefense.sdk.manifest info
      */
     private Manifest manifestInfo;
+
+    /**
+     * Readed metainf-manifest file
+     */
+    private AbstractHashedFile metainfManifestFile;
 
     /**
      * flag that indicates if droidefense.sdk.manifest classnames has package name with them
@@ -379,5 +394,29 @@ public class StaticInfo implements Serializable {
 
     public ArrayList<VirtualFile> getNinePatchImageFiles() {
         return ninePatchImageFiles;
+    }
+
+    public void setMetainfManifestFile(AbstractHashedFile metainfManifestFile) {
+        this.metainfManifestFile = metainfManifestFile;
+    }
+
+    public AbstractHashedFile getMetainfManifestFile() {
+        return metainfManifestFile;
+    }
+
+    public void setMetaManifestCreator(String metaManifestCreator) {
+        this.metaManifestCreator = metaManifestCreator;
+    }
+
+    public String getMetaManifestCreator() {
+        return metaManifestCreator;
+    }
+
+    public void setMetaManifestVersion(String metaManifestVersion) {
+        this.metaManifestVersion = metaManifestVersion;
+    }
+
+    public String getMetaManifestVersion() {
+        return metaManifestVersion;
     }
 }

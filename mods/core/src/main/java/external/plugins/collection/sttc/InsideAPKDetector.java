@@ -36,17 +36,16 @@ public class InsideAPKDetector extends AbstractStaticPlugin {
                 apklist.add(res);
             }
         }
-        log("InsideAPKDetector plugin FINISHED", 1);
-        log("InsideAPKDetector DETECTED " + apklist.size() + " .apk files", 1);
-        for (VirtualFile res : apklist) {
-            log("\t\t > " + res.getName(), 2);
-        }
-        this.positiveMatch = apklist.size() > 0;
     }
 
     @Override
     protected void postExecute() {
-
+        log(getPluginName()+" plugin FINISHED", 1);
+        log(getPluginName()+" DETECTED " + apklist.size() + " .apk files", 1);
+        for (VirtualFile res : apklist) {
+            log("\t\t > " + res.getName(), 2);
+        }
+        this.positiveMatch = apklist.size() > 0;
     }
 
     @Override

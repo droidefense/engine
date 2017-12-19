@@ -25,11 +25,11 @@ public class SystemUIDDetectorPlugin extends AbstractStaticPlugin {
             sharedId = currentProject.getManifestInfo().getSharedUserId();
             positiveMatch = sharedId != null && sharedId.length() > 0;
         }
-        log("SystemUIDDetectorPlugin plugin finished", 1);
     }
 
     @Override
     protected void postExecute() {
+        log(getPluginName()+" plugin finished", 1);
     }
 
     @Override

@@ -32,16 +32,16 @@ public class ELFDetectorPlugin extends AbstractStaticPlugin {
                 hidden.add(res);
             }
         }
-        log("ELFDetectorPlugin plugin FINISHED", 1);
-        log("ELFDetectorPlugin DETECTED " + hidden.size() + " hidden (plain-text) ELF files", 1);
-        for (VirtualFile res : hidden) {
-            log("\t\t > " + res.getName(), 2);
-        }
         this.positiveMatch = hidden.size() > 0;
     }
 
     @Override
     protected void postExecute() {
+        log("ELFDetectorPlugin plugin FINISHED", 1);
+        log("ELFDetectorPlugin DETECTED " + hidden.size() + " hidden (plain-text) ELF files", 1);
+        for (VirtualFile res : hidden) {
+            log("\t\t > " + res.getName(), 2);
+        }
     }
 
     @Override
