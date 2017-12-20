@@ -406,7 +406,7 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
         int count = INSTRUCTIONS_PER_PRIORITY * priority;
 
         IAtomFrame frame = getCurrentFrame();
-        IAtomMethod method = frame.getMethod();
+        IDroidefenseMethod method = frame.getMethod();
 
         int[] lowerCodes = method.getOpcodes();
         int[] upperCodes = method.getRegistercodes();
@@ -445,7 +445,7 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
     }
 
     public void setField(final IAtomFrame frame, final int source, final int destination, final int fieldIndex) {
-        IAtomMethod method = frame.getMethod();
+        IDroidefenseMethod method = frame.getMethod();
         String clazzName = method.getFieldClasses()[fieldIndex];
         String fieldName = method.getFieldNames()[fieldIndex];
         String fieldType = method.getFieldTypes()[fieldIndex];
@@ -503,7 +503,7 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
     }
 
     public IAtomField getField(final IAtomFrame frame, final int source, final int fieldIndex, final int destination) {
-        IAtomMethod method = frame.getMethod();
+        IDroidefenseMethod method = frame.getMethod();
         String clazzName = method.getFieldClasses()[fieldIndex];
         String fieldName = method.getFieldNames()[fieldIndex];
         String fieldType = method.getFieldTypes()[fieldIndex];
@@ -611,7 +611,7 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
         }
     }
 
-    public IAtomFrame callMethod(final boolean isVirtual, IAtomMethod method, final IAtomFrame frame) {
+    public IAtomFrame callMethod(final boolean isVirtual, IDroidefenseMethod method, final IAtomFrame frame) {
 
         IAtomFrame newFrame = pushFrame();
 
@@ -852,7 +852,7 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
         }
         // At the end, #popFrameByThrowable throws a ChangeThreadRuntimeException exception
         while (true) {
-            IAtomMethod method = frame.getMethod();
+            IDroidefenseMethod method = frame.getMethod();
             if (method.getExceptionStartAddresses() != null) {
                 int handlerIndex = -1;
                 {
@@ -881,7 +881,6 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
         }
     }
 
-    // end code is contained in #popFrame
     public void start() {
         if (status != STATUS_NOT_STARTED) {
             throw new IllegalThreadStateException();
@@ -1047,15 +1046,15 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
 
     public abstract void finish();
 
-    public abstract IAtomMethod[] getInitialMethodToRun(IDroidefenseClass clazz);
+    public abstract IDroidefenseMethod[] getInitialMethodToRun(IDroidefenseClass clazz);
 
-    public abstract int getInitialArgumentCount(IDroidefenseClass cls, IAtomMethod m);
+    public abstract int getInitialArgumentCount(IDroidefenseClass cls, IDroidefenseMethod m);
 
-    public abstract Object getInitialArguments(IDroidefenseClass cls, IAtomMethod m);
+    public abstract Object getInitialArguments(IDroidefenseClass cls, IDroidefenseMethod m);
 
     public abstract IDroidefenseClass[] getInitialDVMClass();
 
-    public abstract AbstractDVMThread reset();
+    public abstract AbstractDVMThread cleanThreadContext();
 
     public void removeFrames() {
         this.frames.clear();

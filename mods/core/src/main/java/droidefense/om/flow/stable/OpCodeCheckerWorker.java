@@ -1,18 +1,17 @@
 package droidefense.om.flow.stable;
 
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
 
 import java.util.ArrayList;
-import java.util.Vector;
 
 public final strictfp class OpCodeCheckerWorker extends AbstractFlowWorker {
 
@@ -54,12 +53,12 @@ public final strictfp class OpCodeCheckerWorker extends AbstractFlowWorker {
     }
 
     @Override
-    public int getInitialArgumentCount(IDroidefenseClass cls, IAtomMethod m) {
+    public int getInitialArgumentCount(IDroidefenseClass cls, IDroidefenseMethod m) {
         return 0;
     }
 
     @Override
-    public Object getInitialArguments(IDroidefenseClass cls, IAtomMethod m) {
+    public Object getInitialArguments(IDroidefenseClass cls, IDroidefenseMethod m) {
         return null;
     }
 
@@ -76,13 +75,13 @@ public final strictfp class OpCodeCheckerWorker extends AbstractFlowWorker {
     }
 
     @Override
-    public IAtomMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
+    public IDroidefenseMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
         return dexClass.getAllMethods();
     }
 
     @Override
-    public AbstractDVMThread reset() {
-        //reset 'thread' status
+    public AbstractDVMThread cleanThreadContext() {
+        //cleanThreadContext 'thread' status
         this.setStatus(STATUS_NOT_STARTED);
         this.removeFrames();
         this.timestamp = new ExecutionTimer();
@@ -93,7 +92,7 @@ public final strictfp class OpCodeCheckerWorker extends AbstractFlowWorker {
     public strictfp void execute(boolean endless) throws Throwable {
 
         IAtomFrame frame = getCurrentFrame();
-        IAtomMethod method = frame.getMethod();
+        IDroidefenseMethod method = frame.getMethod();
 
         for (int idx : method.getOpcodes()) {
             codeCount[idx]++;
