@@ -1,6 +1,7 @@
 package droidefense.om.machine.reader;
 
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.machine.base.AbstractDVMThread;
@@ -9,7 +10,6 @@ import droidefense.om.machine.base.struct.fake.DVMTaintClass;
 import droidefense.om.machine.base.struct.fake.DVMTaintField;
 import droidefense.om.machine.base.struct.fake.EncapsulatedClass;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.model.base.DroidefenseProject;
 
@@ -62,7 +62,7 @@ public final class DexClassReader implements Serializable {
         }
         if (!cls.isBinded() && !cls.isFake()) {
             cls.setBinded(true);
-            IAtomMethod clinit = cls.getDirectMethod("<init>", "()V", true);
+            IDroidefenseMethod clinit = cls.getDirectMethod("<init>", "()V", true);
             if (clinit != null && !clinit.isFake()) {
                 //TOdo changed this. may explode
                 AbstractDVMThread firstThread = this.vm.getThread(0);

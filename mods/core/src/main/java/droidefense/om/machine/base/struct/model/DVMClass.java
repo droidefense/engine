@@ -3,7 +3,7 @@ package droidefense.om.machine.base.struct.model;
 import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IAtomField;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.reader.DexClassReader;
 import droidefense.sdk.helpers.InternalConstant;
 
@@ -32,9 +32,9 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
 
     private Hashtable staticFieldMap;
 
-    private IAtomMethod[] directMethods;
+    private IDroidefenseMethod[] directMethods;
 
-    private IAtomMethod[] virtualMethods;
+    private IDroidefenseMethod[] virtualMethods;
 
     private boolean binded;
 
@@ -45,21 +45,21 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
         staticFields = new IAtomField[0];
         staticFieldMap = new Hashtable();
 
-        directMethods = new IAtomMethod[0];
-        virtualMethods = new IAtomMethod[0];
+        directMethods = new IDroidefenseMethod[0];
+        virtualMethods = new IDroidefenseMethod[0];
     }
 
-    public IAtomMethod getDirectMethod(final String name, final String descriptor, boolean getRealMethod) {
-        IAtomMethod[] currentMethods = getDirectMethods();
+    public IDroidefenseMethod getDirectMethod(final String name, final String descriptor, boolean getRealMethod) {
+        IDroidefenseMethod[] currentMethods = getDirectMethods();
         for (int i = 0, length = currentMethods.length; i < length; i++) {
-            IAtomMethod method = currentMethods[i];
+            IDroidefenseMethod method = currentMethods[i];
             if (name.equals(method.getName()) && descriptor.equals(method.getDescriptor())) {
                 return method;
             }
         }
         /*
         this code was not in original currentProject
-        IAtomMethod method;
+        IDroidefenseMethod method;
         String supercls = this.getSuperClass();
         do {
             IDroidefenseClass cls = DexClassReader.getInstance().load(supercls);
@@ -76,10 +76,10 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
         return (IAtomField) getStaticFieldMap().get(name);
     }
 
-    public IAtomMethod getMethod(final String name, final String descriptor, boolean getRealMethod) {
-        IAtomMethod[] currentMethods = getAllMethods();
+    public IDroidefenseMethod getMethod(final String name, final String descriptor, boolean getRealMethod) {
+        IDroidefenseMethod[] currentMethods = getAllMethods();
         for (int i = 0, length = currentMethods.length; i < length; i++) {
-            IAtomMethod method = currentMethods[i];
+            IDroidefenseMethod method = currentMethods[i];
             if (name.equals(method.getName()) && descriptor.equals(method.getDescriptor())) {
                 return method;
             }
@@ -92,17 +92,17 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
     }
 
     @Override
-    public IAtomMethod[] getMethod(String name) {
+    public IDroidefenseMethod[] getMethod(String name) {
 
-        ArrayList<IAtomMethod> list = new ArrayList<>();
-        IAtomMethod[] currentMethods = getAllMethods();
+        ArrayList<IDroidefenseMethod> list = new ArrayList<>();
+        IDroidefenseMethod[] currentMethods = getAllMethods();
         for (int i = 0, length = currentMethods.length; i < length; i++) {
-            IAtomMethod method = currentMethods[i];
+            IDroidefenseMethod method = currentMethods[i];
             if (method.getName().equals(name)) {
                 list.add(method);
             }
         }
-        return list.toArray(new IAtomMethod[list.size()]);
+        return list.toArray(new IDroidefenseMethod[list.size()]);
     }
 
     @Override
@@ -115,24 +115,24 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
         return false;
     }
 
-    public IAtomMethod[] getDirectMethods() {
+    public IDroidefenseMethod[] getDirectMethods() {
         if (directMethods == null)
-            return new IAtomMethod[0];
+            return new IDroidefenseMethod[0];
         return directMethods;
     }
 
     @Override
-    public void setDirectMethods(IAtomMethod[] directMethods) {
+    public void setDirectMethods(IDroidefenseMethod[] directMethods) {
         this.directMethods = directMethods;
     }
 
-    public IAtomMethod getVirtualMethod(final String name, final String descriptor, boolean getRealMethod) {
+    public IDroidefenseMethod getVirtualMethod(final String name, final String descriptor, boolean getRealMethod) {
         //TODO check this endlesss loop in some conditions
         IDroidefenseClass current = this;
         do {
-            IAtomMethod[] currentMethods = current.getVirtualMethods();
+            IDroidefenseMethod[] currentMethods = current.getVirtualMethods();
             for (int i = 0, length = currentMethods.length; i < length; i++) {
-                IAtomMethod method = currentMethods[i];
+                IDroidefenseMethod method = currentMethods[i];
                 if (name.equals(method.getName()) && descriptor.equals(method.getDescriptor())) {
                     return method;
                 }
@@ -156,12 +156,12 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
     }
 
     @Override
-    public IAtomMethod[] getAllMethods() {
+    public IDroidefenseMethod[] getAllMethods() {
         return DynamicUtils.concat(getDirectMethods(), getVirtualMethods());
     }
 
     @Override
-    public void addMethod(IAtomMethod methodToCall) {
+    public void addMethod(IDroidefenseMethod methodToCall) {
     }
 
     //GETTERS AND SETTERS
@@ -260,12 +260,12 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
     }
 
     @Override
-    public IAtomMethod[] getVirtualMethods() {
+    public IDroidefenseMethod[] getVirtualMethods() {
         return virtualMethods;
     }
 
     @Override
-    public void setVirtualMethods(IAtomMethod[] virtualMethods) {
+    public void setVirtualMethods(IDroidefenseMethod[] virtualMethods) {
         this.virtualMethods = virtualMethods;
     }
 
@@ -284,10 +284,10 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
         return (isInterface ? "interface " : "class ") + getName();
     }
 
-    public IAtomMethod[] getMainMethods() {
-        IAtomMethod[] all = this.getAllMethods();
-        ArrayList<IAtomMethod> mains = new ArrayList<>();
-        for (IAtomMethod dm : all) {
+    public IDroidefenseMethod[] getMainMethods() {
+        IDroidefenseMethod[] all = this.getAllMethods();
+        ArrayList<IDroidefenseMethod> mains = new ArrayList<>();
+        for (IDroidefenseMethod dm : all) {
             if (dm.getName().equals("onCreate") ||
                     dm.getName().equals("onResume") ||
                     dm.getName().equals("onStart") ||
@@ -300,6 +300,6 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
                 mains.add(dm);
             }
         }
-        return mains.toArray(new IAtomMethod[mains.size()]);
+        return mains.toArray(new IDroidefenseMethod[mains.size()]);
     }
 }

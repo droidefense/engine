@@ -3,7 +3,7 @@ package droidefense.om.machine.base.struct.model;
 
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 
 import java.io.Serializable;
 
@@ -15,7 +15,7 @@ public class ReturnMethod implements Serializable {
 
     private IAtomFrame frame;
 
-    private IAtomMethod method;
+    private IDroidefenseMethod method;
     private int[] lowerCodes;
     private int[] upperCodes;
     private int[] codes;
@@ -32,7 +32,7 @@ public class ReturnMethod implements Serializable {
         return frame;
     }
 
-    public IAtomMethod getMethod() {
+    public IDroidefenseMethod getMethod() {
         return method;
     }
 

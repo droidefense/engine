@@ -2,6 +2,7 @@ package droidefense.om.flow.experimental;
 
 
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.nodes.EntryPointNode;
 import droidefense.sdk.log4j.Log;
@@ -12,7 +13,6 @@ import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.struct.fake.DVMTaintClass;
 import droidefense.om.machine.base.struct.fake.DVMTaintMethod;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
 import droidefense.sdk.model.base.DroidefenseProject;
@@ -71,12 +71,12 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
     }
 
     @Override
-    public int getInitialArgumentCount(IDroidefenseClass cls, IAtomMethod m) {
+    public int getInitialArgumentCount(IDroidefenseClass cls, IDroidefenseMethod m) {
         return 0; //do not use arguments
     }
 
     @Override
-    public Object getInitialArguments(IDroidefenseClass cls, IAtomMethod m) {
+    public Object getInitialArguments(IDroidefenseClass cls, IDroidefenseMethod m) {
         return null; //do not use arguments
     }
 
@@ -104,13 +104,13 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
     }
 
     @Override
-    public IAtomMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
+    public IDroidefenseMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
         return dexClass.getAllMethods();
     }
 
     @Override
-    public AbstractDVMThread reset() {
-        //reset 'thread' status
+    public AbstractDVMThread cleanThreadContext() {
+        //cleanThreadContext 'thread' status
         this.setStatus(STATUS_NOT_STARTED);
         this.removeFrames();
         this.timestamp = new ExecutionTimer();
@@ -121,7 +121,7 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
     public strictfp void execute(boolean keepScanning) throws Throwable {
 
         IAtomFrame frame = getCurrentFrame();
-        IAtomMethod method = frame.getMethod();
+        IDroidefenseMethod method = frame.getMethod();
 
         lowerCodes = method.getOpcodes();
         upperCodes = method.getRegistercodes();
@@ -227,7 +227,7 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
         return false;
     }
 
-    private InstructionReturn fakeMethodCall(IAtomMethod method) {
+    private InstructionReturn fakeMethodCall(IDroidefenseMethod method) {
 
         IAtomFrame frame = getCurrentFrame();
 
@@ -256,7 +256,7 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
     }
 
     private InstructionReturn getInstructionReturn(String clazzName, String methodName, String methodDescriptor, IDroidefenseClass cls) {
-        IAtomMethod methodToCall = cls.getMethod(methodName, methodDescriptor, false);
+        IDroidefenseMethod methodToCall = cls.getMethod(methodName, methodDescriptor, false);
         //if class is an interface, It will not have the method to be called
         if (methodToCall == null) {
             methodToCall = new DVMTaintMethod(methodName, clazzName);

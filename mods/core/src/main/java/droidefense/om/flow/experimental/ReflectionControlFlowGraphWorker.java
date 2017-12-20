@@ -3,6 +3,7 @@ package droidefense.om.flow.experimental;
 import droidefense.entropy.EntropyCalculator;
 import droidefense.handler.FileIOHandler;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.flow.base.AbstractFlowWorker;
@@ -11,7 +12,6 @@ import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.struct.fake.DVMTaintMethod;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
 import droidefense.om.machine.reader.DexClassReader;
@@ -83,12 +83,12 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
     }
 
     @Override
-    public int getInitialArgumentCount(IDroidefenseClass cls, IAtomMethod m) {
+    public int getInitialArgumentCount(IDroidefenseClass cls, IDroidefenseMethod m) {
         return 0;
     }
 
     @Override
-    public Object getInitialArguments(IDroidefenseClass cls, IAtomMethod m) {
+    public Object getInitialArguments(IDroidefenseClass cls, IDroidefenseMethod m) {
         return null;
     }
 
@@ -107,13 +107,13 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
     }
 
     @Override
-    public IAtomMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
+    public IDroidefenseMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
         return dexClass.getAllMethods();
     }
 
     @Override
-    public AbstractDVMThread reset() {
-        //reset 'thread' status
+    public AbstractDVMThread cleanThreadContext() {
+        //cleanThreadContext 'thread' status
         this.setStatus(STATUS_NOT_STARTED);
         this.removeFrames();
         this.timestamp = new ExecutionTimer();
@@ -124,7 +124,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
     public strictfp void execute(boolean keepScanning) throws Throwable {
 
         IAtomFrame frame = getCurrentFrame();
-        IAtomMethod method = frame.getMethod();
+        IDroidefenseMethod method = frame.getMethod();
 
         lowerCodes = method.getOpcodes();
         upperCodes = method.getRegistercodes();
@@ -264,7 +264,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
                 if (!reflected) {
                     //create invokated method as node
 
-                    IAtomMethod fakeMethod = fakeCallReturn.getMethod();
+                    IDroidefenseMethod fakeMethod = fakeCallReturn.getMethod();
 
                     toNode = buildMethodNode(currentInstruction, frame, fakeMethod);
 
@@ -368,7 +368,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
                 //normal method execution
                 //if no errors, update values
                 IAtomFrame frame = returnValue.getFrame();
-                IAtomMethod method = returnValue.getMethod();
+                IDroidefenseMethod method = returnValue.getMethod();
                 /*upperCodes = returnValue.getRegistercodes();
                 lowerCodes = returnValue.getOpcodes();
                 codes = returnValue.getIndex();
@@ -393,7 +393,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
         }
     }
 
-    private InstructionReturn fakeMethodCall(IAtomMethod method, int upperCode, int code) {
+    private InstructionReturn fakeMethodCall(IDroidefenseMethod method, int upperCode, int code) {
         int registers = upperCode << 16;
         int methodIndex = code;
         registers |= code;
@@ -442,7 +442,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
     }
 
     private InstructionReturn getInstructionReturn(String clazzName, String methodName, String methodDescriptor, IDroidefenseClass cls) {
-        IAtomMethod methodToCall = cls.getMethod(methodName, methodDescriptor, false);
+        IDroidefenseMethod methodToCall = cls.getMethod(methodName, methodDescriptor, false);
         //if class is an interface, It will not have the method to be called
         if (methodToCall == null) {
             methodToCall = new DVMTaintMethod(methodName, clazzName);

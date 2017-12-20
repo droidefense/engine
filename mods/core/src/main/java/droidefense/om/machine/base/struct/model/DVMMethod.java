@@ -25,12 +25,12 @@ package droidefense.om.machine.base.struct.model;
 
 import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
 
 import java.io.Serializable;
 
-public class DVMMethod implements IAtomMethod, Serializable {
+public class DVMMethod implements IDroidefenseMethod, Serializable {
 
     //shared by all classes. Pool
 

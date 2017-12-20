@@ -3,7 +3,7 @@ package droidefense.om.machine.base.struct.generic;
 /**
  * Created by sergio on 25/3/16.
  */
-public interface IAtomMethod {
+public interface IDroidefenseMethod {
 
     //TO STRING
 

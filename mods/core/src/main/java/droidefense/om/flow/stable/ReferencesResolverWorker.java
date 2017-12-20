@@ -4,7 +4,7 @@ import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.base.struct.model.AndroidRField;
 import droidefense.sdk.helpers.Util;
 import droidefense.sdk.log4j.Log;
@@ -538,12 +538,12 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
     }
 
     @Override
-    public int getInitialArgumentCount(IDroidefenseClass cls, IAtomMethod m) {
+    public int getInitialArgumentCount(IDroidefenseClass cls, IDroidefenseMethod m) {
         return 0; //do not use arguments
     }
 
     @Override
-    public Object getInitialArguments(IDroidefenseClass cls, IAtomMethod m) {
+    public Object getInitialArguments(IDroidefenseClass cls, IDroidefenseMethod m) {
         return null; //do not use arguments
     }
 
@@ -568,7 +568,7 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
     }
 
     @Override
-    public IAtomMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
+    public IDroidefenseMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
         return dexClass.getAllMethods();
     }
 
@@ -577,7 +577,7 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
 
         Log.write(LoggerType.DEBUG, "Reading Android R references...");
         IAtomFrame frame = getCurrentFrame();
-        IAtomMethod method = frame.getMethod();
+        IDroidefenseMethod method = frame.getMethod();
         IDroidefenseClass methodOwnerClass = method.getOwnerClass();
 
         Log.write(LoggerType.DEBUG, "Class name detected as: "+methodOwnerClass.getName());
@@ -603,8 +603,8 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
     }
 
     @Override
-    public AbstractDVMThread reset() {
-        //reset 'thread' status
+    public AbstractDVMThread cleanThreadContext() {
+        //cleanThreadContext 'thread' status
         this.setStatus(STATUS_NOT_STARTED);
         this.removeFrames();
         this.timestamp = new ExecutionTimer();

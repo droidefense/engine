@@ -26,7 +26,7 @@ package droidefense.om.machine.base.struct.model;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 
 import java.io.Serializable;
 
@@ -47,7 +47,7 @@ public final class DVMFrame implements IAtomFrame, Serializable {
     private Throwable throwableReturn;
 
     //method to execute
-    private IAtomMethod method;
+    private IDroidefenseMethod method;
 
     //registers to be used
     private boolean[] isObjectRegister = new boolean[DEFAULT_REGISTER_SIZE];
@@ -74,12 +74,12 @@ public final class DVMFrame implements IAtomFrame, Serializable {
     }
 
     // Don't implement the initialization of this class in the constructor to re-use this instance
-    public void init(final IAtomMethod method) {
+    public void init(final IDroidefenseMethod method) {
         init(method, false);
     }
 
     // Don't implement the initialization of this class in the constructor to re-use this instance
-    public void init(final IAtomMethod method, final boolean isChangeThreadFrame) {
+    public void init(final IDroidefenseMethod method, final boolean isChangeThreadFrame) {
         this.method = method;
         this.isChangeThreadFrame = isChangeThreadFrame;
 
@@ -196,11 +196,11 @@ public final class DVMFrame implements IAtomFrame, Serializable {
         this.throwableReturn = throwableReturn;
     }
 
-    public IAtomMethod getMethod() {
+    public IDroidefenseMethod getMethod() {
         return method;
     }
 
-    public void setMethod(IAtomMethod method) {
+    public void setMethod(IDroidefenseMethod method) {
         this.method = method;
     }
 

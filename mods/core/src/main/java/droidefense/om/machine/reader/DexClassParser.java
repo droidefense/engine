@@ -5,7 +5,7 @@ import droidefense.om.machine.base.constants.AccessFlag;
 import droidefense.om.machine.base.constants.ValueFormat;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IAtomField;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.base.struct.model.DVMClass;
 import droidefense.om.machine.base.struct.model.DVMField;
 import droidefense.om.machine.base.struct.model.DVMMethod;
@@ -166,7 +166,7 @@ public class DexClassParser {
         return readSigned(typeArgument + 1);
     }
 
-    private void readMethodContents(final IDroidefenseClass cls, final IAtomMethod[] methods) {
+    private void readMethodContents(final IDroidefenseClass cls, final IDroidefenseMethod[] methods) {
 
         DexBodyModel.pool.setStrings(dexBodyModel.getStrings());
         DexBodyModel.pool.setTypes(dexBodyModel.getTypes());
@@ -185,7 +185,7 @@ public class DexClassParser {
             } else {
                 methodIndex += readULEB128();
             }
-            IAtomMethod method = new DVMMethod(cls);
+            IDroidefenseMethod method = new DVMMethod(cls);
 
             method.setFlag(readULEB128());
             method.setInstance(((byte) method.getFlag() & AccessFlag.ACC_STATIC.getValue()) == 0);
