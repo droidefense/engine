@@ -652,9 +652,19 @@ public class DroidDefenseEnvironment implements Serializable {
             if(superClassname!=null){
                 owner = DexClassReader2.getInstance().load(superClassname);
                 superClassname = owner.getSuperClass();
+                Log.write(LoggerType.TRACE, target.getAndroifiedClassName()+" inherits from "+superClassname);
             }
-        }while (owner!=null && owner.getSuperClass()!=null && !owner.isFake());
+        }while (keepScalatingOnParents(owner));
         return owner;
+    }
+
+    private boolean keepScalatingOnParents(IDroidefenseClass owner) {
+        return owner!=null && owner.getSuperClass()!=null && !owner.isFake() && !owner.getSuperClass().equals(InternalConstant.SUPERCLASS);
+    }
+
+    public IDroidefenseClass getParentClass(String clazz){
+        IDroidefenseClass requestedClass = DexClassReader2.getInstance().load(clazz);
+        return getParentClass(requestedClass);
     }
 
     public static boolean isLoaded() {

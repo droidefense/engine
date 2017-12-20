@@ -55,7 +55,7 @@ public class VMWorkersHandler extends AbstractHandler {
 
                 //TODO replace all flow workers by MULTIFLOW + REFLECTION type worker
 
-                //run all controlflow
+                //run all selected workers
                 for (AbstractDVMThread worker : worklist) {
                     vm.setWorker(worker);
                     vm.run();

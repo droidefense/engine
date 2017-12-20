@@ -1,6 +1,7 @@
 package droidefense.om.machine.base.struct.generic;
 
 import droidefense.om.machine.reader.DexClassReader2;
+import droidefense.sdk.helpers.DroidDefenseEnvironment;
 
 import java.util.Hashtable;
 
@@ -170,7 +171,7 @@ public abstract class IDroidefenseClass {
             //this class does not has a constructor. it is inherited
             //look for it
             String superClassName = this.getSuperClass();
-            IDroidefenseClass parentClass = DexClassReader2.getInstance().load(superClassName);
+            IDroidefenseClass parentClass = DroidDefenseEnvironment.getInstance().getParentClass(superClassName);
             return parentClass.findClassInitMethod();
         }
         else{
