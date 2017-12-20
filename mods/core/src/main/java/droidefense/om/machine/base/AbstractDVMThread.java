@@ -885,7 +885,8 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
         if (status != STATUS_NOT_STARTED) {
             throw new IllegalThreadStateException();
         }
-        vm.addThread(this);
+        // TODO add thread only if does not exists
+        // vm.addThread(this);
         status = STATUS_RUNNING;
     }
 

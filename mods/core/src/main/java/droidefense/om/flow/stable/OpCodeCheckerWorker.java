@@ -92,11 +92,21 @@ public final strictfp class OpCodeCheckerWorker extends AbstractFlowWorker {
     public strictfp void execute(boolean endless) throws Throwable {
 
         IAtomFrame frame = getCurrentFrame();
-        IDroidefenseMethod method = frame.getMethod();
+        if(frame!=null){
+            IDroidefenseMethod method = frame.getMethod();
 
-        for (int idx : method.getOpcodes()) {
-            codeCount[idx]++;
-            total++;
+            if (method!=null){
+                for (int idx : method.getOpcodes()) {
+                    codeCount[idx]++;
+                    total++;
+                }
+            }
+            else{
+                //its been some error while loading this frame methods
+            }
+        }
+        else{
+            //is been some error while loading and frame is null
         }
     }
 }
