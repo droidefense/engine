@@ -3,7 +3,7 @@ package droidefense.sdk.helpers;
 import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.handler.FileIOHandler;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.reader.DexClassReader;
 import droidefense.om.machine.reader.DexClassReader2;
 import droidefense.rulengine.base.AbstractAtomNode;
@@ -625,7 +625,7 @@ public class DroidDefenseEnvironment implements Serializable {
         }
     }
 
-    public String getSimpleNodeType(IAtomMethod method) {
+    public String getSimpleNodeType(IDroidefenseMethod method) {
         IDroidefenseClass owner = method.getOwnerClass();
         String sc;
         sc = owner.getSuperClass();

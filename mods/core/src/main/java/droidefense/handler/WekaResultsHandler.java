@@ -5,7 +5,6 @@ import droidefense.handler.base.AbstractHandler;
 import droidefense.ml.MLResultHolder;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
-import droidefense.ml.MLResult;
 import droidefense.ml.WekaClassifier;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.manifest.UsesPermission;
@@ -115,9 +114,7 @@ public class WekaResultsHandler extends AbstractHandler {
 
         MLResultHolder result = new MLResultHolder();
 
-        // Run for each apimodel
-        int total = models.length;
-        int positive = 0;
+        // Run for each classifier
         for (int j = 0; j < models.length; j++) {
             /*
             Evaluation eval = new Evaluation(unlabeled);
@@ -126,20 +123,10 @@ public class WekaResultsHandler extends AbstractHandler {
             result.add(modelFiles[j].getName().replace(".apimodel", ""), eval.correct());
             */
             double clsLabel = models[j].classifyInstance(unlabeled.instance(0));
-            positive += (int) clsLabel;
-            result.add(modelFiles[j].getName().replace(".model", ""), clsLabel);
+            String tag = modelFiles[j].getName().replace(".model", "");
+            result.add(tag, clsLabel);
         }
-        //generate json output for report
-        //class 1: goodware
-        //class 0: malware
-        positive = total - positive;
-        result.setPositives(positive);
-        result.setTotal(total);
-        if (total != 0) {
-            result.setRatio(positive / (double) total);
-        } else {
-            result.setRatio(0);
-        }
+        result.updateMalwareRatio();
         project.setMachineLearningResult(result);
         Log.write(LoggerType.TRACE, "WEKA classification done!");
     }

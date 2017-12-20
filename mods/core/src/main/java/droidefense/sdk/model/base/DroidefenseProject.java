@@ -605,7 +605,7 @@ public final class DroidefenseProject implements Serializable {
 
     public void setMachineLearningResult(MLResultHolder machineLearningResult) {
         this.machineLearningResult = machineLearningResult;
-        if(this.machineLearningResult.getRatio()> InternalConstant.MALWARE_THRESHOLD_VALUE){
+        if(this.machineLearningResult.getMalwareRatio()> InternalConstant.MALWARE_THRESHOLD_VALUE){
             this.malwareResult = MalwareResultEnum.MALWARE;
         }
         else{

@@ -147,7 +147,7 @@ public class SSDeep {
         }
 
         /**
-         * reset the state of the rolling hash and return the initial rolling hash value
+         * cleanThreadContext the state of the rolling hash and return the initial rolling hash value
          */
         public void reset() {
             h1 = 0;
@@ -195,23 +195,23 @@ public class SSDeep {
             for (int i = 0; i < bufferSize; ++i) {
                 // at each character we update the rolling hash and
                 // the normal hash. When the rolling hash hits the
-                // reset value then we emit the normal hash as a
-                // element of the signature and reset both hashes
+                // cleanThreadContext value then we emit the normal hash as a
+                // element of the signature and cleanThreadContext both hashes
                 h = rollState.rollHash(buffer[i]);// & 0x7FFFFFFF;
                 h2 = sumHash(buffer[i], h2);// & 0x7FFFFFFF;
                 h3 = sumHash(buffer[i], h3);// & 0x7FFFFFFF;
 
                 if (((0xFFFFFFFFL & h) % blockSize) == (blockSize - 1)) {
-                    // we have hit a reset point. We now emit a
+                    // we have hit a cleanThreadContext point. We now emit a
                     // hash which is based on all chacaters in the
-                    // piece of the message between the last reset
+                    // piece of the message between the last cleanThreadContext
                     // point and this one.
                     p[j] = b64[(h2 & 0xFFFF) % b64.length];
 
                     if (j < SPAMSUM_LENGTH - 1) {
                         // we can have a problem with the tail
                         // overflowing. The easiest way to
-                        // cope with this is to only reset the
+                        // cope with this is to only cleanThreadContext the
                         // second hash if we have room for
                         // more characters in our
                         // signature. This has the effect of

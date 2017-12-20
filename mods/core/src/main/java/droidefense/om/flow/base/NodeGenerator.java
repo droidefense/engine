@@ -4,7 +4,7 @@ import droidefense.entropy.EntropyCalculator;
 import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.rulengine.base.AbstractFlowMap;
 import droidefense.rulengine.nodes.ConstStrNode;
@@ -23,7 +23,7 @@ public class NodeGenerator {
         return instance;
     }
 
-    public final MethodNode buildMethodNode(AbstractFlowMap map, DalvikInstruction inst, IAtomFrame frame, IAtomMethod method) {
+    public final MethodNode buildMethodNode(AbstractFlowMap map, DalvikInstruction inst, IAtomFrame frame, IDroidefenseMethod method) {
         return MethodNode.builder(
                 map,
                 inst.description(),

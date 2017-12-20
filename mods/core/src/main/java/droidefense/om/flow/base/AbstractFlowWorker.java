@@ -10,7 +10,7 @@ import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.sdk.model.base.DroidefenseProject;
 
@@ -28,7 +28,7 @@ public abstract class AbstractFlowWorker extends AbstractDVMThread {
         super(currentProject);
     }
 
-    protected final MethodNode buildMethodNode(DalvikInstruction inst, IAtomFrame frame, IAtomMethod method) {
+    protected final MethodNode buildMethodNode(DalvikInstruction inst, IAtomFrame frame, IDroidefenseMethod method) {
         return reporting.buildMethodNode(flowMap, inst, frame, method);
     }
 

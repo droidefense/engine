@@ -46,7 +46,7 @@ public class FileUnzipVFSHandler extends AbstractHandler {
 
             // iterates over entries in the zip file
             while (entry != null) {
-                //reset parent node
+                //cleanThreadContext parent node
                 parentNode = root;
                 String entryName = entry.getName();
                 Log.write(LoggerType.DEBUG, "\t"+entryName);

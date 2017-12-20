@@ -4,27 +4,38 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class MLResultHolder extends ArrayList<MLResult> implements Serializable {
+public class MLResultHolder implements Serializable {
+
+    private static final String GOODWARE = "Goodware";
+    private static final String MALWARE = "Malware";
+    private static final String UNCLASSIFIED = "Unclassified";
 
     private int positives;
     private int total;
-    private double ratio;
+    private double malwareRatio;
+    private ArrayList<MLResult> results;
 
-    public MLResultHolder() {
+    public MLResultHolder(){
+        this.results = new ArrayList<>();
+        this.total=0;
+        this.positives=0;
+        this.malwareRatio =0;
     }
 
     public void add(String name, double value) {
         String res = getValue(value);
-        this.add(new MLResult(name, res, value));
+        results.add(new MLResult(name, res, value));
+        this.total++;
     }
 
     private String getValue(double value) {
         if (value == 1.0) {
-            return "Goodware";
+            return GOODWARE;
         } else if (value == 0.0) {
-            return "Malware";
+            this.positives++;
+            return MALWARE;
         } else {
-            return "Unclassified";
+            return UNCLASSIFIED;
         }
     }
 
@@ -44,11 +55,19 @@ public class MLResultHolder extends ArrayList<MLResult> implements Serializable 
         this.total = total;
     }
 
-    public double getRatio() {
-        return ratio;
+    public double getMalwareRatio() {
+        return malwareRatio;
     }
 
-    public void setRatio(double ratio) {
-        this.ratio = ratio;
+    public void setMalwareRatio(double ratio) {
+        this.malwareRatio = ratio;
+    }
+
+    public void updateMalwareRatio() {
+        if (total != 0) {
+            this.setMalwareRatio(positives / (double) total);
+        } else {
+            this.setMalwareRatio(0);
+        }
     }
 }
