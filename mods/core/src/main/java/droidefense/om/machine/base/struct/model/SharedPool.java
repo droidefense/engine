@@ -1,6 +1,6 @@
 package droidefense.om.machine.base.struct.model;
 
-import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 
 import java.io.Serializable;
 import java.util.*;
@@ -13,7 +13,7 @@ public class SharedPool implements Serializable {
     private static SharedPool instance = new SharedPool();
 
     private final transient Map<String, String> classNames;
-    private final transient Hashtable<String, IAtomClass> classes = new Hashtable<>();
+    private final transient Hashtable<String, IDroidefenseClass> classes = new Hashtable<>();
     private String[] strings;
     private String[] types;
     private String[] descriptors;
@@ -32,7 +32,7 @@ public class SharedPool implements Serializable {
         return instance;
     }
 
-    public void addClass(IAtomClass cls){
+    public void addClass(IDroidefenseClass cls){
         if(cls!=null){
             this.classes.put(cls.getName(), cls);
         }
@@ -124,11 +124,11 @@ public class SharedPool implements Serializable {
         return classNames.get(data);
     }
 
-    public Hashtable<String, IAtomClass> getClasses() {
+    public Hashtable<String, IDroidefenseClass> getClasses() {
         return classes;
     }
 
-    public void addClass(String name, IAtomClass cls) {
+    public void addClass(String name, IDroidefenseClass cls) {
         this.classes.put(name, cls);
     }
 

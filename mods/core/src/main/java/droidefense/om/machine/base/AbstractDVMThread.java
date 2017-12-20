@@ -78,7 +78,7 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
 
     protected static IAtomField getField(final boolean isStatic, final IAtomFrame frame, final String clazzName, final String fieldName, final int instance) {
         if (isStatic) {
-            IAtomClass cls = DexClassReader.getInstance().load(clazzName);
+            IDroidefenseClass cls = DexClassReader.getInstance().load(clazzName);
             //class loader always will return a class. real or fake
             //no null check, but just in case
             return cls.getStaticField(fieldName);
@@ -406,7 +406,7 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
         int count = INSTRUCTIONS_PER_PRIORITY * priority;
 
         IAtomFrame frame = getCurrentFrame();
-        IAtomMethod method = frame.getMethod();
+        IDroidefenseMethod method = frame.getMethod();
 
         int[] lowerCodes = method.getOpcodes();
         int[] upperCodes = method.getRegistercodes();
@@ -445,12 +445,12 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
     }
 
     public void setField(final IAtomFrame frame, final int source, final int destination, final int fieldIndex) {
-        IAtomMethod method = frame.getMethod();
+        IDroidefenseMethod method = frame.getMethod();
         String clazzName = method.getFieldClasses()[fieldIndex];
         String fieldName = method.getFieldNames()[fieldIndex];
         String fieldType = method.getFieldTypes()[fieldIndex];
 
-        IAtomClass cls = DexClassReader.getInstance().load(clazzName);
+        IDroidefenseClass cls = DexClassReader.getInstance().load(clazzName);
         IAtomField[] instanceFields = cls.getInstanceFields();
         boolean isInstanceField = false;
         for (IAtomField f : instanceFields) {
@@ -503,7 +503,7 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
     }
 
     public IAtomField getField(final IAtomFrame frame, final int source, final int fieldIndex, final int destination) {
-        IAtomMethod method = frame.getMethod();
+        IDroidefenseMethod method = frame.getMethod();
         String clazzName = method.getFieldClasses()[fieldIndex];
         String fieldName = method.getFieldNames()[fieldIndex];
         String fieldType = method.getFieldTypes()[fieldIndex];
@@ -589,10 +589,10 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
             return false;
         }
         String className = type.startsWith("L") ? type.substring(1, type.length() - 1) : type;
-        IAtomClass vmClass = DexClassReader.getInstance().load(className);
+        IDroidefenseClass vmClass = DexClassReader.getInstance().load(className);
         if (vmClass != null) {
             if (checked instanceof IAtomInstance) {
-                IAtomClass instanceClazz = ((IAtomInstance) checked).getOwnerClass();
+                IDroidefenseClass instanceClazz = ((IAtomInstance) checked).getOwnerClass();
                 while (vmClass != null) {
                     if (instanceClazz == vmClass) {
                         return true;
@@ -611,7 +611,7 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
         }
     }
 
-    public IAtomFrame callMethod(final boolean isVirtual, IAtomMethod method, final IAtomFrame frame) {
+    public IAtomFrame callMethod(final boolean isVirtual, IDroidefenseMethod method, final IAtomFrame frame) {
 
         IAtomFrame newFrame = pushFrame();
 
@@ -852,7 +852,7 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
         }
         // At the end, #popFrameByThrowable throws a ChangeThreadRuntimeException exception
         while (true) {
-            IAtomMethod method = frame.getMethod();
+            IDroidefenseMethod method = frame.getMethod();
             if (method.getExceptionStartAddresses() != null) {
                 int handlerIndex = -1;
                 {
@@ -881,12 +881,12 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
         }
     }
 
-    // end code is contained in #popFrame
     public void start() {
         if (status != STATUS_NOT_STARTED) {
             throw new IllegalThreadStateException();
         }
-        vm.addThread(this);
+        // TODO add thread only if does not exists
+        // vm.addThread(this);
         status = STATUS_RUNNING;
     }
 
@@ -1047,15 +1047,15 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
 
     public abstract void finish();
 
-    public abstract IAtomMethod[] getInitialMethodToRun(IAtomClass clazz);
+    public abstract IDroidefenseMethod[] getInitialMethodToRun(IDroidefenseClass clazz);
 
-    public abstract int getInitialArgumentCount(IAtomClass cls, IAtomMethod m);
+    public abstract int getInitialArgumentCount(IDroidefenseClass cls, IDroidefenseMethod m);
 
-    public abstract Object getInitialArguments(IAtomClass cls, IAtomMethod m);
+    public abstract Object getInitialArguments(IDroidefenseClass cls, IDroidefenseMethod m);
 
-    public abstract IAtomClass[] getInitialDVMClass();
+    public abstract IDroidefenseClass[] getInitialDVMClass();
 
-    public abstract AbstractDVMThread reset();
+    public abstract AbstractDVMThread cleanThreadContext();
 
     public void removeFrames() {
         this.frames.clear();

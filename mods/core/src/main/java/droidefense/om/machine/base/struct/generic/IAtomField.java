@@ -11,7 +11,7 @@ public interface IAtomField {
 
     //GETTERS AND SETTERS
 
-    IAtomClass getOwnerClass();
+    IDroidefenseClass getOwnerClass();
 
     int getFlag();
 

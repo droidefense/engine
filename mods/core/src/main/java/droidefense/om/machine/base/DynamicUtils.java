@@ -1,11 +1,11 @@
 package droidefense.om.machine.base;
 
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.machine.base.constants.TypeDescriptorSemantics;
 import droidefense.om.machine.base.struct.fake.EncapsulatedClass;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomInstance;
 import droidefense.om.machine.base.struct.model.DVMInstance;
 import droidefense.om.machine.reader.DexClassReader;
@@ -209,25 +209,25 @@ public class DynamicUtils {
         return dexClassName;
     }
 
-    public static IAtomClass[] getExecutionEntryPoints(DroidefenseProject currentProject) {
+    public static IDroidefenseClass[] getExecutionEntryPoints(DroidefenseProject currentProject) {
         // old: return only main cls as entry point
         // return new DalvikClass[]{c};
         //return all next classes: Activities, services, receivers, events
-        ArrayList<IAtomClass> entry = new ArrayList<>();
-        for (IAtomClass c : currentProject.getListClasses()) {
+        ArrayList<IDroidefenseClass> entry = new ArrayList<>();
+        for (IDroidefenseClass c : currentProject.getListClasses()) {
             if (hasEntryPoint(c) && !isAndroidNative(c)) {
                 entry.add(0, c);
             }
         }
         Log.write(LoggerType.INFO, "Static analysis detect " + entry.size() + " entry points");
-        IAtomClass[] entryArray = entry.toArray(new IAtomClass[entry.size()]);
+        IDroidefenseClass[] entryArray = entry.toArray(new IDroidefenseClass[entry.size()]);
 
         //save detected entry points for report generation
         currentProject.setDynamicEntryPoints(entryArray);
         return entryArray;
     }
 
-    private static boolean isAndroidNative(IAtomClass c) {
+    private static boolean isAndroidNative(IDroidefenseClass c) {
         String clname = c.getName();
         clname = DynamicUtils.classNameToJava(clname);
         boolean full = environment.isAndroidNative(clname);
@@ -247,7 +247,7 @@ public class DynamicUtils {
         return full || parentb;
     }
 
-    public static boolean hasEntryPoint(IAtomClass c) {
+    public static boolean hasEntryPoint(IDroidefenseClass c) {
         return c.getSuperClass().equals("android/app/Service")
                 || c.getSuperClass().equals("android/content/ContentProvider")
                 || c.getSuperClass().equals("android/app/Activity")

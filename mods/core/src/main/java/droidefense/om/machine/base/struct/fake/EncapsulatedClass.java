@@ -1,10 +1,12 @@
 package droidefense.om.machine.base.struct.fake;
 
 import droidefense.om.machine.base.DynamicUtils;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IAtomField;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.sdk.helpers.InternalConstant;
+import droidefense.sdk.log4j.Log;
+import droidefense.sdk.log4j.LoggerType;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
@@ -14,7 +16,7 @@ import java.util.Hashtable;
 /**
  * Created by r00t on 25/10/15.
  */
-public class EncapsulatedClass implements IAtomClass, Serializable {
+public class EncapsulatedClass extends IDroidefenseClass implements Serializable {
 
     //encapsulated vars
     protected String name;
@@ -25,8 +27,8 @@ public class EncapsulatedClass implements IAtomClass, Serializable {
     private IAtomField[] instanceFields;
     private IAtomField[] staticFields;
     private Hashtable staticFieldMap;
-    private IAtomMethod[] directMethods;
-    private IAtomMethod[] virtualMethods;
+    private IDroidefenseMethod[] directMethods;
+    private IDroidefenseMethod[] virtualMethods;
     private boolean binded;
     private Class<?> aClass;
     private Object javaObject;
@@ -38,7 +40,7 @@ public class EncapsulatedClass implements IAtomClass, Serializable {
         javaObject = null;
     }
 
-    protected IAtomMethod searchMethod(String name, String desc, Object[] lastMethodArgs, boolean getRealMethod) {
+    protected IDroidefenseMethod searchMethod(String name, String desc, Object[] lastMethodArgs, boolean getRealMethod) {
         if (getRealMethod) {
             Class[] params = DynamicUtils.getParamsClasses(desc);
             try {
@@ -60,15 +62,15 @@ public class EncapsulatedClass implements IAtomClass, Serializable {
                 tmethod.setMethodReturn(method.invoke(javaObject, args));
                 return tmethod;
             } catch (NoSuchMethodException e) {
-                e.printStackTrace();
+                Log.write(LoggerType.ERROR, e.getLocalizedMessage());
             } catch (InvocationTargetException e) {
-                e.printStackTrace();
+                Log.write(LoggerType.ERROR, e.getLocalizedMessage());
             } catch (IllegalAccessException e) {
-                e.printStackTrace();
+                Log.write(LoggerType.ERROR, e.getLocalizedMessage());
             } catch (IllegalArgumentException e) {
-                e.printStackTrace();
+                Log.write(LoggerType.ERROR, e.getLocalizedMessage());
             } catch (InstantiationException e) {
-                e.printStackTrace();
+                Log.write(LoggerType.ERROR, e.getLocalizedMessage());
             }
             return new DVMTaintMethod(name, this.getName());
         } else {
@@ -78,7 +80,7 @@ public class EncapsulatedClass implements IAtomClass, Serializable {
     }
 
     @Override
-    public IAtomMethod getDirectMethod(String name, String descriptor, boolean getRealMethod) {
+    public IDroidefenseMethod getDirectMethod(String name, String descriptor, boolean getRealMethod) {
         return searchMethod(name, descriptor, null, getRealMethod);
     }
 
@@ -88,13 +90,13 @@ public class EncapsulatedClass implements IAtomClass, Serializable {
     }
 
     @Override
-    public IAtomMethod getMethod(String name, String descriptor, boolean getRealMethod) {
+    public IDroidefenseMethod getMethod(String name, String descriptor, boolean getRealMethod) {
         return searchMethod(name, descriptor, null, getRealMethod);
     }
 
     @Override
-    public IAtomMethod[] getMethod(String name) {
-        return new IAtomMethod[0];
+    public IDroidefenseMethod[] getMethod(String name) {
+        return new IDroidefenseMethod[0];
     }
 
     @Override
@@ -108,41 +110,41 @@ public class EncapsulatedClass implements IAtomClass, Serializable {
     }
 
     @Override
-    public IAtomMethod[] getAllMethods() {
+    public IDroidefenseMethod[] getAllMethods() {
         //encapsulated class must not be analyzed because they are part of sdk
-        return new IAtomMethod[0];
+        return new IDroidefenseMethod[0];
     }
 
     @Override
-    public void addMethod(IAtomMethod methodToCall) {
+    public void addMethod(IDroidefenseMethod methodToCall) {
     }
 
     @Override
-    public IAtomMethod[] getDirectMethods() {
-        return new IAtomMethod[0];
+    public IDroidefenseMethod[] getDirectMethods() {
+        return new IDroidefenseMethod[0];
     }
 
-    public void setDirectMethods(IAtomMethod[] directMethods) {
+    public void setDirectMethods(IDroidefenseMethod[] directMethods) {
         this.directMethods = directMethods;
     }
 
-    public IAtomMethod getVirtualMethod(String name, String descriptor, Object[] args, boolean getRealMethod) {
+    public IDroidefenseMethod getVirtualMethod(String name, String descriptor, Object[] args, boolean getRealMethod) {
         return searchMethod(name, descriptor, args, getRealMethod);
     }
 
     @Override
-    public IAtomMethod getVirtualMethod(String name, String descriptor, boolean getRealMethod) {
+    public IDroidefenseMethod getVirtualMethod(String name, String descriptor, boolean getRealMethod) {
         return searchMethod(name, descriptor, null, getRealMethod);
     }
 
     @Override
-    public IAtomMethod[] getVirtualMethods() {
+    public IDroidefenseMethod[] getVirtualMethods() {
         //Collection<TaintedMethod> list = taintedMethods.values();
-        //return list.toArray(new IAtomMethod[list.size()]);
+        //return list.toArray(new IDroidefenseMethod[list.size()]);
         return null;
     }
 
-    public void setVirtualMethods(IAtomMethod[] virtualMethods) {
+    public void setVirtualMethods(IDroidefenseMethod[] virtualMethods) {
         this.virtualMethods = virtualMethods;
     }
 

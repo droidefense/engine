@@ -2,7 +2,7 @@ package droidefense.om.emulator;
 
 import droidefense.om.emulator.base.AbstractAndroidEmulator;
 import droidefense.om.machine.base.struct.fake.EncapsulatedClass;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.reader.DexClassReader;
 
 /**
@@ -30,7 +30,7 @@ public class ReflectionEmulator extends AbstractAndroidEmulator {
     //TODO check this
     @Override
     public void emulate() {
-        IAtomClass resultClass = DexClassReader.getInstance().load(this.classname);
+        IDroidefenseClass resultClass = DexClassReader.getInstance().load(this.classname);
         //TODO check this
         if (resultClass instanceof EncapsulatedClass) {
             EncapsulatedClass taint = (EncapsulatedClass) resultClass;

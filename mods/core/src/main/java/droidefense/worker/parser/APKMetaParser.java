@@ -3,6 +3,7 @@ package droidefense.worker.parser;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
+import droidefense.sdk.model.io.DexHashedFile;
 import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.model.base.DroidefenseProject;
@@ -30,7 +31,7 @@ public class APKMetaParser extends AbstractFileParser {
 
         //get app files
         ArrayList<VirtualFile> files = currentProject.getAppFiles();
-        ArrayList<AbstractHashedFile> dexList = new ArrayList<>();
+        ArrayList<DexHashedFile> dexList = new ArrayList<>();
 
         ArrayList<AbstractHashedFile> assetFiles = new ArrayList<>();
         ArrayList<AbstractHashedFile> libFiles = new ArrayList<>();
@@ -40,15 +41,18 @@ public class APKMetaParser extends AbstractFileParser {
 
         //droidefense.sdk.manifest file
         AbstractHashedFile manifest = null;
+        AbstractHashedFile metamanifest = null;
         AbstractHashedFile certFile = null;
         for (VirtualFile r : files) {
             //count dex files and search manifest file
             if (r.getName().toLowerCase().endsWith(InternalConstant.DEX_EXTENSION)) {
-                dexList.add(new VirtualHashedFile(r, true));
+                dexList.add(new DexHashedFile(r, true));
             } else if (r.getName().toLowerCase().endsWith(InternalConstant.CERTIFICATE_EXTENSION)) {
                 certFile = new VirtualHashedFile(r, true);
             } else if (r.getName().equals(InternalConstant.ANDROID_MANIFEST) && manifest == null) {
                 manifest = new VirtualHashedFile(r, true);
+            } else if (r.getName().equals(InternalConstant.METAINF_MANIFEST) && manifest == null) {
+                metamanifest = new VirtualHashedFile(r, true);
             } else if (r.getPath().contains(File.separator + "assets" + File.separator)) {
                 assetFiles.add(new VirtualHashedFile(r, true));
             } else if (r.getPath().contains(File.separator + "lib" + File.separator)) {
@@ -79,8 +83,10 @@ public class APKMetaParser extends AbstractFileParser {
         //set number of dex files
         this.currentProject.setNumberofDex(dexList.size());
 
-        //set droidefense.sdk.manifest file
+        //set manifest file
         this.currentProject.setManifestFile(manifest);
+
+        this.currentProject.setMetainfManifestFile(metamanifest);
 
         //set certificate file
         this.currentProject.setCertificateFile(certFile);

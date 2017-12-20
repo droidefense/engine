@@ -2,8 +2,8 @@ package droidefense.sdk.helpers;
 
 import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.handler.FileIOHandler;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.reader.DexClassReader;
 import droidefense.om.machine.reader.DexClassReader2;
 import droidefense.rulengine.base.AbstractAtomNode;
@@ -524,6 +524,14 @@ public class DroidDefenseEnvironment implements Serializable {
         return instance;
     }
 
+    private String cleanClassName(String name) {
+        name = name.replace("/", ".");
+        int idx = name.indexOf("$");
+        if (idx != -1)
+            name = name.substring(0, idx);
+        return name;
+    }
+
     public boolean isAndroidNative(String name) {
         if (androidClassList == null)
             return false;
@@ -545,58 +553,12 @@ public class DroidDefenseEnvironment implements Serializable {
         return androidSupportClassList.contains(name);
     }
 
-    public boolean isDeveloperClass(String className) {
+    public boolean isDeveloperClass(IDroidefenseClass clas) {
+        String className = clas.getAndroifiedClassName();
         return !isJavaNative(className) &&
                 !isAndroidNative(className) &&
                 !isAndroidSupportClass(className) &&
-                !isAndroidUIRelatedClass(className) &&
-                !isAndroidv4v7Class(className);
-    }
-
-    public boolean isAndroidv4v7Class(String className) {
-        className = cleanClassName(className);
-        return className.contains("android.support.v4")
-                || className.startsWith("android.support.v7")
-                || className.startsWith("android.support.v13")
-                || className.startsWith("android.support.v14")
-                || className.startsWith("android.support.v17")
-                || className.startsWith("android.support.graphics")
-                || className.startsWith("android.support.design")
-                || className.startsWith("android.support.customtabs")
-                || className.startsWith("android.support.annotation");
-    }
-
-    public boolean isAndroidRclass(String className) {
-        return className.endsWith("R$attr")
-                || className.endsWith("R")
-                || className.endsWith("R$drawable")
-                || className.endsWith("R$dimen")
-                || className.endsWith("R$integer")
-                || className.endsWith("R$mipmap")
-                || className.endsWith("R$styleable")
-                || className.endsWith("R$id")
-                || className.endsWith("R$style")
-                || className.endsWith("R$bool")
-                || className.endsWith("R$color")
-                || className.endsWith("R$anim")
-                || className.endsWith("R$string")
-                || className.endsWith("R$xml")
-                || className.endsWith("R$menu")
-                || className.endsWith("R$layout");
-    }
-
-    public boolean isAndroidUIRelatedClass(String className) {
-        className = cleanClassName(className);
-        return className.equals("android.widget.TextView")
-                || className.equals("android.app.Activity");
-    }
-
-    private String cleanClassName(String name) {
-        name = name.replace("/", ".");
-        int idx = name.indexOf("$");
-        if (idx != -1)
-            name = name.substring(0, idx);
-        return name;
+                clas.isDeveloperClass();
     }
 
     public boolean isBuildConfig(String className) {
@@ -649,13 +611,13 @@ public class DroidDefenseEnvironment implements Serializable {
             return "Developer | InnerClass";
         } else {
 
-            IAtomClass owner = DexClassReader2.getInstance().load(fullClassName);
+            IDroidefenseClass owner = DexClassReader2.getInstance().load(fullClassName);
             String sc;
             sc = owner.getSuperClass();
 
             if (owner.isFake()) {
                 //set the type of holding class
-                IAtomClass cls = DexClassReader2.getInstance().load(owner.getName());
+                IDroidefenseClass cls = DexClassReader2.getInstance().load(owner.getName());
                 return nodeTypeResolver(cls.getSuperClass());
             } else {
                 return nodeTypeResolver(sc);
@@ -663,36 +625,46 @@ public class DroidDefenseEnvironment implements Serializable {
         }
     }
 
-    public String getSimpleNodeType(IAtomMethod method) {
-        IAtomClass owner = method.getOwnerClass();
+    public String getSimpleNodeType(IDroidefenseMethod method) {
+        IDroidefenseClass owner = method.getOwnerClass();
         String sc;
         sc = owner.getSuperClass();
 
         if (owner.isFake()) {
             //set the type of holding class
-            IAtomClass cls = DexClassReader.getInstance().load(owner.getName());
+            IDroidefenseClass cls = DexClassReader.getInstance().load(owner.getName());
             return Util.getClassNameForFullPath(cls.getSuperClass());
         } else {
             return Util.getClassNameForFullPath(sc);
         }
     }
 
-    public IAtomClass getParentClass(IAtomClass target){
+    public IDroidefenseClass getParentClass(IDroidefenseClass target){
 
         if(target.isFake()){
             return target;
         }
 
         String superClassname = null;
-        IAtomClass owner = null;
+        IDroidefenseClass owner = null;
         do{
             superClassname = target.getSuperClass();
             if(superClassname!=null){
                 owner = DexClassReader2.getInstance().load(superClassname);
                 superClassname = owner.getSuperClass();
+                Log.write(LoggerType.TRACE, target.getAndroifiedClassName()+" inherits from "+superClassname);
             }
-        }while (owner!=null && owner.getSuperClass()!=null && !owner.isFake());
+        }while (keepScalatingOnParents(owner));
         return owner;
+    }
+
+    private boolean keepScalatingOnParents(IDroidefenseClass owner) {
+        return owner!=null && owner.getSuperClass()!=null && !owner.isFake() && !owner.getSuperClass().equals(InternalConstant.SUPERCLASS);
+    }
+
+    public IDroidefenseClass getParentClass(String clazz){
+        IDroidefenseClass requestedClass = DexClassReader2.getInstance().load(clazz);
+        return getParentClass(requestedClass);
     }
 
     public static boolean isLoaded() {

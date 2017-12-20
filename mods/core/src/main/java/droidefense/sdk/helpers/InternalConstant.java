@@ -9,6 +9,7 @@ public class InternalConstant implements Serializable {
     public static final String DEX_EXTENSION = ".dex";
     public static final String APK_EXTENSION = ".apk";
     public static final String ANDROID_MANIFEST = "AndroidManifest.xml";
+    public static final String METAINF_MANIFEST = "MANIFEST.MF";
     public static final String NONE = "";
     public static final String ANALYSIS_METADATA_FILE = "analysis.metadata";
     public static final String EMPTY_STRING = "";
@@ -24,6 +25,7 @@ public class InternalConstant implements Serializable {
     public static final String REPO_URL = "https://github.com/droidefense/";
     public static final String ISSUES_URL = "https://github.com/droidefense/engine/issues";
     public static final String CONFIG_FOLDER = "config";
+    public static final double MALWARE_THRESHOLD_VALUE = 0.3;
     public static boolean IS_WINDOWS_HOST = System.getProperty("os.name").toLowerCase().contains("windows");
     public static String JARFILE_EXTENSION = ".jar";
     public static String COMPILED_JAVA_EXTENSION = ".class";

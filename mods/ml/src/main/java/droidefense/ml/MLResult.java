@@ -3,7 +3,7 @@ package droidefense.ml;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MLResult extends ArrayList implements Serializable {
+public class MLResult implements Serializable {
 
     private String name, result;
     private double value;
@@ -36,5 +36,14 @@ public class MLResult extends ArrayList implements Serializable {
 
     public void setValue(double value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "MLResult{" +
+                "name='" + name + '\'' +
+                ", result='" + result + '\'' +
+                ", value=" + value +
+                '}';
     }
 }

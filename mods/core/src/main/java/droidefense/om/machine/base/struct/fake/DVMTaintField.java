@@ -24,12 +24,12 @@
 package droidefense.om.machine.base.struct.fake;
 
 
-import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.model.DVMField;
 
 public final class DVMTaintField extends DVMField {
 
-    public DVMTaintField(String name, IAtomClass taintedClass) {
+    public DVMTaintField(String name, IDroidefenseClass taintedClass) {
         super(taintedClass);
         this.name = name;
     }

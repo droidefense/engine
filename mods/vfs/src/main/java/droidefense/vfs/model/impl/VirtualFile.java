@@ -13,7 +13,7 @@ import java.util.List;
  */
 public final class VirtualFile extends VirtualNode {
 
-    private ArrayList<Byte> content;
+    private transient ArrayList<Byte> content;
     private String charset;
 
     private static byte[] toByteArray(List<Byte> in) {

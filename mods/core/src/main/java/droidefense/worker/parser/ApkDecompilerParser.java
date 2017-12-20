@@ -5,6 +5,7 @@ import droidefense.sdk.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.model.io.DexHashedFile;
 import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.worker.base.AbstractFileParser;
 
@@ -23,7 +24,7 @@ public class ApkDecompilerParser extends AbstractFileParser {
     @Override
     public void parserCode() {
         Log.write(LoggerType.INFO, "\n\nDecompiling sample...\n");
-        ArrayList<AbstractHashedFile> dexFiles = currentProject.getDexList();
+        ArrayList<DexHashedFile> dexFiles = currentProject.getDexList();
         for (AbstractHashedFile dex : dexFiles) {
             Log.write(LoggerType.TRACE, "DECOMPILING... " + dex.getAbsolutePath());
 

@@ -9,9 +9,9 @@ public interface IAtomFrame {
 
     String toString();
 
-    void init(final IAtomMethod method);
+    void init(final IDroidefenseMethod method);
 
-    void init(final IAtomMethod method, final boolean isChangeThreadFrame);
+    void init(final IDroidefenseMethod method, final boolean isChangeThreadFrame);
 
     void setArgument(final int index, final int value);
 
@@ -49,9 +49,9 @@ public interface IAtomFrame {
 
     void setThrowableReturn(Throwable throwableReturn);
 
-    IAtomMethod getMethod();
+    IDroidefenseMethod getMethod();
 
-    void setMethod(IAtomMethod method);
+    void setMethod(IDroidefenseMethod method);
 
     boolean isChangeThreadFrame();
 

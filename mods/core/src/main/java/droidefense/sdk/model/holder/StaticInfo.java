@@ -5,6 +5,7 @@ import droidefense.sdk.model.certificate.CertificateModel;
 import droidefense.sdk.model.dex.DexBodyModel;
 import droidefense.sdk.model.enums.SDK_VERSION;
 import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.model.io.DexHashedFile;
 import droidefense.sdk.model.io.LocalHashedFile;
 import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.manifest.Manifest;
@@ -82,6 +83,16 @@ public class StaticInfo implements Serializable {
     private int certNumber;
 
     /**
+     * name/version of the tool used to build manifest.mf file
+     */
+    private String metaManifestCreator;
+
+    /**
+     * version of the manifest.mf file
+     */
+    private String metaManifestVersion;
+
+    /**
      * apk certificates info
      */
     private ArrayList<CertificateModel> certificates;
@@ -90,6 +101,11 @@ public class StaticInfo implements Serializable {
      * Parsed droidefense.sdk.manifest info
      */
     private Manifest manifestInfo;
+
+    /**
+     * Readed metainf-manifest file
+     */
+    private AbstractHashedFile metainfManifestFile;
 
     /**
      * flag that indicates if droidefense.sdk.manifest classnames has package name with them
@@ -124,7 +140,7 @@ public class StaticInfo implements Serializable {
     /**
      * list of .dex files detected
      */
-    private transient Map<String, AbstractHashedFile> dexList;
+    private transient Map<String, DexHashedFile> dexList;
 
     /**
      * SDK compatibility window
@@ -295,12 +311,12 @@ public class StaticInfo implements Serializable {
 
     //useful methods
 
-    public byte[] getDexData(AbstractHashedFile file) throws IOException {
+    public byte[] getDexData(DexHashedFile file) throws IOException {
         AbstractHashedFile recovered = this.dexList.get(file.getName());
         return recovered.getContent();
     }
 
-    public void addDexData(String name, AbstractHashedFile file) {
+    public void addDexData(String name, DexHashedFile file) {
         this.dexList.put(name, file);
     }
 
@@ -342,13 +358,13 @@ public class StaticInfo implements Serializable {
         this.compatibilityWindow.setMaximum(sdkVersion);
     }
 
-    public ArrayList<AbstractHashedFile> getDexList() {
+    public ArrayList<DexHashedFile> getDexList() {
         return new ArrayList<>(dexList.values());
     }
 
-    public void setDexList(ArrayList<AbstractHashedFile> dexList) {
+    public void setDexList(ArrayList<DexHashedFile> dexList) {
         this.dexList.clear();
-        for (AbstractHashedFile ahf : dexList) {
+        for (DexHashedFile ahf : dexList) {
             this.dexList.put(ahf.getName(), ahf);
         }
     }
@@ -379,5 +395,29 @@ public class StaticInfo implements Serializable {
 
     public ArrayList<VirtualFile> getNinePatchImageFiles() {
         return ninePatchImageFiles;
+    }
+
+    public void setMetainfManifestFile(AbstractHashedFile metainfManifestFile) {
+        this.metainfManifestFile = metainfManifestFile;
+    }
+
+    public AbstractHashedFile getMetainfManifestFile() {
+        return metainfManifestFile;
+    }
+
+    public void setMetaManifestCreator(String metaManifestCreator) {
+        this.metaManifestCreator = metaManifestCreator;
+    }
+
+    public String getMetaManifestCreator() {
+        return metaManifestCreator;
+    }
+
+    public void setMetaManifestVersion(String metaManifestVersion) {
+        this.metaManifestVersion = metaManifestVersion;
+    }
+
+    public String getMetaManifestVersion() {
+        return metaManifestVersion;
     }
 }

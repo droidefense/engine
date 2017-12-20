@@ -3,7 +3,7 @@ package droidefense.om.machine.base.struct.generic;
 /**
  * Created by sergio on 25/3/16.
  */
-public interface IAtomMethod {
+public interface IDroidefenseMethod {
 
     //TO STRING
 
@@ -11,9 +11,9 @@ public interface IAtomMethod {
 
     //GETTERS AND SETTERS
 
-    IAtomClass getOwnerClass();
+    IDroidefenseClass getOwnerClass();
 
-    void setOwnerClass(IAtomClass cls);
+    void setOwnerClass(IDroidefenseClass cls);
 
     int getFlag();
 
@@ -139,5 +139,5 @@ public interface IAtomMethod {
 
     boolean isFake();
 
-    IAtomClass getTopClass();
+    IDroidefenseClass getTopClass();
 }

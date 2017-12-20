@@ -13,10 +13,10 @@ public abstract class VirtualNode implements IVirtualNode {
     private static final String NO_PATH = "";
     private static final String FILE_SEPARATOR = "/";
 
-    protected final IVirtualNode parentNode;
+    protected transient final IVirtualNode parentNode;
     protected final String name;
-    protected int virtualFoldersInside;
-    protected int virtualFilesInside;
+    private int virtualFoldersInside;
+    private int virtualFilesInside;
     private String precalculatedPath;
 
     public VirtualNode(VirtualNode parentNode, String name) {

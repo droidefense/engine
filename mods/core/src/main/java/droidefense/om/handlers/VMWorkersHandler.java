@@ -33,7 +33,8 @@ public class VMWorkersHandler extends AbstractHandler {
         if (successReading) {
             try {
                 ArrayList<AbstractDVMThread> worklist = new ArrayList<>();
-                //add workes to run
+                //add worker to run on dynamic analysis phase
+
                 //opcode analysis
                 worklist.add(new OpCodeCheckerWorker(currentProject));
 
@@ -54,7 +55,7 @@ public class VMWorkersHandler extends AbstractHandler {
 
                 //TODO replace all flow workers by MULTIFLOW + REFLECTION type worker
 
-                //run all controlflow
+                //run all selected workers
                 for (AbstractDVMThread worker : worklist) {
                     vm.setWorker(worker);
                     vm.run();

@@ -1,10 +1,10 @@
 package droidefense.om.flow.stable;
 
 import droidefense.om.machine.base.AbstractDVMThread;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.base.struct.model.AndroidRField;
 import droidefense.sdk.helpers.Util;
 import droidefense.sdk.log4j.Log;
@@ -538,29 +538,29 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
     }
 
     @Override
-    public int getInitialArgumentCount(IAtomClass cls, IAtomMethod m) {
+    public int getInitialArgumentCount(IDroidefenseClass cls, IDroidefenseMethod m) {
         return 0; //do not use arguments
     }
 
     @Override
-    public Object getInitialArguments(IAtomClass cls, IAtomMethod m) {
+    public Object getInitialArguments(IDroidefenseClass cls, IDroidefenseMethod m) {
         return null; //do not use arguments
     }
 
     @Override
-    public IAtomClass[] getInitialDVMClass() {
+    public IDroidefenseClass[] getInitialDVMClass() {
         //only return developer class and skip known java jdk and android sdk classes
 
-        IAtomClass[] alllist = currentProject.getInternalInfo().getAllClasses();
-        ArrayList<IAtomClass> developerClasses = new ArrayList<>();
-        for (IAtomClass cls : alllist) {
-            if ( environment.isAndroidRclass(cls.getName()) )
+        IDroidefenseClass[] alllist = currentProject.getInternalInfo().getAllClasses();
+        ArrayList<IDroidefenseClass> developerClasses = new ArrayList<>();
+        for (IDroidefenseClass cls : alllist) {
+            if ( cls.isAndroidRclass() )
                 developerClasses.add(cls);
         }
-        IAtomClass[] list = developerClasses.toArray(new IAtomClass[developerClasses.size()]);
+        IDroidefenseClass[] list = developerClasses.toArray(new IDroidefenseClass[developerClasses.size()]);
         Log.write(LoggerType.TRACE, "Estimated node count: ");
         int nodes = 0;
-        for (IAtomClass cls : list) {
+        for (IDroidefenseClass cls : list) {
             nodes += cls.getAllMethods().length;
         }
         Log.write(LoggerType.TRACE, nodes + " R nodes");
@@ -568,7 +568,7 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
     }
 
     @Override
-    public IAtomMethod[] getInitialMethodToRun(IAtomClass dexClass) {
+    public IDroidefenseMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
         return dexClass.getAllMethods();
     }
 
@@ -577,8 +577,8 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
 
         Log.write(LoggerType.DEBUG, "Reading Android R references...");
         IAtomFrame frame = getCurrentFrame();
-        IAtomMethod method = frame.getMethod();
-        IAtomClass methodOwnerClass = method.getOwnerClass();
+        IDroidefenseMethod method = frame.getMethod();
+        IDroidefenseClass methodOwnerClass = method.getOwnerClass();
 
         Log.write(LoggerType.DEBUG, "Class name detected as: "+methodOwnerClass.getName());
         decodeFieldMap(methodOwnerClass.getStaticFieldMap());
@@ -603,8 +603,8 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
     }
 
     @Override
-    public AbstractDVMThread reset() {
-        //reset 'thread' status
+    public AbstractDVMThread cleanThreadContext() {
+        //cleanThreadContext 'thread' status
         this.setStatus(STATUS_NOT_STARTED);
         this.removeFrames();
         this.timestamp = new ExecutionTimer();

@@ -5,7 +5,6 @@ import droidefense.handler.base.AbstractHandler;
 import droidefense.ml.MLResultHolder;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
-import droidefense.ml.MLResult;
 import droidefense.ml.WekaClassifier;
 import droidefense.sdk.helpers.InternalConstant;
 import weka.classifiers.Classifier;
@@ -179,9 +178,9 @@ public class InMemoryWekaResultsHandler extends AbstractHandler {
         result.setPositives(positive);
         result.setTotal(total);
         if (total != 0) {
-            result.setRatio(positive / (double) total);
+            result.setMalwareRatio(positive / (double) total);
         } else {
-            result.setRatio(0);
+            result.setMalwareRatio(0);
         }
         project.setMachineLearningResult(result);
         Log.write(LoggerType.TRACE, "WEKA classification done!");

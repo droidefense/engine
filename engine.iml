@@ -11,20 +11,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="axml" />
-    <orderEntry type="module" module-name="batch" />
-    <orderEntry type="module" module-name="cli" />
-    <orderEntry type="module" module-name="datamanager" />
-    <orderEntry type="module" module-name="entropy" />
-    <orderEntry type="module" module-name="manparser" />
-    <orderEntry type="module" module-name="ml" />
-    <orderEntry type="module" module-name="portex" />
-    <orderEntry type="module" module-name="pscout" />
-    <orderEntry type="module" module-name="reporting" />
-    <orderEntry type="module" module-name="sdk" />
-    <orderEntry type="module" module-name="simplemagic" />
-    <orderEntry type="module" module-name="ssdeep" />
-    <orderEntry type="module" module-name="vfs" />
     <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.4" level="project" />
     <orderEntry type="module" module-name="cli" />
     <orderEntry type="module" module-name="core" />

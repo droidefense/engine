@@ -1,5 +1,7 @@
 package droidefense.om.flow.experimental;
 
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.nodes.ConditionalNode;
 import droidefense.rulengine.nodes.EntryPointNode;
@@ -8,9 +10,7 @@ import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.exceptions.NoMainClassFoundException;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
 import droidefense.om.machine.reader.DexClassReader;
@@ -54,46 +54,46 @@ public final strictfp class MultiFlowWorker extends AbstractFlowWorker {
     }
 
     @Override
-    public IAtomMethod[] getInitialMethodToRun(IAtomClass clazz) {
-        ArrayList<IAtomMethod> list = new ArrayList<>();
-        /*IAtomMethod[] l0 = clazz.getMethod("<init>");
-        for (IAtomMethod m : l0) {
+    public IDroidefenseMethod[] getInitialMethodToRun(IDroidefenseClass clazz) {
+        ArrayList<IDroidefenseMethod> list = new ArrayList<>();
+        /*IDroidefenseMethod[] l0 = clazz.getMethod("<init>");
+        for (IDroidefenseMethod m : l0) {
             list.add(m);
         }*/
         list.add(clazz.getMethod("onCreate", "(Landroid/os/Bundle;)V", true));
-        return list.toArray(new IAtomMethod[list.size()]);
+        return list.toArray(new IDroidefenseMethod[list.size()]);
     }
 
     @Override
-    public int getInitialArgumentCount(IAtomClass cls, IAtomMethod m) {
+    public int getInitialArgumentCount(IDroidefenseClass cls, IDroidefenseMethod m) {
         return 0;
     }
 
     @Override
-    public Object getInitialArguments(IAtomClass cls, IAtomMethod m) {
+    public Object getInitialArguments(IDroidefenseClass cls, IDroidefenseMethod m) {
         return null;
     }
 
     @Override
-    public IAtomClass[] getInitialDVMClass() {
+    public IDroidefenseClass[] getInitialDVMClass() {
         //get all
         if (currentProject.hasMainClass())
-            return new IAtomClass[]{currentProject.getInternalInfo().getDexClass(currentProject.getMainClassName())};
+            return new IDroidefenseClass[]{currentProject.getInternalInfo().getDexClass(currentProject.getMainClassName())};
         else {
             //else, return all reveivers, services,...
-            IAtomClass[] alllist = currentProject.getInternalInfo().getAllClasses();
-            ArrayList<IAtomClass> developerClasses = new ArrayList<>();
-            for (IAtomClass cls : alllist) {
-                if (environment.isDeveloperClass(cls.getName()))
+            IDroidefenseClass[] alllist = currentProject.getInternalInfo().getAllClasses();
+            ArrayList<IDroidefenseClass> developerClasses = new ArrayList<>();
+            for (IDroidefenseClass cls : alllist) {
+                if (environment.isDeveloperClass(cls))
                     developerClasses.add(cls);
             }
-            return developerClasses.toArray(new IAtomClass[developerClasses.size()]);
+            return developerClasses.toArray(new IDroidefenseClass[developerClasses.size()]);
         }
     }
 
     @Override
-    public AbstractDVMThread reset() {
-        //reset 'thread' status
+    public AbstractDVMThread cleanThreadContext() {
+        //cleanThreadContext 'thread' status
         this.setStatus(STATUS_NOT_STARTED);
         this.removeFrames();
         this.timestamp = new ExecutionTimer();
@@ -104,7 +104,7 @@ public final strictfp class MultiFlowWorker extends AbstractFlowWorker {
     public strictfp void execute(boolean endless) throws Throwable {
 
         IAtomFrame frame = getCurrentFrame();
-        IAtomMethod method = frame.getMethod();
+        IDroidefenseMethod method = frame.getMethod();
 
         int[] lowerCodes = method.getOpcodes();
         int[] upperCodes = method.getRegistercodes();

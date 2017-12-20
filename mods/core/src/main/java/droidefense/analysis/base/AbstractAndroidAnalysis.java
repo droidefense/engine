@@ -22,7 +22,6 @@ public abstract class AbstractAndroidAnalysis implements Serializable {
 
     protected transient LocalApkFile apkFile;
     protected transient DroidefenseProject currentProject;
-    //for error handing
     protected transient ArrayList<Exception> errorList;
     protected String name;
 

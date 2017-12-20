@@ -1,10 +1,10 @@
 package droidefense.om.machine.inst;
 
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.rulengine.base.AbstractAtomNode;
 import droidefense.om.machine.base.exceptions.VirtualMachineRuntimeException;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
 
 import java.io.Serializable;
 
@@ -15,12 +15,12 @@ public final class InstructionReturn implements Serializable {
 
     private IAtomFrame frame;
     private IAtomField field;
-    private IAtomMethod method;
+    private IDroidefenseMethod method;
     private int[] lowerCodes, upperCodes, codes;
     private Throwable error;
     private AbstractAtomNode node;
 
-    public InstructionReturn(IAtomFrame frame, IAtomMethod method, int[] opcodes, int[] upperCodes, int[] mIdx, Throwable error) {
+    public InstructionReturn(IAtomFrame frame, IDroidefenseMethod method, int[] opcodes, int[] upperCodes, int[] mIdx, Throwable error) {
         this.frame = frame;
         this.method = method;
         this.lowerCodes = opcodes;
@@ -29,7 +29,7 @@ public final class InstructionReturn implements Serializable {
         this.error = error;
     }
 
-    public InstructionReturn(IAtomFrame frame, IAtomMethod method, int[] lowerCodes, int[] upperCodes, int[] codes, Throwable error, AbstractAtomNode node) {
+    public InstructionReturn(IAtomFrame frame, IDroidefenseMethod method, int[] lowerCodes, int[] upperCodes, int[] codes, Throwable error, AbstractAtomNode node) {
         this(frame, method, lowerCodes, upperCodes, codes, error);
         this.node = node;
     }
@@ -51,11 +51,11 @@ public final class InstructionReturn implements Serializable {
         this.frame = frame;
     }
 
-    public IAtomMethod getMethod() {
+    public IDroidefenseMethod getMethod() {
         return method;
     }
 
-    public void setMethod(IAtomMethod method) {
+    public void setMethod(IDroidefenseMethod method) {
         this.method = method;
     }
 

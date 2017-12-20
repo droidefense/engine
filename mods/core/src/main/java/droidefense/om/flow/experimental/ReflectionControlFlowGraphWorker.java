@@ -2,6 +2,8 @@ package droidefense.om.flow.experimental;
 
 import droidefense.entropy.EntropyCalculator;
 import droidefense.handler.FileIOHandler;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.flow.base.AbstractFlowWorker;
@@ -9,9 +11,7 @@ import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.struct.fake.DVMTaintMethod;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
 import droidefense.om.machine.reader.DexClassReader;
@@ -33,7 +33,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
     private int[] upperCodes;
     private int[] codes;
     private String lastStringReaded, lastReflectedMethodName;
-    private IAtomClass lastReflectedClass;
+    private IDroidefenseClass lastReflectedClass;
     private boolean reflected;
 
     public ReflectionControlFlowGraphWorker(DroidefenseProject project) {
@@ -83,37 +83,37 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
     }
 
     @Override
-    public int getInitialArgumentCount(IAtomClass cls, IAtomMethod m) {
+    public int getInitialArgumentCount(IDroidefenseClass cls, IDroidefenseMethod m) {
         return 0;
     }
 
     @Override
-    public Object getInitialArguments(IAtomClass cls, IAtomMethod m) {
+    public Object getInitialArguments(IDroidefenseClass cls, IDroidefenseMethod m) {
         return null;
     }
 
     @Override
-    public IAtomClass[] getInitialDVMClass() {
+    public IDroidefenseClass[] getInitialDVMClass() {
         //only return developer class and skip known java jdk and android sdk classes
-        IAtomClass[] alllist = currentProject.getInternalInfo().getAllClasses();
-        ArrayList<IAtomClass> developerClasses = new ArrayList<>();
-        for (IAtomClass cls : alllist) {
-            if (environment.isDeveloperClass(cls.getName())
-                    && !environment.isAndroidRclass(cls.getName())
+        IDroidefenseClass[] alllist = currentProject.getInternalInfo().getAllClasses();
+        ArrayList<IDroidefenseClass> developerClasses = new ArrayList<>();
+        for (IDroidefenseClass cls : alllist) {
+            if (environment.isDeveloperClass(cls)
+                    && !cls.isAndroidRclass()
                     )
                 developerClasses.add(cls);
         }
-        return developerClasses.toArray(new IAtomClass[developerClasses.size()]);
+        return developerClasses.toArray(new IDroidefenseClass[developerClasses.size()]);
     }
 
     @Override
-    public IAtomMethod[] getInitialMethodToRun(IAtomClass dexClass) {
+    public IDroidefenseMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
         return dexClass.getAllMethods();
     }
 
     @Override
-    public AbstractDVMThread reset() {
-        //reset 'thread' status
+    public AbstractDVMThread cleanThreadContext() {
+        //cleanThreadContext 'thread' status
         this.setStatus(STATUS_NOT_STARTED);
         this.removeFrames();
         this.timestamp = new ExecutionTimer();
@@ -124,7 +124,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
     public strictfp void execute(boolean keepScanning) throws Throwable {
 
         IAtomFrame frame = getCurrentFrame();
-        IAtomMethod method = frame.getMethod();
+        IDroidefenseMethod method = frame.getMethod();
 
         lowerCodes = method.getOpcodes();
         upperCodes = method.getRegistercodes();
@@ -264,7 +264,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
                 if (!reflected) {
                     //create invokated method as node
 
-                    IAtomMethod fakeMethod = fakeCallReturn.getMethod();
+                    IDroidefenseMethod fakeMethod = fakeCallReturn.getMethod();
 
                     toNode = buildMethodNode(currentInstruction, frame, fakeMethod);
 
@@ -368,7 +368,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
                 //normal method execution
                 //if no errors, update values
                 IAtomFrame frame = returnValue.getFrame();
-                IAtomMethod method = returnValue.getMethod();
+                IDroidefenseMethod method = returnValue.getMethod();
                 /*upperCodes = returnValue.getRegistercodes();
                 lowerCodes = returnValue.getOpcodes();
                 codes = returnValue.getIndex();
@@ -393,7 +393,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
         }
     }
 
-    private InstructionReturn fakeMethodCall(IAtomMethod method, int upperCode, int code) {
+    private InstructionReturn fakeMethodCall(IDroidefenseMethod method, int upperCode, int code) {
         int registers = upperCode << 16;
         int methodIndex = code;
         registers |= code;
@@ -411,7 +411,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
             methodDescriptor = method.getMethodTypes()[methodIndex];
         }
 
-        IAtomClass cls = DexClassReader.getInstance().load(clazzName);
+        IDroidefenseClass cls = DexClassReader.getInstance().load(clazzName);
         reflected = false;
         if (cls != null) {
             //bypass reflection
@@ -421,7 +421,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
                     //developer using reflection
                     if (lastStringReaded == null)
                         lastStringReaded = "Unknown-to-determine-class";
-                    IAtomClass reflectedClass = DexClassReader.getInstance().load(lastStringReaded);
+                    IDroidefenseClass reflectedClass = DexClassReader.getInstance().load(lastStringReaded);
                     cls = reflectedClass;
                     lastReflectedClass = cls;
                     return getInstructionReturn(clazzName, lastStringReaded, methodDescriptor, lastReflectedClass);
@@ -441,8 +441,8 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
         return getInstructionReturn(clazzName, methodName, methodDescriptor, cls);
     }
 
-    private InstructionReturn getInstructionReturn(String clazzName, String methodName, String methodDescriptor, IAtomClass cls) {
-        IAtomMethod methodToCall = cls.getMethod(methodName, methodDescriptor, false);
+    private InstructionReturn getInstructionReturn(String clazzName, String methodName, String methodDescriptor, IDroidefenseClass cls) {
+        IDroidefenseMethod methodToCall = cls.getMethod(methodName, methodDescriptor, false);
         //if class is an interface, It will not have the method to be called
         if (methodToCall == null) {
             methodToCall = new DVMTaintMethod(methodName, clazzName);

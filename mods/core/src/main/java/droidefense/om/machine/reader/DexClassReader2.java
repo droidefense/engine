@@ -1,5 +1,7 @@
 package droidefense.om.machine.reader;
 
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.machine.base.AbstractDVMThread;
@@ -11,10 +13,8 @@ import droidefense.om.machine.base.exceptions.NotSupportedValueTypeException;
 import droidefense.om.machine.base.struct.fake.DVMTaintClass;
 import droidefense.om.machine.base.struct.fake.DVMTaintField;
 import droidefense.om.machine.base.struct.fake.EncapsulatedClass;
-import droidefense.om.machine.base.struct.generic.IAtomClass;
 import droidefense.om.machine.base.struct.generic.IAtomField;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
 import droidefense.om.machine.base.struct.model.DVMClass;
 import droidefense.om.machine.base.struct.model.DVMField;
 import droidefense.om.machine.base.struct.model.DVMMethod;
@@ -76,8 +76,12 @@ public final class DexClassReader2 implements Serializable {
         return value == -1;
     }
 
-    public IAtomClass load(String name) {
-        IAtomClass cls;
+    public IDroidefenseClass load(IDroidefenseClass cls) {
+        return this.load(cls.getName());
+    }
+
+    public IDroidefenseClass load(String name) {
+        IDroidefenseClass cls;
         name = name.replace(".", "/");
         if (pool.getClasses().containsKey(name)) {
             //class exist on dex file
@@ -86,34 +90,54 @@ public final class DexClassReader2 implements Serializable {
             cls = findClass(name);
             pool.addClass(name, cls);
         }
-        if (!cls.isBinded() && !cls.isFake()) {
-            cls.setBinded(true);
-            IAtomMethod clinit = cls.getDirectMethod("<init>", "()V", true);
-            if (clinit != null && !clinit.isFake()) {
-                //TOdo changed this. may explode
-                AbstractDVMThread firstThread = getVm().getThread(0);
-                if (firstThread != null) {
-                    IAtomFrame frame = firstThread.pushFrame();
-                    frame.init(clinit);
-                }
-                /*try {
-                    loadThread.run();
-                } catch (ChangeThreadException e) {
-                    // TODO Implement here by checking the behavior of the class loading in The Java Virtual Machine Specification
-                } catch (Throwable e) {
-                    com.error(e);
-                }*/
+        if ( !cls.isBinded() ){
+            if( !cls.isFake() ){
+                initializeLoadedClass(cls);
+            } else{
+                //class is fake, so no need to initialize varaibles and static attibutes
+                Log.write(LoggerType.DEBUG, "Fake class no need to be binded");
             }
+        } else {
+            //class already binded, which means it is already initialized
+            Log.write(LoggerType.DEBUG, "Class already binded. No need to rebind");
         }
         return cls;
     }
 
-    private IAtomClass findClass(final String name) {
+    private void initializeLoadedClass(IDroidefenseClass cls) {
+        IDroidefenseMethod initMethod = cls.findClassInitMethod();
+        if (initMethod != null) {
+            if(!initMethod.isFake()) {
+                //TOdo changed this. may explode
+                AbstractDVMThread firstThread = getVm().getThread(0);
+                if (firstThread != null) {
+                    IAtomFrame frame = firstThread.pushFrame();
+                    frame.init(initMethod);
+                    cls.setBinded(true);
+                }
+            }
+        /*try {
+            loadThread.run();
+        } catch (ChangeThreadException e) {
+            // TODO Implement here by checking the behavior of the class loading in The Java Virtual Machine Specification
+        } catch (Throwable e) {
+            com.error(e);
+        }*/
+        }
+        else{
+            //no init method found.possibly because init is inherited from parent class.
+            //we temporaly mark it as successfully binded, but it is not
+            cls.setBinded(true);
+            //TODO go to parent class, search for init method and execute it
+        }
+    }
+
+    private IDroidefenseClass findClass(final String name) {
         //class does not exists on .dex file.
         //check if class belongs to java sdk or to android sdk.
         //anyway, if does not exist, send a fake class
 
-        IAtomClass javaClass = null;
+        IDroidefenseClass javaClass = null;
         String cname = name.replace(".", "/");
 
         //1 try to load cls from java jdk via reflection
@@ -123,8 +147,8 @@ public final class DexClassReader2 implements Serializable {
             //TODO Object[] lastCallArgs = loadThread.getLastMethodArgs();
             Object[] lastCallArgs = null;
             Class<?>[] classes;
-            if (lastCallArgs == null && name.equals("java/lang/Object")) {
-                //Special case. this class ahs no super
+            if (lastCallArgs == null && name.equals(InternalConstant.SUPERCLASS)) {
+                //Special case. this class has no super
                 Object newInstance = s.newInstance();
                 EncapsulatedClass newClass = buildFakeClss(name, newInstance);
                 newClass.setClass(s);
@@ -133,6 +157,7 @@ public final class DexClassReader2 implements Serializable {
                 currentProject.addDexClass(name, newClass);
                 return newClass;
             } else if (lastCallArgs == null && name.startsWith("java/lang/")) {
+                //this class belongs to java/lang core
                 Object newInstance = s.newInstance();
                 EncapsulatedClass newClass = buildFakeClss(name, newInstance);
                 newClass.setClass(s);
@@ -159,7 +184,7 @@ public final class DexClassReader2 implements Serializable {
                 Constructor<?> constructor = s.getConstructor(classes);
                 if (constructor != null) {
                     Object newInstance = constructor.newInstance(lastCallArgs);
-                    IAtomClass newClass = buildFakeClss(name, newInstance);
+                    IDroidefenseClass newClass = buildFakeClss(name, newInstance);
                     currentProject.addDexClass(name, newClass);
                     return newClass;
                 }
@@ -231,7 +256,7 @@ public final class DexClassReader2 implements Serializable {
         if (offset != 0) {
             pushOffset(offset);
             for (int i = 0; i < count; i++) {
-                IAtomClass cls = new DVMClass();
+                IDroidefenseClass cls = new DVMClass();
 
                 String clsName = DynamicUtils.fromTypeToClassName(types[readUInt()]);
                 pool.addClassName(clsName);
@@ -320,7 +345,7 @@ public final class DexClassReader2 implements Serializable {
         return readSigned(typeArgument + 1);
     }
 
-    private void readMethodContents(final IAtomClass cls, final IAtomMethod[] methods) {
+    private void readMethodContents(final IDroidefenseClass cls, final IDroidefenseMethod[] methods) {
 
         pool.setStrings(strings);
         pool.setTypes(types);
@@ -339,7 +364,7 @@ public final class DexClassReader2 implements Serializable {
             } else {
                 methodIndex += readULEB128();
             }
-            IAtomMethod method = new DVMMethod(cls);
+            IDroidefenseMethod method = new DVMMethod(cls);
 
             method.setFlag(readULEB128());
             method.setInstance(((byte) method.getFlag() & AccessFlag.ACC_STATIC.getValue()) == 0);
@@ -433,7 +458,7 @@ public final class DexClassReader2 implements Serializable {
         }
     }
 
-    private void readFields(final IAtomClass cls, final IAtomField[] fields, final boolean isInstance) {
+    private void readFields(final IDroidefenseClass cls, final IAtomField[] fields, final boolean isInstance) {
         int fieldIndex = 0;
         for (int i = 0, length = fields.length; i < length; i++) {
             if (i == 0) {
@@ -684,7 +709,7 @@ public final class DexClassReader2 implements Serializable {
         return vm;
     }
 
-    public Hashtable<String, IAtomClass> getClasses() {
+    public Hashtable<String, IDroidefenseClass> getClasses() {
         return pool.getClasses();
     }
 
@@ -788,8 +813,8 @@ public final class DexClassReader2 implements Serializable {
         this.methodTypes = methodTypes;
     }
 
-    public IAtomClass[] getAllClasses() {
-        Collection<IAtomClass> data = pool.getClasses().values();
-        return data.toArray(new IAtomClass[data.size()]);
+    public IDroidefenseClass[] getAllClasses() {
+        Collection<IDroidefenseClass> data = pool.getClasses().values();
+        return data.toArray(new IDroidefenseClass[data.size()]);
     }
 }

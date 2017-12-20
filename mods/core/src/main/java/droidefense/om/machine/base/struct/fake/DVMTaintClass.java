@@ -26,7 +26,7 @@ package droidefense.om.machine.base.struct.fake;
 
 import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.struct.generic.IAtomField;
-import droidefense.om.machine.base.struct.generic.IAtomMethod;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.base.struct.model.DVMClass;
 import droidefense.sdk.helpers.InternalConstant;
 
@@ -38,7 +38,7 @@ public final class DVMTaintClass extends DVMClass {
 
     protected HashMap<String, IAtomField> taintFields;
 
-    protected HashMap<String, IAtomMethod> taintMethods;
+    protected HashMap<String, IDroidefenseMethod> taintMethods;
 
     public DVMTaintClass(String name) {
         super();
@@ -56,11 +56,11 @@ public final class DVMTaintClass extends DVMClass {
         this.taintFields = taintFields;
     }
 
-    public HashMap<String, IAtomMethod> getTaintMethods() {
+    public HashMap<String, IDroidefenseMethod> getTaintMethods() {
         return taintMethods;
     }
 
-    public void setTaintMethods(HashMap<String, IAtomMethod> methods) {
+    public void setTaintMethods(HashMap<String, IDroidefenseMethod> methods) {
         this.taintMethods = methods;
     }
 
@@ -74,8 +74,8 @@ public final class DVMTaintClass extends DVMClass {
         return field;
     }
 
-    public IAtomMethod searchMethod(String name, String desc, Object[] lastMethodArgs) {
-        IAtomMethod method = taintMethods.get(name + desc);
+    public IDroidefenseMethod searchMethod(String name, String desc, Object[] lastMethodArgs) {
+        IDroidefenseMethod method = taintMethods.get(name + desc);
         if (method == null) {
             method = new DVMTaintMethod(name, this.getName());
             method.setDescriptor(desc);
@@ -86,8 +86,8 @@ public final class DVMTaintClass extends DVMClass {
     }
 
     @Override
-    public IAtomMethod getMethod(String name, String desc, boolean fake) {
-        IAtomMethod method = taintMethods.get(name + desc);
+    public IDroidefenseMethod getMethod(String name, String desc, boolean fake) {
+        IDroidefenseMethod method = taintMethods.get(name + desc);
         if (method == null) {
             method = new DVMTaintMethod(name, this.getName());
             method.setDescriptor(desc);
@@ -97,28 +97,28 @@ public final class DVMTaintClass extends DVMClass {
         return method;
     }
 
-    public IAtomMethod getDirectMethod(String methodName, String methodDescriptor, Object[] lastMethodArgs) {
+    public IDroidefenseMethod getDirectMethod(String methodName, String methodDescriptor, Object[] lastMethodArgs) {
         return searchMethod(methodName, methodDescriptor, lastMethodArgs);
     }
 
     @Override
-    public IAtomMethod getDirectMethod(String name, String descriptor, boolean getRealMethod) {
+    public IDroidefenseMethod getDirectMethod(String name, String descriptor, boolean getRealMethod) {
         return searchMethod(name, descriptor, null);
     }
 
     @Override
-    public IAtomMethod[] getDirectMethods() {
-        return new IAtomMethod[0];
+    public IDroidefenseMethod[] getDirectMethods() {
+        return new IDroidefenseMethod[0];
     }
 
-    public IAtomMethod getVirtualMethod(String name, String descriptor, Object[] args) {
+    public IDroidefenseMethod getVirtualMethod(String name, String descriptor, Object[] args) {
         return searchMethod(name, descriptor, null);
     }
 
     @Override
-    public IAtomMethod[] getVirtualMethods() {
-        Collection<IAtomMethod> list = taintMethods.values();
-        return list.toArray(new IAtomMethod[list.size()]);
+    public IDroidefenseMethod[] getVirtualMethods() {
+        Collection<IDroidefenseMethod> list = taintMethods.values();
+        return list.toArray(new IDroidefenseMethod[list.size()]);
     }
 
     @Override
@@ -149,13 +149,13 @@ public final class DVMTaintClass extends DVMClass {
     }
 
     @Override
-    public IAtomMethod[] getAllMethods() {
+    public IDroidefenseMethod[] getAllMethods() {
         //tainted class must not be analyzed because they are part of sdk
-        return new IAtomMethod[0];
+        return new IDroidefenseMethod[0];
     }
 
     @Override
-    public void addMethod(IAtomMethod method) {
+    public void addMethod(IDroidefenseMethod method) {
         this.taintMethods.put(method.getName(), method);
     }
 }

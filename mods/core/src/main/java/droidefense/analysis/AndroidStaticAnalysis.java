@@ -85,7 +85,7 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
                 this.errorList.add(e);
             }
         } else {
-            Log.write(LoggerType.INFO, "[OK] Skipping resource analysis");
+            Log.write(LoggerType.INFO, "[OK] Skipping resource analysis cause no resource files found inside assets folder");
         }
 
         this.currentProject.setStaticAnalysisDone(true);
