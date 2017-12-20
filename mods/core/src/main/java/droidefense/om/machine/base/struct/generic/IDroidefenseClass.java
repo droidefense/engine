@@ -1,5 +1,7 @@
 package droidefense.om.machine.base.struct.generic;
 
+import droidefense.om.machine.reader.DexClassReader2;
+
 import java.util.Hashtable;
 
 /**
@@ -9,9 +11,9 @@ public abstract class IDroidefenseClass {
 
     public abstract String toString();
 
-    public abstract IAtomMethod getVirtualMethod(final String name, final String descriptor, boolean getRealMethod);
+    public abstract IDroidefenseMethod getVirtualMethod(final String name, final String descriptor, boolean getRealMethod);
 
-    public abstract IAtomMethod getDirectMethod(final String name, final String descriptor, boolean getRealMethod);
+    public abstract IDroidefenseMethod getDirectMethod(final String name, final String descriptor, boolean getRealMethod);
 
     public abstract  IAtomField getStaticField(final String name);
 
@@ -49,29 +51,29 @@ public abstract class IDroidefenseClass {
 
     public abstract void setStaticFieldMap(Hashtable staticFieldMap);
 
-    public abstract IAtomMethod[] getDirectMethods();
+    public abstract IDroidefenseMethod[] getDirectMethods();
 
-    public abstract void setDirectMethods(IAtomMethod[] directMethods);
+    public abstract void setDirectMethods(IDroidefenseMethod[] directMethods);
 
-    public abstract IAtomMethod[] getVirtualMethods();
+    public abstract IDroidefenseMethod[] getVirtualMethods();
 
-    public abstract void setVirtualMethods(IAtomMethod[] virtualMethods);
+    public abstract void setVirtualMethods(IDroidefenseMethod[] virtualMethods);
 
     public abstract boolean isBinded();
 
     public abstract void setBinded(boolean binded);
 
-    public abstract IAtomMethod getMethod(String name, String descriptor, boolean getRealMethod);
+    public abstract IDroidefenseMethod getMethod(String name, String descriptor, boolean getRealMethod);
 
-    public abstract IAtomMethod[] getMethod(String name);
+    public abstract IDroidefenseMethod[] getMethod(String name);
 
     public abstract IAtomField getField(String fieldName, String fieldType);
 
     public abstract boolean isFake();
 
-    public abstract IAtomMethod[] getAllMethods();
+    public abstract IDroidefenseMethod[] getAllMethods();
 
-    public abstract void addMethod(IAtomMethod methodToCall);
+    public abstract void addMethod(IDroidefenseMethod methodToCall);
 
     public String getAndroifiedClassName(){
         String name = getName();
@@ -159,5 +161,29 @@ public abstract class IDroidefenseClass {
                 && !isAnnotationClass()
                 && !isAndroidRclass()
                 && !isAndroidv4v7Class();
+    }
+
+    public IDroidefenseMethod findClassInitMethod() {
+        //first: check if current class has a method init (constructor method)
+        IDroidefenseMethod init = this.getSimpleConstructorMethod();
+        if(init==null){
+            //this class does not has a constructor. it is inherited
+            //look for it
+            String superClassName = this.getSuperClass();
+            IDroidefenseClass parentClass = DexClassReader2.getInstance().load(superClassName);
+            return parentClass.findClassInitMethod();
+        }
+        else{
+            //constructor method found in this class. return it
+            return init;
+        }
+    }
+
+    private IDroidefenseMethod getSimpleConstructorMethod() {
+        IDroidefenseMethod init = this.getDirectMethod("<clinit>", "()V", true);
+        if(init==null){
+            init = this.getDirectMethod("<init>", "()V", true);
+        }
+        return init;
     }
 }
