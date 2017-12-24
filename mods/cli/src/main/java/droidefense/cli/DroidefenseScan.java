@@ -2,10 +2,14 @@ package droidefense.cli;
 
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.analysis.base.AnalysisFactory;
+import droidefense.exception.ConfigFileNotFoundException;
+import droidefense.exception.EnvironmentNotReadyException;
 import droidefense.exception.InvalidScanParametersException;
 import droidefense.exception.UnknownAnalyzerException;
+import droidefense.handler.FileIOHandler;
 import droidefense.sdk.helpers.APKUnpacker;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
+import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.sdk.model.base.DroidefenseProject;
@@ -19,21 +23,45 @@ import java.io.File;
 
 public class DroidefenseScan {
 
+    private final String[] scanArguments;
     private DroidefenseOptions options;
     private DroidefenseProject project;
 
     /**
      * Default constructor
      * @param args command line arguments
-     * @throws InvalidScanParametersException
      */
-    public DroidefenseScan(String[] args) throws InvalidScanParametersException, UnknownAnalyzerException, ParseException {
-        options = new DroidefenseOptions();
-        options.showAsciiBanner();
+    public DroidefenseScan(String[] args){
+        this.scanArguments = args;
+    }
 
-        CommandLineParser parser = new DefaultParser();
-        CommandLine cmd = parser.parse(options, args);
-        executeUserCmd(cmd);
+    /**
+     * Reads user specified command line arguments and executes according to specified user preferences
+     * @throws UnknownAnalyzerException
+     * @throws EnvironmentNotReadyException
+     * @throws ParseException
+     */
+    private void loadUserPreferences() throws UnknownAnalyzerException, InvalidScanParametersException, EnvironmentNotReadyException, ParseException {
+        String errorMessage = isEnvironmentReady();
+        if (errorMessage==null) {
+            options = new DroidefenseOptions();
+            options.showAsciiBanner();
+
+            CommandLineParser parser = new DefaultParser();
+            CommandLine cmd = parser.parse(options, this.scanArguments);
+            executeUserCmd(cmd);
+        }
+        else{
+            throw new EnvironmentNotReadyException(errorMessage);
+        }
+    }
+
+    private String isEnvironmentReady() {
+        File config = FileIOHandler.getConfigurationFile();
+        if(!config.exists()){
+            return "Configuration file ("+config.getAbsolutePath()+") not found under expected folder";
+        }
+        return null;
     }
 
     private void executeUserCmd(CommandLine cmd) throws UnknownAnalyzerException {
@@ -50,7 +78,7 @@ public class DroidefenseScan {
 
         this.project = new DroidefenseProject();
 
-        //get user selected unpacker. default apktool
+        //get user selected unpacker. default zip
         APKUnpacker unpacker = APKUnpacker.ZIP;
         if (cmd.hasOption("unpacker")) {
             String unpackerStr = cmd.getOptionValue("unpacker");
@@ -70,17 +98,13 @@ public class DroidefenseScan {
             processInput(cmd, unpacker);
         } else {
             //as default action
-            options.showVersion();
             options.showHelp();
         }
     }
 
     private void processInput(CommandLine cmd, APKUnpacker unpacker) throws UnknownAnalyzerException {
         //initialize environment first
-        if (!DroidDefenseEnvironment.isLoaded()) {
-            Log.write(LoggerType.FATAL, "Droidefense initialization error");
-        }
-        else{
+        if (DroidDefenseEnvironment.isLoaded()) {
             boolean profilingEnabled = cmd.hasOption("profile");
             File inputFile = new File(cmd.getOptionValue("input"));
 
@@ -95,6 +119,9 @@ public class DroidefenseScan {
             if (profilingEnabled) {
                 profilingAlert("deactivate");
             }
+        }
+        else{
+            Log.write(LoggerType.FATAL, "Droidefense initialization error");
         }
     }
 
@@ -113,9 +140,10 @@ public class DroidefenseScan {
 
     private void forceExit() {
         Log.write(LoggerType.TRACE, "Droidefense scan finished");
+        Log.write(LoggerType.TRACE, "Aborting further execution");
         Log.write(LoggerType.TRACE, "Exiting...");
         //force exit
-        System.exit(0);
+        System.exit(-1);
     }
 
     private void readSampleForScan(DroidefenseProject project, File f, APKUnpacker unpacker) throws UnknownAnalyzerException {
@@ -146,15 +174,33 @@ public class DroidefenseScan {
         project.analyze(analyzer);
     }
 
-    public static void main(String[] args) throws InvalidScanParametersException {
+    private void createDefaultConfigurationFile() {
+        Log.write(LoggerType.DEBUG, "Creating default config.json file...");
         try {
-            new DroidefenseScan(args);
+            boolean success = DroidDefenseEnvironmentConfig.getInstance().createDefaultConfigJsonFile();
+            if (success){
+                Log.write(LoggerType.INFO, "Configuration file succesfully created", "Please, configure it and lauch droidefense again");
+            }
+        } catch (ConfigFileNotFoundException e) {
+            Log.write(LoggerType.FATAL,"Could not create default .json file. Please check your filesystem permissions and try again");
+        }
+    }
+
+
+    public static void main(String[] args) {
+        DroidefenseScan scan = new DroidefenseScan(args);
+        try {
+            scan.loadUserPreferences();
         } catch (UnknownAnalyzerException e) {
-            Log.write(LoggerType.FATAL, e.getLocalizedMessage());
-            Log.write(LoggerType.ERROR, "Analyzer not found: " + e.getLocalizedMessage());
+            Log.write(LoggerType.ERROR, "Analyzer not found", e.getLocalizedMessage());
         } catch (ParseException e) {
-            Log.write(LoggerType.FATAL, e.getLocalizedMessage());
-            Log.write(LoggerType.ERROR, "Parsing exception detected: " + e.getLocalizedMessage());
+            Log.write(LoggerType.ERROR, "Parsing exception detected", e.getLocalizedMessage());
+        } catch (InvalidScanParametersException e) {
+            Log.write(LoggerType.ERROR, "Invalid scan parameter provided", e.getLocalizedMessage());
+        } catch (EnvironmentNotReadyException e) {
+            Log.write(LoggerType.ERROR, "Environment not ready", e.getBaseMessage());
+            Log.write(LoggerType.ERROR, "Please, check a valid .json file exists before executing the scan");
+            scan.createDefaultConfigurationFile();
         }
     }
 }

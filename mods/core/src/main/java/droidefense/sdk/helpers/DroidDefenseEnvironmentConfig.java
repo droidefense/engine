@@ -2,7 +2,6 @@ package droidefense.sdk.helpers;
 
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
-import droidefense.sdk.system.OSDetection;
 import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.handler.FileIOHandler;
 import droidefense.util.JsonStyle;
@@ -12,14 +11,10 @@ import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * Created by sergio on 29/4/16.Serializable
+ * Created by sergio on 29/4/16
  */
 public class DroidDefenseEnvironmentConfig implements Serializable {
 
-    private final static String UNIX_CONFIG_PROPERTIES = "config.linux.json";
-    private final static String WINDOWS_CONFIG_PROPERTIES = "config.win.json";
-    private final static String MAC_CONFIG_PROPERTIES = "config.mac.json";
-    private final static String CONFIG_PROPERTIES = UNIX_CONFIG_PROPERTIES;
     public static final String VERSION = "0.1";
     public static final String TAG = "alpha";
     private transient static DroidDefenseEnvironmentConfig instance;
@@ -60,12 +55,18 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
     public String ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME;
     public String XML_EXTENSION;
 
-    public static DroidDefenseEnvironmentConfig getInstance() throws ConfigFileNotFoundException {
+    public static DroidDefenseEnvironmentConfig getInstance(boolean autoinit) throws ConfigFileNotFoundException {
         if(instance==null){
             instance = new DroidDefenseEnvironmentConfig();
-            instance.init();
+            if(autoinit){
+                instance.init();
+            }
         }
         return instance;
+    }
+
+    public static DroidDefenseEnvironmentConfig getInstance() throws ConfigFileNotFoundException {
+        return getInstance(false);
     }
 
     private DroidDefenseEnvironmentConfig() throws ConfigFileNotFoundException {
@@ -100,7 +101,7 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
     }
 
     private void deserialize(DroidDefenseEnvironmentConfig params) {
-        this.instance = params;
+        instance = params;
     }
 
     private void init() throws ConfigFileNotFoundException {
@@ -108,27 +109,11 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
         String executablePath = FileIOHandler.getBaseDirPath();
         String configPath = FileIOHandler.getConfigPath();
         Log.write(LoggerType.INFO, "Execution base path is: "+executablePath);
-
-        if(OSDetection.isWindows()){
-            Log.write(LoggerType.INFO, "System detected is MS Windows");
-            runconfig(configPath, WINDOWS_CONFIG_PROPERTIES);
-        }
-        else if(OSDetection.isMacOSX()){
-            Log.write(LoggerType.INFO, "System detected is Mac OS");
-            runconfig(configPath, MAC_CONFIG_PROPERTIES);
-        }
-        else if(OSDetection.isUnix()){
-            Log.write(LoggerType.INFO, "System detected is Unix");
-            runconfig(configPath, UNIX_CONFIG_PROPERTIES);
-        }
-        else{
-            //load linux as default
-            runconfig(configPath, CONFIG_PROPERTIES);
-        }
+        runconfig();
     }
 
-    private void runconfig(String configFilePath, String name) throws ConfigFileNotFoundException {
-        File configFile = new File(configFilePath, name);
+    private void runconfig() throws ConfigFileNotFoundException {
+        File configFile = FileIOHandler.getConfigurationFile();
         String configFullPath = configFile.getAbsolutePath();
         try {
             Log.write(LoggerType.DEBUG, "Reading config file: " + configFullPath);
@@ -141,30 +126,30 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
                     deserialize(params);
                     FileIOHandler.init();
                 }
-            } else {
-                Log.write(LoggerType.ERROR, "Config file  " + configFullPath + " was not found");
-                Log.write(LoggerType.DEBUG, "Creating default config file at " + configFullPath);
-                //copy and paste config file from default folder
-                FileIOHandler.saveFile(configFullPath, getDefaultFileContent(name));
-                FileIOHandler.init();
             }
         } catch (IOException e) {
-            Log.write(LoggerType.ERROR, "Could not deserialize " + configFilePath + " file data", e, e.getLocalizedMessage());
-            throw new ConfigFileNotFoundException("Error reading " + configFilePath + " file." + e.getLocalizedMessage());
+            Log.write(LoggerType.ERROR, "Could not deserialize " + configFullPath + " file data", e, e.getLocalizedMessage());
+            throw new ConfigFileNotFoundException("Error reading " + configFullPath + " file." + e.getLocalizedMessage());
         } catch (Exception e) {
             Log.write(LoggerType.ERROR, e.getLocalizedMessage());
-            throw new ConfigFileNotFoundException("Invalid " + configFilePath + " file content." + e.getLocalizedMessage());
+            throw new ConfigFileNotFoundException("Invalid " + configFullPath + " file content." + e.getLocalizedMessage());
         }
     }
 
-    private String getDefaultFileContent(String name) {
-        String defaultContent;
+    public boolean createDefaultConfigJsonFile(){
+        String configFullPath = FileIOHandler.getConfigurationFile().getAbsolutePath();
+        Log.write(LoggerType.DEBUG, "Creating default config file at " + configFullPath);
+        //copy and paste config file from default folder
+        String defaultContent = getDefaultConfigFileContent();
+        return FileIOHandler.saveFile(configFullPath, defaultContent);
+    }
+
+    private String getDefaultConfigFileContent() {
         try {
-            defaultContent = Util.readFileFromInternalResourcesAsString("config/"+name);
+            return Util.readFileFromInternalResourcesAsString("config/config.json");
         } catch (IOException e) {
             Log.write(LoggerType.ERROR, e.getLocalizedMessage());
-            defaultContent = Util.toJson(instance, JsonStyle.JSON_BEAUTY);
+            return Util.toJson(instance, JsonStyle.JSON_BEAUTY);
         }
-        return defaultContent;
     }
 }

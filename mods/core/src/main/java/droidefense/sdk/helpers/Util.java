@@ -415,7 +415,7 @@ public class Util {
         if(datastream!=null){
             return readFully(datastream, "utf-8");
         }
-        throw new IOException("Could not read from specified URL");
+        throw new IOException("Could not read from specified URL: "+path);
     }
 
     private static String prettyFormatXML(String input, int indent) {

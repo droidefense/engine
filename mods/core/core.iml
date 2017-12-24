@@ -12,6 +12,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: net.sf.kxml:kxml2:2.1.8" level="project" />
     <orderEntry type="module" module-name="axml" />
     <orderEntry type="module" module-name="memapktool" />
     <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.4" level="project" />

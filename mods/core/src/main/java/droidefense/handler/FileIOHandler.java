@@ -5,6 +5,7 @@ import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
+import droidefense.sdk.system.OSDetection;
 import droidefense.sdk.system.SystemCallReturn;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.helpers.Util;
@@ -23,8 +24,14 @@ import java.nio.file.Paths;
  */
 public class FileIOHandler {
 
-    private static DroidDefenseEnvironmentConfig environmentConfig;
-    private static RemoteFileDownloader remoteDownloader = new RemoteFileDownloader();
+    private transient static DroidDefenseEnvironmentConfig environmentConfig;
+    private transient static RemoteFileDownloader remoteDownloader = new RemoteFileDownloader();
+    private transient static File configurationFile;
+
+    private final static String UNIX_CONFIG_PROPERTIES = "config.linux.json";
+    private final static String WINDOWS_CONFIG_PROPERTIES = "config.win.json";
+    private final static String MAC_CONFIG_PROPERTIES = "config.mac.json";
+    private final static String CONFIG_PROPERTIES = UNIX_CONFIG_PROPERTIES;
 
     public static void init(){
         try {
@@ -274,14 +281,16 @@ public class FileIOHandler {
         }
     }
 
-    public static void saveFile(File f, byte[] data) {
+    public static boolean saveFile(File f, byte[] data) {
         try {
             createParentFolder(f);
             FileOutputStream fos = new FileOutputStream(f);
             fos.write(data);
             fos.close();
+            return true;
         } catch (IOException ioe) {
-            ioe.printStackTrace();
+            Log.write(LoggerType.FATAL, ioe.getLocalizedMessage());
+            return false;
         }
     }
 
@@ -292,21 +301,22 @@ public class FileIOHandler {
         }
     }
 
-    public static void saveFile(File f, String data) {
-        saveFile(f, data.getBytes());
+    public static boolean saveFile(File f, String data) {
+        return saveFile(f, data.getBytes());
     }
 
-    public static void saveFile(String name, String data) {
-        saveFile(new File(name), data.getBytes());
+    public static boolean saveFile(String name, String data) {
+        return saveFile(new File(name), data.getBytes());
     }
 
-    public static void saveAsRAW(Object o, String name, File outputDir) throws IOException {
+    public static boolean saveAsRAW(Object o, String name, File outputDir) throws IOException {
         if (!outputDir.exists())
             outputDir.mkdirs();
         FileOutputStream fout = new FileOutputStream(outputDir.getAbsolutePath() + File.separator + name);
         ObjectOutputStream oos = new ObjectOutputStream(fout);
         oos.writeObject(o);
         oos.close();
+        return true;
     }
 
     public static Object readAsRAW(File file) throws IOException, ClassNotFoundException {
@@ -362,5 +372,32 @@ public class FileIOHandler {
 
     public static File getApkUnpackDir(DroidefenseProject project) {
         return new File( FileIOHandler.getUnpackOutputFile()+File.separator+project.getProjectId() );
+    }
+
+    public static void setConfigurationFile(File configFile) {
+        configurationFile = configFile;
+    }
+
+    public static File getConfigurationFile() {
+        if(configurationFile==null){
+            String configPath = getConfigPath();
+            if(OSDetection.isWindows()){
+                Log.write(LoggerType.INFO, "System detected is MS Windows");
+                configurationFile = new File(configPath, WINDOWS_CONFIG_PROPERTIES);
+            }
+            else if(OSDetection.isMacOSX()){
+                Log.write(LoggerType.INFO, "System detected is Mac OS");
+                configurationFile = new File(configPath, MAC_CONFIG_PROPERTIES);
+            }
+            else if(OSDetection.isUnix()){
+                Log.write(LoggerType.INFO, "System detected is Unix");
+                configurationFile = new File(configPath, UNIX_CONFIG_PROPERTIES);
+            }
+            else{
+                //load linux as default
+                configurationFile = new File(configPath, CONFIG_PROPERTIES);
+            }
+        }
+        return configurationFile;
     }
 }

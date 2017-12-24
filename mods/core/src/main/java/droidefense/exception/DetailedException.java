@@ -7,9 +7,11 @@ public class DetailedException extends Exception {
 
     //create one static buffer instead of calling 'new StringBuffer()' for each exception found
     private static StringBuffer sb = new StringBuffer();
+    private final String baseMessage;
 
     public DetailedException(String s) {
         super(getDetailedMessage(s));
+        this.baseMessage = s;
     }
 
     private static String getDetailedMessage(String s) {
@@ -42,5 +44,9 @@ public class DetailedException extends Exception {
             }
         }
         return sb.toString();
+    }
+
+    public String getBaseMessage() {
+        return baseMessage;
     }
 }
