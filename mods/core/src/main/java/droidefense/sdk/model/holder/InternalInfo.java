@@ -1,7 +1,7 @@
 package droidefense.sdk.model.holder;
 
-import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
-import droidefense.om.machine.base.struct.model.SharedPool;
+import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.emulator.machine.base.struct.model.SharedPool;
 import droidefense.sdk.manifest.base.AbstractManifestClass;
 
 import java.io.Serializable;

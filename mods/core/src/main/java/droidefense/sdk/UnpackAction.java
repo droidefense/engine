@@ -17,7 +17,7 @@ public enum UnpackAction {
         public VirtualFile execute(VirtualFile vf) {
             //information is generated
             VirtualHashedFile hashedFile = new VirtualHashedFile(vf, GENERATE_HASHES);
-            return null;
+            return hashedFile.getThisFile();
         }
     }, DECODE {
         @Override

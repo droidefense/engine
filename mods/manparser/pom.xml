@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
     <version>1.0-SNAPSHOT</version>
 
-    <name>Droidefense - AndroidManifest.xml parser</name>
+    <name>Droidefense - androidManifest.xml parser</name>
 
     <properties>
         <jdk.version>1.8</jdk.version>

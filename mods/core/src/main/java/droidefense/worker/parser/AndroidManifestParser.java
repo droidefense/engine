@@ -1,7 +1,7 @@
 package droidefense.worker.parser;
 
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.manifest.Manifest;
 import droidefense.sdk.manifest.UsesSDK;
 import droidefense.sdk.model.base.DroidefenseProject;

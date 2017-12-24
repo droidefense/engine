@@ -1,7 +1,7 @@
 package droidefense.reporting;
 
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 
 import java.awt.*;
 import java.io.File;

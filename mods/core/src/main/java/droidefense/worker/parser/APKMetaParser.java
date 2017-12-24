@@ -1,9 +1,9 @@
 package droidefense.worker.parser;
 
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
-import droidefense.sdk.helpers.InternalConstant;
+import droidefense.sdk.util.InternalConstant;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.DexHashedFile;

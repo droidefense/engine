@@ -1,12 +1,12 @@
 package droidefense.handler;
 
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.ml.MLResultHolder;
 import droidefense.ml.WekaClassifier;
 import droidefense.sdk.OutPutResult;
-import droidefense.sdk.helpers.InternalConstant;
+import droidefense.sdk.util.InternalConstant;
 import droidefense.sdk.manifest.UsesPermission;
 import weka.classifiers.Classifier;
 import weka.core.Instances;

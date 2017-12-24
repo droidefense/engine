@@ -1,11 +1,11 @@
 package droidefense.worker.loader;
 
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.handler.FileIOHandler;
 import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
-import droidefense.sdk.helpers.InternalConstant;
+import droidefense.sdk.util.InternalConstant;
 import droidefense.sdk.model.signature.Signature;
 import droidefense.sdk.model.signature.SignatureMap;
 

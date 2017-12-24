@@ -1,11 +1,11 @@
 package droidefense.analysis.base;
 
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.enums.ProcessStatus;
-import droidefense.sdk.helpers.Util;
+import droidefense.sdk.util.Util;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.model.base.ExecutionTimer;
+import droidefense.sdk.util.ExecutionTimer;
 import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.sdk.util.JsonStyle;
 

@@ -1,17 +1,17 @@
 package droidefense.handler;
 
 
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
-import droidefense.sdk.helpers.InternalConstant;
-import droidefense.sdk.helpers.Util;
+import droidefense.sdk.util.InternalConstant;
+import droidefense.sdk.util.Util;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.system.OSDetection;
 import droidefense.sdk.system.SystemCallReturn;
 import droidefense.sdk.util.JsonStyle;
-import droidefense.social.RemoteFileDownloader;
+import droidefense.sdk.util.RemoteFileDownloader;
 
 import java.io.*;
 import java.net.MalformedURLException;

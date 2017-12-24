@@ -1,12 +1,14 @@
 package droidefense.sdk.helpers;
 
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.handler.FileIOHandler;
-import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
-import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
-import droidefense.om.machine.reader.DexClassReader;
+import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
+import droidefense.emulator.machine.reader.DexClassReader;
+import droidefense.sdk.util.InternalConstant;
+import droidefense.sdk.util.Util;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +17,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashSet;
 
-import static com.droidefense.rulengine.NodeCalculator.nodeTypeResolver;
+import static droidefense.rulengine.NodeCalculator.nodeTypeResolver;
 
 public class DroidDefenseEnvironment implements Serializable {
 

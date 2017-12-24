@@ -1,7 +1,7 @@
 package droidefense.analysis;
 
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.analysis.base.AnalysisFactory;
 import droidefense.exception.UnknownAnalyzerException;

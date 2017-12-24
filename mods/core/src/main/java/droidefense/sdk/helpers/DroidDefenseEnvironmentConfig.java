@@ -1,10 +1,11 @@
 package droidefense.sdk.helpers;
 
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.handler.FileIOHandler;
 import droidefense.sdk.util.JsonStyle;
+import droidefense.sdk.util.Util;
 
 import java.io.File;
 import java.io.IOException;
@@ -62,7 +63,7 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
         UNPACK_FOLDER = "./unpack";
         UPLOAD_FOLDER = "./upload";
         SERVER_FOLDER = "./server";
-        RESOURCE_FOLDER = "./lib/data/";
+        RESOURCE_FOLDER = "../lib/data/";
         MODEL_FOLDER = "ml";
         RULE_FOLDER = "rules";
         STATIC_REPORT_FOLDER = "./reports";

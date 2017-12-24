@@ -1,7 +1,7 @@
 package droidefense.xmodel.base;
 
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.manifest.*;
 import droidefense.sdk.manifest.base.AbstractManifestClass;
 import org.xml.sax.InputSource;

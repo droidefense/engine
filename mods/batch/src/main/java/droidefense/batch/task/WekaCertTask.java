@@ -1,7 +1,7 @@
 package droidefense.batch.task;
 
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.batch.base.IBatchTask;
 import droidefense.batch.base.IWekaGenerator;
 import droidefense.exception.UnknownParserException;

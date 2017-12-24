@@ -1,6 +1,6 @@
 package droidefense.sdk.model.dex;
 
-import droidefense.om.machine.base.struct.model.SharedPool;
+import droidefense.emulator.machine.base.struct.model.SharedPool;
 
 import java.io.Serializable;
 

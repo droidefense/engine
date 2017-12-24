@@ -1,13 +1,13 @@
 package droidefense.sdk.model.io;
 
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import com.j256.simplemagic.ContentInfo;
 import com.j256.simplemagic.ContentInfoUtil;
 import com.j256.simplemagic.ContentType;
 import droidefense.handler.SignatureHandler;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
-import droidefense.sdk.helpers.Util;
+import droidefense.sdk.util.Util;
 
 import java.io.IOException;
 import java.io.InputStream;

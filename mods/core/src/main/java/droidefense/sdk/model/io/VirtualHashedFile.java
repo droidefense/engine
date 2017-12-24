@@ -1,7 +1,7 @@
 package droidefense.sdk.model.io;
 
-import droidefense.sdk.helpers.CheckSumGen;
-import droidefense.sdk.helpers.Util;
+import droidefense.sdk.util.CheckSumGen;
+import droidefense.sdk.util.Util;
 import droidefense.ssdeep.exception.SSDeepException;
 import droidefense.vfs.model.impl.VirtualFile;
 

@@ -1,5 +1,6 @@
 package droidefense.social;
 
+import droidefense.sdk.util.RemoteFileDownloader;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
