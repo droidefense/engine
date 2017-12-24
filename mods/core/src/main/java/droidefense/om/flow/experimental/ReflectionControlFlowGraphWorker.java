@@ -95,15 +95,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
     @Override
     public IDroidefenseClass[] getInitialDVMClass() {
         //only return developer class and skip known java jdk and android sdk classes
-        IDroidefenseClass[] alllist = currentProject.getInternalInfo().getAllClasses();
-        ArrayList<IDroidefenseClass> developerClasses = new ArrayList<>();
-        for (IDroidefenseClass cls : alllist) {
-            if (environment.isDeveloperClass(cls)
-                    && !cls.isAndroidRclass()
-                    )
-                developerClasses.add(cls);
-        }
-        return developerClasses.toArray(new IDroidefenseClass[developerClasses.size()]);
+        return currentProject.getDeveloperClasses();
     }
 
     @Override

@@ -41,6 +41,9 @@ import java.util.Vector;
 
 public abstract strictfp class AbstractDVMThread implements Serializable {
 
+    protected static final Object DO_NOT_USE_ARGUMENTS = null;
+    protected static final int DO_NOT_USE_ARGUMENTS_COUNT = 0;
+
     // The upper STATUS_RUNNING status constants need to mean 'running'.
     public static final int STATUS_NOT_STARTED = 0;
     public static final int STATUS_END = 1;
@@ -64,8 +67,6 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
     protected int currentFrame = -1;
     protected int priority = Thread.NORM_PRIORITY;
     protected Vector joinedThreads = new Vector();
-
-    protected transient static final DroidDefenseEnvironment environment = DroidDefenseEnvironment.getInstance();
 
     public AbstractDVMThread(final DroidefenseProject currentProject) {
         this.vm = currentProject.getDalvikMachine();

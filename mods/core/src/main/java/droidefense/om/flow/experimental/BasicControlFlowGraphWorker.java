@@ -72,27 +72,19 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
 
     @Override
     public int getInitialArgumentCount(IDroidefenseClass cls, IDroidefenseMethod m) {
-        return 0; //do not use arguments
+        return DO_NOT_USE_ARGUMENTS_COUNT;
     }
 
     @Override
     public Object getInitialArguments(IDroidefenseClass cls, IDroidefenseMethod m) {
-        return null; //do not use arguments
+        return DO_NOT_USE_ARGUMENTS;
     }
 
     @Override
     public IDroidefenseClass[] getInitialDVMClass() {
         //only return developer class and skip known java jdk and android sdk classes
 
-        IDroidefenseClass[] alllist = currentProject.getInternalInfo().getAllClasses();
-        ArrayList<IDroidefenseClass> developerClasses = new ArrayList<>();
-        for (IDroidefenseClass cls : alllist) {
-            if (environment.isDeveloperClass(cls)
-                    && !cls.isAndroidRclass()
-                    )
-                developerClasses.add(cls);
-        }
-        IDroidefenseClass[] list = developerClasses.toArray(new IDroidefenseClass[developerClasses.size()]);
+        IDroidefenseClass[] list = currentProject.getDeveloperClasses();
         Log.write(LoggerType.TRACE, "Estimated node count: ");
         int nodes = 0;
         for (IDroidefenseClass cls : list) {

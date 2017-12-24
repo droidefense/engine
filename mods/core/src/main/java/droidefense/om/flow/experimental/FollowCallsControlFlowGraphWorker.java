@@ -83,15 +83,7 @@ public final strictfp class FollowCallsControlFlowGraphWorker extends AbstractFl
     @Override
     public IDroidefenseClass[] getInitialDVMClass() {
         //only return developer class and skip known java jdk and android sdk classes
-        IDroidefenseClass[] alllist = currentProject.getInternalInfo().getAllClasses();
-        ArrayList<IDroidefenseClass> developerClasses = new ArrayList<>();
-        for (IDroidefenseClass cls : alllist) {
-            if (environment.isDeveloperClass(cls)
-                    && !cls.isAndroidRclass()
-                    )
-                developerClasses.add(cls);
-        }
-        IDroidefenseClass[] list = developerClasses.toArray(new IDroidefenseClass[developerClasses.size()]);
+        IDroidefenseClass[] list = currentProject.getDeveloperClasses();
         Log.write(LoggerType.TRACE, "Estimated node count: ");
         int nodes = 0;
         for (IDroidefenseClass cls : list) {

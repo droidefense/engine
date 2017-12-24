@@ -42,7 +42,7 @@ public class VMWorkersHandler extends AbstractHandler {
                 worklist.add(new ReferencesResolverWorker(currentProject));
 
                 //normal model reporting
-                //worklist.add(new BasicControlFlowGraphWorker(currentProject));
+                worklist.add(new BasicControlFlowGraphWorker(currentProject));
 
                 //follow model reporting
                 //worklist.add(new FollowCallsControlFlowGraphWorker(currentProject));

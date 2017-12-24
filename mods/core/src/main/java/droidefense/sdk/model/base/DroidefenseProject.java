@@ -20,10 +20,7 @@ import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.base.AbstractFlowMap;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.AbstractStaticPlugin;
-import droidefense.sdk.helpers.APKUnpacker;
-import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
-import droidefense.sdk.helpers.InternalConstant;
-import droidefense.sdk.helpers.Util;
+import droidefense.sdk.helpers.*;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.sdk.manifest.Manifest;
@@ -169,6 +166,7 @@ public final class DroidefenseProject implements Serializable {
     private transient DalvikVM dalvikMachine;
     private transient AbstractReporter reporter;
     private APKUnpacker usedUnpacker;
+    private IDroidefenseClass[] developerClasses;
 
     public DroidefenseProject() {
         //create new timestamp now
@@ -927,5 +925,20 @@ public final class DroidefenseProject implements Serializable {
 
     public void setMetaManifestCreator(String creator) {
         this.staticInfo.setMetaManifestCreator(creator);
+    }
+
+    public IDroidefenseClass[] getDeveloperClasses() {
+        if(this.developerClasses==null || this.developerClasses.length==0){
+            DroidDefenseEnvironment environment = DroidDefenseEnvironment.getInstance();
+            IDroidefenseClass[] alllist = getInternalInfo().getAllClasses();
+            ArrayList<IDroidefenseClass> developerClasses = new ArrayList<>();
+            for (IDroidefenseClass cls : alllist) {
+                if (environment.isDeveloperClass(cls) &cls.isDeveloperClass() && !cls.isAndroidRclass() )
+                    developerClasses.add(cls);
+            }
+            IDroidefenseClass[] list = developerClasses.toArray(new IDroidefenseClass[developerClasses.size()]);
+            this.developerClasses = list;
+        }
+        return this.developerClasses;
     }
 }

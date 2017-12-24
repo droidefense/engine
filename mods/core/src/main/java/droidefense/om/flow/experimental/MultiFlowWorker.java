@@ -81,13 +81,7 @@ public final strictfp class MultiFlowWorker extends AbstractFlowWorker {
             return new IDroidefenseClass[]{currentProject.getInternalInfo().getDexClass(currentProject.getMainClassName())};
         else {
             //else, return all reveivers, services,...
-            IDroidefenseClass[] alllist = currentProject.getInternalInfo().getAllClasses();
-            ArrayList<IDroidefenseClass> developerClasses = new ArrayList<>();
-            for (IDroidefenseClass cls : alllist) {
-                if (environment.isDeveloperClass(cls))
-                    developerClasses.add(cls);
-            }
-            return developerClasses.toArray(new IDroidefenseClass[developerClasses.size()]);
+            return currentProject.getDeveloperClasses();
         }
     }
 
