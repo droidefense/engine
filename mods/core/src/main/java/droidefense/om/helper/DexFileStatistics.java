@@ -39,6 +39,12 @@ public class DexFileStatistics implements Serializable {
     private int realDeveloperInnerClassCount;
 
     public DexFileStatistics(DroidefenseProject currentProject) {
+        //create information holders
+        allPackages = new TreeSet<>();
+        realDeveloperPackages = new TreeSet<>();
+        developerClassList = new TreeSet<>();
+        realDeveloperClassList = new TreeSet<>();
+        realDeveloperInnerClassList = new TreeSet<>();
         //create VM
         vm = currentProject.getDalvikMachine();
         this.currentProject = currentProject;
@@ -53,12 +59,6 @@ public class DexFileStatistics implements Serializable {
             ///then use default class loader
             vm.load(dexFile, data, DalvikVM.MULTIDEX);
             //once file is loaded, we can read the info
-
-            allPackages = new TreeSet<>();
-            realDeveloperPackages = new TreeSet<>();
-            developerClassList = new TreeSet<>();
-            realDeveloperClassList = new TreeSet<>();
-            realDeveloperInnerClassList = new TreeSet<>();
 
             //1 generate package names
 
