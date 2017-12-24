@@ -58,7 +58,7 @@
     <orderEntry type="library" name="Maven: com.github.fommil.netlib:core:1.1" level="project" />
     <orderEntry type="module" module-name="pscout" />
     <orderEntry type="module" module-name="sdk" />
-    <orderEntry type="module" module-name="log" />
+    <orderEntry type="module" module-name="logger" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="module" module-name="rulengine" />
     <orderEntry type="module" module-name="simplemagic" />

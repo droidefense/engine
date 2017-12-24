@@ -15,7 +15,7 @@
     </properties>
 
     <modules>
-        <module>mods/log</module>
+        <module>mods/logger</module>
         <module>mods/axml</module>
         <module>mods/datamanager</module>
         <module>mods/entropy</module>
