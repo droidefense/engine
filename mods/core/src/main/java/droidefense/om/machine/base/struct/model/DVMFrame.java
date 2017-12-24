@@ -25,12 +25,12 @@ package droidefense.om.machine.base.struct.model;
 
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DynamicUtils;
-import droidefense.om.machine.base.struct.generic.IAtomFrame;
+import droidefense.om.machine.base.struct.generic.IDroidefenseFrame;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 
 import java.io.Serializable;
 
-public final class DVMFrame implements IAtomFrame, Serializable {
+public final class DVMFrame implements IDroidefenseFrame, Serializable {
 
     private static final int DEFAULT_REGISTER_SIZE = 16;
 

@@ -164,6 +164,11 @@ public class VirtualFolder extends VirtualNode {
         return null;
     }
 
+    @Override
+    public boolean isRootNode() {
+        return getPath().equals("");
+    }
+
     public ArrayList<IVirtualNode> getItemList() {
         return itemsInside;
     }

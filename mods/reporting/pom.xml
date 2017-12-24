@@ -31,7 +31,7 @@
 
         <dependency>
             <groupId>com.droidefense</groupId>
-            <artifactId>sdk</artifactId>
+            <artifactId>log</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
@@ -43,7 +43,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>3.7.0</version>
                 <configuration>
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>

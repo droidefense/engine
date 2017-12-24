@@ -2,17 +2,17 @@ package droidefense.om.flow.experimental;
 
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
-import droidefense.rulengine.base.AbstractAtomNode;
-import droidefense.rulengine.map.BasicCFGFlowMap;
-import droidefense.rulengine.nodes.EntryPointNode;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.rulengine.base.AbstractAtomNode;
+import com.droidefense.rulengine.map.BasicCFGFlowMap;
+import com.droidefense.rulengine.nodes.EntryPointNode;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
 import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.struct.fake.DVMTaintClass;
 import droidefense.om.machine.base.struct.fake.DVMTaintMethod;
-import droidefense.om.machine.base.struct.generic.IAtomFrame;
+import droidefense.om.machine.base.struct.generic.IDroidefenseFrame;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
 import droidefense.sdk.model.base.DroidefenseProject;
@@ -20,7 +20,6 @@ import droidefense.sdk.model.base.ExecutionTimer;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Vector;
 
 public final strictfp class FollowCallsControlFlowGraphWorker extends AbstractFlowWorker {
@@ -110,7 +109,7 @@ public final strictfp class FollowCallsControlFlowGraphWorker extends AbstractFl
     @Override
     public strictfp void execute(boolean keepScanning) throws Throwable {
 
-        IAtomFrame frame = getCurrentFrame();
+        IDroidefenseFrame frame = getCurrentFrame();
         IDroidefenseMethod method = frame.getMethod();
 
         lowerCodes = method.getOpcodes();
@@ -193,13 +192,13 @@ public final strictfp class FollowCallsControlFlowGraphWorker extends AbstractFl
     private boolean goBack(int fakePc) {
 
         //remove last frame and set the new one the last one
-        IAtomFrame supposedPreviousFrame = null;
+        IDroidefenseFrame supposedPreviousFrame = null;
         Vector list = getCurrentFrame().getThread().getFrames();
         if (list != null && !list.isEmpty()) {
             list.remove(list.size() - 1);
             if (!list.isEmpty()) {
                 //set current frame list lastone
-                supposedPreviousFrame = (IAtomFrame) list.get(list.size() - 1);
+                supposedPreviousFrame = (IDroidefenseFrame) list.get(list.size() - 1);
             } else {
                 //no las frame, set null;
                 supposedPreviousFrame = null;
@@ -225,7 +224,7 @@ public final strictfp class FollowCallsControlFlowGraphWorker extends AbstractFl
 
     private InstructionReturn fakeMethodCall(IDroidefenseMethod method) {
 
-        IAtomFrame frame = getCurrentFrame();
+        IDroidefenseFrame frame = getCurrentFrame();
 
         // invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
         int registers = upperCodes[frame.increasePc()] << 16;
@@ -259,7 +258,7 @@ public final strictfp class FollowCallsControlFlowGraphWorker extends AbstractFl
             methodToCall.setDescriptor(methodDescriptor);
             methodToCall.setOwnerClass(cls);
         }
-        IAtomFrame frame = callMethod(false, methodToCall, getCurrentFrame());
+        IDroidefenseFrame frame = callMethod(false, methodToCall, getCurrentFrame());
         int[] lowerCodes = methodToCall.getOpcodes();
         int[] upperCodes = methodToCall.getRegistercodes();
         int[] codes = methodToCall.getIndex();

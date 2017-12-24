@@ -1,15 +1,15 @@
 package droidefense.om.flow.base;
 
-import droidefense.rulengine.base.NodeConnection;
-import droidefense.rulengine.base.AbstractAtomNode;
-import droidefense.rulengine.base.AbstractFlowMap;
-import droidefense.rulengine.nodes.FieldNode;
-import droidefense.rulengine.nodes.MethodNode;
-import droidefense.rulengine.nodes.NormalNode;
+import com.droidefense.rulengine.base.NodeConnection;
+import com.droidefense.rulengine.base.AbstractAtomNode;
+import com.droidefense.rulengine.base.AbstractFlowMap;
+import com.droidefense.rulengine.nodes.FieldNode;
+import com.droidefense.rulengine.nodes.MethodNode;
+import com.droidefense.rulengine.nodes.NormalNode;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
-import droidefense.om.machine.base.struct.generic.IAtomField;
-import droidefense.om.machine.base.struct.generic.IAtomFrame;
+import droidefense.om.machine.base.struct.generic.IDroidefenseField;
+import droidefense.om.machine.base.struct.generic.IDroidefenseFrame;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.sdk.model.base.DroidefenseProject;
@@ -28,7 +28,7 @@ public abstract class AbstractFlowWorker extends AbstractDVMThread {
         super(currentProject);
     }
 
-    protected final MethodNode buildMethodNode(DalvikInstruction inst, IAtomFrame frame, IDroidefenseMethod method) {
+    protected final MethodNode buildMethodNode(DalvikInstruction inst, IDroidefenseFrame frame, IDroidefenseMethod method) {
         return reporting.buildMethodNode(flowMap, inst, frame, method);
     }
 
@@ -40,7 +40,7 @@ public abstract class AbstractFlowWorker extends AbstractDVMThread {
         return reporting.builNormalNode(flowMap, currentInstruction, key, value);
     }
 
-    protected final FieldNode buildFieldNode(DalvikInstruction inst, IAtomField field, int pc) {
+    protected final FieldNode buildFieldNode(DalvikInstruction inst, IDroidefenseField field, int pc) {
         return reporting.buildFieldNode(flowMap, inst, field, pc);
     }
 

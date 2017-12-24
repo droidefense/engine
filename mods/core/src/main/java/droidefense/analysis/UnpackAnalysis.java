@@ -1,11 +1,8 @@
 package droidefense.analysis;
 
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.vfs.model.impl.VirtualFile;
-
-import java.util.ArrayList;
 
 /**
  * Created by sergio on 16/2/16.

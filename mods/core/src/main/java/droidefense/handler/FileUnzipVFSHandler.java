@@ -1,8 +1,8 @@
 package droidefense.handler;
 
 import droidefense.handler.base.AbstractHandler;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.vfs.model.impl.VirtualFileSystem;
 import droidefense.vfs.model.impl.VirtualFolder;

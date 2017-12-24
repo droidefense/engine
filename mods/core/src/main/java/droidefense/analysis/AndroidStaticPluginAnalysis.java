@@ -1,14 +1,13 @@
 package droidefense.analysis;
 
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
 import droidefense.sdk.AbstractStaticPlugin;
 import droidefense.sdk.helpers.InternalConstant;
-import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
 import droidefense.sdk.model.io.AbstractHashedFile;
 

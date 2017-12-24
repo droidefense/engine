@@ -5,8 +5,8 @@ import droidefense.batch.exception.EmptyTaskQueueException;
 import droidefense.batch.exception.InvalidTaskException;
 import droidefense.batch.task.WekaCertTask;
 import droidefense.batch.task.WekaFeatureExtractorTask;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 
 import java.io.File;
 import java.io.Serializable;

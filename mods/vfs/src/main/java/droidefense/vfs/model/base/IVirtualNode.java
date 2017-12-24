@@ -45,4 +45,6 @@ public interface IVirtualNode {
 
 
     IVirtualNode getItem(String name);
+
+    boolean isRootNode();
 }

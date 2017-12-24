@@ -1,9 +1,10 @@
 package droidefense.om.machine.reader;
 
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseField;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.DynamicUtils;
@@ -13,8 +14,7 @@ import droidefense.om.machine.base.exceptions.NotSupportedValueTypeException;
 import droidefense.om.machine.base.struct.fake.DVMTaintClass;
 import droidefense.om.machine.base.struct.fake.DVMTaintField;
 import droidefense.om.machine.base.struct.fake.EncapsulatedClass;
-import droidefense.om.machine.base.struct.generic.IAtomField;
-import droidefense.om.machine.base.struct.generic.IAtomFrame;
+import droidefense.om.machine.base.struct.generic.IDroidefenseFrame;
 import droidefense.om.machine.base.struct.model.DVMClass;
 import droidefense.om.machine.base.struct.model.DVMField;
 import droidefense.om.machine.base.struct.model.DVMMethod;
@@ -111,18 +111,17 @@ public final class DexClassReader implements Serializable {
                 //TOdo changed this. may explode
                 AbstractDVMThread firstThread = getVm().getThread(0);
                 if (firstThread != null) {
-                    IAtomFrame frame = firstThread.pushFrame();
+                    IDroidefenseFrame frame = firstThread.pushFrame();
                     frame.init(initMethod);
-                    cls.setBinded(true);
+                    try {
+                        cls.setBinded(true);
+                        firstThread.run();
+                    } catch (Throwable throwable) {
+                        Log.write(LoggerType.FATAL, "Could not initilize static variables of class "+cls.getName());
+                        Log.write(LoggerType.FATAL, throwable.getLocalizedMessage());
+                    }
                 }
             }
-        /*try {
-            loadThread.run();
-        } catch (ChangeThreadException e) {
-            // TODO Implement here by checking the behavior of the class loading in The Java Virtual Machine Specification
-        } catch (Throwable e) {
-            com.error(e);
-        }*/
         }
         else{
             //no init method found.possibly because init is inherited from parent class.
@@ -226,7 +225,9 @@ public final class DexClassReader implements Serializable {
             this.dexFileContent = dexFileContent;
             offset = 0;
 
-            checkData("magic number", "6465780A30333500");
+            boolean pass;
+            pass = checkData("magic number", "6465780A30333500");
+            currentProject.setMagicNumberPass(pass);
 
             skip("checksum", 4);
             skip("SHA-1 signature", 20);
@@ -293,8 +294,8 @@ public final class DexClassReader implements Serializable {
                 if (classDataOffset != 0) {
                     pushOffset(classDataOffset);
 
-                    IAtomField[] staticFields = new IAtomField[readULEB128()];
-                    IAtomField[] instanceFields = new IAtomField[readULEB128()];
+                    IDroidefenseField[] staticFields = new IDroidefenseField[readULEB128()];
+                    IDroidefenseField[] instanceFields = new IDroidefenseField[readULEB128()];
                     DVMMethod[] directMethods = new DVMMethod[readULEB128()];
                     DVMMethod[] virtualMethods = new DVMMethod[readULEB128()];
 
@@ -305,7 +306,7 @@ public final class DexClassReader implements Serializable {
 
                     cls.setStaticFields(staticFields);
                     cls.setStaticFieldMap(new Hashtable());
-                    for (IAtomField field : staticFields) {
+                    for (IDroidefenseField field : staticFields) {
                         cls.getStaticFieldMap().put(field.getName(), field);
                     }
                     cls.setInstanceFields(instanceFields);
@@ -321,7 +322,7 @@ public final class DexClassReader implements Serializable {
 
                     int length = readULEB128();
                     for (int j = 0; j < length; j++) {
-                        IAtomField staticField = cls.getStaticFields()[j];
+                        IDroidefenseField staticField = cls.getStaticFields()[j];
 
                         int data = readUByte();
                         int valueType = data & 0x1F;
@@ -458,7 +459,7 @@ public final class DexClassReader implements Serializable {
         }
     }
 
-    private void readFields(final IDroidefenseClass cls, final IAtomField[] fields, final boolean isInstance) {
+    private void readFields(final IDroidefenseClass cls, final IDroidefenseField[] fields, final boolean isInstance) {
         int fieldIndex = 0;
         for (int i = 0, length = fields.length; i < length; i++) {
             if (i == 0) {
@@ -466,7 +467,7 @@ public final class DexClassReader implements Serializable {
             } else {
                 fieldIndex += readULEB128();
             }
-            IAtomField field = new DVMField(cls);
+            IDroidefenseField field = new DVMField(cls);
 
             field.setFlag(readULEB128());
             field.setInstance(isInstance);
@@ -651,8 +652,9 @@ public final class DexClassReader implements Serializable {
         this.offset = offset;
     }
 
-    private void checkUInt(final String type, final int valueToCheck) {
-        if (readUInt() != valueToCheck) {
+    private void checkUInt(final String type, final int expected) {
+        int readed = readUInt();
+        if (readed != expected) {
             throw new NoClassDefFoundError("illegal " + type);
         }
     }
@@ -687,12 +689,17 @@ public final class DexClassReader implements Serializable {
         return (value << shift) >> shift;
     }
 
-    private void checkData(final String type, final String valueToCheck) {
+    private boolean checkData(final String type, final String valueToCheck) {
+        boolean pass=true;
         for (int i = 0, length = valueToCheck.length() / 2; i < length; i++) {
-            if (readUByte() != Integer.parseInt(valueToCheck.substring(i * 2, i * 2 + 2), 16)) {
-                throw new NoClassDefFoundError("illegal " + type);
+            int readed = readUByte();
+            int expected = Integer.parseInt(valueToCheck.substring(i * 2, i * 2 + 2), 16);
+            if (readed != expected) {
+                Log.write(LoggerType.ERROR, "illegal " + type);
+                pass=false;
             }
         }
+        return pass;
     }
 
     //GETTERS AND SETTERS

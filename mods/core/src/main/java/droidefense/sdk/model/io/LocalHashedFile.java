@@ -1,7 +1,7 @@
 package droidefense.sdk.model.io;
 
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.sdk.helpers.CheckSumGen;
 import droidefense.sdk.helpers.Util;
 import droidefense.ssdeep.exception.SSDeepException;
@@ -18,7 +18,7 @@ public class LocalHashedFile extends AbstractHashedFile implements Serializable 
         super(generateInformation);
         this.f = f;
         try {
-            Log.write(LoggerType.DEBUG, "Loading sample byte data strem...");
+            Log.write(LoggerType.DEBUG, "Loading sample bytedata stream...");
             this.stream = new FileInputStream(f);
         } catch (FileNotFoundException e) {
             Log.write(LoggerType.ERROR, "Could not find the requested file");

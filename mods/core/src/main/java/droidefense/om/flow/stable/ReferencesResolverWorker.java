@@ -2,13 +2,13 @@ package droidefense.om.flow.stable;
 
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
-import droidefense.om.machine.base.struct.generic.IAtomField;
-import droidefense.om.machine.base.struct.generic.IAtomFrame;
+import droidefense.om.machine.base.struct.generic.IDroidefenseField;
+import droidefense.om.machine.base.struct.generic.IDroidefenseFrame;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.base.struct.model.AndroidRField;
 import droidefense.sdk.helpers.Util;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
 import droidefense.vfs.model.impl.VirtualFile;
@@ -576,7 +576,7 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
     public strictfp void execute(boolean keepScanning) throws Throwable {
 
         Log.write(LoggerType.DEBUG, "Reading Android R references...");
-        IAtomFrame frame = getCurrentFrame();
+        IDroidefenseFrame frame = getCurrentFrame();
         IDroidefenseMethod method = frame.getMethod();
         IDroidefenseClass methodOwnerClass = method.getOwnerClass();
 
@@ -588,10 +588,10 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
         Iterator it = staticFieldMap.entrySet().iterator();
 
         while (it.hasNext()) {
-            Map.Entry<String, IAtomField> entry = (Map.Entry<String, IAtomField>) it.next();
+            Map.Entry<String, IDroidefenseField> entry = (Map.Entry<String, IDroidefenseField>) it.next();
 
             if(entry!=null){
-                IAtomField field = entry.getValue();
+                IDroidefenseField field = entry.getValue();
                 String name = field.getName();
                 int value = field.getIntValue();
                 String owner = field.getOwnerClass().getName();

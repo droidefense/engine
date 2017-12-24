@@ -2,7 +2,7 @@ package droidefense.om.machine.base.struct.model;
 
 import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
-import droidefense.om.machine.base.struct.generic.IAtomField;
+import droidefense.om.machine.base.struct.generic.IDroidefenseField;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.reader.DexClassReader;
 import droidefense.sdk.helpers.InternalConstant;
@@ -26,9 +26,9 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
     private String[] interfaces;
 
 
-    private IAtomField[] instanceFields;
+    private IDroidefenseField[] instanceFields;
 
-    private IAtomField[] staticFields;
+    private IDroidefenseField[] staticFields;
 
     private Hashtable staticFieldMap;
 
@@ -41,8 +41,8 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
     public DVMClass() {
         super();
         interfaces = new String[0];
-        instanceFields = new IAtomField[0];
-        staticFields = new IAtomField[0];
+        instanceFields = new IDroidefenseField[0];
+        staticFields = new IDroidefenseField[0];
         staticFieldMap = new Hashtable();
 
         directMethods = new IDroidefenseMethod[0];
@@ -72,8 +72,8 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
     }
 
     @Override
-    public IAtomField getStaticField(String name) {
-        return (IAtomField) getStaticFieldMap().get(name);
+    public IDroidefenseField getStaticField(String name) {
+        return (IDroidefenseField) getStaticFieldMap().get(name);
     }
 
     public IDroidefenseMethod getMethod(final String name, final String descriptor, boolean getRealMethod) {
@@ -106,7 +106,7 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
     }
 
     @Override
-    public IAtomField getField(String fieldName, String fieldType) {
+    public IDroidefenseField getField(String fieldName, String fieldType) {
         return null;
     }
 
@@ -166,9 +166,9 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
 
     //GETTERS AND SETTERS
 
-    public IAtomField getInstanceField(String fieldName, String fieldType) {
-        IAtomField[] list = getInstanceFields();
-        for (IAtomField f : list) {
+    public IDroidefenseField getInstanceField(String fieldName, String fieldType) {
+        IDroidefenseField[] list = getInstanceFields();
+        for (IDroidefenseField f : list) {
             if (f.getName().equals(fieldName) && f.getType().equals(fieldType))
                 return f;
         }
@@ -230,22 +230,22 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
     }
 
     @Override
-    public IAtomField[] getInstanceFields() {
+    public IDroidefenseField[] getInstanceFields() {
         return instanceFields;
     }
 
     @Override
-    public void setInstanceFields(IAtomField[] instanceFields) {
+    public void setInstanceFields(IDroidefenseField[] instanceFields) {
         this.instanceFields = instanceFields;
     }
 
     @Override
-    public IAtomField[] getStaticFields() {
+    public IDroidefenseField[] getStaticFields() {
         return staticFields;
     }
 
     @Override
-    public void setStaticFields(IAtomField[] staticFields) {
+    public void setStaticFields(IDroidefenseField[] staticFields) {
         this.staticFields = staticFields;
     }
 

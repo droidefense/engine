@@ -2,16 +2,14 @@ package droidefense.om.flow.stable;
 
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
-import droidefense.om.machine.base.struct.generic.IAtomFrame;
+import droidefense.om.machine.base.struct.generic.IDroidefenseFrame;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
-
-import java.util.ArrayList;
 
 public final strictfp class OpCodeCheckerWorker extends AbstractFlowWorker {
 
@@ -85,7 +83,7 @@ public final strictfp class OpCodeCheckerWorker extends AbstractFlowWorker {
     @Override
     public strictfp void execute(boolean endless) throws Throwable {
 
-        IAtomFrame frame = getCurrentFrame();
+        IDroidefenseFrame frame = getCurrentFrame();
         if(frame!=null){
             IDroidefenseMethod method = frame.getMethod();
 

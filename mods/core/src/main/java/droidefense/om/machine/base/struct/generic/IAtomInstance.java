@@ -9,7 +9,7 @@ public interface IAtomInstance {
 
     String toString();
 
-    IAtomField getField(final String className, final String fieldName);
+    IDroidefenseField getField(final String className, final String fieldName);
 
     //GETTERS AND SETTERS
 

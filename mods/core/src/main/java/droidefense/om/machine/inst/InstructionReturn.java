@@ -1,10 +1,10 @@
 package droidefense.om.machine.inst;
 
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
-import droidefense.rulengine.base.AbstractAtomNode;
+import com.droidefense.rulengine.base.AbstractAtomNode;
 import droidefense.om.machine.base.exceptions.VirtualMachineRuntimeException;
-import droidefense.om.machine.base.struct.generic.IAtomField;
-import droidefense.om.machine.base.struct.generic.IAtomFrame;
+import droidefense.om.machine.base.struct.generic.IDroidefenseField;
+import droidefense.om.machine.base.struct.generic.IDroidefenseFrame;
 
 import java.io.Serializable;
 
@@ -13,14 +13,14 @@ import java.io.Serializable;
  */
 public final class InstructionReturn implements Serializable {
 
-    private IAtomFrame frame;
-    private IAtomField field;
+    private IDroidefenseFrame frame;
+    private IDroidefenseField field;
     private IDroidefenseMethod method;
     private int[] lowerCodes, upperCodes, codes;
     private Throwable error;
     private AbstractAtomNode node;
 
-    public InstructionReturn(IAtomFrame frame, IDroidefenseMethod method, int[] opcodes, int[] upperCodes, int[] mIdx, Throwable error) {
+    public InstructionReturn(IDroidefenseFrame frame, IDroidefenseMethod method, int[] opcodes, int[] upperCodes, int[] mIdx, Throwable error) {
         this.frame = frame;
         this.method = method;
         this.lowerCodes = opcodes;
@@ -29,12 +29,12 @@ public final class InstructionReturn implements Serializable {
         this.error = error;
     }
 
-    public InstructionReturn(IAtomFrame frame, IDroidefenseMethod method, int[] lowerCodes, int[] upperCodes, int[] codes, Throwable error, AbstractAtomNode node) {
+    public InstructionReturn(IDroidefenseFrame frame, IDroidefenseMethod method, int[] lowerCodes, int[] upperCodes, int[] codes, Throwable error, AbstractAtomNode node) {
         this(frame, method, lowerCodes, upperCodes, codes, error);
         this.node = node;
     }
 
-    public InstructionReturn(IAtomFrame frame, IAtomField field) {
+    public InstructionReturn(IDroidefenseFrame frame, IDroidefenseField field) {
         this.frame = frame;
         this.field = field;
     }
@@ -43,11 +43,11 @@ public final class InstructionReturn implements Serializable {
         this.error = e;
     }
 
-    public IAtomFrame getFrame() {
+    public IDroidefenseFrame getFrame() {
         return frame;
     }
 
-    public void setFrame(IAtomFrame frame) {
+    public void setFrame(IDroidefenseFrame frame) {
         this.frame = frame;
     }
 
@@ -91,11 +91,11 @@ public final class InstructionReturn implements Serializable {
         this.error = error;
     }
 
-    public IAtomField getField() {
+    public IDroidefenseField getField() {
         return field;
     }
 
-    public void setField(IAtomField field) {
+    public void setField(IDroidefenseField field) {
         this.field = field;
     }
 

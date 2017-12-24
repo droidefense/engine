@@ -1,10 +1,9 @@
 package droidefense.om.machine.reader;
 
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.dex.DalvikDexModel;
-import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.DexHashedFile;
 
 import java.io.IOException;
@@ -65,11 +64,11 @@ public class DexHeaderReader implements Serializable {
             try {
                 readHeader(model, op);
                 dex.setDexHeaderReaded(true);
+                readData(model, op);
             } catch (IllegalArgumentException e) {
                 Log.write(LoggerType.ERROR, "Could not read header of dex file " + dex.getAbsolutePath());
                 Log.write(LoggerType.ERROR, "Error details: "+e.getLocalizedMessage());
             }
-            readData(model, op);
         }
     }
 

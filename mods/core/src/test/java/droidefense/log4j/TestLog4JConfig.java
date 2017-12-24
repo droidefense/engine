@@ -1,8 +1,8 @@
 package droidefense.log4j;
 
 
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 
 /**
  * Created by .local on 17/09/2016.

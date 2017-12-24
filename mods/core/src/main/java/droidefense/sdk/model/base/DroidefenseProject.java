@@ -1,5 +1,8 @@
 package droidefense.sdk.model.base;
 
+import com.droidefense.rulengine.Rule;
+import com.droidefense.rulengine.base.AbstractFlowMap;
+import com.droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.handler.DirScannerHandler;
@@ -15,14 +18,11 @@ import droidefense.om.machine.reader.DexHeaderReader;
 import droidefense.reporting.AbstractReporter;
 import droidefense.reporting.BeautifiedJSONReporter;
 import droidefense.reporting.HTMLReporter;
-import droidefense.rulengine.Rule;
-import droidefense.rulengine.map.BasicCFGFlowMap;
-import droidefense.rulengine.base.AbstractFlowMap;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.AbstractStaticPlugin;
 import droidefense.sdk.helpers.*;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.sdk.manifest.Manifest;
 import droidefense.sdk.manifest.UsesPermission;
 import droidefense.sdk.manifest.base.AbstractManifestClass;
@@ -40,7 +40,7 @@ import droidefense.sdk.model.holder.StringInfo;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.DexHashedFile;
 import droidefense.sdk.model.io.LocalApkFile;
-import droidefense.util.JsonStyle;
+import droidefense.sdk.util.JsonStyle;
 import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.vfs.model.impl.VirtualFileSystem;
 
@@ -171,6 +171,7 @@ public final class DroidefenseProject implements Serializable {
      * Cached data to speedup execution
      */
     private transient IDroidefenseClass[] developerClasses;
+    private boolean magicNumberPass;
 
     public DroidefenseProject() {
         //create new timestamp now
@@ -944,5 +945,13 @@ public final class DroidefenseProject implements Serializable {
             this.developerClasses = list;
         }
         return this.developerClasses;
+    }
+
+    public void setMagicNumberPass(boolean magicNumberPass) {
+        this.magicNumberPass = magicNumberPass;
+    }
+
+    public boolean isMagicNumberPass() {
+        return magicNumberPass;
     }
 }

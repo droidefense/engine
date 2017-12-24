@@ -1,8 +1,8 @@
 package droidefense.sdk.helpers;
 
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
-import droidefense.util.SSDeep;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
+import droidefense.sdk.ssdeep.SSDeep;
 import droidefense.ssdeep.core.SsdeepHashGen;
 import droidefense.ssdeep.exception.SSDeepException;
 

@@ -15,22 +15,26 @@
     </properties>
 
     <modules>
-        <module>./mods/axml</module>
-        <module>./mods/batch</module>
-        <module>./mods/datamanager</module>
-        <module>./mods/entropy</module>
-        <module>./mods/reporting</module>
-        <module>./mods/manparser</module>
-        <module>./mods/ssdeep</module>
-        <module>./mods/vfs</module>
-        <module>./mods/ml</module>
-        <module>./mods/portex</module>
-        <module>./mods/pscout</module>
-        <module>./mods/sdk</module>
-        <module>./mods/memapktool</module>
-        <module>./mods/simplemagic</module>
-        <module>./mods/core</module>
-        <module>./mods/cli</module>
+        <module>mods/axml</module>
+        <module>mods/batch</module>
+        <module>mods/datamanager</module>
+        <module>mods/entropy</module>
+        <module>mods/log</module>
+        <module>mods/reporting</module>
+        <module>mods/rulengine</module>
+        <module>mods/manparser</module>
+        <module>mods/ssdeep</module>
+        <module>mods/vfs</module>
+        <module>mods/ml</module>
+        <module>mods/portex</module>
+        <module>mods/pscout</module>
+        <module>mods/sdk</module>
+        <module>mods/memapktool</module>
+        <module>mods/simplemagic</module>
+        <module>mods/core</module>
+        <module>mods/cli</module>
+        <module>mods/rulengine</module>
+        <module>mods/log</module>
     </modules>
 
     <dependencies>
@@ -193,19 +197,19 @@
         <profile>
             <id>debug</id>
             <build>
-                <directory>./dist/debug</directory>
+                <directory>dist/debug</directory>
             </build>
         </profile>
         <profile>
             <id>test</id>
             <build>
-                <directory>./dist/test</directory>
+                <directory>dist/test</directory>
             </build>
         </profile>
         <profile>
             <id>release</id>
             <build>
-                <directory>./dist/release</directory>
+                <directory>dist/release</directory>
             </build>
         </profile>
     </profiles>

@@ -1,6 +1,6 @@
 package droidefense.om.machine.base.constants;
 
-import droidefense.om.machine.base.struct.generic.IAtomField;
+import droidefense.om.machine.base.struct.generic.IDroidefenseField;
 import droidefense.om.machine.reader.DexClassReader;
 
 import java.io.Serializable;
@@ -23,7 +23,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             staticField.setIntValue(loader.readByte());
             return SUPPORTED;
         }
@@ -40,7 +40,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             staticField.setIntValue((short) loader.readValueByTypeArgument(valueArgument));
             return SUPPORTED;
         }
@@ -57,7 +57,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             staticField.setIntValue((char) loader.readValueByTypeArgument(valueArgument));
             return SUPPORTED;
         }
@@ -74,7 +74,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             staticField.setIntValue((int) loader.readValueByTypeArgument(valueArgument));
             return SUPPORTED;
         }
@@ -91,7 +91,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             staticField.setLongValue(loader.readValueByTypeArgument(valueArgument));
             return SUPPORTED;
         }
@@ -109,7 +109,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             staticField.setLongValue(loader.readValueByTypeArgument(valueArgument));
             return SUPPORTED;
         }
@@ -126,7 +126,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             staticField.setLongValue(loader.readValueByTypeArgument(valueArgument));
             return SUPPORTED;
         }
@@ -143,7 +143,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             staticField.setObjectValue(loader.getStrings()[(int) loader.readValueByTypeArgument(valueArgument)]);
             return SUPPORTED;
         }
@@ -160,7 +160,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             staticField.setObjectValue(loader.getTypes()[(int) loader.readValueByTypeArgument(valueArgument)]);
             return SUPPORTED_NOT_TESTED;
         }
@@ -177,7 +177,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             staticField.setObjectValue(loader.getFieldTypes()[(int) loader.readValueByTypeArgument(valueArgument)]);
             return SUPPORTED_NOT_TESTED;
         }
@@ -194,7 +194,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             staticField.setObjectValue(loader.getMethodTypes()[(int) loader.readValueByTypeArgument(valueArgument)]);
             return SUPPORTED_NOT_TESTED;
         }
@@ -211,7 +211,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             //staticField.setObjectValue(loader.getTypes()[(int) loader.readValueByTypeArgument(valueArgument)]);
             //return SUPPORTED_NOT_TESTED;
             return NOT_SUPPORTED;
@@ -229,7 +229,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             //staticField.setObjectValue(loader.getTypes()[(int) loader.readValueByTypeArgument(valueArgument)]);
             //return SUPPORTED_NOT_TESTED;
             return NOT_SUPPORTED;
@@ -247,7 +247,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             //staticField.setObjectValue(loader.getTypes()[(int) loader.readValueByTypeArgument(valueArgument)]);
             //eturn SUPPORTED_NOT_TESTED;
             return NOT_SUPPORTED;
@@ -265,7 +265,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             staticField.setObjectValue(null);
             return SUPPORTED;
         }
@@ -282,7 +282,7 @@ public enum ValueFormat implements Serializable {
         }
 
         @Override
-        public boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader) {
+        public boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader) {
             staticField.setIntValue(valueArgument);
             return SUPPORTED;
         }
@@ -325,7 +325,7 @@ public enum ValueFormat implements Serializable {
 
     public abstract byte getInstructionByteId();
 
-    public abstract boolean setValue(IAtomField staticField, int valueArgument, DexClassReader loader);
+    public abstract boolean setValue(IDroidefenseField staticField, int valueArgument, DexClassReader loader);
 
     public abstract String getName();
 }

@@ -2,11 +2,11 @@ package droidefense.om.machine.base.struct.fake;
 
 import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
-import droidefense.om.machine.base.struct.generic.IAtomField;
+import droidefense.om.machine.base.struct.generic.IDroidefenseField;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.sdk.helpers.InternalConstant;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
@@ -24,8 +24,8 @@ public class EncapsulatedClass extends IDroidefenseClass implements Serializable
     private boolean isInterface;
     private String superClass;
     private String[] interfaces;
-    private IAtomField[] instanceFields;
-    private IAtomField[] staticFields;
+    private IDroidefenseField[] instanceFields;
+    private IDroidefenseField[] staticFields;
     private Hashtable staticFieldMap;
     private IDroidefenseMethod[] directMethods;
     private IDroidefenseMethod[] virtualMethods;
@@ -85,8 +85,8 @@ public class EncapsulatedClass extends IDroidefenseClass implements Serializable
     }
 
     @Override
-    public IAtomField getStaticField(String name) {
-        return (IAtomField) getStaticFieldMap().get(name);
+    public IDroidefenseField getStaticField(String name) {
+        return (IDroidefenseField) getStaticFieldMap().get(name);
     }
 
     @Override
@@ -100,7 +100,7 @@ public class EncapsulatedClass extends IDroidefenseClass implements Serializable
     }
 
     @Override
-    public IAtomField getField(String fieldName, String fieldType) {
+    public IDroidefenseField getField(String fieldName, String fieldType) {
         return null;
     }
 
@@ -212,19 +212,19 @@ public class EncapsulatedClass extends IDroidefenseClass implements Serializable
         this.interfaces = interfaces;
     }
 
-    public IAtomField[] getInstanceFields() {
+    public IDroidefenseField[] getInstanceFields() {
         return instanceFields;
     }
 
-    public void setInstanceFields(IAtomField[] instanceFields) {
+    public void setInstanceFields(IDroidefenseField[] instanceFields) {
         this.instanceFields = instanceFields;
     }
 
-    public IAtomField[] getStaticFields() {
+    public IDroidefenseField[] getStaticFields() {
         return staticFields;
     }
 
-    public void setStaticFields(IAtomField[] staticFields) {
+    public void setStaticFields(IDroidefenseField[] staticFields) {
         this.staticFields = staticFields;
     }
 

@@ -1,7 +1,7 @@
 package droidefense.om.machine.base;
 
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.om.emulator.AndroidLogEmulator;
 import droidefense.om.emulator.ReflectionEmulator;
 import droidefense.om.machine.base.constants.TypeDescriptorSemantics;
@@ -175,7 +175,7 @@ public class DalvikVM extends AbstractVirtualMachine {
     private AbstractDVMThread startNewObservationThread(IDroidefenseClass currentClass, IDroidefenseMethod currentMethod) {
         AbstractDVMThread main;
         main = getThread(0).cleanThreadContext();
-        IAtomFrame frame = main.pushFrame();
+        IDroidefenseFrame frame = main.pushFrame();
         frame.init(currentMethod);
         frame.intArgument(main.getInitialArgumentCount(currentClass, currentMethod), main.getInitialArguments(currentClass, currentMethod));
         // TODO check if it is really needed
@@ -183,7 +183,7 @@ public class DalvikVM extends AbstractVirtualMachine {
         return main;
     }
 
-    public void notifyToThreads(final IAtomFrame frame, final boolean toAllThreads) {
+    public void notifyToThreads(final IDroidefenseFrame frame, final boolean toAllThreads) {
         Object instance = frame.getObjectArguments()[0];
         if (!frame.getThread().hasLock(instance)) {
             throw new IllegalMonitorStateException();
@@ -202,7 +202,7 @@ public class DalvikVM extends AbstractVirtualMachine {
         }
     }
 
-    public void waitForNotification(final IAtomFrame frame, long timeout, int nanos) {
+    public void waitForNotification(final IDroidefenseFrame frame, long timeout, int nanos) {
         Object instance = frame.getObjectArguments()[0];
 
         AbstractDVMThread thread = frame.getThread();
@@ -246,7 +246,7 @@ public class DalvikVM extends AbstractVirtualMachine {
 
     //handler
 
-    public IAtomField getField(final boolean isStatic, final IAtomFrame frame, final String dexClassName, final String fieldName, final int instance, String fieldType) {
+    public IDroidefenseField getField(final boolean isStatic, final IDroidefenseFrame frame, final String dexClassName, final String fieldName, final int instance, String fieldType) {
         if (isStatic) {
             IDroidefenseClass dexClass = DexClassReader.getInstance().load(dexClassName);
             if (dexClass != null) {
@@ -256,14 +256,14 @@ public class DalvikVM extends AbstractVirtualMachine {
         } else {
             Object object = frame.getObjectRegisters()[instance];
             if (object == null) {
-                IAtomField field = DexClassReader.getInstance().load(dexClassName).getField(fieldName, fieldType);
+                IDroidefenseField field = DexClassReader.getInstance().load(dexClassName).getField(fieldName, fieldType);
                 return field;
             }
         }
         return null;
     }
 
-    public Object[] setArguments(final boolean isVirtual, final IAtomFrame frame, final String descriptor, int firstRegister, int range) {
+    public Object[] setArguments(final boolean isVirtual, final IDroidefenseFrame frame, final String descriptor, int firstRegister, int range) {
         ArrayList<Object> retList = new ArrayList<>();
         int argPos = 0;
         if (isVirtual) {
@@ -336,7 +336,7 @@ public class DalvikVM extends AbstractVirtualMachine {
         return retList.toArray(new Object[retList.size()]);
     }
 
-    public Object[] setArguments(boolean isVirtual, IAtomFrame frame, String descriptor, final int registers) {
+    public Object[] setArguments(boolean isVirtual, IDroidefenseFrame frame, String descriptor, final int registers) {
         ArrayList<Object> retList = new ArrayList<>();
         //TODO frame.clearObjectArguments();
         int argPos = 0;
@@ -430,7 +430,7 @@ public class DalvikVM extends AbstractVirtualMachine {
         return retList.toArray(new Object[retList.size()]);
     }
 
-    private void argumentValue(IAtomFrame frame, int argPos, Object clo) {
+    private void argumentValue(IDroidefenseFrame frame, int argPos, Object clo) {
         if (frame.getObjectArguments()[0] == null) {
             frame.setArgument(0, clo);
         } else {
@@ -438,8 +438,8 @@ public class DalvikVM extends AbstractVirtualMachine {
         }
     }
 
-    public IAtomFrame callMethod(final boolean isVirtual, IDroidefenseMethod method, final IAtomFrame frame) {
-        IAtomFrame newFrame = getFirstWorker().pushFrame();
+    public IDroidefenseFrame callMethod(final boolean isVirtual, IDroidefenseMethod method, final IDroidefenseFrame frame) {
+        IDroidefenseFrame newFrame = getFirstWorker().pushFrame();
         IDroidefenseMethod original = method;
         Object instance = null;
         if (method.isInstance()) {
@@ -518,13 +518,13 @@ public class DalvikVM extends AbstractVirtualMachine {
         return arg;
     }
 
-    public void getField(final boolean isStatic, final IAtomFrame frame, final int source, final int fieldIndex, final int destination) {
+    public void getField(final boolean isStatic, final IDroidefenseFrame frame, final int source, final int fieldIndex, final int destination) {
         IDroidefenseMethod method = frame.getMethod();
         String dexClassName = method.getFieldClasses()[fieldIndex];
         String fieldName = method.getFieldNames()[fieldIndex];
         String fieldType = method.getFieldTypes()[fieldIndex];
         addInstructionToStack(dexClassName, fieldName, fieldType);
-        IAtomField field = getField(isStatic, frame, dexClassName, fieldName, source, fieldType);
+        IDroidefenseField field = getField(isStatic, frame, dexClassName, fieldName, source, fieldType);
         if (field != null) {
             switch (fieldType.charAt(0)) {
                 case TypeDescriptorSemantics.DESC_C:
@@ -767,7 +767,7 @@ public class DalvikVM extends AbstractVirtualMachine {
         throw new VirtualMachineRuntimeException("not supported array type = " + classDescriptor);
     }
 
-    public IAtomFrame handleThrowable(final Throwable e, IAtomFrame frame) {
+    public IDroidefenseFrame handleThrowable(final Throwable e, IDroidefenseFrame frame) {
         if (e instanceof ChangeThreadRuntimeException) {
             throw (ChangeThreadRuntimeException) e;
         }
@@ -829,13 +829,13 @@ public class DalvikVM extends AbstractVirtualMachine {
         return true;
     }
 
-    public void setField(final boolean isStatic, final IAtomFrame frame, final int source, final int destination, final int fieldIndex) {
+    public void setField(final boolean isStatic, final IDroidefenseFrame frame, final int source, final int destination, final int fieldIndex) {
         IDroidefenseMethod method = frame.getMethod();
         String dexClassName = method.getFieldClasses()[fieldIndex];
         String fieldName = method.getFieldNames()[fieldIndex];
         String fieldType = method.getFieldTypes()[fieldIndex];
-        //IAtomField field = getField(isStatic, frame, dexClassName, fieldName, destination);
-        IAtomField field = getField(isStatic, frame, dexClassName, fieldName, destination, fieldType);
+        //IDroidefenseField field = getField(isStatic, frame, dexClassName, fieldName, destination);
+        IDroidefenseField field = getField(isStatic, frame, dexClassName, fieldName, destination, fieldType);
         if (field != null) {
             switch (fieldType.charAt(0)) {
                 case TypeDescriptorSemantics.DESC_C:
@@ -867,7 +867,7 @@ public class DalvikVM extends AbstractVirtualMachine {
         }
     }
 
-    public boolean handleClassFieldGetter(final IAtomFrame frame, final String absoluteClassName, final String fieldName, final String fieldDescriptor, final int destination) {
+    public boolean handleClassFieldGetter(final IDroidefenseFrame frame, final String absoluteClassName, final String fieldName, final String fieldDescriptor, final int destination) {
         // CLASS FIELD SECTION {
         String packageName = absoluteClassName.substring(0, absoluteClassName.lastIndexOf('/'));
         String className = absoluteClassName.substring(absoluteClassName.lastIndexOf('/') + 1);
@@ -943,7 +943,7 @@ public class DalvikVM extends AbstractVirtualMachine {
     }
 
 
-    public boolean handleClassFieldSetter(final IAtomFrame frame, final int source, final String absoluteClassName, final String fieldName, final String fieldDescriptor) {
+    public boolean handleClassFieldSetter(final IDroidefenseFrame frame, final int source, final String absoluteClassName, final String fieldName, final String fieldDescriptor) {
         //TODO
         return false;
     }
@@ -974,7 +974,7 @@ public class DalvikVM extends AbstractVirtualMachine {
         }
     }
 
-    public boolean handleClassMethod(final IAtomFrame frame, IDroidefenseMethod method, final String absoluteClassName, final String methodName, final String methodDescriptor, Object[] args) throws Exception {
+    public boolean handleClassMethod(final IDroidefenseFrame frame, IDroidefenseMethod method, final String absoluteClassName, final String methodName, final String methodDescriptor, Object[] args) throws Exception {
 
         //RETURN REFLECTED CLASS IF POSSIBLE
         IDroidefenseClass cl = DexClassReader.getInstance().load(absoluteClassName);
@@ -1344,7 +1344,7 @@ public class DalvikVM extends AbstractVirtualMachine {
         */
     }
 
-    public boolean handleConstructor(final IAtomFrame frame, final String absoluteClassName, final String methodName, final String methodDescriptor) throws Exception {
+    public boolean handleConstructor(final IDroidefenseFrame frame, final String absoluteClassName, final String methodName, final String methodDescriptor) throws Exception {
         //HANDLE CONSTRUCTOR FOR TAINTED CLASS ONLY
         IDroidefenseClass dclass = DexClassReader.getInstance().load(absoluteClassName);
         if (dclass instanceof DVMTaintClass) {
@@ -1947,13 +1947,13 @@ public class DalvikVM extends AbstractVirtualMachine {
 
     }
 
-    public boolean handleInstanceFieldGetter(final IAtomFrame frame, final String absoluteClassName, final String fieldName, final String fieldDescriptor, final int register) {
+    public boolean handleInstanceFieldGetter(final IDroidefenseFrame frame, final String absoluteClassName, final String fieldName, final String fieldDescriptor, final int register) {
         // INSTANCE FIELD SECTION {
         // }
         return false;
     }
 
-    public boolean handleInstanceMethod(final IAtomFrame frame, final String absoluteClassName, final String methodName, final String methodDescriptor) throws Exception {
+    public boolean handleInstanceMethod(final IDroidefenseFrame frame, final String absoluteClassName, final String methodName, final String methodDescriptor) throws Exception {
         IDroidefenseClass dclass = DexClassReader.getInstance().load(absoluteClassName);
         if (dclass instanceof EncapsulatedClass) {
             EncapsulatedClass tainted = (EncapsulatedClass) dclass;
@@ -3204,7 +3204,7 @@ public class DalvikVM extends AbstractVirtualMachine {
         */
     }
 
-    public boolean handleInterfaceMethod(final IAtomFrame frame, final String absoluteClassName, final String methodName, final String methodDescriptor) throws Exception {
+    public boolean handleInterfaceMethod(final IDroidefenseFrame frame, final String absoluteClassName, final String methodName, final String methodDescriptor) throws Exception {
         // INTERFACE METHOD SECTION {
         String packageName = absoluteClassName.substring(0, absoluteClassName.lastIndexOf('/'));
         String className = absoluteClassName.substring(absoluteClassName.lastIndexOf('/') + 1);
@@ -3364,7 +3364,7 @@ public class DalvikVM extends AbstractVirtualMachine {
         }
     }
 
-    public void replaceObjects(final IAtomFrame frame, final Object previousObject, final Object newObject) {
+    public void replaceObjects(final IDroidefenseFrame frame, final Object previousObject, final Object newObject) {
         if (previousObject instanceof IAtomInstance) {
             ((IAtomInstance) previousObject).setParentInstance(newObject);
         } else {

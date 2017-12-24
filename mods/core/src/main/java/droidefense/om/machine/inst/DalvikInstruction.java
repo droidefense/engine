@@ -1,13 +1,13 @@
 package droidefense.om.machine.inst;
 
 import droidefense.om.machine.reader.DexClassReader;
-import droidefense.rulengine.base.AbstractFlowMap;
-import droidefense.rulengine.nodes.ConstStrNode;
-import droidefense.rulengine.nodes.FieldNode;
-import droidefense.rulengine.nodes.MethodNode;
-import droidefense.rulengine.nodes.NormalNode;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.rulengine.base.AbstractFlowMap;
+import com.droidefense.rulengine.nodes.ConstStrNode;
+import com.droidefense.rulengine.nodes.FieldNode;
+import com.droidefense.rulengine.nodes.MethodNode;
+import com.droidefense.rulengine.nodes.NormalNode;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.om.flow.base.NodeGenerator;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DynamicUtils;
@@ -42,7 +42,7 @@ public enum DalvikInstruction implements Serializable {
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             //pop current frame too
             if (thread.getCurrentFrame().getMethod().isFake()) {
-                IAtomFrame previousFrame = thread.popFrame();
+                IDroidefenseFrame previousFrame = thread.popFrame();
                 IDroidefenseMethod previousMethod = previousFrame.getMethod();
                 lowerCodes = previousMethod.getOpcodes();
                 upperCodes = previousMethod.getRegistercodes();
@@ -415,7 +415,7 @@ public enum DalvikInstruction implements Serializable {
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // return-void
 
-            IAtomFrame newFrame = thread.popFrame();
+            IDroidefenseFrame newFrame = thread.popFrame();
             if (newFrame != null) {
                 IDroidefenseMethod method = newFrame.getMethod();
                 if (method != null) {
@@ -449,7 +449,7 @@ public enum DalvikInstruction implements Serializable {
             // return vAA
             int result = thread.getCurrentFrame().getIntRegisters()[upperCodes[thread.getCurrentFrame().increasePc()]];
 
-            IAtomFrame newFrame = thread.popFrame();
+            IDroidefenseFrame newFrame = thread.popFrame();
 
             thread.getCurrentFrame().setSingleReturn(result);
 
@@ -482,7 +482,7 @@ public enum DalvikInstruction implements Serializable {
             // return-wide vAA
             long result = DynamicUtils.getLong(thread.getCurrentFrame().getIntRegisters(), upperCodes[thread.getCurrentFrame().increasePc()]);
 
-            IAtomFrame newFrame = thread.popFrame();
+            IDroidefenseFrame newFrame = thread.popFrame();
 
             thread.getCurrentFrame().setDoubleReturn(result);
 
@@ -515,7 +515,7 @@ public enum DalvikInstruction implements Serializable {
             // return-object vAA
             Object result = thread.getCurrentFrame().getObjectRegisters()[upperCodes[thread.getCurrentFrame().increasePc()]];
 
-            IAtomFrame newFrame = thread.popFrame();
+            IDroidefenseFrame newFrame = thread.popFrame();
 
             thread.getCurrentFrame().setObjectReturn(result);
 
@@ -770,7 +770,7 @@ public enum DalvikInstruction implements Serializable {
             thread.getCurrentFrame().getObjectRegisters()[destination] = str;
             thread.getCurrentFrame().getIsObjectRegister()[destination] = true;
             ConstStrNode node = reporting.buildStringNode(map, this, thread.getCurrentFrame(), destination, str);
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             return new InstructionReturn(frame, frame.getMethod(), lowerCodes, upperCodes, codes, null, node);
         }
     },
@@ -1681,7 +1681,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // if-lt vA, vB, +CCCC
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int firstValue = frame.getIntRegisters()[upperCodes[frame.getPc()] & 0xF];
             int secondValue = frame.getIntRegisters()[upperCodes[frame.increasePc()] >> 4];
             int offset = (short) codes[frame.increasePc()];
@@ -2663,7 +2663,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // iget vA, vB, field@CCCC
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int destination = upperCodes[thread.getCurrentFrame().getPc()] & 0xF;
             int source = upperCodes[thread.getCurrentFrame().increasePc()] >> 4;
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
@@ -2690,7 +2690,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // iget-wide vA, vB, field@CCCC
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int destination = upperCodes[thread.getCurrentFrame().getPc()] & 0xF;
             int source = upperCodes[thread.getCurrentFrame().increasePc()] >> 4;
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
@@ -2717,7 +2717,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // iget-object vA, vB, field@CCCC
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int destination = upperCodes[thread.getCurrentFrame().getPc()] & 0xF;
             int source = upperCodes[thread.getCurrentFrame().increasePc()] >> 4;
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
@@ -2744,7 +2744,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // iget-boolean vA, vB, field@CCCC
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int destination = upperCodes[thread.getCurrentFrame().getPc()] & 0xF;
             int source = upperCodes[thread.getCurrentFrame().increasePc()] >> 4;
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
@@ -2771,7 +2771,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // iget-byte vA, vB, field@CCCC
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int destination = upperCodes[thread.getCurrentFrame().getPc()] & 0xF;
             int source = upperCodes[thread.getCurrentFrame().increasePc()] >> 4;
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
@@ -2798,7 +2798,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // iget-char vA, vB, field@CCCC
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int destination = upperCodes[thread.getCurrentFrame().getPc()] & 0xF;
             int source = upperCodes[thread.getCurrentFrame().increasePc()] >> 4;
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
@@ -2825,7 +2825,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // iget-short vA, vB, field@CCCC
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int destination = upperCodes[thread.getCurrentFrame().getPc()] & 0xF;
             int source = upperCodes[thread.getCurrentFrame().increasePc()] >> 4;
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
@@ -2852,7 +2852,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // iput vA, vB, field@CCCC
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int source = upperCodes[thread.getCurrentFrame().getPc()] & 0xF;
             int destination = upperCodes[thread.getCurrentFrame().increasePc()] >> 4;
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
@@ -2879,7 +2879,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // iput-wide vA, vB, field@CCCC
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int source = upperCodes[thread.getCurrentFrame().getPc()] & 0xF;
             int destination = upperCodes[thread.getCurrentFrame().increasePc()] >> 4;
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
@@ -2906,7 +2906,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // iput-object vA, vB, field@CCCC
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int source = upperCodes[thread.getCurrentFrame().getPc()] & 0xF;
             int destination = upperCodes[thread.getCurrentFrame().increasePc()] >> 4;
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
@@ -2933,7 +2933,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // iput-boolean vA, vB, field@CCCC
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int source = upperCodes[thread.getCurrentFrame().getPc()] & 0xF;
             int destination = upperCodes[thread.getCurrentFrame().increasePc()] >> 4;
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
@@ -2960,7 +2960,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // iput-byte vA, vB, field@CCCC
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int source = upperCodes[thread.getCurrentFrame().getPc()] & 0xF;
             int destination = upperCodes[thread.getCurrentFrame().increasePc()] >> 4;
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
@@ -2987,7 +2987,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // iput-char vA, vB, field@CCCC
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int source = upperCodes[thread.getCurrentFrame().getPc()] & 0xF;
             int destination = upperCodes[thread.getCurrentFrame().increasePc()] >> 4;
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
@@ -3014,7 +3014,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // iput-short vA, vB, field@CCCC
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int source = upperCodes[thread.getCurrentFrame().getPc()] & 0xF;
             int destination = upperCodes[thread.getCurrentFrame().increasePc()] >> 4;
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
@@ -3041,10 +3041,10 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // sget
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int destination = upperCodes[thread.getCurrentFrame().increasePc()];
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
-            IAtomField field = thread.getField(frame, 0, fieldIndex, destination);
+            IDroidefenseField field = thread.getField(frame, 0, fieldIndex, destination);
             FieldNode node = reporting.buildFieldNode(map, this, field, frame.getPc());
             return new InstructionReturn(frame, frame.getMethod(), lowerCodes, upperCodes, codes, null, node);
         }
@@ -3068,7 +3068,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // sget-wide
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int destination = upperCodes[thread.getCurrentFrame().increasePc()];
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
             thread.getField(frame, 0, fieldIndex, destination);
@@ -3094,10 +3094,10 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // sget-object
-            IAtomFrame frame = thread.getCurrentFrame();
-            int destination = upperCodes[thread.getCurrentFrame().increasePc()];
-            int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
-            IAtomField field = thread.getField(frame, 0, fieldIndex, destination);
+            IDroidefenseFrame frame = thread.getCurrentFrame();
+            int destination = upperCodes[frame.increasePc()];
+            int fieldIndex = codes[frame.increasePc()];
+            IDroidefenseField field = thread.getField(frame, 0, fieldIndex, destination);
 
             FieldNode node = reporting.buildFieldNode(map, this, field, frame.getPc());
             return new InstructionReturn(frame, frame.getMethod(), lowerCodes, upperCodes, codes, null, node);
@@ -3122,7 +3122,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // sget-boolean
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int destination = upperCodes[thread.getCurrentFrame().increasePc()];
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
             thread.getField(frame, 0, fieldIndex, destination);
@@ -3148,7 +3148,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // sget-byte
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int destination = upperCodes[thread.getCurrentFrame().increasePc()];
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
             thread.getField(frame, 0, fieldIndex, destination);
@@ -3174,7 +3174,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // sget-boolean
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int destination = upperCodes[thread.getCurrentFrame().increasePc()];
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
             thread.getField(frame, 0, fieldIndex, destination);
@@ -3200,7 +3200,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // sget-short
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int destination = upperCodes[thread.getCurrentFrame().increasePc()];
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
             thread.getField(frame, 0, fieldIndex, destination);
@@ -3226,7 +3226,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // sput
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int source = upperCodes[thread.getCurrentFrame().increasePc()];
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
             thread.setField(frame, source, 0, fieldIndex);
@@ -3252,7 +3252,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // sput-wide
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int source = upperCodes[thread.getCurrentFrame().increasePc()];
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
             thread.setField(frame, source, 0, fieldIndex);
@@ -3278,7 +3278,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // sput-object
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int source = upperCodes[thread.getCurrentFrame().increasePc()];
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
             thread.setField(frame, source, 0, fieldIndex);
@@ -3304,7 +3304,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // sput-boolean
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int source = upperCodes[thread.getCurrentFrame().increasePc()];
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
             thread.setField(frame, source, 0, fieldIndex);
@@ -3330,7 +3330,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // sput-byte
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int source = upperCodes[thread.getCurrentFrame().increasePc()];
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
             thread.setField(frame, source, 0, fieldIndex);
@@ -3356,7 +3356,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // sput-char
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int source = upperCodes[thread.getCurrentFrame().increasePc()];
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
             thread.setField(frame, source, 0, fieldIndex);
@@ -3382,7 +3382,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // sput-short
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             int source = upperCodes[thread.getCurrentFrame().increasePc()];
             int fieldIndex = codes[thread.getCurrentFrame().increasePc()];
             thread.setField(frame, source, 0, fieldIndex);
@@ -3408,7 +3408,7 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
 
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             IDroidefenseMethod method = frame.getMethod();
 
             // invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
@@ -3485,7 +3485,7 @@ public enum DalvikInstruction implements Serializable {
 
             // invoke-super {vD, vE, vF, vG, vA}, meth@CCCC
 
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             IDroidefenseMethod method = frame.getMethod();
 
             // invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
@@ -3562,7 +3562,7 @@ public enum DalvikInstruction implements Serializable {
 
             // invoke-direct {vD, vE, vF, vG, vA}, meth@CCCC
 
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             IDroidefenseMethod method = frame.getMethod();
 
 
@@ -3644,7 +3644,7 @@ public enum DalvikInstruction implements Serializable {
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
 
 
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             IDroidefenseMethod method = frame.getMethod();
 
             // invoke-static {vD, vE, vF, vG, vA}, meth@CCCC
@@ -3700,7 +3700,7 @@ public enum DalvikInstruction implements Serializable {
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
 
 
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             IDroidefenseMethod method = frame.getMethod();
 
             // invoke-interface {vD, vE, vF, vG, vA}, meth@CCCC
@@ -3787,7 +3787,7 @@ public enum DalvikInstruction implements Serializable {
             // invoke-virtual/range {vCCCC .. vNNNN}, meth@BBBB
 
 
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             IDroidefenseMethod method = frame.getMethod();
 
             int range = upperCodes[thread.getCurrentFrame().increasePc()];
@@ -3876,7 +3876,7 @@ public enum DalvikInstruction implements Serializable {
 
             // invoke-direct/range {vCCCC .. vNNNN}, meth@BBBB
 
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             IDroidefenseMethod method = frame.getMethod();
 
             int range = upperCodes[thread.getCurrentFrame().increasePc()];
@@ -3949,7 +3949,7 @@ public enum DalvikInstruction implements Serializable {
             // invoke-static/range {vCCCC .. vNNNN}, meth@BBBB
 
 
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             IDroidefenseMethod method = frame.getMethod();
 
             int range = upperCodes[thread.getCurrentFrame().increasePc()];
@@ -4003,7 +4003,7 @@ public enum DalvikInstruction implements Serializable {
 
             // invoke-interface/range {vCCCC .. vNNNN}, meth@BBBB
 
-            IAtomFrame frame = thread.getCurrentFrame();
+            IDroidefenseFrame frame = thread.getCurrentFrame();
             IDroidefenseMethod method = frame.getMethod();
 
             int range = upperCodes[thread.getCurrentFrame().increasePc()];

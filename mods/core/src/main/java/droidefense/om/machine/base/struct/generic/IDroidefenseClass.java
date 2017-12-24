@@ -17,7 +17,7 @@ public abstract class IDroidefenseClass {
 
     public abstract IDroidefenseMethod getDirectMethod(final String name, final String descriptor, boolean getRealMethod);
 
-    public abstract  IAtomField getStaticField(final String name);
+    public abstract IDroidefenseField getStaticField(final String name);
 
     //GETTERS AND SETTERS
 
@@ -41,13 +41,13 @@ public abstract class IDroidefenseClass {
 
     public abstract void setInterfaces(String[] interfaces);
 
-    public abstract IAtomField[] getInstanceFields();
+    public abstract IDroidefenseField[] getInstanceFields();
 
-    public abstract void setInstanceFields(IAtomField[] instanceFields);
+    public abstract void setInstanceFields(IDroidefenseField[] instanceFields);
 
-    public abstract IAtomField[] getStaticFields();
+    public abstract IDroidefenseField[] getStaticFields();
 
-    public abstract void setStaticFields(IAtomField[] staticFields);
+    public abstract void setStaticFields(IDroidefenseField[] staticFields);
 
     public abstract Hashtable getStaticFieldMap();
 
@@ -69,7 +69,7 @@ public abstract class IDroidefenseClass {
 
     public abstract IDroidefenseMethod[] getMethod(String name);
 
-    public abstract IAtomField getField(String fieldName, String fieldType);
+    public abstract IDroidefenseField getField(String fieldName, String fieldType);
 
     public abstract boolean isFake();
 

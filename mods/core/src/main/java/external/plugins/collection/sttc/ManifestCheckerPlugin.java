@@ -1,8 +1,8 @@
 package external.plugins.collection.sttc;
 
 import droidefense.sdk.AbstractStaticPlugin;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.sdk.model.io.AbstractHashedFile;
 
 import java.io.IOException;

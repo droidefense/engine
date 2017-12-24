@@ -3,8 +3,8 @@ package droidefense.om.helper;
 
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;

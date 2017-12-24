@@ -2,7 +2,7 @@ package droidefense.om.machine.base.struct.model;
 
 
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
-import droidefense.om.machine.base.struct.generic.IAtomField;
+import droidefense.om.machine.base.struct.generic.IDroidefenseField;
 import droidefense.om.machine.base.struct.generic.IAtomInstance;
 import droidefense.om.machine.reader.DexClassReader;
 
@@ -22,9 +22,9 @@ public final class DVMInstance implements IAtomInstance, Serializable {
         IDroidefenseClass current = cls;
         do {
             Hashtable fields = new Hashtable();
-            IAtomField[] currentFields = current.getInstanceFields();
+            IDroidefenseField[] currentFields = current.getInstanceFields();
             if (currentFields != null) {
-                for (IAtomField field : currentFields) {
+                for (IDroidefenseField field : currentFields) {
                     fields.put(field.getName(), field.copy());
                 }
                 fieldsOfClasses.put(current.getName(), fields);
@@ -40,14 +40,14 @@ public final class DVMInstance implements IAtomInstance, Serializable {
         return ownerClass.getName() + "@" + Integer.toHexString(hashCode());
     }
 
-    public IAtomField getField(final String className, final String fieldName) {
+    public IDroidefenseField getField(final String className, final String fieldName) {
         String currentClassName = className;
         while (true) {
             Hashtable fields = (Hashtable) fieldsOfClasses.get(currentClassName);
             if (fields == null) {
                 return null;
             }
-            IAtomField field = (IAtomField) fields.get(fieldName);
+            IDroidefenseField field = (IDroidefenseField) fields.get(fieldName);
             if (field != null) {
                 return field;
             }

@@ -5,9 +5,9 @@ import droidefense.handler.FileIOHandler;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.reader.DexClassReader;
-import droidefense.rulengine.base.AbstractAtomNode;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.rulengine.base.AbstractAtomNode;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +16,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashSet;
 
-import static droidefense.rulengine.NodeCalculator.nodeTypeResolver;
+import static com.droidefense.rulengine.NodeCalculator.nodeTypeResolver;
 
 public class DroidDefenseEnvironment implements Serializable {
 
@@ -567,7 +567,7 @@ public class DroidDefenseEnvironment implements Serializable {
     }
 
     //http://www.graphviz.org/doc/info/colors.html
-    public String classifyNodeColor(String fullClassName, AbstractAtomNode node) {
+    public String classifyNodeColor(String fullClassName, String nodeType) {
         boolean innerClass = fullClassName.contains("$");
         if (isAndroidNative(fullClassName)) {
             //android native class
@@ -577,9 +577,8 @@ public class DroidDefenseEnvironment implements Serializable {
                 return "antiquewhite3";
             }
         } else {
-            String type = node.getType();
             //http://www.graphviz.org/doc/info/colors.html
-            switch (type) {
+            switch (nodeType) {
                 case "Developer | InnerClass":
                     return "gold";
                 case "Developer | Activity":

@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>manparser</artifactId>
 
-    <name>Droidefense - manifest parser</name>
+    <name>Droidefense - AndroidManifex.xml parser</name>
 
     <properties>
         <jdk.version>1.8</jdk.version>
@@ -21,6 +21,12 @@
             <artifactId>sdk</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.droidefense</groupId>
+            <artifactId>log</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -29,7 +35,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>3.7.0</version>
                 <configuration>
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>

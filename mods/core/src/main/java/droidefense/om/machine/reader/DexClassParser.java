@@ -4,7 +4,7 @@ import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.constants.AccessFlag;
 import droidefense.om.machine.base.constants.ValueFormat;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
-import droidefense.om.machine.base.struct.generic.IAtomField;
+import droidefense.om.machine.base.struct.generic.IDroidefenseField;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.base.struct.model.DVMClass;
 import droidefense.om.machine.base.struct.model.DVMField;
@@ -114,8 +114,8 @@ public class DexClassParser {
                 if (classDataOffset != 0) {
                     pushOffset(classDataOffset);
 
-                    IAtomField[] staticFields = new IAtomField[readULEB128()];
-                    IAtomField[] instanceFields = new IAtomField[readULEB128()];
+                    IDroidefenseField[] staticFields = new IDroidefenseField[readULEB128()];
+                    IDroidefenseField[] instanceFields = new IDroidefenseField[readULEB128()];
                     DVMMethod[] directMethods = new DVMMethod[readULEB128()];
                     DVMMethod[] virtualMethods = new DVMMethod[readULEB128()];
 
@@ -126,7 +126,7 @@ public class DexClassParser {
 
                     cls.setStaticFields(staticFields);
                     cls.setStaticFieldMap(new Hashtable());
-                    for (IAtomField field : staticFields) {
+                    for (IDroidefenseField field : staticFields) {
                         cls.getStaticFieldMap().put(field.getName(), field);
                     }
                     cls.setInstanceFields(instanceFields);
@@ -142,7 +142,7 @@ public class DexClassParser {
 
                     int length = readULEB128();
                     for (int j = 0; j < length; j++) {
-                        IAtomField staticField = cls.getStaticFields()[j];
+                        IDroidefenseField staticField = cls.getStaticFields()[j];
 
                         int data = readUByte();
                         int valueType = data & 0x1F;
@@ -279,7 +279,7 @@ public class DexClassParser {
         }
     }
 
-    private void readFields(final IDroidefenseClass cls, final IAtomField[] fields, final boolean isInstance) {
+    private void readFields(final IDroidefenseClass cls, final IDroidefenseField[] fields, final boolean isInstance) {
         int fieldIndex = 0;
         for (int i = 0, length = fields.length; i < length; i++) {
             if (i == 0) {
@@ -287,7 +287,7 @@ public class DexClassParser {
             } else {
                 fieldIndex += readULEB128();
             }
-            IAtomField field = new DVMField(cls);
+            IDroidefenseField field = new DVMField(cls);
 
             field.setFlag(readULEB128());
             field.setInstance(isInstance);

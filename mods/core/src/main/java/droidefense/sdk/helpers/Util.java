@@ -1,9 +1,9 @@
 package droidefense.sdk.helpers;
 
 import com.google.gson.Gson;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
-import droidefense.util.JsonStyle;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
+import droidefense.sdk.util.JsonStyle;
 
 import javax.activation.MimetypesFileTypeMap;
 import javax.xml.transform.OutputKeys;
@@ -13,9 +13,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.*;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;

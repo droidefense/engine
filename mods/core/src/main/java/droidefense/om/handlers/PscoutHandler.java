@@ -2,12 +2,11 @@ package droidefense.om.handlers;
 
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.AbstractHandler;
-import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.pscout.PSCoutModel;
-import droidefense.rulengine.base.AbstractAtomNode;
-import droidefense.rulengine.nodes.MethodNode;
+import com.droidefense.rulengine.base.AbstractAtomNode;
+import com.droidefense.rulengine.nodes.MethodNode;
 import droidefense.sdk.model.base.DroidefenseProject;
 
 import java.io.File;

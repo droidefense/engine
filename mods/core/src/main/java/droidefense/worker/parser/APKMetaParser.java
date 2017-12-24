@@ -1,7 +1,7 @@
 package droidefense.worker.parser;
 
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
 import droidefense.sdk.model.io.DexHashedFile;
 import droidefense.vfs.model.impl.VirtualFile;
@@ -45,7 +45,9 @@ public class APKMetaParser extends AbstractFileParser {
         AbstractHashedFile certFile = null;
         for (VirtualFile r : files) {
             //count dex files and search manifest file
-            if (r.getName().toLowerCase().endsWith(InternalConstant.DEX_EXTENSION)) {
+            if (r.getName().toLowerCase().endsWith(InternalConstant.DEX_EXTENSION) && r.getParentNode().isRootNode()) {
+                //executable dex files can only be located at root folder to be executed.??
+                //others out of there has to be loaded using android classloader api
                 dexList.add(new DexHashedFile(r, true));
             } else if (r.getName().toLowerCase().endsWith(InternalConstant.CERTIFICATE_EXTENSION)) {
                 certFile = new VirtualHashedFile(r, true);

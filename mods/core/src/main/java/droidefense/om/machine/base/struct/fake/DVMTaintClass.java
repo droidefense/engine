@@ -25,7 +25,7 @@ package droidefense.om.machine.base.struct.fake;
 
 
 import droidefense.om.machine.base.DynamicUtils;
-import droidefense.om.machine.base.struct.generic.IAtomField;
+import droidefense.om.machine.base.struct.generic.IDroidefenseField;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.base.struct.model.DVMClass;
 import droidefense.sdk.helpers.InternalConstant;
@@ -36,7 +36,7 @@ import java.util.HashMap;
 public final class DVMTaintClass extends DVMClass {
 
 
-    protected HashMap<String, IAtomField> taintFields;
+    protected HashMap<String, IDroidefenseField> taintFields;
 
     protected HashMap<String, IDroidefenseMethod> taintMethods;
 
@@ -48,11 +48,11 @@ public final class DVMTaintClass extends DVMClass {
         this.setSuperClass(InternalConstant.SUPERCLASS);
     }
 
-    public HashMap<String, IAtomField> getTaintFields() {
+    public HashMap<String, IDroidefenseField> getTaintFields() {
         return taintFields;
     }
 
-    public void setTaintFields(HashMap<String, IAtomField> taintFields) {
+    public void setTaintFields(HashMap<String, IDroidefenseField> taintFields) {
         this.taintFields = taintFields;
     }
 
@@ -65,8 +65,8 @@ public final class DVMTaintClass extends DVMClass {
     }
 
     @Override
-    public IAtomField getStaticField(String name) {
-        IAtomField field = taintFields.get(name);
+    public IDroidefenseField getStaticField(String name) {
+        IDroidefenseField field = taintFields.get(name);
         if (field == null) {
             field = new DVMTaintField(name, this);
             taintFields.put(name, field);
@@ -122,7 +122,7 @@ public final class DVMTaintClass extends DVMClass {
     }
 
     @Override
-    public IAtomField getField(String fieldName, String fieldType) {
+    public IDroidefenseField getField(String fieldName, String fieldType) {
         return null;
     }
 
@@ -139,7 +139,7 @@ public final class DVMTaintClass extends DVMClass {
         return DynamicUtils.capitalizeString(this.name);
     }
 
-    public void addDVMTaintField(IAtomField field) {
+    public void addDVMTaintField(IDroidefenseField field) {
         this.taintFields.put(field.getName(), field);
     }
 

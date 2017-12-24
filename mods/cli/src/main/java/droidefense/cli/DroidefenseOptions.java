@@ -2,8 +2,8 @@ package droidefense.cli;
 
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.helpers.Util;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.sdk.system.OSDetection;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
@@ -59,12 +59,11 @@ public class DroidefenseOptions extends Options {
     }
 
     public void showVersion() {
-        String offset = OSDetection.isUnix() ? "" : "\t";
-        System.out.println("\t* Current version: \t\t\t" + offset + InternalConstant.ENGINE_VERSION);
-        System.out.println("\t* Current build: \t\t\t" + offset + readVersion());
-        System.out.println("\t* Check out on Github: \t\t\t" + offset + InternalConstant.REPO_URL);
-        System.out.println("\t* Report your issue: \t\t\t" + offset + offset + InternalConstant.ISSUES_URL);
-        System.out.println("\t* Lead developer: \t\t\t" + offset + offset + InternalConstant.LEAD_DEVELOPER);
+        System.out.println("\t* Current version:         " + InternalConstant.ENGINE_VERSION);
+        System.out.println("\t* Current build:           " + readVersion());
+        System.out.println("\t* Check out on Github:     " + InternalConstant.REPO_URL);
+        System.out.println("\t* Report your issue:       " + InternalConstant.ISSUES_URL);
+        System.out.println("\t* Lead developer:          " + InternalConstant.LEAD_DEVELOPER);
         System.out.println();
     }
 

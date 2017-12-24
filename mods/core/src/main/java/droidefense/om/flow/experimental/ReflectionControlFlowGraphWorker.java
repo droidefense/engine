@@ -5,20 +5,21 @@ import droidefense.handler.FileIOHandler;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.reader.DexClassReader;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.struct.fake.DVMTaintMethod;
-import droidefense.om.machine.base.struct.generic.IAtomFrame;
+import droidefense.om.machine.base.struct.generic.IDroidefenseFrame;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
-import droidefense.rulengine.map.BasicCFGFlowMap;
-import droidefense.rulengine.nodes.EntryPointNode;
-import droidefense.rulengine.nodes.FieldNode;
-import droidefense.rulengine.nodes.MethodNode;
+import com.droidefense.rulengine.map.BasicCFGFlowMap;
+import com.droidefense.rulengine.nodes.EntryPointNode;
+import com.droidefense.rulengine.nodes.FieldNode;
+import com.droidefense.rulengine.nodes.MethodNode;
+import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
 
@@ -114,7 +115,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
     @Override
     public strictfp void execute(boolean keepScanning) throws Throwable {
 
-        IAtomFrame frame = getCurrentFrame();
+        IDroidefenseFrame frame = getCurrentFrame();
         IDroidefenseMethod method = frame.getMethod();
 
         lowerCodes = method.getOpcodes();
@@ -124,6 +125,10 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
         keepScanning = true;
 
         fromNode = EntryPointNode.builder();
+
+        String nodeType = DroidDefenseEnvironment.getInstance().classifyNode(method.getOwnerClass().getName());
+        String color = DroidDefenseEnvironment.getInstance().classifyNodeColor(method.getOwnerClass().getName(), nodeType);
+
         toNode = MethodNode.builder(
                 flowMap,
                 DalvikInstruction.DALVIK_0x0.description(),
@@ -134,6 +139,8 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
                 !method.isFake(),
                 DynamicUtils.getParamStringFromDescriptor(method.getDescriptor()),
                 DynamicUtils.getReturnTypeFromDescriptor(method.getDescriptor()),
+                nodeType,
+                color,
                 EntropyCalculator.getInstance().getMethodEntropy(method.getOpcodes()),
                 0,
                 method.isFake()
@@ -313,13 +320,13 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
     private boolean goBack(int fakePc) {
 
         //remove last frame and set the new one the last one
-        IAtomFrame supposedPreviousFrame = null;
+        IDroidefenseFrame supposedPreviousFrame = null;
         Vector list = getCurrentFrame().getThread().getFrames();
         if (list != null && !list.isEmpty()) {
             list.remove(list.size() - 1);
             if (!list.isEmpty()) {
                 //set current frame list lastone
-                supposedPreviousFrame = (IAtomFrame) list.get(list.size() - 1);
+                supposedPreviousFrame = (IDroidefenseFrame) list.get(list.size() - 1);
             } else {
                 //no las frame, set null;
                 supposedPreviousFrame = null;
@@ -352,13 +359,13 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
             //two different behaviours: method execution or getter/setter execution
             if (returnValue.getField() != null) {
                 //getter/setter
-                IAtomFrame frame = returnValue.getFrame();
+                IDroidefenseFrame frame = returnValue.getFrame();
                 //create a new connection between previousNode and this new method
                 FieldNode newMethodNode = buildFieldNode(inst, returnValue.getField(), frame.getPc());
             } else {
                 //normal method execution
                 //if no errors, update values
-                IAtomFrame frame = returnValue.getFrame();
+                IDroidefenseFrame frame = returnValue.getFrame();
                 IDroidefenseMethod method = returnValue.getMethod();
                 /*upperCodes = returnValue.getRegistercodes();
                 lowerCodes = returnValue.getOpcodes();
@@ -440,7 +447,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
             methodToCall.setDescriptor(methodDescriptor);
             methodToCall.setOwnerClass(cls);
         }
-        IAtomFrame frame = callMethod(false, methodToCall, getCurrentFrame());
+        IDroidefenseFrame frame = callMethod(false, methodToCall, getCurrentFrame());
         int[] lowerCodes = methodToCall.getOpcodes();
         int[] upperCodes = methodToCall.getRegistercodes();
         int[] codes = methodToCall.getIndex();

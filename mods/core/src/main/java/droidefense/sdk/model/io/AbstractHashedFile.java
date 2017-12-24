@@ -6,8 +6,8 @@ import com.j256.simplemagic.ContentType;
 import droidefense.handler.SignatureHandler;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.helpers.Util;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 
 import java.io.IOException;
 import java.io.InputStream;

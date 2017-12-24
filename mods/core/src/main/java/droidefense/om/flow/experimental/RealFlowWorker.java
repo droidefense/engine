@@ -3,15 +3,15 @@ package droidefense.om.flow.experimental;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.reader.DexClassReader;
-import droidefense.rulengine.map.BasicCFGFlowMap;
-import droidefense.rulengine.nodes.EntryPointNode;
-import droidefense.sdk.log4j.Log;
-import droidefense.sdk.log4j.LoggerType;
+import com.droidefense.rulengine.map.BasicCFGFlowMap;
+import com.droidefense.rulengine.nodes.EntryPointNode;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.om.machine.base.exceptions.NoMainClassFoundException;
-import droidefense.om.machine.base.struct.generic.IAtomFrame;
+import droidefense.om.machine.base.struct.generic.IDroidefenseFrame;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
 import droidefense.sdk.model.base.DroidefenseProject;
@@ -99,7 +99,7 @@ public final strictfp class RealFlowWorker extends AbstractFlowWorker {
     @Override
     public strictfp void execute(boolean endless) throws Throwable {
 
-        IAtomFrame frame = getCurrentFrame();
+        IDroidefenseFrame frame = getCurrentFrame();
         IDroidefenseMethod method = frame.getMethod();
 
         int[] lowerCodes = method.getOpcodes();

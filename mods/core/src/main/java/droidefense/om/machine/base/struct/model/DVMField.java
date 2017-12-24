@@ -3,11 +3,11 @@ package droidefense.om.machine.base.struct.model;
 import droidefense.om.machine.base.constants.TypeDescriptorSemantics;
 import droidefense.om.machine.base.exceptions.VirtualMachineRuntimeException;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
-import droidefense.om.machine.base.struct.generic.IAtomField;
+import droidefense.om.machine.base.struct.generic.IDroidefenseField;
 
 import java.io.Serializable;
 
-public class DVMField implements IAtomField, Serializable {
+public class DVMField implements IDroidefenseField, Serializable {
 
 
     protected final IDroidefenseClass ownerClass;
@@ -73,8 +73,8 @@ public class DVMField implements IAtomField, Serializable {
         return ownerClass.getName() + "." + name + " = " + value;
     }
 
-    public IAtomField copy() {
-        IAtomField copy = new DVMField(ownerClass);
+    public IDroidefenseField copy() {
+        IDroidefenseField copy = new DVMField(ownerClass);
         copy.setFlag(flag);
         copy.setName(name);
         copy.setType(type);
