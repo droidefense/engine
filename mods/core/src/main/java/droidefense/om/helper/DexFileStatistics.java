@@ -12,9 +12,7 @@ import droidefense.sdk.model.io.DexHashedFile;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * Created by sergio on 3/5/16.
@@ -28,12 +26,12 @@ public class DexFileStatistics implements Serializable {
     private transient final DalvikVM vm;
 
     //packages info
-    private HashSet<String> developerPackages, realDeveloperPackages;
+    private TreeSet<String> allPackages, realDeveloperPackages;
     //packages count
     private int totalPackageCount, realDeveloperPackagesCount;
 
     //class info
-    private HashSet<String> developerClassList, realDeveloperClassList, realDeveloperInnerClassList;
+    private TreeSet<String> developerClassList, realDeveloperClassList, realDeveloperInnerClassList;
 
     //class count
     private int totalClassCount;
@@ -56,18 +54,18 @@ public class DexFileStatistics implements Serializable {
             vm.load(dexFile, data, DalvikVM.MULTIDEX);
             //once file is loaded, we can read the info
 
-            developerPackages = new HashSet<>();
-            realDeveloperPackages = new HashSet<>();
-            developerClassList = new HashSet<>();
-            realDeveloperClassList = new HashSet<>();
-            realDeveloperInnerClassList = new HashSet<>();
+            allPackages = new TreeSet<>();
+            realDeveloperPackages = new TreeSet<>();
+            developerClassList = new TreeSet<>();
+            realDeveloperClassList = new TreeSet<>();
+            realDeveloperInnerClassList = new TreeSet<>();
 
             //1 generate package names
 
             //2 get the classnames of developer handmade
             for (IDroidefenseClass cls : currentProject.getInternalInfo().getAllClasses()) {
                 String full = cls.getAndroifiedClassName();
-                developerPackages.add(full);
+                allPackages.add(full);
                 if (!cls.isAndroidv4v7Class()) {
                     realDeveloperPackages.add(full);
                 }
@@ -76,8 +74,8 @@ public class DexFileStatistics implements Serializable {
                 }
             }
             //1.1 count packages
-            totalPackageCount = developerPackages.size();
-            realDeveloperPackagesCount = realDeveloperPackages.size();
+            totalPackageCount = allPackages.size();
+            realDeveloperPackagesCount = realDeveloperPackages.size();;
 
             //2.1 count total class and dev class
             this.developerClassCount = developerClassList.size();
