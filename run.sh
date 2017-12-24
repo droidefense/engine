@@ -2,7 +2,7 @@
 
 base=$(pwd)
 
-cd dist/debug
+cd target
 
 jarname=$(ls *jar)
 

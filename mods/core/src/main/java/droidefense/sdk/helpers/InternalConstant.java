@@ -5,6 +5,14 @@ import java.io.Serializable;
 
 public class InternalConstant implements Serializable {
 
+    /**
+     * Version related info and code related info
+     */
+    public static final String ENGINE_VERSION = "0.2";
+    public static final String LEAD_DEVELOPER = "@zerjioang";
+    public static final String REPO_URL = "https://github.com/droidefense/";
+    public static final String ISSUES_URL = "https://github.com/droidefense/engine/issues";
+
     public static final String SUPERCLASS = "java/lang/Object";
     public static final String DEX_EXTENSION = ".dex";
     public static final String APK_EXTENSION = ".apk";
@@ -18,12 +26,8 @@ public class InternalConstant implements Serializable {
     public static final String WEKA_FEATURES_FILE = "features.arff";
     public static final int SHA256_LENGTH = 64;
     public static final String INTERNAL_DATA_FOLDER = "internal_temp";
-    public static final String ENGINE_VERSION = "0.1";
     public static final String CVS_SPLIT = ",";
     public static final String SPACE = " ";
-    public static final String LEAD_DEVELOPER = "@zerjioang";
-    public static final String REPO_URL = "https://github.com/droidefense/";
-    public static final String ISSUES_URL = "https://github.com/droidefense/engine/issues";
     public static final String CONFIG_FOLDER = "config";
     public static final double MALWARE_THRESHOLD_VALUE = 0.3;
     public static boolean IS_WINDOWS_HOST = System.getProperty("os.name").toLowerCase().contains("windows");

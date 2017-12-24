@@ -53,10 +53,14 @@ public class DroidefenseOptions extends Options {
         // automatically generate the help statement
         HelpFormatter formatter = new HelpFormatter();
         formatter.printHelp("droidefense", this);
+        System.out.println();
+        System.out.println("For additional info, please visit: https://github.com/droidefense/engine");
+        System.out.println();
     }
 
     public void showVersion() {
         String offset = OSDetection.isUnix() ? "" : "\t";
+        System.out.println("\t* Current version: \t\t\t" + offset + InternalConstant.ENGINE_VERSION);
         System.out.println("\t* Current build: \t\t\t" + offset + readVersion());
         System.out.println("\t* Check out on Github: \t\t\t" + offset + InternalConstant.REPO_URL);
         System.out.println("\t* Report your issue: \t\t\t" + offset + offset + InternalConstant.ISSUES_URL);
@@ -86,6 +90,9 @@ public class DroidefenseOptions extends Options {
         System.out.println("/_______  /__|   \\____/|__\\____ |\\___  >__|  \\___  >___|  /____  >\\___  >");
         System.out.println("        \\/                     \\/    \\/          \\/     \\/     \\/     \\/ ");
         System.out.println();
+        System.out.println();
+        System.out.println("droidefense v"+InternalConstant.ENGINE_VERSION+" - a tool for automated reverse engineering of Android apk files");
+        System.out.println("Copyright 2017 Droidefense <droidefense@protonmail.com>");
         System.out.println();
     }
 
