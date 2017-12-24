@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * Created by .local on 03/05/2017.
  */
-public abstract class AbstractReporter implements Serializable{
+public abstract class AbstractReporter implements Serializable {
 
     protected File reportFile;
 

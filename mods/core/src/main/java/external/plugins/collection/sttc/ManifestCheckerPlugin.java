@@ -1,8 +1,8 @@
 package external.plugins.collection.sttc;
 
-import droidefense.sdk.AbstractStaticPlugin;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
+import droidefense.sdk.AbstractStaticPlugin;
 import droidefense.sdk.model.io.AbstractHashedFile;
 
 import java.io.IOException;
@@ -23,7 +23,7 @@ public class ManifestCheckerPlugin extends AbstractStaticPlugin {
 
     @Override
     public void onExecute() {
-        if(metainfManifestFile!=null){
+        if (metainfManifestFile != null) {
             Log.write(LoggerType.DEBUG, "Meta-inf manifest file found");
             Log.write(LoggerType.DEBUG, "Reading creator...");
             readFileCreator();
@@ -34,13 +34,13 @@ public class ManifestCheckerPlugin extends AbstractStaticPlugin {
         try {
             String data = new String(metainfManifestFile.getContent(), "utf-8");
             String[] datalines = data.trim().split("\n");
-            Log.write(LoggerType.DEBUG, "File contains: "+datalines.length+" lines");
-            if(datalines.length >= 2){
+            Log.write(LoggerType.DEBUG, "File contains: " + datalines.length + " lines");
+            if (datalines.length >= 2) {
                 String version = processManifestVersion(datalines[0]);
-                String creator =  processManifestCreator(datalines[1]);
+                String creator = processManifestCreator(datalines[1]);
                 currentProject.setMetaManifestVersion(version);
                 currentProject.setMetaManifestCreator(creator);
-                Log.write(LoggerType.DEBUG, "META-INF file created with: "+creator+" and registered with version: "+version);
+                Log.write(LoggerType.DEBUG, "META-INF file created with: " + creator + " and registered with version: " + version);
             }
         } catch (IOException e) {
             Log.write(LoggerType.ERROR, "Could not read content of Meta-inf manifest file");

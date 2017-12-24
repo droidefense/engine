@@ -3,7 +3,6 @@ package droidefense.ml;
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.evaluation.NominalPrediction;
-import weka.core.FastVector;
 import weka.core.Instances;
 import weka.core.SerializationHelper;
 
@@ -25,7 +24,7 @@ public class WekaClassifier {
 
     public double calculateAccuracy(ArrayList predictions) {
         double correct = 0;
-        if ( predictions!=null && predictions.size() > 0){
+        if (predictions != null && predictions.size() > 0) {
             for (Object prediction : predictions) {
                 NominalPrediction np = (NominalPrediction) prediction;
                 if (np.predicted() == np.actual()) {
@@ -55,7 +54,7 @@ public class WekaClassifier {
         }
         Classifier[] classList = new Classifier[modelFiles.length];
         for (int i = 0; i < classList.length; i++) {
-            classList[i] = (Classifier) SerializationHelper.read( modelFiles[i].getAbsolutePath() );
+            classList[i] = (Classifier) SerializationHelper.read(modelFiles[i].getAbsolutePath());
         }
         return classList;
     }

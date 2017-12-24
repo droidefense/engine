@@ -14,16 +14,35 @@ public class VirtualFolder extends VirtualNode {
     private ArrayList<IVirtualNode> itemsInside;
     private int itemsInsideSize;
 
-    public static VirtualFolder createFolder(VirtualFolder parentFolder, String name){
+    private VirtualFolder(VirtualFolder parentFolder, String name) {
+        super(parentFolder, name);
+        this.itemsInside = new ArrayList<>();
+        parentFolder.addAsFolderFile(this);
+        parentFolder.setVirtualFoldersInside(parentFolder.getVirtualFoldersInside() + 1);
+        this.itemsInsideSize = 0;
+    }
+
+    private VirtualFolder(String name) {
+        super(name);
+        if (parentNode != null) {
+            parentNode.setVirtualFoldersInside(parentNode.getVirtualFoldersInside() + 1);
+        } else {
+            this.setVirtualFoldersInside(1);
+        }
+        itemsInside = new ArrayList<>();
+        itemsInsideSize = 0;
+    }
+
+    public static VirtualFolder createFolder(VirtualFolder parentFolder, String name) {
         //1 check if that virtual folder already exists on parentFolder
         VirtualFolder item = parentFolder.getFolder(name);
-        if(item==null){
+        if (item == null) {
             return new VirtualFolder(parentFolder, name);
         }
         return item;
     }
 
-    public static VirtualFolder createFolder(String name){
+    public static VirtualFolder createFolder(String name) {
         //TODO check if this new virtual folder does not already exist
         return new VirtualFolder(name);
     }
@@ -55,26 +74,6 @@ public class VirtualFolder extends VirtualNode {
                 list.add((VirtualFile) item);
         }
         return list;
-    }
-
-    private VirtualFolder(VirtualFolder parentFolder, String name) {
-        super(parentFolder, name);
-        this.itemsInside = new ArrayList<>();
-        parentFolder.addAsFolderFile(this);
-        parentFolder.setVirtualFoldersInside(parentFolder.getVirtualFoldersInside()+1);
-        this.itemsInsideSize = 0;
-    }
-
-    private VirtualFolder(String name) {
-        super(name);
-        if(parentNode!=null){
-            parentNode.setVirtualFoldersInside(parentNode.getVirtualFoldersInside()+1);
-        }
-        else{
-            this.setVirtualFoldersInside(1);
-        }
-        itemsInside = new ArrayList<>();
-        itemsInsideSize = 0;
     }
 
     @Override
@@ -134,7 +133,7 @@ public class VirtualFolder extends VirtualNode {
             this.itemsInside.add(virtualFile);
             this.itemsInsideSize += virtualFile.estimatedInMemorySize();
             //increment also parent node
-            if( this.parentNode!=null && this.parentNode.isFolder() ){
+            if (this.parentNode != null && this.parentNode.isFolder()) {
                 ((VirtualFolder) this.parentNode).addAsFolderFile(virtualFile);
             }
         }

@@ -3,13 +3,13 @@ package droidefense.worker.parser;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
 import droidefense.handler.FileIOHandler;
-import droidefense.sdk.model.io.DexHashedFile;
-import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.model.io.DexHashedFile;
 import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.sdk.model.io.VirtualHashedFile;
+import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.worker.base.AbstractFileParser;
 
 import java.io.File;
@@ -63,10 +63,9 @@ public class APKMetaParser extends AbstractFileParser {
                 rawFiles.add(new VirtualHashedFile(r, true));
             } else {
                 VirtualHashedFile virtualFile = new VirtualHashedFile(r, true);
-                if(virtualFile.isAndroidDefaultFile()){
+                if (virtualFile.isAndroidDefaultFile()) {
                     defaultFiles.add(virtualFile);
-                }
-                else{
+                } else {
                     otherFiles.add(virtualFile);
                 }
             }

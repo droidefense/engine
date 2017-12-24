@@ -1,18 +1,18 @@
 package droidefense.om.flow.experimental;
 
 
-import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
-import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
-import com.droidefense.rulengine.map.BasicCFGFlowMap;
-import com.droidefense.rulengine.nodes.EntryPointNode;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
+import com.droidefense.rulengine.map.BasicCFGFlowMap;
+import com.droidefense.rulengine.nodes.EntryPointNode;
 import droidefense.handler.FileIOHandler;
 import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.struct.fake.DVMTaintClass;
 import droidefense.om.machine.base.struct.fake.DVMTaintMethod;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IDroidefenseFrame;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
 import droidefense.sdk.model.base.DroidefenseProject;
@@ -137,7 +137,7 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
 
             //1 ask if we have more currentInstructionOpcode to execute
             if (currentPc >= lowerCodes.length || getFrames() == null || getFrames().isEmpty()) {
-                keepScanning=false;
+                keepScanning = false;
                 break;
             }
 

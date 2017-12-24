@@ -1,8 +1,8 @@
 package droidefense.analysis.base;
 
-import droidefense.sdk.enums.ProcessStatus;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
+import droidefense.sdk.enums.ProcessStatus;
 import droidefense.sdk.helpers.Util;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;

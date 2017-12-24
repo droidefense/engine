@@ -1,12 +1,12 @@
 package droidefense.batch;
 
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.batch.base.IBatchTask;
 import droidefense.batch.exception.EmptyTaskQueueException;
 import droidefense.batch.exception.InvalidTaskException;
 import droidefense.batch.task.WekaCertTask;
 import droidefense.batch.task.WekaFeatureExtractorTask;
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
 
 import java.io.File;
 import java.io.Serializable;

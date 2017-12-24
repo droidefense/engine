@@ -405,7 +405,7 @@ public final class CertificateModel implements Serializable {
             return false;
         if (validity != null ? !validity.equals(that.validity) : that.validity != null)
             return false;
-        if(serialNumber!=null ? !serialNumber.equals(that.serialNumber) : that.serialNumber != null)
+        if (serialNumber != null ? !serialNumber.equals(that.serialNumber) : that.serialNumber != null)
             return false;
         if (subject != null ? !subject.hasDebugData() : that.subject != null)
             return false;

@@ -37,20 +37,20 @@ public class DexHeaderReader implements Serializable {
         this.operator = new ArrayList<>();
 
         //populate dexmodel and operator
-        for ( DexHashedFile dex :dexFileList){
+        for (DexHashedFile dex : dexFileList) {
             this.dexModel.add(new DalvikDexModel());
             try {
                 this.operator.add(new DexOperator(dex.getContent()));
             } catch (IOException e) {
                 Log.write(LoggerType.ERROR, "Could not read byte content of dex file " + dex.getAbsolutePath());
-                Log.write(LoggerType.ERROR, "Error details: "+e.getLocalizedMessage());
+                Log.write(LoggerType.ERROR, "Error details: " + e.getLocalizedMessage());
             }
         }
     }
 
     public void readAllDexAvailable() {
         currentProject.setDexHeaderReader(this);
-        for (int i = 0; i < this.dexFileList.size(); i++){
+        for (int i = 0; i < this.dexFileList.size(); i++) {
             DalvikDexModel model = this.dexModel.get(i);
             DexOperator op = this.operator.get(i);
             DexHashedFile dex = this.dexFileList.get(i);
@@ -67,7 +67,7 @@ public class DexHeaderReader implements Serializable {
                 readData(model, op);
             } catch (IllegalArgumentException e) {
                 Log.write(LoggerType.ERROR, "Could not read header of dex file " + dex.getAbsolutePath());
-                Log.write(LoggerType.ERROR, "Error details: "+e.getLocalizedMessage());
+                Log.write(LoggerType.ERROR, "Error details: " + e.getLocalizedMessage());
             }
         }
     }
@@ -164,7 +164,7 @@ public class DexHeaderReader implements Serializable {
     }
 
     public DalvikDexModel getDexModel(int index) {
-        if(dexModel!=null && index < dexModel.size() && index >= 0)
+        if (dexModel != null && index < dexModel.size() && index >= 0)
             return dexModel.get(index);
         return null;
     }

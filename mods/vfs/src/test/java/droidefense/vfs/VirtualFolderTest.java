@@ -17,7 +17,7 @@ public class VirtualFolderTest {
     private VirtualFileSystem vfs;
 
     @Before
-    public void before(){
+    public void before() {
         vfs = new VirtualFileSystem();
     }
 
@@ -28,7 +28,7 @@ public class VirtualFolderTest {
 
     @Test
     public void t01_create_folder() {
-        if(this.vfs!=null){
+        if (this.vfs != null) {
             String folderName = "root";
             VirtualFolder folder = VirtualFolder.createFolder(folderName);
 
@@ -43,7 +43,7 @@ public class VirtualFolderTest {
     @Test
     public void t02_get_folder() {
         this.t01_create_folder();
-        if(this.vfs!=null){
+        if (this.vfs != null) {
             String folderName = "root";
             IVirtualNode folder = this.vfs.get(folderName);
 
@@ -54,22 +54,22 @@ public class VirtualFolderTest {
     @Test
     public void t03_get_element_count() {
 
-        if(this.vfs!=null){
-            int count =this.vfs.getTotalElements();
+        if (this.vfs != null) {
+            int count = this.vfs.getTotalElements();
             Assert.assertEquals(count, 0);
         }
 
         this.t01_create_folder();
 
-        if(this.vfs!=null){
-            int count =this.vfs.getTotalElements();
+        if (this.vfs != null) {
+            int count = this.vfs.getTotalElements();
             Assert.assertEquals(count, 1);
         }
     }
 
     @Test
     public void t04_get_folder() {
-        if(this.vfs!=null){
+        if (this.vfs != null) {
             String folderName = "root2";
             IVirtualNode folder = this.vfs.get(folderName);
             Assert.assertNull(folder);
@@ -80,6 +80,6 @@ public class VirtualFolderTest {
     @Test
     public void test() {
         File currentDir = new File("");
-        System.out.println("PATH: "+currentDir.getAbsolutePath());
+        System.out.println("PATH: " + currentDir.getAbsolutePath());
     }
 }

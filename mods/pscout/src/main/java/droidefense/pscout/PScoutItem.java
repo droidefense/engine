@@ -59,7 +59,7 @@ public final class PScoutItem implements Serializable {
     }
 
     public String getKey() {
-        if(USER_PARAMS_AS_KEY){
+        if (USER_PARAMS_AS_KEY) {
             return getCallerClass() + "." + getCallerMethod() + getCallerMethodDesc();
         }
         return getCallerClass() + "." + getCallerMethod();

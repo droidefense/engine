@@ -1,5 +1,4 @@
 package droidefense;
-import java.io.File;
 
 import droidefense.batch.base.IBatchTask;
 import droidefense.batch.base.ICSVGenerator;

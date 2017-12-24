@@ -2,9 +2,9 @@ package droidefense.handler;
 
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
-import droidefense.sdk.system.OSDetection;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.system.OSDetection;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,11 +48,10 @@ public class ObjdumpHandler extends AbstractHandler {
             path = null;
         }
 
-        if(isLinux){
+        if (isLinux) {
             runObjdump(path);
-        }
-        else{
-            if (exec!=null && exec.exists() ) {
+        } else {
+            if (exec != null && exec.exists()) {
                 if (exec.canExecute()) {
                     runObjdump(path);
                 } else {

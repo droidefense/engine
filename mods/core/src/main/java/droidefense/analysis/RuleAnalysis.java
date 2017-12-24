@@ -1,9 +1,9 @@
 package droidefense.analysis;
 
-import com.droidefense.rulengine.Rule;
-import com.droidefense.rulengine.RuleEngine;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
+import com.droidefense.rulengine.Rule;
+import com.droidefense.rulengine.RuleEngine;
 import com.droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.FileIOHandler;
@@ -43,7 +43,7 @@ public final class RuleAnalysis extends AbstractAndroidAnalysis {
             printMatchedRules(engine.getMatchedRules());
             currentProject.setMatchedRules(engine.getMatchedRules());
             log("Rule scan done", 1);
-            executionSuccessful = engine!=null && engine.getRuleCount() > 0;
+            executionSuccessful = engine != null && engine.getRuleCount() > 0;
         } else {
             log("Scan aborted: no flowmap information", 2);
             executionSuccessful = false;

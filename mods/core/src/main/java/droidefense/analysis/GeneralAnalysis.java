@@ -28,13 +28,13 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
                 analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.DECODE);
                 currentProject.analyze(analyzer);
 
-                if ( currentProject.isCorrectDecoded() ) {
+                if (currentProject.isCorrectDecoded()) {
 
                     //STATIC ANALYSIS
                     analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.STATIC_ANALYSIS);
                     currentProject.analyze(analyzer);
 
-                    if (currentProject.isStaticAnalysisDone() ) {
+                    if (currentProject.isStaticAnalysisDone()) {
 
                         //RUN STATIC ANALYSIS PLUGINS
                         analyzer = AnalysisFactory.getAnalyzer(AnalysisFactory.STATIC_ANALYSIS_PLUGIN);

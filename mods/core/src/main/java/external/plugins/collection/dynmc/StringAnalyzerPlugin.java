@@ -126,7 +126,7 @@ public class StringAnalyzerPlugin extends AbstractDynamicPlugin {
             } else if (s.matches("[a-zA-Z0-9]{1,2}+")) {
                 stringContent.getClassified().put(s, "Ofuscated");
                 stringContent.setOfuscatedString(stringContent.getOfuscatedString() + 1);
-            } else if(s.matches("[a-zA-Z0-9]+(\\.|,|(\\s[a-zA-Z0-9]+))*")) {
+            } else if (s.matches("[a-zA-Z0-9]+(\\.|,|(\\s[a-zA-Z0-9]+))*")) {
                 stringContent.getClassified().put(s, "sentence");
                 stringContent.setSentences(stringContent.getSentences() + 1);
             } else {

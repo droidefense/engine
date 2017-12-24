@@ -1,5 +1,7 @@
 package droidefense.cli;
 
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.analysis.base.AnalysisFactory;
 import droidefense.exception.ConfigFileNotFoundException;
@@ -10,8 +12,6 @@ import droidefense.handler.FileIOHandler;
 import droidefense.sdk.helpers.APKUnpacker;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.LocalApkFile;
 import org.apache.commons.cli.CommandLine;
@@ -29,37 +29,55 @@ public class DroidefenseScan {
 
     /**
      * Default constructor
+     *
      * @param args command line arguments
      */
-    public DroidefenseScan(String[] args){
+    public DroidefenseScan(String[] args) {
         this.scanArguments = args;
+    }
+
+    public static void main(String[] args) {
+        DroidefenseScan scan = new DroidefenseScan(args);
+        try {
+            scan.loadUserPreferences();
+        } catch (UnknownAnalyzerException e) {
+            Log.write(LoggerType.ERROR, "Analyzer not found", e.getLocalizedMessage());
+        } catch (ParseException e) {
+            Log.write(LoggerType.ERROR, "Parsing exception detected", e.getLocalizedMessage());
+        } catch (InvalidScanParametersException e) {
+            Log.write(LoggerType.ERROR, "Invalid scan parameter provided", e.getLocalizedMessage());
+        } catch (EnvironmentNotReadyException e) {
+            Log.write(LoggerType.ERROR, "Environment not ready", e.getBaseMessage());
+            Log.write(LoggerType.ERROR, "Please, check a valid .json file exists before executing the scan");
+            scan.createDefaultConfigurationFile();
+        }
     }
 
     /**
      * Reads user specified command line arguments and executes according to specified user preferences
+     *
      * @throws UnknownAnalyzerException
      * @throws EnvironmentNotReadyException
      * @throws ParseException
      */
     private void loadUserPreferences() throws UnknownAnalyzerException, InvalidScanParametersException, EnvironmentNotReadyException, ParseException {
         String errorMessage = isEnvironmentReady();
-        if (errorMessage==null) {
+        if (errorMessage == null) {
             options = new DroidefenseOptions();
             options.showAsciiBanner();
 
             CommandLineParser parser = new DefaultParser();
             CommandLine cmd = parser.parse(options, this.scanArguments);
             executeUserCmd(cmd);
-        }
-        else{
+        } else {
             throw new EnvironmentNotReadyException(errorMessage);
         }
     }
 
     private String isEnvironmentReady() {
         File config = FileIOHandler.getConfigurationFile();
-        if(!config.exists()){
-            return "Configuration file ("+config.getAbsolutePath()+") not found under expected folder";
+        if (!config.exists()) {
+            return "Configuration file (" + config.getAbsolutePath() + ") not found under expected folder";
         }
         return null;
     }
@@ -119,8 +137,7 @@ public class DroidefenseScan {
             if (profilingEnabled) {
                 profilingAlert("deactivate");
             }
-        }
-        else{
+        } else {
             Log.write(LoggerType.FATAL, "Droidefense initialization error");
         }
     }
@@ -132,7 +149,7 @@ public class DroidefenseScan {
     }
 
     private void forceStop() {
-        if(this.project != null){
+        if (this.project != null) {
             this.project.finish();
         }
         forceExit();
@@ -147,13 +164,11 @@ public class DroidefenseScan {
     }
 
     private void readSampleForScan(DroidefenseProject project, File f, APKUnpacker unpacker) throws UnknownAnalyzerException {
-        if(!f.exists()){
-            Log.write(LoggerType.FATAL, "target file ("+f.getAbsolutePath()+") does not exist");
-        }
-        else if(!f.canRead()){
-            Log.write(LoggerType.FATAL, "target file ("+f.getAbsolutePath()+") can not be read. Please check your permissions");
-        }
-        else {
+        if (!f.exists()) {
+            Log.write(LoggerType.FATAL, "target file (" + f.getAbsolutePath() + ") does not exist");
+        } else if (!f.canRead()) {
+            Log.write(LoggerType.FATAL, "target file (" + f.getAbsolutePath() + ") can not be read. Please check your permissions");
+        } else {
             Log.write(LoggerType.TRACE, "Building project");
 
             //set sample
@@ -179,29 +194,11 @@ public class DroidefenseScan {
         Log.write(LoggerType.DEBUG, "Creating default config.json file...");
         try {
             boolean success = DroidDefenseEnvironmentConfig.getInstance().createDefaultConfigJsonFile();
-            if (success){
+            if (success) {
                 Log.write(LoggerType.INFO, "Configuration file succesfully created", "Please, configure it and lauch droidefense again");
             }
         } catch (ConfigFileNotFoundException e) {
-            Log.write(LoggerType.FATAL,"Could not create default .json file. Please check your filesystem permissions and try again");
-        }
-    }
-
-
-    public static void main(String[] args) {
-        DroidefenseScan scan = new DroidefenseScan(args);
-        try {
-            scan.loadUserPreferences();
-        } catch (UnknownAnalyzerException e) {
-            Log.write(LoggerType.ERROR, "Analyzer not found", e.getLocalizedMessage());
-        } catch (ParseException e) {
-            Log.write(LoggerType.ERROR, "Parsing exception detected", e.getLocalizedMessage());
-        } catch (InvalidScanParametersException e) {
-            Log.write(LoggerType.ERROR, "Invalid scan parameter provided", e.getLocalizedMessage());
-        } catch (EnvironmentNotReadyException e) {
-            Log.write(LoggerType.ERROR, "Environment not ready", e.getBaseMessage());
-            Log.write(LoggerType.ERROR, "Please, check a valid .json file exists before executing the scan");
-            scan.createDefaultConfigurationFile();
+            Log.write(LoggerType.FATAL, "Could not create default .json file. Please check your filesystem permissions and try again");
         }
     }
 }

@@ -1,16 +1,16 @@
 package droidefense.om.flow.base;
 
+import com.droidefense.rulengine.base.AbstractFlowMap;
+import com.droidefense.rulengine.nodes.ConstStrNode;
+import com.droidefense.rulengine.nodes.FieldNode;
+import com.droidefense.rulengine.nodes.MethodNode;
+import com.droidefense.rulengine.nodes.NormalNode;
 import droidefense.entropy.EntropyCalculator;
 import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.struct.generic.IDroidefenseField;
 import droidefense.om.machine.base.struct.generic.IDroidefenseFrame;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.inst.DalvikInstruction;
-import com.droidefense.rulengine.base.AbstractFlowMap;
-import com.droidefense.rulengine.nodes.ConstStrNode;
-import com.droidefense.rulengine.nodes.FieldNode;
-import com.droidefense.rulengine.nodes.MethodNode;
-import com.droidefense.rulengine.nodes.NormalNode;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
 
 /**

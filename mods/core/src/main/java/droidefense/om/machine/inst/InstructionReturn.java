@@ -1,10 +1,10 @@
 package droidefense.om.machine.inst;
 
-import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import com.droidefense.rulengine.base.AbstractAtomNode;
 import droidefense.om.machine.base.exceptions.VirtualMachineRuntimeException;
 import droidefense.om.machine.base.struct.generic.IDroidefenseField;
 import droidefense.om.machine.base.struct.generic.IDroidefenseFrame;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 
 import java.io.Serializable;
 

@@ -28,8 +28,8 @@ public class ByteImageGenerator {
 
     public void generate() throws IOException {
         // load the PE file data
-        if(this.f!=null && this.f.exists() && this.f.canRead()){
-            if(imageOutputPath!=null){
+        if (this.f != null && this.f.exists() && this.f.canRead()) {
+            if (imageOutputPath != null) {
                 //generate image from file f
                 visualizer.writeImage(this.f, new File(imageOutputPath));
             }

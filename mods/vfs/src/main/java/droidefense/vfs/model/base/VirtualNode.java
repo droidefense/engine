@@ -1,8 +1,5 @@
 package droidefense.vfs.model.base;
 
-import java.io.File;
-import java.io.Serializable;
-
 /**
  * Created by .local on 08/10/2016.
  */
@@ -22,8 +19,8 @@ public abstract class VirtualNode implements IVirtualNode {
     public VirtualNode(VirtualNode parentNode, String name) {
         this.name = name;
         this.parentNode = parentNode;
-        this.virtualFilesInside=0;
-        this.virtualFoldersInside=0;
+        this.virtualFilesInside = 0;
+        this.virtualFoldersInside = 0;
         this.precalculatedPath = NO_PATH;
     }
 
@@ -61,7 +58,7 @@ public abstract class VirtualNode implements IVirtualNode {
 
     @Override
     public String getName() {
-        if(this.name == null){
+        if (this.name == null) {
             return DEFAULT_INODE_NAME;
         }
         return this.name;
@@ -69,7 +66,7 @@ public abstract class VirtualNode implements IVirtualNode {
 
     @Override
     public String getPath() {
-        if(this.precalculatedPath.equals(NO_PATH)){
+        if (this.precalculatedPath.equals(NO_PATH)) {
             if (parentNode == null)
                 this.precalculatedPath = this.name;
             else

@@ -11,15 +11,35 @@ public abstract class IDroidefenseClass {
 
     private IDroidefenseClass topParentClass;
 
+    public static String[] getAndroidRClasses() {
+        return new String[]{
+                ".R$anim",
+                ".R$attr",
+                ".R$integer",
+                ".R$styleable",
+                ".R$layout",
+                ".R$mipmap",
+                ".R$style",
+                ".R",
+                ".R$string",
+                ".R$drawable",
+                ".R$color",
+                ".R$dimen",
+                ".R$id",
+                ".BuildConfig",
+                ".R$bool"
+        };
+    }
+
     public abstract String toString();
 
     public abstract IDroidefenseMethod getVirtualMethod(final String name, final String descriptor, boolean getRealMethod);
 
     public abstract IDroidefenseMethod getDirectMethod(final String name, final String descriptor, boolean getRealMethod);
 
-    public abstract IDroidefenseField getStaticField(final String name);
-
     //GETTERS AND SETTERS
+
+    public abstract IDroidefenseField getStaticField(final String name);
 
     public abstract String getName();
 
@@ -77,7 +97,7 @@ public abstract class IDroidefenseClass {
 
     public abstract void addMethod(IDroidefenseMethod methodToCall);
 
-    public String getAndroifiedClassName(){
+    public String getAndroifiedClassName() {
         String name = getName();
         int idx = name.lastIndexOf("/");
         if (idx != -1)
@@ -138,26 +158,6 @@ public abstract class IDroidefenseClass {
         return name;
     }
 
-    public static String[] getAndroidRClasses() {
-        return new String[]{
-                ".R$anim",
-                ".R$attr",
-                ".R$integer",
-                ".R$styleable",
-                ".R$layout",
-                ".R$mipmap",
-                ".R$style",
-                ".R",
-                ".R$string",
-                ".R$drawable",
-                ".R$color",
-                ".R$dimen",
-                ".R$id",
-                ".BuildConfig",
-                ".R$bool"
-        };
-    }
-
     public boolean isDeveloperClass() {
         return !isAndroidUIRelatedClass()
                 && !isAnnotationClass()
@@ -168,14 +168,13 @@ public abstract class IDroidefenseClass {
     public IDroidefenseMethod findClassInitMethod() {
         //first: check if current class has a method init (constructor method)
         IDroidefenseMethod init = this.getSimpleConstructorMethod();
-        if(init==null){
+        if (init == null) {
             //this class does not has a constructor. it is inherited
             //look for it
             String superClassName = this.getSuperClass();
             IDroidefenseClass parentClass = DroidDefenseEnvironment.getInstance().getParentClass(superClassName);
             return parentClass.findClassInitMethod();
-        }
-        else{
+        } else {
             //constructor method found in this class. return it
             return init;
         }
@@ -183,7 +182,7 @@ public abstract class IDroidefenseClass {
 
     private IDroidefenseMethod getSimpleConstructorMethod() {
         IDroidefenseMethod init = this.getDirectMethod("<clinit>", "()V", true);
-        if(init==null){
+        if (init == null) {
             init = this.getDirectMethod("<init>", "()V", true);
         }
         return init;

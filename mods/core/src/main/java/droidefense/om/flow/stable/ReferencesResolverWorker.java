@@ -1,5 +1,7 @@
 package droidefense.om.flow.stable;
 
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IDroidefenseField;
@@ -7,8 +9,6 @@ import droidefense.om.machine.base.struct.generic.IDroidefenseFrame;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.base.struct.model.AndroidRField;
 import droidefense.sdk.helpers.Util;
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
 import droidefense.vfs.model.impl.VirtualFile;
@@ -48,7 +48,7 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
     @Override
     public void finish() {
         Log.write(LoggerType.DEBUG, "Android R references resolved!");
-        Log.write(LoggerType.DEBUG, "Number of references resolved: "+this.references.size());
+        Log.write(LoggerType.DEBUG, "Number of references resolved: " + this.references.size());
         Log.write(LoggerType.DEBUG, "Remapping old files...");
         this.remap();
     }
@@ -57,7 +57,7 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
         this.currentProject.setAndroidReferences(this.references);
         ArrayList<VirtualFile> xmls = this.currentProject.getXmlFiles();
         for (VirtualFile vf : xmls) {
-            Log.write(LoggerType.DEBUG, "Updating content of "+vf.getPath());
+            Log.write(LoggerType.DEBUG, "Updating content of " + vf.getPath());
             singleRemap(vf);
         }
         //todo reparse AndroidManifest.xml
@@ -66,7 +66,7 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
 
     private void singleRemap(VirtualFile xmlFile) {
         String data = new String(xmlFile.getContent());
-        for(AndroidRField field : references) {
+        for (AndroidRField field : references) {
             String idOriginal = field.getAssembledID();
             String idReversed = field.reverseName();
             data = data.replaceAll(idOriginal, idReversed);
@@ -75,7 +75,7 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
 
         //https://developer.android.com/reference/android/R.html
 
-         //R.anim [DONE]
+        //R.anim [DONE]
         keymap.put("@android:010a0004", "@anim/accelerate_interpolator");
         keymap.put("@android:010a0005", "@anim/anticipate_interpolator");
         keymap.put("@android:010a0007", "@anim/anticipate_overshoot_interpolator");
@@ -529,9 +529,9 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
             allMatches.add(m.group());
         }
         //replace found data
-        for (String match : allMatches){
+        for (String match : allMatches) {
             hash = match.toLowerCase();
-            String decoded = (db.get(hash) !=null) ? db.get(hash) : match;
+            String decoded = (db.get(hash) != null) ? db.get(hash) : match;
             data = data.replaceAll(match, decoded);
         }
         return data;
@@ -554,7 +554,7 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
         IDroidefenseClass[] alllist = currentProject.getInternalInfo().getAllClasses();
         ArrayList<IDroidefenseClass> developerClasses = new ArrayList<>();
         for (IDroidefenseClass cls : alllist) {
-            if ( cls.isAndroidRclass() )
+            if (cls.isAndroidRclass())
                 developerClasses.add(cls);
         }
         IDroidefenseClass[] list = developerClasses.toArray(new IDroidefenseClass[developerClasses.size()]);
@@ -580,7 +580,7 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
         IDroidefenseMethod method = frame.getMethod();
         IDroidefenseClass methodOwnerClass = method.getOwnerClass();
 
-        Log.write(LoggerType.DEBUG, "Class name detected as: "+methodOwnerClass.getName());
+        Log.write(LoggerType.DEBUG, "Class name detected as: " + methodOwnerClass.getName());
         decodeFieldMap(methodOwnerClass.getStaticFieldMap());
     }
 
@@ -590,7 +590,7 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
         while (it.hasNext()) {
             Map.Entry<String, IDroidefenseField> entry = (Map.Entry<String, IDroidefenseField>) it.next();
 
-            if(entry!=null){
+            if (entry != null) {
                 IDroidefenseField field = entry.getValue();
                 String name = field.getName();
                 int value = field.getIntValue();

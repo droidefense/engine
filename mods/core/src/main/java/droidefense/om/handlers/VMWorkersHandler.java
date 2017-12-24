@@ -1,11 +1,11 @@
 package droidefense.om.handlers;
 
-import droidefense.om.flow.experimental.BasicControlFlowGraphWorker;
-import droidefense.om.flow.stable.OpCodeCheckerWorker;
-import droidefense.om.flow.stable.ReferencesResolverWorker;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
 import droidefense.handler.base.AbstractHandler;
+import droidefense.om.flow.experimental.BasicControlFlowGraphWorker;
+import droidefense.om.flow.stable.OpCodeCheckerWorker;
+import droidefense.om.flow.stable.ReferencesResolverWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
 import droidefense.sdk.model.base.DroidefenseProject;

@@ -1,13 +1,13 @@
 package droidefense.om.flow.stable;
 
-import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
-import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
 import droidefense.om.flow.base.AbstractFlowWorker;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DalvikVM;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IDroidefenseFrame;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
 
@@ -84,20 +84,18 @@ public final strictfp class OpCodeCheckerWorker extends AbstractFlowWorker {
     public strictfp void execute(boolean endless) throws Throwable {
 
         IDroidefenseFrame frame = getCurrentFrame();
-        if(frame!=null){
+        if (frame != null) {
             IDroidefenseMethod method = frame.getMethod();
 
-            if (method!=null){
+            if (method != null) {
                 for (int idx : method.getOpcodes()) {
                     codeCount[idx]++;
                     total++;
                 }
-            }
-            else{
+            } else {
                 //its been some error while loading this frame methods
             }
-        }
-        else{
+        } else {
             //is been some error while loading and frame is null
         }
     }

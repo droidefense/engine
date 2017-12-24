@@ -138,7 +138,7 @@ public class DVMMethod implements IDroidefenseMethod, Serializable {
     }
 
     public byte[] getByteCode() {
-        if(byteCode==null)
+        if (byteCode == null)
             return new byte[0];
         return byteCode;
     }

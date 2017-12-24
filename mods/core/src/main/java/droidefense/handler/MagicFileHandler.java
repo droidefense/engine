@@ -2,9 +2,9 @@ package droidefense.handler;
 
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
-import droidefense.sdk.system.SystemCallReturn;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.system.SystemCallReturn;
 
 import java.io.IOException;
 

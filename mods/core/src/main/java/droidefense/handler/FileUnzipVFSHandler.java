@@ -1,13 +1,13 @@
 package droidefense.handler;
 
-import droidefense.handler.base.AbstractHandler;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
+import droidefense.handler.base.AbstractHandler;
+import droidefense.sdk.model.base.DroidefenseProject;
+import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.vfs.model.impl.VirtualFileSystem;
 import droidefense.vfs.model.impl.VirtualFolder;
-import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.model.io.AbstractHashedFile;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -49,7 +49,7 @@ public class FileUnzipVFSHandler extends AbstractHandler {
                 //cleanThreadContext parent node
                 parentNode = root;
                 String entryName = entry.getName();
-                Log.write(LoggerType.DEBUG, "\t"+entryName);
+                Log.write(LoggerType.DEBUG, "\t" + entryName);
                 if (!entry.isDirectory()) {
                     //check if entry parent directory exists on vfs
                     String[] items = entryName.split("/");

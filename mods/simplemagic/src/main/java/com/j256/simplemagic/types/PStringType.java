@@ -31,7 +31,7 @@ public class PStringType extends StringType {
             chars[i] = (char) (bytes[offset + 1 + i] & 0xFF);
         }
         /*
-		 * NOTE: we need to make a new string because it might be returned if we don't match below.
+         * NOTE: we need to make a new string because it might be returned if we don't match below.
 		 */
         return new String(chars);
     }

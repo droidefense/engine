@@ -19,6 +19,17 @@ public class AndroidRField {
         this.value = value;
     }
 
+    private static String decToHex(int dec) {
+        StringBuilder hexBuilder = new StringBuilder(sizeOfIntInHalfBytes);
+        hexBuilder.setLength(sizeOfIntInHalfBytes);
+        for (int i = sizeOfIntInHalfBytes - 1; i >= 0; --i) {
+            int j = dec & halfByte;
+            hexBuilder.setCharAt(i, hexDigits[j]);
+            dec >>= numberOfBitsInAHalfByte;
+        }
+        return hexBuilder.toString();
+    }
+
     public String getName() {
         return name;
     }
@@ -35,8 +46,8 @@ public class AndroidRField {
         this.value = value;
     }
 
-    public String reverseName(){
-        return "@"+this.owner+"/"+this.name;
+    public String reverseName() {
+        return "@" + this.owner + "/" + this.name;
     }
 
     @Override
@@ -49,8 +60,8 @@ public class AndroidRField {
                 '}';
     }
 
-    public String getAssembledID(){
-        return "@"+AndroidRField.decToHex(this.value);
+    public String getAssembledID() {
+        return "@" + AndroidRField.decToHex(this.value);
     }
 
     public String getOwner() {
@@ -59,17 +70,5 @@ public class AndroidRField {
 
     public void setOwner(String owner) {
         this.owner = owner;
-    }
-
-    private static String decToHex(int dec) {
-        StringBuilder hexBuilder = new StringBuilder(sizeOfIntInHalfBytes);
-        hexBuilder.setLength(sizeOfIntInHalfBytes);
-        for (int i = sizeOfIntInHalfBytes - 1; i >= 0; --i)
-        {
-            int j = dec & halfByte;
-            hexBuilder.setCharAt(i, hexDigits[j]);
-            dec >>= numberOfBitsInAHalfByte;
-        }
-        return hexBuilder.toString();
     }
 }

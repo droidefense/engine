@@ -5,13 +5,12 @@ import com.droidefense.rulengine.base.AbstractFlowMap;
 
 public class MethodNode extends AbstractAtomNode {
 
+    protected int instruction_count;
     private String className;
     private String methodName;
     private String params, returnType;
     private String nodeType, color;
     private double entropy;
-
-    protected int instruction_count;
     private int pc;
     private boolean onscope;
     private boolean reflected;
@@ -114,7 +113,7 @@ public class MethodNode extends AbstractAtomNode {
         String dotName = methodName;
         String nodeType = "type";
         if (methodName.equals("<init>") || methodName.equals("<clinit>")) {
-            dotName = "new "+this.getSimpleClassName();
+            dotName = "new " + this.getSimpleClassName();
         } else {
             dotName = methodName;
         }
@@ -138,9 +137,9 @@ public class MethodNode extends AbstractAtomNode {
 
     private String getSimpleClassName() {
         String name = this.className;
-        if(className.contains("/")){
+        if (className.contains("/")) {
             String[] splitted = name.split("/");
-            return splitted[splitted.length-1];
+            return splitted[splitted.length - 1];
         }
         return name;
     }
@@ -194,7 +193,7 @@ public class MethodNode extends AbstractAtomNode {
         */
     }
 
-    public String getKey(){
+    public String getKey() {
         return className + "." + methodName;
     }
 

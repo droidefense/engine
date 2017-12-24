@@ -2,12 +2,12 @@ package droidefense.worker.parser;
 
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
+import droidefense.sdk.manifest.Manifest;
+import droidefense.sdk.manifest.UsesSDK;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.worker.base.AbstractFileParser;
 import droidefense.xmodel.base.ManifestParser;
-import droidefense.sdk.manifest.Manifest;
-import droidefense.sdk.manifest.UsesSDK;
 
 import java.util.ArrayList;
 
@@ -27,7 +27,7 @@ public class AndroidManifestParser extends AbstractFileParser {
             byte[] manifestContent = currentProject.getManifestFile();
             externalParser.parse(manifestContent);
             man = externalParser.getManifest();
-            if(man!=null){
+            if (man != null) {
                 currentProject.setManifestInfo(man);
                 currentProject.setEntryPoints(externalParser.getEntryPoints());
                 definePackageNameTypes();

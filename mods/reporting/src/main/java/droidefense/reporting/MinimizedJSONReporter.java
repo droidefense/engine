@@ -14,7 +14,7 @@ public class MinimizedJSONReporter extends AbstractReporter {
     public MinimizedJSONReporter(File reportFile, String data) {
         this.reportFile = reportFile;
         this.data = data;
-        if(data!=null){
+        if (data != null) {
             this.data = data.replace("\r", "");
             this.data = data.replace("\t", "");
             this.data = data.replace("\n", "");
@@ -24,7 +24,7 @@ public class MinimizedJSONReporter extends AbstractReporter {
     @Override
     public boolean generateReport() {
         try {
-            FileOutputStream fos = new FileOutputStream( reportFile );
+            FileOutputStream fos = new FileOutputStream(reportFile);
             fos.write(data.getBytes());
             fos.close();
             return true;

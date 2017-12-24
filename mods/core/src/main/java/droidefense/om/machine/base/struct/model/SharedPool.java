@@ -32,13 +32,14 @@ public class SharedPool implements Serializable {
         return instance;
     }
 
-    public void addClass(IDroidefenseClass cls){
-        if(cls!=null){
-            this.classes.put(cls.getName(), cls);
-        }
-    }
     public static void setInstance(SharedPool instance) {
         SharedPool.instance = instance;
+    }
+
+    public void addClass(IDroidefenseClass cls) {
+        if (cls != null) {
+            this.classes.put(cls.getName(), cls);
+        }
     }
 
     public String[] getStrings() {

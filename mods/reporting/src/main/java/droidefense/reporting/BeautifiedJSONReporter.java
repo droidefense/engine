@@ -18,7 +18,7 @@ public class BeautifiedJSONReporter extends AbstractReporter {
 
     @Override
     public boolean generateReport() throws IOException {
-        FileOutputStream fos = new FileOutputStream( reportFile );
+        FileOutputStream fos = new FileOutputStream(reportFile);
         fos.write(data.getBytes());
         fos.close();
         return true;

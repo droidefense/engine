@@ -1,8 +1,8 @@
 package external.plugins.collection.sttc;
 
-import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.AbstractStaticPlugin;
 import droidefense.sdk.helpers.Util;
+import droidefense.vfs.model.impl.VirtualFile;
 
 import java.util.ArrayList;
 

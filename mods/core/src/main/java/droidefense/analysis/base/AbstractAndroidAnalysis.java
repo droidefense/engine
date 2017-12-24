@@ -1,8 +1,8 @@
 package droidefense.analysis.base;
 
-import droidefense.sdk.enums.ProcessStatus;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
+import droidefense.sdk.enums.ProcessStatus;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
 import droidefense.sdk.model.io.LocalApkFile;
@@ -41,7 +41,7 @@ public abstract class AbstractAndroidAnalysis implements Serializable {
         return executionSuccessful;
     }
 
-    public boolean runAnalysis(){
+    public boolean runAnalysis() {
         start();
         status = ProcessStatus.EXECUTING;
         boolean result = analyze();

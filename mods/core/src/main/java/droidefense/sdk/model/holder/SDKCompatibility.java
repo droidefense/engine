@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * Created by .local on 05/11/2016.
  */
-public class SDKCompatibility implements Serializable{
+public class SDKCompatibility implements Serializable {
 
     private SDK_VERSION minimum;
     private SDK_VERSION maximum;

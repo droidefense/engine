@@ -30,15 +30,14 @@ public class RuleEngine {
 
     private void readDir(File[] files) throws IOException {
         dataset = new ArrayList<>();
-        if(files!=null){
+        if (files != null) {
             for (int i = 0; i < files.length; i++) {
                 String base = new String(Files.readAllBytes(Paths.get(files[i].getAbsolutePath())));
                 Rule r = new Rule(base, files[i].getName());
                 dataset.add(r);
             }
-        }
-        else{
-            Log.write(LoggerType.INFO, "No rules available on folder"+ruleDir.getAbsolutePath());
+        } else {
+            Log.write(LoggerType.INFO, "No rules available on folder" + ruleDir.getAbsolutePath());
         }
     }
 
@@ -89,7 +88,7 @@ public class RuleEngine {
     }
 
     private ArrayList<AbstractAtomNode> getInitialNode(final ArrayList<AbstractAtomNode> nodelist, Rule rule) {
-        if(nodelist!=null && !nodelist.isEmpty()){
+        if (nodelist != null && !nodelist.isEmpty()) {
             ArrayList<AbstractAtomNode> returnList = new ArrayList<>();
             return parseRuleInNode(rule, returnList, nodelist, 0);
         }
@@ -121,15 +120,13 @@ public class RuleEngine {
                         methodMask = "[^<>]+";
                     }
                     boolean sameMethodName = mn.getMethodName().equals(data[1]) || checkByRegex(mn.getMethodName(), methodMask);
-                    if(sameMethodName) {
+                    if (sameMethodName) {
                         //current method name matches rule method name
-                        if(data[0].equals("Object")){
+                        if (data[0].equals("Object")) {
                             returnList.add(node);
-                        }
-                        else if(data[0].equals(mn.getClassName())){
+                        } else if (data[0].equals(mn.getClassName())) {
                             returnList.add(node);
-                        }
-                        else {
+                        } else {
                             //check class name
                             String parentClass = mn.getTopClassName(); //ApkrIntelligence.getInstance().getSimpleNodeType(mn.getMethod());
                             boolean sameParentClass = false;

@@ -1,8 +1,8 @@
 package droidefense.sdk.helpers;
 
-import com.google.gson.Gson;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
+import com.google.gson.Gson;
 import droidefense.sdk.util.JsonStyle;
 
 import javax.activation.MimetypesFileTypeMap;
@@ -401,18 +401,18 @@ public class Util {
 
     public static String readFileFromInternalResourcesAsString(ClassLoader classLoader, String path) throws IOException {
 
-        if(classLoader == null){
+        if (classLoader == null) {
             classLoader = Util.class.getClassLoader();
         }
 
-        if(path.startsWith("/"))
+        if (path.startsWith("/"))
             path = path.substring(1, path.length());
 
         InputStream datastream = classLoader.getResourceAsStream(path);
-        if(datastream!=null){
+        if (datastream != null) {
             return readFully(datastream, "utf-8");
         }
-        throw new IOException("Could not read from specified URL: "+path);
+        throw new IOException("Could not read from specified URL: " + path);
     }
 
     private static String prettyFormatXML(String input, int indent) {
@@ -424,7 +424,7 @@ public class Util {
             transformerFactory.setAttribute("indent-number", indent);
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            transformer.setOutputProperty(OutputKeys.DOCTYPE_PUBLIC,"yes");
+            transformer.setOutputProperty(OutputKeys.DOCTYPE_PUBLIC, "yes");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", String.valueOf(indent));
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", String.valueOf(indent));
             transformer.transform(xmlInput, xmlOutput);

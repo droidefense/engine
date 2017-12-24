@@ -70,7 +70,7 @@ public class NodeConnection implements IDotGraphNode, Serializable {
     }
 
     public String getInstructionName(String name) {
-        if(name==null)
+        if (name == null)
             return "null";
         int idx = name.indexOf(" ");
         if (idx != -1)

@@ -1,19 +1,19 @@
 package droidefense.om.machine.inst;
 
-import droidefense.om.machine.reader.DexClassReader;
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import com.droidefense.rulengine.base.AbstractFlowMap;
 import com.droidefense.rulengine.nodes.ConstStrNode;
 import com.droidefense.rulengine.nodes.FieldNode;
 import com.droidefense.rulengine.nodes.MethodNode;
 import com.droidefense.rulengine.nodes.NormalNode;
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
 import droidefense.om.flow.base.NodeGenerator;
 import droidefense.om.machine.base.AbstractDVMThread;
 import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.exceptions.VirtualMachineRuntimeException;
 import droidefense.om.machine.base.struct.generic.*;
 import droidefense.om.machine.base.struct.model.DVMInstance;
+import droidefense.om.machine.reader.DexClassReader;
 
 import java.io.Serializable;
 

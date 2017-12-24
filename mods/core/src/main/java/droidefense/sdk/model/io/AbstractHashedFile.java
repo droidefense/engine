@@ -1,13 +1,13 @@
 package droidefense.sdk.model.io;
 
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import com.j256.simplemagic.ContentInfo;
 import com.j256.simplemagic.ContentInfoUtil;
 import com.j256.simplemagic.ContentType;
 import droidefense.handler.SignatureHandler;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.helpers.Util;
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,9 +19,8 @@ public abstract class AbstractHashedFile implements Serializable {
     public static final boolean DISABLE_HASHING = false;
 
     private transient static final String NO_EXTENSION = "";
-    private transient final boolean generateInformation;
     private static final ContentInfoUtil util = new ContentInfoUtil();
-
+    private transient final boolean generateInformation;
     protected String filename;
     protected long filesize;
 
@@ -32,14 +31,13 @@ public abstract class AbstractHashedFile implements Serializable {
     protected boolean androidDefaultFile;
     protected boolean extensionMatches;
     protected String extensionFromHeader, extensionFromFilename;
+    protected transient InputStream stream;
     private String mimetype, description, magicDescription;
     private transient ContentInfo contentInfo;
 
-    protected transient InputStream stream;
-
     public AbstractHashedFile(boolean generateInformation) {
         this.generateInformation = generateInformation;
-        if(generateInformation){
+        if (generateInformation) {
             Log.write(LoggerType.INFO, "Full sample hashing is enabled!", "It may slow down overall analysis time");
         }
     }
@@ -69,22 +67,20 @@ public abstract class AbstractHashedFile implements Serializable {
     private void calculateHeaderBasedExtension() {
         ContentInfo info;
         try {
-            if(getDataStream()!=null){
+            if (getDataStream() != null) {
                 info = util.findMatch(getDataStream());
-                if(info!=null) {
+                if (info != null) {
                     getContentInfoFromMagicGz(info);
-                }
-                else{
+                } else {
                     //try to detect filetype using our custom header based content detector
                     boolean fileClassified = getContentInfoFromCustom();
-                    if(!fileClassified){
-                        Log.write(LoggerType.ERROR, "No content information is present for "+this.filename);
+                    if (!fileClassified) {
+                        Log.write(LoggerType.ERROR, "No content information is present for " + this.filename);
                         this.extensionMatches = false;
                     }
                 }
-            }
-            else{
-                Log.write(LoggerType.ERROR, "Not data stream is present for "+this.filename);
+            } else {
+                Log.write(LoggerType.ERROR, "Not data stream is present for " + this.filename);
             }
         } catch (IOException e) {
             Log.write(LoggerType.ERROR, "IO Error", e.getLocalizedMessage());
@@ -107,13 +103,12 @@ public abstract class AbstractHashedFile implements Serializable {
         //get info
         this.description = info.getMessage();
         ContentType type = info.getContentType();
-        if(type!=null){
+        if (type != null) {
             this.mimetype = type.getMimeType();
             this.extensionFromHeader = type.name();
             this.extensionMatches = this.extensionFromHeader.toLowerCase().equals(this.extensionFromFilename.toLowerCase()) || isApkFile();
-        }
-        else{
-            Log.write(LoggerType.ERROR, "No content type information is present"+this.filename);
+        } else {
+            Log.write(LoggerType.ERROR, "No content type information is present" + this.filename);
             this.extensionMatches = false;
         }
     }
@@ -122,7 +117,7 @@ public abstract class AbstractHashedFile implements Serializable {
         return this.extensionFromFilename.toLowerCase().equals("apk") && this.extensionFromHeader.toLowerCase().equals("zip");
     }
 
-    protected InputStream getDataStream(){
+    protected InputStream getDataStream() {
         return this.stream;
     }
 

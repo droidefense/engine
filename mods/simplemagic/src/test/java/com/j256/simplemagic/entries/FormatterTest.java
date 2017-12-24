@@ -297,7 +297,7 @@ public class FormatterTest {
         StringBuilder sb = new StringBuilder();
         formatter.format(sb, value);
         String data = sb.toString();
-        if(Locale.getDefault().getLanguage().equals("es")){
+        if (Locale.getDefault().getLanguage().equals("es")) {
             data = data.replace(",", ".");
         }
         return data;

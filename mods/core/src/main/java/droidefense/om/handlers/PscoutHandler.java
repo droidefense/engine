@@ -1,12 +1,12 @@
 package droidefense.om.handlers;
 
-import droidefense.handler.FileIOHandler;
-import droidefense.handler.base.AbstractHandler;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
-import droidefense.pscout.PSCoutModel;
 import com.droidefense.rulengine.base.AbstractAtomNode;
 import com.droidefense.rulengine.nodes.MethodNode;
+import droidefense.handler.FileIOHandler;
+import droidefense.handler.base.AbstractHandler;
+import droidefense.pscout.PSCoutModel;
 import droidefense.sdk.model.base.DroidefenseProject;
 
 import java.io.File;
@@ -41,9 +41,9 @@ public class PscoutHandler extends AbstractHandler {
                         //get name and args
                         MethodNode mn = (MethodNode) node;
                         boolean filterByScopeEnabled = false;
-                        if(
-                                ( mn.isOnscope() && filterByScopeEnabled) ||
-                                !filterByScopeEnabled ){
+                        if (
+                                (mn.isOnscope() && filterByScopeEnabled) ||
+                                        !filterByScopeEnabled) {
                             String key = mn.getKey();
                             String permissionName = model.getCallPermissions(key);
                             if (permissionName != null) {

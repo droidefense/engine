@@ -2,9 +2,9 @@ package droidefense.worker.parser;
 
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
-import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.LocalApkFile;
+import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.worker.base.AbstractFileParser;
 
 import java.util.ArrayList;

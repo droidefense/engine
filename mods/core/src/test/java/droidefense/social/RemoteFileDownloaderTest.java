@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 public class RemoteFileDownloaderTest {
 
     @Test
-    public void downloadTest(){
+    public void downloadTest() {
         String content;
         try {
             content = new RemoteFileDownloader().downloadFileFromUrlUsingNio("https://www.android.com/robots.txt");

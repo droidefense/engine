@@ -1,8 +1,5 @@
 package com.droidefense.rulengine.base;
 
-import com.droidefense.rulengine.base.AbstractAtomNode;
-import com.droidefense.rulengine.base.NodeConnection;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;

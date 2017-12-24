@@ -1,8 +1,6 @@
 package droidefense.social;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -11,15 +9,13 @@ import java.nio.CharBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class RemoteFileDownloader {
 
 
     /**
      * Download remote file from URL using non blocking IO
+     *
      * @param url url to be downloaded
      * @return returns content of downloaded file if success, null otherwise
      * @throws MalformedURLException
@@ -31,10 +27,9 @@ public class RemoteFileDownloader {
         ReadableByteChannel inChannel = null;
         String data = null;
 
-        if(url==null || url.trim().length()==0){
+        if (url == null || url.trim().length() == 0) {
             data = null;
-        }
-        else {
+        } else {
             try {
                 urlObj = new URL(url);
                 inChannel = Channels.newChannel(urlObj.openStream());
@@ -46,14 +41,13 @@ public class RemoteFileDownloader {
                     buffer.rewind();
                     buffer.limit(read);
                     CharBuffer contentToAdd = StandardCharsets.UTF_8.decode(buffer);
-                    content.append( contentToAdd );
+                    content.append(contentToAdd);
                     buffer.clear();
                 }
                 data = content.toString();
-            } catch( FileNotFoundException e){
+            } catch (FileNotFoundException e) {
                 data = "404";
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             } finally {
                 try {

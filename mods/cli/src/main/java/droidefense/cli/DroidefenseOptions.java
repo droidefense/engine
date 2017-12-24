@@ -1,10 +1,9 @@
 package droidefense.cli;
 
-import droidefense.sdk.helpers.InternalConstant;
-import droidefense.sdk.helpers.Util;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
-import droidefense.sdk.system.OSDetection;
+import droidefense.sdk.helpers.InternalConstant;
+import droidefense.sdk.helpers.Util;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
@@ -90,7 +89,7 @@ public class DroidefenseOptions extends Options {
         System.out.println("        \\/                     \\/    \\/          \\/     \\/     \\/     \\/ ");
         System.out.println();
         System.out.println();
-        System.out.println("droidefense v"+InternalConstant.ENGINE_VERSION+" - a tool for automated reverse engineering of Android apk files.");
+        System.out.println("droidefense v" + InternalConstant.ENGINE_VERSION + " - a tool for automated reverse engineering of Android apk files.");
         System.out.println("specially focused on Android Malware detection, feature extraction and reporting");
         System.out.println();
         System.out.println("Copyright 2017 Droidefense <droidefense@protonmail.com>");

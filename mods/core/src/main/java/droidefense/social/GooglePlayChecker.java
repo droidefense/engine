@@ -40,16 +40,15 @@ public class GooglePlayChecker {
     public void onExecute() {
         //TODO parse retrieved web data and get stuff
         boolean exists = existsOnGooglePlay(url);
-        if(exists){
+        if (exists) {
             String webdata = getGooglePlayData(url);
-            executionSuccessful = webdata != null && webdata.trim().length()>0;
-        }
-        else{
+            executionSuccessful = webdata != null && webdata.trim().length() > 0;
+        } else {
             executionSuccessful = false;
         }
     }
 
-    public void getStarts(){
+    public void getStarts() {
         //Document doc = Jsoup.parse(input, "UTF-8", "http://example.com/");
     }
 

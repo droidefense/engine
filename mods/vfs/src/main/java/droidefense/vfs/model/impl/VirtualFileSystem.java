@@ -45,7 +45,7 @@ public final class VirtualFileSystem {
     }
 
     public IVirtualNode get(String key) {
-        if(key!=null){
+        if (key != null) {
             return storage.get(key);
         }
         return null;
@@ -100,7 +100,7 @@ public final class VirtualFileSystem {
 
     @Override
     public String toString() {
-        return "VFS: elements -> "+this.totalElements+" and bytes -> "+this.sizeBytes;
+        return "VFS: elements -> " + this.totalElements + " and bytes -> " + this.sizeBytes;
     }
 
     public void dump(String path) {

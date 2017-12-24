@@ -1,9 +1,9 @@
 package droidefense.om.machine.base.struct.model;
 
 
+import droidefense.om.machine.base.struct.generic.IAtomInstance;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IDroidefenseField;
-import droidefense.om.machine.base.struct.generic.IAtomInstance;
 import droidefense.om.machine.reader.DexClassReader;
 
 import java.io.Serializable;

@@ -26,16 +26,13 @@ public class DexClassParser {
     private static final int SINGLE_VALUE = 1;
     private static final int SIGNED_BYTE_LENGTH = 8;
     private final DroidefenseProject project;
-
+    private final Object loadClassesMutex = new Object();
+    private final DexBodyModel dexBodyModel;
+    private final Hashtable<String, IDroidefenseClass> classes = new Hashtable<>();
     private byte[] dexFileContent;
     private int[] oldOffset = new int[5];
     private int oldOffsetIndex = 0;
-    private final Object loadClassesMutex = new Object();
-    private final DexBodyModel dexBodyModel;
-
     private DexClassReader[] readerList;
-
-    private final Hashtable<String, IDroidefenseClass> classes = new Hashtable<>();
 
     public DexClassParser(DroidefenseProject project) {
         this.project = project;

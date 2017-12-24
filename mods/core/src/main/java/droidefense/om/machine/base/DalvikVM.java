@@ -78,15 +78,15 @@ public class DalvikVM extends AbstractVirtualMachine {
         isEnd = false;
 
         AbstractDVMThread main = getThread(0);
-        if(main!=null){
+        if (main != null) {
             IDroidefenseClass baseCls[] = main.getInitialDVMClass();
             main.preload();
-            if(baseCls!=null && baseCls.length>0){
+            if (baseCls != null && baseCls.length > 0) {
                 //there are classes to simulate. simulate them all
                 for (IDroidefenseClass currentClass : baseCls) {
                     try {
                         IDroidefenseMethod[] methodList = main.getInitialMethodToRun(currentClass);
-                        if(methodList!=null && methodList.length > 0){
+                        if (methodList != null && methodList.length > 0) {
                             for (IDroidefenseMethod currentMethod : methodList) {
                                 //clean thread context to have a fresh start
                                 main = startNewObservationThread(currentClass, currentMethod);
@@ -131,8 +131,7 @@ public class DalvikVM extends AbstractVirtualMachine {
                                     Throwable throwable = e.getCause();
                                     if (throwable != null) {
                                         error(throwable);
-                                    }
-                                    else{
+                                    } else {
                                         Log.write(LoggerType.ERROR, "There are not valid executable methods in current class");
                                     }
                                 } catch (MachineStateEndedException e) {
@@ -148,8 +147,7 @@ public class DalvikVM extends AbstractVirtualMachine {
                                     }
                                 }
                             }
-                        }
-                        else{
+                        } else {
                             Log.write(LoggerType.ERROR, "There are not valid executable methods in current class");
                         }
                     } catch (Throwable e) {
@@ -159,14 +157,12 @@ public class DalvikVM extends AbstractVirtualMachine {
                         error(e);
                     }
                 }
-            }
-            else{
+            } else {
                 //there are no classses to simulate
                 Log.write(LoggerType.ERROR, "There are no classes to sumulate");
             }
             main.finish();
-        }
-        else{
+        } else {
             Log.write(LoggerType.ERROR, "DVM Thread is null.");
         }
         Log.write(LoggerType.TRACE, "\n--- SIMULATION FINISHED ---\n");

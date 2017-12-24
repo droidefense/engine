@@ -4,9 +4,6 @@ import droidefense.handler.base.AbstractHandler;
 import droidefense.om.helper.DexFileStatistics;
 import droidefense.om.machine.reader.DexHeaderReader;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.model.io.AbstractHashedFile;
-
-import java.util.ArrayList;
 
 /**
  * Created by sergio on 12/6/16.

@@ -7,13 +7,11 @@ public abstract class AbstractAtomNode implements IDotGraphNode, Serializable {
 
     protected static int maxInt = 0;
     private static int counter = 0;
-
+    protected final int id;
     private final transient ArrayList<AbstractAtomNode> outList;
     private final transient ArrayList<AbstractAtomNode> inList;
-
     protected int in, out;
     protected String type;
-    protected final int id;
     protected String instructionName;
 
     public AbstractAtomNode() {

@@ -6,7 +6,7 @@ import java.util.HashMap;
 /**
  * Created by .local on 23/11/2016.
  */
-public class StringInfo implements Serializable{
+public class StringInfo implements Serializable {
     private int initialLength;
     private HashMap<String, String> classified;
     private int irrelevant;

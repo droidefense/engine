@@ -29,7 +29,7 @@ public class SystemUIDDetectorPlugin extends AbstractStaticPlugin {
 
     @Override
     protected void postExecute() {
-        log(getPluginName()+" plugin finished", 1);
+        log(getPluginName() + " plugin finished", 1);
     }
 
     @Override

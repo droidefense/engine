@@ -1,5 +1,7 @@
 package droidefense.sdk.model.base;
 
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import com.droidefense.rulengine.Rule;
 import com.droidefense.rulengine.base.AbstractFlowMap;
 import com.droidefense.rulengine.map.BasicCFGFlowMap;
@@ -21,8 +23,6 @@ import droidefense.reporting.HTMLReporter;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.AbstractStaticPlugin;
 import droidefense.sdk.helpers.*;
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
 import droidefense.sdk.manifest.Manifest;
 import droidefense.sdk.manifest.UsesPermission;
 import droidefense.sdk.manifest.base.AbstractManifestClass;
@@ -59,31 +59,17 @@ import java.util.Map;
  */
 public final class DroidefenseProject implements Serializable {
 
-    private static DroidDefenseEnvironmentConfig environmentConfig;
-
     private static final Map<LocalApkFile, DroidefenseProject> projectMap = new HashMap<>();
     private static final String VFS_ROOT_FOLDER = "";
-
-    /**
-     * Virtual file system for sample files
-     */
-    private transient VirtualFileSystem vfs;
-
+    private static DroidDefenseEnvironmentConfig environmentConfig;
     /**
      * Timestamp from creation to end
      */
     private final ExecutionTimer scanTime;
-
-    /**
-     * Sample info
-     */
-    private LocalApkFile sample;
-
     /**
      * Currently used analyzers on this .apk
      */
     private final ArrayList<AbstractAndroidAnalysis> usedAnalyzers;
-
     /**
      * Current .apk static information holder
      */
@@ -96,6 +82,14 @@ public final class DroidefenseProject implements Serializable {
      * Current .apk dynamic plugin information holder
      */
     private final ArrayList<AbstractDynamicPlugin> dynamicInfoPlugins;
+    /**
+     * Virtual file system for sample files
+     */
+    private transient VirtualFileSystem vfs;
+    /**
+     * Sample info
+     */
+    private LocalApkFile sample;
     /**
      * Current .apk internal information holder
      */
@@ -608,10 +602,9 @@ public final class DroidefenseProject implements Serializable {
 
     public void setMachineLearningResult(MLResultHolder machineLearningResult) {
         this.machineLearningResult = machineLearningResult;
-        if(this.machineLearningResult.getMalwareRatio()> InternalConstant.MALWARE_THRESHOLD_VALUE){
+        if (this.machineLearningResult.getMalwareRatio() > InternalConstant.MALWARE_THRESHOLD_VALUE) {
             this.malwareResult = MalwareResultEnum.MALWARE;
-        }
-        else{
+        } else {
             this.malwareResult = MalwareResultEnum.GOODWARE;
         }
     }
@@ -848,37 +841,36 @@ public final class DroidefenseProject implements Serializable {
         this.internalInfo.setPool(pool);
     }
 
-    public void setSample(LocalApkFile sample) {
-        this.sample = sample;
-    }
-
     public LocalApkFile getSample() {
         return sample;
     }
 
-
-    public void setSettingAutoOpen(boolean settingAutoOpen) {
-        this.settingAutoOpen = settingAutoOpen;
+    public void setSample(LocalApkFile sample) {
+        this.sample = sample;
     }
 
     public boolean isSettingAutoOpen() {
         return settingAutoOpen;
     }
 
+    public void setSettingAutoOpen(boolean settingAutoOpen) {
+        this.settingAutoOpen = settingAutoOpen;
+    }
+
     public String getSettingsReportType() {
-        if(settingsReportType==null)
+        if (settingsReportType == null)
             return "json";
         return settingsReportType;
     }
 
     public void setSettingsReportType(String settingsReportType) {
-        if(settingsReportType!=null){
+        if (settingsReportType != null) {
             this.settingsReportType = settingsReportType;
         }
     }
 
     public DalvikVM getDalvikMachine() {
-        if(dalvikMachine == null){
+        if (dalvikMachine == null) {
             this.dalvikMachine = new DalvikVM(this);
         }
         return dalvikMachine;
@@ -888,12 +880,12 @@ public final class DroidefenseProject implements Serializable {
         this.dalvikMachine = dalvikMachine;
     }
 
-    public void setAndroidReferences(ArrayList<AndroidRField> androidReferences) {
-        this.androidReferences = androidReferences;
-    }
-
     public ArrayList<AndroidRField> getAndroidReferences() {
         return androidReferences;
+    }
+
+    public void setAndroidReferences(ArrayList<AndroidRField> androidReferences) {
+        this.androidReferences = androidReferences;
     }
 
     public ArrayList<VirtualFile> getXmlFiles() {
@@ -933,12 +925,12 @@ public final class DroidefenseProject implements Serializable {
     }
 
     public IDroidefenseClass[] getDeveloperClasses() {
-        if(this.developerClasses==null || this.developerClasses.length==0){
+        if (this.developerClasses == null || this.developerClasses.length == 0) {
             DroidDefenseEnvironment environment = DroidDefenseEnvironment.getInstance();
             IDroidefenseClass[] alllist = getInternalInfo().getAllClasses();
             ArrayList<IDroidefenseClass> developerClasses = new ArrayList<>();
             for (IDroidefenseClass cls : alllist) {
-                if (environment.isDeveloperClass(cls) &cls.isDeveloperClass() && !cls.isAndroidRclass() )
+                if (environment.isDeveloperClass(cls) & cls.isDeveloperClass() && !cls.isAndroidRclass())
                     developerClasses.add(cls);
             }
             IDroidefenseClass[] list = developerClasses.toArray(new IDroidefenseClass[developerClasses.size()]);
@@ -947,11 +939,11 @@ public final class DroidefenseProject implements Serializable {
         return this.developerClasses;
     }
 
-    public void setMagicNumberPass(boolean magicNumberPass) {
-        this.magicNumberPass = magicNumberPass;
-    }
-
     public boolean isMagicNumberPass() {
         return magicNumberPass;
+    }
+
+    public void setMagicNumberPass(boolean magicNumberPass) {
+        this.magicNumberPass = magicNumberPass;
     }
 }

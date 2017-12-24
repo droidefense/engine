@@ -1,14 +1,14 @@
 package droidefense.om.machine.base;
 
-import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
-import droidefense.om.machine.reader.DexClassReader;
-import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
 import droidefense.om.machine.base.constants.TypeDescriptorSemantics;
 import droidefense.om.machine.base.struct.fake.EncapsulatedClass;
 import droidefense.om.machine.base.struct.generic.IAtomInstance;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.model.DVMInstance;
+import droidefense.om.machine.reader.DexClassReader;
+import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.model.base.DroidefenseProject;
 
@@ -160,11 +160,11 @@ public class DynamicUtils {
     public static boolean verifyDexFile(byte[] dexData) {
         boolean valid = true;
         byte[] signature = InternalConstant.DEX_FILE_MAGIC;
-        Log.write(LoggerType.TRACE,"Checking .dex file signature");
+        Log.write(LoggerType.TRACE, "Checking .dex file signature");
         for (int i = 0; i < signature.length; i++) {
             valid &= dexData[i] == signature[i];
         }
-        Log.write(LoggerType.TRACE,".dex file seems to be " + (valid ? "valid." : "not valid."));
+        Log.write(LoggerType.TRACE, ".dex file seems to be " + (valid ? "valid." : "not valid."));
         return true;
     }
 

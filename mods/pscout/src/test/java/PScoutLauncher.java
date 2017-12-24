@@ -11,14 +11,14 @@ public class PScoutLauncher {
         File outputDir = new File("");
         File csv = new File(
                 outputDir.getAbsolutePath()
-                        +File.separator
-                        +".."
-                        +File.separator
-                        +"pscout"
-                        +File.separator
-                        +"files"
-                        +File.separator
-                        +"mapping_4.1.1-5.0.2.csv"
+                        + File.separator
+                        + ".."
+                        + File.separator
+                        + "pscout"
+                        + File.separator
+                        + "files"
+                        + File.separator
+                        + "mapping_4.1.1-5.0.2.csv"
         );
         PSCoutModel model = new PSCoutModel(csv.getAbsolutePath());
 
@@ -35,7 +35,7 @@ public class PScoutLauncher {
         oos.writeObject(model);
         oos.close();
         System.out.println("Model saved");
-        System.out.println("Path: "+modelFile.getAbsolutePath());
+        System.out.println("Path: " + modelFile.getAbsolutePath());
         System.out.println(model.size());
     }
 }

@@ -1,8 +1,5 @@
 package droidefense.om.machine.reader;
 
-import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
-import droidefense.om.machine.base.struct.generic.IDroidefenseField;
-import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
 import droidefense.om.machine.base.AbstractDVMThread;
@@ -14,7 +11,10 @@ import droidefense.om.machine.base.exceptions.NotSupportedValueTypeException;
 import droidefense.om.machine.base.struct.fake.DVMTaintClass;
 import droidefense.om.machine.base.struct.fake.DVMTaintField;
 import droidefense.om.machine.base.struct.fake.EncapsulatedClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.om.machine.base.struct.generic.IDroidefenseField;
 import droidefense.om.machine.base.struct.generic.IDroidefenseFrame;
+import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.base.struct.model.DVMClass;
 import droidefense.om.machine.base.struct.model.DVMField;
 import droidefense.om.machine.base.struct.model.DVMMethod;
@@ -90,16 +90,16 @@ public final class DexClassReader implements Serializable {
             cls = findClass(name);
             pool.addClass(name, cls);
         }
-        if ( !cls.isBinded() ){
-            if( !cls.isFake() ){
+        if (!cls.isBinded()) {
+            if (!cls.isFake()) {
                 initializeLoadedClass(cls);
-            } else{
+            } else {
                 //class is fake, so no need to initialize varaibles and static attibutes
                 Log.write(LoggerType.DEBUG, "Fake class no need to be binded");
             }
         } else {
             //class already binded, which means it is already initialized
-            Log.write(LoggerType.DEBUG, cls.getName()+" already binded. No need to rebind");
+            Log.write(LoggerType.DEBUG, cls.getName() + " already binded. No need to rebind");
         }
         return cls;
     }
@@ -107,7 +107,7 @@ public final class DexClassReader implements Serializable {
     private void initializeLoadedClass(IDroidefenseClass cls) {
         IDroidefenseMethod initMethod = cls.findClassInitMethod();
         if (initMethod != null) {
-            if(!initMethod.isFake()) {
+            if (!initMethod.isFake()) {
                 //TOdo changed this. may explode
                 AbstractDVMThread firstThread = getVm().getThread(0);
                 if (firstThread != null) {
@@ -117,13 +117,12 @@ public final class DexClassReader implements Serializable {
                         cls.setBinded(true);
                         firstThread.run();
                     } catch (Throwable throwable) {
-                        Log.write(LoggerType.FATAL, "Could not initilize static variables of class "+cls.getName());
+                        Log.write(LoggerType.FATAL, "Could not initilize static variables of class " + cls.getName());
                         Log.write(LoggerType.FATAL, throwable.getLocalizedMessage());
                     }
                 }
             }
-        }
-        else{
+        } else {
             //no init method found.possibly because init is inherited from parent class.
             //we temporaly mark it as successfully binded, but it is not
             cls.setBinded(true);
@@ -690,13 +689,13 @@ public final class DexClassReader implements Serializable {
     }
 
     private boolean checkData(final String type, final String valueToCheck) {
-        boolean pass=true;
+        boolean pass = true;
         for (int i = 0, length = valueToCheck.length() / 2; i < length; i++) {
             int readed = readUByte();
             int expected = Integer.parseInt(valueToCheck.substring(i * 2, i * 2 + 2), 16);
             if (readed != expected) {
                 Log.write(LoggerType.ERROR, "illegal " + type);
-                pass=false;
+                pass = false;
             }
         }
         return pass;

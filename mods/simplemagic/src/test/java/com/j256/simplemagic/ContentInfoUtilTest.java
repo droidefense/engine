@@ -122,7 +122,7 @@ public class ContentInfoUtilTest {
     @Ignore("for spot testing")
     public void testSpecificFileProblem() throws Exception {
         /*
-		 * For testing specific entries from a different magic file.
+         * For testing specific entries from a different magic file.
 		 */
         InputStream stream = getClass().getClassLoader().getResourceAsStream("magic");
         assertNotNull(stream);

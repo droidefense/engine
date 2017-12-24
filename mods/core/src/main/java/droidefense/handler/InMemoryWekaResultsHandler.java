@@ -1,10 +1,10 @@
 package droidefense.handler;
 
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.batch.helper.OutPutResult;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.ml.MLResultHolder;
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
 import droidefense.ml.WekaClassifier;
 import droidefense.sdk.helpers.InternalConstant;
 import weka.classifiers.Classifier;
@@ -129,7 +129,7 @@ public class InMemoryWekaResultsHandler extends AbstractHandler {
         //classifier names
         File[] modelFiles = FileIOHandler.getModelsDir().listFiles();
 
-        if(modelFiles==null || modelFiles.length==0){
+        if (modelFiles == null || modelFiles.length == 0) {
             throw new IOException("Could not find any valid model files on specified folder");
         }
 

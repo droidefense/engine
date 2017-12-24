@@ -3,10 +3,10 @@ package droidefense.handler.apktool;
 import brut.androlib.AndrolibException;
 import brut.androlib.ApkDecoder;
 import brut.directory.DirectoryException;
-import droidefense.handler.FileIOHandler;
-import droidefense.handler.base.AbstractHandler;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
+import droidefense.handler.FileIOHandler;
+import droidefense.handler.base.AbstractHandler;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.LocalApkFile;
 

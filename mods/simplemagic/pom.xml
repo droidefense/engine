@@ -69,7 +69,7 @@
                         <user.language>en</user.language>
                         <user.region>US</user.region>
                     </systemPropertyVariables>
-                </configuration> 
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

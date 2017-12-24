@@ -1,10 +1,10 @@
 package droidefense.handler;
 
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.batch.helper.OutPutResult;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.ml.MLResultHolder;
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
 import droidefense.ml.WekaClassifier;
 import droidefense.sdk.helpers.InternalConstant;
 import droidefense.sdk.manifest.UsesPermission;
@@ -75,17 +75,17 @@ public class WekaResultsHandler extends AbstractHandler {
 
         File modelDir = FileIOHandler.getModelsDir();
 
-        if(featuresFile==null || !featuresFile.exists()){
+        if (featuresFile == null || !featuresFile.exists()) {
             throw new IOException("Sample feature file was not found");
         }
-        if(!modelDir.exists()){
+        if (!modelDir.exists()) {
             throw new IOException("Machine Learning model dir not found");
         }
 
         //classifier names
         File[] modelFiles = modelDir.listFiles();
 
-        if(modelFiles == null || modelFiles.length==0){
+        if (modelFiles == null || modelFiles.length == 0) {
             throw new IOException("There are no machine learning models available on specified folder");
         }
 

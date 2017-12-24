@@ -1,17 +1,17 @@
 package droidefense.sdk.helpers;
 
-import droidefense.handler.FileIOHandler;
-import droidefense.handler.apktool.MemAPKToolHandler;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
-import droidefense.handler.apktool.APKToolHandler;
 import droidefense.handler.AXMLDecoderHandler;
+import droidefense.handler.FileIOHandler;
 import droidefense.handler.FileUnzipVFSHandler;
+import droidefense.handler.apktool.APKToolHandler;
+import droidefense.handler.apktool.MemAPKToolHandler;
+import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.sdk.model.io.LocalHashedFile;
 import droidefense.vfs.model.impl.VirtualFile;
-import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.model.io.LocalApkFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -65,7 +65,7 @@ public enum APKUnpacker {
             //TODO enable file, folder counting
             currentProject.setCorrectDecoded(true);
             ArrayList<VirtualFile> appfiles = currentProject.getAppFiles();
-            return appfiles!= null && appfiles.size() > 0;
+            return appfiles != null && appfiles.size() > 0;
         }
 
         @Override
@@ -81,7 +81,7 @@ public enum APKUnpacker {
             handler.doTheJob();
             ArrayList<VirtualFile> appfiles = handler.getFiles();
             currentProject.setAppFiles(appfiles);
-            return appfiles!= null && appfiles.size() > 0;
+            return appfiles != null && appfiles.size() > 0;
         }
 
         @Override
@@ -101,29 +101,23 @@ public enum APKUnpacker {
                     decoder.setFile(file);
                     decoder.doTheJob();
                     xmlFileList.add(file);
-                }
-                else if(isManifestMF(file)){
+                } else if (isManifestMF(file)) {
                     //skipping. no need to decode. it is raw file.
                     //parsing might be useful
                     Log.write(LoggerType.DEBUG, "Decoding *.MF file " + file.getPath());
-                }
-                else if(isManifestSF(file)){
+                } else if (isManifestSF(file)) {
                     //skipping. no need to decode. it is raw file.
                     //parsing might be useful
                     Log.write(LoggerType.DEBUG, "Decoding *.SF file " + file.getPath());
-                }
-                else if(isRSA(file)){
+                } else if (isRSA(file)) {
                     Log.write(LoggerType.DEBUG, "Decoding *.RSA file " + file.getPath());
-                }
-                else if(is9patch(file)){
+                } else if (is9patch(file)) {
                     //skipping. no need to decode. it is raw file
                     Log.write(LoggerType.DEBUG, "Decoding *.9.png image file " + file.getPath());
                     ninePatchImageList.add(file);
-                }
-                else if(isResourcesARSC(file)){
+                } else if (isResourcesARSC(file)) {
                     Log.write(LoggerType.DEBUG, "Decoding resources.arsc file " + file.getPath());
-                }
-                else {
+                } else {
                     Log.write(LoggerType.TRACE, "Skipping " + file.getPath());
                 }
             }
@@ -140,8 +134,8 @@ public enum APKUnpacker {
         return (file != null) &&
                 (
                         file.getPath().toLowerCase().equals("resources.arsc")
-                        ||
-                        file.getPath().toLowerCase().endsWith(".arsc")
+                                ||
+                                file.getPath().toLowerCase().endsWith(".arsc")
                 );
     }
 
@@ -165,23 +159,8 @@ public enum APKUnpacker {
         return file.getName().endsWith(".xml");
     }
 
-    /**
-     *
-     * @param apkFile input sample loaded
-     * @return a list of internal sample files unpacked
-     */
-    public abstract boolean unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile);
-
-    /**
-     *
-     * @param currentProject input project loaded
-     * @param files internal unpacked file list, ready to be decoded
-     * @return a list of internal sample files decoded
-     */
-    public abstract ArrayList<VirtualFile> decodeWithTechnique(DroidefenseProject currentProject, ArrayList<VirtualFile> files);
-
     public static APKUnpacker getUnpackerFromStringName(String name) {
-        if(name != null){
+        if (name != null) {
             if (name.equalsIgnoreCase(APKUnpacker.APKTOOL.name())) {
                 return APKUnpacker.APKTOOL;
             } else if (name.equalsIgnoreCase(APKUnpacker.ZIP.name())) {
@@ -191,4 +170,17 @@ public enum APKUnpacker {
         //return as default unpacker if none selected
         return APKUnpacker.ZIP;
     }
+
+    /**
+     * @param apkFile input sample loaded
+     * @return a list of internal sample files unpacked
+     */
+    public abstract boolean unpackWithTechnique(DroidefenseProject currentProject, LocalApkFile apkFile);
+
+    /**
+     * @param currentProject input project loaded
+     * @param files          internal unpacked file list, ready to be decoded
+     * @return a list of internal sample files decoded
+     */
+    public abstract ArrayList<VirtualFile> decodeWithTechnique(DroidefenseProject currentProject, ArrayList<VirtualFile> files);
 }

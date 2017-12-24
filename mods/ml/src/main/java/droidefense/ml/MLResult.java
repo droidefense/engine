@@ -1,7 +1,6 @@
 package droidefense.ml;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class MLResult implements Serializable {
 

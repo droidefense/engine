@@ -32,9 +32,9 @@ public final class ManifestParser implements Serializable {
     private AbstractManifestClass parent = null;
 
     public ManifestParser() {
-        Log.write(LoggerType.TRACE,"Running ManifestParser...");
+        Log.write(LoggerType.TRACE, "Running ManifestParser...");
         Log.write(LoggerType.TRACE, "Compiled with JAVA SDK v" + JDK_LANGUAGE_LEVEL);
-        Log.write(LoggerType.TRACE,"Max AndroidManifest.xml version supported: " + MAX_ANDROID_VERSION);
+        Log.write(LoggerType.TRACE, "Max AndroidManifest.xml version supported: " + MAX_ANDROID_VERSION);
     }
 
     public final AbstractManifestClass getMainClass() {

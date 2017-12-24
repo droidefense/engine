@@ -18,7 +18,7 @@ public class EntropyCalculator {
 
     public double getShannonEntropy(String s) {
 
-        if(s==null){
+        if (s == null) {
             return 0.0;
         }
 
@@ -46,7 +46,7 @@ public class EntropyCalculator {
 
     private double getShannonEntropy(byte[] data) {
 
-        if(data == null || data.length==0){
+        if (data == null || data.length == 0) {
             return 0.0;
         }
 
@@ -74,7 +74,7 @@ public class EntropyCalculator {
 
     public double getMethodEntropy(int[] data) {
 
-        if(data == null || data.length==0){
+        if (data == null || data.length == 0) {
             return 0.0;
         }
 
@@ -104,7 +104,7 @@ public class EntropyCalculator {
 
     public double getOpcodesMethodEntropy(byte[] opcodes) {
 
-        if(opcodes == null || opcodes.length==0){
+        if (opcodes == null || opcodes.length == 0) {
             return 0.0;
         }
 
@@ -125,7 +125,7 @@ public class EntropyCalculator {
 
     private int[] removeNOP(int[] data) {
 
-        if(data!=null) {
+        if (data != null) {
             ArrayList<Integer> list = new ArrayList<>();
             for (int i : data) {
                 if (i != 0x00)
@@ -144,7 +144,7 @@ public class EntropyCalculator {
 
     private byte[] toByteArray(List<Byte> in) {
 
-        if(in == null){
+        if (in == null) {
             return new byte[]{};
         }
 
@@ -158,7 +158,7 @@ public class EntropyCalculator {
 
     private int[] toIntArray(List<Integer> in) {
 
-        if(in == null){
+        if (in == null) {
             return new int[]{};
         }
 

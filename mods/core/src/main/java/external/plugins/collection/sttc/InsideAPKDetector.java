@@ -1,8 +1,8 @@
 package external.plugins.collection.sttc;
 
-import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.AbstractStaticPlugin;
 import droidefense.sdk.helpers.Util;
+import droidefense.vfs.model.impl.VirtualFile;
 
 import java.util.ArrayList;
 
@@ -40,8 +40,8 @@ public class InsideAPKDetector extends AbstractStaticPlugin {
 
     @Override
     protected void postExecute() {
-        log(getPluginName()+" plugin FINISHED", 1);
-        log(getPluginName()+" DETECTED " + apklist.size() + " .apk files", 1);
+        log(getPluginName() + " plugin FINISHED", 1);
+        log(getPluginName() + " DETECTED " + apklist.size() + " .apk files", 1);
         for (VirtualFile res : apklist) {
             log("\t\t > " + res.getName(), 2);
         }

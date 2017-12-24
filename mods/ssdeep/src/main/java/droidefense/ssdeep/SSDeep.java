@@ -31,7 +31,7 @@ public class SSDeep {
         SSDeep ssDeep = new SSDeep();
         SSDeepHash a;
         SSDeepHash hash = ssDeep.generateHash(data);
-        if(hash!=null)
+        if (hash != null)
             return hash.toString();
         return "droidefense.ssdeep-unknown";
     }
@@ -94,15 +94,14 @@ public class SSDeep {
      * @return The SSDeep hash of the byte array.
      */
     public SSDeepHash generateHash(final byte[] buf) {
-        try{
+        try {
             final SSDeepContext ctx = new SSDeepContext(buf);
             do {
                 ctx.digest(buf);
             } while (!ctx.isFinished());
 
             return ctx.generateHash();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.err.println(e.getLocalizedMessage());
         }
         return null;

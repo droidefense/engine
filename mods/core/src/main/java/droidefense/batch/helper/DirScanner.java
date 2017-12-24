@@ -1,12 +1,12 @@
 package droidefense.batch.helper;
 
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.batch.exception.EmptyDataSetException;
 import droidefense.batch.exception.NoFilesFoundException;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
 import droidefense.sdk.model.io.AbstractHashedFile;
 
 import java.io.File;

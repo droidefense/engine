@@ -41,6 +41,13 @@ public class SignatureHandler extends AbstractHandler {
         valid = false;
     }
 
+    public static SignatureHandler getInstance() {
+        if (instance == null) {
+            instance = new SignatureHandler();
+        }
+        return instance;
+    }
+
     @Override
     public boolean doTheJob() {
         byte[] buffer = new byte[BUFFER_SIZE];
@@ -95,7 +102,8 @@ public class SignatureHandler extends AbstractHandler {
             Log.write(LoggerType.DEBUG, "File NOT identified: " + getFile().getName());
             try {
                 System.err.println(new String(getFile().getContent()));
-            } catch (IOException e) {}
+            } catch (IOException e) {
+            }
         }
     }
 
@@ -105,13 +113,6 @@ public class SignatureHandler extends AbstractHandler {
 
     public void setNameExtension(String nameExtension) {
         this.nameExtension = nameExtension;
-    }
-
-    public static SignatureHandler getInstance() {
-        if(instance==null){
-            instance = new SignatureHandler();
-        }
-        return instance;
     }
 
     public boolean isSignatureFound() {

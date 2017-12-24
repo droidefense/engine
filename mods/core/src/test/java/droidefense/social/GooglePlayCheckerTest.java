@@ -5,18 +5,17 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import java.net.MalformedURLException;
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GooglePlayCheckerTest {
 
     @Test
-    public void checkName(){
+    public void checkName() {
         GooglePlayChecker gpc = new GooglePlayChecker(null);
         Assert.assertEquals(gpc.getPluginName(), "Google Play checker");
     }
+
     @Test
-    public void checkRemoteData1(){
+    public void checkRemoteData1() {
         GooglePlayChecker gpc = new GooglePlayChecker(null);
         Assert.assertTrue(
                 gpc.getGooglePlayData(
@@ -26,7 +25,7 @@ public class GooglePlayCheckerTest {
     }
 
     @Test
-    public void checkRemoteData2(){
+    public void checkRemoteData2() {
         GooglePlayChecker gpc = new GooglePlayChecker(null);
         Assert.assertTrue(
                 gpc.getGooglePlayData(
@@ -36,7 +35,7 @@ public class GooglePlayCheckerTest {
     }
 
     @Test
-    public void checkRemoteData3(){
+    public void checkRemoteData3() {
         GooglePlayChecker gpc = new GooglePlayChecker(null);
         Assert.assertTrue(
                 gpc.getGooglePlayData(
@@ -46,7 +45,7 @@ public class GooglePlayCheckerTest {
     }
 
     @Test
-    public void checkAppExistanceFailed(){
+    public void checkAppExistanceFailed() {
         GooglePlayChecker gpc = new GooglePlayChecker(null);
         Assert.assertFalse(
                 gpc.existsOnGooglePlay(
@@ -56,7 +55,7 @@ public class GooglePlayCheckerTest {
     }
 
     @Test
-    public void checkAppExistanceSuccess(){
+    public void checkAppExistanceSuccess() {
         GooglePlayChecker gpc = new GooglePlayChecker(null);
         Assert.assertTrue(
                 gpc.existsOnGooglePlay(

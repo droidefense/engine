@@ -198,7 +198,7 @@ public class MagicEntry {
         if (name != UNKNOWN_NAME && contentData.name == UNKNOWN_NAME) {
             contentData.name = name;
         }
-		/*
+        /*
 		 * Set the mime-type if it is not set already or if we've gotten more specific in the processing of a pattern
 		 * and determine that it's actually a different type so we can override the previous mime-type. Example of this
 		 * is Adobe Illustrator which looks like a PDF but has extra stuff in it.

@@ -11,7 +11,7 @@ public class ApkDecoderWrapper {
 
     private ApkDecoder decoder;
 
-    public ApkDecoderWrapper(){
+    public ApkDecoderWrapper() {
         decoder = new ApkDecoder();
     }
 

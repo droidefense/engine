@@ -1,14 +1,13 @@
 package droidefense.sdk.model.holder;
 
 
+import droidefense.sdk.manifest.Manifest;
 import droidefense.sdk.model.certificate.CertificateModel;
 import droidefense.sdk.model.dex.DexBodyModel;
 import droidefense.sdk.model.enums.SDK_VERSION;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.DexHashedFile;
-import droidefense.sdk.model.io.LocalHashedFile;
 import droidefense.vfs.model.impl.VirtualFile;
-import droidefense.sdk.manifest.Manifest;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -373,12 +372,12 @@ public class StaticInfo implements Serializable {
         this.dexBodyModel = dexBodyModel;
     }
 
-    public void setDefaultFiles(ArrayList<AbstractHashedFile> defaultFiles) {
-        this.defaultFiles = defaultFiles;
-    }
-
     public ArrayList<AbstractHashedFile> getDefaultFiles() {
         return defaultFiles;
+    }
+
+    public void setDefaultFiles(ArrayList<AbstractHashedFile> defaultFiles) {
+        this.defaultFiles = defaultFiles;
     }
 
     public ArrayList<VirtualFile> getXmlFiles() {
@@ -389,35 +388,35 @@ public class StaticInfo implements Serializable {
         this.xmlFiles = xmlFiles;
     }
 
-    public void setNinePatchImageFiles(ArrayList<VirtualFile> ninePatchImageFiles) {
-        this.ninePatchImageFiles = ninePatchImageFiles;
-    }
-
     public ArrayList<VirtualFile> getNinePatchImageFiles() {
         return ninePatchImageFiles;
     }
 
-    public void setMetainfManifestFile(AbstractHashedFile metainfManifestFile) {
-        this.metainfManifestFile = metainfManifestFile;
+    public void setNinePatchImageFiles(ArrayList<VirtualFile> ninePatchImageFiles) {
+        this.ninePatchImageFiles = ninePatchImageFiles;
     }
 
     public AbstractHashedFile getMetainfManifestFile() {
         return metainfManifestFile;
     }
 
-    public void setMetaManifestCreator(String metaManifestCreator) {
-        this.metaManifestCreator = metaManifestCreator;
+    public void setMetainfManifestFile(AbstractHashedFile metainfManifestFile) {
+        this.metainfManifestFile = metainfManifestFile;
     }
 
     public String getMetaManifestCreator() {
         return metaManifestCreator;
     }
 
-    public void setMetaManifestVersion(String metaManifestVersion) {
-        this.metaManifestVersion = metaManifestVersion;
+    public void setMetaManifestCreator(String metaManifestCreator) {
+        this.metaManifestCreator = metaManifestCreator;
     }
 
     public String getMetaManifestVersion() {
         return metaManifestVersion;
+    }
+
+    public void setMetaManifestVersion(String metaManifestVersion) {
+        this.metaManifestVersion = metaManifestVersion;
     }
 }

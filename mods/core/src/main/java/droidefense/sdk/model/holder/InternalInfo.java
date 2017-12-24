@@ -42,7 +42,7 @@ public class InternalInfo implements Serializable {
     }
 
     public void cleanup() {
-        if(this.dexContentList != null){
+        if (this.dexContentList != null) {
             this.dexContentList.cleanup();
         }
     }
@@ -63,12 +63,12 @@ public class InternalInfo implements Serializable {
         this.entryPoints = entryArray;
     }
 
-    public void setPool(SharedPool pool) {
-        this.dexContentList = pool;
-    }
-
     public SharedPool getPool() {
         return dexContentList;
+    }
+
+    public void setPool(SharedPool pool) {
+        this.dexContentList = pool;
     }
 
     public String[] getStrings() {

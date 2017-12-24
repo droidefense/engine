@@ -112,17 +112,16 @@ public abstract class AbstractVirtualMachine implements Serializable {
     //---------- GETTERS AND SETTERS
 
     public void addThread(AbstractDVMThread worker) {
-        if(threads==null){
+        if (threads == null) {
             resetThreads();
         }
         threads.addElement(worker);
     }
 
     public void resetThreads() {
-        if (threads!=null){
+        if (threads != null) {
             threads.clear();
-        }
-        else{
+        } else {
             threads = new Vector<>();
         }
     }

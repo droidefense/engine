@@ -16,35 +16,11 @@ public final class VirtualFile extends VirtualNode {
     private transient ArrayList<Byte> content;
     private String charset;
 
-    private static byte[] toByteArray(List<Byte> in) {
-        final int n = in.size();
-        byte ret[] = new byte[n];
-        for (int i = 0; i < n; i++) {
-            ret[i] = in.get(i);
-        }
-        return ret;
-    }
-
-    public static VirtualFile createFile(VirtualFolder parentFolder, String name){
-        //1 check if that virtual folder already exists on parentFolder
-        VirtualFile item = parentFolder.getFile(name);
-        if(item==null){
-            return new VirtualFile(parentFolder, name);
-        }
-        return item;
-    }
-
-    public static VirtualFile createFile(String name){
-        //TODO check if this new virtual file exists already
-        return new VirtualFile(name);
-    }
-
     private VirtualFile(String name) {
         super(name);
-        if(parentNode!=null){
-            parentNode.setVirtualFilesInside(parentNode.getVirtualFilesInside()+1);
-        }
-        else{
+        if (parentNode != null) {
+            parentNode.setVirtualFilesInside(parentNode.getVirtualFilesInside() + 1);
+        } else {
             this.setVirtualFilesInside(1);
         }
         content = new ArrayList<>();
@@ -54,36 +30,42 @@ public final class VirtualFile extends VirtualNode {
     private VirtualFile(VirtualFolder parent, String name) {
         super(parent, name);
         parent.addAsFolderFile(this);
-        parent.setVirtualFilesInside(parent.getVirtualFilesInside()+1);
+        parent.setVirtualFilesInside(parent.getVirtualFilesInside() + 1);
         content = new ArrayList<>();
         charset = "";
     }
 
+    private static byte[] toByteArray(List<Byte> in) {
+        final int n = in.size();
+        byte ret[] = new byte[n];
+        for (int i = 0; i < n; i++) {
+            ret[i] = in.get(i);
+        }
+        return ret;
+    }
+
+    public static VirtualFile createFile(VirtualFolder parentFolder, String name) {
+        //1 check if that virtual folder already exists on parentFolder
+        VirtualFile item = parentFolder.getFile(name);
+        if (item == null) {
+            return new VirtualFile(parentFolder, name);
+        }
+        return item;
+    }
+
+    public static VirtualFile createFile(String name) {
+        //TODO check if this new virtual file exists already
+        return new VirtualFile(name);
+    }
+
     public boolean hasContent() {
-        return content != null && content.size()>0;
+        return content != null && content.size() > 0;
     }
 
     //CLASS METHODS
 
-    public void setContent(String content) {
-
-        //remove old indicator value
-        this.updateParentContentLength(-this.content.size());
-
-        //clear old content
-        this.content.clear();
-
-        for(byte b : content.getBytes()){
-            this.content.add(b);
-        }
-        //update virtualFile size indicator too
-
-        //add new indicator
-        this.updateParentContentLength(content.length());
-    }
-
     private void updateParentContentLength(int length) {
-        if(this.parentNode!=null){
+        if (this.parentNode != null) {
             parentNode.updateItemsInsideSize(length);
         }
     }
@@ -96,7 +78,7 @@ public final class VirtualFile extends VirtualNode {
             //clear old content
             this.content.clear();
 
-            for(byte b : content.getBytes(charset)){
+            for (byte b : content.getBytes(charset)) {
                 this.content.add(b);
             }
             this.charset = charset;
@@ -115,12 +97,12 @@ public final class VirtualFile extends VirtualNode {
         return true;
     }
 
-    //IMPLEMENTED METHODS
-
     @Override
     public boolean isFolder() {
         return false;
     }
+
+    //IMPLEMENTED METHODS
 
     public void addContent(byte[] buf, int len, int off) {
 
@@ -132,7 +114,7 @@ public final class VirtualFile extends VirtualNode {
             throw new IndexOutOfBoundsException();
         }
 
-        for(int i = 0; i < endoff; i++){
+        for (int i = 0; i < endoff; i++) {
             this.content.add(buf[i]);
         }
         this.updateParentContentLength(len);
@@ -179,20 +161,37 @@ public final class VirtualFile extends VirtualNode {
 
     public byte[] getContent() {
         byte[] data = new byte[content.size()];
-        for(int i =0; i< content.size();i++)
-            data[i]=content.get(i);
+        for (int i = 0; i < content.size(); i++)
+            data[i] = content.get(i);
         return data;
     }
 
+    public void setContent(String content) {
+
+        //remove old indicator value
+        this.updateParentContentLength(-this.content.size());
+
+        //clear old content
+        this.content.clear();
+
+        for (byte b : content.getBytes()) {
+            this.content.add(b);
+        }
+        //update virtualFile size indicator too
+
+        //add new indicator
+        this.updateParentContentLength(content.length());
+    }
+
     public void write(String data) {
-        if(data!=null){
+        if (data != null) {
             byte[] byteData = data.getBytes();
             this.addContent(byteData, byteData.length, 0);
         }
     }
 
     public void append(String data) {
-        if(data!=null){
+        if (data != null) {
             byte[] byteData = data.getBytes();
             this.addContent(byteData, byteData.length, this.getContentLength());
         }
@@ -200,7 +199,7 @@ public final class VirtualFile extends VirtualNode {
 
     @Override
     public IVirtualNode getItem(String name) {
-        if(name!=null && this.name!=null && this.name.equals(name)){
+        if (name != null && this.name != null && this.name.equals(name)) {
             return this;
         }
         return null;

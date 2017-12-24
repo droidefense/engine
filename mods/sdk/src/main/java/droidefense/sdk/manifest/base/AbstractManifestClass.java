@@ -1,6 +1,7 @@
 package droidefense.sdk.manifest.base;
 
 import droidefense.sdk.manifest.Manifest;
+
 import java.io.Serializable;
 
 /**

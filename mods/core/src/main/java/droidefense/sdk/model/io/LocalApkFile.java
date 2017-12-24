@@ -1,8 +1,8 @@
 package droidefense.sdk.model.io;
 
-import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.sdk.helpers.APKUnpacker;
 import droidefense.sdk.model.base.DroidefenseProject;
+import droidefense.vfs.model.impl.VirtualFile;
 
 import java.io.File;
 import java.util.ArrayList;

@@ -1,9 +1,9 @@
 package droidefense.handler.base;
 
-import droidefense.exception.ConfigFileNotFoundException;
-import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
+import droidefense.exception.ConfigFileNotFoundException;
+import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.LocalApkFile;
 
@@ -20,7 +20,7 @@ public abstract class AbstractHandler implements Serializable {
     protected Exception error;
     protected DroidefenseProject project;
 
-    public AbstractHandler(){
+    public AbstractHandler() {
         try {
             environment = DroidDefenseEnvironmentConfig.getInstance();
         } catch (ConfigFileNotFoundException e) {

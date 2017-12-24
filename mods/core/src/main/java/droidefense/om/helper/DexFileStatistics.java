@@ -1,18 +1,19 @@
 package droidefense.om.helper;
 
 
-import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
-import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;
 import droidefense.om.machine.base.DalvikVM;
+import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.DexHashedFile;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.TreeSet;
 
 /**
  * Created by sergio on 3/5/16.
@@ -75,7 +76,8 @@ public class DexFileStatistics implements Serializable {
             }
             //1.1 count packages
             totalPackageCount = allPackages.size();
-            realDeveloperPackagesCount = realDeveloperPackages.size();;
+            realDeveloperPackagesCount = realDeveloperPackages.size();
+            ;
 
             //2.1 count total class and dev class
             this.developerClassCount = developerClassList.size();

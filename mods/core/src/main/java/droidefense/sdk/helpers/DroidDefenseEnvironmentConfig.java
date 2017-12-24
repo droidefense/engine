@@ -53,20 +53,6 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
     public String ANDROID_SDK_SUPPORT_CLASS_HASHSET_NAME;
     public String XML_EXTENSION;
 
-    public static DroidDefenseEnvironmentConfig getInstance(boolean autoinit) throws ConfigFileNotFoundException {
-        if(instance==null){
-            instance = new DroidDefenseEnvironmentConfig();
-            if(autoinit){
-                instance.init();
-            }
-        }
-        return instance;
-    }
-
-    public static DroidDefenseEnvironmentConfig getInstance() throws ConfigFileNotFoundException {
-        return getInstance(false);
-    }
-
     private DroidDefenseEnvironmentConfig() throws ConfigFileNotFoundException {
         //initialize string variables with default values
         OVERWRITE_DECODE_FOLDER = false;
@@ -96,6 +82,20 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
         PROJECT_DATA_FILE = "project.data";
         PROJECT_JSON_FILE = "report.json";
         PSCOUT_MODEL = "map/pscout.model";
+    }
+
+    public static DroidDefenseEnvironmentConfig getInstance(boolean autoinit) throws ConfigFileNotFoundException {
+        if (instance == null) {
+            instance = new DroidDefenseEnvironmentConfig();
+            if (autoinit) {
+                instance.init();
+            }
+        }
+        return instance;
+    }
+
+    public static DroidDefenseEnvironmentConfig getInstance() throws ConfigFileNotFoundException {
+        return getInstance(false);
     }
 
     private void deserialize(DroidDefenseEnvironmentConfig params) {
@@ -131,7 +131,7 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
         }
     }
 
-    public boolean createDefaultConfigJsonFile(){
+    public boolean createDefaultConfigJsonFile() {
         String configFullPath = FileIOHandler.getConfigurationFile().getAbsolutePath();
         Log.write(LoggerType.DEBUG, "Creating default config file at " + configFullPath);
         //copy and paste config file from default folder

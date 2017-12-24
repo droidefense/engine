@@ -40,9 +40,6 @@ import java.util.Vector;
 
 public abstract strictfp class AbstractDVMThread implements Serializable {
 
-    protected static final Object DO_NOT_USE_ARGUMENTS = null;
-    protected static final int DO_NOT_USE_ARGUMENTS_COUNT = 0;
-
     // The upper STATUS_RUNNING status constants need to mean 'running'.
     public static final int STATUS_NOT_STARTED = 0;
     public static final int STATUS_END = 1;
@@ -52,6 +49,8 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
     public static final int STATUS_INTERRUPTED = 5;
     public static final int STATUS_WAIT_FOR_MONITOR = 6;
     public static final int STATUS_WAIT_FOR_NOTIFICATION = 7;
+    protected static final Object DO_NOT_USE_ARGUMENTS = null;
+    protected static final int DO_NOT_USE_ARGUMENTS_COUNT = 0;
     protected static final int INSTRUCTIONS_PER_PRIORITY = 20;
     protected static DalvikInstruction[] instructions = DalvikInstruction.values();
     protected final DalvikVM vm;

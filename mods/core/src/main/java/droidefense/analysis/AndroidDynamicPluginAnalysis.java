@@ -60,7 +60,7 @@ public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis 
                         currentProject.addDynamicPlugin(pluginDynamic);
                         executionSuccessful &= true;
                     } catch (ClassNotFoundException e) {
-                        Log.write(LoggerType.ERROR, "Out of date external plugin",  e.getLocalizedMessage());
+                        Log.write(LoggerType.ERROR, "Out of date external plugin", e.getLocalizedMessage());
                         addError(e);
                     } catch (InstantiationException e) {
                         Log.write(LoggerType.ERROR, "Error instantiating external plugin", e.getLocalizedMessage());
@@ -69,7 +69,7 @@ public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis 
                         Log.write(LoggerType.ERROR, "Illegal access from external plugin", e.getLocalizedMessage());
                         addError(e);
                     } catch (Exception e) {
-                        Log.write(LoggerType.ERROR, "An error occur while executing external plugin",  e.getLocalizedMessage());
+                        Log.write(LoggerType.ERROR, "An error occur while executing external plugin", e.getLocalizedMessage());
                         addError(e);
                     }
                 } else {
@@ -78,8 +78,7 @@ public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis 
                 }
             }
             executionSuccessful = true;
-        }
-        else{
+        } else {
             Log.write(LoggerType.ERROR, "Dynamic plugin folder not found");
             executionSuccessful = false;
         }

@@ -1,11 +1,11 @@
 package droidefense.worker.loader;
 
+import com.droidefense.log4j.Log;
+import com.droidefense.log4j.LoggerType;
 import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.handler.FileIOHandler;
 import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
 import droidefense.sdk.helpers.InternalConstant;
-import com.droidefense.log4j.Log;
-import com.droidefense.log4j.LoggerType;
 import droidefense.sdk.model.signature.Signature;
 import droidefense.sdk.model.signature.SignatureMap;
 
@@ -52,13 +52,13 @@ public class SignatureModelLoader implements Serializable {
             } catch (FileNotFoundException e) {
                 Log.write(LoggerType.ERROR, "Signature model file not found", e.getLocalizedMessage());
             } catch (Exception e) {
-                Log.write(LoggerType.ERROR,  e.getLocalizedMessage());
+                Log.write(LoggerType.ERROR, e.getLocalizedMessage());
             } finally {
                 if (br != null) {
                     try {
                         br.close();
                     } catch (IOException e) {
-                        Log.write(LoggerType.ERROR,  e.getLocalizedMessage());
+                        Log.write(LoggerType.ERROR, e.getLocalizedMessage());
                     }
                 }
             }

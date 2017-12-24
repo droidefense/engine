@@ -1,8 +1,8 @@
 package droidefense.om.flow.base;
 
-import com.droidefense.rulengine.base.NodeConnection;
 import com.droidefense.rulengine.base.AbstractAtomNode;
 import com.droidefense.rulengine.base.AbstractFlowMap;
+import com.droidefense.rulengine.base.NodeConnection;
 import com.droidefense.rulengine.nodes.FieldNode;
 import com.droidefense.rulengine.nodes.MethodNode;
 import com.droidefense.rulengine.nodes.NormalNode;

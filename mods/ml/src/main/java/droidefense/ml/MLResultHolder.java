@@ -15,11 +15,11 @@ public class MLResultHolder implements Serializable {
     private double malwareRatio;
     private ArrayList<MLResult> results;
 
-    public MLResultHolder(){
+    public MLResultHolder() {
         this.results = new ArrayList<>();
-        this.total=0;
-        this.positives=0;
-        this.malwareRatio =0;
+        this.total = 0;
+        this.positives = 0;
+        this.malwareRatio = 0;
     }
 
     public void add(String name, double value) {
