@@ -166,7 +166,11 @@ public final class DroidefenseProject implements Serializable {
     private transient DalvikVM dalvikMachine;
     private transient AbstractReporter reporter;
     private APKUnpacker usedUnpacker;
-    private IDroidefenseClass[] developerClasses;
+
+    /**
+     * Cached data to speedup execution
+     */
+    private transient IDroidefenseClass[] developerClasses;
 
     public DroidefenseProject() {
         //create new timestamp now

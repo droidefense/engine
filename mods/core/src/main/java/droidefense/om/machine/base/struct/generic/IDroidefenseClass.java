@@ -10,6 +10,8 @@ import java.util.Hashtable;
  */
 public abstract class IDroidefenseClass {
 
+    private IDroidefenseClass topParentClass;
+
     public abstract String toString();
 
     public abstract IDroidefenseMethod getVirtualMethod(final String name, final String descriptor, boolean getRealMethod);
@@ -186,5 +188,13 @@ public abstract class IDroidefenseClass {
             init = this.getDirectMethod("<init>", "()V", true);
         }
         return init;
+    }
+
+    public IDroidefenseClass getTopParentClass() {
+        return topParentClass;
+    }
+
+    public void setTopParentClass(IDroidefenseClass topParentClass) {
+        this.topParentClass = topParentClass;
     }
 }

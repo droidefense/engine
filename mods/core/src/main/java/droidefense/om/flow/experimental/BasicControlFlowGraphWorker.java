@@ -38,9 +38,12 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
     @Override
     public void preload() {
         Log.write(LoggerType.DEBUG, "WORKER: BasicControlFlowGraphWorker");
+        //todo check if this is needed cause most of the times points to same memory addresses
+        /*
         this.setStatus(AbstractDVMThread.STATUS_NOT_STARTED);
         vm.setThreads(new Vector());
         vm.addThread(this);
+         */
     }
 
     @Override
