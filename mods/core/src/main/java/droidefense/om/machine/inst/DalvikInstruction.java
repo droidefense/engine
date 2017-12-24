@@ -1,5 +1,6 @@
 package droidefense.om.machine.inst;
 
+import droidefense.om.machine.reader.DexClassReader;
 import droidefense.rulengine.base.AbstractFlowMap;
 import droidefense.rulengine.nodes.ConstStrNode;
 import droidefense.rulengine.nodes.FieldNode;
@@ -13,7 +14,6 @@ import droidefense.om.machine.base.DynamicUtils;
 import droidefense.om.machine.base.exceptions.VirtualMachineRuntimeException;
 import droidefense.om.machine.base.struct.generic.*;
 import droidefense.om.machine.base.struct.model.DVMInstance;
-import droidefense.om.machine.reader.DexClassReader;
 
 import java.io.Serializable;
 
@@ -1015,8 +1015,9 @@ public enum DalvikInstruction implements Serializable {
         @Override
         public InstructionReturn execute(AbstractFlowMap map, AbstractDVMThread thread, int[] lowerCodes, int[] upperCodes, int[] codes, byte executionEnv) {
             // new-instance vAA, type@BBBB
-            int destination = upperCodes[thread.getCurrentFrame().increasePc()];
-            String type = thread.getCurrentFrame().getMethod().getTypes()[codes[thread.getCurrentFrame().increasePc()]];
+            int destination = upperCodes[thread.getCurrentFrame().getPc()];
+            int nextpc = thread.getCurrentFrame().increasePc();
+            String type = thread.getCurrentFrame().getMethod().getTypes()[codes[nextpc]];
             String className = type.substring(1, type.length() - 1);
             IDroidefenseClass cls = DexClassReader.getInstance().load(className);
             if (cls != null) {

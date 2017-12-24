@@ -1,6 +1,5 @@
 package droidefense.om.machine.base.struct.generic;
 
-import droidefense.om.machine.reader.DexClassReader2;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
 
 import java.util.Hashtable;

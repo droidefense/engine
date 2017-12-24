@@ -5,7 +5,6 @@ import droidefense.handler.FileIOHandler;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.om.machine.reader.DexClassReader;
-import droidefense.om.machine.reader.DexClassReader2;
 import droidefense.rulengine.base.AbstractAtomNode;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
@@ -611,13 +610,13 @@ public class DroidDefenseEnvironment implements Serializable {
             return "Developer | InnerClass";
         } else {
 
-            IDroidefenseClass owner = DexClassReader2.getInstance().load(fullClassName);
+            IDroidefenseClass owner = DexClassReader.getInstance().load(fullClassName);
             String sc;
             sc = owner.getSuperClass();
 
             if (owner.isFake()) {
                 //set the type of holding class
-                IDroidefenseClass cls = DexClassReader2.getInstance().load(owner.getName());
+                IDroidefenseClass cls = DexClassReader.getInstance().load(owner.getName());
                 return nodeTypeResolver(cls.getSuperClass());
             } else {
                 return nodeTypeResolver(sc);
@@ -657,7 +656,7 @@ public class DroidDefenseEnvironment implements Serializable {
         String superClassname = target.getSuperClass();
         do{
             if(superClassname!=null){
-                topParentClass = DexClassReader2.getInstance().load(superClassname);
+                topParentClass = DexClassReader.getInstance().load(superClassname);
                 superClassname = topParentClass.getSuperClass();
                 if(superClassname!=null){
                     Log.write(LoggerType.TRACE, target.getAndroifiedClassName()+" inherits from "+superClassname);
@@ -675,7 +674,7 @@ public class DroidDefenseEnvironment implements Serializable {
     }
 
     public IDroidefenseClass getParentClass(String clazz){
-        IDroidefenseClass requestedClass = DexClassReader2.getInstance().load(clazz);
+        IDroidefenseClass requestedClass = DexClassReader.getInstance().load(clazz);
         return getParentClass(requestedClass);
     }
 

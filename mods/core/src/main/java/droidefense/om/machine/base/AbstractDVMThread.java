@@ -31,7 +31,6 @@ import droidefense.om.machine.base.struct.model.DVMFrame;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
 import droidefense.om.machine.reader.DexClassReader;
-import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
 
@@ -77,14 +76,14 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
 
     //frame operators
 
-    protected static IAtomField getField(final boolean isStatic, final IAtomFrame frame, final String clazzName, final String fieldName, final int instance) {
+    protected static IAtomField getField(final boolean isStatic, final IAtomFrame frame, final String clazzName, final String fieldName, final int registerIndex) {
         if (isStatic) {
             IDroidefenseClass cls = DexClassReader.getInstance().load(clazzName);
             //class loader always will return a class. real or fake
             //no null check, but just in case
             return cls.getStaticField(fieldName);
         } else {
-            Object object = frame.getObjectRegisters()[instance];
+            Object object = frame.getObjectRegisters()[registerIndex];
             if (object != null) {
                 if (object instanceof IAtomInstance) {
                     IAtomField field = ((IAtomInstance) object).getField(clazzName, fieldName);
@@ -461,7 +460,8 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
             }
         }
 
-        IAtomField field = getField(!isInstanceField, frame, clazzName, fieldName, destination);
+        boolean isStatic = !isInstanceField;
+        IAtomField field = getField(isStatic, frame, clazzName, fieldName, destination);
         if (field != null) {
             switch (fieldType.charAt(0)) {
                 case 'C':
@@ -519,7 +519,8 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
         boolean isStatic = !instanceField;
         IAtomField field = getField(isStatic, frame, clazzName, fieldName, source);
         if (field != null) {
-            switch (fieldType.charAt(0)) {
+            char fieldTypeChar = fieldType.charAt(0);
+            switch (fieldTypeChar) {
                 case 'C':
                     frame.getIntRegisters()[destination] = (char) field.getIntValue();
                     frame.getIsObjectRegister()[destination] = false;

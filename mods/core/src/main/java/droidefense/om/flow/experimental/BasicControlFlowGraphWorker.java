@@ -184,7 +184,7 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
                     //keepScanning = goBack(1);
                 }
             } catch (Exception e) {
-                Log.write(LoggerType.ERROR, "Excepcion during observation", e, e.getLocalizedMessage());
+                Log.write(LoggerType.FATAL, "Excepcion during observation", e, e.getLocalizedMessage());
             }
         }
     }

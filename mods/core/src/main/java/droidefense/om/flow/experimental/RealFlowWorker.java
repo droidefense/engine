@@ -2,6 +2,7 @@ package droidefense.om.flow.experimental;
 
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
+import droidefense.om.machine.reader.DexClassReader;
 import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.nodes.EntryPointNode;
 import droidefense.sdk.log4j.Log;
@@ -13,7 +14,6 @@ import droidefense.om.machine.base.exceptions.NoMainClassFoundException;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
-import droidefense.om.machine.reader.DexClassReader;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.base.ExecutionTimer;
 

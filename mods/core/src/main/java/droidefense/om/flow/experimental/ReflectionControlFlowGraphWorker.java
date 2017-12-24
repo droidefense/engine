@@ -4,6 +4,7 @@ import droidefense.entropy.EntropyCalculator;
 import droidefense.handler.FileIOHandler;
 import droidefense.om.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.om.machine.base.struct.generic.IDroidefenseMethod;
+import droidefense.om.machine.reader.DexClassReader;
 import droidefense.sdk.log4j.Log;
 import droidefense.sdk.log4j.LoggerType;
 import droidefense.om.flow.base.AbstractFlowWorker;
@@ -14,7 +15,6 @@ import droidefense.om.machine.base.struct.fake.DVMTaintMethod;
 import droidefense.om.machine.base.struct.generic.IAtomFrame;
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.om.machine.inst.InstructionReturn;
-import droidefense.om.machine.reader.DexClassReader;
 import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.nodes.EntryPointNode;
 import droidefense.rulengine.nodes.FieldNode;
@@ -24,7 +24,6 @@ import droidefense.sdk.model.base.ExecutionTimer;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Vector;
 
 public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlowWorker {
