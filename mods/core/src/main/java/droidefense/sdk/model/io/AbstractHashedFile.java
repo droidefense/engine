@@ -39,6 +39,9 @@ public abstract class AbstractHashedFile implements Serializable {
 
     public AbstractHashedFile(boolean generateInformation) {
         this.generateInformation = generateInformation;
+        if(generateInformation){
+            Log.write(LoggerType.INFO, "Full sample hashing is enabled!", "It may slow down overall analysis time");
+        }
     }
 
     protected void init() {
@@ -56,6 +59,7 @@ public abstract class AbstractHashedFile implements Serializable {
         //hash info
         contentInfo = null;
         if (generateInformation) {
+            Log.write(LoggerType.DEBUG, "Generating hashes...");
             generateHashes();
             androidDefaultFile = DroidDefenseEnvironment.getInstance().isDefaultFile(this.sha256);
             calculateHeaderBasedExtension();

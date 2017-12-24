@@ -157,6 +157,7 @@ public class DroidefenseScan {
             Log.write(LoggerType.TRACE, "Building project");
 
             //set sample
+            Log.write(LoggerType.TRACE, "Loading sample into system memory");
             LocalApkFile sample = new LocalApkFile(f, project, unpacker);
             project.setSample(sample);
 

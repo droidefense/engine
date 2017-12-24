@@ -18,6 +18,7 @@ public class LocalHashedFile extends AbstractHashedFile implements Serializable 
         super(generateInformation);
         this.f = f;
         try {
+            Log.write(LoggerType.DEBUG, "Loading sample byte data strem...");
             this.stream = new FileInputStream(f);
         } catch (FileNotFoundException e) {
             Log.write(LoggerType.ERROR, "Could not find the requested file");

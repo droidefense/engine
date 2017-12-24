@@ -15,8 +15,6 @@ import java.io.Serializable;
  */
 public class DroidDefenseEnvironmentConfig implements Serializable {
 
-    public static final String VERSION = "0.1";
-    public static final String TAG = "alpha";
     private transient static DroidDefenseEnvironmentConfig instance;
 
     //object var - flags
@@ -102,13 +100,11 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
 
     private void deserialize(DroidDefenseEnvironmentConfig params) {
         instance = params;
+        FileIOHandler.setEnvironmentConfiguration(instance);
     }
 
     private void init() throws ConfigFileNotFoundException {
-        Log.write(LoggerType.TRACE, "Loading Droidefense data structs...");
-        String executablePath = FileIOHandler.getBaseDirPath();
-        String configPath = FileIOHandler.getConfigPath();
-        Log.write(LoggerType.INFO, "Execution base path is: "+executablePath);
+        Log.write(LoggerType.TRACE, "Loading Droidefense environment...");
         runconfig();
     }
 
@@ -124,7 +120,6 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
                 } else {
                     DroidDefenseEnvironmentConfig params = (DroidDefenseEnvironmentConfig) Util.toObjectFromJson(new String(jsonData), DroidDefenseEnvironmentConfig.class);
                     deserialize(params);
-                    FileIOHandler.init();
                 }
             }
         } catch (IOException e) {

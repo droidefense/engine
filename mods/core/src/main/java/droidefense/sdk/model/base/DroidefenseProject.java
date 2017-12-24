@@ -194,7 +194,7 @@ public final class DroidefenseProject implements Serializable {
         this.classMap = new HashMap<>();
 
         try {
-            environmentConfig = DroidDefenseEnvironmentConfig.getInstance();
+            environmentConfig = DroidDefenseEnvironmentConfig.getInstance(true);
         } catch (ConfigFileNotFoundException e) {
             Log.write(LoggerType.FATAL, "Could not retrieve external configuration file data", e.getLocalizedMessage());
         }
@@ -656,7 +656,7 @@ public final class DroidefenseProject implements Serializable {
                 reporter = new BeautifiedJSONReporter(reportFile, jsonData);
                 break;
             }
-            case "jsonmin": {
+            case "json.min": {
                 String jsonData = Util.toJson(this, JsonStyle.JSON_COMPRESSED);
                 File reportFile = FileIOHandler.getReportFolder(getProjectId() + ".min.json");
                 reporter = new BeautifiedJSONReporter(reportFile, jsonData);

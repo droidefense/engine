@@ -33,14 +33,6 @@ public class FileIOHandler {
     private final static String MAC_CONFIG_PROPERTIES = "config.mac.json";
     private final static String CONFIG_PROPERTIES = UNIX_CONFIG_PROPERTIES;
 
-    public static void init(){
-        try {
-            environmentConfig = DroidDefenseEnvironmentConfig.getInstance();
-        } catch (ConfigFileNotFoundException e) {
-            Log.write(LoggerType.FATAL, "could not read external configuration file");
-        }
-    }
-
     public static File getUnpackOutputFile() {
         return new File(environmentConfig.UNPACK_FOLDER);
     }
@@ -399,5 +391,13 @@ public class FileIOHandler {
             }
         }
         return configurationFile;
+    }
+
+    public static void setEnvironmentConfiguration(DroidDefenseEnvironmentConfig envConfigFile) {
+        FileIOHandler.environmentConfig = envConfigFile;
+    }
+
+    public static DroidDefenseEnvironmentConfig getEnvironmentConfiguration() {
+        return environmentConfig;
     }
 }
