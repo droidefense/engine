@@ -1,4 +1,4 @@
-package external.plugins.collection.sttc;
+package com.droidefense.plugins.sttc;
 
 import droidefense.sdk.AbstractStaticPlugin;
 import droidefense.sdk.helpers.Util;

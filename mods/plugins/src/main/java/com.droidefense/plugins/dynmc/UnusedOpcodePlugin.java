@@ -1,4 +1,4 @@
-package external.plugins.collection.dynmc;
+package com.droidefense.plugins.dynmc;
 
 import droidefense.om.machine.inst.DalvikInstruction;
 import droidefense.sdk.AbstractDynamicPlugin;

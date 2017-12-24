@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public final class RuleAnalysis extends AbstractAndroidAnalysis {
 
-    private final File ruleDir;
+    private transient final File ruleDir;
     private transient RuleEngine engine;
 
     public RuleAnalysis() {

@@ -410,12 +410,12 @@ public class OutPutResult extends HashMap<String, String> implements IWekaGenera
 
     @Override
     public String toWekaData() {
-        String data = "";
+        StringBuilder data = new StringBuilder();
         String names[] = getGlobalPermissionList();
-        data += this.get(names[0]).equals("1") ? "true" : "false";
+        data.append(this.get(names[0]).equals("1") ? "true" : "false");
         for (int i = 1; i < names.length; i++) {
-            data += "," + (this.get(names[i]).equals("1") ? "true" : "false");
+            data.append(",").append(this.get(names[i]).equals("1") ? "true" : "false");
         }
-        return data;
+        return data.toString();
     }
 }

@@ -1,4 +1,4 @@
-package external.plugins.collection.dynmc;
+package com.droidefense.plugins.dynmc;
 
 import droidefense.om.machine.base.struct.model.SharedPool;
 import droidefense.sdk.AbstractDynamicPlugin;

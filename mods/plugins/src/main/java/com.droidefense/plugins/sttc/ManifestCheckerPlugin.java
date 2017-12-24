@@ -1,4 +1,4 @@
-package external.plugins.collection.sttc;
+package com.droidefense.plugins.sttc;
 
 import com.droidefense.log4j.Log;
 import com.droidefense.log4j.LoggerType;

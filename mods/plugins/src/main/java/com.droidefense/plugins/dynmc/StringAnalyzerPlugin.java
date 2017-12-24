@@ -1,4 +1,4 @@
-package external.plugins.collection.dynmc;
+package com.droidefense.plugins.dynmc;
 
 import droidefense.handler.FileIOHandler;
 import droidefense.sdk.AbstractDynamicPlugin;
