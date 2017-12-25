@@ -1,5 +1,6 @@
 package droidefense.emulator.handlers;
 
+import droidefense.emulator.flow.experimental.FollowCallsControlFlowGraphWorker;
 import droidefense.emulator.flow.stable.OpCodeCheckerWorker;
 import droidefense.emulator.machine.base.AbstractDVMThread;
 import droidefense.emulator.machine.base.DalvikVM;
@@ -27,6 +28,7 @@ public class VMWorkersHandler extends AbstractHandler {
     @Override
     public boolean doTheJob() {
         //create VM
+        Log.write(LoggerType.TRACE, "Preparing observation machine to multiple analysis...");
         DalvikVM vm = currentProject.getDalvikMachine();
         boolean successReading = currentProject.isDexFileReaded();
         if (successReading) {
@@ -35,16 +37,19 @@ public class VMWorkersHandler extends AbstractHandler {
                 //add worker to run on dynamic analysis phase
 
                 //opcode analysis
+                Log.write(LoggerType.TRACE, "Adding Opcode analysis routine...");
                 worklist.add(new OpCodeCheckerWorker(currentProject));
 
                 //R references resolver analysis
+                Log.write(LoggerType.TRACE, "Adding R references resolver analysis routine...");
                 worklist.add(new ReferencesResolverWorker(currentProject));
 
                 //normal model reporting
+                Log.write(LoggerType.TRACE, "Adding Basic Control Flow Graph analysis routine...");
                 worklist.add(new BasicControlFlowGraphWorker(currentProject));
 
                 //follow model reporting
-                //worklist.add(new FollowCallsControlFlowGraphWorker(currentProject));
+                worklist.add(new FollowCallsControlFlowGraphWorker(currentProject));
 
                 //reflection solver model reporting
                 //worklist.add(new ReflectionControlFlowGraphWorker(currentProject));
@@ -56,6 +61,7 @@ public class VMWorkersHandler extends AbstractHandler {
 
                 //run all selected workers
                 for (AbstractDVMThread worker : worklist) {
+                    Log.write(LoggerType.TRACE, "Running worker: "+worker.getName());
                     vm.setWorker(worker);
                     vm.run();
                 }

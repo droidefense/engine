@@ -16,7 +16,7 @@ import droidefense.emulator.machine.base.DalvikVM;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.emulator.machine.base.struct.model.AndroidRField;
 import droidefense.emulator.machine.base.struct.model.SharedPool;
-import droidefense.emulator.machine.reader.DexHeaderReader;
+import droidefense.emulator.machine.reader.DexFileLoader;
 import droidefense.reporting.AbstractReporter;
 import droidefense.reporting.BeautifiedJSONReporter;
 import droidefense.reporting.HTMLReporter;
@@ -153,7 +153,7 @@ public final class DroidefenseProject implements Serializable {
     private boolean staticAnalysisDone;
     private boolean dynamicAnalysisDone;
 
-    private transient DexHeaderReader dexHeaderReader;
+    private transient DexFileLoader dexHeaderReader;
     private transient IDroidefenseClass[] dynamicEntryPoints;
     private transient HashMap<String, IDroidefenseClass> classMap;
 
@@ -717,11 +717,11 @@ public final class DroidefenseProject implements Serializable {
     }
 
     /*
-    public DexHeaderReader getDexHeaderReader() {
+    public DexFileLoader getDexHeaderReader() {
         return dexHeaderReader;
     }
 
-    public void setDexHeaderReader(DexHeaderReader dexHeaderReader) {
+    public void setDexHeaderReader(DexFileLoader dexHeaderReader) {
         this.dexHeaderReader = dexHeaderReader;
     }
     */
@@ -804,11 +804,11 @@ public final class DroidefenseProject implements Serializable {
         this.staticInfo.setTarget(SDK_VERSION.getSdkVersion(targetSdkVersion));
     }
 
-    public DexHeaderReader getDexHeaderReader() {
+    public DexFileLoader getDexHeaderReader() {
         return dexHeaderReader;
     }
 
-    public void setDexHeaderReader(DexHeaderReader dexHeaderReader) {
+    public void setDexHeaderReader(DexFileLoader dexHeaderReader) {
         this.dexHeaderReader = dexHeaderReader;
     }
 

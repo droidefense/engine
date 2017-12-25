@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis {
 
-    public transient static final String PLUGIN_PACKAGE_NAME = "external.plugins.collection.dynmc.";
+    public transient static final String PLUGIN_PACKAGE_NAME = "droidefense.plugins.dynmc.";
 
     @Override
     public boolean analyze() {

@@ -29,7 +29,6 @@ import droidefense.emulator.machine.reader.DexClassReader;
 import droidefense.emulator.machine.base.exceptions.ChangeThreadRuntimeException;
 import droidefense.emulator.machine.base.exceptions.MachineStateEndedException;
 import droidefense.emulator.machine.base.exceptions.VirtualMachineRuntimeException;
-import droidefense.emulator.machine.base.struct.generic.*;
 import droidefense.emulator.machine.inst.DalvikInstruction;
 import droidefense.emulator.machine.inst.InstructionReturn;
 import droidefense.sdk.model.base.DroidefenseProject;
@@ -85,8 +84,8 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
         } else {
             Object object = frame.getObjectRegisters()[registerIndex];
             if (object != null) {
-                if (object instanceof IAtomInstance) {
-                    IDroidefenseField field = ((IAtomInstance) object).getField(clazzName, fieldName);
+                if (object instanceof IDroidefenseInstance) {
+                    IDroidefenseField field = ((IDroidefenseInstance) object).getField(clazzName, fieldName);
                     if (field != null) {
                         return field;
                     }
@@ -409,14 +408,14 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
         IDroidefenseMethod method = frame.getMethod();
 
         int[] lowerCodes = method.getOpcodes();
-        int[] upperCodes = method.getRegistercodes();
+        int[] upperCodes = method.getRegisterOpcodes();
         int[] codes = method.getIndex();
 
         while (endless || 0 < count--) {
             try {
                 int instVal = lowerCodes[frame.getPc()];
                 System.out.println("DalvikInstruction: 0x" + Integer.toHexString(instVal).toUpperCase());
-                InstructionReturn returnValue = instructions[instVal].execute(null, this, lowerCodes, upperCodes, codes, DalvikInstruction.REAL_EXECUTION);
+                InstructionReturn returnValue = instructions[instVal].execute(null, frame, lowerCodes, upperCodes, codes, DalvikInstruction.REAL_EXECUTION);
                 if (returnValue != null) {
                     //first check for errors in DalvikInstruction execution
                     if (returnValue.getError() != null) {
@@ -437,7 +436,7 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
                     frame = handleThrowable(e, frame);
                     method = frame.getMethod();
                     lowerCodes = method.getOpcodes();
-                    upperCodes = method.getRegistercodes();
+                    upperCodes = method.getRegisterOpcodes();
                     codes = method.getIndex();
                 }
             }
@@ -593,8 +592,8 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
         String className = type.startsWith("L") ? type.substring(1, type.length() - 1) : type;
         IDroidefenseClass vmClass = DexClassReader.getInstance().load(className);
         if (vmClass != null) {
-            if (checked instanceof IAtomInstance) {
-                IDroidefenseClass instanceClazz = ((IAtomInstance) checked).getOwnerClass();
+            if (checked instanceof IDroidefenseInstance) {
+                IDroidefenseClass instanceClazz = ((IDroidefenseInstance) checked).getOwnerClass();
                 while (vmClass != null) {
                     if (instanceClazz == vmClass) {
                         return true;
@@ -605,8 +604,8 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
             return false;
         } else {
             Class nativeClass = Class.forName(className.replace('/', '.'));
-            if (checked instanceof IAtomInstance) {
-                return nativeClass.isInstance(((IAtomInstance) checked).getParentInstance());
+            if (checked instanceof IDroidefenseInstance) {
+                return nativeClass.isInstance(((IDroidefenseInstance) checked).getParentInstance());
             } else {
                 return nativeClass.isInstance(checked);
             }
@@ -620,9 +619,9 @@ public abstract strictfp class AbstractDVMThread implements Serializable {
         Object instance = null;
         if (method.isInstance()) {
             instance = frame.getObjectRegisters()[0];
-            if (isVirtual && instance != null && instance instanceof IAtomInstance) {
+            if (isVirtual && instance != null && instance instanceof IDroidefenseInstance) {
                 // Handle override method
-                method = ((IAtomInstance) instance).getOwnerClass().getVirtualMethod(method.getName(), method.getDescriptor(), true);
+                method = ((IDroidefenseInstance) instance).getOwnerClass().getVirtualMethod(method.getName(), method.getDescriptor(), true);
             }
         }
         newFrame.init(method);

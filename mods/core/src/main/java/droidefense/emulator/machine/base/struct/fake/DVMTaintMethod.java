@@ -52,7 +52,7 @@ public final class DVMTaintMethod extends DVMMethod {
     }
 
     @Override
-    public int[] getRegistercodes() {
+    public int[] getRegisterOpcodes() {
         return NO_OP_CODES;
     }
 

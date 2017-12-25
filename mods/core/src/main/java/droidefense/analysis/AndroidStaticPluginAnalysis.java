@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public final class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
 
-    public transient static final String PLUGIN_PACKAGE_NAME = "external.plugins.collection.sttc.";
+    public transient static final String PLUGIN_PACKAGE_NAME = "droidefense.plugins.sttc.";
 
     public AndroidStaticPluginAnalysis() {
         timeStamp = new ExecutionTimer();

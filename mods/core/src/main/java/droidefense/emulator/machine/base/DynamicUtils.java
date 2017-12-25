@@ -1,12 +1,12 @@
 package droidefense.emulator.machine.base;
 
 import droidefense.emulator.machine.base.struct.fake.EncapsulatedClass;
+import droidefense.emulator.machine.base.struct.generic.IDroidefenseInstance;
 import droidefense.emulator.machine.base.struct.model.DVMInstance;
 import droidefense.emulator.machine.reader.DexClassReader;
 import droidefense.emulator.machine.base.constants.TypeDescriptorSemantics;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
-import droidefense.emulator.machine.base.struct.generic.IAtomInstance;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.util.InternalConstant;
@@ -172,7 +172,7 @@ public class DynamicUtils {
         return TypeDescriptorSemantics.resolveDescriptor(className);
     }
 
-    public static IAtomInstance convertToEncapsulatedClass(Object o) {
+    public static IDroidefenseInstance convertToEncapsulatedClass(Object o) {
         EncapsulatedClass ec = new EncapsulatedClass(o.getClass().getName());
         ec.setClass(o.getClass());
         ec.setJavaObject(o);

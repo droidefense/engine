@@ -2,6 +2,7 @@ package droidefense.emulator.flow.experimental;
 
 
 import droidefense.emulator.flow.base.AbstractFlowWorker;
+import droidefense.emulator.flow.stable.SimpleFlowWorker;
 import droidefense.emulator.machine.base.AbstractDVMThread;
 import droidefense.emulator.machine.base.struct.fake.DVMTaintClass;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
@@ -22,36 +23,17 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Vector;
 
-public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWorker {
+public final strictfp class BasicControlFlowGraphWorker extends SimpleFlowWorker {
 
     private int[] lowerCodes;
     private int[] upperCodes;
     private int[] codes;
 
     public BasicControlFlowGraphWorker(DroidefenseProject project) {
-        super(project.getDalvikMachine(), project);
+        super(project);
+        this.name="BasicControlFlowGraphWorker";
         flowMap = new BasicCFGFlowMap();
         fromNode = null;
-    }
-
-    @Override
-    public void preload() {
-        Log.write(LoggerType.DEBUG, "WORKER: BasicControlFlowGraphWorker");
-        //todo check if this is needed cause most of the times points to same memory addresses
-        /*
-        this.setStatus(AbstractDVMThread.STATUS_NOT_STARTED);
-        vm.setThreads(new Vector());
-        vm.addThread(this);
-         */
-    }
-
-    @Override
-    public void run() {
-        try {
-            execute(false);
-        } catch (Throwable throwable) {
-            Log.write(LoggerType.ERROR, throwable.getLocalizedMessage());
-        }
     }
 
     @Override
@@ -73,52 +55,13 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
     }
 
     @Override
-    public int getInitialArgumentCount(IDroidefenseClass cls, IDroidefenseMethod m) {
-        return AbstractDVMThread.DO_NOT_USE_ARGUMENTS_COUNT;
-    }
-
-    @Override
-    public Object getInitialArguments(IDroidefenseClass cls, IDroidefenseMethod m) {
-        return AbstractDVMThread.DO_NOT_USE_ARGUMENTS;
-    }
-
-    @Override
-    public IDroidefenseClass[] getInitialDVMClass() {
-        //only return developer class and skip known java jdk and android sdk classes
-
-        IDroidefenseClass[] list = currentProject.getDeveloperClasses();
-        Log.write(LoggerType.TRACE, "Estimated node count: ");
-        int nodes = 0;
-        for (IDroidefenseClass cls : list) {
-            nodes += cls.getAllMethods().length;
-        }
-        Log.write(LoggerType.TRACE, nodes + " developer nodes");
-        flowMap.setMaxNodes(nodes);
-        return list;
-    }
-
-    @Override
-    public IDroidefenseMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
-        return dexClass.getAllMethods();
-    }
-
-    @Override
-    public AbstractDVMThread cleanThreadContext() {
-        //cleanThreadContext 'thread' status
-        this.setStatus(AbstractDVMThread.STATUS_NOT_STARTED);
-        this.removeFrames();
-        this.timestamp = new ExecutionTimer();
-        return this;
-    }
-
-    @Override
     public strictfp void execute(boolean keepScanning) throws Throwable {
 
         IDroidefenseFrame frame = getCurrentFrame();
         IDroidefenseMethod method = frame.getMethod();
 
         lowerCodes = method.getOpcodes();
-        upperCodes = method.getRegistercodes();
+        upperCodes = method.getRegisterOpcodes();
         codes = method.getIndex();
 
         keepScanning = true;
@@ -156,10 +99,10 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
                 if (isGetterOrSetterInstruction(currentInstructionOpcode)) {
                     //GETTER SETTER
                     //do not execute that DalvikInstruction. just act like if it was executed incrementing pc value properly
-                    ret = currentInstruction.execute(flowMap, this, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
+                    ret = currentInstruction.execute(flowMap, frame, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
                 } else if (isCallMethodInstruction(currentInstructionOpcode)) {
                     //CALLS
-                    InstructionReturn fakeCallReturn = fakeMethodCall(frame.getMethod());
+                    InstructionReturn fakeCallReturn = fakeMethodCall(frame);
                     //create invokated method as node
                     toNode = buildMethodNode(currentInstruction, frame, fakeCallReturn.getMethod());
                     //create the connection
@@ -174,7 +117,7 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
                 } else {
                     //OTHER INST
                     //do not execute that DalvikInstruction. just act like if it was executed incrementing pc value properly
-                    ret = currentInstruction.execute(flowMap, this, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
+                    ret = currentInstruction.execute(flowMap, frame, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
                 }
 
                 //check if there are more instructions to execute
@@ -214,7 +157,7 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
 
             //restore codes
             lowerCodes = getCurrentFrame().getMethod().getOpcodes();
-            upperCodes = getCurrentFrame().getMethod().getRegistercodes();
+            upperCodes = getCurrentFrame().getMethod().getRegisterOpcodes();
             codes = getCurrentFrame().getMethod().getIndex();
             getCurrentFrame().increasePc(fakePc);
             return true;
@@ -223,12 +166,13 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
         return false;
     }
 
-    private InstructionReturn fakeMethodCall(IDroidefenseMethod method) {
+    private InstructionReturn fakeMethodCall(IDroidefenseFrame frame) {
 
-        IDroidefenseFrame frame = getCurrentFrame();
+        IDroidefenseMethod method = frame.getMethod();
 
         // invoke-virtual {vD, vE, vF, vG, vA}, meth@CCCC
-        int registers = upperCodes[frame.increasePc()] << 16;
+        int registersBase = upperCodes[frame.increasePc()];
+        int registers = registersBase << 16;
         int methodIndex = codes[frame.increasePc()];
         registers |= codes[frame.increasePc()];
 
@@ -261,7 +205,7 @@ public final strictfp class BasicControlFlowGraphWorker extends AbstractFlowWork
         }
         IDroidefenseFrame frame = callMethod(false, methodToCall, getCurrentFrame());
         int[] lowerCodes = methodToCall.getOpcodes();
-        int[] upperCodes = methodToCall.getRegistercodes();
+        int[] upperCodes = methodToCall.getRegisterOpcodes();
         int[] codes = methodToCall.getIndex();
         return new InstructionReturn(frame, methodToCall, lowerCodes, upperCodes, codes, null);
     }

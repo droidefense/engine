@@ -195,7 +195,7 @@ public class DVMMethod implements IDroidefenseMethod, Serializable {
         this.opcodes = opcodes;
     }
 
-    public int[] getRegistercodes() {
+    public int[] getRegisterOpcodes() {
         return registercodes;
     }
 

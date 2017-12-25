@@ -17,7 +17,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
+public final strictfp class ReferencesResolverWorker extends SimpleFlowWorker {
 
     private static final String ANDROID_R_ID_REGEX = "@android\\:(0x){0,1}([0-9a-zA-Z]{8})";
     private static final String ANDROID_ID_REGEX = "android\\:([a-zA-Z0-9]+(_[a-zA-Z0-9]+)*)=\"(\\w|\\s|\\d|[-,\\.\\$])*\"";
@@ -26,23 +26,7 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
     public ReferencesResolverWorker(DroidefenseProject currentProject) {
         super(currentProject);
         references = new ArrayList<>();
-    }
-
-    @Override
-    public void preload() {
-        Log.write(LoggerType.DEBUG, "WORKER: ReferencesResolverWorker");
-        this.setStatus(AbstractDVMThread.STATUS_NOT_STARTED);
-        vm.setThreads(new Vector());
-        vm.addThread(this);
-    }
-
-    @Override
-    public void run() {
-        try {
-            execute(false);
-        } catch (Throwable throwable) {
-            Log.write(LoggerType.ERROR, throwable.getLocalizedMessage());
-        }
+        this.name="ReferencesResolverWorker";
     }
 
     @Override
@@ -538,41 +522,6 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
     }
 
     @Override
-    public int getInitialArgumentCount(IDroidefenseClass cls, IDroidefenseMethod m) {
-        return 0; //do not use arguments
-    }
-
-    @Override
-    public Object getInitialArguments(IDroidefenseClass cls, IDroidefenseMethod m) {
-        return null; //do not use arguments
-    }
-
-    @Override
-    public IDroidefenseClass[] getInitialDVMClass() {
-        //only return developer class and skip known java jdk and android sdk classes
-
-        IDroidefenseClass[] alllist = currentProject.getInternalInfo().getAllClasses();
-        ArrayList<IDroidefenseClass> developerClasses = new ArrayList<>();
-        for (IDroidefenseClass cls : alllist) {
-            if (cls.isAndroidRclass())
-                developerClasses.add(cls);
-        }
-        IDroidefenseClass[] list = developerClasses.toArray(new IDroidefenseClass[developerClasses.size()]);
-        Log.write(LoggerType.TRACE, "Estimated node count: ");
-        int nodes = 0;
-        for (IDroidefenseClass cls : list) {
-            nodes += cls.getAllMethods().length;
-        }
-        Log.write(LoggerType.TRACE, nodes + " R nodes");
-        return list;
-    }
-
-    @Override
-    public IDroidefenseMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
-        return dexClass.getAllMethods();
-    }
-
-    @Override
     public strictfp void execute(boolean keepScanning) throws Throwable {
 
         Log.write(LoggerType.DEBUG, "Reading Android R references...");
@@ -585,10 +534,9 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
     }
 
     private void decodeFieldMap(Hashtable staticFieldMap) {
-        Iterator it = staticFieldMap.entrySet().iterator();
 
-        while (it.hasNext()) {
-            Map.Entry<String, IDroidefenseField> entry = (Map.Entry<String, IDroidefenseField>) it.next();
+        for (Object o : staticFieldMap.entrySet()) {
+            Map.Entry<String, IDroidefenseField> entry = (Map.Entry<String, IDroidefenseField>) o;
 
             if (entry != null) {
                 IDroidefenseField field = entry.getValue();
@@ -600,14 +548,5 @@ public final strictfp class ReferencesResolverWorker extends AbstractDVMThread {
                 references.add(new AndroidRField(owner, name, value));
             }
         }
-    }
-
-    @Override
-    public AbstractDVMThread cleanThreadContext() {
-        //cleanThreadContext 'thread' status
-        this.setStatus(STATUS_NOT_STARTED);
-        this.removeFrames();
-        this.timestamp = new ExecutionTimer();
-        return this;
     }
 }

@@ -1,6 +1,7 @@
 package droidefense.emulator.flow.experimental;
 
 import droidefense.emulator.flow.base.AbstractFlowWorker;
+import droidefense.emulator.flow.stable.SimpleFlowWorker;
 import droidefense.emulator.machine.base.AbstractDVMThread;
 import droidefense.emulator.machine.base.DalvikVM;
 import droidefense.emulator.machine.base.DynamicUtils;
@@ -27,7 +28,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Vector;
 
-public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlowWorker {
+public final strictfp class ReflectionControlFlowGraphWorker extends SimpleFlowWorker {
 
     private int[] lowerCodes;
     private int[] upperCodes;
@@ -37,32 +38,10 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
     private boolean reflected;
 
     public ReflectionControlFlowGraphWorker(DroidefenseProject project) {
-        super(project.getDalvikMachine(), project);
+        super(project);
         flowMap = new BasicCFGFlowMap();
         fromNode = null;
-    }
-
-    public ReflectionControlFlowGraphWorker(final DalvikVM vm, DroidefenseProject project) {
-        super(vm, project);
-        flowMap = new BasicCFGFlowMap();
-        fromNode = null;
-    }
-
-    @Override
-    public void preload() {
-        Log.write(LoggerType.DEBUG, "WORKER: ReflectionControlFlowGraphWorker");
-        this.setStatus(AbstractDVMThread.STATUS_NOT_STARTED);
-        vm.setThreads(new Vector());
-        vm.addThread(this);
-    }
-
-    @Override
-    public void run() {
-        try {
-            execute(false);
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
+        this.name = "ReflectionControlFlowGraphWorker";
     }
 
     @Override
@@ -83,43 +62,13 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
     }
 
     @Override
-    public int getInitialArgumentCount(IDroidefenseClass cls, IDroidefenseMethod m) {
-        return 0;
-    }
-
-    @Override
-    public Object getInitialArguments(IDroidefenseClass cls, IDroidefenseMethod m) {
-        return null;
-    }
-
-    @Override
-    public IDroidefenseClass[] getInitialDVMClass() {
-        //only return developer class and skip known java jdk and android sdk classes
-        return currentProject.getDeveloperClasses();
-    }
-
-    @Override
-    public IDroidefenseMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
-        return dexClass.getAllMethods();
-    }
-
-    @Override
-    public AbstractDVMThread cleanThreadContext() {
-        //cleanThreadContext 'thread' status
-        this.setStatus(AbstractDVMThread.STATUS_NOT_STARTED);
-        this.removeFrames();
-        this.timestamp = new ExecutionTimer();
-        return this;
-    }
-
-    @Override
     public strictfp void execute(boolean keepScanning) throws Throwable {
 
         IDroidefenseFrame frame = getCurrentFrame();
         IDroidefenseMethod method = frame.getMethod();
 
         lowerCodes = method.getOpcodes();
-        upperCodes = method.getRegistercodes();
+        upperCodes = method.getRegisterOpcodes();
         codes = method.getIndex();
 
         keepScanning = true;
@@ -219,7 +168,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
                  **/
 
                 //do not execute that DalvikInstruction. just act like if it was executed incrementing pc value properly
-                InstructionReturn ret = currentInstruction.execute(flowMap, this, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
+                InstructionReturn ret = currentInstruction.execute(flowMap, frame, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
                 //if ret is null, go back to the previous state/frame
                 //some instructions, however can read and get fields, in that cases, represent that read
                 //addGetSetMethodAsNode(currentInstruction);
@@ -298,7 +247,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
                 //addCallMethodAsNode(currentInstruction);
             } else {
                 //do not execute that DalvikInstruction. just act like if it was executed incrementing pc value properly
-                InstructionReturn ret = currentInstruction.execute(flowMap, this, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
+                InstructionReturn ret = currentInstruction.execute(flowMap, frame, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
                 frame.increasePc(currentInstruction.fakePcIncrement());
                 if (frame.getPc() + 1 >= lowerCodes.length) {
                     //keepScanning = goBack(1);
@@ -341,7 +290,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
 
             //restore codes
             lowerCodes = getCurrentFrame().getMethod().getOpcodes();
-            upperCodes = getCurrentFrame().getMethod().getRegistercodes();
+            upperCodes = getCurrentFrame().getMethod().getRegisterOpcodes();
             codes = getCurrentFrame().getMethod().getIndex();
             getCurrentFrame().increasePc(fakePc);
             return true;
@@ -367,7 +316,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
                 //if no errors, update values
                 IDroidefenseFrame frame = returnValue.getFrame();
                 IDroidefenseMethod method = returnValue.getMethod();
-                /*upperCodes = returnValue.getRegistercodes();
+                /*upperCodes = returnValue.getRegisterOpcodes();
                 lowerCodes = returnValue.getOpcodes();
                 codes = returnValue.getIndex();
 
@@ -449,7 +398,7 @@ public final strictfp class ReflectionControlFlowGraphWorker extends AbstractFlo
         }
         IDroidefenseFrame frame = callMethod(false, methodToCall, getCurrentFrame());
         int[] lowerCodes = methodToCall.getOpcodes();
-        int[] upperCodes = methodToCall.getRegistercodes();
+        int[] upperCodes = methodToCall.getRegisterOpcodes();
         int[] codes = methodToCall.getIndex();
         return new InstructionReturn(frame, methodToCall, lowerCodes, upperCodes, codes, null);
     }

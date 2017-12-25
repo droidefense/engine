@@ -71,7 +71,7 @@ public interface IDroidefenseMethod {
 
     void setOpcodes(int[] opcodes);
 
-    int[] getRegistercodes();
+    int[] getRegisterOpcodes();
 
     void setRegistercodes(int[] registercodes);
 

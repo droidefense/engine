@@ -1,6 +1,7 @@
 package droidefense.emulator.flow.experimental;
 
 import droidefense.emulator.flow.base.AbstractFlowWorker;
+import droidefense.emulator.flow.stable.SimpleFlowWorker;
 import droidefense.emulator.machine.base.AbstractDVMThread;
 import droidefense.emulator.machine.base.exceptions.NoMainClassFoundException;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
@@ -20,27 +21,24 @@ import droidefense.sdk.util.ExecutionTimer;
 import java.util.ArrayList;
 import java.util.Vector;
 
-public final strictfp class MultiFlowWorker extends AbstractFlowWorker {
+public final strictfp class MultiFlowWorker extends SimpleFlowWorker {
 
     public MultiFlowWorker(DroidefenseProject project) {
-        super(project.getDalvikMachine(), project);
+        super(project);
         flowMap = new BasicCFGFlowMap();
+        this.name="MultiFlowWorker";
     }
 
     @Override
-    public void preload() {
-        Log.write(LoggerType.DEBUG, "WORKER: MultiFlow");
-        this.setStatus(AbstractDVMThread.STATUS_NOT_STARTED);
-        vm.setThreads(new Vector());
-        vm.addThread(this);
-    }
-
-    @Override
-    public void run() throws Throwable {
+    public void run() {
         //get main class and load
         if (currentProject.hasMainClass()) {
             DexClassReader.getInstance().load(currentProject.getMainClassName());
-            execute(true);
+            try {
+                execute(true);
+            } catch (Throwable throwable) {
+                Log.write(LoggerType.ERROR, throwable.getLocalizedMessage());
+            }
         } else {
             throw new NoMainClassFoundException(currentProject.getProjectName() + " >> check main class manually");
         }
@@ -65,16 +63,6 @@ public final strictfp class MultiFlowWorker extends AbstractFlowWorker {
     }
 
     @Override
-    public int getInitialArgumentCount(IDroidefenseClass cls, IDroidefenseMethod m) {
-        return 0;
-    }
-
-    @Override
-    public Object getInitialArguments(IDroidefenseClass cls, IDroidefenseMethod m) {
-        return null;
-    }
-
-    @Override
     public IDroidefenseClass[] getInitialDVMClass() {
         //get all
         if (currentProject.hasMainClass())
@@ -86,22 +74,13 @@ public final strictfp class MultiFlowWorker extends AbstractFlowWorker {
     }
 
     @Override
-    public AbstractDVMThread cleanThreadContext() {
-        //cleanThreadContext 'thread' status
-        this.setStatus(AbstractDVMThread.STATUS_NOT_STARTED);
-        this.removeFrames();
-        this.timestamp = new ExecutionTimer();
-        return this;
-    }
-
-    @Override
     public strictfp void execute(boolean endless) throws Throwable {
 
         IDroidefenseFrame frame = getCurrentFrame();
         IDroidefenseMethod method = frame.getMethod();
 
         int[] lowerCodes = method.getOpcodes();
-        int[] upperCodes = method.getRegistercodes();
+        int[] upperCodes = method.getRegisterOpcodes();
         int[] codes = method.getIndex();
 
         fromNode = EntryPointNode.builder();
@@ -118,7 +97,7 @@ public final strictfp class MultiFlowWorker extends AbstractFlowWorker {
                     if (frame != null) {
                         method = frame.getMethod();
                         if (method != null) {
-                            upperCodes = method.getRegistercodes();
+                            upperCodes = method.getRegisterOpcodes();
                             lowerCodes = method.getOpcodes();
                             codes = method.getIndex();
                             continue;
@@ -129,7 +108,7 @@ public final strictfp class MultiFlowWorker extends AbstractFlowWorker {
                 int instVal = lowerCodes[frame.getPc()];
                 System.out.println("DalvikInstruction: 0x" + Integer.toHexString(instVal));
                 DalvikInstruction currentInstruction = AbstractDVMThread.instructions[instVal];
-                InstructionReturn returnValue = currentInstruction.execute(flowMap, this, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
+                InstructionReturn returnValue = currentInstruction.execute(flowMap, frame, lowerCodes, upperCodes, codes, DalvikInstruction.CFG_EXECUTION);
                 //multiflow worker IS AWARE of DalvikInstruction return value
                 if (returnValue != null) {
                     //first check for errors in DalvikInstruction execution
@@ -159,7 +138,7 @@ public final strictfp class MultiFlowWorker extends AbstractFlowWorker {
                 frame = handleThrowable(e, frame);
                 method = frame.getMethod();
                 lowerCodes = method.getOpcodes();
-                upperCodes = method.getRegistercodes();
+                upperCodes = method.getRegisterOpcodes();
                 codes = method.getIndex();
             }
         }

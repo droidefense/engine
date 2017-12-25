@@ -5,7 +5,7 @@ import java.util.Hashtable;
 /**
  * Created by sergio on 25/3/16.
  */
-public interface IAtomInstance {
+public interface IDroidefenseInstance {
 
     String toString();
 

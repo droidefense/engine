@@ -440,9 +440,9 @@ public class DalvikVM extends AbstractVirtualMachine {
         Object instance = null;
         if (method.isInstance()) {
             instance = frame.getObjectRegisters()[0];
-            if (isVirtual && instance != null && instance instanceof IAtomInstance) {
+            if (isVirtual && instance != null && instance instanceof IDroidefenseInstance) {
                 // Handle override method
-                //TODO method = ((IAtomInstance) instance).getDexClass().getVirtualMethod(method.getMethodName(), method.getDescriptor());
+                //TODO method = ((IDroidefenseInstance) instance).getDexClass().getVirtualMethod(method.getMethodName(), method.getDescriptor());
             }
             if (method == null) {
                 //check super cls
@@ -3353,16 +3353,16 @@ public class DalvikVM extends AbstractVirtualMachine {
     }
 
     public final Object toTargetInstance(final Object object) {
-        if (object instanceof IAtomInstance) {
-            return ((IAtomInstance) object).getParentInstance();
+        if (object instanceof IDroidefenseInstance) {
+            return ((IDroidefenseInstance) object).getParentInstance();
         } else {
             return object;
         }
     }
 
     public void replaceObjects(final IDroidefenseFrame frame, final Object previousObject, final Object newObject) {
-        if (previousObject instanceof IAtomInstance) {
-            ((IAtomInstance) previousObject).setParentInstance(newObject);
+        if (previousObject instanceof IDroidefenseInstance) {
+            ((IDroidefenseInstance) previousObject).setParentInstance(newObject);
         } else {
             for (int i = 0, length = frame.getRegisterCount(); i < length; i++) {
                 if (frame.getObjectRegisters()[i] == previousObject) {

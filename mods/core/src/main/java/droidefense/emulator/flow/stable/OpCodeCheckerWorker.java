@@ -11,34 +11,14 @@ import droidefense.emulator.flow.base.AbstractFlowWorker;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.util.ExecutionTimer;
 
-public final strictfp class OpCodeCheckerWorker extends AbstractFlowWorker {
+public final strictfp class OpCodeCheckerWorker extends SimpleFlowWorker {
 
     private static final int[] codeCount = new int[instructions.length];
     private static int total = 0;
 
     public OpCodeCheckerWorker(DroidefenseProject project) {
-        super(project.getDalvikMachine(), project);
-    }
-
-    public OpCodeCheckerWorker(final DalvikVM vm, DroidefenseProject project) {
-        super(vm, project);
-    }
-
-    @Override
-    public void preload() {
-        Log.write(LoggerType.DEBUG, "WORKER: OpCodeCheckerWorker");
-        /*
-        seems to be not needed
-
-        this.setStatus(AbstractDVMThread.STATUS_NOT_STARTED);
-        vm.setThreads(new Vector());
-        vm.addThread(this);
-        */
-        this.timestamp.start();
-    }
-
-    @Override
-    public void run() throws Throwable {
+        super(project);
+        this.name="OpCodeCheckerWorker";
     }
 
     @Override
@@ -48,36 +28,6 @@ public final strictfp class OpCodeCheckerWorker extends AbstractFlowWorker {
         currentProject.setOpCodesCount(codeCount);
         this.timestamp.stop();
         Log.write(LoggerType.TRACE, "OpCodeCheckerWorker execution time:\t" + this.timestamp.getFormattedDuration() + " ( " + this.timestamp.getDuration() + " ms )");
-    }
-
-    @Override
-    public int getInitialArgumentCount(IDroidefenseClass cls, IDroidefenseMethod m) {
-        return 0;
-    }
-
-    @Override
-    public Object getInitialArguments(IDroidefenseClass cls, IDroidefenseMethod m) {
-        return null;
-    }
-
-    @Override
-    public IDroidefenseClass[] getInitialDVMClass() {
-        //only return developer class and skip known java jdk and android sdk classes
-        return currentProject.getDeveloperClasses();
-    }
-
-    @Override
-    public IDroidefenseMethod[] getInitialMethodToRun(IDroidefenseClass dexClass) {
-        return dexClass.getAllMethods();
-    }
-
-    @Override
-    public AbstractDVMThread cleanThreadContext() {
-        //cleanThreadContext 'thread' status
-        this.setStatus(STATUS_NOT_STARTED);
-        this.removeFrames();
-        this.timestamp = new ExecutionTimer();
-        return this;
     }
 
     @Override

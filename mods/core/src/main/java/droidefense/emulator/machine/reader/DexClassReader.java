@@ -55,11 +55,14 @@ public final class DexClassReader implements Serializable {
 
     private DexClassReader[] readerList;
 
+    private boolean checkDexIntegrity;
+
     private DexClassReader(DalvikVM dalvikVM, DroidefenseProject currentProject) {
         super();
         this.vm = dalvikVM;
         //link this loader to a currentProject
         this.currentProject = currentProject;
+        this.checkDexIntegrity = false;
     }
 
     public static DexClassReader init(DalvikVM dalvikVM, DroidefenseProject currentProject) {
@@ -224,20 +227,36 @@ public final class DexClassReader implements Serializable {
             this.dexFileContent = dexFileContent;
             offset = 0;
 
-            boolean pass;
-            pass = checkData("magic number", "6465780A30333500");
-            currentProject.setMagicNumberPass(pass);
+            if(this.checkDexIntegrity){
+                boolean pass;
+                pass = checkData("magic number", "6465780A30333500");
+                currentProject.setMagicNumberPass(pass);
 
-            skip("checksum", 4);
-            skip("SHA-1 signature", 20);
+                skip("checksum", 4);
+                skip("SHA-1 signature", 20);
 
-            checkUInt("file size", dexFileContent.length);
-            checkUInt("header size", 0x70);
-            checkUInt("endian", 0x12345678);
+                checkUInt("file size", dexFileContent.length);
+                checkUInt("header size", 0x70);
+                checkUInt("endian", 0x12345678);
 
-            checkUInt("link size", 0);
-            checkUInt("link offset", 0);
+                checkUInt("link size", 0);
+                checkUInt("link offset", 0);
+            }
+            else{
+                boolean pass;
+                pass = checkData("magic number", "6465780A30333500");
+                currentProject.setMagicNumberPass(pass);
 
+                skip("checksum", 4);
+                skip("SHA-1 signature", 20);
+
+                skip("file size", 4);
+                skip("header size", 4);
+                skip("endian", 4);
+
+                skip("link size", 4);
+                skip("link offset", 4);
+            }
             readMap();
             readStrings();
             readTypes();

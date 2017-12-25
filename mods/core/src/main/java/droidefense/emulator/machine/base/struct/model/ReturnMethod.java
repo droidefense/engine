@@ -24,7 +24,7 @@ public class ReturnMethod implements Serializable {
         frame = worker.popFrame();
         method = frame.getMethod();
         lowerCodes = method.getOpcodes();
-        upperCodes = method.getRegistercodes();
+        upperCodes = method.getRegisterOpcodes();
         codes = method.getIndex();
     }
 

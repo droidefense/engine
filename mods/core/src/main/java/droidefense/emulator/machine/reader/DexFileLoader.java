@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Created by sergio on 26/2/16.
  */
-public class DexHeaderReader implements Serializable {
+public class DexFileLoader implements Serializable {
 
     private static final byte[] MAGIC_NUMBER = {0x64, 0x65, 0x78, 0x0a, 0x30, 0x33, 0x35, 0x00}; //"dex\n035\0"
     private static final int SHA1_BYTES = 20;
@@ -28,7 +28,7 @@ public class DexHeaderReader implements Serializable {
     private transient ArrayList<DexOperator> operator;
     private transient ArrayList<DalvikDexModel> dexModel;
 
-    public DexHeaderReader(DroidefenseProject currentProject) {
+    public DexFileLoader(DroidefenseProject currentProject) {
         this.dexFileList = currentProject.getDexList();
         this.currentProject = currentProject;
 
