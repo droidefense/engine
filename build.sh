@@ -29,7 +29,7 @@ function main(){
 	log ' Building droidefense from current version'
 
 	log "mvn clean package"
-	mvn clean package
+	mvn package -T4
 
 	ok " Building done "
 }

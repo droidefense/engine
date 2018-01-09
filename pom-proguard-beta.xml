@@ -94,6 +94,17 @@
                             <goal>single</goal>
                         </goals>
                         <configuration>
+                            <fileSets>
+                                <fileSet>
+                                    <directory>${basedir}/META-INF/</directory>
+                                    <includes>
+                                        <include>MANIFEST.MF</include>
+                                    </includes>
+                                    <excludes>
+                                        <exclude>*.*></exclude>
+                                    </excludes>
+                                </fileSet>
+                            </fileSets>
                             <finalName>${build.name}</finalName>
                             <appendAssemblyId>true</appendAssemblyId>
                             <archive>
@@ -104,11 +115,46 @@
                                 </manifest>
                             </archive>
                             <descriptorRefs>
-                                <descriptorRef>jar-with-dependencies2</descriptorRef>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
                             </descriptorRefs>
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <!-- proguard plugin -->
+            <plugin>
+                <groupId>com.github.wvengen</groupId>
+                <artifactId>proguard-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>obfuscation-packaging</id>
+                        <phase>package</phase>
+                        <goals><goal>proguard</goal></goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <proguardVersion>${tool.proguard.version}</proguardVersion>
+                    <obfuscate>true</obfuscate>
+                    <attach>true</attach>
+                    <injar>${injar.file}</injar>
+                    <outjar>${outjar.file}</outjar>
+                    <outputDirectory>${project.build.directory}</outputDirectory>
+                    <proguardInclude>${basedir}/proguard.conf</proguardInclude>
+                    <injarNotExistsSkip>true</injarNotExistsSkip>
+                    <libs>
+                        <lib>${java.home}/lib/rt.jar</lib>
+                        <lib>${java.home}/lib/jsse.jar</lib>
+                    </libs>
+                    <options>
+                        <!-- <option>-dontshrink</option> -->
+                        <!--<option>-dontoptimize</option> -->
+                        <option>-allowaccessmodification</option>
+                        <option>-overloadaggressively</option>
+                        <option>-repackageclasses ''</option>
+                        <option>-microedition</option>
+                        <option>-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,LocalVariable*Table,*Annotation*,Synthetic,EnclosingMethod,*Annotations*</option>
+                    </options>
+                </configuration>
             </plugin>
         </plugins>
     </build>

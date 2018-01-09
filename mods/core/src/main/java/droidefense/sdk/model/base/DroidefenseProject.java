@@ -633,7 +633,7 @@ public final class DroidefenseProject implements Serializable {
         Log.write(LoggerType.TRACE, "Saving scan results...");
 
         //update analysis metadata file
-        this.updateMetadata();
+        //this.updateMetadata();
 
         //save info as jsons
         this.save();
