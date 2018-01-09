@@ -9,6 +9,7 @@ public class Log extends HashMap<String, LoggerType> implements Serializable {
     private static boolean VERBOSE = true;
 
     private Log() {
+
         //create and fill the map
         put(LoggerType.TRACE.name(), LoggerType.TRACE);
         put(LoggerType.DEBUG.name(), LoggerType.DEBUG);

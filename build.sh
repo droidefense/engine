@@ -19,6 +19,11 @@ function prerequirements(){
 	fi
 }
 
+function clean(){
+	log ' Cleaning current workdir...'
+	rm -rf log reports unpack target out config
+}
+
 function main(){
 
 	log ' Building droidefense from current version'
@@ -34,4 +39,5 @@ set -e
 source colors.sh
 
 prerequirements
+clean
 main

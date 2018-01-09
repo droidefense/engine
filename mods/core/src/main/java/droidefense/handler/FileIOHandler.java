@@ -32,12 +32,25 @@ public class FileIOHandler {
     private transient static File configurationFile;
 
     public static File getUnpackOutputFile() {
-        return new File(environmentConfig.UNPACK_FOLDER);
+        return new File(getBaseDirFile(), environmentConfig.UNPACK_FOLDER);
     }
 
     public static File getBaseDirFile() {
-        File base = new File("");
-        return new File(base.getAbsolutePath());
+        //update of version 0.2. files ar saved in $HOME/droidefense
+        File base = new File(System.getProperty("user.home") );
+        //create 'droidefense' folder it not found
+        File appHomeFolder = new File(base, "droidefense");
+        if(!appHomeFolder.exists()){
+            boolean homeSuccess = appHomeFolder.mkdirs();
+            if(!homeSuccess){
+                Log.write(LoggerType.FATAL,
+                        "Could not create droidefense home directory.",
+                        "Please check your current permissions for path",
+                        appHomeFolder.getAbsolutePath()
+                );
+            }
+        }
+        return appHomeFolder;
     }
 
     public static File getUnpackOutputFile(AbstractHashedFile source) {
@@ -45,10 +58,12 @@ public class FileIOHandler {
     }
 
     public static InputStream getFileInputStream(String name) throws FileNotFoundException {
+        File requestedFile;
         if (!name.contains(File.separator))
-            return new FileInputStream(environmentConfig.RESOURCE_FOLDER + File.separator + name);
+            requestedFile = new File(getBaseDirFile(), environmentConfig.RESOURCE_FOLDER + File.separator + name);
         else
-            return new FileInputStream(name);
+            requestedFile = new File(getBaseDirFile(), name);
+        return new FileInputStream(requestedFile);
     }
 
     public static File getResourceFolder() {
@@ -340,12 +355,17 @@ public class FileIOHandler {
 
     public static File getReportFolder(String projectId) {
         String reportFolderPath = environmentConfig.STATIC_REPORT_FOLDER;
-        builDir(reportFolderPath);
-        return new File(reportFolderPath + File.separator + projectId);
+        File reportFolder = new File(getBaseDirFile(), reportFolderPath);
+        builDir(reportFolder);
+        return new File(reportFolder.getAbsolutePath()+File.separator + projectId);
     }
 
     private static boolean builDir(String path) {
         File dir = new File(path);
+        return builDir(dir);
+    }
+
+    private static boolean builDir(File dir) {
         if (!dir.exists()) {
             return dir.mkdirs();
         }

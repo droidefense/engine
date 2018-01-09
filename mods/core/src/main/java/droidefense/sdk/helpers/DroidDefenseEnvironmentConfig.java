@@ -63,7 +63,7 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
         UNPACK_FOLDER = "./unpack";
         UPLOAD_FOLDER = "./upload";
         SERVER_FOLDER = "./server";
-        RESOURCE_FOLDER = "../lib/data/";
+        RESOURCE_FOLDER = "./lib/data/";
         MODEL_FOLDER = "ml";
         RULE_FOLDER = "rules";
         STATIC_REPORT_FOLDER = "./reports";
@@ -82,7 +82,7 @@ public class DroidDefenseEnvironmentConfig implements Serializable {
         XML_EXTENSION = ".xml";
         PROJECT_DATA_FILE = "project.data";
         PROJECT_JSON_FILE = "report.json";
-        PSCOUT_MODEL = "map/pscout.model";
+        PSCOUT_MODEL = "pscout/pscout.model";
     }
 
     public static DroidDefenseEnvironmentConfig getInstance(boolean autoinit) throws ConfigFileNotFoundException {

@@ -6,7 +6,7 @@
   "UNPACK_FOLDER": "./unpack",
   "UPLOAD_FOLDER": "./upload",
   "SERVER_FOLDER": "./server",
-  "RESOURCE_FOLDER": "../lib/data/",
+  "RESOURCE_FOLDER": "./lib/data/",
   "MODEL_FOLDER": "ml",
   "RULE_FOLDER": "rules",
   "STATIC_REPORT_FOLDER": "./reports",

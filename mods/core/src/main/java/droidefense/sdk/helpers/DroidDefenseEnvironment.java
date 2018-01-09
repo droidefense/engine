@@ -523,7 +523,7 @@ public class DroidDefenseEnvironment implements Serializable {
 
     private String convertToAbsolute(String path) {
         path = path.replaceAll(File.separator + File.separator, File.separator);
-        return new File("").getAbsolutePath() + File.separator + path;
+        return path;
     }
 
     private String cleanClassName(String name) {
