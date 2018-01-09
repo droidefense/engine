@@ -179,7 +179,7 @@ public class DroidefenseScan {
             //start sample scan
             startSampleScan(project);
 
-            //forceStop scan
+            //force scan stop
             this.forceStop();
         }
     }

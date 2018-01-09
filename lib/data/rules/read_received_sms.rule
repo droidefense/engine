@@ -1,0 +1,6 @@
+#description: Reads SMS data;
+#author: zerjioang;
+#date: 20/12/2017
+#family: SMS;
+#variant: SMS.reader;
+#rule: BroadcastReceiver.onReceive > SmsManager.sendTextMessage;

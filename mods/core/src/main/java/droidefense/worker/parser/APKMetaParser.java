@@ -53,7 +53,7 @@ public class APKMetaParser extends AbstractFileParser {
                 certFile = new VirtualHashedFile(r, true);
             } else if (r.getName().equals(InternalConstant.ANDROID_MANIFEST) && manifest == null) {
                 manifest = new VirtualHashedFile(r, true);
-            } else if (r.getName().equals(InternalConstant.METAINF_MANIFEST) && manifest == null) {
+            } else if (r.getName().equals(InternalConstant.METAINF_MANIFEST) && metamanifest == null) {
                 metamanifest = new VirtualHashedFile(r, true);
             } else if (r.getPath().contains(File.separator + "assets" + File.separator)) {
                 assetFiles.add(new VirtualHashedFile(r, true));

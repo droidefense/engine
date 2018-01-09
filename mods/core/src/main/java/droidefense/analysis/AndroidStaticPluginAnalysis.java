@@ -43,16 +43,18 @@ public final class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
                 //run each plugin in a different thread
                 String pluginName = plugin.getName();
                 if (pluginName.endsWith(InternalConstant.COMPILED_JAVA_EXTENSION)) {
-                    System.out.println();
+                    Log.write(LoggerType.TRACE,"");
                     Log.write(LoggerType.TRACE, " ######## PLUGIN ########");
                     Log.write(LoggerType.TRACE, plugin.getAbsolutePath());
                     Log.write(LoggerType.TRACE, " ######## PLUGIN ########");
-                    System.out.println();
+                    Log.write(LoggerType.TRACE,"");
                     Class aClass;
                     try {
                         ClassLoader classLoader = this.getClass().getClassLoader();
-                        aClass = classLoader.loadClass(PLUGIN_PACKAGE_NAME + pluginName.replace(".class", ""));
-                        Log.write(LoggerType.TRACE, "Executing " + aClass.getName());
+                        String pluginFullName = PLUGIN_PACKAGE_NAME + pluginName.replace(".class", "");
+                        Log.write(LoggerType.DEBUG,"Loading plugin: "+pluginFullName);
+                        aClass = classLoader.loadClass(pluginFullName);
+                        Log.write(LoggerType.TRACE, "Executing plugin: " + aClass.getName());
                         AbstractStaticPlugin staticPlugin = (AbstractStaticPlugin) aClass.newInstance();
 
                         staticPlugin.setApk(apkFile);

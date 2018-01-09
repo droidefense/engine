@@ -1,0 +1,6 @@
+#description: Read SIM number;
+#author: @zerjioang;
+#date: 20/12/2017;
+#family: SIM;
+#variant: SIM.Read;
+#rule: Object.ANY > android/telephony/SmsReceiver.getSIMnumber;

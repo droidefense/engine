@@ -121,8 +121,6 @@ public enum APKUnpacker {
                     Log.write(LoggerType.TRACE, "Skipping " + file.getPath());
                 }
             }
-            currentProject.setFolderCount(folderCount);
-            currentProject.setFilesCount(filesCount);
             currentProject.setCorrectDecoded(files.size() > 0);
             currentProject.setXmlFiles(xmlFileList);
             currentProject.ninePatchImageFiles(ninePatchImageList);

@@ -21,23 +21,24 @@ import java.util.zip.ZipInputStream;
 public class FileUnzipVFSHandler extends AbstractHandler {
 
     private static final int BUFFER_SIZE = 4096;
-    private static final String ROOT_FOLDER = "";
     private final VirtualFolder root;
     private VirtualFolder parentNode;
     private AbstractHashedFile source;
-    private ArrayList<VirtualFile> files;
+    private VirtualFileSystem vfs;
 
     public FileUnzipVFSHandler(DroidefenseProject currentProject, AbstractHashedFile source) {
         this.source = source;
-        this.root = VirtualFolder.createFolder(ROOT_FOLDER);
+        this.root = VirtualFolder.createFolder();
         this.parentNode = root;
         this.project = currentProject;
-        this.files = new ArrayList<>();
+        //prepare virtual files system
+        this.vfs = new VirtualFileSystem();
     }
 
     @Override
     public boolean doTheJob() {
         Log.write(LoggerType.DEBUG, "[START] Unpacking...");
+
         //read zip file
         ZipInputStream zipIn;
         try {
@@ -46,7 +47,6 @@ public class FileUnzipVFSHandler extends AbstractHandler {
 
             // iterates over entries in the zip file
             while (entry != null) {
-                //cleanThreadContext parent node
                 parentNode = root;
                 String entryName = entry.getName();
                 Log.write(LoggerType.DEBUG, "\t" + entryName);
@@ -57,12 +57,13 @@ public class FileUnzipVFSHandler extends AbstractHandler {
                         //subfolder found
                         for (int i = 0; i < items.length - 1; i++) {
                             parentNode = VirtualFolder.createFolder(parentNode, items[i]);
+                            vfs.addFolder(parentNode);
                         }
                         entryName = items[items.length - 1];
                     }
                     // if the entry is a file, extracts it
                     VirtualFile virtualFile = VirtualFile.createFile(parentNode, entryName);
-                    files.add(virtualFile);
+                    vfs.addFile(virtualFile);
                     byte[] bytesIn = new byte[BUFFER_SIZE];
                     int read;
                     while ((read = zipIn.read(bytesIn)) != -1) {
@@ -75,11 +76,14 @@ public class FileUnzipVFSHandler extends AbstractHandler {
             //close zip file access
             zipIn.close();
 
-            VirtualFileSystem vfs = new VirtualFileSystem();
-            vfs.add(ROOT_FOLDER, root);
+            vfs.setRootFolder(root);
             project.setVFS(vfs);
             Log.write(LoggerType.DEBUG, "Virtual file system created");
-            //vfs.info(); //only show if verbose is true
+            vfs.info(); //only show if verbose is true
+
+            project.setFolderCount(vfs.getFolderList().size());
+            project.setFilesCount(vfs.getFileList().size());
+
             return true;
         } catch (FileNotFoundException e) {
             error = e;
@@ -95,6 +99,6 @@ public class FileUnzipVFSHandler extends AbstractHandler {
     }
 
     public ArrayList<VirtualFile> getFiles() {
-        return files;
+        return vfs.getFileList();
     }
 }

@@ -1,5 +1,7 @@
 package droidefense.vfs.model.impl;
 
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.vfs.model.base.IVirtualNode;
 
 import java.io.File;
@@ -8,11 +10,16 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Created by .local on 08/10/2016.
  */
 public final class VirtualFileSystem {
+
+    private ArrayList<VirtualFolder> folderList;
+    private ArrayList<VirtualFile> fileList;
 
     private final HashMap<String, IVirtualNode> storage;
     private IVirtualNode firstRootNode;
@@ -21,10 +28,16 @@ public final class VirtualFileSystem {
     private long sizeBytes;
 
     public VirtualFileSystem() {
-        storage = new HashMap<>();
-        totalElements = 0;
-        sizeBytes = 0;
-        firstRootNode = null;
+        this.storage = new HashMap<>();
+        this.folderList = new ArrayList<>();
+        this.fileList = new ArrayList<>();
+        this.totalElements = 0;
+        this.sizeBytes = 0;
+        this.firstRootNode = null;
+    }
+
+    public boolean setRootFolder(VirtualFolder rootFolder) {
+        return this.add("", rootFolder);
     }
 
     public boolean add(String key, IVirtualNode node) {
@@ -52,25 +65,24 @@ public final class VirtualFileSystem {
     }
 
     public void info() {
-        System.out.println("-----------VFS INFO BEGIN-----------");
-        System.out.println("Total elements in VFS: \t" + totalElements);
-        System.out.println("Total folders in VFS: \t" + firstRootNode.getVirtualFoldersInside());
-        System.out.println("Total files in VFS: \t" + firstRootNode.getVirtualFilesInside());
-        System.out.println("Estimated VFS size: \t");
-        System.out.println("\t\tBytes: " + sizeBytes);
-        System.out.println("\t\tKb: " + sizeBytes / 1000);
-        System.out.println("\t\tMb: " + sizeBytes / 1000 / 1000);
-        System.out.println("\t\tGb: " + sizeBytes / 1000 / 1000 / 1000);
-        System.out.println("\t\tTb: " + sizeBytes / 1000 / 1000 / 1000 / 1000);
-        System.out.println("-----------VFS INFO END-----------");
-        System.out.println();
+        Log.write(LoggerType.DEBUG, "-----------VFS INFO BEGIN-----------");
+        Log.write(LoggerType.DEBUG,"Total elements in VFS: \t" + totalElements);
+        Log.write(LoggerType.DEBUG,"Total folders in VFS: \t" + folderList.size());
+        Log.write(LoggerType.DEBUG,"Total files in VFS: \t" + fileList.size());
+        Log.write(LoggerType.DEBUG,"Estimated VFS size: \t");
+        Log.write(LoggerType.DEBUG,"\t\tBytes: " + sizeBytes);
+        Log.write(LoggerType.DEBUG,"\t\tKb: " + sizeBytes / 1000);
+        Log.write(LoggerType.DEBUG,"\t\tMb: " + sizeBytes / 1000 / 1000);
+        Log.write(LoggerType.DEBUG,"\t\tGb: " + sizeBytes / 1000 / 1000 / 1000);
+        Log.write(LoggerType.DEBUG,"\t\tTb: " + sizeBytes / 1000 / 1000 / 1000 / 1000);
+        Log.write(LoggerType.DEBUG,"-----------VFS INFO END-----------");
         print();
     }
 
     public void print() {
-        System.out.println("-----------VFS FILE TREE BEGIN-----------");
-        System.out.println(this.tree());
-        System.out.println("-----------VFS FILE TREE END-----------");
+        Log.write(LoggerType.DEBUG,"-----------VFS FILE TREE BEGIN-----------");
+        Log.write(LoggerType.DEBUG,this.tree());
+        Log.write(LoggerType.DEBUG,"-----------VFS FILE TREE END-----------");
     }
 
     private String tree() {
@@ -90,9 +102,13 @@ public final class VirtualFileSystem {
             sb.append("\n");
             //make it recursive for possible child items inside
             VirtualFolder vfolder = (VirtualFolder) v;
-            ArrayList<IVirtualNode> items = vfolder.getItemList();
-            for (IVirtualNode iv : items) {
+            HashMap<String, IVirtualNode> items = vfolder.getItemList();
+            for (Object o : items.entrySet()) {
+                Map.Entry pair = (Map.Entry) o;
+                //Log.write(LoggerType.DEBUG,pair.getKey() + " = " + pair.getValue());
+                IVirtualNode iv = (IVirtualNode) pair.getValue();
                 sb.append(printItemIntree(new StringBuilder(), separator + "  ", iv));
+                //it.remove(); // avoids a ConcurrentModificationException
             }
             return sb.toString();
         }
@@ -104,10 +120,10 @@ public final class VirtualFileSystem {
     }
 
     public void dump(String path) {
-        System.out.println("-----------VFS DUMPING BEGIN-----------");
+        Log.write(LoggerType.DEBUG,"-----------VFS DUMPING BEGIN-----------");
         path = new File(path).getAbsolutePath();
         dumpInPath(path, firstRootNode);
-        System.out.println("-----------VFS DUMPING END-----------");
+        Log.write(LoggerType.DEBUG,"-----------VFS DUMPING END-----------");
     }
 
     private void dumpInPath(String path, IVirtualNode node) {
@@ -125,9 +141,14 @@ public final class VirtualFileSystem {
             boolean success = new File(absolutePath).mkdirs();
             //make it recursive for possible child items inside
             VirtualFolder vfolder = (VirtualFolder) node;
-            ArrayList<IVirtualNode> items = vfolder.getItemList();
-            for (IVirtualNode iv : items) {
+
+            HashMap<String, IVirtualNode> items = vfolder.getItemList();
+            for (Object o : items.entrySet()) {
+                Map.Entry pair = (Map.Entry) o;
+                //Log.write(LoggerType.DEBUG,pair.getKey() + " = " + pair.getValue());
+                IVirtualNode iv = (IVirtualNode) pair.getValue();
                 dumpInPath(path, iv);
+                //it.remove(); // avoids a ConcurrentModificationException
             }
         }
     }
@@ -142,5 +163,21 @@ public final class VirtualFileSystem {
 
     public long getSizeBytes() {
         return sizeBytes;
+    }
+
+    public ArrayList<VirtualFolder> getFolderList() {
+        return this.folderList;
+    }
+
+    public ArrayList<VirtualFile> getFileList() {
+        return this.fileList;
+    }
+
+    public boolean addFolder(VirtualFolder parentNode) {
+        return this.folderList.add(parentNode);
+    }
+
+    public boolean addFile(VirtualFile virtualFile) {
+        return this.fileList.add(virtualFile);
     }
 }

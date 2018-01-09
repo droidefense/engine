@@ -16,9 +16,10 @@ public final class VirtualFile extends VirtualNode {
     private transient ArrayList<Byte> content;
     private String charset;
 
-    private VirtualFile(String name) {
-        super(name);
+    private VirtualFile(VirtualFolder parent, String name) {
+        super(parent, name);
         if (parentNode != null) {
+            parent.addAsFileToParentFolder(this);
             parentNode.setVirtualFilesInside(parentNode.getVirtualFilesInside() + 1);
         } else {
             this.setVirtualFilesInside(1);
@@ -27,12 +28,8 @@ public final class VirtualFile extends VirtualNode {
         charset = "";
     }
 
-    private VirtualFile(VirtualFolder parent, String name) {
-        super(parent, name);
-        parent.addAsFolderFile(this);
-        parent.setVirtualFilesInside(parent.getVirtualFilesInside() + 1);
-        content = new ArrayList<>();
-        charset = "";
+    private VirtualFile(String name) {
+        this(null, name);
     }
 
     private static byte[] toByteArray(List<Byte> in) {

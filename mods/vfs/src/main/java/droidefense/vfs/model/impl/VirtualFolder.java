@@ -5,32 +5,33 @@ import droidefense.vfs.model.base.VirtualNode;
 import droidefense.vfs.model.base.VirtualNodeType;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by .local on 08/10/2016.
  */
 public class VirtualFolder extends VirtualNode {
 
-    private ArrayList<IVirtualNode> itemsInside;
+    private HashMap<String, IVirtualNode> itemsInside;
     private int itemsInsideSize;
 
     private VirtualFolder(VirtualFolder parentFolder, String name) {
         super(parentFolder, name);
-        this.itemsInside = new ArrayList<>();
-        parentFolder.addAsFolderFile(this);
-        parentFolder.setVirtualFoldersInside(parentFolder.getVirtualFoldersInside() + 1);
-        this.itemsInsideSize = 0;
+        this.itemsInside = new HashMap<>();
+        if(parentFolder!=null){
+            //execute this if current object is not root node
+            parentFolder.addAsFileToParentFolder(this);
+            parentFolder.setVirtualFoldersInside(parentFolder.getVirtualFoldersInside() + 1);
+        }
     }
 
     private VirtualFolder(String name) {
-        super(name);
+        this(null, name);
         if (parentNode != null) {
             parentNode.setVirtualFoldersInside(parentNode.getVirtualFoldersInside() + 1);
         } else {
             this.setVirtualFoldersInside(1);
         }
-        itemsInside = new ArrayList<>();
-        itemsInsideSize = 0;
     }
 
     public static VirtualFolder createFolder(VirtualFolder parentFolder, String name) {
@@ -46,35 +47,11 @@ public class VirtualFolder extends VirtualNode {
         //TODO check if this new virtual folder does not already exist
         return new VirtualFolder(name);
     }
-
-    private VirtualFolder getFolder(String name) {
-        ArrayList<VirtualFolder> list = getFolderList();
-        for (VirtualFolder item : list) {
-            if (item.getName().equals(name))
-                return item;
-        }
-        return null;
+    public static VirtualFolder createFolder() {
+        //TODO check if this new virtual folder does not already exist
+        return new VirtualFolder("");
     }
 
-    private ArrayList<VirtualFolder> getFolderList() {
-        ArrayList<VirtualFolder> list = new ArrayList<>();
-        ArrayList<IVirtualNode> content = getItemList();
-        for (IVirtualNode item : content) {
-            if (item.getType() == VirtualNodeType.FOLDER)
-                list.add((VirtualFolder) item);
-        }
-        return list;
-    }
-
-    private ArrayList<VirtualFile> getFileList() {
-        ArrayList<VirtualFile> list = new ArrayList<>();
-        ArrayList<IVirtualNode> content = getItemList();
-        for (IVirtualNode item : content) {
-            if (item.getType() == VirtualNodeType.FILE)
-                list.add((VirtualFile) item);
-        }
-        return list;
-    }
 
     @Override
     public boolean isFile() {
@@ -128,13 +105,13 @@ public class VirtualFolder extends VirtualNode {
         return 1 + itemsInside.size();
     }
 
-    public void addAsFolderFile(IVirtualNode virtualFile) {
-        if (virtualFile != null) {
-            this.itemsInside.add(virtualFile);
-            this.itemsInsideSize += virtualFile.estimatedInMemorySize();
+    public void addAsFileToParentFolder(IVirtualNode node) {
+        if (node != null) {
+            this.itemsInside.put(node.getPath(), node);
+            this.itemsInsideSize += node.estimatedInMemorySize();
             //increment also parent node
             if (this.parentNode != null && this.parentNode.isFolder()) {
-                ((VirtualFolder) this.parentNode).addAsFolderFile(virtualFile);
+                ((VirtualFolder) this.parentNode).addAsFileToParentFolder(node);
             }
         }
     }
@@ -155,28 +132,30 @@ public class VirtualFolder extends VirtualNode {
 
     @Override
     public IVirtualNode getItem(String name) {
-        ArrayList<VirtualFile> list = getFileList();
-        for (VirtualFile item : list) {
-            if (item.getName().equals(name))
-                return item;
-        }
-        return null;
+        return this.itemsInside.get(name);
     }
 
     @Override
     public boolean isRootNode() {
-        return getPath().equals("");
+        return getPath().equals(NO_PATH);
     }
 
-    public ArrayList<IVirtualNode> getItemList() {
+    public HashMap<String, IVirtualNode> getItemList() {
         return itemsInside;
     }
 
     public VirtualFile getFile(String name) {
-        ArrayList<VirtualFile> list = getFileList();
-        for (VirtualFile item : list) {
-            if (item.getName().equals(name))
-                return item;
+        Object o = this.itemsInside.get(name);
+        if(o instanceof VirtualFile){
+            return (VirtualFile) o;
+        }
+        return null;
+    }
+
+    public VirtualFolder getFolder(String name) {
+        Object o = this.itemsInside.get(name);
+        if(o instanceof VirtualFolder){
+            return (VirtualFolder) o;
         }
         return null;
     }

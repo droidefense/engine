@@ -15,7 +15,7 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
     protected boolean analyze() {
 
         executionSuccessful = false;
-        Log.write(LoggerType.TRACE, "\n\n --- Running Droidefense general scan ---\n\n");
+        Log.write(LoggerType.TRACE, "\n\n --- Droidefense: sample scan started ---\n\n");
 
         AbstractAndroidAnalysis analyzer;
         try {
