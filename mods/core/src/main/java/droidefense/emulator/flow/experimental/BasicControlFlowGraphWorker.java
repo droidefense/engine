@@ -17,6 +17,7 @@ import droidefense.emulator.machine.base.struct.fake.DVMTaintMethod;
 import droidefense.emulator.machine.inst.DalvikInstruction;
 import droidefense.emulator.machine.inst.InstructionReturn;
 import droidefense.sdk.model.base.DroidefenseProject;
+import droidefense.sdk.system.SystemCallReturn;
 import droidefense.sdk.util.ExecutionTimer;
 
 import java.io.File;
@@ -39,19 +40,7 @@ public final strictfp class BasicControlFlowGraphWorker extends SimpleFlowWorker
     @Override
     public void finish() {
         currentProject.setNormalControlFlowMap(flowMap);
-
         Log.write(LoggerType.DEBUG, "WORKER: BasicControlFlowGraphWorker FINISHED!");
-        //generate image as svg
-        //dot -Tsvg *.dot > flowMap.svg
-        try {
-            String currentUnpackDir = FileIOHandler.getUnpackOutputPath(currentProject.getSample());
-            //FileIOHandler.callSystemExec("dot -Tps " + currentUnpackDir + File.separator + "graphviz.dot" + " > " + currentUnpackDir + File.separator + "flowMap.ps");
-            //FileIOHandler.callSystemExec("ps2pdf " + currentUnpackDir + File.separator + "flowMap.ps" + " " + currentUnpackDir + File.separator + "flowMap.pdf");
-            //TODO fix map generation
-            FileIOHandler.callSystemExec("dot -Tsvg " + currentUnpackDir + File.separator + "graphviz.dot" + " > " + currentUnpackDir + File.separator + "flowMap.svg");
-        } catch (IOException e) {
-            Log.write(LoggerType.ERROR, e.getLocalizedMessage());
-        }
     }
 
     @Override

@@ -26,6 +26,7 @@ import droidefense.sdk.helpers.*;
 import droidefense.sdk.manifest.Manifest;
 import droidefense.sdk.manifest.UsesPermission;
 import droidefense.sdk.manifest.base.AbstractManifestClass;
+import droidefense.sdk.system.SystemCallReturn;
 import droidefense.sdk.util.ExecutionTimer;
 import droidefense.sdk.model.certificate.CertificateModel;
 import droidefense.sdk.model.dex.DexBodyModel;
@@ -290,7 +291,7 @@ public final class DroidefenseProject implements Serializable {
         this.staticInfo.setManifestInfo(manifestInfo);
     }
 
-    public void stop() {
+    public void stopTimer() {
         this.scanTime.stop();
     }
 
@@ -472,7 +473,7 @@ public final class DroidefenseProject implements Serializable {
         this.statistics = statistics;
     }
 
-    public void save() {
+    public void saveProjectObject() {
         try {
             String path = FileIOHandler.getUnpackOutputFile().getAbsolutePath();
             String samplehash = this.sample.getSha256();
@@ -492,9 +493,6 @@ public final class DroidefenseProject implements Serializable {
     }
 
     public BasicCFGFlowMap getNormalControlFlowMap() {
-        //return empty object if not exists.
-        if (normalControlFlowMap == null)
-            return new BasicCFGFlowMap();
         return (BasicCFGFlowMap) normalControlFlowMap;
     }
 
@@ -526,7 +524,7 @@ public final class DroidefenseProject implements Serializable {
     }
 
     public void writeNaturalReport() {
-        StringBuffer data = new StringBuffer();
+        StringBuilder data = new StringBuilder();
         String pkg = getManifestInfo().getPackageName() == null ? "unknown" : getManifestInfo().getPackageName();
         String url = "https://www.virustotal.com/es/file/" + getProjectId().toLowerCase() + "/analysis/";
         int entries = getInternalInfo().getEntryPoints().size();
@@ -621,7 +619,7 @@ public final class DroidefenseProject implements Serializable {
         internalInfo.cleanup();
 
         //stop timer
-        this.stop();
+        this.stopTimer();
 
         //generate template
         try {
@@ -635,10 +633,7 @@ public final class DroidefenseProject implements Serializable {
         //update analysis metadata file
         //this.updateMetadata();
 
-        //save info as jsons
-        this.save();
-
-        //save report as java object
+        this.saveProjectObject();
         FileIOHandler.saveProjectReport(this);
 
         Log.write(LoggerType.TRACE, "Sample analysis done.");
@@ -948,5 +943,25 @@ public final class DroidefenseProject implements Serializable {
 
     public void setMagicNumberPass(boolean magicNumberPass) {
         this.magicNumberPass = magicNumberPass;
+    }
+
+    public void generateFlowMapImage(AbstractFlowMap flowmap, String dotname, String svgname) {
+        //generate image as svg
+        //dot -Tsvg *.dot > flowMap.svg
+        try {
+            String currentUnpackDir = FileIOHandler.getUnpackOutputPath(getSample());
+            //FileIOHandler.callSystemExec("dot -Tps " + currentUnpackDir + File.separator + "graphviz.dot" + " > " + currentUnpackDir + File.separator + "flowMap.ps");
+            //FileIOHandler.callSystemExec("ps2pdf " + currentUnpackDir + File.separator + "flowMap.ps" + " " + currentUnpackDir + File.separator + "flowMap.pdf");
+            //TODO fix map generation
+            SystemCallReturn executionResult = FileIOHandler.callSystemExec("dot -Tsvg " + currentUnpackDir + File.separator + dotname + " > " + currentUnpackDir + File.separator + svgname);
+            Log.write(LoggerType.DEBUG, executionResult.toString());
+            if(executionResult.getAnswer().size()>0){
+                //save to file
+                String svgData = executionResult.getAnswer().get(0);
+                FileIOHandler.saveFileOnProjectFolder(this,svgname, svgData);
+            }
+        } catch (IOException e) {
+            Log.write(LoggerType.ERROR, e.getLocalizedMessage());
+        }
     }
 }

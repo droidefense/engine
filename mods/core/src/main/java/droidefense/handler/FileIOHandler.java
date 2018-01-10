@@ -138,24 +138,21 @@ public class FileIOHandler {
                     InputStreamReader(p.getErrorStream()));
 
             // read the output from the command
-            String s, answer = "", err = "";
+            String s;StringBuilder answer = new StringBuilder();
+            StringBuilder err = new StringBuilder();
             while ((s = stdInput.readLine()) != null) {
-                answer += s;
+                answer.append(s);
             }
-
-            //clean answer
-            int idx = answer.indexOf(":");
-            answer = answer.substring(idx + 1).trim();
 
             // read any errors from the attempted command
             while ((s = stdError.readLine()) != null) {
-                err += s;
+                err.append(s);
             }
             stdError.close();
             stdInput.close();
 
-            ret.addAnswer(answer);
-            ret.addError(err);
+            ret.addAnswer(answer.toString());
+            ret.addError(err.toString());
             ret.addCommand(cmd);
         }
         //destroy process
@@ -168,66 +165,76 @@ public class FileIOHandler {
     public static void saveProjectReport(DroidefenseProject project) {
 
         String name, data, outputPath;
-
         outputPath = FileIOHandler.getUnpackOutputPath(project.getSample());
 
         //REPORT
 
         //OPCODES DATA
 
-        //save opcodes count as json
-        //save project
-        name = "opcodes" + ".json";
+        //save opcodes count as separate json
+        name = "opcodes.json";
         data = project.getOpCodeStats();
-        boolean savedOpcodes = saveFile(name, outputPath, data, "Could not save .json opcodes");
+        boolean savedOpcodes = saveFile(name, outputPath, data, "Could not saveProjectObject .json opcodes");
 
         //NORMAL FLOWMAP
 
         //save call graph as dot format
-        name = "normal-graphviz" + ".dot";
+        name = "normal-graphviz.dot";
         data = project.getNormalControlFlowMap().getAsDotGraph();
         data = cleanDot(data);
-        boolean savedNormalDot = saveFile(name, outputPath, data, "Could not save .dot normal flowmap");
+        boolean savedNormalDot = saveFile(name, outputPath, data, "Could not saveProjectObject .dot normal flowmap");
+        if(savedNormalDot){
+            Log.write(LoggerType.DEBUG, "Generating svg image from .dot...");
+            project.generateFlowMapImage(project.getNormalControlFlowMap(), "normal-graphviz.dot","normal-map.svg");
+        }
 
         //save call graph as .json
         //save project
-        name = "normal-flowmap" + ".json";
+        name = "normal-flowmap.json";
         data = Util.toJson(project.getNormalControlFlowMap(), JsonStyle.JSON_BEAUTY);
-        boolean savedNormalFlowmap = saveFile(name, outputPath, data, "Could not save .json normal flowmap");
+        boolean savedNormalFlowmap = saveFile(name, outputPath, data, "Could not saveProjectObject .json normal flowmap");
 
         //REFLECTED FLOWMAP
 
         //save call graph as dot format
-        name = "reflected-graphviz" + ".dot";
+        name = "reflected-graphviz.dot";
         data = project.getReflectedFlowMap().getAsDotGraph();
         data = cleanDot(data);
-        boolean savedReflectedDot = saveFile(name, outputPath, data, "Could not save .dot reflected flowmap");
+        boolean savedReflectedDot = saveFile(name, outputPath, data, "Could not saveProjectObject .dot reflected flowmap");
+        if(savedReflectedDot){
+            Log.write(LoggerType.DEBUG, "Generating svg image from .dot...");
+            project.generateFlowMapImage(project.getNormalControlFlowMap(), "reflected-graphviz.dot","reflected-map.svg");
+        }
 
         //save call graph as .json
         //save project
-        name = "reflected-flowmap" + ".json";
+        name = "reflected-flowmap.json";
         data = Util.toJson(project.getReflectedFlowMap(), JsonStyle.JSON_BEAUTY);
-        boolean savedReflectedFlowmap = saveFile(name, outputPath, data, "Could not save .json reflected flowmap");
+        boolean savedReflectedFlowmap = saveFile(name, outputPath, data, "Could not saveProjectObject .json reflected flowmap");
 
         //FOLLOW DalvikInstruction FLOWMAP
 
         //save call graph as dot format
-        name = "follow-graphviz" + ".dot";
+        name = "follow-graphviz.dot";
         data = project.getFollowCallsMap().getAsDotGraph();
         data = cleanDot(data);
-        boolean followDot = saveFile(name, outputPath, data, "Could not save .dot follow flowmap");
+        boolean followDot = saveFile(name, outputPath, data, "Could not saveProjectObject .dot follow flowmap");
+        if(followDot){
+            Log.write(LoggerType.DEBUG, "Generating svg image from .dot...");
+            project.generateFlowMapImage(project.getNormalControlFlowMap(), "follow-graphviz.dot","follow-map.svg");
+        }
 
         //save call graph as .json
         //save project
         name = "follow-flowmap" + ".json";
         data = Util.toJson(project.getFollowCallsMap(), JsonStyle.JSON_BEAUTY);
-        boolean followJson = saveFile(name, outputPath, data, "Could not save .json follow flowmap");
+        boolean followJson = saveFile(name, outputPath, data, "Could not saveProjectObject .json follow flowmap");
 
         //save report as json
         //save project
         name = "report" + ".json";
         data = project.getProjectAsJson();
-        boolean savedReport = saveFile(name, outputPath, data, "Could not save .json report");
+        boolean savedReport = saveFile(name, outputPath, data, "Could not saveProjectObject .json report");
 
     }
 
@@ -304,6 +311,10 @@ public class FileIOHandler {
         if (!parent.exists()) {
             parent.mkdirs();
         }
+    }
+
+    public static boolean saveFileOnProjectFolder(DroidefenseProject p, String filename, String data) {
+        return saveFile(new File(getProjectFolderPath(p)+File.separator+filename), data.getBytes());
     }
 
     public static boolean saveFile(File f, String data) {

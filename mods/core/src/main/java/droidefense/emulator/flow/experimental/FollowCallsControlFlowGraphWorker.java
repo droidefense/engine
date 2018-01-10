@@ -1,26 +1,20 @@
 package droidefense.emulator.flow.experimental;
 
-import droidefense.emulator.flow.base.AbstractFlowWorker;
 import droidefense.emulator.flow.stable.SimpleFlowWorker;
-import droidefense.emulator.machine.base.AbstractDVMThread;
 import droidefense.emulator.machine.base.struct.fake.DVMTaintClass;
+import droidefense.emulator.machine.base.struct.fake.DVMTaintMethod;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseFrame;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
-import droidefense.emulator.machine.base.struct.fake.DVMTaintMethod;
+import droidefense.emulator.machine.inst.DalvikInstruction;
 import droidefense.emulator.machine.inst.InstructionReturn;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
 import droidefense.rulengine.base.AbstractAtomNode;
 import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.nodes.EntryPointNode;
-import droidefense.handler.FileIOHandler;
-import droidefense.emulator.machine.inst.DalvikInstruction;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.util.ExecutionTimer;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Vector;
 
 public final strictfp class FollowCallsControlFlowGraphWorker extends SimpleFlowWorker {
@@ -40,17 +34,6 @@ public final strictfp class FollowCallsControlFlowGraphWorker extends SimpleFlow
     public void finish() {
         currentProject.setFollowCallsMap(flowMap);
         Log.write(LoggerType.DEBUG, "WORKER: FollowCallsControlFlowGraphWorker FINISHED!");
-        //generate image as svg
-        //dot -Tsvg *.dot > flowMap.svg
-        try {
-            String currentUnpackDir = FileIOHandler.getUnpackOutputPath(currentProject.getSample());
-            //FileIOHandler.callSystemExec("dot -Tps " + currentUnpackDir + File.separator + "graphviz.dot" + " > " + currentUnpackDir + File.separator + "flowMap.ps");
-            //FileIOHandler.callSystemExec("ps2pdf " + currentUnpackDir + File.separator + "flowMap.ps" + " " + currentUnpackDir + File.separator + "flowMap.pdf");
-            //TODO fix map generation
-            FileIOHandler.callSystemExec("dot -Tsvg " + currentUnpackDir + File.separator + "graphviz.dot" + " > " + currentUnpackDir + File.separator + "flowMap.svg");
-        } catch (IOException e) {
-            Log.write(LoggerType.ERROR, e.getLocalizedMessage());
-        }
     }
 
     @Override
