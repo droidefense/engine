@@ -274,7 +274,7 @@ public final class DroidefenseProject implements Serializable {
     }
 
     public byte[] getManifestFile() {
-        return this.vfs.get(VFS_ROOT_FOLDER).getItem("AndroidManifest.xml").getContent();
+        return this.vfs.get(VFS_ROOT_FOLDER).getItem("/AndroidManifest.xml").getContent();
     }
 
     public void setManifestFile(AbstractHashedFile manifest) {
