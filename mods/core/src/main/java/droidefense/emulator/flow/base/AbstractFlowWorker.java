@@ -1,17 +1,17 @@
 package droidefense.emulator.flow.base;
 
 import droidefense.emulator.machine.base.AbstractDVMThread;
+import droidefense.emulator.machine.base.DalvikVM;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseField;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseFrame;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
-import droidefense.emulator.machine.base.DalvikVM;
+import droidefense.emulator.machine.inst.DalvikInstruction;
 import droidefense.rulengine.base.AbstractAtomNode;
 import droidefense.rulengine.base.AbstractFlowMap;
 import droidefense.rulengine.base.NodeConnection;
 import droidefense.rulengine.nodes.FieldNode;
 import droidefense.rulengine.nodes.MethodNode;
 import droidefense.rulengine.nodes.NormalNode;
-import droidefense.emulator.machine.inst.DalvikInstruction;
 import droidefense.sdk.model.base.DroidefenseProject;
 
 /**

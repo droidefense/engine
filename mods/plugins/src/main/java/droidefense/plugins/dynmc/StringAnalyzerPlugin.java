@@ -2,8 +2,8 @@ package droidefense.plugins.dynmc;
 
 import droidefense.handler.FileIOHandler;
 import droidefense.sdk.AbstractDynamicPlugin;
-import droidefense.sdk.util.Util;
 import droidefense.sdk.holder.StringInfo;
+import droidefense.sdk.util.Util;
 
 import java.io.IOException;
 import java.util.HashMap;

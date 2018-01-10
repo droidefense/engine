@@ -1,9 +1,9 @@
 package droidefense.handler;
 
-import droidefense.log4j.Log;
-import droidefense.log4j.LoggerType;
 import droidefense.handler.base.AbstractHandler;
 import droidefense.handler.base.DirScannerFilter;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.LocalHashedFile;
 

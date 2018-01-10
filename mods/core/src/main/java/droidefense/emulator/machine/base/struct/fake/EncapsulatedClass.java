@@ -1,11 +1,11 @@
 package droidefense.emulator.machine.base.struct.fake;
 
-import droidefense.emulator.machine.base.struct.generic.IDroidefenseField;
-import droidefense.log4j.Log;
-import droidefense.log4j.LoggerType;
 import droidefense.emulator.machine.base.DynamicUtils;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.emulator.machine.base.struct.generic.IDroidefenseField;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.util.InternalConstant;
 
 import java.io.Serializable;

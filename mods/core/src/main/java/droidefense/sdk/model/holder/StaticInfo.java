@@ -1,11 +1,11 @@
 package droidefense.sdk.model.holder;
 
 
+import droidefense.sdk.enums.SDK_VERSION;
 import droidefense.sdk.holder.SDKCompatibility;
 import droidefense.sdk.manifest.Manifest;
 import droidefense.sdk.model.certificate.CertificateModel;
 import droidefense.sdk.model.dex.DexBodyModel;
-import droidefense.sdk.enums.SDK_VERSION;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.DexHashedFile;
 import droidefense.vfs.model.impl.VirtualFile;

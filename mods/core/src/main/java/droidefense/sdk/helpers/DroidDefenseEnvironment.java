@@ -1,12 +1,12 @@
 package droidefense.sdk.helpers;
 
-import droidefense.log4j.Log;
-import droidefense.log4j.LoggerType;
-import droidefense.exception.ConfigFileNotFoundException;
-import droidefense.handler.FileIOHandler;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.emulator.machine.reader.DexClassReader;
+import droidefense.exception.ConfigFileNotFoundException;
+import droidefense.handler.FileIOHandler;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.util.InternalConstant;
 import droidefense.sdk.util.Util;
 

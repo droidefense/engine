@@ -1,8 +1,8 @@
 package droidefense.sdk.util;
 
+import com.google.gson.Gson;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
-import com.google.gson.Gson;
 
 import javax.activation.MimetypesFileTypeMap;
 import javax.xml.transform.OutputKeys;

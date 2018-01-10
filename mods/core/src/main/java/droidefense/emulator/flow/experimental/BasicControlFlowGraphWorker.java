@@ -1,27 +1,21 @@
 package droidefense.emulator.flow.experimental;
 
 
-import droidefense.emulator.flow.base.AbstractFlowWorker;
 import droidefense.emulator.flow.stable.SimpleFlowWorker;
 import droidefense.emulator.machine.base.AbstractDVMThread;
 import droidefense.emulator.machine.base.struct.fake.DVMTaintClass;
+import droidefense.emulator.machine.base.struct.fake.DVMTaintMethod;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseFrame;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
+import droidefense.emulator.machine.inst.DalvikInstruction;
+import droidefense.emulator.machine.inst.InstructionReturn;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
 import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.nodes.EntryPointNode;
-import droidefense.handler.FileIOHandler;
-import droidefense.emulator.machine.base.struct.fake.DVMTaintMethod;
-import droidefense.emulator.machine.inst.DalvikInstruction;
-import droidefense.emulator.machine.inst.InstructionReturn;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.system.SystemCallReturn;
-import droidefense.sdk.util.ExecutionTimer;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Vector;
 
 public final strictfp class BasicControlFlowGraphWorker extends SimpleFlowWorker {
@@ -32,7 +26,7 @@ public final strictfp class BasicControlFlowGraphWorker extends SimpleFlowWorker
 
     public BasicControlFlowGraphWorker(DroidefenseProject project) {
         super(project);
-        this.name="BasicControlFlowGraphWorker";
+        this.name = "BasicControlFlowGraphWorker";
         flowMap = new BasicCFGFlowMap();
         fromNode = null;
     }

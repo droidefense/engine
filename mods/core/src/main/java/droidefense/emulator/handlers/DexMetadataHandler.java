@@ -1,8 +1,8 @@
 package droidefense.emulator.handlers;
 
+import droidefense.emulator.helper.DexFileStatistics;
 import droidefense.emulator.machine.reader.DexFileLoader;
 import droidefense.handler.base.AbstractHandler;
-import droidefense.emulator.helper.DexFileStatistics;
 import droidefense.sdk.model.base.DroidefenseProject;
 
 /**

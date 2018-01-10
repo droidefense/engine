@@ -1,15 +1,18 @@
 package droidefense.handler;
 
+import droidefense.handler.base.AbstractHandler;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
-import droidefense.handler.base.AbstractHandler;
 import droidefense.ml.MLResultHolder;
 import droidefense.ml.WekaClassifier;
 import droidefense.sdk.util.InternalConstant;
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
-import weka.core.*;
+import weka.core.Attribute;
+import weka.core.DenseInstance;
+import weka.core.Instance;
+import weka.core.Instances;
 import weka.core.converters.ArffLoader;
 
 import java.io.File;

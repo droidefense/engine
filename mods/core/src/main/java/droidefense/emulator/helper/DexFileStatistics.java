@@ -40,7 +40,7 @@ public class DexFileStatistics implements Serializable {
     private int developerClassCount, realDeveloperClassCount;
     private int realDeveloperInnerClassCount;
 
-    public DexFileStatistics(DroidefenseProject project,  DexFileLoader loader) {
+    public DexFileStatistics(DroidefenseProject project, DexFileLoader loader) {
         this.loader = loader;
         //create information holders
         allPackages = new TreeSet<>();

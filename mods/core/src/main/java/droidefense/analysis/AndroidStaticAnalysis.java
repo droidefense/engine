@@ -1,10 +1,10 @@
 package droidefense.analysis;
 
-import droidefense.log4j.Log;
-import droidefense.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.exception.UnknownParserException;
 import droidefense.handler.ObjdumpHandler;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.worker.base.AbstractFileParser;
 import droidefense.worker.base.ParserFactory;

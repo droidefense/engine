@@ -10,7 +10,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -18,10 +17,9 @@ import java.util.Map;
  */
 public final class VirtualFileSystem {
 
+    private final HashMap<String, IVirtualNode> storage;
     private ArrayList<VirtualFolder> folderList;
     private ArrayList<VirtualFile> fileList;
-
-    private final HashMap<String, IVirtualNode> storage;
     private IVirtualNode firstRootNode;
 
     private int totalElements;
@@ -66,23 +64,23 @@ public final class VirtualFileSystem {
 
     public void info() {
         Log.write(LoggerType.DEBUG, "-----------VFS INFO BEGIN-----------");
-        Log.write(LoggerType.DEBUG,"Total elements in VFS: \t" + totalElements);
-        Log.write(LoggerType.DEBUG,"Total folders in VFS: \t" + folderList.size());
-        Log.write(LoggerType.DEBUG,"Total files in VFS: \t" + fileList.size());
-        Log.write(LoggerType.DEBUG,"Estimated VFS size: \t");
-        Log.write(LoggerType.DEBUG,"\t\tBytes: " + sizeBytes);
-        Log.write(LoggerType.DEBUG,"\t\tKb: " + sizeBytes / 1000);
-        Log.write(LoggerType.DEBUG,"\t\tMb: " + sizeBytes / 1000 / 1000);
-        Log.write(LoggerType.DEBUG,"\t\tGb: " + sizeBytes / 1000 / 1000 / 1000);
-        Log.write(LoggerType.DEBUG,"\t\tTb: " + sizeBytes / 1000 / 1000 / 1000 / 1000);
-        Log.write(LoggerType.DEBUG,"-----------VFS INFO END-----------");
+        Log.write(LoggerType.DEBUG, "Total elements in VFS: \t" + totalElements);
+        Log.write(LoggerType.DEBUG, "Total folders in VFS: \t" + folderList.size());
+        Log.write(LoggerType.DEBUG, "Total files in VFS: \t" + fileList.size());
+        Log.write(LoggerType.DEBUG, "Estimated VFS size: \t");
+        Log.write(LoggerType.DEBUG, "\t\tBytes: " + sizeBytes);
+        Log.write(LoggerType.DEBUG, "\t\tKb: " + sizeBytes / 1000);
+        Log.write(LoggerType.DEBUG, "\t\tMb: " + sizeBytes / 1000 / 1000);
+        Log.write(LoggerType.DEBUG, "\t\tGb: " + sizeBytes / 1000 / 1000 / 1000);
+        Log.write(LoggerType.DEBUG, "\t\tTb: " + sizeBytes / 1000 / 1000 / 1000 / 1000);
+        Log.write(LoggerType.DEBUG, "-----------VFS INFO END-----------");
         print();
     }
 
     public void print() {
-        Log.write(LoggerType.DEBUG,"-----------VFS FILE TREE BEGIN-----------");
-        Log.write(LoggerType.DEBUG,this.tree());
-        Log.write(LoggerType.DEBUG,"-----------VFS FILE TREE END-----------");
+        Log.write(LoggerType.DEBUG, "-----------VFS FILE TREE BEGIN-----------");
+        Log.write(LoggerType.DEBUG, this.tree());
+        Log.write(LoggerType.DEBUG, "-----------VFS FILE TREE END-----------");
     }
 
     private String tree() {
@@ -120,10 +118,10 @@ public final class VirtualFileSystem {
     }
 
     public void dump(String path) {
-        Log.write(LoggerType.DEBUG,"-----------VFS DUMPING BEGIN-----------");
+        Log.write(LoggerType.DEBUG, "-----------VFS DUMPING BEGIN-----------");
         path = new File(path).getAbsolutePath();
         dumpInPath(path, firstRootNode);
-        Log.write(LoggerType.DEBUG,"-----------VFS DUMPING END-----------");
+        Log.write(LoggerType.DEBUG, "-----------VFS DUMPING END-----------");
     }
 
     private void dumpInPath(String path, IVirtualNode node) {

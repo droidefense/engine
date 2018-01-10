@@ -1,9 +1,9 @@
 package droidefense.analysis;
 
-import droidefense.log4j.Log;
-import droidefense.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.WekaResultsHandler;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 
 /**
  * Created by sergio on 25/3/16.

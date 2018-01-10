@@ -1,17 +1,17 @@
 package droidefense.emulator.machine.reader;
 
-import droidefense.emulator.machine.base.constants.ValueFormat;
-import droidefense.emulator.machine.base.struct.generic.IDroidefenseField;
-import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.emulator.machine.base.DynamicUtils;
 import droidefense.emulator.machine.base.constants.AccessFlag;
+import droidefense.emulator.machine.base.constants.ValueFormat;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.emulator.machine.base.struct.generic.IDroidefenseField;
+import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.emulator.machine.base.struct.model.DVMClass;
 import droidefense.emulator.machine.base.struct.model.DVMField;
 import droidefense.emulator.machine.base.struct.model.DVMMethod;
-import droidefense.sdk.util.InternalConstant;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.dex.DexBodyModel;
+import droidefense.sdk.util.InternalConstant;
 
 import java.util.Collection;
 import java.util.Hashtable;

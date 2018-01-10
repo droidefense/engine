@@ -1,7 +1,5 @@
 package droidefense.cli;
 
-import droidefense.log4j.Log;
-import droidefense.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.analysis.base.AnalysisFactory;
 import droidefense.exception.ConfigFileNotFoundException;
@@ -9,6 +7,8 @@ import droidefense.exception.EnvironmentNotReadyException;
 import droidefense.exception.InvalidScanParametersException;
 import droidefense.exception.UnknownAnalyzerException;
 import droidefense.handler.FileIOHandler;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.helpers.APKUnpacker;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
 import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;

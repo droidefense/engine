@@ -4,13 +4,13 @@ import droidefense.emulator.machine.base.DynamicUtils;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseField;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseFrame;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
+import droidefense.emulator.machine.inst.DalvikInstruction;
+import droidefense.entropy.EntropyCalculator;
 import droidefense.rulengine.base.AbstractFlowMap;
 import droidefense.rulengine.nodes.ConstStrNode;
 import droidefense.rulengine.nodes.FieldNode;
 import droidefense.rulengine.nodes.MethodNode;
 import droidefense.rulengine.nodes.NormalNode;
-import droidefense.entropy.EntropyCalculator;
-import droidefense.emulator.machine.inst.DalvikInstruction;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
 
 /**

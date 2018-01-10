@@ -1,12 +1,12 @@
 package droidefense.sdk.helpers;
 
-import droidefense.log4j.Log;
-import droidefense.log4j.LoggerType;
 import droidefense.handler.AXMLDecoderHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.FileUnzipVFSHandler;
 import droidefense.handler.apktool.APKToolHandler;
 import droidefense.handler.apktool.MemAPKToolHandler;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.LocalApkFile;

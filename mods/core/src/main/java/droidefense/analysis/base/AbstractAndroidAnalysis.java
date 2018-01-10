@@ -4,8 +4,8 @@ import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
 import droidefense.sdk.enums.ProcessStatus;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.util.ExecutionTimer;
 import droidefense.sdk.model.io.LocalApkFile;
+import droidefense.sdk.util.ExecutionTimer;
 
 import java.io.Serializable;
 import java.util.ArrayList;

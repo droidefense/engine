@@ -1,14 +1,14 @@
 package droidefense.emulator.handlers;
 
+import droidefense.emulator.flow.experimental.BasicControlFlowGraphWorker;
 import droidefense.emulator.flow.experimental.FollowCallsControlFlowGraphWorker;
 import droidefense.emulator.flow.stable.OpCodeCheckerWorker;
+import droidefense.emulator.flow.stable.ReferencesResolverWorker;
 import droidefense.emulator.machine.base.AbstractDVMThread;
 import droidefense.emulator.machine.base.DalvikVM;
+import droidefense.handler.base.AbstractHandler;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
-import droidefense.handler.base.AbstractHandler;
-import droidefense.emulator.flow.experimental.BasicControlFlowGraphWorker;
-import droidefense.emulator.flow.stable.ReferencesResolverWorker;
 import droidefense.sdk.model.base.DroidefenseProject;
 
 import java.util.ArrayList;
@@ -61,7 +61,7 @@ public class VMWorkersHandler extends AbstractHandler {
 
                 //run all selected workers
                 for (AbstractDVMThread worker : worklist) {
-                    Log.write(LoggerType.TRACE, "Running worker: "+worker.getName());
+                    Log.write(LoggerType.TRACE, "Running worker: " + worker.getName());
                     vm.setWorker(worker);
                     vm.run();
                 }

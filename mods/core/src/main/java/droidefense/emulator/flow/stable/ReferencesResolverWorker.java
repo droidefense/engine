@@ -1,6 +1,5 @@
 package droidefense.emulator.flow.stable;
 
-import droidefense.emulator.machine.base.AbstractDVMThread;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseField;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseFrame;
@@ -8,9 +7,8 @@ import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.emulator.machine.base.struct.model.AndroidRField;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
-import droidefense.sdk.util.Util;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.util.ExecutionTimer;
+import droidefense.sdk.util.Util;
 import droidefense.vfs.model.impl.VirtualFile;
 
 import java.util.*;
@@ -26,7 +24,7 @@ public final strictfp class ReferencesResolverWorker extends SimpleFlowWorker {
     public ReferencesResolverWorker(DroidefenseProject currentProject) {
         super(currentProject);
         references = new ArrayList<>();
-        this.name="ReferencesResolverWorker";
+        this.name = "ReferencesResolverWorker";
     }
 
     @Override

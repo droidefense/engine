@@ -1,10 +1,10 @@
 package droidefense.analysis;
 
+import droidefense.analysis.base.AbstractAndroidAnalysis;
+import droidefense.emulator.handlers.PscoutHandler;
+import droidefense.handler.base.AbstractHandler;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
-import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.handler.base.AbstractHandler;
-import droidefense.emulator.handlers.PscoutHandler;
 
 /**
  * Created by sergio on 25/3/16.

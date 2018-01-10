@@ -6,8 +6,8 @@ package droidefense.vfs.model.base;
 public abstract class VirtualNode implements IVirtualNode {
 
     protected static final int NEW_CLASS_ALLOCATION_HEAP_SIZE = 8;
-    private static final String DEFAULT_INODE_NAME = "undefined";
     protected static final String NO_PATH = "";
+    private static final String DEFAULT_INODE_NAME = "undefined";
     private static final String FILE_SEPARATOR = "/";
 
     protected transient final IVirtualNode parentNode;

@@ -1,14 +1,12 @@
 package droidefense.emulator.machine.reader;
 
-import droidefense.emulator.machine.base.constants.ValueFormat;
-import droidefense.emulator.machine.base.struct.fake.DVMTaintClass;
-import droidefense.log4j.Log;
-import droidefense.log4j.LoggerType;
 import droidefense.emulator.machine.base.AbstractDVMThread;
 import droidefense.emulator.machine.base.DalvikVM;
 import droidefense.emulator.machine.base.DynamicUtils;
 import droidefense.emulator.machine.base.constants.AccessFlag;
+import droidefense.emulator.machine.base.constants.ValueFormat;
 import droidefense.emulator.machine.base.exceptions.NotSupportedValueTypeException;
+import droidefense.emulator.machine.base.struct.fake.DVMTaintClass;
 import droidefense.emulator.machine.base.struct.fake.DVMTaintField;
 import droidefense.emulator.machine.base.struct.fake.EncapsulatedClass;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
@@ -19,8 +17,10 @@ import droidefense.emulator.machine.base.struct.model.DVMClass;
 import droidefense.emulator.machine.base.struct.model.DVMField;
 import droidefense.emulator.machine.base.struct.model.DVMMethod;
 import droidefense.emulator.machine.base.struct.model.SharedPool;
-import droidefense.sdk.util.InternalConstant;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.model.base.DroidefenseProject;
+import droidefense.sdk.util.InternalConstant;
 
 import java.io.Serializable;
 import java.lang.reflect.Constructor;
@@ -227,7 +227,7 @@ public final class DexClassReader implements Serializable {
             this.dexFileContent = dexFileContent;
             offset = 0;
 
-            if(this.checkDexIntegrity){
+            if (this.checkDexIntegrity) {
                 boolean pass;
                 pass = checkData("magic number", "6465780A30333500");
                 currentProject.setMagicNumberPass(pass);
@@ -241,8 +241,7 @@ public final class DexClassReader implements Serializable {
 
                 checkUInt("link size", 0);
                 checkUInt("link offset", 0);
-            }
-            else{
+            } else {
                 boolean pass;
                 pass = checkData("magic number", "6465780A30333500");
                 currentProject.setMagicNumberPass(pass);

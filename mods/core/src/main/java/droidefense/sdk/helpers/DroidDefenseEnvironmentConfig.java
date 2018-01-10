@@ -1,9 +1,9 @@
 package droidefense.sdk.helpers;
 
-import droidefense.log4j.Log;
-import droidefense.log4j.LoggerType;
 import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.handler.FileIOHandler;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.util.JsonStyle;
 import droidefense.sdk.util.Util;
 

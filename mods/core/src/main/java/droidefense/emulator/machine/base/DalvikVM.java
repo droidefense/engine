@@ -1,17 +1,17 @@
 package droidefense.emulator.machine.base;
 
 import droidefense.emulator.featured.AndroidLogEmulator;
+import droidefense.emulator.featured.ReflectionEmulator;
+import droidefense.emulator.machine.base.constants.TypeDescriptorSemantics;
+import droidefense.emulator.machine.base.exceptions.ChangeThreadRuntimeException;
+import droidefense.emulator.machine.base.exceptions.MachineStateEndedException;
 import droidefense.emulator.machine.base.exceptions.VirtualMachineRuntimeException;
 import droidefense.emulator.machine.base.struct.fake.DVMTaintClass;
 import droidefense.emulator.machine.base.struct.fake.EncapsulatedClass;
 import droidefense.emulator.machine.base.struct.generic.*;
 import droidefense.emulator.machine.reader.DexClassReader;
-import droidefense.emulator.machine.base.constants.TypeDescriptorSemantics;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
-import droidefense.emulator.featured.ReflectionEmulator;
-import droidefense.emulator.machine.base.exceptions.ChangeThreadRuntimeException;
-import droidefense.emulator.machine.base.exceptions.MachineStateEndedException;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
 

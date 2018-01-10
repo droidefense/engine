@@ -1,8 +1,8 @@
 package droidefense.analysis;
 
 import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.sdk.manifest.*;
 import droidefense.sdk.enums.PrivacyResultEnum;
+import droidefense.sdk.manifest.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;

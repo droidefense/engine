@@ -2,7 +2,6 @@ package droidefense.emulator.flow.stable;
 
 import droidefense.emulator.flow.base.AbstractFlowWorker;
 import droidefense.emulator.machine.base.AbstractDVMThread;
-import droidefense.emulator.machine.base.DalvikVM;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.log4j.Log;
@@ -14,12 +13,12 @@ public abstract class SimpleFlowWorker extends AbstractFlowWorker {
 
     public SimpleFlowWorker(DroidefenseProject currentProject) {
         super(currentProject.getDalvikMachine(), currentProject);
-        this.name="SimpleFlowWorker";
+        this.name = "SimpleFlowWorker";
     }
 
     @Override
     public void preload() {
-        Log.write(LoggerType.DEBUG, "WORKER: "+getName());
+        Log.write(LoggerType.DEBUG, "WORKER: " + getName());
 
         //TODO check if this can be removed with no side effects
         /*

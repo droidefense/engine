@@ -129,7 +129,9 @@
                     <execution>
                         <id>obfuscation-packaging</id>
                         <phase>package</phase>
-                        <goals><goal>proguard</goal></goals>
+                        <goals>
+                            <goal>proguard</goal>
+                        </goals>
                     </execution>
                 </executions>
                 <configuration>
@@ -152,7 +154,9 @@
                         <option>-overloadaggressively</option>
                         <option>-repackageclasses ''</option>
                         <option>-microedition</option>
-                        <option>-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,LocalVariable*Table,*Annotation*,Synthetic,EnclosingMethod,*Annotations*</option>
+                        <option>-keepattributes
+                            Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,LocalVariable*Table,*Annotation*,Synthetic,EnclosingMethod,*Annotations*
+                        </option>
                     </options>
                 </configuration>
             </plugin>

@@ -1,11 +1,11 @@
 package droidefense.analysis;
 
-import droidefense.log4j.Log;
-import droidefense.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.handler.base.AbstractHandler;
 import droidefense.emulator.handlers.DexMetadataHandler;
 import droidefense.emulator.handlers.VMWorkersHandler;
+import droidefense.handler.base.AbstractHandler;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 
 /**
  * Created by sergio on 25/3/16.

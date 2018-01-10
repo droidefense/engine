@@ -4,14 +4,14 @@ package droidefense.handler;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
 import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
-import droidefense.sdk.util.InternalConstant;
-import droidefense.sdk.util.Util;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.system.OSDetection;
 import droidefense.sdk.system.SystemCallReturn;
+import droidefense.sdk.util.InternalConstant;
 import droidefense.sdk.util.JsonStyle;
 import droidefense.sdk.util.RemoteFileDownloader;
+import droidefense.sdk.util.Util;
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -37,12 +37,12 @@ public class FileIOHandler {
 
     public static File getBaseDirFile() {
         //update of version 0.2. files ar saved in $HOME/droidefense
-        File base = new File(System.getProperty("user.home") );
+        File base = new File(System.getProperty("user.home"));
         //create 'droidefense' folder it not found
         File appHomeFolder = new File(base, "droidefense");
-        if(!appHomeFolder.exists()){
+        if (!appHomeFolder.exists()) {
             boolean homeSuccess = appHomeFolder.mkdirs();
-            if(!homeSuccess){
+            if (!homeSuccess) {
                 Log.write(LoggerType.FATAL,
                         "Could not create droidefense home directory.",
                         "Please check your current permissions for path",
@@ -138,7 +138,8 @@ public class FileIOHandler {
                     InputStreamReader(p.getErrorStream()));
 
             // read the output from the command
-            String s;StringBuilder answer = new StringBuilder();
+            String s;
+            StringBuilder answer = new StringBuilder();
             StringBuilder err = new StringBuilder();
             while ((s = stdInput.readLine()) != null) {
                 answer.append(s);
@@ -183,9 +184,9 @@ public class FileIOHandler {
         data = project.getNormalControlFlowMap().getAsDotGraph();
         data = cleanDot(data);
         boolean savedNormalDot = saveFile(name, outputPath, data, "Could not saveProjectObject .dot normal flowmap");
-        if(savedNormalDot){
+        if (savedNormalDot) {
             Log.write(LoggerType.DEBUG, "Generating svg image from .dot...");
-            project.generateFlowMapImage(project.getNormalControlFlowMap(), "normal-graphviz.dot","normal-map.svg");
+            project.generateFlowMapImage(project.getNormalControlFlowMap(), "normal-graphviz.dot", "normal-map.svg");
         }
 
         //save call graph as .json
@@ -201,9 +202,9 @@ public class FileIOHandler {
         data = project.getReflectedFlowMap().getAsDotGraph();
         data = cleanDot(data);
         boolean savedReflectedDot = saveFile(name, outputPath, data, "Could not saveProjectObject .dot reflected flowmap");
-        if(savedReflectedDot){
+        if (savedReflectedDot) {
             Log.write(LoggerType.DEBUG, "Generating svg image from .dot...");
-            project.generateFlowMapImage(project.getNormalControlFlowMap(), "reflected-graphviz.dot","reflected-map.svg");
+            project.generateFlowMapImage(project.getNormalControlFlowMap(), "reflected-graphviz.dot", "reflected-map.svg");
         }
 
         //save call graph as .json
@@ -219,9 +220,9 @@ public class FileIOHandler {
         data = project.getFollowCallsMap().getAsDotGraph();
         data = cleanDot(data);
         boolean followDot = saveFile(name, outputPath, data, "Could not saveProjectObject .dot follow flowmap");
-        if(followDot){
+        if (followDot) {
             Log.write(LoggerType.DEBUG, "Generating svg image from .dot...");
-            project.generateFlowMapImage(project.getNormalControlFlowMap(), "follow-graphviz.dot","follow-map.svg");
+            project.generateFlowMapImage(project.getNormalControlFlowMap(), "follow-graphviz.dot", "follow-map.svg");
         }
 
         //save call graph as .json
@@ -314,7 +315,7 @@ public class FileIOHandler {
     }
 
     public static boolean saveFileOnProjectFolder(DroidefenseProject p, String filename, String data) {
-        return saveFile(new File(getProjectFolderPath(p)+File.separator+filename), data.getBytes());
+        return saveFile(new File(getProjectFolderPath(p) + File.separator + filename), data.getBytes());
     }
 
     public static boolean saveFile(File f, String data) {
@@ -368,7 +369,7 @@ public class FileIOHandler {
         String reportFolderPath = environmentConfig.STATIC_REPORT_FOLDER;
         File reportFolder = new File(getBaseDirFile(), reportFolderPath);
         builDir(reportFolder);
-        return new File(reportFolder.getAbsolutePath()+File.separator + projectId);
+        return new File(reportFolder.getAbsolutePath() + File.separator + projectId);
     }
 
     private static boolean builDir(String path) {

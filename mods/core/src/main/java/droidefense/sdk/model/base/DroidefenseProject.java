@@ -1,47 +1,49 @@
 package droidefense.sdk.model.base;
 
-import droidefense.log4j.Log;
-import droidefense.log4j.LoggerType;
-import droidefense.rulengine.Rule;
-import droidefense.rulengine.base.AbstractFlowMap;
-import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.exception.ConfigFileNotFoundException;
-import droidefense.handler.DirScannerHandler;
-import droidefense.handler.FileIOHandler;
-import droidefense.handler.base.DirScannerFilter;
-import droidefense.ml.MLResultHolder;
 import droidefense.emulator.helper.DexFileStatistics;
 import droidefense.emulator.machine.base.DalvikVM;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.emulator.machine.base.struct.model.AndroidRField;
 import droidefense.emulator.machine.base.struct.model.SharedPool;
 import droidefense.emulator.machine.reader.DexFileLoader;
+import droidefense.exception.ConfigFileNotFoundException;
+import droidefense.handler.DirScannerHandler;
+import droidefense.handler.FileIOHandler;
+import droidefense.handler.base.DirScannerFilter;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
+import droidefense.ml.MLResultHolder;
 import droidefense.reporting.AbstractReporter;
 import droidefense.reporting.BeautifiedJSONReporter;
 import droidefense.reporting.HTMLReporter;
+import droidefense.rulengine.Rule;
+import droidefense.rulengine.base.AbstractFlowMap;
+import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.sdk.AbstractDynamicPlugin;
 import droidefense.sdk.AbstractStaticPlugin;
-import droidefense.sdk.helpers.*;
-import droidefense.sdk.manifest.Manifest;
-import droidefense.sdk.manifest.UsesPermission;
-import droidefense.sdk.manifest.base.AbstractManifestClass;
-import droidefense.sdk.system.SystemCallReturn;
-import droidefense.sdk.util.ExecutionTimer;
-import droidefense.sdk.model.certificate.CertificateModel;
-import droidefense.sdk.model.dex.DexBodyModel;
-import droidefense.sdk.model.dex.OpcodeInformation;
 import droidefense.sdk.enums.MalwareResultEnum;
 import droidefense.sdk.enums.OverallResultEnum;
 import droidefense.sdk.enums.PrivacyResultEnum;
 import droidefense.sdk.enums.SDK_VERSION;
+import droidefense.sdk.helpers.APKUnpacker;
+import droidefense.sdk.helpers.DroidDefenseEnvironment;
+import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
+import droidefense.sdk.holder.StringInfo;
+import droidefense.sdk.manifest.Manifest;
+import droidefense.sdk.manifest.UsesPermission;
+import droidefense.sdk.manifest.base.AbstractManifestClass;
+import droidefense.sdk.model.certificate.CertificateModel;
+import droidefense.sdk.model.dex.DexBodyModel;
+import droidefense.sdk.model.dex.OpcodeInformation;
 import droidefense.sdk.model.holder.DynamicInfo;
 import droidefense.sdk.model.holder.InternalInfo;
 import droidefense.sdk.model.holder.StaticInfo;
-import droidefense.sdk.holder.StringInfo;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.DexHashedFile;
 import droidefense.sdk.model.io.LocalApkFile;
+import droidefense.sdk.system.SystemCallReturn;
+import droidefense.sdk.util.ExecutionTimer;
 import droidefense.sdk.util.InternalConstant;
 import droidefense.sdk.util.JsonStyle;
 import droidefense.sdk.util.Util;
@@ -955,10 +957,10 @@ public final class DroidefenseProject implements Serializable {
             //TODO fix map generation
             SystemCallReturn executionResult = FileIOHandler.callSystemExec("dot -Tsvg " + currentUnpackDir + File.separator + dotname + " > " + currentUnpackDir + File.separator + svgname);
             Log.write(LoggerType.DEBUG, executionResult.toString());
-            if(executionResult.getAnswer().size()>0){
+            if (executionResult.getAnswer().size() > 0) {
                 //save to file
                 String svgData = executionResult.getAnswer().get(0);
-                FileIOHandler.saveFileOnProjectFolder(this,svgname, svgData);
+                FileIOHandler.saveFileOnProjectFolder(this, svgname, svgData);
             }
         } catch (IOException e) {
             Log.write(LoggerType.ERROR, e.getLocalizedMessage());

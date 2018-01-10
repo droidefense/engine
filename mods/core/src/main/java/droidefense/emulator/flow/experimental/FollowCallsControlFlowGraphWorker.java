@@ -27,7 +27,7 @@ public final strictfp class FollowCallsControlFlowGraphWorker extends SimpleFlow
         super(project);
         fromNode = null;
         flowMap = new BasicCFGFlowMap();
-        this.name="FollowCallsControlFlowGraphWorker";
+        this.name = "FollowCallsControlFlowGraphWorker";
     }
 
     @Override

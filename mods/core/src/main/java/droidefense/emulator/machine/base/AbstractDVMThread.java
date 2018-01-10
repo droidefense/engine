@@ -23,14 +23,14 @@
 
 package droidefense.emulator.machine.base;
 
-import droidefense.emulator.machine.base.struct.generic.*;
-import droidefense.emulator.machine.base.struct.model.DVMFrame;
-import droidefense.emulator.machine.reader.DexClassReader;
 import droidefense.emulator.machine.base.exceptions.ChangeThreadRuntimeException;
 import droidefense.emulator.machine.base.exceptions.MachineStateEndedException;
 import droidefense.emulator.machine.base.exceptions.VirtualMachineRuntimeException;
+import droidefense.emulator.machine.base.struct.generic.*;
+import droidefense.emulator.machine.base.struct.model.DVMFrame;
 import droidefense.emulator.machine.inst.DalvikInstruction;
 import droidefense.emulator.machine.inst.InstructionReturn;
+import droidefense.emulator.machine.reader.DexClassReader;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.util.ExecutionTimer;
 

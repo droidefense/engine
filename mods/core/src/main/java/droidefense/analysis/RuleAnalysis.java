@@ -1,12 +1,12 @@
 package droidefense.analysis;
 
+import droidefense.analysis.base.AbstractAndroidAnalysis;
+import droidefense.handler.FileIOHandler;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
 import droidefense.rulengine.Rule;
 import droidefense.rulengine.RuleEngine;
 import droidefense.rulengine.map.BasicCFGFlowMap;
-import droidefense.analysis.base.AbstractAndroidAnalysis;
-import droidefense.handler.FileIOHandler;
 
 import java.io.File;
 import java.io.IOException;

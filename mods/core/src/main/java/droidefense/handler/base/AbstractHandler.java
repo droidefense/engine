@@ -1,8 +1,8 @@
 package droidefense.handler.base;
 
+import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
-import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.LocalApkFile;

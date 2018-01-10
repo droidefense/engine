@@ -1,14 +1,14 @@
 package droidefense.worker.parser;
 
+import droidefense.handler.FileIOHandler;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
-import droidefense.handler.FileIOHandler;
-import droidefense.sdk.util.InternalConstant;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.model.io.DexHashedFile;
 import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.sdk.model.io.VirtualHashedFile;
+import droidefense.sdk.util.InternalConstant;
 import droidefense.vfs.model.impl.VirtualFile;
 import droidefense.worker.base.AbstractFileParser;
 

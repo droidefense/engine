@@ -1,10 +1,10 @@
 package droidefense.emulator.machine.base.struct.model;
 
 
+import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseField;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseInstance;
 import droidefense.emulator.machine.reader.DexClassReader;
-import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
 
 import java.io.Serializable;
 import java.util.Hashtable;

@@ -1,8 +1,8 @@
 package droidefense.analysis;
 
+import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
-import droidefense.analysis.base.AbstractAndroidAnalysis;
 
 /**
  * Created by sergio on 16/2/16.

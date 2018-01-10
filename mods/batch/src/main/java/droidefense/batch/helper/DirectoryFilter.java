@@ -1,11 +1,11 @@
 package droidefense.batch.helper;
 
+import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
-import droidefense.exception.ConfigFileNotFoundException;
 import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
-import droidefense.sdk.util.InternalConstant;
 import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.util.InternalConstant;
 
 import java.io.File;
 import java.util.ArrayList;

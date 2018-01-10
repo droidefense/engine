@@ -1,15 +1,15 @@
 package droidefense.analysis;
 
-import droidefense.log4j.Log;
-import droidefense.log4j.LoggerType;
 import droidefense.analysis.base.AbstractAndroidAnalysis;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.AbstractStaticPlugin;
-import droidefense.sdk.util.InternalConstant;
-import droidefense.sdk.util.ExecutionTimer;
 import droidefense.sdk.model.io.AbstractHashedFile;
+import droidefense.sdk.util.ExecutionTimer;
+import droidefense.sdk.util.InternalConstant;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -43,16 +43,16 @@ public final class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
                 //run each plugin in a different thread
                 String pluginName = plugin.getName();
                 if (pluginName.endsWith(InternalConstant.COMPILED_JAVA_EXTENSION)) {
-                    Log.write(LoggerType.TRACE,"");
+                    Log.write(LoggerType.TRACE, "");
                     Log.write(LoggerType.TRACE, " ######## PLUGIN ########");
                     Log.write(LoggerType.TRACE, plugin.getAbsolutePath());
                     Log.write(LoggerType.TRACE, " ######## PLUGIN ########");
-                    Log.write(LoggerType.TRACE,"");
+                    Log.write(LoggerType.TRACE, "");
                     Class aClass;
                     try {
                         ClassLoader classLoader = this.getClass().getClassLoader();
                         String pluginFullName = PLUGIN_PACKAGE_NAME + pluginName.replace(".class", "");
-                        Log.write(LoggerType.DEBUG,"Loading plugin: "+pluginFullName);
+                        Log.write(LoggerType.DEBUG, "Loading plugin: " + pluginFullName);
                         aClass = classLoader.loadClass(pluginFullName);
                         Log.write(LoggerType.TRACE, "Executing plugin: " + aClass.getName());
                         AbstractStaticPlugin staticPlugin = (AbstractStaticPlugin) aClass.newInstance();

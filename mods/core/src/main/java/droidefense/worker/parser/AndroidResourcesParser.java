@@ -1,11 +1,11 @@
 package droidefense.worker.parser;
 
-import droidefense.log4j.Log;
-import droidefense.log4j.LoggerType;
 import com.j256.simplemagic.ContentInfo;
 import com.j256.simplemagic.ContentInfoUtil;
 import droidefense.handler.MagicFileHandler;
 import droidefense.handler.SignatureHandler;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.model.base.DroidefenseProject;
 import droidefense.sdk.model.io.LocalApkFile;
 import droidefense.sdk.model.io.VirtualHashedFile;

@@ -1,13 +1,13 @@
 package droidefense.batch.task;
 
-import droidefense.log4j.Log;
-import droidefense.log4j.LoggerType;
 import droidefense.batch.base.IBatchTask;
 import droidefense.batch.base.IWekaGenerator;
 import droidefense.exception.UnknownParserException;
 import droidefense.handler.DirScannerHandler;
 import droidefense.handler.FileIOHandler;
 import droidefense.handler.base.DirScannerFilter;
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.model.certificate.CertificateModel;
 import droidefense.sdk.model.certificate.CertificateSubject;
 import droidefense.sdk.model.io.AbstractHashedFile;

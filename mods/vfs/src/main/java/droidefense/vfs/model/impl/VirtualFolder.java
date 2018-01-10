@@ -4,7 +4,6 @@ import droidefense.vfs.model.base.IVirtualNode;
 import droidefense.vfs.model.base.VirtualNode;
 import droidefense.vfs.model.base.VirtualNodeType;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -18,7 +17,7 @@ public class VirtualFolder extends VirtualNode {
     private VirtualFolder(VirtualFolder parentFolder, String name) {
         super(parentFolder, name);
         this.itemsInside = new HashMap<>();
-        if(parentFolder!=null){
+        if (parentFolder != null) {
             //execute this if current object is not root node
             parentFolder.addAsFileToParentFolder(this);
             parentFolder.setVirtualFoldersInside(parentFolder.getVirtualFoldersInside() + 1);
@@ -47,6 +46,7 @@ public class VirtualFolder extends VirtualNode {
         //TODO check if this new virtual folder does not already exist
         return new VirtualFolder(name);
     }
+
     public static VirtualFolder createFolder() {
         //TODO check if this new virtual folder does not already exist
         return new VirtualFolder("");
@@ -146,7 +146,7 @@ public class VirtualFolder extends VirtualNode {
 
     public VirtualFile getFile(String name) {
         Object o = this.itemsInside.get(name);
-        if(o instanceof VirtualFile){
+        if (o instanceof VirtualFile) {
             return (VirtualFile) o;
         }
         return null;
@@ -154,7 +154,7 @@ public class VirtualFolder extends VirtualNode {
 
     public VirtualFolder getFolder(String name) {
         Object o = this.itemsInside.get(name);
-        if(o instanceof VirtualFolder){
+        if (o instanceof VirtualFolder) {
             return (VirtualFolder) o;
         }
         return null;

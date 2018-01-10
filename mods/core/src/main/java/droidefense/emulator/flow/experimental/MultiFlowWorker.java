@@ -1,32 +1,29 @@
 package droidefense.emulator.flow.experimental;
 
-import droidefense.emulator.flow.base.AbstractFlowWorker;
 import droidefense.emulator.flow.stable.SimpleFlowWorker;
 import droidefense.emulator.machine.base.AbstractDVMThread;
 import droidefense.emulator.machine.base.exceptions.NoMainClassFoundException;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseFrame;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
+import droidefense.emulator.machine.inst.DalvikInstruction;
+import droidefense.emulator.machine.inst.InstructionReturn;
 import droidefense.emulator.machine.reader.DexClassReader;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
 import droidefense.rulengine.map.BasicCFGFlowMap;
 import droidefense.rulengine.nodes.ConditionalNode;
 import droidefense.rulengine.nodes.EntryPointNode;
-import droidefense.emulator.machine.inst.DalvikInstruction;
-import droidefense.emulator.machine.inst.InstructionReturn;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.util.ExecutionTimer;
 
 import java.util.ArrayList;
-import java.util.Vector;
 
 public final strictfp class MultiFlowWorker extends SimpleFlowWorker {
 
     public MultiFlowWorker(DroidefenseProject project) {
         super(project);
         flowMap = new BasicCFGFlowMap();
-        this.name="MultiFlowWorker";
+        this.name = "MultiFlowWorker";
     }
 
     @Override

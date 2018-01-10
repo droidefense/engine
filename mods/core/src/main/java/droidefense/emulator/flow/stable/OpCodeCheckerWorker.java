@@ -1,15 +1,10 @@
 package droidefense.emulator.flow.stable;
 
-import droidefense.emulator.machine.base.AbstractDVMThread;
-import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
-import droidefense.emulator.machine.base.DalvikVM;
-import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseFrame;
+import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
-import droidefense.emulator.flow.base.AbstractFlowWorker;
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.util.ExecutionTimer;
 
 public final strictfp class OpCodeCheckerWorker extends SimpleFlowWorker {
 
@@ -18,7 +13,7 @@ public final strictfp class OpCodeCheckerWorker extends SimpleFlowWorker {
 
     public OpCodeCheckerWorker(DroidefenseProject project) {
         super(project);
-        this.name="OpCodeCheckerWorker";
+        this.name = "OpCodeCheckerWorker";
     }
 
     @Override

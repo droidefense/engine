@@ -23,9 +23,9 @@
 
 package droidefense.emulator.machine.base.struct.model;
 
-import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.emulator.machine.base.DynamicUtils;
 import droidefense.emulator.machine.base.struct.generic.IDroidefenseClass;
+import droidefense.emulator.machine.base.struct.generic.IDroidefenseMethod;
 import droidefense.sdk.helpers.DroidDefenseEnvironment;
 
 import java.io.Serializable;

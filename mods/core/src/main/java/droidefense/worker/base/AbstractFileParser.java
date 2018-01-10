@@ -2,8 +2,8 @@ package droidefense.worker.base;
 
 
 import droidefense.sdk.model.base.DroidefenseProject;
-import droidefense.sdk.util.ExecutionTimer;
 import droidefense.sdk.model.io.LocalApkFile;
+import droidefense.sdk.util.ExecutionTimer;
 
 import java.io.Serializable;
 

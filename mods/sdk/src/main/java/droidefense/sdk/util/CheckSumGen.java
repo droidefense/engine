@@ -1,4 +1,5 @@
 package droidefense.sdk.util;
+
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
 import droidefense.ssdeep.SSDeep;
