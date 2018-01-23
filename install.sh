@@ -1,7 +1,38 @@
 #!/bin/bash
 
-function create_alias(){
+installation_path="/usr/bin/droidefense.jar"
 
+function install_on_system(){
+
+	base=$(pwd)
+
+	log " Creating 'droidefense' installation..."
+	version='target'
+	cd $version
+
+	jarname=$(ls *jar)
+
+	if [ ! -f $jarname ]; then
+		fail "compiled droidefense jar not found"
+		exit -1
+	else
+		log "Installing latest version..."
+
+		#install file to /usr/bin as droidefense
+		log "cp -a $jarname $installation_path"
+		sudo cp -a $jarname $installation_path
+
+		log "chmod +x $installation_path"
+		sudo chmod +x $installation_path
+
+		cd $base
+
+		sudo cp -a wrapper.sh /usr/bin/droidefense
+		sudo chmod +x /usr/bin/droidefense
+	fi
+}
+
+function create_alias(){
 	targetFile=$HOME"/.bash_aliases"
 	base=$(pwd)
 
@@ -11,6 +42,7 @@ function create_alias(){
 		touch $targetFile
 	fi
 
+	cd $base
 	log " Creating 'droidefense' alias..."
 	version='target'
 	cd $version
@@ -19,6 +51,7 @@ function create_alias(){
 
 	if [ ! -f $jarname ]; then
 		fail "compiled droidefense jar not found"
+		exit -1
 	else
 		path=$base'/'$version/$jarname
 		log $path
@@ -53,4 +86,4 @@ set -e
 
 source colors.sh
 
-create_alias
+install_on_system
