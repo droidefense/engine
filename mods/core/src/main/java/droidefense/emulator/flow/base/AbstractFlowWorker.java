@@ -20,7 +20,7 @@ import droidefense.sdk.model.base.DroidefenseProject;
 public abstract class AbstractFlowWorker extends AbstractDVMThread {
 
     private final static NodeGenerator reporting = NodeGenerator.getInstance();
-    protected static AbstractFlowMap flowMap;
+    protected AbstractFlowMap flowMap;
     protected AbstractAtomNode fromNode;
     protected AbstractAtomNode toNode;
 
