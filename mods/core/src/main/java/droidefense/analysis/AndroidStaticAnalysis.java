@@ -94,6 +94,6 @@ public final class AndroidStaticAnalysis extends AbstractAndroidAnalysis {
 
     @Override
     public String getName() {
-        return "Android static analysis";
+        return "Android static analysis module";
     }
 }

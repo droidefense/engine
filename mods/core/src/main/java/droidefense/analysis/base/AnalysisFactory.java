@@ -42,7 +42,7 @@ public abstract class AnalysisFactory {
             case RULE_ENGINE_ANALYSIS:
                 return new RuleAnalysis();
             case PRIVACY_ANALYSIS:
-                return new PrivacyAnalysis();
+                return new PermissionAnalysis();
             case EVENT_ANALYSIS:
                 return new EventTriggerAnalysis();
             case PSOCUT_ANALYSIS:

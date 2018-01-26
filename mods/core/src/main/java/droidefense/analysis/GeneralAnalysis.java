@@ -97,6 +97,6 @@ public final class GeneralAnalysis extends AbstractAndroidAnalysis {
 
     @Override
     public String getName() {
-        return "Droidefense scanner";
+        return "Droidefense engine";
     }
 }

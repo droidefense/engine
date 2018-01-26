@@ -12,7 +12,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="axml" />
+    <orderEntry type="module" module-name="axmlprinter" />
+    <orderEntry type="library" name="Maven: com.droidefense:axml:1.0-SNAPSHOT" level="project" />
     <orderEntry type="module" module-name="memapktool" />
     <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.4" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />

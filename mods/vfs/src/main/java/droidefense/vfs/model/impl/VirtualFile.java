@@ -4,6 +4,8 @@ import droidefense.vfs.model.base.IVirtualNode;
 import droidefense.vfs.model.base.VirtualNode;
 import droidefense.vfs.model.base.VirtualNodeType;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +17,7 @@ public final class VirtualFile extends VirtualNode {
 
     private transient ArrayList<Byte> content;
     private String charset;
+    private transient InputStream stream;
 
     private VirtualFile(VirtualFolder parent, String name) {
         super(parent, name);
@@ -25,7 +28,7 @@ public final class VirtualFile extends VirtualNode {
             this.setVirtualFilesInside(1);
         }
         content = new ArrayList<>();
-        charset = "";
+        charset = "utf-8";
     }
 
     private VirtualFile(String name) {
@@ -224,5 +227,12 @@ public final class VirtualFile extends VirtualNode {
         int result = content != null ? content.hashCode() : 0;
         result = 31 * result + (charset != null ? charset.hashCode() : 0);
         return result;
+    }
+
+    public InputStream getStream() {
+        if(this.stream==null){
+            this.stream = new ByteArrayInputStream(this.getContent());
+        }
+        return this.stream;
     }
 }

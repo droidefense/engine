@@ -1,5 +1,7 @@
 package droidefense.sdk.model.certificate;
 
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.util.Util;
 
 import java.io.Serializable;
@@ -36,6 +38,7 @@ public final class CertificateModel implements Serializable {
 
     private Date startDate;
     private Date endDate;
+    private int certificateDefaultFields;
 
     public CertificateModel() {
         seemsDebugCertificate = true;
@@ -395,22 +398,25 @@ public final class CertificateModel implements Serializable {
     }
 
     public boolean seemsDebugCertificate(CertificateModel that) {
-        if (validtime != that.validtime)
-            return false;
-        if (publicKeyAlgorithm != null ? !publicKeyAlgorithm.equals(that.publicKeyAlgorithm) : that.publicKeyAlgorithm != null)
-            return false;
-        if (certType != null ? !certType.equals(that.certType) : that.certType != null)
-            return false;
-        if (exponent != null ? !exponent.equals(that.exponent) : that.exponent != null)
-            return false;
-        if (validity != null ? !validity.equals(that.validity) : that.validity != null)
-            return false;
-        if (serialNumber != null ? !serialNumber.equals(that.serialNumber) : that.serialNumber != null)
-            return false;
-        if (subject != null ? !subject.hasDebugData() : that.subject != null)
-            return false;
-        if (issuer != null ? !issuer.hasDebugData() : that.issuer != null)
-            return false;
-        return true;
+        int counter=0;
+        if ( validtime == that.validtime )
+            counter++;
+        if ( publicKeyAlgorithm != null && publicKeyAlgorithm.equals(that.publicKeyAlgorithm) )
+            counter++;
+        if ( certType != null && certType.equals(that.certType) )
+            counter++;
+        if ( exponent != null && exponent.equals(that.exponent) )
+            counter++;
+        if ( validity != null && validity.equals(that.validity) )
+            counter++;
+        if ( serialNumber != null && serialNumber.equals(that.serialNumber) )
+            counter++;
+        if ( subject != null && subject.hasDebugData() )
+            counter++;
+        if ( issuer != null && issuer.hasDebugData() )
+            counter++;
+        Log.write(LoggerType.DEBUG, "Matched "+counter+" fields from Android debug certificate");
+        this.certificateDefaultFields=counter;
+        return counter >= 5;
     }
 }

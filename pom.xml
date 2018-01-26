@@ -20,7 +20,7 @@
 
     <modules>
         <module>mods/logger</module>
-        <module>mods/axml</module>
+        <module>mods/axmlprinter</module>
         <module>mods/datamanager</module>
         <module>mods/entropy</module>
         <module>mods/reporting</module>
