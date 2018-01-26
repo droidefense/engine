@@ -84,7 +84,7 @@ public enum SDK_VERSION {
 
     @SerializedName("Android 1.0")
     ANDROID_1_0("Android 1.0", 1, "no code name"),
-    
+
     @SerializedName("Unknown")
     UNKNOWN("Unknown", -1, "unknown");
 
