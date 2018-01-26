@@ -397,7 +397,7 @@ public final class CertificateModel implements Serializable {
                 '}';
     }
 
-    public boolean seemsDebugCertificate(CertificateModel that) {
+    private boolean seemsDebugCertificate(CertificateModel that) {
         int counter=0;
         if ( validtime == that.validtime )
             counter++;
