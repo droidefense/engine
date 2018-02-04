@@ -349,7 +349,7 @@ public class MemApktool {
         } catch (UndefinedResObject ignored) {
         }
 
-        if (original!=null || original.isEmpty()) {
+        if (original != null || original.isEmpty()) {
             return;
         }
 

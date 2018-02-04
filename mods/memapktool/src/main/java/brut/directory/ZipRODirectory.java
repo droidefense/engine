@@ -1,18 +1,18 @@
 /**
- *  Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
- *  Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
+ * Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package brut.directory;
 
@@ -103,7 +103,7 @@ public class ZipRODirectory extends AbstractDirectory {
     @Override
     public int getCompressionLevel(String fileName)
             throws DirectoryException {
-        ZipEntry entry =  mZipFile.getEntry(fileName);
+        ZipEntry entry = mZipFile.getEntry(fileName);
         if (entry == null) {
             throw new PathNotExist("Entry not found: " + fileName);
         }
@@ -113,32 +113,32 @@ public class ZipRODirectory extends AbstractDirectory {
     private void loadAll() {
         mFiles = new LinkedHashSet<String>();
         mDirs = new LinkedHashMap<String, AbstractDirectory>();
-        
+
         int prefixLen = getPath().length();
         Enumeration<? extends ZipEntry> entries = getZipFile().entries();
         while (entries.hasMoreElements()) {
             ZipEntry entry = entries.nextElement();
             String name = entry.getName();
-            
-            if (name.equals(getPath()) || ! name.startsWith(getPath()) || name.contains(".." + separator)) {
+
+            if (name.equals(getPath()) || !name.startsWith(getPath()) || name.contains(".." + separator)) {
                 continue;
             }
-            
+
             String subname = name.substring(prefixLen);
-            
+
             int pos = subname.indexOf(separator);
             if (pos == -1) {
-                if (! entry.isDirectory()) {
+                if (!entry.isDirectory()) {
                     mFiles.add(subname);
                     continue;
                 }
             } else {
                 subname = subname.substring(0, pos);
             }
-            
-            if (! mDirs.containsKey(subname)) {
+
+            if (!mDirs.containsKey(subname)) {
                 AbstractDirectory dir = new ZipRODirectory(getZipFile(), getPath() + subname + separator);
-                mDirs.put(subname, dir);                
+                mDirs.put(subname, dir);
             }
         }
     }

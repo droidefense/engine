@@ -1,10 +1,10 @@
 package droidefense.worker.parser;
 
 import android.content.res.AXMLResource;
-import droidefense.axml.exception.XmlPullParserException;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
 import droidefense.vfs.model.impl.VirtualFile;
+import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.io.InputStream;

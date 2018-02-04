@@ -14,7 +14,7 @@
     <orderEntry type="module" module-name="sdk" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.0" level="project" />
     <orderEntry type="module" module-name="ssdeep" />
-    <orderEntry type="module" module-name="log" />
+    <orderEntry type="module" module-name="logger" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
   </component>
 </module>

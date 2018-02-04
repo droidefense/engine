@@ -66,5 +66,6 @@
     <orderEntry type="module" module-name="simplemagic" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.7" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.0" level="project" />
+    <orderEntry type="module" module-name="logger" />
   </component>
 </module>

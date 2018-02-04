@@ -1,19 +1,26 @@
 package android.content.res;
 
-import android.content.res.chunk.ChunkType;
-import android.content.res.chunk.ChunkUtil;
-import android.content.res.chunk.sections.ResourceSection;
-import android.content.res.chunk.sections.StringSection;
-import android.content.res.chunk.types.*;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import java.io.IOException;
+
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 
-import java.io.IOException;
-
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import android.content.res.chunk.ChunkType;
+import android.content.res.chunk.ChunkUtil;
+import android.content.res.chunk.sections.ResourceSection;
+import android.content.res.chunk.sections.StringSection;
+import android.content.res.chunk.types.AXMLHeader;
+import android.content.res.chunk.types.Buffer;
+import android.content.res.chunk.types.Chunk;
+import android.content.res.chunk.types.EndTag;
+import android.content.res.chunk.types.NameSpace;
+import android.content.res.chunk.types.StartTag;
+import android.content.res.chunk.types.TextTag;
 
 /**
  * @author tstrazzere

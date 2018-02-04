@@ -1,27 +1,27 @@
 /**
- *  Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
- *  Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
+ * Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package brut.util;
 
 import brut.common.BrutException;
+import org.apache.commons.io.IOUtils;
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
-
-import org.apache.commons.io.IOUtils;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
@@ -31,7 +31,7 @@ public class OS {
     private static final Logger LOGGER = Logger.getLogger("");
 
     public static void rmdir(File dir) throws BrutException {
-        if (! dir.exists()) {
+        if (!dir.exists()) {
             return;
         }
         File[] files = dir.listFiles();
@@ -45,10 +45,10 @@ public class OS {
         }
         dir.delete();
     }
-        
+
     public static void rmfile(String file) throws BrutException {
-    	File del = new File(file);
-    	del.delete();
+        File del = new File(file);
+        del.delete();
     }
 
     public static void rmdir(String dir) throws BrutException {
@@ -61,7 +61,7 @@ public class OS {
         for (int i = 0; i < files.length; i++) {
             File file = files[i];
             File destFile = new File(dest.getPath() + File.separatorChar
-                + file.getName());
+                    + file.getName());
             if (file.isDirectory()) {
                 cpdir(file, destFile);
                 continue;
@@ -117,6 +117,9 @@ public class OS {
 
     static class StreamForwarder extends Thread {
 
+        private final InputStream mIn;
+        private final String mType;
+
         StreamForwarder(InputStream is, String type) {
             mIn = is;
             mType = type;
@@ -138,8 +141,5 @@ public class OS {
                 ex.printStackTrace();
             }
         }
-
-        private final InputStream mIn;
-        private final String mType;
     }
 }

@@ -119,7 +119,7 @@ public class WekaCertTask implements IBatchTask, IWekaGenerator, Serializable {
             for (File cert : certList) {
                 if (cert.exists() && cert.isFile() && cert.canRead()) {
                     //parse cert file
-                    AndroidCertParser parser = null;
+                    AndroidCertParser parser;
                     try {
                         parser = (AndroidCertParser) ParserFactory.getParser(ParserFactory.CERTIFICATE_PARSER, null, null);
                         try {

@@ -42,3 +42,7 @@ $cmd
 echo "removing temp files..."
 echo rm -rf $base/$cloneFolder
 rm -rf $base/$cloneFolder
+
+cd  $base/$targetFolder
+git checkout axmlprinter.iml pom.xml
+cd $base
