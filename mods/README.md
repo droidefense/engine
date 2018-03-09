@@ -20,6 +20,45 @@
 <b>Droidefense</b> uses an innovative idea in where the code is not decompiled rather than viewed. This allow us to get the global view of the execution workflow of the code with a 100% accuracy on gathered information. With this situation, <b>Droidefense</b> generates a fancy <b>html</b> report with the results for an easy understanding.
 </p>
 
+## Droidefense Features
+
+    .apk unpacker
+    .apk resource decoder
+    .apk file enumeration
+    .apk file classification and identification
+    binary xml decoder
+    in-memory processing using a virtual filesystem
+    resource fuzzing and hashing
+    entropy calculator
+    native code dump
+    certificate analysis
+    debug certificate detection
+    opcode analysis
+    unused opcode detection
+    androidManifest.xml analysis
+    internal structure analysis
+    dalvik bytecode flow analysis
+    multipath analysis implementation (not tested)
+    CFG generation
+    simple reflection resolver
+    String classification
+    simulated workflow generation
+    dynamic rules engine
+ 
+## Droidefense modules
+
+    PSCout data module
+    Full Android manifest parser, based on official SDK documentation v23.
+    Plugins
+    Machine Learning (Weka based) module
+ 
+## Droidefense plugins
+
+    Hidden ELF file detector plugin
+    Hidden APK file detector plugin
+    Application UID detector plugin
+    Privacy plugin
+
 ## Usage
 
 ### TL;DR
@@ -40,11 +79,10 @@ ________               .__    .___      _____
 /_______  /__|   \____/|__\____ |\___  >__|  \___  >___|  /____  >\___  >
         \/                     \/    \/          \/     \/     \/     \/ 
 
-
-	* Current build: 			2017_12_05__12_07_01
-	* Check out on Github: 			https://github.com/droidefense/
-	* Report your issue: 			https://github.com/droidefense/engine/issues
-	* Lead developer: 			@zerjioang
+* Current build: 			2018_03_09__09_17_34
+* Check out on Github: 			https://github.com/droidefense/
+* Report your issue: 			https://github.com/droidefense/engine/issues
+* Lead developer: 			@zerjioang
 
 usage: droidefense
  -d,--debug                 print debugging information
