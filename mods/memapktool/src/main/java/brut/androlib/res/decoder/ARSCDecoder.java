@@ -1,6 +1,6 @@
 /**
- *  Copyright (C) 2017 Ryszard Wiśniewski <brut.alll@gmail.com>
- *  Copyright (C) 2017 Connor Tumbleson <connor.tumbleson@gmail.com>
+ *  Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
 package brut.androlib.res.decoder;
 
 import android.util.TypedValue;
+import brut.androlib.Androlib;
 import brut.androlib.AndrolibException;
 import brut.androlib.res.data.*;
 import brut.androlib.res.data.value.*;
@@ -77,6 +78,7 @@ public class ARSCDecoder {
 
         nextChunk();
         for (int i = 0; i < packageCount; i++) {
+            mTypeIdOffset = 0;
             packages[i] = readTablePackage();
         }
         return packages;
@@ -84,7 +86,7 @@ public class ARSCDecoder {
 
     private ResPackage readTablePackage() throws IOException, AndrolibException {
         checkChunkType(Header.TYPE_PACKAGE);
-        int id = (byte) mIn.readInt();
+        int id = mIn.readInt();
 
         if (id == 0) {
             // This means we are dealing with a Library Package, we should just temporarily
@@ -102,6 +104,17 @@ public class ARSCDecoder {
         /* lastPublicType */mIn.skipInt();
         /* keyStrings */mIn.skipInt();
         /* lastPublicKey */mIn.skipInt();
+
+        // TypeIdOffset was added platform_frameworks_base/@f90f2f8dc36e7243b85e0b6a7fd5a590893c827e
+        // which is only in split/new applications.
+        int splitHeaderSize = (2 + 2 + 4 + 4 + (2 * 128) + (4 * 5)); // short, short, int, int, char[128], int * 4
+        if (mHeader.headerSize == splitHeaderSize) {
+            mTypeIdOffset = mIn.readInt();
+        }
+
+        if (mTypeIdOffset > 0) {
+            LOGGER.warning("Please report this application to Apktool for a fix: https://github.com/iBotPeaches/Apktool/issues/1728");
+        }
 
         mTypeNames = StringBlock.read(mIn);
         mSpecNames = StringBlock.read(mIn);
@@ -139,7 +152,7 @@ public class ARSCDecoder {
         }
     }
 
-    private ResTypeSpec readTableTypeSpec() throws AndrolibException, IOException {
+    private void readTableTypeSpec() throws AndrolibException, IOException {
         mTypeSpec = readSingleTableTypeSpec();
         addTypeSpec(mTypeSpec);
 
@@ -150,6 +163,12 @@ public class ARSCDecoder {
             resTypeSpec = readSingleTableTypeSpec();
             addTypeSpec(resTypeSpec);
             type = nextChunk().type;
+
+            // We've detected sparse resources, lets record this so we can rebuild in that same format (sparse/not)
+            // with aapt2. aapt1 will ignore this.
+            if (! mResTable.getSparseResources()) {
+                mResTable.setSparseResources(true);
+            }
         }
 
         while (type == Header.TYPE_TYPE) {
@@ -157,6 +176,7 @@ public class ARSCDecoder {
 
             // skip "TYPE 8 chunks" and/or padding data at the end of this chunk
             if (mCountIn.getCount() < mHeader.endPosition) {
+                LOGGER.warning("Unknown data detected. Skipping: " + (mHeader.endPosition - mCountIn.getCount()) + " byte(s)");
                 mCountIn.skip(mHeader.endPosition - mCountIn.getCount());
             }
 
@@ -164,8 +184,6 @@ public class ARSCDecoder {
 
             addMissingResSpecs();
         }
-
-        return mTypeSpec;
     }
 
     private ResTypeSpec readSingleTableTypeSpec() throws AndrolibException, IOException {
@@ -186,7 +204,7 @@ public class ARSCDecoder {
 
     private ResType readTableType() throws IOException, AndrolibException {
         checkChunkType(Header.TYPE_TYPE);
-        int typeId = mIn.readUnsignedByte();
+        int typeId = mIn.readUnsignedByte() - mTypeIdOffset;
         if (mResTypeSpecs.containsKey(typeId)) {
             mResId = (0xff000000 & mResId) | mResTypeSpecs.get(typeId).getId() << 16;
             mTypeSpec = mResTypeSpecs.get(typeId);
@@ -205,6 +223,7 @@ public class ARSCDecoder {
         // For some APKs there is a disconnect between the reported size of Configs
         // If we find a mismatch skip those bytes.
         if (position != mCountIn.getCount()) {
+            LOGGER.warning("Invalid data detected. Skipping: " + (position - mCountIn.getCount()) + " byte(s)");
             mIn.skipBytes(position - mCountIn.getCount());
         }
 
@@ -544,6 +563,7 @@ public class ARSCDecoder {
     private ResTypeSpec mTypeSpec;
     private ResType mType;
     private int mResId;
+    private int mTypeIdOffset = 0;
     private boolean[] mMissingResSpecs;
     private HashMap<Integer, ResTypeSpec> mResTypeSpecs = new HashMap<>();
 
