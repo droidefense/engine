@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
+
 echo "Downloading latest version of apktool"
 if [[ ! -d Apktool ]]; then
 	git clone https://github.com/iBotPeaches/Apktool
@@ -43,3 +45,6 @@ cp -ra $base'/Apktool/brut.apktool/apktool-cli/src/main/java/brut/apktool/.' $ba
 #remove temp files
 echo rm -rf $base/Apktool
 rm -rf $base/Apktool
+
+echo "apktool sync"
+echo "done"

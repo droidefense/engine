@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
+
 echo "Downloading latest version of axmlprinter"
 cloneFolder=rednaga_axmlprinter
 targetFolder=axmlprinter
@@ -22,7 +24,6 @@ fi
 echo "Syncing files..."
 
 echo "	Syncing src..."
-
 if [[ ! -d $base/mods/$targetFolder/src/main/ ]]; then
 	mkdir -p $base/mods/$targetFolder/src/main/
 fi
@@ -43,6 +44,9 @@ echo "removing temp files..."
 echo rm -rf $base/$cloneFolder
 rm -rf $base/$cloneFolder
 
-cd  $base/$targetFolder
-git checkout axmlprinter.iml pom.xml
-cd $base
+cd  $base
+git checkout mods/axmlprinter/axmlprinter.iml
+git checkout mods/axmlprinter/pom.xml
+
+echo "axmlprinter repository files updated"
+echo "done"
