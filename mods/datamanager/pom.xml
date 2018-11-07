@@ -11,9 +11,6 @@
 
     <properties>
         <jdk.version>1.10</jdk.version>
-        <dependecy.directory>lib</dependecy.directory>
-        <releasename>droidefense-cli</releasename>
-        <maven.assembly.plugin.version>2.4</maven.assembly.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

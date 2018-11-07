@@ -1,19 +1,19 @@
 language: java
 sudo: false
 jdk:
-  - oraclejdk9
   - openjdk10
-  - oraclejdk10
+matrix:
+include:
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
 os:
-- linux
+  - linux
 cache:
   directories:
-  - $HOME/.m2
-env:
-  global:
-  - MAVEN_OPTS="-Xmx4g"
-  - JAVA_OPTS="-Xmx4g"
+    - $HOME/.m2
 script:
-- ./build.sh
+  - ./build.sh
 after_success:
-- mvn coveralls:report
+  - mvn coveralls:report

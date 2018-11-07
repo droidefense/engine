@@ -10,6 +10,11 @@
 
     <name>Droidefense - portex</name>
 
+    <properties>
+        <jdk.version>1.10</jdk.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.github.katjahahn</groupId>
@@ -17,6 +22,21 @@
             <version>2.0.8</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Set a JDK compiler level -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
