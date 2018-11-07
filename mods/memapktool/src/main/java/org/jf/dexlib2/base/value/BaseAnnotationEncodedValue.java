@@ -38,8 +38,6 @@ import org.jf.dexlib2.iface.value.EncodedValue;
 import org.jf.util.CollectionUtils;
 
 
-
-
 public abstract class BaseAnnotationEncodedValue implements AnnotationEncodedValue {
     @Override
     public int hashCode() {
@@ -50,7 +48,7 @@ public abstract class BaseAnnotationEncodedValue implements AnnotationEncodedVal
     @Override
     public boolean equals(Object o) {
         if (o instanceof AnnotationEncodedValue) {
-            AnnotationEncodedValue other = (AnnotationEncodedValue)o;
+            AnnotationEncodedValue other = (AnnotationEncodedValue) o;
             return getType().equals(other.getType()) &&
                     getElements().equals(other.getElements());
         }
@@ -58,10 +56,10 @@ public abstract class BaseAnnotationEncodedValue implements AnnotationEncodedVal
     }
 
     @Override
-    public int compareTo( EncodedValue o) {
+    public int compareTo(EncodedValue o) {
         int res = Ints.compare(getValueType(), o.getValueType());
         if (res != 0) return res;
-        AnnotationEncodedValue other = (AnnotationEncodedValue)o;
+        AnnotationEncodedValue other = (AnnotationEncodedValue) o;
         res = getType().compareTo(other.getType());
         if (res != 0) return res;
         return CollectionUtils.compareAsSet(getElements(), other.getElements());

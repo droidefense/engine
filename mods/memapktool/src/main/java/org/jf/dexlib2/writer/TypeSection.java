@@ -34,8 +34,8 @@ package org.jf.dexlib2.writer;
 import org.jf.dexlib2.iface.reference.TypeReference;
 
 
-
 public interface TypeSection<StringKey, TypeKey, TypeRef extends TypeReference> extends NullableIndexSection<TypeKey> {
-     StringKey getString( TypeKey key);
-    int getItemIndex( TypeRef key);
+    StringKey getString(TypeKey key);
+
+    int getItemIndex(TypeRef key);
 }

@@ -32,10 +32,10 @@
 package org.jf.dexlib2.writer;
 
 
-
 import java.util.Collection;
 
 public interface TypeListSection<TypeKey, TypeListKey> extends NullableOffsetSection<TypeListKey> {
     int getNullableItemOffset(TypeListKey index);
-     Collection<? extends TypeKey> getTypes(TypeListKey key);
+
+    Collection<? extends TypeKey> getTypes(TypeListKey key);
 }

@@ -44,52 +44,75 @@ import java.util.Map;
 
 public interface ClassSection<StringKey extends CharSequence, TypeKey extends CharSequence, TypeListKey, ClassKey,
         FieldKey, MethodKey, AnnotationSetKey, EncodedValue> extends IndexSection<ClassKey> {
-     Collection<? extends ClassKey> getSortedClasses();
+    Collection<? extends ClassKey> getSortedClasses();
 
     Map.Entry<? extends ClassKey, Integer> getClassEntryByType(TypeKey key);
 
-     TypeKey getType( ClassKey key);
-    int getAccessFlags( ClassKey key);
-    TypeKey getSuperclass( ClassKey key);
-    TypeListKey getInterfaces( ClassKey key);
-    StringKey getSourceFile( ClassKey key);
-    Collection<? extends EncodedValue> getStaticInitializers( ClassKey key);
+    TypeKey getType(ClassKey key);
 
-     Collection<? extends FieldKey> getSortedStaticFields( ClassKey key);
-     Collection<? extends FieldKey> getSortedInstanceFields( ClassKey key);
-     Collection<? extends FieldKey> getSortedFields( ClassKey key);
-     Collection<? extends MethodKey> getSortedDirectMethods( ClassKey key);
-     Collection<? extends MethodKey> getSortedVirtualMethods( ClassKey key);
-     Collection<? extends MethodKey> getSortedMethods( ClassKey key);
+    int getAccessFlags(ClassKey key);
 
-    int getFieldAccessFlags( FieldKey key);
-    int getMethodAccessFlags( MethodKey key);
+    TypeKey getSuperclass(ClassKey key);
 
-    AnnotationSetKey getClassAnnotations( ClassKey key);
-    AnnotationSetKey getFieldAnnotations( FieldKey key);
-    AnnotationSetKey getMethodAnnotations( MethodKey key);
-    List<? extends AnnotationSetKey> getParameterAnnotations( MethodKey key);
+    TypeListKey getInterfaces(ClassKey key);
 
-    Iterable<? extends DebugItem> getDebugItems( MethodKey key);
-    Iterable<? extends StringKey> getParameterNames( MethodKey key);
+    StringKey getSourceFile(ClassKey key);
 
-    int getRegisterCount( MethodKey key);
-    Iterable<? extends Instruction> getInstructions( MethodKey key);
-     List<? extends TryBlock<? extends ExceptionHandler>> getTryBlocks( MethodKey key);
-    TypeKey getExceptionType( ExceptionHandler handler);
-     MutableMethodImplementation makeMutableMethodImplementation( MethodKey key);
+    Collection<? extends EncodedValue> getStaticInitializers(ClassKey key);
 
-    void setEncodedArrayOffset( ClassKey key, int offset);
-    int getEncodedArrayOffset( ClassKey key);
+    Collection<? extends FieldKey> getSortedStaticFields(ClassKey key);
 
-    void setAnnotationDirectoryOffset( ClassKey key, int offset);
-    int getAnnotationDirectoryOffset( ClassKey key);
+    Collection<? extends FieldKey> getSortedInstanceFields(ClassKey key);
 
-    void setAnnotationSetRefListOffset( MethodKey key, int offset);
-    int getAnnotationSetRefListOffset( MethodKey key);
+    Collection<? extends FieldKey> getSortedFields(ClassKey key);
 
-    void setCodeItemOffset( MethodKey key, int offset);
-    int getCodeItemOffset( MethodKey key);
+    Collection<? extends MethodKey> getSortedDirectMethods(ClassKey key);
 
-    void writeDebugItem( DebugWriter<StringKey, TypeKey> writer, DebugItem debugItem) throws IOException;
+    Collection<? extends MethodKey> getSortedVirtualMethods(ClassKey key);
+
+    Collection<? extends MethodKey> getSortedMethods(ClassKey key);
+
+    int getFieldAccessFlags(FieldKey key);
+
+    int getMethodAccessFlags(MethodKey key);
+
+    AnnotationSetKey getClassAnnotations(ClassKey key);
+
+    AnnotationSetKey getFieldAnnotations(FieldKey key);
+
+    AnnotationSetKey getMethodAnnotations(MethodKey key);
+
+    List<? extends AnnotationSetKey> getParameterAnnotations(MethodKey key);
+
+    Iterable<? extends DebugItem> getDebugItems(MethodKey key);
+
+    Iterable<? extends StringKey> getParameterNames(MethodKey key);
+
+    int getRegisterCount(MethodKey key);
+
+    Iterable<? extends Instruction> getInstructions(MethodKey key);
+
+    List<? extends TryBlock<? extends ExceptionHandler>> getTryBlocks(MethodKey key);
+
+    TypeKey getExceptionType(ExceptionHandler handler);
+
+    MutableMethodImplementation makeMutableMethodImplementation(MethodKey key);
+
+    void setEncodedArrayOffset(ClassKey key, int offset);
+
+    int getEncodedArrayOffset(ClassKey key);
+
+    void setAnnotationDirectoryOffset(ClassKey key, int offset);
+
+    int getAnnotationDirectoryOffset(ClassKey key);
+
+    void setAnnotationSetRefListOffset(MethodKey key, int offset);
+
+    int getAnnotationSetRefListOffset(MethodKey key);
+
+    void setCodeItemOffset(MethodKey key, int offset);
+
+    int getCodeItemOffset(MethodKey key);
+
+    void writeDebugItem(DebugWriter<StringKey, TypeKey> writer, DebugItem debugItem) throws IOException;
 }

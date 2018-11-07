@@ -35,8 +35,6 @@ import org.jf.dexlib2.DebugItemType;
 import org.jf.dexlib2.iface.debug.RestartLocal;
 
 
-
-
 public class ImmutableRestartLocal extends ImmutableDebugItem implements RestartLocal {
     protected final int register;
     protected final String name;
@@ -65,9 +63,9 @@ public class ImmutableRestartLocal extends ImmutableDebugItem implements Restart
     }
 
 
-    public static ImmutableRestartLocal of( RestartLocal restartLocal) {
-        if (restartLocal instanceof  ImmutableRestartLocal) {
-            return (ImmutableRestartLocal)restartLocal;
+    public static ImmutableRestartLocal of(RestartLocal restartLocal) {
+        if (restartLocal instanceof ImmutableRestartLocal) {
+            return (ImmutableRestartLocal) restartLocal;
         }
         return new ImmutableRestartLocal(
                 restartLocal.getCodeAddress(),
@@ -77,10 +75,28 @@ public class ImmutableRestartLocal extends ImmutableDebugItem implements Restart
                 restartLocal.getSignature());
     }
 
-    @Override public int getRegister() { return register; }
-    @Override public String getName() { return name; }
-    @Override public String getType() { return type; }
-    @Override public String getSignature() { return signature; }
+    @Override
+    public int getRegister() {
+        return register;
+    }
 
-    @Override public int getDebugItemType() { return DebugItemType.RESTART_LOCAL; }
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getType() {
+        return type;
+    }
+
+    @Override
+    public String getSignature() {
+        return signature;
+    }
+
+    @Override
+    public int getDebugItemType() {
+        return DebugItemType.RESTART_LOCAL;
+    }
 }

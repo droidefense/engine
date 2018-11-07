@@ -37,8 +37,6 @@ import org.jf.dexlib2.iface.value.EncodedValue;
 import org.jf.dexlib2.iface.value.NullEncodedValue;
 
 
-
-
 public abstract class BaseNullEncodedValue implements NullEncodedValue {
     @Override
     public int hashCode() {
@@ -51,9 +49,11 @@ public abstract class BaseNullEncodedValue implements NullEncodedValue {
     }
 
     @Override
-    public int compareTo( EncodedValue o) {
+    public int compareTo(EncodedValue o) {
         return Ints.compare(getValueType(), o.getValueType());
     }
 
-    public int getValueType() { return ValueType.NULL; }
+    public int getValueType() {
+        return ValueType.NULL;
+    }
 }

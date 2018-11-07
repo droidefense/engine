@@ -47,7 +47,7 @@ import java.util.List;
 @Parameters(commandDescription = "Lists the instance field offsets for classes in a dex file.")
 @ExtendedParameters(
         commandName = "fieldoffsets",
-        commandAliases = { "fieldoffset", "fo" })
+        commandAliases = {"fieldoffset", "fo"})
 public class ListFieldOffsetsCommand extends DexInputCommand {
 
     @Parameter(names = {"-h", "-?", "--help"}, help = true,
@@ -57,11 +57,12 @@ public class ListFieldOffsetsCommand extends DexInputCommand {
     @ParametersDelegate
     private AnalysisArguments analysisArguments = new AnalysisArguments();
 
-    public ListFieldOffsetsCommand( List<JCommander> commandAncestors) {
+    public ListFieldOffsetsCommand(List<JCommander> commandAncestors) {
         super(commandAncestors);
     }
 
-    @Override public void run() {
+    @Override
+    public void run() {
         if (help || inputList == null || inputList.isEmpty()) {
             usage();
             return;
@@ -78,12 +79,12 @@ public class ListFieldOffsetsCommand extends DexInputCommand {
         BaksmaliOptions options = getOptions();
 
         try {
-            for (ClassDef classDef: dexFile.getClasses()) {
+            for (ClassDef classDef : dexFile.getClasses()) {
                 ClassProto classProto = (ClassProto) options.classPath.getClass(classDef);
                 SparseArray<FieldReference> fields = classProto.getInstanceFields();
-                String className = "Class "  + classDef.getType() + " : " + fields.size() + " instance fields\n";
+                String className = "Class " + classDef.getType() + " : " + fields.size() + " instance fields\n";
                 System.out.write(className.getBytes());
-                for (int i=0;i<fields.size();i++) {
+                for (int i = 0; i < fields.size(); i++) {
                     String field = fields.keyAt(i) + ":" + fields.valueAt(i).getType() + " " + fields.valueAt(i).getName() + "\n";
                     System.out.write(field.getBytes());
                 }

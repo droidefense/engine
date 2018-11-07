@@ -34,14 +34,14 @@ package org.jf.dexlib2.builder;
 import org.jf.dexlib2.iface.debug.DebugItem;
 
 
-
 public abstract class BuilderDebugItem implements DebugItem {
     MethodLocation location;
 
     public BuilderDebugItem() {
     }
 
-    @Override public int getCodeAddress() {
+    @Override
+    public int getCodeAddress() {
         if (location == null) {
             throw new IllegalStateException("Cannot get the address of a BuilderDebugItem that isn't associated with " +
                     "a method.");

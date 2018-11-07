@@ -36,8 +36,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 
 
-
-
 public class ImmutableUtils {
     public static <T> ImmutableList<T> nullToEmptyList(ImmutableList<T> list) {
         if (list == null) {

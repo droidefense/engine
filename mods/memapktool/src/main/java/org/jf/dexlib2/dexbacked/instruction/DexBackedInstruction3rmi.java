@@ -36,15 +36,15 @@ import org.jf.dexlib2.dexbacked.DexBackedDexFile;
 import org.jf.dexlib2.iface.instruction.formats.Instruction3rmi;
 
 
-
 public class DexBackedInstruction3rmi extends DexBackedInstruction implements Instruction3rmi {
-    public DexBackedInstruction3rmi( DexBackedDexFile dexFile,
-                                     Opcode opcode,
+    public DexBackedInstruction3rmi(DexBackedDexFile dexFile,
+                                    Opcode opcode,
                                     int instructionStart) {
         super(dexFile, opcode, instructionStart);
     }
 
-    @Override public int getRegisterCount() {
+    @Override
+    public int getRegisterCount() {
         return dexFile.readUbyte(instructionStart + 1);
     }
 

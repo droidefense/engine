@@ -32,9 +32,8 @@
 package org.jf.dexlib2.dexbacked;
 
 
-
 public class DexReader extends BaseDexReader<DexBackedDexFile> {
-    public DexReader( DexBackedDexFile dexFile, int offset) {
+    public DexReader(DexBackedDexFile dexFile, int offset) {
         super(dexFile, offset);
     }
 }

@@ -36,30 +36,32 @@ import org.jf.dexlib2.iface.AnnotationElement;
 import org.jf.dexlib2.iface.value.EncodedValue;
 
 
-
 public class AnnotationElementRewriter implements Rewriter<AnnotationElement> {
-     protected final Rewriters rewriters;
+    protected final Rewriters rewriters;
 
-    public AnnotationElementRewriter( Rewriters rewriters) {
+    public AnnotationElementRewriter(Rewriters rewriters) {
         this.rewriters = rewriters;
     }
 
-     @Override public AnnotationElement rewrite( AnnotationElement annotationElement) {
+    @Override
+    public AnnotationElement rewrite(AnnotationElement annotationElement) {
         return new RewrittenAnnotationElement(annotationElement);
     }
 
     protected class RewrittenAnnotationElement extends BaseAnnotationElement {
-         protected AnnotationElement annotationElement;
+        protected AnnotationElement annotationElement;
 
-        public RewrittenAnnotationElement( AnnotationElement annotationElement) {
+        public RewrittenAnnotationElement(AnnotationElement annotationElement) {
             this.annotationElement = annotationElement;
         }
 
-         @Override public String getName() {
+        @Override
+        public String getName() {
             return annotationElement.getName();
         }
 
-         @Override public EncodedValue getValue() {
+        @Override
+        public EncodedValue getValue() {
             return rewriters.getEncodedValueRewriter().rewrite(annotationElement.getValue());
         }
     }

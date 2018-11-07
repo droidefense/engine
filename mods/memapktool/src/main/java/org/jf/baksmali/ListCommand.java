@@ -51,11 +51,12 @@ public class ListCommand extends Command {
             description = "Show usage information")
     private boolean help;
 
-    public ListCommand( List<JCommander> commandAncestors) {
+    public ListCommand(List<JCommander> commandAncestors) {
         super(commandAncestors);
     }
 
-    @Override protected void setupCommand(JCommander jc) {
+    @Override
+    protected void setupCommand(JCommander jc) {
         List<JCommander> hierarchy = getCommandHierarchy();
 
         ExtendedCommands.addExtendedCommand(jc, new ListStringsCommand(hierarchy));
@@ -71,14 +72,15 @@ public class ListCommand extends Command {
         ExtendedCommands.addExtendedCommand(jc, new ListHlepCommand(hierarchy));
     }
 
-    @Override public void run() {
+    @Override
+    public void run() {
         JCommander jc = getJCommander();
         if (help || jc.getParsedCommand() == null) {
             usage();
             return;
         }
 
-        Command command = (Command)jc.getCommands().get(jc.getParsedCommand()).getObjects().get(0);
+        Command command = (Command) jc.getCommands().get(jc.getParsedCommand()).getObjects().get(0);
         command.run();
     }
 }

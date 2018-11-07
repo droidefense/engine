@@ -37,14 +37,13 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction21s;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class ImmutableInstruction21s extends ImmutableInstruction implements Instruction21s {
     public static final Format FORMAT = Format.Format21s;
 
     protected final int registerA;
     protected final int literal;
 
-    public ImmutableInstruction21s( Opcode opcode,
+    public ImmutableInstruction21s(Opcode opcode,
                                    int registerA,
                                    int literal) {
         super(opcode);
@@ -54,7 +53,7 @@ public class ImmutableInstruction21s extends ImmutableInstruction implements Ins
 
     public static ImmutableInstruction21s of(Instruction21s instruction) {
         if (instruction instanceof ImmutableInstruction21s) {
-            return (ImmutableInstruction21s)instruction;
+            return (ImmutableInstruction21s) instruction;
         }
         return new ImmutableInstruction21s(
                 instruction.getOpcode(),
@@ -62,9 +61,23 @@ public class ImmutableInstruction21s extends ImmutableInstruction implements Ins
                 instruction.getNarrowLiteral());
     }
 
-    @Override public int getRegisterA() { return registerA; }
-    @Override public int getNarrowLiteral() { return literal; }
-    @Override public long getWideLiteral() { return literal; }
+    @Override
+    public int getRegisterA() {
+        return registerA;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public int getNarrowLiteral() {
+        return literal;
+    }
+
+    @Override
+    public long getWideLiteral() {
+        return literal;
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

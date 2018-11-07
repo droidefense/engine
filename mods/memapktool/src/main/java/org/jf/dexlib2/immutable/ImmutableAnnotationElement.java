@@ -40,53 +40,56 @@ import org.jf.dexlib2.immutable.value.ImmutableEncodedValueFactory;
 import org.jf.util.ImmutableConverter;
 
 
-
-
 public class ImmutableAnnotationElement extends BaseAnnotationElement {
-     protected final String name;
-     protected final ImmutableEncodedValue value;
+    private static final ImmutableConverter<ImmutableAnnotationElement, AnnotationElement> CONVERTER =
+            new ImmutableConverter<ImmutableAnnotationElement, AnnotationElement>() {
+                @Override
+                protected boolean isImmutable(AnnotationElement item) {
+                    return item instanceof ImmutableAnnotationElement;
+                }
 
-    public ImmutableAnnotationElement( String name,
-                                       EncodedValue value) {
+
+                @Override
+                protected ImmutableAnnotationElement makeImmutable(AnnotationElement item) {
+                    return ImmutableAnnotationElement.of(item);
+                }
+            };
+    protected final String name;
+    protected final ImmutableEncodedValue value;
+
+    public ImmutableAnnotationElement(String name,
+                                      EncodedValue value) {
         this.name = name;
         this.value = ImmutableEncodedValueFactory.of(value);
     }
 
-    public ImmutableAnnotationElement( String name,
-                                       ImmutableEncodedValue value) {
+    public ImmutableAnnotationElement(String name,
+                                      ImmutableEncodedValue value) {
         this.name = name;
         this.value = value;
     }
 
     public static ImmutableAnnotationElement of(AnnotationElement annotationElement) {
         if (annotationElement instanceof ImmutableAnnotationElement) {
-            return (ImmutableAnnotationElement)annotationElement;
+            return (ImmutableAnnotationElement) annotationElement;
         }
         return new ImmutableAnnotationElement(
                 annotationElement.getName(),
                 annotationElement.getValue());
     }
 
-     @Override public String getName() { return name; }
-     @Override public EncodedValue getValue() { return value; }
-
-
     public static ImmutableSet<ImmutableAnnotationElement> immutableSetOf(
             Iterable<? extends AnnotationElement> list) {
         return CONVERTER.toSet(list);
     }
 
-    private static final ImmutableConverter<ImmutableAnnotationElement, AnnotationElement> CONVERTER =
-            new ImmutableConverter<ImmutableAnnotationElement, AnnotationElement>() {
-                @Override
-                protected boolean isImmutable( AnnotationElement item) {
-                    return item instanceof ImmutableAnnotationElement;
-                }
+    @Override
+    public String getName() {
+        return name;
+    }
 
-
-                @Override
-                protected ImmutableAnnotationElement makeImmutable( AnnotationElement item) {
-                    return ImmutableAnnotationElement.of(item);
-                }
-            };
+    @Override
+    public EncodedValue getValue() {
+        return value;
+    }
 }

@@ -36,20 +36,22 @@ import org.jf.dexlib2.iface.reference.FieldReference;
 import org.jf.dexlib2.iface.value.EnumEncodedValue;
 
 
-
 public class ImmutableEnumEncodedValue extends BaseEnumEncodedValue implements ImmutableEncodedValue {
-     protected final FieldReference value;
+    protected final FieldReference value;
 
-    public ImmutableEnumEncodedValue( FieldReference value) {
+    public ImmutableEnumEncodedValue(FieldReference value) {
         this.value = value;
     }
 
     public static ImmutableEnumEncodedValue of(EnumEncodedValue enumEncodedValue) {
         if (enumEncodedValue instanceof ImmutableEnumEncodedValue) {
-            return (ImmutableEnumEncodedValue)enumEncodedValue;
+            return (ImmutableEnumEncodedValue) enumEncodedValue;
         }
         return new ImmutableEnumEncodedValue(enumEncodedValue.getValue());
     }
 
-     @Override public FieldReference getValue() { return value; }
+    @Override
+    public FieldReference getValue() {
+        return value;
+    }
 }

@@ -39,18 +39,18 @@ import java.io.IOException;
 public class LocalFormatter {
     /**
      * Writes out the given local info
-     *
+     * <p>
      * The written string will be something like:
-     *
+     * <p>
      * "localVar":Ljava/lang/String;, "SomeSignature"
      * "localVar":Ljava/lang/String;
      * "localVar":V, "SomeSignature"
      * null:Ljava/lang/String;, "SomeSignature"
      * null:V, "SomeSignature"
-     *
+     * <p>
      * One of name, type or signature must be non-null
      */
-    public static void writeLocal( IndentingWriter writer, String name, String type,
+    public static void writeLocal(IndentingWriter writer, String name, String type,
                                   String signature) throws IOException {
         if (name != null) {
             ReferenceFormatter.writeStringReference(writer, name);

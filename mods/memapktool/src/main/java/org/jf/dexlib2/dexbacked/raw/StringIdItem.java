@@ -37,20 +37,19 @@ import org.jf.dexlib2.util.AnnotatedBytes;
 import org.jf.util.StringUtils;
 
 
-
-
 public class StringIdItem {
     public static final int ITEM_SIZE = 4;
 
 
-    public static SectionAnnotator makeAnnotator( DexAnnotator annotator,  MapItem mapItem) {
+    public static SectionAnnotator makeAnnotator(DexAnnotator annotator, MapItem mapItem) {
         return new SectionAnnotator(annotator, mapItem) {
-             @Override public String getItemName() {
+            @Override
+            public String getItemName() {
                 return "string_id_item";
             }
 
             @Override
-            public void annotateItem( AnnotatedBytes out, int itemIndex, String itemIdentity) {
+            public void annotateItem(AnnotatedBytes out, int itemIndex, String itemIdentity) {
                 int stringDataOffset = dexFile.readSmallUint(out.getCursor());
                 try {
                     String stringValue = dexFile.getString(itemIndex);
@@ -69,12 +68,12 @@ public class StringIdItem {
     }
 
 
-    public static String getReferenceAnnotation( DexBackedDexFile dexFile, int stringIndex) {
+    public static String getReferenceAnnotation(DexBackedDexFile dexFile, int stringIndex) {
         return getReferenceAnnotation(dexFile, stringIndex, false);
 
     }
 
-    public static String getReferenceAnnotation( DexBackedDexFile dexFile, int stringIndex, boolean quote) {
+    public static String getReferenceAnnotation(DexBackedDexFile dexFile, int stringIndex, boolean quote) {
         try {
             String string = dexFile.getString(stringIndex);
             if (quote) {
@@ -88,13 +87,12 @@ public class StringIdItem {
     }
 
 
-
-    public static String getOptionalReferenceAnnotation( DexBackedDexFile dexFile, int stringIndex) {
+    public static String getOptionalReferenceAnnotation(DexBackedDexFile dexFile, int stringIndex) {
         return getOptionalReferenceAnnotation(dexFile, stringIndex, false);
 
     }
 
-    public static String getOptionalReferenceAnnotation( DexBackedDexFile dexFile, int stringIndex,
+    public static String getOptionalReferenceAnnotation(DexBackedDexFile dexFile, int stringIndex,
                                                         boolean quote) {
         if (stringIndex == -1) {
             return "string_id_item[NO_INDEX]";
@@ -102,7 +100,7 @@ public class StringIdItem {
         return getReferenceAnnotation(dexFile, stringIndex, quote);
     }
 
-    public static String[] getStrings( RawDexFile dexFile) {
+    public static String[] getStrings(RawDexFile dexFile) {
         MapItem mapItem = dexFile.getMapItemForSection(ItemType.STRING_ID_ITEM);
         if (mapItem == null) {
             return new String[0];
@@ -110,7 +108,7 @@ public class StringIdItem {
 
         int stringCount = mapItem.getItemCount();
         String[] ret = new String[stringCount];
-        for (int i=0; i<stringCount; i++) {
+        for (int i = 0; i < stringCount; i++) {
             ret[i] = dexFile.getString(i);
         }
         return ret;

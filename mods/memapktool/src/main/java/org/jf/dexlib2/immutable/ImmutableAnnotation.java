@@ -41,12 +41,25 @@ import org.jf.util.ImmutableUtils;
 import java.util.Collection;
 
 public class ImmutableAnnotation extends BaseAnnotation {
+    private static final ImmutableConverter<ImmutableAnnotation, Annotation> CONVERTER =
+            new ImmutableConverter<ImmutableAnnotation, Annotation>() {
+                @Override
+                protected boolean isImmutable(Annotation item) {
+                    return item instanceof ImmutableAnnotation;
+                }
+
+
+                @Override
+                protected ImmutableAnnotation makeImmutable(Annotation item) {
+                    return ImmutableAnnotation.of(item);
+                }
+            };
     protected final int visibility;
-     protected final String type;
-     protected final ImmutableSet<? extends ImmutableAnnotationElement> elements;
+    protected final String type;
+    protected final ImmutableSet<? extends ImmutableAnnotationElement> elements;
 
     public ImmutableAnnotation(int visibility,
-                                String type,
+                               String type,
                                Collection<? extends AnnotationElement> elements) {
         this.visibility = visibility;
         this.type = type;
@@ -54,7 +67,7 @@ public class ImmutableAnnotation extends BaseAnnotation {
     }
 
     public ImmutableAnnotation(int visibility,
-                                String type,
+                               String type,
                                ImmutableSet<? extends ImmutableAnnotationElement> elements) {
         this.visibility = visibility;
         this.type = type;
@@ -62,8 +75,8 @@ public class ImmutableAnnotation extends BaseAnnotation {
     }
 
     public static ImmutableAnnotation of(Annotation annotation) {
-        if (annotation instanceof  ImmutableAnnotation) {
-            return (ImmutableAnnotation)annotation;
+        if (annotation instanceof ImmutableAnnotation) {
+            return (ImmutableAnnotation) annotation;
         }
         return new ImmutableAnnotation(
                 annotation.getVisibility(),
@@ -71,26 +84,22 @@ public class ImmutableAnnotation extends BaseAnnotation {
                 annotation.getElements());
     }
 
-    @Override public int getVisibility() { return visibility; }
-     @Override public String getType() { return type; }
-     @Override public ImmutableSet<? extends ImmutableAnnotationElement> getElements() { return elements; }
-
-
     public static ImmutableSet<ImmutableAnnotation> immutableSetOf(Iterable<? extends Annotation> list) {
         return CONVERTER.toSet(list);
     }
 
-    private static final ImmutableConverter<ImmutableAnnotation, Annotation> CONVERTER =
-            new ImmutableConverter<ImmutableAnnotation, Annotation>() {
-                @Override
-                protected boolean isImmutable( Annotation item) {
-                    return item instanceof ImmutableAnnotation;
-                }
+    @Override
+    public int getVisibility() {
+        return visibility;
+    }
 
+    @Override
+    public String getType() {
+        return type;
+    }
 
-                @Override
-                protected ImmutableAnnotation makeImmutable( Annotation item) {
-                    return ImmutableAnnotation.of(item);
-                }
-            };
+    @Override
+    public ImmutableSet<? extends ImmutableAnnotationElement> getElements() {
+        return elements;
+    }
 }

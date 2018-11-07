@@ -35,18 +35,22 @@ import org.jf.util.ExceptionWithContext;
 import org.jf.util.Utf8Utils;
 
 
-
 public class BaseDexReader<T extends BaseDexBuffer> {
-     public final T dexBuf;
+    public final T dexBuf;
     private int offset;
 
-    public BaseDexReader( T dexBuf, int offset) {
+    public BaseDexReader(T dexBuf, int offset) {
         this.dexBuf = dexBuf;
         this.offset = offset;
     }
 
-    public int getOffset() { return offset; }
-    public void setOffset(int offset) { this.offset = offset; }
+    public int getOffset() {
+        return offset;
+    }
+
+    public void setOffset(int offset) {
+        this.offset = offset;
+    }
 
     public int readSleb128() {
         int end = dexBuf.baseOffset + offset;
@@ -105,7 +109,7 @@ public class BaseDexReader<T extends BaseDexBuffer> {
                         currentByteValue = buf[end++] & 0xff;
                         if (currentByteValue > 0x7f) {
                             throw new ExceptionWithContext(
-                                "Invalid sleb128 integer encountered at offset 0x%x", offset);
+                                    "Invalid sleb128 integer encountered at offset 0x%x", offset);
                         }
                     }
                 }
@@ -183,13 +187,13 @@ public class BaseDexReader<T extends BaseDexBuffer> {
                         // MSB shouldn't be set on last byte
                         if (currentByteValue < 0) {
                             throw new ExceptionWithContext(
-                                "Invalid uleb128 integer encountered at offset 0x%x", offset);
+                                    "Invalid uleb128 integer encountered at offset 0x%x", offset);
                         } else if ((currentByteValue & 0xf) > 0x07) {
                             if (!allowLarge) {
                                 // for non-large uleb128s, we assume most significant bit of the result will not be
                                 // set, so that it can fit into a signed integer without wrapping
                                 throw new ExceptionWithContext(
-                                    "Encountered valid uleb128 that is out of range at offset 0x%x", offset);
+                                        "Encountered valid uleb128 that is out of range at offset 0x%x", offset);
                             }
                         }
                     }
@@ -203,12 +207,12 @@ public class BaseDexReader<T extends BaseDexBuffer> {
 
     /**
      * Reads a "large" uleb128. That is, one that may legitimately be greater than a signed int.
-     *
+     * <p>
      * The value is returned as if it were signed. i.e. a value of 0xFFFFFFFF would be returned as -1. It is up to the
      * caller to handle the value appropriately.
      */
     public int readLargeUleb128() {
-       return readUleb128(true);
+        return readUleb128(true);
     }
 
     /**
@@ -270,7 +274,7 @@ public class BaseDexReader<T extends BaseDexBuffer> {
                         // MSB shouldn't be set on last byte
                         if (currentByteValue < 0) {
                             throw new ExceptionWithContext(
-                                "Invalid uleb128 integer encountered at offset 0x%x", offset);
+                                    "Invalid uleb128 integer encountered at offset 0x%x", offset);
                         }
                     }
                 }
@@ -370,16 +374,41 @@ public class BaseDexReader<T extends BaseDexBuffer> {
         return result;
     }
 
-    public void skipByte() { offset++; }
-    public void moveRelative(int i) { offset += i; }
+    public void skipByte() {
+        offset++;
+    }
 
-    public int readSmallUint(int offset) { return dexBuf.readSmallUint(offset); }
-    public int readUshort(int offset) { return dexBuf.readUshort(offset); }
-    public int readUbyte(int offset) { return dexBuf.readUbyte(offset); }
-    public long readLong(int offset) { return dexBuf.readLong(offset); }
-    public int readInt(int offset) { return dexBuf.readInt(offset); }
-    public int readShort(int offset) { return dexBuf.readShort(offset); }
-    public int readByte(int offset) { return dexBuf.readByte(offset); }
+    public void moveRelative(int i) {
+        offset += i;
+    }
+
+    public int readSmallUint(int offset) {
+        return dexBuf.readSmallUint(offset);
+    }
+
+    public int readUshort(int offset) {
+        return dexBuf.readUshort(offset);
+    }
+
+    public int readUbyte(int offset) {
+        return dexBuf.readUbyte(offset);
+    }
+
+    public long readLong(int offset) {
+        return dexBuf.readLong(offset);
+    }
+
+    public int readInt(int offset) {
+        return dexBuf.readInt(offset);
+    }
+
+    public int readShort(int offset) {
+        return dexBuf.readShort(offset);
+    }
+
+    public int readByte(int offset) {
+        return dexBuf.readByte(offset);
+    }
 
     public int readSizedInt(int bytes) {
         int o = dexBuf.baseOffset + offset;
@@ -389,18 +418,18 @@ public class BaseDexReader<T extends BaseDexBuffer> {
         switch (bytes) {
             case 4:
                 result = (buf[o] & 0xff) |
-                        ((buf[o+1] & 0xff) << 8) |
-                        ((buf[o+2] & 0xff) << 16) |
-                        (buf[o+3] << 24);
+                        ((buf[o + 1] & 0xff) << 8) |
+                        ((buf[o + 2] & 0xff) << 16) |
+                        (buf[o + 3] << 24);
                 break;
             case 3:
                 result = (buf[o] & 0xff) |
-                        ((buf[o+1] & 0xff) << 8) |
-                        ((buf[o+2]) << 16);
+                        ((buf[o + 1] & 0xff) << 8) |
+                        ((buf[o + 2]) << 16);
                 break;
             case 2:
                 result = (buf[o] & 0xff) |
-                        ((buf[o+1]) << 8);
+                        ((buf[o + 1]) << 8);
                 break;
             case 1:
                 result = buf[o];
@@ -419,7 +448,7 @@ public class BaseDexReader<T extends BaseDexBuffer> {
         int result = 0;
         switch (bytes) {
             case 4:
-                int b = buf[o+3];
+                int b = buf[o + 3];
                 if (b < 0) {
                     throw new ExceptionWithContext(
                             "Encountered valid sized uint that is out of range at offset 0x%x", offset);
@@ -427,10 +456,10 @@ public class BaseDexReader<T extends BaseDexBuffer> {
                 result = b << 24;
                 // fall-through
             case 3:
-                result |= (buf[o+2] & 0xff) << 16;
+                result |= (buf[o + 2] & 0xff) << 16;
                 // fall-through
             case 2:
-                result |= (buf[o+1] & 0xff) << 8;
+                result |= (buf[o + 1] & 0xff) << 8;
                 // fall-through
             case 1:
                 result |= (buf[o] & 0xff);
@@ -450,18 +479,18 @@ public class BaseDexReader<T extends BaseDexBuffer> {
         switch (bytes) {
             case 4:
                 result = (buf[o] & 0xff) |
-                        ((buf[o+1] & 0xff) << 8) |
-                        ((buf[o+2] & 0xff) << 16) |
-                        (buf[o+3] << 24);
+                        ((buf[o + 1] & 0xff) << 8) |
+                        ((buf[o + 2] & 0xff) << 16) |
+                        (buf[o + 3] << 24);
                 break;
             case 3:
                 result = (buf[o] & 0xff) << 8 |
-                        ((buf[o+1] & 0xff) << 16) |
-                        (buf[o+2] << 24);
+                        ((buf[o + 1] & 0xff) << 16) |
+                        (buf[o + 2] << 24);
                 break;
             case 2:
                 result = (buf[o] & 0xff) << 16 |
-                        (buf[o+1] << 24);
+                        (buf[o + 1] << 24);
                 break;
             case 1:
                 result = buf[o] << 24;
@@ -482,55 +511,55 @@ public class BaseDexReader<T extends BaseDexBuffer> {
         switch (bytes) {
             case 8:
                 result = (buf[o] & 0xff) |
-                        ((buf[o+1] & 0xff) << 8) |
-                        ((buf[o+2] & 0xff) << 16) |
-                        ((buf[o+3] & 0xffL) << 24) |
-                        ((buf[o+4] & 0xffL) << 32) |
-                        ((buf[o+5] & 0xffL) << 40) |
-                        ((buf[o+6] & 0xffL) << 48) |
-                        (((long)buf[o+7]) << 56);
+                        ((buf[o + 1] & 0xff) << 8) |
+                        ((buf[o + 2] & 0xff) << 16) |
+                        ((buf[o + 3] & 0xffL) << 24) |
+                        ((buf[o + 4] & 0xffL) << 32) |
+                        ((buf[o + 5] & 0xffL) << 40) |
+                        ((buf[o + 6] & 0xffL) << 48) |
+                        (((long) buf[o + 7]) << 56);
                 break;
             case 7:
                 result = ((buf[o] & 0xff)) << 8 |
-                        ((buf[o+1] & 0xff) << 16) |
-                        ((buf[o+2] & 0xffL) << 24) |
-                        ((buf[o+3] & 0xffL) << 32) |
-                        ((buf[o+4] & 0xffL) << 40) |
-                        ((buf[o+5] & 0xffL) << 48) |
-                        (((long)buf[o+6]) << 56);
+                        ((buf[o + 1] & 0xff) << 16) |
+                        ((buf[o + 2] & 0xffL) << 24) |
+                        ((buf[o + 3] & 0xffL) << 32) |
+                        ((buf[o + 4] & 0xffL) << 40) |
+                        ((buf[o + 5] & 0xffL) << 48) |
+                        (((long) buf[o + 6]) << 56);
                 break;
             case 6:
                 result = ((buf[o] & 0xff)) << 16 |
-                        ((buf[o+1] & 0xffL) << 24) |
-                        ((buf[o+2] & 0xffL) << 32) |
-                        ((buf[o+3] & 0xffL) << 40) |
-                        ((buf[o+4] & 0xffL) << 48) |
-                        (((long)buf[o+5]) << 56);
+                        ((buf[o + 1] & 0xffL) << 24) |
+                        ((buf[o + 2] & 0xffL) << 32) |
+                        ((buf[o + 3] & 0xffL) << 40) |
+                        ((buf[o + 4] & 0xffL) << 48) |
+                        (((long) buf[o + 5]) << 56);
                 break;
             case 5:
                 result = ((buf[o] & 0xffL)) << 24 |
-                        ((buf[o+1] & 0xffL) << 32) |
-                        ((buf[o+2] & 0xffL) << 40) |
-                        ((buf[o+3] & 0xffL) << 48) |
-                        (((long)buf[o+4]) << 56);
+                        ((buf[o + 1] & 0xffL) << 32) |
+                        ((buf[o + 2] & 0xffL) << 40) |
+                        ((buf[o + 3] & 0xffL) << 48) |
+                        (((long) buf[o + 4]) << 56);
                 break;
             case 4:
                 result = ((buf[o] & 0xffL)) << 32 |
-                        ((buf[o+1] & 0xffL) << 40) |
-                        ((buf[o+2] & 0xffL) << 48) |
-                        (((long)buf[o+3]) << 56);
+                        ((buf[o + 1] & 0xffL) << 40) |
+                        ((buf[o + 2] & 0xffL) << 48) |
+                        (((long) buf[o + 3]) << 56);
                 break;
             case 3:
                 result = ((buf[o] & 0xffL)) << 40 |
-                        ((buf[o+1] & 0xffL) << 48) |
-                        (((long)buf[o+2]) << 56);
+                        ((buf[o + 1] & 0xffL) << 48) |
+                        (((long) buf[o + 2]) << 56);
                 break;
             case 2:
                 result = ((buf[o] & 0xffL)) << 48 |
-                        (((long)buf[o+1]) << 56);
+                        (((long) buf[o + 1]) << 56);
                 break;
             case 1:
-                result = ((long)buf[o]) << 56;
+                result = ((long) buf[o]) << 56;
                 break;
             default:
                 throw new ExceptionWithContext(
@@ -548,52 +577,52 @@ public class BaseDexReader<T extends BaseDexBuffer> {
         switch (bytes) {
             case 8:
                 result = (buf[o] & 0xff) |
-                        ((buf[o+1] & 0xff) << 8) |
-                        ((buf[o+2] & 0xff) << 16) |
-                        ((buf[o+3] & 0xffL) << 24) |
-                        ((buf[o+4] & 0xffL) << 32) |
-                        ((buf[o+5] & 0xffL) << 40) |
-                        ((buf[o+6] & 0xffL) << 48) |
-                        (((long)buf[o+7]) << 56);
+                        ((buf[o + 1] & 0xff) << 8) |
+                        ((buf[o + 2] & 0xff) << 16) |
+                        ((buf[o + 3] & 0xffL) << 24) |
+                        ((buf[o + 4] & 0xffL) << 32) |
+                        ((buf[o + 5] & 0xffL) << 40) |
+                        ((buf[o + 6] & 0xffL) << 48) |
+                        (((long) buf[o + 7]) << 56);
                 break;
             case 7:
                 result = (buf[o] & 0xff) |
-                        ((buf[o+1] & 0xff) << 8) |
-                        ((buf[o+2] & 0xff) << 16) |
-                        ((buf[o+3] & 0xffL) << 24) |
-                        ((buf[o+4] & 0xffL) << 32) |
-                        ((buf[o+5] & 0xffL) << 40) |
-                        ((long)(buf[o+6]) << 48);
+                        ((buf[o + 1] & 0xff) << 8) |
+                        ((buf[o + 2] & 0xff) << 16) |
+                        ((buf[o + 3] & 0xffL) << 24) |
+                        ((buf[o + 4] & 0xffL) << 32) |
+                        ((buf[o + 5] & 0xffL) << 40) |
+                        ((long) (buf[o + 6]) << 48);
                 break;
             case 6:
                 result = (buf[o] & 0xff) |
-                        ((buf[o+1] & 0xff) << 8) |
-                        ((buf[o+2] & 0xff) << 16) |
-                        ((buf[o+3] & 0xffL) << 24) |
-                        ((buf[o+4] & 0xffL) << 32) |
-                        ((long)(buf[o+5]) << 40);
+                        ((buf[o + 1] & 0xff) << 8) |
+                        ((buf[o + 2] & 0xff) << 16) |
+                        ((buf[o + 3] & 0xffL) << 24) |
+                        ((buf[o + 4] & 0xffL) << 32) |
+                        ((long) (buf[o + 5]) << 40);
                 break;
             case 5:
                 result = (buf[o] & 0xff) |
-                        ((buf[o+1] & 0xff) << 8) |
-                        ((buf[o+2] & 0xff) << 16) |
-                        ((buf[o+3] & 0xffL) << 24) |
-                        ((long)(buf[o+4]) << 32);
+                        ((buf[o + 1] & 0xff) << 8) |
+                        ((buf[o + 2] & 0xff) << 16) |
+                        ((buf[o + 3] & 0xffL) << 24) |
+                        ((long) (buf[o + 4]) << 32);
                 break;
             case 4:
                 result = (buf[o] & 0xff) |
-                        ((buf[o+1] & 0xff) << 8) |
-                        ((buf[o+2] & 0xff) << 16) |
-                        (((long)buf[o+3]) << 24);
+                        ((buf[o + 1] & 0xff) << 8) |
+                        ((buf[o + 2] & 0xff) << 16) |
+                        (((long) buf[o + 3]) << 24);
                 break;
             case 3:
                 result = (buf[o] & 0xff) |
-                        ((buf[o+1] & 0xff) << 8) |
-                        (buf[o+2] << 16);
+                        ((buf[o + 1] & 0xff) << 8) |
+                        (buf[o + 2] << 16);
                 break;
             case 2:
                 result = (buf[o] & 0xff) |
-                        (buf[o+1] << 8);
+                        (buf[o + 1] << 8);
                 break;
             case 1:
                 result = buf[o];
@@ -617,7 +646,7 @@ public class BaseDexReader<T extends BaseDexBuffer> {
     public int peekStringLength(int utf16Length) {
         int[] ret = new int[1];
         Utf8Utils.utf8BytesWithUtf16LengthToString(
-            dexBuf.buf, dexBuf.baseOffset + offset, utf16Length, ret);
+                dexBuf.buf, dexBuf.baseOffset + offset, utf16Length, ret);
         return ret[0];
     }
 }

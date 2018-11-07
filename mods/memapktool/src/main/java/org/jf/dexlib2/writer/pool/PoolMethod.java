@@ -43,49 +43,57 @@ import java.util.Set;
 
 
 class PoolMethod extends BaseMethodReference implements Method {
-     private final Method method;
-    protected int annotationSetRefListOffset = DexPool.NO_OFFSET;
-    protected int codeItemOffset = DexPool.NO_OFFSET;
-
     public static final Function<Method, PoolMethod> TRANSFORM = new Function<Method, PoolMethod>() {
-        @Override public PoolMethod apply(Method method) {
+        @Override
+        public PoolMethod apply(Method method) {
             return new PoolMethod(method);
         }
     };
+    private final Method method;
+    protected int annotationSetRefListOffset = DexPool.NO_OFFSET;
+    protected int codeItemOffset = DexPool.NO_OFFSET;
 
-    PoolMethod( Method method) {
+    PoolMethod(Method method) {
         this.method = method;
     }
 
-    @Override  public String getDefiningClass() {
+    @Override
+    public String getDefiningClass() {
         return method.getDefiningClass();
     }
 
-    @Override  public String getName() {
+    @Override
+    public String getName() {
         return method.getName();
     }
 
-    @Override  public List<? extends CharSequence> getParameterTypes() {
+    @Override
+    public List<? extends CharSequence> getParameterTypes() {
         return method.getParameterTypes();
     }
 
-    @Override  public List<? extends MethodParameter> getParameters() {
+    @Override
+    public List<? extends MethodParameter> getParameters() {
         return method.getParameters();
     }
 
-    @Override  public String getReturnType() {
+    @Override
+    public String getReturnType() {
         return method.getReturnType();
     }
 
-    @Override public int getAccessFlags() {
+    @Override
+    public int getAccessFlags() {
         return method.getAccessFlags();
     }
 
-    @Override  public Set<? extends Annotation> getAnnotations() {
+    @Override
+    public Set<? extends Annotation> getAnnotations() {
         return method.getAnnotations();
     }
 
-    @Override public MethodImplementation getImplementation() {
+    @Override
+    public MethodImplementation getImplementation() {
         return method.getImplementation();
     }
 }

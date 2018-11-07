@@ -45,21 +45,23 @@ public class ParameterIterator implements Iterator<MethodParameter> {
     private final Iterator<? extends Set<? extends Annotation>> parameterAnnotations;
     private final Iterator<String> parameterNames;
 
-    public ParameterIterator( List<? extends CharSequence> parameterTypes,
-                              List<? extends Set<? extends Annotation>> parameterAnnotations,
-                              Iterator<String> parameterNames) {
+    public ParameterIterator(List<? extends CharSequence> parameterTypes,
+                             List<? extends Set<? extends Annotation>> parameterAnnotations,
+                             Iterator<String> parameterNames) {
         this.parameterTypes = parameterTypes.iterator();
         this.parameterAnnotations = parameterAnnotations.iterator();
         this.parameterNames = parameterNames;
     }
 
-    @Override public boolean hasNext() {
+    @Override
+    public boolean hasNext() {
         return parameterTypes.hasNext();
     }
 
-    @Override public MethodParameter next() {
-         final String type = parameterTypes.next().toString();
-         final Set<? extends Annotation> annotations;
+    @Override
+    public MethodParameter next() {
+        final String type = parameterTypes.next().toString();
+        final Set<? extends Annotation> annotations;
         final String name;
 
         if (parameterAnnotations.hasNext()) {
@@ -75,13 +77,25 @@ public class ParameterIterator implements Iterator<MethodParameter> {
         }
 
         return new BaseMethodParameter() {
-             @Override public Set<? extends Annotation> getAnnotations() { return annotations; }
-            @Override public String getName() { return name; }
-             @Override public String getType() { return type; }
+            @Override
+            public Set<? extends Annotation> getAnnotations() {
+                return annotations;
+            }
+
+            @Override
+            public String getName() {
+                return name;
+            }
+
+            @Override
+            public String getType() {
+                return type;
+            }
         };
     }
 
-    @Override public void remove() {
+    @Override
+    public void remove() {
         throw new UnsupportedOperationException();
     }
 }

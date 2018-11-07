@@ -47,27 +47,33 @@ public class ReflectionField extends BaseFieldReference implements Field {
         this.field = field;
     }
 
-    @Override public int getAccessFlags() {
+    @Override
+    public int getAccessFlags() {
         return field.getModifiers();
     }
 
-    @Override public EncodedValue getInitialValue() {
+    @Override
+    public EncodedValue getInitialValue() {
         return null;
     }
 
-     @Override public Set<? extends Annotation> getAnnotations() {
+    @Override
+    public Set<? extends Annotation> getAnnotations() {
         return ImmutableSet.of();
     }
 
-     @Override public String getDefiningClass() {
+    @Override
+    public String getDefiningClass() {
         return ReflectionUtils.javaToDexName(field.getDeclaringClass().getName());
     }
 
-     @Override public String getName() {
+    @Override
+    public String getName() {
         return field.getName();
     }
 
-     @Override public String getType() {
+    @Override
+    public String getType() {
         return ReflectionUtils.javaToDexName(field.getType().getName());
     }
 }

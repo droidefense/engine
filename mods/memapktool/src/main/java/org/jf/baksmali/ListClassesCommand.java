@@ -42,18 +42,19 @@ import java.util.List;
 @Parameters(commandDescription = "Lists the classes in a dex file.")
 @ExtendedParameters(
         commandName = "classes",
-        commandAliases = { "class", "c" })
+        commandAliases = {"class", "c"})
 public class ListClassesCommand extends DexInputCommand {
 
     @Parameter(names = {"-h", "-?", "--help"}, help = true,
             description = "Show usage information")
     private boolean help;
 
-    public ListClassesCommand( List<JCommander> commandAncestors) {
+    public ListClassesCommand(List<JCommander> commandAncestors) {
         super(commandAncestors);
     }
 
-    @Override public void run() {
+    @Override
+    public void run() {
         if (help || inputList == null || inputList.isEmpty()) {
             usage();
             return;
@@ -68,7 +69,7 @@ public class ListClassesCommand extends DexInputCommand {
         String input = inputList.get(0);
         loadDexFile(input);
 
-        for (ClassDef classDef: dexFile.getClasses()) {
+        for (ClassDef classDef : dexFile.getClasses()) {
             System.out.println(classDef.getType());
         }
     }

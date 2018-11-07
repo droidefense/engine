@@ -45,9 +45,9 @@ import java.util.List;
 
 public class ImmutableMethodImplementation implements MethodImplementation {
     protected final int registerCount;
-     protected final ImmutableList<? extends ImmutableInstruction> instructions;
-     protected final ImmutableList<? extends ImmutableTryBlock> tryBlocks;
-     protected final ImmutableList<? extends ImmutableDebugItem> debugItems;
+    protected final ImmutableList<? extends ImmutableInstruction> instructions;
+    protected final ImmutableList<? extends ImmutableTryBlock> tryBlocks;
+    protected final ImmutableList<? extends ImmutableDebugItem> debugItems;
 
     public ImmutableMethodImplementation(int registerCount,
                                          Iterable<? extends Instruction> instructions,
@@ -75,7 +75,7 @@ public class ImmutableMethodImplementation implements MethodImplementation {
             return null;
         }
         if (methodImplementation instanceof ImmutableMethodImplementation) {
-            return (ImmutableMethodImplementation)methodImplementation;
+            return (ImmutableMethodImplementation) methodImplementation;
         }
         return new ImmutableMethodImplementation(
                 methodImplementation.getRegisterCount(),
@@ -84,8 +84,23 @@ public class ImmutableMethodImplementation implements MethodImplementation {
                 methodImplementation.getDebugItems());
     }
 
-    @Override public int getRegisterCount() { return registerCount; }
-     @Override public ImmutableList<? extends ImmutableInstruction> getInstructions() { return instructions; }
-     @Override public ImmutableList<? extends ImmutableTryBlock> getTryBlocks() { return tryBlocks; }
-     @Override public ImmutableList<? extends ImmutableDebugItem> getDebugItems() { return debugItems; }
+    @Override
+    public int getRegisterCount() {
+        return registerCount;
+    }
+
+    @Override
+    public ImmutableList<? extends ImmutableInstruction> getInstructions() {
+        return instructions;
+    }
+
+    @Override
+    public ImmutableList<? extends ImmutableTryBlock> getTryBlocks() {
+        return tryBlocks;
+    }
+
+    @Override
+    public ImmutableList<? extends ImmutableDebugItem> getDebugItems() {
+        return debugItems;
+    }
 }

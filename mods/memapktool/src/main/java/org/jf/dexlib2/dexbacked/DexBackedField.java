@@ -44,8 +44,8 @@ import org.jf.dexlib2.iface.value.EncodedValue;
 import java.util.Set;
 
 public class DexBackedField extends BaseFieldReference implements Field {
-     public final DexBackedDexFile dexFile;
-     public final ClassDef classDef;
+    public final DexBackedDexFile dexFile;
+    public final ClassDef classDef;
 
     public final int accessFlags;
     public final EncodedValue initialValue;
@@ -57,11 +57,11 @@ public class DexBackedField extends BaseFieldReference implements Field {
 
     private int fieldIdItemOffset;
 
-    public DexBackedField( DexReader reader,
-                           DexBackedClassDef classDef,
+    public DexBackedField(DexReader reader,
+                          DexBackedClassDef classDef,
                           int previousFieldIndex,
-                           StaticInitialValueIterator staticInitialValueIterator,
-                           AnnotationsDirectory.AnnotationIterator annotationIterator) {
+                          StaticInitialValueIterator staticInitialValueIterator,
+                          AnnotationsDirectory.AnnotationIterator annotationIterator) {
         this.dexFile = reader.dexBuf;
         this.classDef = classDef;
 
@@ -77,10 +77,10 @@ public class DexBackedField extends BaseFieldReference implements Field {
         this.initialValue = staticInitialValueIterator.getNextOrNull();
     }
 
-    public DexBackedField( DexReader reader,
-                           DexBackedClassDef classDef,
+    public DexBackedField(DexReader reader,
+                          DexBackedClassDef classDef,
                           int previousFieldIndex,
-                           AnnotationsDirectory.AnnotationIterator annotationIterator) {
+                          AnnotationsDirectory.AnnotationIterator annotationIterator) {
         this.dexFile = reader.dexBuf;
         this.classDef = classDef;
 
@@ -96,39 +96,47 @@ public class DexBackedField extends BaseFieldReference implements Field {
         this.initialValue = null;
     }
 
+    /**
+     * Skips the reader over the specified number of encoded_field structures
+     *
+     * @param reader The reader to skip
+     * @param count  The number of encoded_field structures to skip over
+     */
+    public static void skipFields(DexReader reader, int count) {
+        for (int i = 0; i < count; i++) {
+            reader.skipUleb128();
+            reader.skipUleb128();
+        }
+    }
 
     @Override
     public String getName() {
         return dexFile.getString(dexFile.readSmallUint(getFieldIdItemOffset() + FieldIdItem.NAME_OFFSET));
     }
 
-
     @Override
     public String getType() {
         return dexFile.getType(dexFile.readUshort(getFieldIdItemOffset() + FieldIdItem.TYPE_OFFSET));
     }
 
-     @Override public String getDefiningClass() { return classDef.getType(); }
-    @Override public int getAccessFlags() { return accessFlags; }
-    @Override public EncodedValue getInitialValue() { return initialValue; }
+    @Override
+    public String getDefiningClass() {
+        return classDef.getType();
+    }
 
+    @Override
+    public int getAccessFlags() {
+        return accessFlags;
+    }
+
+    @Override
+    public EncodedValue getInitialValue() {
+        return initialValue;
+    }
 
     @Override
     public Set<? extends DexBackedAnnotation> getAnnotations() {
         return AnnotationsDirectory.getAnnotations(dexFile, annotationSetOffset);
-    }
-
-    /**
-     * Skips the reader over the specified number of encoded_field structures
-     *
-     * @param reader The reader to skip
-     * @param count The number of encoded_field structures to skip over
-     */
-    public static void skipFields( DexReader reader, int count) {
-        for (int i=0; i<count; i++) {
-            reader.skipUleb128();
-            reader.skipUleb128();
-        }
     }
 
     private int getFieldIdItemOffset() {
@@ -140,7 +148,7 @@ public class DexBackedField extends BaseFieldReference implements Field {
 
     /**
      * Calculate and return the private size of a field definition.
-     *
+     * <p>
      * Calculated as: field_idx_diff + access_flags + annotations overhead +
      * initial value size + field reference size
      *

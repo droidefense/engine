@@ -60,14 +60,14 @@ public class PathUtil {
         int commonDirs;
         StringBuilder sb = new StringBuilder();
 
-        for (commonDirs=1; commonDirs<basePath.size() && commonDirs<pathToRelativize.size(); commonDirs++) {
+        for (commonDirs = 1; commonDirs < basePath.size() && commonDirs < pathToRelativize.size(); commonDirs++) {
             if (!basePath.get(commonDirs).equals(pathToRelativize.get(commonDirs))) {
                 break;
             }
         }
 
         boolean first = true;
-        for (int i=commonDirs; i<basePath.size(); i++) {
+        for (int i = commonDirs; i < basePath.size(); i++) {
             if (!first) {
                 sb.append(File.separatorChar);
             } else {
@@ -78,7 +78,7 @@ public class PathUtil {
         }
 
         first = true;
-        for (int i=commonDirs; i<pathToRelativize.size(); i++) {
+        for (int i = commonDirs; i < pathToRelativize.size(); i++) {
             if (first) {
                 if (sb.length() != 0) {
                     sb.append(File.separatorChar);
@@ -87,7 +87,7 @@ public class PathUtil {
             } else {
                 sb.append(File.separatorChar);
             }
-            
+
             sb.append(pathToRelativize.get(i));
         }
 

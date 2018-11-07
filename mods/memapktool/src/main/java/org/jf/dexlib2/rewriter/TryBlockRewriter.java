@@ -38,33 +38,37 @@ import org.jf.dexlib2.iface.TryBlock;
 import java.util.List;
 
 public class TryBlockRewriter implements Rewriter<TryBlock<? extends ExceptionHandler>> {
-     protected final Rewriters rewriters;
+    protected final Rewriters rewriters;
 
-    public TryBlockRewriter( Rewriters rewriters) {
+    public TryBlockRewriter(Rewriters rewriters) {
         this.rewriters = rewriters;
     }
 
-     @Override public TryBlock<? extends ExceptionHandler> rewrite(
-             TryBlock<? extends ExceptionHandler> tryBlock) {
+    @Override
+    public TryBlock<? extends ExceptionHandler> rewrite(
+            TryBlock<? extends ExceptionHandler> tryBlock) {
         return new RewrittenTryBlock(tryBlock);
     }
 
     protected class RewrittenTryBlock extends BaseTryBlock<ExceptionHandler> {
-         protected TryBlock<? extends ExceptionHandler> tryBlock;
+        protected TryBlock<? extends ExceptionHandler> tryBlock;
 
-        public RewrittenTryBlock( TryBlock<? extends ExceptionHandler> tryBlock) {
+        public RewrittenTryBlock(TryBlock<? extends ExceptionHandler> tryBlock) {
             this.tryBlock = tryBlock;
         }
 
-        @Override public int getStartCodeAddress() {
+        @Override
+        public int getStartCodeAddress() {
             return tryBlock.getStartCodeAddress();
         }
 
-        @Override public int getCodeUnitCount() {
+        @Override
+        public int getCodeUnitCount() {
             return tryBlock.getCodeUnitCount();
         }
 
-        @Override  public List<? extends ExceptionHandler> getExceptionHandlers() {
+        @Override
+        public List<? extends ExceptionHandler> getExceptionHandlers() {
             return RewriterUtils.rewriteList(rewriters.getExceptionHandlerRewriter(), tryBlock.getExceptionHandlers());
         }
     }

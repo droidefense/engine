@@ -42,11 +42,24 @@ import org.jf.util.ImmutableUtils;
 import java.util.Set;
 
 public class ImmutableMethodParameter extends BaseMethodParameter {
-     protected final String type;
-     protected final ImmutableSet<? extends ImmutableAnnotation> annotations;
+    private static final ImmutableConverter<ImmutableMethodParameter, MethodParameter> CONVERTER =
+            new ImmutableConverter<ImmutableMethodParameter, MethodParameter>() {
+                @Override
+                protected boolean isImmutable(MethodParameter item) {
+                    return item instanceof ImmutableMethodParameter;
+                }
+
+
+                @Override
+                protected ImmutableMethodParameter makeImmutable(MethodParameter item) {
+                    return ImmutableMethodParameter.of(item);
+                }
+            };
+    protected final String type;
+    protected final ImmutableSet<? extends ImmutableAnnotation> annotations;
     protected final String name;
 
-    public ImmutableMethodParameter( String type,
+    public ImmutableMethodParameter(String type,
                                     Set<? extends Annotation> annotations,
                                     String name) {
         this.type = type;
@@ -54,7 +67,7 @@ public class ImmutableMethodParameter extends BaseMethodParameter {
         this.name = name;
     }
 
-    public ImmutableMethodParameter( String type,
+    public ImmutableMethodParameter(String type,
                                     ImmutableSet<? extends ImmutableAnnotation> annotations,
                                     String name) {
         this.type = type;
@@ -64,7 +77,7 @@ public class ImmutableMethodParameter extends BaseMethodParameter {
 
     public static ImmutableMethodParameter of(MethodParameter methodParameter) {
         if (methodParameter instanceof ImmutableMethodParameter) {
-            return (ImmutableMethodParameter)methodParameter;
+            return (ImmutableMethodParameter) methodParameter;
         }
         return new ImmutableMethodParameter(
                 methodParameter.getType(),
@@ -72,30 +85,29 @@ public class ImmutableMethodParameter extends BaseMethodParameter {
                 methodParameter.getName());
     }
 
-     @Override public String getType() { return type; }
-     @Override public Set<? extends Annotation> getAnnotations() { return annotations; }
-    @Override public String getName() { return name; }
-
-    //TODO: iterate over the annotations to get the signature
-    @Override public String getSignature() { return null; }
-
-
     public static ImmutableList<ImmutableMethodParameter> immutableListOf(
             Iterable<? extends MethodParameter> list) {
         return CONVERTER.toList(list);
     }
 
-    private static final ImmutableConverter<ImmutableMethodParameter, MethodParameter> CONVERTER =
-            new ImmutableConverter<ImmutableMethodParameter, MethodParameter>() {
-                @Override
-                protected boolean isImmutable( MethodParameter item) {
-                    return item instanceof ImmutableMethodParameter;
-                }
+    @Override
+    public String getType() {
+        return type;
+    }
 
+    @Override
+    public Set<? extends Annotation> getAnnotations() {
+        return annotations;
+    }
 
-                @Override
-                protected ImmutableMethodParameter makeImmutable( MethodParameter item) {
-                    return ImmutableMethodParameter.of(item);
-                }
-            };
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    //TODO: iterate over the annotations to get the signature
+    @Override
+    public String getSignature() {
+        return null;
+    }
 }

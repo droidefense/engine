@@ -42,18 +42,20 @@ public class BuilderAnnotationSet extends AbstractSet<BuilderAnnotation> {
     public static final BuilderAnnotationSet EMPTY =
             new BuilderAnnotationSet(ImmutableSet.<BuilderAnnotation>of());
 
-     final Set<BuilderAnnotation> annotations;
+    final Set<BuilderAnnotation> annotations;
     int offset = DexWriter.NO_OFFSET;
 
-    public BuilderAnnotationSet( Set<BuilderAnnotation> annotations) {
+    public BuilderAnnotationSet(Set<BuilderAnnotation> annotations) {
         this.annotations = annotations;
     }
 
-     @Override public Iterator<BuilderAnnotation> iterator() {
+    @Override
+    public Iterator<BuilderAnnotation> iterator() {
         return annotations.iterator();
     }
 
-    @Override public int size() {
+    @Override
+    public int size() {
         return annotations.size();
     }
 }

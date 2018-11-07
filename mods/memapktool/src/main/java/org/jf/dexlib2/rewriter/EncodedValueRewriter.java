@@ -42,103 +42,111 @@ import java.util.List;
 import java.util.Set;
 
 public class EncodedValueRewriter implements Rewriter<EncodedValue> {
-     protected final Rewriters rewriters;
+    protected final Rewriters rewriters;
 
-    public EncodedValueRewriter( Rewriters rewriters) {
+    public EncodedValueRewriter(Rewriters rewriters) {
         this.rewriters = rewriters;
     }
 
-     @Override public EncodedValue rewrite( EncodedValue encodedValue) {
+    @Override
+    public EncodedValue rewrite(EncodedValue encodedValue) {
         switch (encodedValue.getValueType()) {
             case ValueType.TYPE:
-                return new RewrittenTypeEncodedValue((TypeEncodedValue)encodedValue);
+                return new RewrittenTypeEncodedValue((TypeEncodedValue) encodedValue);
             case ValueType.FIELD:
-                return new RewrittenFieldEncodedValue((FieldEncodedValue)encodedValue);
+                return new RewrittenFieldEncodedValue((FieldEncodedValue) encodedValue);
             case ValueType.METHOD:
-                return new RewrittenMethodEncodedValue((MethodEncodedValue)encodedValue);
+                return new RewrittenMethodEncodedValue((MethodEncodedValue) encodedValue);
             case ValueType.ENUM:
-                return new RewrittenEnumEncodedValue((EnumEncodedValue)encodedValue);
+                return new RewrittenEnumEncodedValue((EnumEncodedValue) encodedValue);
             case ValueType.ARRAY:
-                return new RewrittenArrayEncodedValue((ArrayEncodedValue)encodedValue);
+                return new RewrittenArrayEncodedValue((ArrayEncodedValue) encodedValue);
             case ValueType.ANNOTATION:
-                return new RewrittenAnnotationEncodedValue((AnnotationEncodedValue)encodedValue);
+                return new RewrittenAnnotationEncodedValue((AnnotationEncodedValue) encodedValue);
             default:
                 return encodedValue;
         }
     }
 
     protected class RewrittenTypeEncodedValue extends BaseTypeEncodedValue {
-         protected TypeEncodedValue typeEncodedValue;
+        protected TypeEncodedValue typeEncodedValue;
 
-        public RewrittenTypeEncodedValue( TypeEncodedValue typeEncodedValue) {
+        public RewrittenTypeEncodedValue(TypeEncodedValue typeEncodedValue) {
             this.typeEncodedValue = typeEncodedValue;
         }
 
-        @Override  public String getValue() {
+        @Override
+        public String getValue() {
             return rewriters.getTypeRewriter().rewrite(typeEncodedValue.getValue());
         }
     }
 
     protected class RewrittenFieldEncodedValue extends BaseFieldEncodedValue {
-         protected FieldEncodedValue fieldEncodedValue;
+        protected FieldEncodedValue fieldEncodedValue;
 
-        public RewrittenFieldEncodedValue( FieldEncodedValue fieldEncodedValue) {
+        public RewrittenFieldEncodedValue(FieldEncodedValue fieldEncodedValue) {
             this.fieldEncodedValue = fieldEncodedValue;
         }
 
-        @Override  public FieldReference getValue() {
+        @Override
+        public FieldReference getValue() {
             return rewriters.getFieldReferenceRewriter().rewrite(fieldEncodedValue.getValue());
         }
     }
 
     protected class RewrittenEnumEncodedValue extends BaseEnumEncodedValue {
-         protected EnumEncodedValue enumEncodedValue;
+        protected EnumEncodedValue enumEncodedValue;
 
-        public RewrittenEnumEncodedValue( EnumEncodedValue enumEncodedValue) {
+        public RewrittenEnumEncodedValue(EnumEncodedValue enumEncodedValue) {
             this.enumEncodedValue = enumEncodedValue;
         }
 
-        @Override  public FieldReference getValue() {
+        @Override
+        public FieldReference getValue() {
             return rewriters.getFieldReferenceRewriter().rewrite(enumEncodedValue.getValue());
         }
     }
 
     protected class RewrittenMethodEncodedValue extends BaseMethodEncodedValue {
-         protected MethodEncodedValue methodEncodedValue;
+        protected MethodEncodedValue methodEncodedValue;
 
-        public RewrittenMethodEncodedValue( MethodEncodedValue methodEncodedValue) {
+        public RewrittenMethodEncodedValue(MethodEncodedValue methodEncodedValue) {
             this.methodEncodedValue = methodEncodedValue;
         }
 
-        @Override  public MethodReference getValue() {
+        @Override
+        public MethodReference getValue() {
             return rewriters.getMethodReferenceRewriter().rewrite(methodEncodedValue.getValue());
         }
     }
 
     protected class RewrittenArrayEncodedValue extends BaseArrayEncodedValue {
-         protected ArrayEncodedValue arrayEncodedValue;
+        protected ArrayEncodedValue arrayEncodedValue;
 
-        public RewrittenArrayEncodedValue( ArrayEncodedValue arrayEncodedValue) {
+        public RewrittenArrayEncodedValue(ArrayEncodedValue arrayEncodedValue) {
             this.arrayEncodedValue = arrayEncodedValue;
         }
 
-        @Override  public List<? extends EncodedValue> getValue() {
+        @Override
+        public List<? extends EncodedValue> getValue() {
             return RewriterUtils.rewriteList(EncodedValueRewriter.this, arrayEncodedValue.getValue());
         }
     }
 
     protected class RewrittenAnnotationEncodedValue extends BaseAnnotationEncodedValue {
-         protected AnnotationEncodedValue annotationEncodedValue;
+        protected AnnotationEncodedValue annotationEncodedValue;
 
-        public RewrittenAnnotationEncodedValue( AnnotationEncodedValue annotationEncodedValue) {
+        public RewrittenAnnotationEncodedValue(AnnotationEncodedValue annotationEncodedValue) {
             this.annotationEncodedValue = annotationEncodedValue;
         }
 
-         @Override public String getType() {
+        @Override
+        public String getType() {
             return rewriters.getTypeRewriter().rewrite(annotationEncodedValue.getType());
         }
 
-         @Override public Set<? extends AnnotationElement> getElements() {
+        @Override
+        public Set<? extends AnnotationElement> getElements() {
             return RewriterUtils.rewriteSet(rewriters.getAnnotationElementRewriter(),
                     annotationEncodedValue.getElements());
         }

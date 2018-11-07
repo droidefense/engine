@@ -42,29 +42,29 @@ import org.jf.dexlib2.iface.reference.Reference;
 import org.jf.dexlib2.iface.reference.TypeReference;
 
 
-
 public class InstructionRewriter implements Rewriter<Instruction> {
-     protected final Rewriters rewriters;
+    protected final Rewriters rewriters;
 
-    public InstructionRewriter( Rewriters rewriters) {
+    public InstructionRewriter(Rewriters rewriters) {
         this.rewriters = rewriters;
     }
 
-     @Override public Instruction rewrite( Instruction instruction) {
+    @Override
+    public Instruction rewrite(Instruction instruction) {
         if (instruction instanceof ReferenceInstruction) {
             switch (instruction.getOpcode().format) {
                 case Format20bc:
-                    return new RewrittenInstruction20bc((Instruction20bc)instruction);
+                    return new RewrittenInstruction20bc((Instruction20bc) instruction);
                 case Format21c:
-                    return new RewrittenInstruction21c((Instruction21c)instruction);
+                    return new RewrittenInstruction21c((Instruction21c) instruction);
                 case Format22c:
-                    return new RewrittenInstruction22c((Instruction22c)instruction);
+                    return new RewrittenInstruction22c((Instruction22c) instruction);
                 case Format31c:
-                    return new RewrittenInstruction31c((Instruction31c)instruction);
+                    return new RewrittenInstruction31c((Instruction31c) instruction);
                 case Format35c:
-                    return new RewrittenInstruction35c((Instruction35c)instruction);
+                    return new RewrittenInstruction35c((Instruction35c) instruction);
                 case Format3rc:
-                    return new RewrittenInstruction3rc((Instruction3rc)instruction);
+                    return new RewrittenInstruction3rc((Instruction3rc) instruction);
                 default:
                     throw new IllegalArgumentException();
             }
@@ -74,21 +74,22 @@ public class InstructionRewriter implements Rewriter<Instruction> {
 
     protected class BaseRewrittenReferenceInstruction<T extends ReferenceInstruction>
             implements ReferenceInstruction {
-         protected T instruction;
+        protected T instruction;
 
-        protected BaseRewrittenReferenceInstruction( T instruction) {
+        protected BaseRewrittenReferenceInstruction(T instruction) {
             this.instruction = instruction;
         }
 
-        @Override  public Reference getReference() {
+        @Override
+        public Reference getReference() {
             switch (getReferenceType()) {
                 case ReferenceType.TYPE:
                     return RewriterUtils.rewriteTypeReference(rewriters.getTypeRewriter(),
-                            (TypeReference)instruction.getReference());
+                            (TypeReference) instruction.getReference());
                 case ReferenceType.FIELD:
-                    return rewriters.getFieldReferenceRewriter().rewrite((FieldReference)instruction.getReference());
+                    return rewriters.getFieldReferenceRewriter().rewrite((FieldReference) instruction.getReference());
                 case ReferenceType.METHOD:
-                    return rewriters.getMethodReferenceRewriter().rewrite((MethodReference)instruction.getReference());
+                    return rewriters.getMethodReferenceRewriter().rewrite((MethodReference) instruction.getReference());
                 case ReferenceType.STRING:
                     return instruction.getReference();
                 default:
@@ -96,33 +97,37 @@ public class InstructionRewriter implements Rewriter<Instruction> {
             }
         }
 
-        @Override public int getReferenceType() {
+        @Override
+        public int getReferenceType() {
             return instruction.getReferenceType();
         }
 
-        @Override public Opcode getOpcode() {
+        @Override
+        public Opcode getOpcode() {
             return instruction.getOpcode();
         }
 
-        @Override public int getCodeUnits() {
+        @Override
+        public int getCodeUnits() {
             return instruction.getCodeUnits();
         }
     }
 
     protected class RewrittenInstruction20bc extends BaseRewrittenReferenceInstruction<Instruction20bc>
             implements Instruction20bc {
-        public RewrittenInstruction20bc( Instruction20bc instruction) {
+        public RewrittenInstruction20bc(Instruction20bc instruction) {
             super(instruction);
         }
 
-        @Override public int getVerificationError() {
+        @Override
+        public int getVerificationError() {
             return instruction.getVerificationError();
         }
     }
 
     protected class RewrittenInstruction21c extends BaseRewrittenReferenceInstruction<Instruction21c>
             implements Instruction21c {
-        public RewrittenInstruction21c( Instruction21c instruction) {
+        public RewrittenInstruction21c(Instruction21c instruction) {
             super(instruction);
         }
 
@@ -133,7 +138,7 @@ public class InstructionRewriter implements Rewriter<Instruction> {
 
     protected class RewrittenInstruction22c extends BaseRewrittenReferenceInstruction<Instruction22c>
             implements Instruction22c {
-        public RewrittenInstruction22c( Instruction22c instruction) {
+        public RewrittenInstruction22c(Instruction22c instruction) {
             super(instruction);
         }
 
@@ -148,7 +153,7 @@ public class InstructionRewriter implements Rewriter<Instruction> {
 
     protected class RewrittenInstruction31c extends BaseRewrittenReferenceInstruction<Instruction31c>
             implements Instruction31c {
-        public RewrittenInstruction31c( Instruction31c instruction) {
+        public RewrittenInstruction31c(Instruction31c instruction) {
             super(instruction);
         }
 
@@ -159,7 +164,7 @@ public class InstructionRewriter implements Rewriter<Instruction> {
 
     protected class RewrittenInstruction35c extends BaseRewrittenReferenceInstruction<Instruction35c>
             implements Instruction35c {
-        public RewrittenInstruction35c( Instruction35c instruction) {
+        public RewrittenInstruction35c(Instruction35c instruction) {
             super(instruction);
         }
 
@@ -190,7 +195,7 @@ public class InstructionRewriter implements Rewriter<Instruction> {
 
     protected class RewrittenInstruction3rc extends BaseRewrittenReferenceInstruction<Instruction3rc>
             implements Instruction3rc {
-        public RewrittenInstruction3rc( Instruction3rc instruction) {
+        public RewrittenInstruction3rc(Instruction3rc instruction) {
             super(instruction);
         }
 

@@ -36,45 +36,49 @@ import org.jf.dexlib2.iface.Field;
 import org.jf.dexlib2.writer.builder.BuilderEncodedValues.BuilderEncodedValue;
 
 
-
-
 public class BuilderField extends BaseFieldReference implements Field {
-     final BuilderFieldReference fieldReference;
+    final BuilderFieldReference fieldReference;
     final int accessFlags;
     final BuilderEncodedValue initialValue;
-     final BuilderAnnotationSet annotations;
+    final BuilderAnnotationSet annotations;
 
-    BuilderField( BuilderFieldReference fieldReference,
+    BuilderField(BuilderFieldReference fieldReference,
                  int accessFlags,
                  BuilderEncodedValue initialValue,
-                  BuilderAnnotationSet annotations) {
+                 BuilderAnnotationSet annotations) {
         this.fieldReference = fieldReference;
         this.accessFlags = accessFlags;
         this.initialValue = initialValue;
         this.annotations = annotations;
     }
 
-    @Override public int getAccessFlags() {
+    @Override
+    public int getAccessFlags() {
         return accessFlags;
     }
 
-    @Override public BuilderEncodedValue getInitialValue() {
+    @Override
+    public BuilderEncodedValue getInitialValue() {
         return initialValue;
     }
 
-     @Override public BuilderAnnotationSet getAnnotations() {
+    @Override
+    public BuilderAnnotationSet getAnnotations() {
         return annotations;
     }
 
-     @Override public String getDefiningClass() {
+    @Override
+    public String getDefiningClass() {
         return fieldReference.definingClass.getType();
     }
 
-     @Override public String getName() {
+    @Override
+    public String getName() {
         return fieldReference.name.getString();
     }
 
-     @Override public String getType() {
+    @Override
+    public String getType() {
         return fieldReference.fieldType.getType();
     }
 }

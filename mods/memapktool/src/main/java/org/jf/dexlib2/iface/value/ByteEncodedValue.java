@@ -32,8 +32,6 @@
 package org.jf.dexlib2.iface.value;
 
 
-
-
 /**
  * This class represents an encoded byte value.
  */
@@ -47,7 +45,7 @@ public interface ByteEncodedValue extends EncodedValue {
 
     /**
      * Returns a hashcode for this EncodedByteValue.
-     *
+     * <p>
      * This hashCode is defined to be the following:
      *
      * <pre>
@@ -57,26 +55,29 @@ public interface ByteEncodedValue extends EncodedValue {
      *
      * @return The hash code value for this EncodedByteValue
      */
-    @Override int hashCode();
+    @Override
+    int hashCode();
 
     /**
      * Compares this ByteEncodedValue to another ByteEncodedValue for equality.
-     *
+     * <p>
      * This ByteEncodedValue is equal to another ByteEncodedValue if the values returned by getValue() are equal.
      *
      * @param o The object to be compared for equality with this ByteEncodedValue
      * @return true if the specified object is equal to this ByteEncodedValue
      */
-    @Override boolean equals(Object o);
+    @Override
+    boolean equals(Object o);
 
     /**
      * Compare this ByteEncodedValue to another EncodedValue.
-     *
+     * <p>
      * The comparison is first done on the return values of getValueType(). If the other value is another
      * ByteEncodedValue, the return values of getValue() are compared.
      *
      * @param o The EncodedValue to compare with this ByteEncodedValue
      * @return An integer representing the result of the comparison
      */
-    @Override int compareTo( EncodedValue o);
+    @Override
+    int compareTo(EncodedValue o);
 }

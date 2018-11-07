@@ -39,15 +39,15 @@ import org.jf.util.AlignmentUtils;
 import java.util.Map;
 
 public abstract class SectionAnnotator {
-     public final DexAnnotator annotator;
-     public final RawDexFile dexFile;
+    public final DexAnnotator annotator;
+    public final RawDexFile dexFile;
     public final int itemType;
     public final int sectionOffset;
     public final int itemCount;
 
     private Map<Integer, String> itemIdentities = Maps.newHashMap();
 
-    public SectionAnnotator( DexAnnotator annotator,  MapItem mapItem) {
+    public SectionAnnotator(DexAnnotator annotator, MapItem mapItem) {
         this.annotator = annotator;
         this.dexFile = annotator.dexFile;
         this.itemType = mapItem.getType();
@@ -56,20 +56,21 @@ public abstract class SectionAnnotator {
         this.itemCount = mapItem.getItemCount();
     }
 
-     public abstract String getItemName();
-    protected abstract void annotateItem( AnnotatedBytes out, int itemIndex, String itemIdentity);
+    public abstract String getItemName();
+
+    protected abstract void annotateItem(AnnotatedBytes out, int itemIndex, String itemIdentity);
 
     /**
      * Write out annotations for this section
      *
      * @param out The AnnotatedBytes object to annotate to
      */
-    public void annotateSection( AnnotatedBytes out) {
+    public void annotateSection(AnnotatedBytes out) {
         out.moveTo(sectionOffset);
         annotateSectionInner(out, itemCount);
     }
 
-    protected void annotateSectionInner( AnnotatedBytes out, int itemCount) {
+    protected void annotateSectionInner(AnnotatedBytes out, int itemCount) {
         String itemName = getItemName();
         int itemAlignment = getItemAlignment();
         if (itemCount > 0) {
@@ -79,7 +80,7 @@ public abstract class SectionAnnotator {
             out.annotate(0, "-----------------------------");
             out.annotate(0, "");
 
-            for (int i=0; i<itemCount; i++) {
+            for (int i = 0; i < itemCount; i++) {
                 out.moveTo(AlignmentUtils.alignOffset(out.getCursor(), itemAlignment));
 
                 String itemIdentity = getItemIdentity(out.getCursor());

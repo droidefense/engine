@@ -41,7 +41,7 @@ public abstract class BuilderSwitchPayload extends BuilderInstruction implements
 
     MethodLocation referrer;
 
-    protected BuilderSwitchPayload( Opcode opcode) {
+    protected BuilderSwitchPayload(Opcode opcode) {
         super(opcode);
     }
 
@@ -53,5 +53,6 @@ public abstract class BuilderSwitchPayload extends BuilderInstruction implements
         return referrer;
     }
 
-     @Override public abstract List<? extends BuilderSwitchElement> getSwitchElements();
+    @Override
+    public abstract List<? extends BuilderSwitchElement> getSwitchElements();
 }

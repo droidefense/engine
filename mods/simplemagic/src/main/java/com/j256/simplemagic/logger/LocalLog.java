@@ -49,10 +49,10 @@ public class LocalLog implements Log {
         List<PatternLevel> levels = readLevelResourceFile(stream);
         classLevels = levels;
 
-		/*
+        /*
          * We need to do this here otherwise each logger has their own open PrintStream to the file and the messages can
-		 * overlap. Not good.
-		 */
+         * overlap. Not good.
+         */
         String logPath = System.getProperty(LOCAL_LOG_FILE_PROPERTY);
         openLogFile(logPath);
     }

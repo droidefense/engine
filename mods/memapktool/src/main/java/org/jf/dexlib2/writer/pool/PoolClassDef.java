@@ -40,18 +40,18 @@ import org.jf.dexlib2.iface.Field;
 import java.util.*;
 
 class PoolClassDef extends BaseTypeReference implements ClassDef {
-     final ClassDef classDef;
-     final TypeListPool.Key<List<String>> interfaces;
-     final ImmutableSortedSet<Field> staticFields;
-     final ImmutableSortedSet<Field> instanceFields;
-     final ImmutableSortedSet<PoolMethod> directMethods;
-     final ImmutableSortedSet<PoolMethod> virtualMethods;
+    final ClassDef classDef;
+    final TypeListPool.Key<List<String>> interfaces;
+    final ImmutableSortedSet<Field> staticFields;
+    final ImmutableSortedSet<Field> instanceFields;
+    final ImmutableSortedSet<PoolMethod> directMethods;
+    final ImmutableSortedSet<PoolMethod> virtualMethods;
 
     int classDefIndex = DexPool.NO_INDEX;
     int encodedArrayOffset = DexPool.NO_OFFSET;
     int annotationDirectoryOffset = DexPool.NO_OFFSET;
 
-    PoolClassDef( ClassDef classDef) {
+    PoolClassDef(ClassDef classDef) {
         this.classDef = classDef;
 
         interfaces = new TypeListPool.Key<List<String>>(ImmutableList.copyOf(classDef.getInterfaces()));
@@ -63,69 +63,85 @@ class PoolClassDef extends BaseTypeReference implements ClassDef {
                 Iterables.transform(classDef.getVirtualMethods(), PoolMethod.TRANSFORM));
     }
 
-     @Override public String getType() {
+    @Override
+    public String getType() {
         return classDef.getType();
     }
 
-    @Override public int getAccessFlags() {
+    @Override
+    public int getAccessFlags() {
         return classDef.getAccessFlags();
     }
 
-    @Override public String getSuperclass() {
+    @Override
+    public String getSuperclass() {
         return classDef.getSuperclass();
     }
 
-     @Override public List<String> getInterfaces() {
+    @Override
+    public List<String> getInterfaces() {
         return interfaces.types;
     }
 
-    @Override public String getSourceFile() {
+    @Override
+    public String getSourceFile() {
         return classDef.getSourceFile();
     }
 
-     @Override public Set<? extends Annotation> getAnnotations() {
+    @Override
+    public Set<? extends Annotation> getAnnotations() {
         return classDef.getAnnotations();
     }
 
-     @Override public SortedSet<Field> getStaticFields() {
+    @Override
+    public SortedSet<Field> getStaticFields() {
         return staticFields;
     }
 
-     @Override public SortedSet<Field> getInstanceFields() {
+    @Override
+    public SortedSet<Field> getInstanceFields() {
         return instanceFields;
     }
 
-     @Override public Collection<Field> getFields() {
+    @Override
+    public Collection<Field> getFields() {
         return new AbstractCollection<Field>() {
-             @Override public Iterator<Field> iterator() {
+            @Override
+            public Iterator<Field> iterator() {
                 return Iterators.mergeSorted(
                         ImmutableList.of(staticFields.iterator(), instanceFields.iterator()),
                         Ordering.natural());
             }
 
-            @Override public int size() {
+            @Override
+            public int size() {
                 return staticFields.size() + instanceFields.size();
             }
         };
     }
 
-     @Override public SortedSet<PoolMethod> getDirectMethods() {
+    @Override
+    public SortedSet<PoolMethod> getDirectMethods() {
         return directMethods;
     }
 
-     @Override public SortedSet<PoolMethod> getVirtualMethods() {
+    @Override
+    public SortedSet<PoolMethod> getVirtualMethods() {
         return virtualMethods;
     }
 
-     @Override public Collection<PoolMethod> getMethods() {
+    @Override
+    public Collection<PoolMethod> getMethods() {
         return new AbstractCollection<PoolMethod>() {
-             @Override public Iterator<PoolMethod> iterator() {
+            @Override
+            public Iterator<PoolMethod> iterator() {
                 return Iterators.mergeSorted(
                         ImmutableList.of(directMethods.iterator(), virtualMethods.iterator()),
                         Ordering.natural());
             }
 
-            @Override public int size() {
+            @Override
+            public int size() {
                 return directMethods.size() + virtualMethods.size();
             }
         };

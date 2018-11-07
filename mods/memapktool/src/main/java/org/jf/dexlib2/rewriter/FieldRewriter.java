@@ -39,32 +39,36 @@ import org.jf.dexlib2.iface.value.EncodedValue;
 import java.util.Set;
 
 public class FieldRewriter implements Rewriter<Field> {
-     protected final Rewriters rewriters;
+    protected final Rewriters rewriters;
 
-    public FieldRewriter( Rewriters rewriters) {
+    public FieldRewriter(Rewriters rewriters) {
         this.rewriters = rewriters;
     }
 
-     @Override public Field rewrite( Field field) {
+    @Override
+    public Field rewrite(Field field) {
         return new RewrittenField(field);
     }
 
     protected class RewrittenField extends BaseFieldReference implements Field {
-         protected Field field;
+        protected Field field;
 
-        public RewrittenField( Field field) {
+        public RewrittenField(Field field) {
             this.field = field;
         }
 
-        @Override  public String getDefiningClass() {
+        @Override
+        public String getDefiningClass() {
             return rewriters.getFieldReferenceRewriter().rewrite(field).getDefiningClass();
         }
 
-        @Override  public String getName() {
+        @Override
+        public String getName() {
             return rewriters.getFieldReferenceRewriter().rewrite(field).getName();
         }
 
-        @Override  public String getType() {
+        @Override
+        public String getType() {
             return rewriters.getFieldReferenceRewriter().rewrite(field).getType();
         }
 
@@ -76,7 +80,7 @@ public class FieldRewriter implements Rewriter<Field> {
             return RewriterUtils.rewriteNullable(rewriters.getEncodedValueRewriter(), field.getInitialValue());
         }
 
-         public Set<? extends Annotation> getAnnotations() {
+        public Set<? extends Annotation> getAnnotations() {
             return RewriterUtils.rewriteSet(rewriters.getAnnotationRewriter(), field.getAnnotations());
         }
     }

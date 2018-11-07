@@ -36,18 +36,25 @@ import org.jf.dexlib2.iface.AnnotationElement;
 import java.util.Comparator;
 
 public abstract class BaseAnnotationElement implements AnnotationElement {
+    public static final Comparator<AnnotationElement> BY_NAME = new Comparator<AnnotationElement>() {
+        @Override
+        public int compare(AnnotationElement element1, AnnotationElement element2) {
+            return element1.getName().compareTo(element2.getName());
+        }
+    };
+
     @Override
     public int hashCode() {
         int hashCode = getName().hashCode();
-        return hashCode*31 + getValue().hashCode();
+        return hashCode * 31 + getValue().hashCode();
     }
 
     @Override
     public boolean equals(Object o) {
         if (o != null && o instanceof AnnotationElement) {
-            AnnotationElement other = (AnnotationElement)o;
+            AnnotationElement other = (AnnotationElement) o;
             return getName().equals(other.getName()) &&
-                   getValue().equals(other.getValue());
+                    getValue().equals(other.getValue());
         }
         return false;
     }
@@ -58,11 +65,4 @@ public abstract class BaseAnnotationElement implements AnnotationElement {
         if (res != 0) return res;
         return getValue().compareTo(o.getValue());
     }
-
-    public static final Comparator<AnnotationElement> BY_NAME = new Comparator<AnnotationElement>() {
-        @Override
-        public int compare( AnnotationElement element1,  AnnotationElement element2) {
-            return element1.getName().compareTo(element2.getName());
-        }
-    };
 }

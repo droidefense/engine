@@ -32,8 +32,7 @@
 package org.jf.dexlib2.rewriter;
 
 
-
 public interface Rewriter<T> {
 
-    T rewrite( T value);
+    T rewrite(T value);
 }

@@ -32,8 +32,6 @@
 package org.jf.dexlib2.iface.value;
 
 
-
-
 /**
  * This class represents an encoded boolean value.
  */
@@ -47,7 +45,7 @@ public interface BooleanEncodedValue extends EncodedValue {
 
     /**
      * Returns a hashcode for this EncodedBooleanValue.
-     *
+     * <p>
      * This hashCode is defined to be the following:
      *
      * <pre>
@@ -57,21 +55,23 @@ public interface BooleanEncodedValue extends EncodedValue {
      *
      * @return The hash code value for this EncodedBooleanValue
      */
-    @Override int hashCode();
+    @Override
+    int hashCode();
 
     /**
      * Compares this BooleanEncodedValue to another BooleanEncodedValue for equality.
-     *
+     * <p>
      * This BooleanEncodedValue is equal to another BooleanEncodedValue if the values returned by getValue() are equal.
      *
      * @param o The object to be compared for equality with this BooleanEncodedValue
      * @return true if the specified object is equal to this BooleanEncodedValue
      */
-    @Override boolean equals(Object o);
+    @Override
+    boolean equals(Object o);
 
     /**
      * Compare this BooleanEncodedValue to another EncodedValue.
-     *
+     * <p>
      * The comparison is first done on the return values of getValueType(). If the other value is another
      * BooleanEncodedValue, the return values of getValue() are compared, based on the semantics of
      * Boolean.compareTo().
@@ -79,5 +79,6 @@ public interface BooleanEncodedValue extends EncodedValue {
      * @param o The EncodedValue to compare with this BooleanEncodedValue
      * @return An integer representing the result of the comparison
      */
-    @Override int compareTo( EncodedValue o);
+    @Override
+    int compareTo(EncodedValue o);
 }

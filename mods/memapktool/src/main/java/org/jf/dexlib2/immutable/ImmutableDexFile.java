@@ -40,26 +40,33 @@ import org.jf.util.ImmutableUtils;
 import java.util.Collection;
 
 public class ImmutableDexFile implements DexFile {
-     protected final ImmutableSet<? extends ImmutableClassDef> classes;
-     private final Opcodes opcodes;
+    protected final ImmutableSet<? extends ImmutableClassDef> classes;
+    private final Opcodes opcodes;
 
-    public ImmutableDexFile( Opcodes opcodes, Collection<? extends ClassDef> classes) {
+    public ImmutableDexFile(Opcodes opcodes, Collection<? extends ClassDef> classes) {
         this.classes = ImmutableClassDef.immutableSetOf(classes);
         this.opcodes = opcodes;
     }
 
-    public ImmutableDexFile( Opcodes opcodes, ImmutableSet<? extends ImmutableClassDef> classes) {
+    public ImmutableDexFile(Opcodes opcodes, ImmutableSet<? extends ImmutableClassDef> classes) {
         this.classes = ImmutableUtils.nullToEmptySet(classes);
         this.opcodes = opcodes;
     }
 
     public static ImmutableDexFile of(DexFile dexFile) {
         if (dexFile instanceof ImmutableDexFile) {
-            return (ImmutableDexFile)dexFile;
+            return (ImmutableDexFile) dexFile;
         }
         return new ImmutableDexFile(dexFile.getOpcodes(), dexFile.getClasses());
     }
 
-     @Override public ImmutableSet<? extends ImmutableClassDef> getClasses() { return classes; }
-     @Override public Opcodes getOpcodes() { return opcodes; }
+    @Override
+    public ImmutableSet<? extends ImmutableClassDef> getClasses() {
+        return classes;
+    }
+
+    @Override
+    public Opcodes getOpcodes() {
+        return opcodes;
+    }
 }

@@ -45,21 +45,21 @@ public class InstructionMethodItemFactory {
 
         if (instruction instanceof OffsetInstruction) {
             return new OffsetInstructionFormatMethodItem(methodDef.classDef.options, methodDef, codeAddress,
-                    (OffsetInstruction)instruction);
+                    (OffsetInstruction) instruction);
         }
 
         if (instruction instanceof UnresolvedOdexInstruction) {
             return new UnresolvedOdexInstructionMethodItem(methodDef, codeAddress,
-                    (UnresolvedOdexInstruction)instruction);
+                    (UnresolvedOdexInstruction) instruction);
         }
 
         switch (instruction.getOpcode().format) {
             case ArrayPayload:
-                return new ArrayDataMethodItem(methodDef, codeAddress, (ArrayPayload)instruction);
+                return new ArrayDataMethodItem(methodDef, codeAddress, (ArrayPayload) instruction);
             case PackedSwitchPayload:
-                return new PackedSwitchMethodItem(methodDef, codeAddress, (PackedSwitchPayload)instruction);
+                return new PackedSwitchMethodItem(methodDef, codeAddress, (PackedSwitchPayload) instruction);
             case SparseSwitchPayload:
-                return new SparseSwitchMethodItem(methodDef, codeAddress, (SparseSwitchPayload)instruction);
+                return new SparseSwitchMethodItem(methodDef, codeAddress, (SparseSwitchPayload) instruction);
             default:
                 return new InstructionMethodItem<Instruction>(methodDef, codeAddress, instruction);
         }

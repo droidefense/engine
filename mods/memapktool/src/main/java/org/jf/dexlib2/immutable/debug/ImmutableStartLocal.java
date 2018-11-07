@@ -39,8 +39,6 @@ import org.jf.dexlib2.iface.reference.StringReference;
 import org.jf.dexlib2.iface.reference.TypeReference;
 
 
-
-
 public class ImmutableStartLocal extends ImmutableDebugItem implements StartLocal {
     protected final int register;
     protected final String name;
@@ -60,9 +58,9 @@ public class ImmutableStartLocal extends ImmutableDebugItem implements StartLoca
     }
 
 
-    public static ImmutableStartLocal of( StartLocal startLocal) {
-        if (startLocal instanceof  ImmutableStartLocal) {
-            return (ImmutableStartLocal)startLocal;
+    public static ImmutableStartLocal of(StartLocal startLocal) {
+        if (startLocal instanceof ImmutableStartLocal) {
+            return (ImmutableStartLocal) startLocal;
         }
         return new ImmutableStartLocal(
                 startLocal.getCodeAddress(),
@@ -72,35 +70,58 @@ public class ImmutableStartLocal extends ImmutableDebugItem implements StartLoca
                 startLocal.getSignature());
     }
 
-    @Override public int getRegister() { return register; }
+    @Override
+    public int getRegister() {
+        return register;
+    }
 
-    @Override public StringReference getNameReference() {
-        return name==null?null:new BaseStringReference() {
-             @Override public String getString() {
+    @Override
+    public StringReference getNameReference() {
+        return name == null ? null : new BaseStringReference() {
+            @Override
+            public String getString() {
                 return name;
             }
         };
     }
 
-    @Override public TypeReference getTypeReference() {
-        return type==null?null:new BaseTypeReference() {
-             @Override public String getType() {
+    @Override
+    public TypeReference getTypeReference() {
+        return type == null ? null : new BaseTypeReference() {
+            @Override
+            public String getType() {
                 return type;
             }
         };
     }
 
-    @Override public StringReference getSignatureReference() {
-        return signature==null?null:new BaseStringReference() {
-             @Override public String getString() {
+    @Override
+    public StringReference getSignatureReference() {
+        return signature == null ? null : new BaseStringReference() {
+            @Override
+            public String getString() {
                 return signature;
             }
         };
     }
 
-    @Override public String getName() { return name; }
-    @Override public String getType() { return type; }
-    @Override public String getSignature() { return signature; }
+    @Override
+    public String getName() {
+        return name;
+    }
 
-    @Override public int getDebugItemType() { return DebugItemType.START_LOCAL; }
+    @Override
+    public String getType() {
+        return type;
+    }
+
+    @Override
+    public String getSignature() {
+        return signature;
+    }
+
+    @Override
+    public int getDebugItemType() {
+        return DebugItemType.START_LOCAL;
+    }
 }

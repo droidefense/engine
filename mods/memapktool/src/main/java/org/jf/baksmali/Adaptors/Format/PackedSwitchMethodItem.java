@@ -57,7 +57,7 @@ public class PackedSwitchMethodItem extends InstructionMethodItem<PackedSwitchPa
         boolean first = true;
         int firstKey = 0;
         if (baseCodeAddress >= 0) {
-            for (SwitchElement switchElement: instruction.getSwitchElements()) {
+            for (SwitchElement switchElement : instruction.getSwitchElements()) {
                 if (first) {
                     firstKey = switchElement.getKey();
                     first = false;
@@ -69,7 +69,7 @@ public class PackedSwitchMethodItem extends InstructionMethodItem<PackedSwitchPa
             }
         } else {
             commentedOut = true;
-            for (SwitchElement switchElement: instruction.getSwitchElements()) {
+            for (SwitchElement switchElement : instruction.getSwitchElements()) {
                 if (first) {
                     firstKey = switchElement.getKey();
                     first = false;
@@ -90,7 +90,7 @@ public class PackedSwitchMethodItem extends InstructionMethodItem<PackedSwitchPa
         writer.indent(4);
         writer.write('\n');
         int key = firstKey;
-        for (PackedSwitchTarget target: targets) {
+        for (PackedSwitchTarget target : targets) {
             target.writeTargetTo(writer);
             writeCommentIfResourceId(writer, key);
             writer.write('\n');
@@ -107,9 +107,11 @@ public class PackedSwitchMethodItem extends InstructionMethodItem<PackedSwitchPa
 
     private static class PackedSwitchLabelTarget extends PackedSwitchTarget {
         private final LabelMethodItem target;
+
         public PackedSwitchLabelTarget(LabelMethodItem target) {
             this.target = target;
         }
+
         public void writeTargetTo(IndentingWriter writer) throws IOException {
             target.writeTo(writer);
         }
@@ -117,9 +119,11 @@ public class PackedSwitchMethodItem extends InstructionMethodItem<PackedSwitchPa
 
     private static class PackedSwitchOffsetTarget extends PackedSwitchTarget {
         private final int target;
+
         public PackedSwitchOffsetTarget(int target) {
             this.target = target;
         }
+
         public void writeTargetTo(IndentingWriter writer) throws IOException {
             if (target >= 0) {
                 writer.write('+');

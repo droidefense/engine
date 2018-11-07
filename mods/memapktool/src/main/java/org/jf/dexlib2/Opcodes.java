@@ -46,28 +46,10 @@ public class Opcodes {
      */
     public final int api;
     public final int artVersion;
-     private final Opcode[] opcodesByValue = new Opcode[255];
-     private final EnumMap<Opcode, Short> opcodeValues;
-     private final HashMap<String, Opcode> opcodesByName;
+    private final Opcode[] opcodesByValue = new Opcode[255];
+    private final EnumMap<Opcode, Short> opcodeValues;
+    private final HashMap<String, Opcode> opcodesByName;
 
-
-    public static Opcodes forApi(int api) {
-        return new Opcodes(api, NO_VERSION);
-    }
-
-
-    public static Opcodes forArtVersion(int artVersion) {
-        return new Opcodes(NO_VERSION, artVersion);
-    }
-
-    /**
-     * @return a default Opcodes instance for when the exact Opcodes to use doesn't matter or isn't known
-     */
-
-    public static Opcodes getDefault() {
-        // The last pre-art api
-        return forApi(20);
-    }
 
     private Opcodes(int api, int artVersion) {
 
@@ -93,7 +75,7 @@ public class Opcodes {
             version = this.api;
         }
 
-        for (Opcode opcode: Opcode.values()) {
+        for (Opcode opcode : Opcode.values()) {
             RangeMap<Integer, Short> versionToValueMap;
 
             if (isArt()) {
@@ -113,8 +95,24 @@ public class Opcodes {
         }
     }
 
+    public static Opcodes forApi(int api) {
+        return new Opcodes(api, NO_VERSION);
+    }
 
-    public Opcode getOpcodeByName( String opcodeName) {
+    public static Opcodes forArtVersion(int artVersion) {
+        return new Opcodes(NO_VERSION, artVersion);
+    }
+
+    /**
+     * @return a default Opcodes instance for when the exact Opcodes to use doesn't matter or isn't known
+     */
+
+    public static Opcodes getDefault() {
+        // The last pre-art api
+        return forApi(20);
+    }
+
+    public Opcode getOpcodeByName(String opcodeName) {
         return opcodesByName.get(opcodeName.toLowerCase());
     }
 
@@ -136,7 +134,7 @@ public class Opcodes {
     }
 
 
-    public Short getOpcodeValue( Opcode opcode) {
+    public Short getOpcodeValue(Opcode opcode) {
         return opcodeValues.get(opcode);
     }
 

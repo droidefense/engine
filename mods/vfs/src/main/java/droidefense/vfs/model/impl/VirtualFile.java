@@ -230,7 +230,7 @@ public final class VirtualFile extends VirtualNode {
     }
 
     public InputStream getStream() {
-        if(this.stream==null){
+        if (this.stream == null) {
             this.stream = new ByteArrayInputStream(this.getContent());
         }
         return this.stream;

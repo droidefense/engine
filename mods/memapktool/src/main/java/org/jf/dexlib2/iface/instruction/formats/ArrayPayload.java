@@ -37,5 +37,6 @@ import java.util.List;
 
 public interface ArrayPayload extends PayloadInstruction {
     public int getElementWidth();
-     public List<Number> getArrayElements();
+
+    public List<Number> getArrayElements();
 }

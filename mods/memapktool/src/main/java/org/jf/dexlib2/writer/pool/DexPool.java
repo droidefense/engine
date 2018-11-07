@@ -56,7 +56,7 @@ public class DexPool extends DexWriter<CharSequence, StringReference, CharSequen
         EncodedValue, AnnotationElement, StringPool, TypePool, ProtoPool, FieldPool, MethodPool, ClassPool,
         TypeListPool, AnnotationPool, AnnotationSetPool> {
 
-    private final Markable[] sections = new Markable[] {
+    private final Markable[] sections = new Markable[]{
             stringSection, typeSection, protoSection, fieldSection, methodSection, classSection, typeListSection,
             annotationSection, annotationSetSection
     };
@@ -65,29 +65,31 @@ public class DexPool extends DexWriter<CharSequence, StringReference, CharSequen
         super(opcodes);
     }
 
-     @Override protected SectionProvider getSectionProvider() {
-        return new DexPoolSectionProvider();
-    }
-
-    public static void writeTo( DexDataStore dataStore,  org.jf.dexlib2.iface.DexFile input)
+    public static void writeTo(DexDataStore dataStore, org.jf.dexlib2.iface.DexFile input)
             throws IOException {
         DexPool dexPool = new DexPool(input.getOpcodes());
-        for (ClassDef classDef: input.getClasses()) {
+        for (ClassDef classDef : input.getClasses()) {
             dexPool.internClass(classDef);
         }
         dexPool.writeTo(dataStore);
     }
 
-    public static void writeTo( String path,  org.jf.dexlib2.iface.DexFile input) throws IOException {
+    public static void writeTo(String path, org.jf.dexlib2.iface.DexFile input) throws IOException {
         DexPool dexPool = new DexPool(input.getOpcodes());
-        for (ClassDef classDef: input.getClasses()) {
+        for (ClassDef classDef : input.getClasses()) {
             dexPool.internClass(classDef);
         }
         dexPool.writeTo(new FileDataStore(new File(path)));
     }
 
+    @Override
+    protected SectionProvider getSectionProvider() {
+        return new DexPoolSectionProvider();
+    }
+
     /**
      * Interns a class into this DexPool
+     *
      * @param classDef The class to intern
      */
     public void internClass(ClassDef classDef) {
@@ -96,151 +98,161 @@ public class DexPool extends DexWriter<CharSequence, StringReference, CharSequen
 
     /**
      * Creates a marked state that can be returned to by calling reset()
-     *
+     * <p>
      * This is useful to rollback the last added class if it causes a method/field/type overflow
      */
     public void mark() {
-        for (Markable section: sections) {
+        for (Markable section : sections) {
             section.mark();
         }
     }
 
     /**
      * Resets to the last marked state
-     *
+     * <p>
      * This is useful to rollback the last added class if it causes a method/field/type overflow
      */
     public void reset() {
-        for (Markable section: sections) {
+        for (Markable section : sections) {
             section.reset();
         }
     }
 
-    @Override protected void writeEncodedValue( InternalEncodedValueWriter writer,
-                                                EncodedValue encodedValue) throws IOException {
+    @Override
+    protected void writeEncodedValue(InternalEncodedValueWriter writer,
+                                     EncodedValue encodedValue) throws IOException {
         switch (encodedValue.getValueType()) {
             case ValueType.ANNOTATION:
-                AnnotationEncodedValue annotationEncodedValue = (AnnotationEncodedValue)encodedValue;
+                AnnotationEncodedValue annotationEncodedValue = (AnnotationEncodedValue) encodedValue;
                 writer.writeAnnotation(annotationEncodedValue.getType(), annotationEncodedValue.getElements());
                 break;
             case ValueType.ARRAY:
-                ArrayEncodedValue arrayEncodedValue = (ArrayEncodedValue)encodedValue;
+                ArrayEncodedValue arrayEncodedValue = (ArrayEncodedValue) encodedValue;
                 writer.writeArray(arrayEncodedValue.getValue());
                 break;
             case ValueType.BOOLEAN:
-                writer.writeBoolean(((BooleanEncodedValue)encodedValue).getValue());
+                writer.writeBoolean(((BooleanEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.BYTE:
-                writer.writeByte(((ByteEncodedValue)encodedValue).getValue());
+                writer.writeByte(((ByteEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.CHAR:
-                writer.writeChar(((CharEncodedValue)encodedValue).getValue());
+                writer.writeChar(((CharEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.DOUBLE:
-                writer.writeDouble(((DoubleEncodedValue)encodedValue).getValue());
+                writer.writeDouble(((DoubleEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.ENUM:
-                writer.writeEnum(((EnumEncodedValue)encodedValue).getValue());
+                writer.writeEnum(((EnumEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.FIELD:
-                writer.writeField(((FieldEncodedValue)encodedValue).getValue());
+                writer.writeField(((FieldEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.FLOAT:
-                writer.writeFloat(((FloatEncodedValue)encodedValue).getValue());
+                writer.writeFloat(((FloatEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.INT:
-                writer.writeInt(((IntEncodedValue)encodedValue).getValue());
+                writer.writeInt(((IntEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.LONG:
-                writer.writeLong(((LongEncodedValue)encodedValue).getValue());
+                writer.writeLong(((LongEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.METHOD:
-                writer.writeMethod(((MethodEncodedValue)encodedValue).getValue());
+                writer.writeMethod(((MethodEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.NULL:
                 writer.writeNull();
                 break;
             case ValueType.SHORT:
-                writer.writeShort(((ShortEncodedValue)encodedValue).getValue());
+                writer.writeShort(((ShortEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.STRING:
-                writer.writeString(((StringEncodedValue)encodedValue).getValue());
+                writer.writeString(((StringEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.TYPE:
-                writer.writeType(((TypeEncodedValue)encodedValue).getValue());
+                writer.writeType(((TypeEncodedValue) encodedValue).getValue());
                 break;
             default:
                 throw new ExceptionWithContext("Unrecognized value type: %d", encodedValue.getValueType());
         }
     }
 
-    void internEncodedValue( EncodedValue encodedValue) {
+    void internEncodedValue(EncodedValue encodedValue) {
         switch (encodedValue.getValueType()) {
             case ValueType.ANNOTATION:
-                AnnotationEncodedValue annotationEncodedValue = (AnnotationEncodedValue)encodedValue;
+                AnnotationEncodedValue annotationEncodedValue = (AnnotationEncodedValue) encodedValue;
                 typeSection.intern(annotationEncodedValue.getType());
-                for (AnnotationElement element: annotationEncodedValue.getElements()) {
+                for (AnnotationElement element : annotationEncodedValue.getElements()) {
                     stringSection.intern(element.getName());
                     internEncodedValue(element.getValue());
                 }
                 break;
             case ValueType.ARRAY:
-                for (EncodedValue element: ((ArrayEncodedValue)encodedValue).getValue()) {
+                for (EncodedValue element : ((ArrayEncodedValue) encodedValue).getValue()) {
                     internEncodedValue(element);
                 }
                 break;
             case ValueType.STRING:
-                stringSection.intern(((StringEncodedValue)encodedValue).getValue());
+                stringSection.intern(((StringEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.TYPE:
-                typeSection.intern(((TypeEncodedValue)encodedValue).getValue());
+                typeSection.intern(((TypeEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.ENUM:
-                fieldSection.intern(((EnumEncodedValue)encodedValue).getValue());
+                fieldSection.intern(((EnumEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.FIELD:
-                fieldSection.intern(((FieldEncodedValue)encodedValue).getValue());
+                fieldSection.intern(((FieldEncodedValue) encodedValue).getValue());
                 break;
             case ValueType.METHOD:
-                methodSection.intern(((MethodEncodedValue)encodedValue).getValue());
+                methodSection.intern(((MethodEncodedValue) encodedValue).getValue());
                 break;
         }
     }
 
     protected class DexPoolSectionProvider extends SectionProvider {
-         @Override public StringPool getStringSection() {
+        @Override
+        public StringPool getStringSection() {
             return new StringPool(DexPool.this);
         }
 
-         @Override public TypePool getTypeSection() {
+        @Override
+        public TypePool getTypeSection() {
             return new TypePool(DexPool.this);
         }
 
-         @Override public ProtoPool getProtoSection() {
+        @Override
+        public ProtoPool getProtoSection() {
             return new ProtoPool(DexPool.this);
         }
 
-         @Override public FieldPool getFieldSection() {
+        @Override
+        public FieldPool getFieldSection() {
             return new FieldPool(DexPool.this);
         }
 
-         @Override public MethodPool getMethodSection() {
+        @Override
+        public MethodPool getMethodSection() {
             return new MethodPool(DexPool.this);
         }
 
-         @Override public ClassPool getClassSection() {
+        @Override
+        public ClassPool getClassSection() {
             return new ClassPool(DexPool.this);
         }
 
-         @Override public TypeListPool getTypeListSection() {
+        @Override
+        public TypeListPool getTypeListSection() {
             return new TypeListPool(DexPool.this);
         }
 
-         @Override public AnnotationPool getAnnotationSection() {
+        @Override
+        public AnnotationPool getAnnotationSection() {
             return new AnnotationPool(DexPool.this);
         }
 
-         @Override public AnnotationSetPool getAnnotationSetSection() {
+        @Override
+        public AnnotationSetPool getAnnotationSetSection() {
             return new AnnotationSetPool(DexPool.this);
         }
     }

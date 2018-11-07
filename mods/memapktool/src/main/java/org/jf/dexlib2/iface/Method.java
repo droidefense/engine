@@ -38,7 +38,7 @@ import java.util.Set;
 
 /**
  * This class represents a specific method definition in a class.
- *
+ * <p>
  * It also acts as a MethodReference to itself. Any equality/comparison is based on its identity as a MethodReference,
  * and shouldn't take into account any non-MethodReference specifics of this method.
  */
@@ -48,56 +48,61 @@ public interface Method extends MethodReference, Member {
      *
      * @return The type of the class that defines this method
      */
-    @Override  String getDefiningClass();
+    @Override
+    String getDefiningClass();
 
     /**
      * Gets the name of this method.
      *
      * @return The name of this method
      */
-    @Override  String getName();
+    @Override
+    String getName();
 
     /**
      * Gets a list of the parameters of this method.
-     *
+     * <p>
      * As per the MethodReference interface, the MethodParameter objects contained in the returned list also act
      * as a simple reference to the type of the parameter. However, the MethodParameter object can also contain
      * additional information about the parameter.
-     *
+     * <p>
      * Note: In some implementations, the returned list is likely to *not* provide efficient random access.
      *
      * @return A list of MethodParameter objects, representing the parameters of this method.
      */
-     List<? extends MethodParameter> getParameters();
+    List<? extends MethodParameter> getParameters();
 
     /**
      * Gets the return type of this method.
      *
      * @return The return type of this method.
      */
-    @Override  String getReturnType();
+    @Override
+    String getReturnType();
 
     /**
      * Gets the access flags for this method.
-     *
+     * <p>
      * This will be a combination of the AccessFlags.* flags that are marked as compatible for use with a method.
      *
      * @return The access flags for this method
      */
-    @Override int getAccessFlags();
+    @Override
+    int getAccessFlags();
 
     /**
      * Gets a set of the annotations that are applied to this method.
-     *
+     * <p>
      * The annotations in the returned set are guaranteed to have unique types.
      *
      * @return A set of the annotations that are applied to this method
      */
-    @Override  Set<? extends Annotation> getAnnotations();
+    @Override
+    Set<? extends Annotation> getAnnotations();
 
     /**
      * Gets a MethodImplementation object that defines the implementation of the method.
-     *
+     * <p>
      * If this is an abstract method in an abstract class, or an interface method in an interface definition, then the
      * method has no implementation, and this will return null.
      *

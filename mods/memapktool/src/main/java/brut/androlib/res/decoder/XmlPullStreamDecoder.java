@@ -1,18 +1,18 @@
 /**
- *  Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
- *  Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
+ * Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package brut.androlib.res.decoder;
 
@@ -36,6 +36,10 @@ import brut.androlib.res.util.ExtXmlSerializer;
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
  */
 public class XmlPullStreamDecoder implements ResStreamDecoder {
+    private final static Logger LOGGER = Logger.getLogger(XmlPullStreamDecoder.class.getName());
+    private final XmlPullParser mParser;
+    private final ExtXmlSerializer mSerial;
+
     public XmlPullStreamDecoder(XmlPullParser parser,
                                 ExtXmlSerializer serializer) {
         this.mParser = parser;
@@ -63,14 +67,16 @@ public class XmlPullStreamDecoder implements ResStreamDecoder {
                         if ("manifest".equalsIgnoreCase(pp.getName())) {
                             try {
                                 hidePackageInfo = parseManifest(pp);
-                            } catch (AndrolibException ignored) {}
+                            } catch (AndrolibException ignored) {
+                            }
                         } else if ("uses-sdk".equalsIgnoreCase(pp.getName())) {
                             try {
                                 hideSdkInfo = parseAttr(pp);
                                 if (hideSdkInfo) {
                                     return;
                                 }
-                            } catch (AndrolibException ignored) {}
+                            } catch (AndrolibException ignored) {
+                            }
                         }
                     } else if (hideSdkInfo && type == XmlPullParser.END_TAG
                             && "uses-sdk".equalsIgnoreCase(pp.getName())) {
@@ -130,7 +136,7 @@ public class XmlPullStreamDecoder implements ResStreamDecoder {
                         }
                     }
 
-                    return ! resTable.getAnalysisMode();
+                    return !resTable.getAnalysisMode();
                 }
             };
 
@@ -150,11 +156,6 @@ public class XmlPullStreamDecoder implements ResStreamDecoder {
 
     public void decodeManifest(InputStream in, OutputStream out)
             throws AndrolibException {
-            decode(in, out);
+        decode(in, out);
     }
-
-    private final XmlPullParser mParser;
-    private final ExtXmlSerializer mSerial;
-
-    private final static Logger LOGGER = Logger.getLogger(XmlPullStreamDecoder.class.getName());
 }

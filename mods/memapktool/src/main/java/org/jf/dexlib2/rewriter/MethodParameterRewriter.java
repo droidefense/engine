@@ -38,36 +38,41 @@ import org.jf.dexlib2.iface.MethodParameter;
 import java.util.Set;
 
 public class MethodParameterRewriter implements Rewriter<MethodParameter> {
-     protected final Rewriters rewriters;
+    protected final Rewriters rewriters;
 
-    public MethodParameterRewriter( Rewriters rewriters) {
+    public MethodParameterRewriter(Rewriters rewriters) {
         this.rewriters = rewriters;
     }
 
-     @Override public MethodParameter rewrite( MethodParameter methodParameter) {
+    @Override
+    public MethodParameter rewrite(MethodParameter methodParameter) {
         return new RewrittenMethodParameter(methodParameter);
     }
 
     protected class RewrittenMethodParameter extends BaseMethodParameter {
-         protected MethodParameter methodParameter;
+        protected MethodParameter methodParameter;
 
-        public RewrittenMethodParameter( MethodParameter methodParameter) {
+        public RewrittenMethodParameter(MethodParameter methodParameter) {
             this.methodParameter = methodParameter;
         }
 
-        @Override  public String getType() {
+        @Override
+        public String getType() {
             return rewriters.getTypeRewriter().rewrite(methodParameter.getType());
         }
 
-        @Override  public Set<? extends Annotation> getAnnotations() {
+        @Override
+        public Set<? extends Annotation> getAnnotations() {
             return RewriterUtils.rewriteSet(rewriters.getAnnotationRewriter(), methodParameter.getAnnotations());
         }
 
-        @Override public String getName() {
+        @Override
+        public String getName() {
             return methodParameter.getName();
         }
 
-        @Override public String getSignature() {
+        @Override
+        public String getSignature() {
             return methodParameter.getSignature();
         }
     }

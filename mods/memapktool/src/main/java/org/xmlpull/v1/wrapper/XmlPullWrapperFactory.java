@@ -20,24 +20,23 @@ public class XmlPullWrapperFactory {
 
     protected XmlPullParserFactory f;
 
-    public static XmlPullWrapperFactory newInstance() throws XmlPullParserException {
-
-        return new XmlPullWrapperFactory( null );
-    }
-
-    public static XmlPullWrapperFactory newInstance( XmlPullParserFactory factory ) throws XmlPullParserException {
-
-        return new XmlPullWrapperFactory( factory );
-    }
-
     protected XmlPullWrapperFactory(XmlPullParserFactory factory) throws XmlPullParserException {
 
-        if ( factory != null ) {
+        if (factory != null) {
             this.f = factory;
-        }
-        else {
+        } else {
             this.f = XmlPullParserFactory.newInstance();
         }
+    }
+
+    public static XmlPullWrapperFactory newInstance() throws XmlPullParserException {
+
+        return new XmlPullWrapperFactory(null);
+    }
+
+    public static XmlPullWrapperFactory newInstance(XmlPullParserFactory factory) throws XmlPullParserException {
+
+        return new XmlPullWrapperFactory(factory);
     }
 
     public XmlPullParserFactory getFactory() throws XmlPullParserException {
@@ -45,19 +44,14 @@ public class XmlPullWrapperFactory {
         return f;
     }
 
-    public void setFeature( String name, boolean state ) throws XmlPullParserException {
+    public void setFeature(String name, boolean state) throws XmlPullParserException {
 
-        f.setFeature( name, state );
+        f.setFeature(name, state);
     }
 
-    public boolean getFeature( String name ) {
+    public boolean getFeature(String name) {
 
-        return f.getFeature( name );
-    }
-
-    public void setNamespaceAware( boolean awareness ) {
-
-        f.setNamespaceAware( awareness );
+        return f.getFeature(name);
     }
 
     public boolean isNamespaceAware() {
@@ -65,9 +59,9 @@ public class XmlPullWrapperFactory {
         return f.isNamespaceAware();
     }
 
-    public void setValidating( boolean validating ) {
+    public void setNamespaceAware(boolean awareness) {
 
-        f.setValidating( validating );
+        f.setNamespaceAware(awareness);
     }
 
     public boolean isValidating() {
@@ -75,31 +69,36 @@ public class XmlPullWrapperFactory {
         return f.isValidating();
     }
 
+    public void setValidating(boolean validating) {
+
+        f.setValidating(validating);
+    }
+
     public XmlPullParserWrapper newPullParserWrapper() throws XmlPullParserException {
 
         XmlPullParser pp = f.newPullParser();
-        return configure( new StaticXmlPullParserWrapper( pp ) );
+        return configure(new StaticXmlPullParserWrapper(pp));
     }
 
-    private XmlPullParserWrapper configure( XmlPullParserWrapper ppp ) throws XmlPullParserException {
+    private XmlPullParserWrapper configure(XmlPullParserWrapper ppp) throws XmlPullParserException {
 
-        ppp.setFeature( XmlPullParser.FEATURE_PROCESS_NAMESPACES, true );
+        ppp.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, true);
         return ppp;
     }
 
-    public XmlPullParserWrapper newPullParserWrapper( XmlPullParser pp ) throws XmlPullParserException {
+    public XmlPullParserWrapper newPullParserWrapper(XmlPullParser pp) throws XmlPullParserException {
 
-        return configure( new StaticXmlPullParserWrapper( pp ) );
+        return configure(new StaticXmlPullParserWrapper(pp));
     }
 
     public XmlSerializerWrapper newSerializerWrapper() throws XmlPullParserException {
 
         XmlSerializer xs = f.newSerializer();
-        return new StaticXmlSerializerWrapper( xs, this );
+        return new StaticXmlSerializerWrapper(xs, this);
     }
 
-    public XmlSerializerWrapper newSerializerWrapper( XmlSerializer xs ) throws XmlPullParserException {
+    public XmlSerializerWrapper newSerializerWrapper(XmlSerializer xs) throws XmlPullParserException {
 
-        return new StaticXmlSerializerWrapper( xs, this );
+        return new StaticXmlSerializerWrapper(xs, this);
     }
 }

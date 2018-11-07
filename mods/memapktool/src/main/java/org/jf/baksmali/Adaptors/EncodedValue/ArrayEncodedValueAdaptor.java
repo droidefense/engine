@@ -36,8 +36,8 @@ import java.io.IOException;
 import java.util.Collection;
 
 public class ArrayEncodedValueAdaptor {
-    public static void writeTo( IndentingWriter writer,
-                                ArrayEncodedValue arrayEncodedValue,
+    public static void writeTo(IndentingWriter writer,
+                               ArrayEncodedValue arrayEncodedValue,
                                String containingClass) throws IOException {
         writer.write('{');
         Collection<? extends EncodedValue> values = arrayEncodedValue.getValue();
@@ -49,7 +49,7 @@ public class ArrayEncodedValueAdaptor {
         writer.write('\n');
         writer.indent(4);
         boolean first = true;
-        for (EncodedValue encodedValue: values) {
+        for (EncodedValue encodedValue : values) {
             if (!first) {
                 writer.write(",\n");
             }

@@ -38,32 +38,36 @@ import org.jf.dexlib2.iface.AnnotationElement;
 import java.util.Set;
 
 public class AnnotationRewriter implements Rewriter<Annotation> {
-     protected final Rewriters rewriters;
+    protected final Rewriters rewriters;
 
-    public AnnotationRewriter( Rewriters rewriters) {
+    public AnnotationRewriter(Rewriters rewriters) {
         this.rewriters = rewriters;
     }
 
-     @Override public Annotation rewrite( Annotation value) {
+    @Override
+    public Annotation rewrite(Annotation value) {
         return new RewrittenAnnotation(value);
     }
 
     protected class RewrittenAnnotation extends BaseAnnotation {
-         protected Annotation annotation;
+        protected Annotation annotation;
 
-        public RewrittenAnnotation( Annotation annotation) {
+        public RewrittenAnnotation(Annotation annotation) {
             this.annotation = annotation;
         }
 
-        @Override public int getVisibility() {
+        @Override
+        public int getVisibility() {
             return annotation.getVisibility();
         }
 
-        @Override  public String getType() {
+        @Override
+        public String getType() {
             return rewriters.getTypeRewriter().rewrite(annotation.getType());
         }
 
-        @Override  public Set<? extends AnnotationElement> getElements() {
+        @Override
+        public Set<? extends AnnotationElement> getElements() {
             return RewriterUtils.rewriteSet(rewriters.getAnnotationElementRewriter(), annotation.getElements());
         }
     }

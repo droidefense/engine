@@ -44,12 +44,13 @@ public class DexClassProvider implements ClassProvider {
     public DexClassProvider(DexFile dexFile) {
         this.dexFile = dexFile;
 
-        for (ClassDef classDef: dexFile.getClasses()) {
+        for (ClassDef classDef : dexFile.getClasses()) {
             classMap.put(classDef.getType(), classDef);
         }
     }
 
-    @Override public ClassDef getClassDef(String type) {
+    @Override
+    public ClassDef getClassDef(String type) {
         return classMap.get(type);
     }
 }

@@ -38,7 +38,7 @@ public class LabelMethodItem extends MethodItem {
     private final String labelPrefix;
     private int labelSequence;
 
-    public LabelMethodItem( BaksmaliOptions options, int codeAddress,  String labelPrefix) {
+    public LabelMethodItem(BaksmaliOptions options, int codeAddress, String labelPrefix) {
         super(codeAddress);
         this.options = options;
         this.labelPrefix = labelPrefix;
@@ -53,7 +53,7 @@ public class LabelMethodItem extends MethodItem {
 
         if (result == 0) {
             if (methodItem instanceof LabelMethodItem) {
-                result = labelPrefix.compareTo(((LabelMethodItem)methodItem).labelPrefix);
+                result = labelPrefix.compareTo(((LabelMethodItem) methodItem).labelPrefix);
             }
         }
         return result;
@@ -68,7 +68,7 @@ public class LabelMethodItem extends MethodItem {
         if (!(o instanceof LabelMethodItem)) {
             return false;
         }
-        return this.compareTo((MethodItem)o) == 0;
+        return this.compareTo((MethodItem) o) == 0;
     }
 
 

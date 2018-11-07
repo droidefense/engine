@@ -35,8 +35,6 @@ import org.jf.dexlib2.DebugItemType;
 import org.jf.dexlib2.iface.debug.EndLocal;
 
 
-
-
 public class ImmutableEndLocal extends ImmutableDebugItem implements EndLocal {
     protected final int register;
     protected final String name;
@@ -65,9 +63,9 @@ public class ImmutableEndLocal extends ImmutableDebugItem implements EndLocal {
     }
 
 
-    public static ImmutableEndLocal of( EndLocal endLocal) {
-        if (endLocal instanceof  ImmutableEndLocal) {
-            return (ImmutableEndLocal)endLocal;
+    public static ImmutableEndLocal of(EndLocal endLocal) {
+        if (endLocal instanceof ImmutableEndLocal) {
+            return (ImmutableEndLocal) endLocal;
         }
         return new ImmutableEndLocal(
                 endLocal.getCodeAddress(),
@@ -77,10 +75,28 @@ public class ImmutableEndLocal extends ImmutableDebugItem implements EndLocal {
                 endLocal.getSignature());
     }
 
-    @Override public int getRegister() { return register; }
-    @Override public String getName() { return name; }
-    @Override public String getType() { return type; }
-    @Override public String getSignature() { return signature; }
+    @Override
+    public int getRegister() {
+        return register;
+    }
 
-    @Override public int getDebugItemType() { return DebugItemType.END_LOCAL; }
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getType() {
+        return type;
+    }
+
+    @Override
+    public String getSignature() {
+        return signature;
+    }
+
+    @Override
+    public int getDebugItemType() {
+        return DebugItemType.END_LOCAL;
+    }
 }

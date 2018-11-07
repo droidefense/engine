@@ -36,7 +36,6 @@ import org.jf.dexlib2.builder.BuilderDebugItem;
 import org.jf.dexlib2.iface.debug.EndLocal;
 
 
-
 public class BuilderEndLocal extends BuilderDebugItem implements EndLocal {
     private final int register;
 
@@ -44,10 +43,28 @@ public class BuilderEndLocal extends BuilderDebugItem implements EndLocal {
         this.register = register;
     }
 
-    @Override public int getRegister() { return register; }
-    @Override public String getName() { return null; }
-    @Override public String getType() { return null; }
-    @Override public String getSignature() { return null; }
+    @Override
+    public int getRegister() {
+        return register;
+    }
 
-    @Override public int getDebugItemType() { return DebugItemType.END_LOCAL; }
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public String getType() {
+        return null;
+    }
+
+    @Override
+    public String getSignature() {
+        return null;
+    }
+
+    @Override
+    public int getDebugItemType() {
+        return DebugItemType.END_LOCAL;
+    }
 }

@@ -41,24 +41,24 @@ import org.jf.dexlib2.iface.value.EncodedValue;
 import java.util.List;
 
 public class DexBackedArrayEncodedValue extends BaseArrayEncodedValue implements ArrayEncodedValue {
-     public final DexBackedDexFile dexFile;
+    public final DexBackedDexFile dexFile;
     private final int elementCount;
     private final int encodedArrayOffset;
 
-    public DexBackedArrayEncodedValue( DexReader reader) {
+    public DexBackedArrayEncodedValue(DexReader reader) {
         this.dexFile = reader.dexBuf;
         this.elementCount = reader.readSmallUleb128();
         this.encodedArrayOffset = reader.getOffset();
         skipElementsFrom(reader, elementCount);
     }
 
-    public static void skipFrom( DexReader reader) {
+    public static void skipFrom(DexReader reader) {
         int elementCount = reader.readSmallUleb128();
         skipElementsFrom(reader, elementCount);
     }
 
-    private static void skipElementsFrom( DexReader reader, int elementCount) {
-        for (int i=0; i<elementCount; i++) {
+    private static void skipElementsFrom(DexReader reader, int elementCount) {
+        for (int i = 0; i < elementCount; i++) {
             DexBackedEncodedValue.skipFrom(reader);
         }
     }
@@ -69,7 +69,7 @@ public class DexBackedArrayEncodedValue extends BaseArrayEncodedValue implements
         return new VariableSizeList<EncodedValue>(dexFile, encodedArrayOffset, elementCount) {
 
             @Override
-            protected EncodedValue readNextItem( DexReader dexReader, int index) {
+            protected EncodedValue readNextItem(DexReader dexReader, int index) {
                 return DexBackedEncodedValue.readFrom(dexReader);
             }
         };

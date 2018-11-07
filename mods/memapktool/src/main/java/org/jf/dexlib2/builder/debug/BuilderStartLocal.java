@@ -38,7 +38,6 @@ import org.jf.dexlib2.iface.reference.StringReference;
 import org.jf.dexlib2.iface.reference.TypeReference;
 
 
-
 public class BuilderStartLocal extends BuilderDebugItem implements StartLocal {
     private final int register;
     private final StringReference name;
@@ -55,23 +54,43 @@ public class BuilderStartLocal extends BuilderDebugItem implements StartLocal {
         this.signature = signature;
     }
 
-    @Override public int getRegister() { return register; }
-
-    @Override public StringReference getNameReference() { return name; }
-    @Override public TypeReference getTypeReference() { return type; }
-    @Override public StringReference getSignatureReference() { return signature; }
-
-    @Override public String getName() {
-        return name==null?null:name.getString();
+    @Override
+    public int getRegister() {
+        return register;
     }
 
-    @Override public String getType() {
-        return type==null?null:type.getType();
+    @Override
+    public StringReference getNameReference() {
+        return name;
     }
 
-    @Override public String getSignature() {
-        return signature==null?null:signature.getString();
+    @Override
+    public TypeReference getTypeReference() {
+        return type;
     }
 
-    @Override public int getDebugItemType() { return DebugItemType.START_LOCAL; }
+    @Override
+    public StringReference getSignatureReference() {
+        return signature;
+    }
+
+    @Override
+    public String getName() {
+        return name == null ? null : name.getString();
+    }
+
+    @Override
+    public String getType() {
+        return type == null ? null : type.getType();
+    }
+
+    @Override
+    public String getSignature() {
+        return signature == null ? null : signature.getString();
+    }
+
+    @Override
+    public int getDebugItemType() {
+        return DebugItemType.START_LOCAL;
+    }
 }

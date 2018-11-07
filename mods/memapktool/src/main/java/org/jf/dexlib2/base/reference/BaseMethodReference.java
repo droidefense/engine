@@ -38,31 +38,29 @@ import org.jf.util.CharSequenceUtils;
 import org.jf.util.CollectionUtils;
 
 
-
-
 public abstract class BaseMethodReference implements MethodReference {
     @Override
     public int hashCode() {
         int hashCode = getDefiningClass().hashCode();
-        hashCode = hashCode*31 + getName().hashCode();
-        hashCode = hashCode*31 + getReturnType().hashCode();
-        return hashCode*31 + getParameterTypes().hashCode();
+        hashCode = hashCode * 31 + getName().hashCode();
+        hashCode = hashCode * 31 + getReturnType().hashCode();
+        return hashCode * 31 + getParameterTypes().hashCode();
     }
 
     @Override
     public boolean equals(Object o) {
         if (o != null && o instanceof MethodReference) {
-            MethodReference other = (MethodReference)o;
+            MethodReference other = (MethodReference) o;
             return getDefiningClass().equals(other.getDefiningClass()) &&
-                   getName().equals(other.getName()) &&
-                   getReturnType().equals(other.getReturnType()) &&
-                   CharSequenceUtils.listEquals(getParameterTypes(), other.getParameterTypes());
+                    getName().equals(other.getName()) &&
+                    getReturnType().equals(other.getReturnType()) &&
+                    CharSequenceUtils.listEquals(getParameterTypes(), other.getParameterTypes());
         }
         return false;
     }
 
     @Override
-    public int compareTo( MethodReference o) {
+    public int compareTo(MethodReference o) {
         int res = getDefiningClass().compareTo(o.getDefiningClass());
         if (res != 0) return res;
         res = getName().compareTo(o.getName());
@@ -72,7 +70,8 @@ public abstract class BaseMethodReference implements MethodReference {
         return CollectionUtils.compareAsIterable(Ordering.usingToString(), getParameterTypes(), o.getParameterTypes());
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return ReferenceUtil.getMethodDescriptor(this);
     }
 }

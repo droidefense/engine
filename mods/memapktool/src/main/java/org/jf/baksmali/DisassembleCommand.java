@@ -52,16 +52,14 @@ import java.util.Map;
 @Parameters(commandDescription = "Disassembles a dex file.")
 @ExtendedParameters(
         commandName = "disassemble",
-        commandAliases = { "dis", "d" })
+        commandAliases = {"dis", "d"})
 public class DisassembleCommand extends DexInputCommand {
-
-    @Parameter(names = {"-h", "-?", "--help"}, help = true,
-            description = "Show usage information for this command.")
-    private boolean help;
 
     @ParametersDelegate
     protected AnalysisArguments analysisArguments = new AnalysisArguments();
-
+    @Parameter(names = {"-h", "-?", "--help"}, help = true,
+            description = "Show usage information for this command.")
+    private boolean help;
     @Parameter(names = {"--debug-info", "--di"}, arity = 1,
             description = "Whether to include debug information in the output (.local, .param, .line, etc.). True " +
                     "by default, use --debug-info=false to disable.")
@@ -136,7 +134,7 @@ public class DisassembleCommand extends DexInputCommand {
     @ExtendedParameter(argumentNames = "classes")
     private List<String> classes = null;
 
-    public DisassembleCommand( List<JCommander> commandAncestors) {
+    public DisassembleCommand(List<JCommander> commandAncestors) {
         super(commandAncestors);
     }
 
@@ -212,9 +210,9 @@ public class DisassembleCommand extends DexInputCommand {
             Map<String, File> resourceFiles = Maps.newHashMap();
 
             assert (resourceIdFiles.size() % 2) == 0;
-            for (int i=0; i<resourceIdFiles.size(); i+=2) {
+            for (int i = 0; i < resourceIdFiles.size(); i += 2) {
                 String resourcePrefix = resourceIdFiles.get(i);
-                String publicXml = resourceIdFiles.get(i+1);
+                String publicXml = resourceIdFiles.get(i + 1);
 
                 File publicXmlFile = new File(publicXml);
 
@@ -250,21 +248,21 @@ public class DisassembleCommand extends DexInputCommand {
 
         options.registerInfo = 0;
 
-        for (String registerInfoType: registerInfoTypes) {
+        for (String registerInfoType : registerInfoTypes) {
             if (registerInfoType.equalsIgnoreCase("ALL")) {
-                options.registerInfo  |= BaksmaliOptions.ALL;
+                options.registerInfo |= BaksmaliOptions.ALL;
             } else if (registerInfoType.equalsIgnoreCase("ALLPRE")) {
-                options.registerInfo  |= BaksmaliOptions.ALLPRE;
+                options.registerInfo |= BaksmaliOptions.ALLPRE;
             } else if (registerInfoType.equalsIgnoreCase("ALLPOST")) {
-                options.registerInfo  |= BaksmaliOptions.ALLPOST;
+                options.registerInfo |= BaksmaliOptions.ALLPOST;
             } else if (registerInfoType.equalsIgnoreCase("ARGS")) {
-                options.registerInfo  |= BaksmaliOptions.ARGS;
+                options.registerInfo |= BaksmaliOptions.ARGS;
             } else if (registerInfoType.equalsIgnoreCase("DEST")) {
-                options.registerInfo  |= BaksmaliOptions.DEST;
+                options.registerInfo |= BaksmaliOptions.DEST;
             } else if (registerInfoType.equalsIgnoreCase("MERGE")) {
-                options.registerInfo  |= BaksmaliOptions.MERGE;
+                options.registerInfo |= BaksmaliOptions.MERGE;
             } else if (registerInfoType.equalsIgnoreCase("FULLMERGE")) {
-                options.registerInfo  |= BaksmaliOptions.FULLMERGE;
+                options.registerInfo |= BaksmaliOptions.FULLMERGE;
             } else {
                 System.err.println(String.format("Invalid register info type: %s", registerInfoType));
                 usage();

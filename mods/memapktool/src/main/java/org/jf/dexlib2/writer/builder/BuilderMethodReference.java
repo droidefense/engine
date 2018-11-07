@@ -35,42 +35,47 @@ import org.jf.dexlib2.base.reference.BaseMethodReference;
 import org.jf.dexlib2.writer.DexWriter;
 
 
-
 public class BuilderMethodReference extends BaseMethodReference implements BuilderReference {
-     final BuilderTypeReference definingClass;
-     final BuilderStringReference name;
-     final BuilderMethodProtoReference proto;
+    final BuilderTypeReference definingClass;
+    final BuilderStringReference name;
+    final BuilderMethodProtoReference proto;
     int index = DexWriter.NO_INDEX;
 
-    BuilderMethodReference( BuilderTypeReference definingClass,
-                            BuilderStringReference name,
-                            BuilderMethodProtoReference proto) {
+    BuilderMethodReference(BuilderTypeReference definingClass,
+                           BuilderStringReference name,
+                           BuilderMethodProtoReference proto) {
         this.definingClass = definingClass;
         this.name = name;
         this.proto = proto;
     }
 
-     @Override public String getDefiningClass() {
+    @Override
+    public String getDefiningClass() {
         return definingClass.getType();
     }
 
-     @Override public String getName() {
+    @Override
+    public String getName() {
         return this.name.getString();
     }
 
-     @Override public BuilderTypeList getParameterTypes() {
+    @Override
+    public BuilderTypeList getParameterTypes() {
         return proto.parameterTypes;
     }
 
-     @Override public String getReturnType() {
+    @Override
+    public String getReturnType() {
         return proto.returnType.getType();
     }
 
-    @Override public int getIndex() {
+    @Override
+    public int getIndex() {
         return index;
     }
 
-    @Override public void setIndex(int index) {
+    @Override
+    public void setIndex(int index) {
         this.index = index;
     }
 }

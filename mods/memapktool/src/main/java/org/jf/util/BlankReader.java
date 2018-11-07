@@ -38,7 +38,8 @@ import java.io.Reader;
 public class BlankReader extends Reader {
     public static final BlankReader INSTANCE = new BlankReader();
 
-    @Override public int read(char[] chars, int i, int i2) throws IOException {
+    @Override
+    public int read(char[] chars, int i, int i2) throws IOException {
         return -1;
     }
 

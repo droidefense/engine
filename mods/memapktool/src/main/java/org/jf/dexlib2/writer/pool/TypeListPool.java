@@ -43,23 +43,23 @@ public class TypeListPool extends BaseNullableOffsetPool<Key<? extends Collectio
         implements TypeListSection<CharSequence, Key<? extends Collection<? extends CharSequence>>> {
 
 
-    public TypeListPool( DexPool dexPool) {
+    public TypeListPool(DexPool dexPool) {
         super(dexPool);
     }
 
-    public void intern( Collection<? extends CharSequence> types) {
+    public void intern(Collection<? extends CharSequence> types) {
         if (types.size() > 0) {
             Key<? extends Collection<? extends CharSequence>> key = new Key<Collection<? extends CharSequence>>(types);
             Integer prev = internedItems.put(key, 0);
             if (prev == null) {
-                for (CharSequence type: types) {
+                for (CharSequence type : types) {
                     dexPool.typeSection.intern(type);
                 }
             }
         }
     }
 
-     @Override
+    @Override
     public Collection<? extends CharSequence> getTypes(Key<? extends Collection<? extends CharSequence>> typesKey) {
         if (typesKey == null) {
             return ImmutableList.of();
@@ -67,7 +67,8 @@ public class TypeListPool extends BaseNullableOffsetPool<Key<? extends Collectio
         return typesKey.types;
     }
 
-    @Override public int getNullableItemOffset(Key<? extends Collection<? extends CharSequence>> key) {
+    @Override
+    public int getNullableItemOffset(Key<? extends Collection<? extends CharSequence>> key) {
         if (key == null || key.types.size() == 0) {
             return DexWriter.NO_OFFSET;
         } else {
@@ -77,17 +78,17 @@ public class TypeListPool extends BaseNullableOffsetPool<Key<? extends Collectio
 
     public static class Key<TypeCollection extends Collection<? extends CharSequence>>
             implements Comparable<Key<? extends Collection<? extends CharSequence>>> {
-         TypeCollection types;
+        TypeCollection types;
 
-        public Key( TypeCollection types) {
+        public Key(TypeCollection types) {
             this.types = types;
         }
 
         @Override
         public int hashCode() {
             int hashCode = 1;
-            for (CharSequence type: types) {
-                hashCode = hashCode*31 + type.toString().hashCode();
+            for (CharSequence type : types) {
+                hashCode = hashCode * 31 + type.toString().hashCode();
             }
             return hashCode;
         }
@@ -96,12 +97,12 @@ public class TypeListPool extends BaseNullableOffsetPool<Key<? extends Collectio
         public boolean equals(Object o) {
             if (o instanceof Key) {
                 Key<? extends Collection<? extends CharSequence>> other =
-                        (Key<? extends Collection<? extends CharSequence>>)o;
+                        (Key<? extends Collection<? extends CharSequence>>) o;
                 if (types.size() != other.types.size()) {
                     return false;
                 }
                 Iterator<? extends CharSequence> otherTypes = other.types.iterator();
-                for (CharSequence type: types) {
+                for (CharSequence type : types) {
                     if (!type.toString().equals(otherTypes.next().toString())) {
                         return false;
                     }
@@ -114,7 +115,7 @@ public class TypeListPool extends BaseNullableOffsetPool<Key<? extends Collectio
         @Override
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            for (CharSequence type: types) {
+            for (CharSequence type : types) {
                 sb.append(type.toString());
             }
             return sb.toString();
@@ -123,7 +124,7 @@ public class TypeListPool extends BaseNullableOffsetPool<Key<? extends Collectio
         @Override
         public int compareTo(Key<? extends Collection<? extends CharSequence>> o) {
             Iterator<? extends CharSequence> other = o.types.iterator();
-            for (CharSequence type: types) {
+            for (CharSequence type : types) {
                 if (!other.hasNext()) {
                     return 1;
                 }

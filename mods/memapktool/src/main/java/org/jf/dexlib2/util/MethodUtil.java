@@ -44,47 +44,52 @@ public final class MethodUtil {
             AccessFlags.CONSTRUCTOR.getValue();
 
     public static Predicate<Method> METHOD_IS_DIRECT = new Predicate<Method>() {
-        @Override public boolean apply(Method input) {
+        @Override
+        public boolean apply(Method input) {
             return input != null && isDirect(input);
         }
     };
 
     public static Predicate<Method> METHOD_IS_VIRTUAL = new Predicate<Method>() {
-        @Override public boolean apply(Method input) {
+        @Override
+        public boolean apply(Method input) {
             return input != null && !isDirect(input);
         }
     };
 
-    public static boolean isDirect( Method method) {
+    private MethodUtil() {
+    }
+
+    public static boolean isDirect(Method method) {
         return (method.getAccessFlags() & directMask) != 0;
     }
 
-    public static boolean isStatic( Method method) {
+    public static boolean isStatic(Method method) {
         return AccessFlags.STATIC.isSet(method.getAccessFlags());
     }
 
-    public static boolean isConstructor( MethodReference methodReference) {
+    public static boolean isConstructor(MethodReference methodReference) {
         return methodReference.getName().equals("<init>");
     }
 
-    public static boolean isPackagePrivate( Method method) {
+    public static boolean isPackagePrivate(Method method) {
         return (method.getAccessFlags() & (AccessFlags.PRIVATE.getValue() |
                 AccessFlags.PROTECTED.getValue() |
                 AccessFlags.PUBLIC.getValue())) == 0;
     }
 
-    public static int getParameterRegisterCount( Method method) {
+    public static int getParameterRegisterCount(Method method) {
         return getParameterRegisterCount(method, MethodUtil.isStatic(method));
     }
 
-    public static int getParameterRegisterCount( MethodReference methodRef, boolean isStatic) {
+    public static int getParameterRegisterCount(MethodReference methodRef, boolean isStatic) {
         return getParameterRegisterCount(methodRef.getParameterTypes(), isStatic);
     }
 
-    public static int getParameterRegisterCount( Collection<? extends CharSequence> parameterTypes,
+    public static int getParameterRegisterCount(Collection<? extends CharSequence> parameterTypes,
                                                 boolean isStatic) {
         int regCount = 0;
-        for (CharSequence paramType: parameterTypes) {
+        for (CharSequence paramType : parameterTypes) {
             int firstChar = paramType.charAt(0);
             if (firstChar == 'J' || firstChar == 'D') {
                 regCount += 2;
@@ -108,17 +113,15 @@ public final class MethodUtil {
     public static String getShorty(Collection<? extends CharSequence> params, String returnType) {
         StringBuilder sb = new StringBuilder(params.size() + 1);
         sb.append(getShortyType(returnType));
-        for (CharSequence typeRef: params) {
+        for (CharSequence typeRef : params) {
             sb.append(getShortyType(typeRef));
         }
         return sb.toString();
     }
 
-    public static boolean methodSignaturesMatch( MethodReference a,  MethodReference b) {
+    public static boolean methodSignaturesMatch(MethodReference a, MethodReference b) {
         return (a.getName().equals(b.getName()) &&
                 a.getReturnType().equals(b.getReturnType()) &&
                 CharSequenceUtils.listEquals(a.getParameterTypes(), b.getParameterTypes()));
     }
-
-    private MethodUtil() {}
 }

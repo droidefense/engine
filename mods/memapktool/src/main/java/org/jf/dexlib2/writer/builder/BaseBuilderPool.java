@@ -32,11 +32,10 @@
 package org.jf.dexlib2.writer.builder;
 
 
-
 public class BaseBuilderPool {
-     protected final DexBuilder dexBuilder;
+    protected final DexBuilder dexBuilder;
 
-    public BaseBuilderPool( DexBuilder dexBuilder) {
+    public BaseBuilderPool(DexBuilder dexBuilder) {
         this.dexBuilder = dexBuilder;
     }
 }

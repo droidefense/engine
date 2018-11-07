@@ -32,12 +32,11 @@
 package org.jf.dexlib2.builder;
 
 
-
 public class SwitchLabelElement {
     public final int key;
-     public final Label target;
+    public final Label target;
 
-    public SwitchLabelElement(int key,  Label target) {
+    public SwitchLabelElement(int key, Label target) {
         this.key = key;
         this.target = target;
     }

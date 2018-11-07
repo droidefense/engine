@@ -38,24 +38,27 @@ import java.util.List;
 public class BuilderTryBlock extends BaseTryBlock<BuilderExceptionHandler> {
     private final int startCodeAddress;
     private final int codeUnitCount;
-     private final List<? extends BuilderExceptionHandler> exceptionHandlers;
+    private final List<? extends BuilderExceptionHandler> exceptionHandlers;
 
     public BuilderTryBlock(int startCodeAddress, int codeUnitCount,
-                            List<? extends BuilderExceptionHandler> exceptionHandlers) {
+                           List<? extends BuilderExceptionHandler> exceptionHandlers) {
         this.startCodeAddress = startCodeAddress;
         this.codeUnitCount = codeUnitCount;
         this.exceptionHandlers = exceptionHandlers;
     }
 
-    @Override public int getStartCodeAddress() {
+    @Override
+    public int getStartCodeAddress() {
         return startCodeAddress;
     }
 
-    @Override public int getCodeUnitCount() {
+    @Override
+    public int getCodeUnitCount() {
         return codeUnitCount;
     }
 
-     @Override public List<? extends BuilderExceptionHandler> getExceptionHandlers() {
+    @Override
+    public List<? extends BuilderExceptionHandler> getExceptionHandlers() {
         return exceptionHandlers;
     }
 }

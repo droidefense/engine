@@ -37,8 +37,6 @@ import org.jf.dexlib2.iface.value.EncodedValue;
 import org.jf.dexlib2.iface.value.EnumEncodedValue;
 
 
-
-
 public abstract class BaseEnumEncodedValue implements EnumEncodedValue {
     @Override
     public int hashCode() {
@@ -48,17 +46,19 @@ public abstract class BaseEnumEncodedValue implements EnumEncodedValue {
     @Override
     public boolean equals(Object o) {
         if (o instanceof EnumEncodedValue) {
-            return getValue().equals(((EnumEncodedValue)o).getValue());
+            return getValue().equals(((EnumEncodedValue) o).getValue());
         }
         return false;
     }
 
     @Override
-    public int compareTo( EncodedValue o) {
+    public int compareTo(EncodedValue o) {
         int res = Ints.compare(getValueType(), o.getValueType());
         if (res != 0) return res;
-        return getValue().compareTo(((EnumEncodedValue)o).getValue());
+        return getValue().compareTo(((EnumEncodedValue) o).getValue());
     }
 
-    public int getValueType() { return ValueType.ENUM; }
+    public int getValueType() {
+        return ValueType.ENUM;
+    }
 }

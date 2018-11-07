@@ -66,12 +66,13 @@ public class Baksmali {
             classSet = new HashSet<String>(classes);
         }
 
-        for (final ClassDef classDef: classDefs) {
+        for (final ClassDef classDef : classDefs) {
             if (classSet != null && !classSet.contains(classDef.getType())) {
                 continue;
             }
             tasks.add(executor.submit(new Callable<Boolean>() {
-                @Override public Boolean call() throws Exception {
+                @Override
+                public Boolean call() throws Exception {
                     return disassembleClass(classDef, fileNameHandler, options);
                 }
             }));
@@ -79,8 +80,8 @@ public class Baksmali {
 
         boolean errorOccurred = false;
         try {
-            for (Future<Boolean> task: tasks) {
-                while(true) {
+            for (Future<Boolean> task : tasks) {
+                while (true) {
                     try {
                         if (!task.get()) {
                             errorOccurred = true;
@@ -112,7 +113,7 @@ public class Baksmali {
 
         //validate that the descriptor is formatted like we expect
         if (classDescriptor.charAt(0) != 'L' ||
-                classDescriptor.charAt(classDescriptor.length()-1) != ';') {
+                classDescriptor.charAt(classDescriptor.length() - 1) != ';') {
             System.err.println("Unrecognized class descriptor - " + classDescriptor + " - skipping class");
             return false;
         }
@@ -124,8 +125,7 @@ public class Baksmali {
 
         //write the disassembly
         Writer writer = null;
-        try
-        {
+        try {
             File smaliParent = smaliFile.getParentFile();
             if (!smaliParent.exists()) {
                 if (!smaliParent.mkdirs()) {
@@ -137,7 +137,7 @@ public class Baksmali {
                 }
             }
 
-            if (!smaliFile.exists()){
+            if (!smaliFile.exists()) {
                 if (!smaliFile.createNewFile()) {
                     System.err.println("Unable to create file " + smaliFile.toString() + " - skipping class");
                     return false;
@@ -148,16 +148,14 @@ public class Baksmali {
                     new FileOutputStream(smaliFile), "UTF8"));
 
             writer = new IndentingWriter(bufWriter);
-            classDefinition.writeTo((IndentingWriter)writer);
+            classDefinition.writeTo((IndentingWriter) writer);
         } catch (Exception ex) {
             System.err.println("\n\nError occurred while disassembling class " + classDescriptor.replace('/', '.') + " - skipping class");
             ex.printStackTrace();
             // noinspection ResultOfMethodCallIgnored
             smaliFile.delete();
             return false;
-        }
-        finally
-        {
+        } finally {
             if (writer != null) {
                 try {
                     writer.close();

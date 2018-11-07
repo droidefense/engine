@@ -42,9 +42,8 @@ public class WrappedIndentingWriter extends FilterWriter {
 
     private final int maxIndent;
     private final int maxWidth;
-
-    private int currentIndent = 0;
     private final StringBuilder line = new StringBuilder();
+    private int currentIndent = 0;
 
     public WrappedIndentingWriter(Writer out, int maxIndent, int maxWidth) {
         super(out);
@@ -53,7 +52,7 @@ public class WrappedIndentingWriter extends FilterWriter {
     }
 
     private void writeIndent() throws IOException {
-        for (int i=0; i<getIndent(); i++) {
+        for (int i = 0; i < getIndent(); i++) {
             write(' ');
         }
     }
@@ -83,7 +82,7 @@ public class WrappedIndentingWriter extends FilterWriter {
 
         line.replace(0, line.length(), "");
         writeIndent();
-        for (int i=1; i<wrapped.size(); i++) {
+        for (int i = 1; i < wrapped.size(); i++) {
             if (i > 1) {
                 write('\n');
             }
@@ -91,33 +90,37 @@ public class WrappedIndentingWriter extends FilterWriter {
         }
     }
 
-    @Override public void write(int c) throws IOException {
+    @Override
+    public void write(int c) throws IOException {
         if (c == '\n') {
             out.write(line.toString());
             out.write(c);
             line.replace(0, line.length(), "");
             writeIndent();
         } else {
-            line.append((char)c);
+            line.append((char) c);
             if (line.length() > maxWidth) {
                 wrapLine();
             }
         }
     }
 
-    @Override public void write(char[] cbuf, int off, int len) throws IOException {
-        for (int i=0; i<len; i++) {
-            write(cbuf[i+off]);
+    @Override
+    public void write(char[] cbuf, int off, int len) throws IOException {
+        for (int i = 0; i < len; i++) {
+            write(cbuf[i + off]);
         }
     }
 
-    @Override public void write(String str, int off, int len) throws IOException {
-        for (int i=0; i<len; i++) {
-            write(str.charAt(i+off));
+    @Override
+    public void write(String str, int off, int len) throws IOException {
+        for (int i = 0; i < len; i++) {
+            write(str.charAt(i + off));
         }
     }
 
-    @Override public void flush() throws IOException {
+    @Override
+    public void flush() throws IOException {
         out.write(line.toString());
         line.replace(0, line.length(), "");
     }

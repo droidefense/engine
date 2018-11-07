@@ -50,23 +50,13 @@ import java.util.Properties;
         postfixDescription = "See smali help <command> for more information about a specific command")
 public class Main extends Command {
     public static final String VERSION = loadVersion();
-
-    @Parameter(names = {"-h", "-?", "--help"}, help = true,
-            description = "Show usage information")
-    private boolean help;
-
     @Parameter(names = {"-v", "--version"}, help = true,
             description = "Print the version of baksmali and then exit")
     public boolean version;
-
+    @Parameter(names = {"-h", "-?", "--help"}, help = true,
+            description = "Show usage information")
+    private boolean help;
     private JCommander jc;
-
-    @Override public void run() {
-    }
-
-    @Override protected JCommander getJCommander() {
-        return jc;
-    }
 
     public Main() {
         super(Lists.<JCommander>newArrayList());
@@ -95,7 +85,7 @@ public class Main extends Command {
             return;
         }
 
-        Command command = (Command)jc.getCommands().get(jc.getParsedCommand()).getObjects().get(0);
+        Command command = (Command) jc.getCommands().get(jc.getParsedCommand()).getObjects().get(0);
         command.run();
     }
 
@@ -119,5 +109,14 @@ public class Main extends Command {
             }
         }
         return version;
+    }
+
+    @Override
+    public void run() {
+    }
+
+    @Override
+    protected JCommander getJCommander() {
+        return jc;
     }
 }

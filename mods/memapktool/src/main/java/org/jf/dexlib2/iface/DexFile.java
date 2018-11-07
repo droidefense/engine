@@ -41,17 +41,17 @@ import java.util.Set;
 public interface DexFile {
     /**
      * Get a set of the classes defined in this dex file.
-     *
+     * <p>
      * The classes in the returned set will all have unique types.
      *
      * @return A set of the classes defined in this dex file
      */
-     Set<? extends ClassDef> getClasses();
+    Set<? extends ClassDef> getClasses();
 
     /**
      * Get the Opcodes associated with this dex file
      *
      * @return The Opcodes instance representing the possible opcodes that can be encountered in this dex file
      */
-     Opcodes getOpcodes();
+    Opcodes getOpcodes();
 }

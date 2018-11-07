@@ -40,16 +40,15 @@ import org.jf.dexlib2.immutable.reference.ImmutableReferenceFactory;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class ImmutableInstruction21c extends ImmutableInstruction implements Instruction21c {
     public static final Format FORMAT = Format.Format21c;
 
     protected final int registerA;
-     protected final ImmutableReference reference;
+    protected final ImmutableReference reference;
 
-    public ImmutableInstruction21c( Opcode opcode,
-                                      int registerA,
-                                       Reference reference) {
+    public ImmutableInstruction21c(Opcode opcode,
+                                   int registerA,
+                                   Reference reference) {
         super(opcode);
         this.registerA = Preconditions.checkByteRegister(registerA);
         this.reference = ImmutableReferenceFactory.of(opcode.referenceType, reference);
@@ -57,7 +56,7 @@ public class ImmutableInstruction21c extends ImmutableInstruction implements Ins
 
     public static ImmutableInstruction21c of(Instruction21c instruction) {
         if (instruction instanceof ImmutableInstruction21c) {
-            return (ImmutableInstruction21c)instruction;
+            return (ImmutableInstruction21c) instruction;
         }
         return new ImmutableInstruction21c(
                 instruction.getOpcode(),
@@ -65,9 +64,23 @@ public class ImmutableInstruction21c extends ImmutableInstruction implements Ins
                 instruction.getReference());
     }
 
-    @Override public int getRegisterA() { return registerA; }
-     @Override public ImmutableReference getReference() { return reference; }
-    @Override public int getReferenceType() { return opcode.referenceType; }
+    @Override
+    public int getRegisterA() {
+        return registerA;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public ImmutableReference getReference() {
+        return reference;
+    }
+
+    @Override
+    public int getReferenceType() {
+        return opcode.referenceType;
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

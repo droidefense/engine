@@ -39,24 +39,33 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction22t;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class BuilderInstruction22t extends BuilderOffsetInstruction implements Instruction22t {
     public static final Format FORMAT = Format.Format22t;
 
     protected final int registerA;
     protected final int registerB;
 
-    public BuilderInstruction22t( Opcode opcode,
+    public BuilderInstruction22t(Opcode opcode,
                                  int registerA,
                                  int registerB,
-                                  Label target) {
+                                 Label target) {
         super(opcode, target);
         this.registerA = Preconditions.checkNibbleRegister(registerA);
         this.registerB = Preconditions.checkNibbleRegister(registerB);
     }
 
-    @Override public int getRegisterA() { return registerA; }
-    @Override public int getRegisterB() { return registerB; }
+    @Override
+    public int getRegisterA() {
+        return registerA;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public int getRegisterB() {
+        return registerB;
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

@@ -38,11 +38,11 @@ import org.jf.util.IndentingWriter;
 import java.io.IOException;
 
 public class EndLocalMethodItem extends DebugMethodItem {
-     private final EndLocal endLocal;
-     private final RegisterFormatter registerFormatter;
+    private final EndLocal endLocal;
+    private final RegisterFormatter registerFormatter;
 
-    public EndLocalMethodItem(int codeAddress, int sortOrder,  RegisterFormatter registerFormatter,
-                                 EndLocal endLocal) {
+    public EndLocalMethodItem(int codeAddress, int sortOrder, RegisterFormatter registerFormatter,
+                              EndLocal endLocal) {
         super(codeAddress, sortOrder);
         this.endLocal = endLocal;
         this.registerFormatter = registerFormatter;

@@ -36,6 +36,7 @@ import java.util.Collection;
 import java.util.Map;
 
 public interface OffsetSection<Key> {
-    int getItemOffset( Key key);
-     Collection<? extends Map.Entry<? extends Key, Integer>> getItems();
+    int getItemOffset(Key key);
+
+    Collection<? extends Map.Entry<? extends Key, Integer>> getItems();
 }

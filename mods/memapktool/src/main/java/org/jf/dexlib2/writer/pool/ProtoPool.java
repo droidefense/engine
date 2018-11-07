@@ -42,11 +42,11 @@ public class ProtoPool extends BaseIndexPool<MethodProtoReference>
         implements ProtoSection<CharSequence, CharSequence, MethodProtoReference,
         TypeListPool.Key<? extends Collection<? extends CharSequence>>> {
 
-    public ProtoPool( DexPool dexPool) {
+    public ProtoPool(DexPool dexPool) {
         super(dexPool);
     }
 
-    public void intern( MethodProtoReference reference) {
+    public void intern(MethodProtoReference reference) {
         Integer prev = internedItems.put(reference, 0);
         if (prev == null) {
             dexPool.stringSection.intern(getShorty(reference));
@@ -55,16 +55,19 @@ public class ProtoPool extends BaseIndexPool<MethodProtoReference>
         }
     }
 
-     @Override public CharSequence getShorty( MethodProtoReference reference) {
+    @Override
+    public CharSequence getShorty(MethodProtoReference reference) {
         return MethodUtil.getShorty(reference.getParameterTypes(), reference.getReturnType());
     }
 
-     @Override public CharSequence getReturnType( MethodProtoReference protoReference) {
+    @Override
+    public CharSequence getReturnType(MethodProtoReference protoReference) {
         return protoReference.getReturnType();
     }
 
-    @Override public TypeListPool.Key<List<? extends CharSequence>> getParameters(
-             MethodProtoReference methodProto) {
+    @Override
+    public TypeListPool.Key<List<? extends CharSequence>> getParameters(
+            MethodProtoReference methodProto) {
         return new TypeListPool.Key<List<? extends CharSequence>>(methodProto.getParameterTypes());
     }
 }

@@ -37,70 +37,77 @@ import org.jf.dexlib2.iface.reference.StringReference;
 import org.jf.dexlib2.iface.reference.TypeReference;
 
 
-
-
 public class DebugItemRewriter implements Rewriter<DebugItem> {
-     protected final Rewriters rewriters;
+    protected final Rewriters rewriters;
 
-    public DebugItemRewriter( Rewriters rewriters) {
+    public DebugItemRewriter(Rewriters rewriters) {
         this.rewriters = rewriters;
     }
 
-     @Override public DebugItem rewrite( DebugItem value) {
+    @Override
+    public DebugItem rewrite(DebugItem value) {
         switch (value.getDebugItemType()) {
             case DebugItemType.START_LOCAL:
-                return new RewrittenStartLocal((StartLocal)value);
+                return new RewrittenStartLocal((StartLocal) value);
             case DebugItemType.END_LOCAL:
-                return new RewrittenEndLocal((EndLocal)value);
+                return new RewrittenEndLocal((EndLocal) value);
             case DebugItemType.RESTART_LOCAL:
-                return new RewrittenRestartLocal((RestartLocal)value);
+                return new RewrittenRestartLocal((RestartLocal) value);
             default:
                 return value;
         }
     }
 
     protected class BaseRewrittenLocalInfoDebugItem<T extends DebugItem & LocalInfo> implements DebugItem, LocalInfo {
-         protected T debugItem;
+        protected T debugItem;
 
-        public BaseRewrittenLocalInfoDebugItem ( T debugItem) {
+        public BaseRewrittenLocalInfoDebugItem(T debugItem) {
             this.debugItem = debugItem;
         }
 
-        @Override public int getDebugItemType() {
+        @Override
+        public int getDebugItemType() {
             return debugItem.getDebugItemType();
         }
 
-        @Override public int getCodeAddress() {
+        @Override
+        public int getCodeAddress() {
             return debugItem.getCodeAddress();
         }
 
-        @Override public String getName() {
+        @Override
+        public String getName() {
             return debugItem.getName();
         }
 
-        @Override public String getType() {
+        @Override
+        public String getType() {
             return RewriterUtils.rewriteNullable(rewriters.getTypeRewriter(), debugItem.getType());
         }
 
-        @Override public String getSignature() {
+        @Override
+        public String getSignature() {
             return debugItem.getSignature();
         }
     }
 
     protected class RewrittenStartLocal extends BaseRewrittenLocalInfoDebugItem<StartLocal> implements StartLocal {
-        public RewrittenStartLocal( StartLocal debugItem) {
+        public RewrittenStartLocal(StartLocal debugItem) {
             super(debugItem);
         }
 
-        @Override public int getRegister() {
+        @Override
+        public int getRegister() {
             return debugItem.getRegister();
         }
 
-        @Override public StringReference getNameReference() {
+        @Override
+        public StringReference getNameReference() {
             return debugItem.getNameReference();
         }
 
-        @Override public TypeReference getTypeReference() {
+        @Override
+        public TypeReference getTypeReference() {
             TypeReference typeReference = debugItem.getTypeReference();
             if (typeReference == null) {
                 return null;
@@ -109,13 +116,14 @@ public class DebugItemRewriter implements Rewriter<DebugItem> {
             return RewriterUtils.rewriteTypeReference(rewriters.getTypeRewriter(), typeReference);
         }
 
-        @Override public StringReference getSignatureReference() {
+        @Override
+        public StringReference getSignatureReference() {
             return debugItem.getSignatureReference();
         }
     }
 
     protected class RewrittenEndLocal extends BaseRewrittenLocalInfoDebugItem<EndLocal> implements EndLocal {
-        public RewrittenEndLocal( EndLocal instruction) {
+        public RewrittenEndLocal(EndLocal instruction) {
             super(instruction);
         }
 
@@ -126,7 +134,7 @@ public class DebugItemRewriter implements Rewriter<DebugItem> {
 
     protected class RewrittenRestartLocal extends BaseRewrittenLocalInfoDebugItem<RestartLocal>
             implements RestartLocal {
-        public RewrittenRestartLocal( RestartLocal instruction) {
+        public RewrittenRestartLocal(RestartLocal instruction) {
             super(instruction);
         }
 

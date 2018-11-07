@@ -34,30 +34,31 @@ package org.jf.dexlib2.writer.builder;
 import org.jf.dexlib2.base.BaseMethodParameter;
 
 
-
-
 public class BuilderMethodParameter extends BaseMethodParameter {
-     final BuilderTypeReference type;
+    final BuilderTypeReference type;
     final BuilderStringReference name;
-     final BuilderAnnotationSet annotations;
+    final BuilderAnnotationSet annotations;
 
-    public BuilderMethodParameter( BuilderTypeReference type,
+    public BuilderMethodParameter(BuilderTypeReference type,
                                   BuilderStringReference name,
-                                   BuilderAnnotationSet annotations) {
+                                  BuilderAnnotationSet annotations) {
         this.type = type;
         this.name = name;
         this.annotations = annotations;
     }
 
-     @Override public String getType() {
+    @Override
+    public String getType() {
         return type.getType();
     }
 
-    @Override public String getName() {
-        return name==null?null:name.getString();
+    @Override
+    public String getName() {
+        return name == null ? null : name.getString();
     }
 
-     @Override public BuilderAnnotationSet getAnnotations() {
+    @Override
+    public BuilderAnnotationSet getAnnotations() {
         return annotations;
     }
 }

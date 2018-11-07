@@ -32,14 +32,14 @@ public class XmlPullParserDelegate implements XmlPullParser {
         return pp.getText();
     }
 
-    public void setFeature( String name, boolean state ) throws XmlPullParserException {
+    public void setFeature(String name, boolean state) throws XmlPullParserException {
 
-        pp.setFeature( name, state );
+        pp.setFeature(name, state);
     }
 
-    public char[] getTextCharacters( int[] holderForStartAndLength ) {
+    public char[] getTextCharacters(int[] holderForStartAndLength) {
 
-        return pp.getTextCharacters( holderForStartAndLength );
+        return pp.getTextCharacters(holderForStartAndLength);
     }
 
     public int getColumnNumber() {
@@ -47,19 +47,19 @@ public class XmlPullParserDelegate implements XmlPullParser {
         return pp.getColumnNumber();
     }
 
-    public int getNamespaceCount( int depth ) throws XmlPullParserException {
+    public int getNamespaceCount(int depth) throws XmlPullParserException {
 
-        return pp.getNamespaceCount( depth );
+        return pp.getNamespaceCount(depth);
     }
 
-    public String getNamespacePrefix( int pos ) throws XmlPullParserException {
+    public String getNamespacePrefix(int pos) throws XmlPullParserException {
 
-        return pp.getNamespacePrefix( pos );
+        return pp.getNamespacePrefix(pos);
     }
 
-    public String getAttributeName( int index ) {
+    public String getAttributeName(int index) {
 
-        return pp.getAttributeName( index );
+        return pp.getAttributeName(index);
     }
 
     public String getName() {
@@ -67,9 +67,9 @@ public class XmlPullParserDelegate implements XmlPullParser {
         return pp.getName();
     }
 
-    public boolean getFeature( String name ) {
+    public boolean getFeature(String name) {
 
-        return pp.getFeature( name );
+        return pp.getFeature(name);
     }
 
     public String getInputEncoding() {
@@ -77,19 +77,19 @@ public class XmlPullParserDelegate implements XmlPullParser {
         return pp.getInputEncoding();
     }
 
-    public String getAttributeValue( int index ) {
+    public String getAttributeValue(int index) {
 
-        return pp.getAttributeValue( index );
+        return pp.getAttributeValue(index);
     }
 
-    public String getNamespace( String prefix ) {
+    public String getNamespace(String prefix) {
 
-        return pp.getNamespace( prefix );
+        return pp.getNamespace(prefix);
     }
 
-    public void setInput( Reader in ) throws XmlPullParserException {
+    public void setInput(Reader in) throws XmlPullParserException {
 
-        pp.setInput( in );
+        pp.setInput(in);
     }
 
     public int getLineNumber() {
@@ -97,9 +97,9 @@ public class XmlPullParserDelegate implements XmlPullParser {
         return pp.getLineNumber();
     }
 
-    public Object getProperty( String name ) {
+    public Object getProperty(String name) {
 
-        return pp.getProperty( name );
+        return pp.getProperty(name);
     }
 
     public boolean isEmptyElementTag() throws XmlPullParserException {
@@ -107,14 +107,14 @@ public class XmlPullParserDelegate implements XmlPullParser {
         return pp.isEmptyElementTag();
     }
 
-    public boolean isAttributeDefault( int index ) {
+    public boolean isAttributeDefault(int index) {
 
-        return pp.isAttributeDefault( index );
+        return pp.isAttributeDefault(index);
     }
 
-    public String getNamespaceUri( int pos ) throws XmlPullParserException {
+    public String getNamespaceUri(int pos) throws XmlPullParserException {
 
-        return pp.getNamespaceUri( pos );
+        return pp.getNamespaceUri(pos);
     }
 
     public int next() throws XmlPullParserException, IOException {
@@ -127,9 +127,9 @@ public class XmlPullParserDelegate implements XmlPullParser {
         return pp.nextToken();
     }
 
-    public void defineEntityReplacementText( String entityName, String replacementText ) throws XmlPullParserException {
+    public void defineEntityReplacementText(String entityName, String replacementText) throws XmlPullParserException {
 
-        pp.defineEntityReplacementText( entityName, replacementText );
+        pp.defineEntityReplacementText(entityName, replacementText);
     }
 
     public int getAttributeCount() {
@@ -147,9 +147,9 @@ public class XmlPullParserDelegate implements XmlPullParser {
         return pp.getPrefix();
     }
 
-    public void require( int type, String namespace, String name ) throws XmlPullParserException, IOException {
+    public void require(int type, String namespace, String name) throws XmlPullParserException, IOException {
 
-        pp.require( type, namespace, name );
+        pp.require(type, namespace, name);
     }
 
     public String nextText() throws XmlPullParserException, IOException {
@@ -157,9 +157,9 @@ public class XmlPullParserDelegate implements XmlPullParser {
         return pp.nextText();
     }
 
-    public String getAttributeType( int index ) {
+    public String getAttributeType(int index) {
 
-        return pp.getAttributeType( index );
+        return pp.getAttributeType(index);
     }
 
     public int getDepth() {
@@ -177,29 +177,29 @@ public class XmlPullParserDelegate implements XmlPullParser {
         return pp.getEventType();
     }
 
-    public String getAttributePrefix( int index ) {
+    public String getAttributePrefix(int index) {
 
-        return pp.getAttributePrefix( index );
+        return pp.getAttributePrefix(index);
     }
 
-    public void setInput( InputStream inputStream ) throws XmlPullParserException {
+    public void setInput(InputStream inputStream) throws XmlPullParserException {
 
-        setInput( inputStream, CharacterEncodings.UTF_8 );
+        setInput(inputStream, CharacterEncodings.UTF_8);
     }
 
-    public void setInput( InputStream inputStream, String inputEncoding ) throws XmlPullParserException {
+    public void setInput(InputStream inputStream, String inputEncoding) throws XmlPullParserException {
 
-        pp.setInput( inputStream, inputEncoding );
+        pp.setInput(inputStream, inputEncoding);
     }
 
-    public String getAttributeValue( String namespace, String name ) {
+    public String getAttributeValue(String namespace, String name) {
 
-        return pp.getAttributeValue( namespace, name );
+        return pp.getAttributeValue(namespace, name);
     }
 
-    public void setProperty( String name, Object value ) throws XmlPullParserException {
+    public void setProperty(String name, Object value) throws XmlPullParserException {
 
-        pp.setProperty( name, value );
+        pp.setProperty(name, value);
     }
 
     public String getPositionDescription() {
@@ -212,8 +212,8 @@ public class XmlPullParserDelegate implements XmlPullParser {
         return pp.getNamespace();
     }
 
-    public String getAttributeNamespace( int index ) {
+    public String getAttributeNamespace(int index) {
 
-        return pp.getAttributeNamespace( index );
+        return pp.getAttributeNamespace(index);
     }
 }

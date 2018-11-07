@@ -93,7 +93,7 @@ public class FieldDefinition {
     }
 
     private static void writeAccessFlags(IndentingWriter writer, int accessFlags) throws IOException {
-        for (AccessFlags accessFlag: AccessFlags.getAccessFlagsForField(accessFlags)) {
+        for (AccessFlags accessFlag : AccessFlags.getAccessFlagsForField(accessFlags)) {
             writer.write(accessFlag.toString());
             writer.write(' ');
         }

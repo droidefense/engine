@@ -44,14 +44,14 @@ import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentMap;
 
 class BuilderTypeListPool extends BaseBuilderPool implements TypeListSection<BuilderTypeReference, BuilderTypeList> {
-     private final ConcurrentMap<List<? extends CharSequence>, BuilderTypeList> internedItems =
+    private final ConcurrentMap<List<? extends CharSequence>, BuilderTypeList> internedItems =
             Maps.newConcurrentMap();
 
-    public BuilderTypeListPool( DexBuilder dexBuilder) {
+    public BuilderTypeListPool(DexBuilder dexBuilder) {
         super(dexBuilder);
     }
 
-     public BuilderTypeList internTypeList(List<? extends CharSequence> types) {
+    public BuilderTypeList internTypeList(List<? extends CharSequence> types) {
         if (types == null || types.size() == 0) {
             return BuilderTypeList.EMPTY;
         }
@@ -63,35 +63,41 @@ class BuilderTypeListPool extends BaseBuilderPool implements TypeListSection<Bui
 
         BuilderTypeList typeList = new BuilderTypeList(
                 ImmutableList.copyOf(Iterables.transform(types, new Function<CharSequence, BuilderTypeReference>() {
-                     @Override public BuilderTypeReference apply(CharSequence input) {
+                    @Override
+                    public BuilderTypeReference apply(CharSequence input) {
                         return dexBuilder.typeSection.internType(input.toString());
                     }
                 })));
 
         ret = internedItems.putIfAbsent(typeList, typeList);
-        return ret==null?typeList:ret;
+        return ret == null ? typeList : ret;
     }
 
-    @Override public int getNullableItemOffset(BuilderTypeList key) {
-        return (key==null||key.size()==0)?DexWriter.NO_OFFSET:key.offset;
+    @Override
+    public int getNullableItemOffset(BuilderTypeList key) {
+        return (key == null || key.size() == 0) ? DexWriter.NO_OFFSET : key.offset;
     }
 
-     @Override
+    @Override
     public Collection<? extends BuilderTypeReference> getTypes(BuilderTypeList key) {
-        return key==null?BuilderTypeList.EMPTY:key.types;
+        return key == null ? BuilderTypeList.EMPTY : key.types;
     }
 
-    @Override public int getItemOffset( BuilderTypeList key) {
+    @Override
+    public int getItemOffset(BuilderTypeList key) {
         return key.offset;
     }
 
-     @Override public Collection<? extends Entry<? extends BuilderTypeList, Integer>> getItems() {
+    @Override
+    public Collection<? extends Entry<? extends BuilderTypeList, Integer>> getItems() {
         return new BuilderMapEntryCollection<BuilderTypeList>(internedItems.values()) {
-            @Override protected int getValue( BuilderTypeList key) {
+            @Override
+            protected int getValue(BuilderTypeList key) {
                 return key.offset;
             }
 
-            @Override protected int setValue( BuilderTypeList key, int value) {
+            @Override
+            protected int setValue(BuilderTypeList key, int value) {
                 int prev = key.offset;
                 key.offset = value;
                 return prev;

@@ -99,12 +99,12 @@ public class DynamicUtils {
         return value == -1;
     }
 
-	/*
+    /*
      * Un poco de literatura:
-	 * dalvik no tiene pla, tiene registros. concretamente unos 64k, la mayoria de instrucciones
-	 * solo usan los 256 primeros.
-	 * cualquier dato entra en un solo registro. A excepcion de los double y long que necesitan 2 registros consecutivos
-	 * */
+     * dalvik no tiene pla, tiene registros. concretamente unos 64k, la mayoria de instrucciones
+     * solo usan los 256 primeros.
+     * cualquier dato entra en un solo registro. A excepcion de los double y long que necesitan 2 registros consecutivos
+     * */
     //Dex file info on https://source.android.com/devices/tech/dalvik/dex-format.html
     //---- DEX DATA TYPES
 

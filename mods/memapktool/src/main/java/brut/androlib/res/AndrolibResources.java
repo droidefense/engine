@@ -1,18 +1,18 @@
 /**
- *  Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
- *  Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
+ * Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package brut.androlib.res;
 
@@ -48,6 +48,27 @@ import java.util.zip.ZipOutputStream;
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
  */
 final public class AndrolibResources {
+    private final static Logger LOGGER = Logger.getLogger(AndrolibResources.class.getName());
+    private final static String[] IGNORED_PACKAGES = new String[]{
+            "android", "com.htc", "miui", "com.lge", "com.lge.internal", "yi", "com.miui.core", "flyme",
+            "air.com.adobe.appentry", "FFFFFFFFFFFFFFFFFFFFFF"};
+    private final static String[] ALLOWED_PACKAGES = new String[]{
+            "com.miui"};
+    // TODO: dirty static hack. I have to refactor decoding mechanisms.
+    public static boolean sKeepBroken = false;
+    public ApkOptions apkOptions;
+    private File mFrameworkDirectory = null;
+    private ExtFile mFramework = null;
+    private String mMinSdkVersion = null;
+    private String mMaxSdkVersion = null;
+    private String mTargetSdkVersion = null;
+    private String mVersionCode = null;
+    private String mVersionName = null;
+    private String mPackageRenamed = null;
+    private String mPackageId = null;
+    private boolean mSharedLibrary = false;
+    private boolean mSparseResources = false;
+
     public ResTable getResTable(ExtFile apkFile) throws AndrolibException {
         return getResTable(apkFile, true);
     }
@@ -101,7 +122,7 @@ final public class AndrolibResources {
         int value = 0;
 
         for (ResPackage resPackage : pkgs) {
-            if (resPackage.getResSpecCount() > value && ! resPackage.getName().equalsIgnoreCase("android")) {
+            if (resPackage.getResSpecCount() > value && !resPackage.getName().equalsIgnoreCase("android")) {
                 value = resPackage.getResSpecCount();
                 id = resPackage.getId();
             }
@@ -178,7 +199,7 @@ final public class AndrolibResources {
         // 2a) If its ignored, make sure the mPackageRenamed isn't explicitly allowed
         if (packageOriginal.equalsIgnoreCase(mPackageRenamed) ||
                 (Arrays.asList(IGNORED_PACKAGES).contains(packageOriginal) &&
-                ! Arrays.asList(ALLOWED_PACKAGES).contains(mPackageRenamed))) {
+                        !Arrays.asList(ALLOWED_PACKAGES).contains(mPackageRenamed))) {
             LOGGER.info("Regular manifest package...");
         } else {
             LOGGER.info("Renamed manifest package found! Replacing " + mPackageRenamed + " with " + packageOriginal);
@@ -370,7 +391,7 @@ final public class AndrolibResources {
         cmd.add("-o");
         cmd.add(apkFile.getAbsolutePath());
 
-        if (mPackageId != null && ! mSharedLibrary) {
+        if (mPackageId != null && !mSharedLibrary) {
             cmd.add("--package-id");
             cmd.add(mPackageId);
         }
@@ -487,7 +508,7 @@ final public class AndrolibResources {
         }
         // force package id so that some frameworks build with correct id
         // disable if user adds own aapt (can't know if they have this feature)
-        if (mPackageId != null && ! customAapt && ! mSharedLibrary) {
+        if (mPackageId != null && !customAapt && !mSharedLibrary) {
             cmd.add("--forced-package-id");
             cmd.add(mPackageId);
         }
@@ -634,7 +655,7 @@ final public class AndrolibResources {
     public boolean detectWhetherAppIsFramework(File appDir)
             throws AndrolibException {
         File publicXml = new File(appDir, "res/values/public.xml");
-        if (! publicXml.exists()) {
+        if (!publicXml.exists()) {
             return false;
         }
 
@@ -668,7 +689,7 @@ final public class AndrolibResources {
 
         AXmlResourceParser axmlParser = new AXmlResourceParser();
 
-        decoders.setDecoder("xml", new XmlPullStreamDecoder(axmlParser,getResXmlSerializer()));
+        decoders.setDecoder("xml", new XmlPullStreamDecoder(axmlParser, getResXmlSerializer()));
 
         return new Duo<ResFileDecoder, AXmlResourceParser>(new ResFileDecoder(decoders), axmlParser);
     }
@@ -732,7 +753,7 @@ final public class AndrolibResources {
         }
     }
 
-    private ResPackage[] getResPackagesFromApk(ExtFile apkFile,ResTable resTable, boolean keepBroken)
+    private ResPackage[] getResPackagesFromApk(ExtFile apkFile, ResTable resTable, boolean keepBroken)
             throws AndrolibException {
         try {
             Directory dir = apkFile.getDirectory();
@@ -742,7 +763,8 @@ final public class AndrolibResources {
             } finally {
                 try {
                     bfi.close();
-                } catch (IOException ignored) {}
+                } catch (IOException ignored) {
+                }
             }
         } catch (DirectoryException ex) {
             throw new AndrolibException("Could not load resources.arsc from file: " + apkFile, ex);
@@ -785,11 +807,11 @@ final public class AndrolibResources {
 
         apk = new File(dir, "1.apk");
 
-        if (! apk.exists()) {
+        if (!apk.exists()) {
             LOGGER.warning("Can't empty framework directory, no file found at: " + apk.getAbsolutePath());
         } else {
             try {
-                if (apk.exists() && dir.listFiles().length > 1 && ! apkOptions.forceDeleteFramework) {
+                if (apk.exists() && dir.listFiles().length > 1 && !apkOptions.forceDeleteFramework) {
                     LOGGER.warning("More than default framework detected. Please run command with `--force` parameter to wipe framework directory.");
                 } else {
                     for (File file : dir.listFiles()) {
@@ -842,7 +864,7 @@ final public class AndrolibResources {
             out.putNextEntry(entry);
             out.write(data);
             out.closeEntry();
-            
+
             //Write fake AndroidManifest.xml file to support original aapt
             entry = zip.getEntry("AndroidManifest.xml");
             if (entry != null) {
@@ -871,12 +893,12 @@ final public class AndrolibResources {
     public void publicizeResources(File arscFile) throws AndrolibException {
         byte[] data = new byte[(int) arscFile.length()];
 
-        try(InputStream in = new FileInputStream(arscFile);
-            OutputStream out = new FileOutputStream(arscFile)) {
+        try (InputStream in = new FileInputStream(arscFile);
+             OutputStream out = new FileOutputStream(arscFile)) {
             in.read(data);
             publicizeResources(data);
             out.write(data);
-        } catch (IOException ex){
+        } catch (IOException ex) {
             throw new AndrolibException(ex);
         }
     }
@@ -920,7 +942,7 @@ final public class AndrolibResources {
 
             File fullPath = new File(path);
 
-            if (! fullPath.canWrite()) {
+            if (!fullPath.canWrite()) {
                 LOGGER.severe(String.format("WARNING: Could not write to (%1$s), using %2$s instead...",
                         fullPath.getAbsolutePath(), System.getProperty("java.io.tmpdir")));
                 LOGGER.severe("Please be aware this is a volatile directory and frameworks could go missing, " +
@@ -940,8 +962,8 @@ final public class AndrolibResources {
             throw new AndrolibException("Please remove file at " + dir.getParentFile());
         }
 
-        if (! dir.exists()) {
-            if (! dir.mkdirs()) {
+        if (!dir.exists()) {
+            if (!dir.mkdirs()) {
                 if (apkOptions.frameworkFolderLocation != null) {
                     LOGGER.severe("Can't create Framework directory: " + dir);
                 }
@@ -981,33 +1003,4 @@ final public class AndrolibResources {
             mFramework.close();
         }
     }
-
-    public ApkOptions apkOptions;
-
-    // TODO: dirty static hack. I have to refactor decoding mechanisms.
-    public static boolean sKeepBroken = false;
-
-    private final static Logger LOGGER = Logger.getLogger(AndrolibResources.class.getName());
-
-    private File mFrameworkDirectory = null;
-
-    private ExtFile mFramework = null;
-
-    private String mMinSdkVersion = null;
-    private String mMaxSdkVersion = null;
-    private String mTargetSdkVersion = null;
-    private String mVersionCode = null;
-    private String mVersionName = null;
-    private String mPackageRenamed = null;
-    private String mPackageId = null;
-
-    private boolean mSharedLibrary = false;
-    private boolean mSparseResources = false;
-
-    private final static String[] IGNORED_PACKAGES = new String[] {
-            "android", "com.htc", "miui", "com.lge", "com.lge.internal", "yi", "com.miui.core", "flyme",
-            "air.com.adobe.appentry", "FFFFFFFFFFFFFFFFFFFFFF" };
-
-    private final static String[] ALLOWED_PACKAGES = new String[] {
-            "com.miui" };
 }

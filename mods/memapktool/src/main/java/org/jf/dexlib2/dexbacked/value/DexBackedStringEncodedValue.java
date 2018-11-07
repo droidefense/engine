@@ -36,17 +36,17 @@ import org.jf.dexlib2.dexbacked.DexBackedDexFile;
 import org.jf.dexlib2.dexbacked.DexReader;
 
 
-
 public class DexBackedStringEncodedValue extends BaseStringEncodedValue {
-     public final DexBackedDexFile dexFile;
+    public final DexBackedDexFile dexFile;
     private final int stringIndex;
 
-    public DexBackedStringEncodedValue( DexReader reader, int valueArg) {
+    public DexBackedStringEncodedValue(DexReader reader, int valueArg) {
         this.dexFile = reader.dexBuf;
         stringIndex = reader.readSizedSmallUint(valueArg + 1);
     }
 
-     @Override public String getValue() {
+    @Override
+    public String getValue() {
         return dexFile.getString(stringIndex);
     }
 }

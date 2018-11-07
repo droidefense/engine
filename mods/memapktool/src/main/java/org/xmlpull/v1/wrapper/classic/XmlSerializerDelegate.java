@@ -30,14 +30,14 @@ public class XmlSerializerDelegate implements XmlSerializer {
         return xs.getName();
     }
 
-    public void setPrefix( String prefix, String namespace ) throws IOException, IllegalArgumentException, IllegalStateException {
+    public void setPrefix(String prefix, String namespace) throws IOException, IllegalArgumentException, IllegalStateException {
 
-        xs.setPrefix( prefix, namespace );
+        xs.setPrefix(prefix, namespace);
     }
 
-    public void setOutput( OutputStream os, String encoding ) throws IOException, IllegalArgumentException, IllegalStateException {
+    public void setOutput(OutputStream os, String encoding) throws IOException, IllegalArgumentException, IllegalStateException {
 
-        xs.setOutput( os, encoding );
+        xs.setOutput(os, encoding);
     }
 
     public void endDocument() throws IOException, IllegalArgumentException, IllegalStateException {
@@ -45,9 +45,9 @@ public class XmlSerializerDelegate implements XmlSerializer {
         xs.endDocument();
     }
 
-    public void comment( String text ) throws IOException, IllegalArgumentException, IllegalStateException {
+    public void comment(String text) throws IOException, IllegalArgumentException, IllegalStateException {
 
-        xs.comment( text );
+        xs.comment(text);
     }
 
     public int getDepth() {
@@ -55,39 +55,39 @@ public class XmlSerializerDelegate implements XmlSerializer {
         return xs.getDepth();
     }
 
-    public void setProperty( String name, Object value ) throws IllegalArgumentException, IllegalStateException {
+    public void setProperty(String name, Object value) throws IllegalArgumentException, IllegalStateException {
 
-        xs.setProperty( name, value );
+        xs.setProperty(name, value);
     }
 
-    public void cdsect( String text ) throws IOException, IllegalArgumentException, IllegalStateException {
+    public void cdsect(String text) throws IOException, IllegalArgumentException, IllegalStateException {
 
-        xs.cdsect( text );
+        xs.cdsect(text);
     }
 
-    public void setFeature( String name, boolean state ) throws IllegalArgumentException, IllegalStateException {
+    public void setFeature(String name, boolean state) throws IllegalArgumentException, IllegalStateException {
 
-        xs.setFeature( name, state );
+        xs.setFeature(name, state);
     }
 
-    public void entityRef( String text ) throws IOException, IllegalArgumentException, IllegalStateException {
+    public void entityRef(String text) throws IOException, IllegalArgumentException, IllegalStateException {
 
-        xs.entityRef( text );
+        xs.entityRef(text);
     }
 
-    public void processingInstruction( String text ) throws IOException, IllegalArgumentException, IllegalStateException {
+    public void processingInstruction(String text) throws IOException, IllegalArgumentException, IllegalStateException {
 
-        xs.processingInstruction( text );
+        xs.processingInstruction(text);
     }
 
-    public void setOutput( Writer writer ) throws IOException, IllegalArgumentException, IllegalStateException {
+    public void setOutput(Writer writer) throws IOException, IllegalArgumentException, IllegalStateException {
 
-        xs.setOutput( writer );
+        xs.setOutput(writer);
     }
 
-    public void docdecl( String text ) throws IOException, IllegalArgumentException, IllegalStateException {
+    public void docdecl(String text) throws IOException, IllegalArgumentException, IllegalStateException {
 
-        xs.docdecl( text );
+        xs.docdecl(text);
     }
 
     public void flush() throws IOException {
@@ -95,44 +95,44 @@ public class XmlSerializerDelegate implements XmlSerializer {
         xs.flush();
     }
 
-    public Object getProperty( String name ) {
+    public Object getProperty(String name) {
 
-        return xs.getProperty( name );
+        return xs.getProperty(name);
     }
 
-    public XmlSerializer startTag( String namespace, String name ) throws IOException, IllegalArgumentException, IllegalStateException {
+    public XmlSerializer startTag(String namespace, String name) throws IOException, IllegalArgumentException, IllegalStateException {
 
-        return xs.startTag( namespace, name );
+        return xs.startTag(namespace, name);
     }
 
-    public void ignorableWhitespace( String text ) throws IOException, IllegalArgumentException, IllegalStateException {
+    public void ignorableWhitespace(String text) throws IOException, IllegalArgumentException, IllegalStateException {
 
-        xs.ignorableWhitespace( text );
+        xs.ignorableWhitespace(text);
     }
 
-    public XmlSerializer text( String text ) throws IOException, IllegalArgumentException, IllegalStateException {
+    public XmlSerializer text(String text) throws IOException, IllegalArgumentException, IllegalStateException {
 
-        return xs.text( text );
+        return xs.text(text);
     }
 
-    public boolean getFeature( String name ) {
+    public boolean getFeature(String name) {
 
-        return xs.getFeature( name );
+        return xs.getFeature(name);
     }
 
-    public XmlSerializer attribute( String namespace, String name, String value ) throws IOException, IllegalArgumentException, IllegalStateException {
+    public XmlSerializer attribute(String namespace, String name, String value) throws IOException, IllegalArgumentException, IllegalStateException {
 
-        return xs.attribute( namespace, name, value );
+        return xs.attribute(namespace, name, value);
     }
 
-    public void startDocument( String encoding, Boolean standalone ) throws IOException, IllegalArgumentException, IllegalStateException {
+    public void startDocument(String encoding, Boolean standalone) throws IOException, IllegalArgumentException, IllegalStateException {
 
-        xs.startDocument( encoding, standalone );
+        xs.startDocument(encoding, standalone);
     }
 
-    public String getPrefix( String namespace, boolean generatePrefix ) throws IllegalArgumentException {
+    public String getPrefix(String namespace, boolean generatePrefix) throws IllegalArgumentException {
 
-        return xs.getPrefix( namespace, generatePrefix );
+        return xs.getPrefix(namespace, generatePrefix);
     }
 
     public String getNamespace() {
@@ -140,13 +140,13 @@ public class XmlSerializerDelegate implements XmlSerializer {
         return xs.getNamespace();
     }
 
-    public XmlSerializer endTag( String namespace, String name ) throws IOException, IllegalArgumentException, IllegalStateException {
+    public XmlSerializer endTag(String namespace, String name) throws IOException, IllegalArgumentException, IllegalStateException {
 
-        return xs.endTag( namespace, name );
+        return xs.endTag(namespace, name);
     }
 
-    public XmlSerializer text( char[] buf, int start, int len ) throws IOException, IllegalArgumentException, IllegalStateException {
+    public XmlSerializer text(char[] buf, int start, int len) throws IOException, IllegalArgumentException, IllegalStateException {
 
-        return xs.text( buf, start, len );
+        return xs.text(buf, start, len);
     }
 }

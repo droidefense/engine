@@ -14,7 +14,7 @@ public class SDKCompatibility implements Serializable {
     private SDK_VERSION target;
 
     //default values
-    public SDKCompatibility(){
+    public SDKCompatibility() {
         this.minimum = SDK_VERSION.UNKNOWN;
         this.maximum = SDK_VERSION.UNKNOWN;
         this.target = SDK_VERSION.UNKNOWN;

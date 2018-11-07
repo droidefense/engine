@@ -45,7 +45,7 @@ import java.util.List;
 public class BuilderSparseSwitchPayload extends BuilderSwitchPayload implements SparseSwitchPayload {
     public static final Opcode OPCODE = Opcode.SPARSE_SWITCH_PAYLOAD;
 
-     protected final List<BuilderSwitchElement> switchElements;
+    protected final List<BuilderSwitchElement> switchElements;
 
     public BuilderSparseSwitchPayload(List<? extends SwitchLabelElement> switchElements) {
         super(OPCODE);
@@ -53,7 +53,8 @@ public class BuilderSparseSwitchPayload extends BuilderSwitchPayload implements 
             this.switchElements = ImmutableList.of();
         } else {
             this.switchElements = Lists.transform(switchElements, new Function<SwitchLabelElement, BuilderSwitchElement>() {
-                @Override public BuilderSwitchElement apply(SwitchLabelElement element) {
+                @Override
+                public BuilderSwitchElement apply(SwitchLabelElement element) {
                     assert element != null;
                     return new BuilderSwitchElement(BuilderSparseSwitchPayload.this, element.key, element.target);
                 }
@@ -61,8 +62,18 @@ public class BuilderSparseSwitchPayload extends BuilderSwitchPayload implements 
         }
     }
 
-     @Override public List<BuilderSwitchElement> getSwitchElements() { return switchElements; }
+    @Override
+    public List<BuilderSwitchElement> getSwitchElements() {
+        return switchElements;
+    }
 
-    @Override public int getCodeUnits() { return 2 + switchElements.size() * 4; }
-    @Override public Format getFormat() { return OPCODE.format; }
+    @Override
+    public int getCodeUnits() {
+        return 2 + switchElements.size() * 4;
+    }
+
+    @Override
+    public Format getFormat() {
+        return OPCODE.format;
+    }
 }

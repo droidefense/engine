@@ -40,7 +40,7 @@ public class CatchMethodItem extends MethodItem {
     private final LabelMethodItem tryEndLabel;
     private final LabelMethodItem handlerLabel;
 
-    public CatchMethodItem( BaksmaliOptions options,  MethodDefinition.LabelCache labelCache,
+    public CatchMethodItem(BaksmaliOptions options, MethodDefinition.LabelCache labelCache,
                            int codeAddress, String exceptionType, int startAddress, int endAddress,
                            int handlerAddress) {
         super(codeAddress);

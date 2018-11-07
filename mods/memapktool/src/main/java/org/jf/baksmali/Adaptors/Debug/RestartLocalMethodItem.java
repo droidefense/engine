@@ -38,11 +38,11 @@ import org.jf.util.IndentingWriter;
 import java.io.IOException;
 
 public class RestartLocalMethodItem extends DebugMethodItem {
-     private final RestartLocal restartLocal;
-     private final RegisterFormatter registerFormatter;
+    private final RestartLocal restartLocal;
+    private final RegisterFormatter registerFormatter;
 
-    public RestartLocalMethodItem(int codeAddress, int sortOrder,  RegisterFormatter registerFormatter,
-                               RestartLocal restartLocal) {
+    public RestartLocalMethodItem(int codeAddress, int sortOrder, RegisterFormatter registerFormatter,
+                                  RestartLocal restartLocal) {
         super(codeAddress, sortOrder);
         this.restartLocal = restartLocal;
         this.registerFormatter = registerFormatter;

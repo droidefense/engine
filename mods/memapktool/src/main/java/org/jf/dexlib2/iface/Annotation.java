@@ -32,7 +32,6 @@
 package org.jf.dexlib2.iface;
 
 
-
 import java.util.Set;
 
 /**
@@ -41,7 +40,7 @@ import java.util.Set;
 public interface Annotation extends BasicAnnotation, Comparable<Annotation> {
     /**
      * Gets the visibility of this annotation.
-     *
+     * <p>
      * This will be one of the AnnotationVisibility.* constants.
      *
      * @return The visibility of this annotation
@@ -50,25 +49,27 @@ public interface Annotation extends BasicAnnotation, Comparable<Annotation> {
 
     /**
      * Gets the type of this annotation.
-     *
+     * <p>
      * This will be the type descriptor of the class that defines this annotation.
      *
      * @return The type of this annotation
      */
-     @Override String getType();
+    @Override
+    String getType();
 
     /**
      * Gets a set of the name/value elements associated with this annotation.
-     *
+     * <p>
      * The elements in the returned set will be unique with respect to the element name.
      *
      * @return A set of AnnotationElements
      */
-     @Override Set<? extends AnnotationElement> getElements();
+    @Override
+    Set<? extends AnnotationElement> getElements();
 
     /**
      * Returns a hashcode for this Annotation.
-     *
+     * <p>
      * This hashCode is defined to be the following:
      *
      * <pre>
@@ -80,22 +81,24 @@ public interface Annotation extends BasicAnnotation, Comparable<Annotation> {
      *
      * @return The hash code value for this Annotation
      */
-    @Override int hashCode();
+    @Override
+    int hashCode();
 
     /**
      * Compares this Annotation to another Annotation for equality.
-     *
+     * <p>
      * This Annotation is equal to another Annotation if all of it's "fields" are equal. That is, if the return values
      * of getVisibility(), getType(), and getElements() are all equal.
      *
      * @param o The object to be compared for equality with this Annotation
      * @return true if the specified object is equal to this Annotation
      */
-    @Override boolean equals(Object o);
+    @Override
+    boolean equals(Object o);
 
     /**
      * Compares this Annotation to another Annotation.
-     *
+     * <p>
      * The comparison is based on the value of getVisibility(), getType() and getElements(), in that order. When
      * comparing the set of elements, the comparison is done with the semantics of
      * org.jf.util.CollectionUtils.compareAsSet(), using the natural ordering of AnnotationElement.
@@ -103,5 +106,6 @@ public interface Annotation extends BasicAnnotation, Comparable<Annotation> {
      * @param o The Annotation to compare with this Annotation
      * @return An integer representing the result of the comparison
      */
-    @Override int compareTo(Annotation o);
+    @Override
+    int compareTo(Annotation o);
 }

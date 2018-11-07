@@ -40,24 +40,37 @@ import org.jf.dexlib2.iface.reference.Reference;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class BuilderInstruction20bc extends BuilderInstruction implements Instruction20bc {
     public static final Format FORMAT = Format.Format20bc;
 
     protected final int verificationError;
-     protected final Reference reference;
+    protected final Reference reference;
 
-    public BuilderInstruction20bc( Opcode opcode,
-                                    int verificationError,
-                                     Reference reference) {
+    public BuilderInstruction20bc(Opcode opcode,
+                                  int verificationError,
+                                  Reference reference) {
         super(opcode);
         this.verificationError = Preconditions.checkVerificationError(verificationError);
         this.reference = reference;
     }
 
-    @Override public int getVerificationError() { return verificationError; }
-     @Override public Reference getReference() { return reference; }
-    @Override public int getReferenceType() { return ReferenceType.getReferenceType(reference); }
+    @Override
+    public int getVerificationError() {
+        return verificationError;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public Reference getReference() {
+        return reference;
+    }
+
+    @Override
+    public int getReferenceType() {
+        return ReferenceType.getReferenceType(reference);
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

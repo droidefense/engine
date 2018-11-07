@@ -36,38 +36,38 @@ import org.jf.dexlib2.dexbacked.raw.util.DexAnnotator;
 import org.jf.dexlib2.util.AnnotatedBytes;
 
 
-
-
 public class AnnotationSetRefList {
     public static final int SIZE_OFFSET = 0;
     public static final int LIST_OFFSET = 4;
 
 
-    public static SectionAnnotator makeAnnotator( DexAnnotator annotator,  MapItem mapItem) {
+    public static SectionAnnotator makeAnnotator(DexAnnotator annotator, MapItem mapItem) {
         return new SectionAnnotator(annotator, mapItem) {
-             @Override public String getItemName() {
+            @Override
+            public String getItemName() {
                 return "annotation_set_ref_list";
             }
 
             @Override
-            protected void annotateItem( AnnotatedBytes out, int itemIndex, String itemIdentity) {
+            protected void annotateItem(AnnotatedBytes out, int itemIndex, String itemIdentity) {
                 int size = dexFile.readSmallUint(out.getCursor());
                 out.annotate(4, "size = %d", size);
 
-                for (int i=0; i<size; i++) {
+                for (int i = 0; i < size; i++) {
                     int annotationSetOffset = dexFile.readSmallUint(out.getCursor());
                     out.annotate(4, "annotation_set_item[0x%x]", annotationSetOffset);
                 }
             }
 
-            @Override public int getItemAlignment() {
+            @Override
+            public int getItemAlignment() {
                 return 4;
             }
         };
     }
 
 
-    public static String getReferenceAnnotation( DexBackedDexFile dexFile, int annotationSetRefListOffset) {
+    public static String getReferenceAnnotation(DexBackedDexFile dexFile, int annotationSetRefListOffset) {
         if (annotationSetRefListOffset == 0) {
             return "annotation_set_ref_list[NO_OFFSET]";
         }

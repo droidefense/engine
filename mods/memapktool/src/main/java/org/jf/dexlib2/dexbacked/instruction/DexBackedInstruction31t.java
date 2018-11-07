@@ -36,14 +36,20 @@ import org.jf.dexlib2.dexbacked.DexBackedDexFile;
 import org.jf.dexlib2.iface.instruction.formats.Instruction31t;
 
 
-
 public class DexBackedInstruction31t extends DexBackedInstruction implements Instruction31t {
-    public DexBackedInstruction31t( DexBackedDexFile dexFile,
-                                    Opcode opcode,
+    public DexBackedInstruction31t(DexBackedDexFile dexFile,
+                                   Opcode opcode,
                                    int instructionStart) {
         super(dexFile, opcode, instructionStart);
     }
 
-    @Override public int getRegisterA() { return dexFile.readUbyte(instructionStart + 1); }
-    @Override public int getCodeOffset() { return dexFile.readInt(instructionStart + 2); }
+    @Override
+    public int getRegisterA() {
+        return dexFile.readUbyte(instructionStart + 1);
+    }
+
+    @Override
+    public int getCodeOffset() {
+        return dexFile.readInt(instructionStart + 2);
+    }
 }

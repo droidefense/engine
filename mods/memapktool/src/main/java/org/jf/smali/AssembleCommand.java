@@ -45,7 +45,7 @@ import java.util.List;
 @Parameters(commandDescription = "Assembles smali files into a dex file.")
 @ExtendedParameters(
         commandName = "assemble",
-        commandAliases = { "ass", "as", "a" })
+        commandAliases = {"ass", "as", "a"})
 public class AssembleCommand extends Command {
 
     @Parameter(names = {"-h", "-?", "--help"}, help = true,
@@ -81,11 +81,12 @@ public class AssembleCommand extends Command {
     @ExtendedParameter(argumentNames = "[<file>|<dir>]+")
     private List<String> input;
 
-    public AssembleCommand( List<JCommander> commandAncestors) {
+    public AssembleCommand(List<JCommander> commandAncestors) {
         super(commandAncestors);
     }
 
-    @Override public void run() {
+    @Override
+    public void run() {
         if (help || input == null || input.isEmpty()) {
             usage();
             return;

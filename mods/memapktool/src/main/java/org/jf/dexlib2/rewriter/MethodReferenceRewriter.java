@@ -39,42 +39,48 @@ import org.jf.dexlib2.iface.reference.MethodReference;
 import java.util.List;
 
 public class MethodReferenceRewriter implements Rewriter<MethodReference> {
-     protected final Rewriters rewriters;
+    protected final Rewriters rewriters;
 
-    public MethodReferenceRewriter( Rewriters rewriters) {
+    public MethodReferenceRewriter(Rewriters rewriters) {
         this.rewriters = rewriters;
     }
 
-     @Override public MethodReference rewrite( MethodReference methodReference) {
+    @Override
+    public MethodReference rewrite(MethodReference methodReference) {
         return new RewrittenMethodReference(methodReference);
     }
 
     protected class RewrittenMethodReference extends BaseMethodReference {
-         protected MethodReference methodReference;
+        protected MethodReference methodReference;
 
-        public RewrittenMethodReference( MethodReference methodReference) {
+        public RewrittenMethodReference(MethodReference methodReference) {
             this.methodReference = methodReference;
         }
 
-        @Override  public String getDefiningClass() {
+        @Override
+        public String getDefiningClass() {
             return rewriters.getTypeRewriter().rewrite(methodReference.getDefiningClass());
         }
 
-        @Override  public String getName() {
+        @Override
+        public String getName() {
             return methodReference.getName();
         }
 
-        @Override  public List<? extends CharSequence> getParameterTypes() {
+        @Override
+        public List<? extends CharSequence> getParameterTypes() {
             return RewriterUtils.rewriteList(rewriters.getTypeRewriter(),
                     Lists.transform(methodReference.getParameterTypes(),
-                    new Function<CharSequence, String>() {
-                         @Override public String apply(CharSequence input) {
-                            return input.toString();
-                        }
-                    }));
+                            new Function<CharSequence, String>() {
+                                @Override
+                                public String apply(CharSequence input) {
+                                    return input.toString();
+                                }
+                            }));
         }
 
-        @Override  public String getReturnType() {
+        @Override
+        public String getReturnType() {
             return rewriters.getTypeRewriter().rewrite(methodReference.getReturnType());
         }
     }

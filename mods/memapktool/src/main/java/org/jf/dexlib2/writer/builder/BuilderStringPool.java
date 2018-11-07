@@ -40,16 +40,16 @@ import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentMap;
 
 class BuilderStringPool implements StringSection<BuilderStringReference, BuilderStringReference> {
-     private final ConcurrentMap<String, BuilderStringReference> internedItems = Maps.newConcurrentMap();
+    private final ConcurrentMap<String, BuilderStringReference> internedItems = Maps.newConcurrentMap();
 
-     BuilderStringReference internString( String string) {
+    BuilderStringReference internString(String string) {
         BuilderStringReference ret = internedItems.get(string);
         if (ret != null) {
             return ret;
         }
         BuilderStringReference stringReference = new BuilderStringReference(string);
         ret = internedItems.putIfAbsent(string, stringReference);
-        return ret==null?stringReference:ret;
+        return ret == null ? stringReference : ret;
     }
 
     BuilderStringReference internNullableString(String string) {
@@ -59,25 +59,31 @@ class BuilderStringPool implements StringSection<BuilderStringReference, Builder
         return internString(string);
     }
 
-    @Override public int getNullableItemIndex(BuilderStringReference key) {
-        return key==null?DexWriter.NO_INDEX:key.index;
+    @Override
+    public int getNullableItemIndex(BuilderStringReference key) {
+        return key == null ? DexWriter.NO_INDEX : key.index;
     }
 
-    @Override public int getItemIndex( BuilderStringReference key) {
+    @Override
+    public int getItemIndex(BuilderStringReference key) {
         return key.index;
     }
 
-    @Override public boolean hasJumboIndexes() {
+    @Override
+    public boolean hasJumboIndexes() {
         return internedItems.size() > 65536;
     }
 
-     @Override public Collection<? extends Entry<? extends BuilderStringReference, Integer>> getItems() {
+    @Override
+    public Collection<? extends Entry<? extends BuilderStringReference, Integer>> getItems() {
         return new BuilderMapEntryCollection<BuilderStringReference>(internedItems.values()) {
-            @Override protected int getValue( BuilderStringReference key) {
+            @Override
+            protected int getValue(BuilderStringReference key) {
                 return key.index;
             }
 
-            @Override protected int setValue( BuilderStringReference key, int value) {
+            @Override
+            protected int setValue(BuilderStringReference key, int value) {
                 int prev = key.index;
                 key.index = value;
                 return prev;
@@ -85,7 +91,8 @@ class BuilderStringPool implements StringSection<BuilderStringReference, Builder
         };
     }
 
-    @Override public int getItemCount() {
+    @Override
+    public int getItemCount() {
         return internedItems.size();
     }
 }

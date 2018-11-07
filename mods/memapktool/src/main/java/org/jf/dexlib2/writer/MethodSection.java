@@ -35,14 +35,18 @@ import org.jf.dexlib2.iface.reference.MethodProtoReference;
 import org.jf.dexlib2.iface.reference.MethodReference;
 
 
-
 public interface MethodSection<StringKey, TypeKey, ProtoRefKey extends MethodProtoReference,
         MethodRefKey extends MethodReference, MethodKey>
         extends IndexSection<MethodRefKey> {
-     MethodRefKey getMethodReference( MethodKey key);
-     TypeKey getDefiningClass( MethodRefKey key);
-     ProtoRefKey getPrototype( MethodRefKey key);
-     ProtoRefKey getPrototype( MethodKey key);
-     StringKey getName( MethodRefKey key);
-    int getMethodIndex( MethodKey key);
+    MethodRefKey getMethodReference(MethodKey key);
+
+    TypeKey getDefiningClass(MethodRefKey key);
+
+    ProtoRefKey getPrototype(MethodRefKey key);
+
+    ProtoRefKey getPrototype(MethodKey key);
+
+    StringKey getName(MethodRefKey key);
+
+    int getMethodIndex(MethodKey key);
 }

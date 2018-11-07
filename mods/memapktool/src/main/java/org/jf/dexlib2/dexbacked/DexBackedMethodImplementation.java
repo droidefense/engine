@@ -48,32 +48,36 @@ import java.util.Iterator;
 import java.util.List;
 
 public class DexBackedMethodImplementation implements MethodImplementation {
-     public final DexBackedDexFile dexFile;
-     public final DexBackedMethod method;
+    public final DexBackedDexFile dexFile;
+    public final DexBackedMethod method;
     private final int codeOffset;
 
-    public DexBackedMethodImplementation( DexBackedDexFile dexFile,
-                                          DexBackedMethod method,
+    public DexBackedMethodImplementation(DexBackedDexFile dexFile,
+                                         DexBackedMethod method,
                                          int codeOffset) {
         this.dexFile = dexFile;
         this.method = method;
         this.codeOffset = codeOffset;
     }
 
-    @Override public int getRegisterCount() { return dexFile.readUshort(codeOffset); }
+    @Override
+    public int getRegisterCount() {
+        return dexFile.readUshort(codeOffset);
+    }
 
-     @Override public Iterable<? extends Instruction> getInstructions() {
+    @Override
+    public Iterable<? extends Instruction> getInstructions() {
         // instructionsSize is the number of 16-bit code units in the instruction list, not the number of instructions
         int instructionsSize = dexFile.readSmallUint(codeOffset + CodeItem.INSTRUCTION_COUNT_OFFSET);
 
         final int instructionsStartOffset = codeOffset + CodeItem.INSTRUCTION_START_OFFSET;
-        final int endOffset = instructionsStartOffset + (instructionsSize*2);
+        final int endOffset = instructionsStartOffset + (instructionsSize * 2);
         return new Iterable<Instruction>() {
             @Override
             public Iterator<Instruction> iterator() {
                 return new VariableSizeLookaheadIterator<Instruction>(dexFile, instructionsStartOffset) {
                     @Override
-                    protected Instruction readNextItem( DexReader reader) {
+                    protected Instruction readNextItem(DexReader reader) {
                         if (reader.getOffset() >= endOffset) {
                             return endOfData();
                         }
@@ -99,15 +103,15 @@ public class DexBackedMethodImplementation implements MethodImplementation {
         if (triesSize > 0) {
             int instructionsSize = dexFile.readSmallUint(codeOffset + CodeItem.INSTRUCTION_COUNT_OFFSET);
             final int triesStartOffset = AlignmentUtils.alignOffset(
-                    codeOffset + CodeItem.INSTRUCTION_START_OFFSET + (instructionsSize*2), 4);
-            final int handlersStartOffset = triesStartOffset + triesSize*CodeItem.TryItem.ITEM_SIZE;
+                    codeOffset + CodeItem.INSTRUCTION_START_OFFSET + (instructionsSize * 2), 4);
+            final int handlersStartOffset = triesStartOffset + triesSize * CodeItem.TryItem.ITEM_SIZE;
 
             return new FixedSizeList<DexBackedTryBlock>() {
 
                 @Override
                 public DexBackedTryBlock readItem(int index) {
                     return new DexBackedTryBlock(dexFile,
-                            triesStartOffset + index*CodeItem.TryItem.ITEM_SIZE,
+                            triesStartOffset + index * CodeItem.TryItem.ITEM_SIZE,
                             handlersStartOffset);
                 }
 
@@ -138,7 +142,7 @@ public class DexBackedMethodImplementation implements MethodImplementation {
         return DebugInfo.newOrEmpty(dexFile, debugOffset, this);
     }
 
-     @Override
+    @Override
     public Iterable<? extends DebugItem> getDebugItems() {
         return getDebugInfo();
     }
@@ -150,7 +154,7 @@ public class DexBackedMethodImplementation implements MethodImplementation {
 
     /**
      * Calculate and return the private size of a method implementation.
-     *
+     * <p>
      * Calculated as: debug info size + instructions size + try-catch size
      *
      * @return size in bytes
@@ -165,13 +169,13 @@ public class DexBackedMethodImplementation implements MethodImplementation {
         lastOffset += dexFile.readSmallUint(codeOffset + CodeItem.INSTRUCTION_COUNT_OFFSET) * 2;
 
         //read any exception handlers and move code_item offset to the end
-        for (DexBackedTryBlock tryBlock: getTryBlocks()) {
+        for (DexBackedTryBlock tryBlock : getTryBlocks()) {
             Iterator<? extends DexBackedExceptionHandler> tryHandlerIter =
-                tryBlock.getExceptionHandlers().iterator();
+                    tryBlock.getExceptionHandlers().iterator();
             while (tryHandlerIter.hasNext()) {
                 tryHandlerIter.next();
             }
-            lastOffset = ((VariableSizeListIterator)tryHandlerIter).getReaderOffset();
+            lastOffset = ((VariableSizeListIterator) tryHandlerIter).getReaderOffset();
         }
 
         //method impl size = debug block size + code_item size

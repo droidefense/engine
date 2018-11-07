@@ -35,17 +35,15 @@ import org.jf.dexlib2.iface.reference.TypeReference;
 import org.jf.dexlib2.writer.TypeSection;
 
 
-
-
 public class TypePool extends StringTypeBasePool
         implements TypeSection<CharSequence, CharSequence, TypeReference> {
 
 
-    public TypePool( DexPool dexPool) {
+    public TypePool(DexPool dexPool) {
         super(dexPool);
     }
 
-    public void intern( CharSequence type) {
+    public void intern(CharSequence type) {
         String typeString = type.toString();
         Integer prev = internedItems.put(typeString, 0);
         if (prev == null) {
@@ -59,11 +57,13 @@ public class TypePool extends StringTypeBasePool
         }
     }
 
-    @Override public int getItemIndex( TypeReference key) {
+    @Override
+    public int getItemIndex(TypeReference key) {
         return getItemIndex(key.getType());
     }
 
-     @Override public CharSequence getString( CharSequence type) {
+    @Override
+    public CharSequence getString(CharSequence type) {
         return type;
     }
 }

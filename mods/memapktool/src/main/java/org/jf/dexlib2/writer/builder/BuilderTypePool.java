@@ -41,13 +41,13 @@ import java.util.concurrent.ConcurrentMap;
 
 class BuilderTypePool extends BaseBuilderPool
         implements TypeSection<BuilderStringReference, BuilderTypeReference, BuilderTypeReference> {
-     private final ConcurrentMap<String, BuilderTypeReference> internedItems = Maps.newConcurrentMap();
+    private final ConcurrentMap<String, BuilderTypeReference> internedItems = Maps.newConcurrentMap();
 
-    public BuilderTypePool( DexBuilder dexBuilder) {
+    public BuilderTypePool(DexBuilder dexBuilder) {
         super(dexBuilder);
     }
 
-     public BuilderTypeReference internType( String type) {
+    public BuilderTypeReference internType(String type) {
         BuilderTypeReference ret = internedItems.get(type);
         if (ret != null) {
             return ret;
@@ -55,7 +55,7 @@ class BuilderTypePool extends BaseBuilderPool
         BuilderStringReference stringRef = dexBuilder.stringSection.internString(type);
         BuilderTypeReference typeReference = new BuilderTypeReference(stringRef);
         ret = internedItems.putIfAbsent(type, typeReference);
-        return ret==null?typeReference:ret;
+        return ret == null ? typeReference : ret;
     }
 
     public BuilderTypeReference internNullableType(String type) {
@@ -65,25 +65,31 @@ class BuilderTypePool extends BaseBuilderPool
         return internType(type);
     }
 
-     @Override public BuilderStringReference getString( BuilderTypeReference key) {
+    @Override
+    public BuilderStringReference getString(BuilderTypeReference key) {
         return key.stringReference;
     }
 
-    @Override public int getNullableItemIndex(BuilderTypeReference key) {
-        return key==null?DexWriter.NO_INDEX:key.index;
+    @Override
+    public int getNullableItemIndex(BuilderTypeReference key) {
+        return key == null ? DexWriter.NO_INDEX : key.index;
     }
 
-    @Override public int getItemIndex( BuilderTypeReference key) {
+    @Override
+    public int getItemIndex(BuilderTypeReference key) {
         return key.getIndex();
     }
 
-     @Override public Collection<? extends Entry<? extends BuilderTypeReference, Integer>> getItems() {
+    @Override
+    public Collection<? extends Entry<? extends BuilderTypeReference, Integer>> getItems() {
         return new BuilderMapEntryCollection<BuilderTypeReference>(internedItems.values()) {
-            @Override protected int getValue( BuilderTypeReference key) {
+            @Override
+            protected int getValue(BuilderTypeReference key) {
                 return key.index;
             }
 
-            @Override protected int setValue( BuilderTypeReference key, int value) {
+            @Override
+            protected int setValue(BuilderTypeReference key, int value) {
                 int prev = key.index;
                 key.index = value;
                 return prev;
@@ -91,7 +97,8 @@ class BuilderTypePool extends BaseBuilderPool
         };
     }
 
-    @Override public int getItemCount() {
+    @Override
+    public int getItemCount() {
         return internedItems.size();
     }
 }

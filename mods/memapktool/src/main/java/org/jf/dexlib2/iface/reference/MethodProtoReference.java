@@ -32,7 +32,6 @@
 package org.jf.dexlib2.iface.reference;
 
 
-
 import java.util.List;
 
 /**
@@ -44,18 +43,18 @@ public interface MethodProtoReference extends Reference, Comparable<MethodProtoR
      *
      * @return A list of the parameter types of this method prototype, as strings.
      */
-     List<? extends CharSequence> getParameterTypes();
+    List<? extends CharSequence> getParameterTypes();
 
     /**
      * Gets the return type of the referenced method prototype.
      *
      * @return The return type of the referenced method prototype.
      */
-     String getReturnType();
+    String getReturnType();
 
     /**
      * Returns a hashcode for this MethodProtoReference.
-     *
+     * <p>
      * This hashCode is defined to be the following:
      *
      * <pre>
@@ -66,25 +65,27 @@ public interface MethodProtoReference extends Reference, Comparable<MethodProtoR
      *
      * @return The hash code value for this ProtoReference
      */
-    @Override int hashCode();
+    @Override
+    int hashCode();
 
     /**
      * Compares this MethodTypeReference to another MethodProtoReference for equality.
-     *
+     * <p>
      * This MethodTypeReference is equal to another MethodProtoReference if all of it's "fields" are equal. That is, if
      * the return values of getReturnType() and getParameterTypes() are all equal.
-     *
+     * <p>
      * Equality for getParameters() should be tested by comparing the string representation of each element. I.e.
      * CharSequenceUtils.listEquals(this.getParameterTypes(), other.getParameterTypes())
      *
      * @param o The object to be compared for equality with this MethodProtoReference
      * @return true if the specified object is equal to this MethodProtoReference
      */
-    @Override boolean equals(Object o);
+    @Override
+    boolean equals(Object o);
 
     /**
      * Compare this MethodTypeReference to another MethodProtoReference.
-     *
+     * <p>
      * The comparison is based on the comparison of the return values of getReturnType() and getParameters(),
      * in that order. getParameters() should be compared using the semantics of
      * org.jf.util.CollectionUtils.compareAsList()
@@ -92,5 +93,6 @@ public interface MethodProtoReference extends Reference, Comparable<MethodProtoR
      * @param o The MethodReference to compare with this MethodProtoReference
      * @return An integer representing the result of the comparison
      */
-    @Override int compareTo( MethodProtoReference o);
+    @Override
+    int compareTo(MethodProtoReference o);
 }

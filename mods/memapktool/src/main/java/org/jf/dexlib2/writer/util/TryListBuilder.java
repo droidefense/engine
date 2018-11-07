@@ -41,8 +41,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class TryListBuilder<EH extends ExceptionHandler>
-{
+public class TryListBuilder<EH extends ExceptionHandler> {
     // Linked list sentinels that don't represent an actual try block
     // Their values are never modified, only their links
     private final MutableTryBlock<EH> listStart;
@@ -59,129 +58,15 @@ public class TryListBuilder<EH extends ExceptionHandler>
             List<? extends TryBlock<? extends EH>> tryBlocks) {
         TryListBuilder<EH> tlb = new TryListBuilder<EH>();
 
-        for (TryBlock<? extends EH> tryBlock: tryBlocks) {
+        for (TryBlock<? extends EH> tryBlock : tryBlocks) {
             int startAddress = tryBlock.getStartCodeAddress();
             int endAddress = startAddress + tryBlock.getCodeUnitCount();
 
-            for (EH exceptionHandler: tryBlock.getExceptionHandlers()) {
+            for (EH exceptionHandler : tryBlock.getExceptionHandlers()) {
                 tlb.addHandler(startAddress, endAddress, exceptionHandler);
             }
         }
         return tlb.getTryBlocks();
-    }
-
-    private static class TryBounds<EH extends ExceptionHandler> {
-         public final MutableTryBlock<EH> start;
-         public final MutableTryBlock<EH> end;
-
-        public TryBounds( MutableTryBlock<EH> start,  MutableTryBlock<EH> end) {
-            this.start = start;
-            this.end = end;
-        }
-    }
-
-    public static class InvalidTryException extends ExceptionWithContext {
-        public InvalidTryException(Throwable cause) {
-            super(cause);
-        }
-
-        public InvalidTryException(Throwable cause, String message, Object... formatArgs) {
-            super(cause, message, formatArgs);
-        }
-
-        public InvalidTryException(String message, Object... formatArgs) {
-            super(message, formatArgs);
-        }
-    }
-
-    private static class MutableTryBlock<EH extends ExceptionHandler> extends BaseTryBlock<EH> {
-        public MutableTryBlock<EH> prev = null;
-        public MutableTryBlock<EH> next = null;
-
-        public int startCodeAddress;
-        public int endCodeAddress;
-         public List<EH> exceptionHandlers = Lists.newArrayList();
-
-        public MutableTryBlock(int startCodeAddress, int endCodeAddress) {
-            this.startCodeAddress = startCodeAddress;
-            this.endCodeAddress = endCodeAddress;
-        }
-
-        public MutableTryBlock(int startCodeAddress, int endCodeAddress,
-                                List<EH> exceptionHandlers) {
-            this.startCodeAddress = startCodeAddress;
-            this.endCodeAddress = endCodeAddress;
-            this.exceptionHandlers = Lists.newArrayList(exceptionHandlers);
-        }
-
-        @Override public int getStartCodeAddress() {
-            return startCodeAddress;
-        }
-
-        @Override public int getCodeUnitCount() {
-            return endCodeAddress - startCodeAddress;
-        }
-
-         @Override public List<EH> getExceptionHandlers() {
-            return exceptionHandlers;
-        }
-
-
-        public MutableTryBlock<EH> split(int splitAddress) {
-            MutableTryBlock<EH> newTryBlock = new MutableTryBlock<EH>(splitAddress, endCodeAddress, exceptionHandlers);
-            endCodeAddress = splitAddress;
-            append(newTryBlock);
-            return newTryBlock;
-        }
-
-        public void delete() {
-            next.prev = prev;
-            prev.next = next;
-        }
-
-        public void mergeNext() {
-            //assert next.startCodeAddress == this.endCodeAddress;
-            this.endCodeAddress = next.endCodeAddress;
-            next.delete();
-        }
-
-        public void append( MutableTryBlock<EH> tryBlock) {
-            next.prev = tryBlock;
-            tryBlock.next = next;
-            tryBlock.prev = this;
-            next = tryBlock;
-        }
-
-        public void prepend( MutableTryBlock<EH> tryBlock) {
-            prev.next = tryBlock;
-            tryBlock.prev = prev;
-            tryBlock.next = this;
-            prev = tryBlock;
-        }
-
-        public void addHandler( EH handler) {
-            for (ExceptionHandler existingHandler: exceptionHandlers) {
-                String existingType = existingHandler.getExceptionType();
-                String newType = handler.getExceptionType();
-
-                if (existingType == null) {
-                    if (newType == null) {
-                        if (existingHandler.getHandlerCodeAddress() != handler.getHandlerCodeAddress()) {
-                            throw new InvalidTryException(
-                                    "Multiple overlapping catch all handlers with different handlers");
-                        }
-                        return;
-                    }
-                } else if (existingType.equals(newType)) {
-                    // dalvik doesn't reject cases when there are multiple catches with the same exception
-                    // but different handlers. In practice, the first handler "wins". Since the later
-                    // handler will never be used, we don't add it.
-                    return;
-                }
-            }
-
-            exceptionHandlers.add(handler);
-        }
     }
 
     private TryBounds<EH> getBoundingRanges(int startAddress, int endAddress) {
@@ -206,7 +91,7 @@ public class TryListBuilder<EH extends ExceptionHandler>
                 at the start address of the range being added*/
                 startBlock = tryBlock.split(startAddress);
                 break;
-            }else if (startAddress < currentStartAddress) {
+            } else if (startAddress < currentStartAddress) {
                 if (endAddress <= currentStartAddress) {
                     //      |-----|
                     //^--^
@@ -295,8 +180,7 @@ public class TryListBuilder<EH extends ExceptionHandler>
         of the range being added. We need to iterate over all the ranges from the start
         to end range inclusively, and append the handler to the end of each range's handler
         list. We also need to create a new range for any "holes" in the existing ranges*/
-        do
-        {
+        do {
             //is there a hole? If so, add a new range to fill the hole
             if (tryBlock.startCodeAddress > previousEnd) {
                 MutableTryBlock<EH> newBlock = new MutableTryBlock<EH>(previousEnd, tryBlock.startCodeAddress);
@@ -343,11 +227,13 @@ public class TryListBuilder<EH extends ExceptionHandler>
                 return ret;
             }
 
-            @Override public boolean hasNext() {
+            @Override
+            public boolean hasNext() {
                 return next != null;
             }
 
-            @Override  public TryBlock<EH> next() {
+            @Override
+            public TryBlock<EH> next() {
                 if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
@@ -357,9 +243,127 @@ public class TryListBuilder<EH extends ExceptionHandler>
                 return ret;
             }
 
-            @Override public void remove() {
+            @Override
+            public void remove() {
                 throw new UnsupportedOperationException();
             }
         });
+    }
+
+    private static class TryBounds<EH extends ExceptionHandler> {
+        public final MutableTryBlock<EH> start;
+        public final MutableTryBlock<EH> end;
+
+        public TryBounds(MutableTryBlock<EH> start, MutableTryBlock<EH> end) {
+            this.start = start;
+            this.end = end;
+        }
+    }
+
+    public static class InvalidTryException extends ExceptionWithContext {
+        public InvalidTryException(Throwable cause) {
+            super(cause);
+        }
+
+        public InvalidTryException(Throwable cause, String message, Object... formatArgs) {
+            super(cause, message, formatArgs);
+        }
+
+        public InvalidTryException(String message, Object... formatArgs) {
+            super(message, formatArgs);
+        }
+    }
+
+    private static class MutableTryBlock<EH extends ExceptionHandler> extends BaseTryBlock<EH> {
+        public MutableTryBlock<EH> prev = null;
+        public MutableTryBlock<EH> next = null;
+
+        public int startCodeAddress;
+        public int endCodeAddress;
+        public List<EH> exceptionHandlers = Lists.newArrayList();
+
+        public MutableTryBlock(int startCodeAddress, int endCodeAddress) {
+            this.startCodeAddress = startCodeAddress;
+            this.endCodeAddress = endCodeAddress;
+        }
+
+        public MutableTryBlock(int startCodeAddress, int endCodeAddress,
+                               List<EH> exceptionHandlers) {
+            this.startCodeAddress = startCodeAddress;
+            this.endCodeAddress = endCodeAddress;
+            this.exceptionHandlers = Lists.newArrayList(exceptionHandlers);
+        }
+
+        @Override
+        public int getStartCodeAddress() {
+            return startCodeAddress;
+        }
+
+        @Override
+        public int getCodeUnitCount() {
+            return endCodeAddress - startCodeAddress;
+        }
+
+        @Override
+        public List<EH> getExceptionHandlers() {
+            return exceptionHandlers;
+        }
+
+
+        public MutableTryBlock<EH> split(int splitAddress) {
+            MutableTryBlock<EH> newTryBlock = new MutableTryBlock<EH>(splitAddress, endCodeAddress, exceptionHandlers);
+            endCodeAddress = splitAddress;
+            append(newTryBlock);
+            return newTryBlock;
+        }
+
+        public void delete() {
+            next.prev = prev;
+            prev.next = next;
+        }
+
+        public void mergeNext() {
+            //assert next.startCodeAddress == this.endCodeAddress;
+            this.endCodeAddress = next.endCodeAddress;
+            next.delete();
+        }
+
+        public void append(MutableTryBlock<EH> tryBlock) {
+            next.prev = tryBlock;
+            tryBlock.next = next;
+            tryBlock.prev = this;
+            next = tryBlock;
+        }
+
+        public void prepend(MutableTryBlock<EH> tryBlock) {
+            prev.next = tryBlock;
+            tryBlock.prev = prev;
+            tryBlock.next = this;
+            prev = tryBlock;
+        }
+
+        public void addHandler(EH handler) {
+            for (ExceptionHandler existingHandler : exceptionHandlers) {
+                String existingType = existingHandler.getExceptionType();
+                String newType = handler.getExceptionType();
+
+                if (existingType == null) {
+                    if (newType == null) {
+                        if (existingHandler.getHandlerCodeAddress() != handler.getHandlerCodeAddress()) {
+                            throw new InvalidTryException(
+                                    "Multiple overlapping catch all handlers with different handlers");
+                        }
+                        return;
+                    }
+                } else if (existingType.equals(newType)) {
+                    // dalvik doesn't reject cases when there are multiple catches with the same exception
+                    // but different handlers. In practice, the first handler "wins". Since the later
+                    // handler will never be used, we don't add it.
+                    return;
+                }
+            }
+
+            exceptionHandlers.add(handler);
+        }
     }
 }

@@ -38,15 +38,15 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction4rcc;
 import org.jf.dexlib2.iface.reference.Reference;
 
 
-
 public class DexBackedInstruction4rcc extends DexBackedInstruction implements Instruction4rcc {
-    public DexBackedInstruction4rcc( DexBackedDexFile dexFile,
-                                     Opcode opcode,
+    public DexBackedInstruction4rcc(DexBackedDexFile dexFile,
+                                    Opcode opcode,
                                     int instructionStart) {
         super(dexFile, opcode, instructionStart);
     }
 
-    @Override public int getRegisterCount() {
+    @Override
+    public int getRegisterCount() {
         return dexFile.readUbyte(instructionStart + 1);
     }
 

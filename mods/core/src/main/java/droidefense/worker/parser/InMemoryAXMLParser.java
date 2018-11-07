@@ -37,7 +37,7 @@ public class InMemoryAXMLParser {
     private String getDecodedXML() throws XmlPullParserException, IOException {
         //return new AXMLPrinter(inputFile.getContent()).getResult();
         InputStream stream = inputFile.getStream();
-        if (stream !=null){
+        if (stream != null) {
             AXMLResource axmlResource = new AXMLResource();
             try {
                 axmlResource.read(stream);

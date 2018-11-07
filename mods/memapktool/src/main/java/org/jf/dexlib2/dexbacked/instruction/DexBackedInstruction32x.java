@@ -36,14 +36,20 @@ import org.jf.dexlib2.dexbacked.DexBackedDexFile;
 import org.jf.dexlib2.iface.instruction.formats.Instruction32x;
 
 
-
 public class DexBackedInstruction32x extends DexBackedInstruction implements Instruction32x {
-    public DexBackedInstruction32x( DexBackedDexFile dexFile,
-                                    Opcode opcode,
+    public DexBackedInstruction32x(DexBackedDexFile dexFile,
+                                   Opcode opcode,
                                    int instructionStart) {
         super(dexFile, opcode, instructionStart);
     }
 
-    @Override public int getRegisterA() { return dexFile.readUshort(instructionStart + 2); }
-    @Override public int getRegisterB() { return dexFile.readUshort(instructionStart + 4); }
+    @Override
+    public int getRegisterA() {
+        return dexFile.readUshort(instructionStart + 2);
+    }
+
+    @Override
+    public int getRegisterB() {
+        return dexFile.readUshort(instructionStart + 4);
+    }
 }

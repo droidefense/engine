@@ -52,7 +52,7 @@ import java.util.List;
 import java.util.Set;
 
 public class DexBackedDexFile extends BaseDexBuffer implements DexFile {
-     private final Opcodes opcodes;
+    private final Opcodes opcodes;
 
     private final int stringCount;
     private final int stringStartOffset;
@@ -67,7 +67,7 @@ public class DexBackedDexFile extends BaseDexBuffer implements DexFile {
     private final int classCount;
     private final int classStartOffset;
 
-    protected DexBackedDexFile( Opcodes opcodes,  byte[] buf, int offset, boolean verifyMagic) {
+    protected DexBackedDexFile(Opcodes opcodes, byte[] buf, int offset, boolean verifyMagic) {
         super(buf, offset);
 
         this.opcodes = opcodes;
@@ -90,20 +90,20 @@ public class DexBackedDexFile extends BaseDexBuffer implements DexFile {
         classStartOffset = readSmallUint(HeaderItem.CLASS_START_OFFSET);
     }
 
-    public DexBackedDexFile( Opcodes opcodes,  BaseDexBuffer buf) {
+    public DexBackedDexFile(Opcodes opcodes, BaseDexBuffer buf) {
         this(opcodes, buf.buf, buf.baseOffset);
     }
 
-    public DexBackedDexFile( Opcodes opcodes,  byte[] buf, int offset) {
+    public DexBackedDexFile(Opcodes opcodes, byte[] buf, int offset) {
         this(opcodes, buf, offset, false);
     }
 
-    public DexBackedDexFile( Opcodes opcodes,  byte[] buf) {
+    public DexBackedDexFile(Opcodes opcodes, byte[] buf) {
         this(opcodes, buf, 0, true);
     }
 
 
-    public static DexBackedDexFile fromInputStream( Opcodes opcodes,  InputStream is)
+    public static DexBackedDexFile fromInputStream(Opcodes opcodes, InputStream is)
             throws IOException {
         DexUtil.verifyDexHeader(is);
 
@@ -111,7 +111,8 @@ public class DexBackedDexFile extends BaseDexBuffer implements DexFile {
         return new DexBackedDexFile(opcodes, buf, 0, false);
     }
 
-    @Override  public Opcodes getOpcodes() {
+    @Override
+    public Opcodes getOpcodes() {
         return opcodes;
     }
 
@@ -146,42 +147,42 @@ public class DexBackedDexFile extends BaseDexBuffer implements DexFile {
         if (stringIndex < 0 || stringIndex >= stringCount) {
             throw new InvalidItemIndex(stringIndex, "String index out of bounds: %d", stringIndex);
         }
-        return stringStartOffset + stringIndex*StringIdItem.ITEM_SIZE;
+        return stringStartOffset + stringIndex * StringIdItem.ITEM_SIZE;
     }
 
     public int getTypeIdItemOffset(int typeIndex) {
         if (typeIndex < 0 || typeIndex >= typeCount) {
             throw new InvalidItemIndex(typeIndex, "Type index out of bounds: %d", typeIndex);
         }
-        return typeStartOffset + typeIndex*TypeIdItem.ITEM_SIZE;
+        return typeStartOffset + typeIndex * TypeIdItem.ITEM_SIZE;
     }
 
     public int getFieldIdItemOffset(int fieldIndex) {
         if (fieldIndex < 0 || fieldIndex >= fieldCount) {
             throw new InvalidItemIndex(fieldIndex, "Field index out of bounds: %d", fieldIndex);
         }
-        return fieldStartOffset + fieldIndex*FieldIdItem.ITEM_SIZE;
+        return fieldStartOffset + fieldIndex * FieldIdItem.ITEM_SIZE;
     }
 
     public int getMethodIdItemOffset(int methodIndex) {
         if (methodIndex < 0 || methodIndex >= methodCount) {
             throw new InvalidItemIndex(methodIndex, "Method index out of bounds: %d", methodIndex);
         }
-        return methodStartOffset + methodIndex*MethodIdItem.ITEM_SIZE;
+        return methodStartOffset + methodIndex * MethodIdItem.ITEM_SIZE;
     }
 
     public int getProtoIdItemOffset(int protoIndex) {
         if (protoIndex < 0 || protoIndex >= protoCount) {
             throw new InvalidItemIndex(protoIndex, "Proto index out of bounds: %d", protoIndex);
         }
-        return protoStartOffset + protoIndex*ProtoIdItem.ITEM_SIZE;
+        return protoStartOffset + protoIndex * ProtoIdItem.ITEM_SIZE;
     }
 
     public int getClassDefItemOffset(int classIndex) {
         if (classIndex < 0 || classIndex >= classCount) {
             throw new InvalidItemIndex(classIndex, "Class index out of bounds: %d", classIndex);
         }
-        return classStartOffset + classIndex*ClassDefItem.ITEM_SIZE;
+        return classStartOffset + classIndex * ClassDefItem.ITEM_SIZE;
     }
 
     public int getClassCount() {
@@ -242,14 +243,16 @@ public class DexBackedDexFile extends BaseDexBuffer implements DexFile {
 
     public List<DexBackedStringReference> getStrings() {
         return new AbstractList<DexBackedStringReference>() {
-            @Override public DexBackedStringReference get(int index) {
+            @Override
+            public DexBackedStringReference get(int index) {
                 if (index < 0 || index >= getStringCount()) {
                     throw new IndexOutOfBoundsException();
                 }
                 return new DexBackedStringReference(DexBackedDexFile.this, index);
             }
 
-            @Override public int size() {
+            @Override
+            public int size() {
                 return getStringCount();
             }
         };
@@ -257,14 +260,16 @@ public class DexBackedDexFile extends BaseDexBuffer implements DexFile {
 
     public List<DexBackedTypeReference> getTypes() {
         return new AbstractList<DexBackedTypeReference>() {
-            @Override public DexBackedTypeReference get(int index) {
+            @Override
+            public DexBackedTypeReference get(int index) {
                 if (index < 0 || index >= getTypeCount()) {
                     throw new IndexOutOfBoundsException();
                 }
                 return new DexBackedTypeReference(DexBackedDexFile.this, index);
             }
 
-            @Override public int size() {
+            @Override
+            public int size() {
                 return getTypeCount();
             }
         };
@@ -272,14 +277,16 @@ public class DexBackedDexFile extends BaseDexBuffer implements DexFile {
 
     public List<DexBackedMethodReference> getMethods() {
         return new AbstractList<DexBackedMethodReference>() {
-            @Override public DexBackedMethodReference get(int index) {
+            @Override
+            public DexBackedMethodReference get(int index) {
                 if (index < 0 || index >= getMethodCount()) {
                     throw new IndexOutOfBoundsException();
                 }
                 return new DexBackedMethodReference(DexBackedDexFile.this, index);
             }
 
-            @Override public int size() {
+            @Override
+            public int size() {
                 return getMethodCount();
             }
         };
@@ -287,14 +294,16 @@ public class DexBackedDexFile extends BaseDexBuffer implements DexFile {
 
     public List<DexBackedFieldReference> getFields() {
         return new AbstractList<DexBackedFieldReference>() {
-            @Override public DexBackedFieldReference get(int index) {
+            @Override
+            public DexBackedFieldReference get(int index) {
                 if (index < 0 || index >= getFieldCount()) {
                     throw new IndexOutOfBoundsException();
                 }
                 return new DexBackedFieldReference(DexBackedDexFile.this, index);
             }
 
-            @Override public int size() {
+            @Override
+            public int size() {
                 return getFieldCount();
             }
         };

@@ -66,46 +66,46 @@ public abstract class DexInputCommand extends Command {
     protected String inputEntry;
     protected DexBackedDexFile dexFile;
 
-    public DexInputCommand( List<JCommander> commandAncestors) {
+    public DexInputCommand(List<JCommander> commandAncestors) {
         super(commandAncestors);
     }
 
     /**
      * Parses a dex file input from the user and loads the given dex file.
-     *
+     * <p>
      * In some cases, the input file can contain multiple dex files. If this is the case, you can refer to a specific
      * dex file with a slash, followed by the entry name, optionally in quotes.
-     *
+     * <p>
      * If the entry name is enclosed in quotes, then it will strip the first and last quote and look for an entry with
      * exactly that name. Otherwise, it will perform a partial filename match against the entry to find any candidates.
      * If there is a single matching candidate, it will be used. Otherwise, an error will be generated.
-     *
+     * <p>
      * For example, to refer to the "/system/framework/framework.jar:classes2.dex" entry within the
      * "framework/arm/framework.oat" oat file, you could use any of:
-     *
+     * <p>
      * framework/arm/framework.oat/"/system/framework/framework.jar:classes2.dex"
      * framework/arm/framework.oat/system/framework/framework.jar:classes2.dex
      * framework/arm/framework.oat/framework/framework.jar:classes2.dex
      * framework/arm/framework.oat/framework.jar:classes2.dex
      * framework/arm/framework.oat/classes2.dex
-     *
+     * <p>
      * The last option is the easiest, but only works if the oat file doesn't contain another entry with the
      * "classes2.dex" name. e.g. "/system/framework/blah.jar:classes2.dex"
-     *
+     * <p>
      * It's technically possible (although unlikely) for an oat file to contain 2 entries like:
      * /system/framework/framework.jar:classes2.dex
      * system/framework/framework.jar:classes2.dex
-     *
+     * <p>
      * In this case, the "framework/arm/framework.oat/system/framework/framework.jar:classes2.dex" syntax will generate
      * an error because both entries match the partial entry name. Instead, you could use the following for the
      * first and second entry respectively:
-     *
+     * <p>
      * framework/arm/framework.oat/"/system/framework/framework.jar:classes2.dex"
      * framework/arm/framework.oat/"system/framework/framework.jar:classes2.dex"
      *
      * @param input The name of a dex, apk, odex or oat file/entry.
      */
-    protected void loadDexFile( String input) {
+    protected void loadDexFile(String input) {
         File file = new File(input);
 
         while (file != null && !file.exists()) {

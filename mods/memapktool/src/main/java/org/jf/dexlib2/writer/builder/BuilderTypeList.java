@@ -40,18 +40,20 @@ import java.util.List;
 public class BuilderTypeList extends AbstractList<BuilderTypeReference> {
     static final BuilderTypeList EMPTY = new BuilderTypeList(ImmutableList.<BuilderTypeReference>of());
 
-     final List<? extends BuilderTypeReference> types;
+    final List<? extends BuilderTypeReference> types;
     int offset = DexWriter.NO_OFFSET;
 
-    public BuilderTypeList( List<? extends BuilderTypeReference> types) {
+    public BuilderTypeList(List<? extends BuilderTypeReference> types) {
         this.types = types;
     }
 
-    @Override public BuilderTypeReference get(int index) {
+    @Override
+    public BuilderTypeReference get(int index) {
         return types.get(index);
     }
 
-    @Override public int size() {
+    @Override
+    public int size() {
         return types.size();
     }
 

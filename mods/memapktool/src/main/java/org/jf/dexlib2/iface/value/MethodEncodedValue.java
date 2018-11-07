@@ -34,8 +34,6 @@ package org.jf.dexlib2.iface.value;
 import org.jf.dexlib2.iface.reference.MethodReference;
 
 
-
-
 /**
  * This class represents an encoded method value.
  */
@@ -49,7 +47,7 @@ public interface MethodEncodedValue extends EncodedValue {
 
     /**
      * Returns a hashcode for this EncodedMethodValue.
-     *
+     * <p>
      * This hashCode is defined to be the following:
      *
      * <pre>
@@ -59,26 +57,29 @@ public interface MethodEncodedValue extends EncodedValue {
      *
      * @return The hash code value for this EncodedMethodValue
      */
-    @Override int hashCode();
+    @Override
+    int hashCode();
 
     /**
      * Compares this MethodEncodedValue to another MethodEncodedValue for equality.
-     *
+     * <p>
      * This MethodEncodedValue is equal to another MethodEncodedValue if the values returned by getValue() are equal.
      *
      * @param o The object to be compared for equality with this MethodEncodedValue
      * @return true if the specified object is equal to this MethodEncodedValue
      */
-    @Override boolean equals(Object o);
+    @Override
+    boolean equals(Object o);
 
     /**
      * Compare this MethodEncodedValue to another EncodedValue.
-     *
+     * <p>
      * The comparison is first done on the return values of getValueType(). If the other value is another
      * MethodEncodedValue, the return values of getValue() are compared.
      *
      * @param o The EncodedValue to compare with this MethodEncodedValue
      * @return An integer representing the result of the comparison
      */
-    @Override int compareTo( EncodedValue o);
+    @Override
+    int compareTo(EncodedValue o);
 }

@@ -38,8 +38,22 @@ import org.jf.util.ImmutableConverter;
 import java.util.List;
 
 public class ImmutableSwitchElement implements SwitchElement {
+    private static final ImmutableConverter<ImmutableSwitchElement, SwitchElement> CONVERTER =
+            new ImmutableConverter<ImmutableSwitchElement, SwitchElement>() {
+                @Override
+                protected boolean isImmutable(SwitchElement item) {
+                    return item instanceof ImmutableSwitchElement;
+                }
+
+
+                @Override
+                protected ImmutableSwitchElement makeImmutable(SwitchElement item) {
+                    return ImmutableSwitchElement.of(item);
+                }
+            };
     protected final int key;
     protected final int offset;
+
 
     public ImmutableSwitchElement(int key,
                                   int offset) {
@@ -47,35 +61,26 @@ public class ImmutableSwitchElement implements SwitchElement {
         this.offset = offset;
     }
 
-
     public static ImmutableSwitchElement of(SwitchElement switchElement) {
-        if (switchElement instanceof  ImmutableSwitchElement) {
-            return (ImmutableSwitchElement)switchElement;
+        if (switchElement instanceof ImmutableSwitchElement) {
+            return (ImmutableSwitchElement) switchElement;
         }
         return new ImmutableSwitchElement(
                 switchElement.getKey(),
                 switchElement.getOffset());
     }
 
-    @Override public int getKey() { return key; }
-    @Override public int getOffset() { return offset; }
-
-
     public static ImmutableList<ImmutableSwitchElement> immutableListOf(List<? extends SwitchElement> list) {
         return CONVERTER.toList(list);
     }
 
-    private static final ImmutableConverter<ImmutableSwitchElement, SwitchElement> CONVERTER =
-            new ImmutableConverter<ImmutableSwitchElement, SwitchElement>() {
-                @Override
-                protected boolean isImmutable( SwitchElement item) {
-                    return item instanceof ImmutableSwitchElement;
-                }
+    @Override
+    public int getKey() {
+        return key;
+    }
 
-
-                @Override
-                protected ImmutableSwitchElement makeImmutable( SwitchElement item) {
-                    return ImmutableSwitchElement.of(item);
-                }
-            };
+    @Override
+    public int getOffset() {
+        return offset;
+    }
 }

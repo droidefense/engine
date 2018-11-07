@@ -38,8 +38,7 @@ import com.google.common.collect.RangeMap;
 
 import java.util.List;
 
-public enum Opcode
-{
+public enum Opcode {
     NOP(0x00, "nop", ReferenceType.NONE, Format.Format10x, Opcode.CAN_CONTINUE),
     MOVE(0x01, "move", ReferenceType.NONE, Format.Format12x, Opcode.CAN_CONTINUE | Opcode.SETS_REGISTER),
     MOVE_FROM16(0x02, "move/from16", ReferenceType.NONE, Format.Format22x, Opcode.CAN_CONTINUE | Opcode.SETS_REGISTER),
@@ -270,18 +269,18 @@ public enum Opcode
     SPUT_WIDE_VOLATILE(firstApi(0xeb, 9), "sput-wide-volatile", ReferenceType.FIELD, Format.Format21c, Opcode.ODEX_ONLY | Opcode.VOLATILE_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.STATIC_FIELD_ACCESSOR),
 
     THROW_VERIFICATION_ERROR(firstApi(0xed, 5), "throw-verification-error", ReferenceType.NONE, Format.Format20bc, Opcode.ODEX_ONLY | Opcode.CAN_THROW),
-    EXECUTE_INLINE(allApis(0xee), "execute-inline", ReferenceType.NONE,  Format.Format35mi, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT),
-    EXECUTE_INLINE_RANGE(firstApi(0xef, 8), "execute-inline/range", ReferenceType.NONE,  Format.Format3rmi,  Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT),
-    INVOKE_DIRECT_EMPTY(lastApi(0xf0, 13), "invoke-direct-empty", ReferenceType.METHOD,  Format.Format35c, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT | Opcode.CAN_INITIALIZE_REFERENCE),
-    INVOKE_OBJECT_INIT_RANGE(firstApi(0xf0, 14), "invoke-object-init/range", ReferenceType.METHOD,  Format.Format3rc, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT | Opcode.CAN_INITIALIZE_REFERENCE),
+    EXECUTE_INLINE(allApis(0xee), "execute-inline", ReferenceType.NONE, Format.Format35mi, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT),
+    EXECUTE_INLINE_RANGE(firstApi(0xef, 8), "execute-inline/range", ReferenceType.NONE, Format.Format3rmi, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT),
+    INVOKE_DIRECT_EMPTY(lastApi(0xf0, 13), "invoke-direct-empty", ReferenceType.METHOD, Format.Format35c, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT | Opcode.CAN_INITIALIZE_REFERENCE),
+    INVOKE_OBJECT_INIT_RANGE(firstApi(0xf0, 14), "invoke-object-init/range", ReferenceType.METHOD, Format.Format3rc, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT | Opcode.CAN_INITIALIZE_REFERENCE),
     RETURN_VOID_BARRIER(combine(firstApi(0xf1, 11), lastArtVersion(0x73, 59)), "return-void-barrier", ReferenceType.NONE, Format.Format10x, Opcode.ODEX_ONLY),
     RETURN_VOID_NO_BARRIER(firstArtVersion(0x73, 60), "return-void-no-barrier", ReferenceType.NONE, Format.Format10x, Opcode.ODEX_ONLY),
-    IGET_QUICK(combine(allApis(0xf2), allArtVersions(0xe3)), "iget-quick", ReferenceType.NONE,  Format.Format22cs, Opcode.ODEX_ONLY | Opcode.QUICK_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_REGISTER),
-    IGET_WIDE_QUICK(combine(allApis(0xf3), allArtVersions(0xe4)), "iget-wide-quick", ReferenceType.NONE,  Format.Format22cs, Opcode.ODEX_ONLY | Opcode.QUICK_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_REGISTER | Opcode.SETS_WIDE_REGISTER),
-    IGET_OBJECT_QUICK(combine(allApis(0xf4), allArtVersions(0xe5)), "iget-object-quick", ReferenceType.NONE,  Format.Format22cs, Opcode.ODEX_ONLY | Opcode.QUICK_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_REGISTER),
-    IPUT_QUICK(combine(allApis(0xf5), allArtVersions(0xe6)), "iput-quick", ReferenceType.NONE,  Format.Format22cs, Opcode.ODEX_ONLY | Opcode.QUICK_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE),
-    IPUT_WIDE_QUICK(combine(allApis(0xf6), allArtVersions(0xe7)), "iput-wide-quick", ReferenceType.NONE,  Format.Format22cs, Opcode.ODEX_ONLY | Opcode.QUICK_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE),
-    IPUT_OBJECT_QUICK(combine(allApis(0xf7), allArtVersions(0xe8)), "iput-object-quick", ReferenceType.NONE,  Format.Format22cs, Opcode.ODEX_ONLY | Opcode.QUICK_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE),
+    IGET_QUICK(combine(allApis(0xf2), allArtVersions(0xe3)), "iget-quick", ReferenceType.NONE, Format.Format22cs, Opcode.ODEX_ONLY | Opcode.QUICK_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_REGISTER),
+    IGET_WIDE_QUICK(combine(allApis(0xf3), allArtVersions(0xe4)), "iget-wide-quick", ReferenceType.NONE, Format.Format22cs, Opcode.ODEX_ONLY | Opcode.QUICK_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_REGISTER | Opcode.SETS_WIDE_REGISTER),
+    IGET_OBJECT_QUICK(combine(allApis(0xf4), allArtVersions(0xe5)), "iget-object-quick", ReferenceType.NONE, Format.Format22cs, Opcode.ODEX_ONLY | Opcode.QUICK_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_REGISTER),
+    IPUT_QUICK(combine(allApis(0xf5), allArtVersions(0xe6)), "iput-quick", ReferenceType.NONE, Format.Format22cs, Opcode.ODEX_ONLY | Opcode.QUICK_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE),
+    IPUT_WIDE_QUICK(combine(allApis(0xf6), allArtVersions(0xe7)), "iput-wide-quick", ReferenceType.NONE, Format.Format22cs, Opcode.ODEX_ONLY | Opcode.QUICK_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE),
+    IPUT_OBJECT_QUICK(combine(allApis(0xf7), allArtVersions(0xe8)), "iput-object-quick", ReferenceType.NONE, Format.Format22cs, Opcode.ODEX_ONLY | Opcode.QUICK_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE),
     IPUT_BOOLEAN_QUICK(allArtVersions(0xeb), "iput-boolean-quick", ReferenceType.NONE, Format.Format22cs, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.QUICK_FIELD_ACCESSOR),
     IPUT_BYTE_QUICK(allArtVersions(0xec), "iput-byte-quick", ReferenceType.NONE, Format.Format22cs, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.QUICK_FIELD_ACCESSOR),
     IPUT_CHAR_QUICK(allArtVersions(0xed), "iput-char-quick", ReferenceType.NONE, Format.Format22cs, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.QUICK_FIELD_ACCESSOR),
@@ -290,11 +289,11 @@ public enum Opcode
     IGET_BYTE_QUICK(allArtVersions(0xf0), "iget-byte-quick", ReferenceType.NONE, Format.Format22cs, Opcode.ODEX_ONLY | Opcode.QUICK_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_REGISTER),
     IGET_CHAR_QUICK(allArtVersions(0xf1), "iget-char-quick", ReferenceType.NONE, Format.Format22cs, Opcode.ODEX_ONLY | Opcode.QUICK_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_REGISTER),
     IGET_SHORT_QUICK(allArtVersions(0xf2), "iget-short-quick", ReferenceType.NONE, Format.Format22cs, Opcode.ODEX_ONLY | Opcode.QUICK_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_REGISTER),
-    
-    INVOKE_VIRTUAL_QUICK(combine(allApis(0xf8), allArtVersions(0xe9)), "invoke-virtual-quick", ReferenceType.NONE,  Format.Format35ms, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT),
-    INVOKE_VIRTUAL_QUICK_RANGE(combine(allApis(0xf9), allArtVersions(0xea)), "invoke-virtual-quick/range", ReferenceType.NONE,  Format.Format3rms, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT),
-    INVOKE_SUPER_QUICK(lastApi(0xfa, 25), "invoke-super-quick", ReferenceType.NONE,  Format.Format35ms, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT),
-    INVOKE_SUPER_QUICK_RANGE(lastApi(0xfb, 25), "invoke-super-quick/range", ReferenceType.NONE,  Format.Format3rms, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT),
+
+    INVOKE_VIRTUAL_QUICK(combine(allApis(0xf8), allArtVersions(0xe9)), "invoke-virtual-quick", ReferenceType.NONE, Format.Format35ms, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT),
+    INVOKE_VIRTUAL_QUICK_RANGE(combine(allApis(0xf9), allArtVersions(0xea)), "invoke-virtual-quick/range", ReferenceType.NONE, Format.Format3rms, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT),
+    INVOKE_SUPER_QUICK(lastApi(0xfa, 25), "invoke-super-quick", ReferenceType.NONE, Format.Format35ms, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT),
+    INVOKE_SUPER_QUICK_RANGE(lastApi(0xfb, 25), "invoke-super-quick/range", ReferenceType.NONE, Format.Format3rms, Opcode.ODEX_ONLY | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_RESULT),
 
     IPUT_OBJECT_VOLATILE(firstApi(0xfc, 9), "iput-object-volatile", ReferenceType.FIELD, Format.Format22c, Opcode.ODEX_ONLY | Opcode.VOLATILE_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE),
     SGET_OBJECT_VOLATILE(firstApi(0xfd, 9), "sget-object-volatile", ReferenceType.FIELD, Format.Format21c, Opcode.ODEX_ONLY | Opcode.VOLATILE_FIELD_ACCESSOR | Opcode.CAN_THROW | Opcode.CAN_CONTINUE | Opcode.SETS_REGISTER | Opcode.STATIC_FIELD_ACCESSOR),
@@ -331,30 +330,18 @@ public enum Opcode
     public static final int CAN_INITIALIZE_REFERENCE = 0x400;
 
     private static final int ALL_APIS = 0xFFFF0000;
-
-    private static int minApi(int api) {
-        return 0xFFFF0000 | (api & 0xFFFF);
-    }
-
-    private static int maxApi(int api) {
-        return api << 16;
-    }
-
     // values and minApis provide a mapping of api -> bytecode value.
     // the apis in minApis are guaranteed to be
     public final RangeMap<Integer, Short> apiToValueMap;
     public final RangeMap<Integer, Short> artVersionToValueMap;
-
     public final String name;
     public final int referenceType;
     public final Format format;
     public final int flags;
     public final int referenceType2;
-
     Opcode(int opcodeValue, String opcodeName, int referenceType, Format format) {
         this(opcodeValue, opcodeName, referenceType, format, 0);
     }
-
     Opcode(int opcodeValue, String opcodeName, int referenceType, Format format, int flags) {
         this(allVersions(opcodeValue), opcodeName, referenceType, format, flags);
     }
@@ -370,10 +357,10 @@ public enum Opcode
 
         for (VersionConstraint versionConstraint : versionConstraints) {
             if (!versionConstraint.apiRange.isEmpty()) {
-                apiToValueBuilder.put(versionConstraint.apiRange, (short)versionConstraint.opcodeValue);
+                apiToValueBuilder.put(versionConstraint.apiRange, (short) versionConstraint.opcodeValue);
             }
             if (!versionConstraint.artVersionRange.isEmpty()) {
-                artVersionToValueBuilder.put(versionConstraint.artVersionRange, (short)versionConstraint.opcodeValue);
+                artVersionToValueBuilder.put(versionConstraint.artVersionRange, (short) versionConstraint.opcodeValue);
             }
         }
 
@@ -384,6 +371,14 @@ public enum Opcode
         this.referenceType2 = referenceType2;
         this.format = format;
         this.flags = flags;
+    }
+
+    private static int minApi(int api) {
+        return 0xFFFF0000 | (api & 0xFFFF);
+    }
+
+    private static int maxApi(int api) {
+        return api << 16;
     }
 
     private static List<VersionConstraint> firstApi(int opcodeValue, int api) {
@@ -418,7 +413,7 @@ public enum Opcode
     @SuppressWarnings("unchecked")
     private static List<VersionConstraint> combine(List<VersionConstraint>... versionConstraints) {
         List<VersionConstraint> combinedList = Lists.newArrayList();
-        for (List<VersionConstraint> versionConstraintList: versionConstraints) {
+        for (List<VersionConstraint> versionConstraintList : versionConstraints) {
             combinedList.addAll(versionConstraintList);
         }
         return combinedList;
@@ -469,11 +464,11 @@ public enum Opcode
     }
 
     private static class VersionConstraint {
-         public final Range<Integer> apiRange;
-         public final Range<Integer> artVersionRange;
+        public final Range<Integer> apiRange;
+        public final Range<Integer> artVersionRange;
         public final int opcodeValue;
 
-        public VersionConstraint( Range<Integer> apiRange,  Range<Integer> artVersionRange,
+        public VersionConstraint(Range<Integer> apiRange, Range<Integer> artVersionRange,
                                  int opcodeValue) {
             this.apiRange = apiRange;
             this.artVersionRange = artVersionRange;

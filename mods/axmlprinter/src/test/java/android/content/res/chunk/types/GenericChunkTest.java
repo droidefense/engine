@@ -33,35 +33,9 @@ import static org.mockito.Mockito.when;
  */
 public class GenericChunkTest extends TestCase {
 
-    // Implement a new type of Generic chunk just to test specific functionality
-    protected class TestChunk extends GenericChunk {
-
-        public TestChunk(ChunkType chunkType, IntReader inputReader) {
-            super(chunkType, inputReader);
-        }
-
-        @Override
-        public void readHeader(IntReader reader) throws IOException {
-
-        }
-
-        @Override
-        public String toXML(StringSection stringSection, ResourceSection resourceSection, int indent) {
-            return null;
-        }
-
-        @Override
-        public byte[] toBytes() {
-            byte[] chunks = super.toBytes();
-            return ByteBuffer.allocate(chunks.length + 1).put(chunks).put((byte) 0xFF).array();
-        }
-    }
-
     private GenericChunk underTest;
-
     private IntReader mockReader;
     private ChunkType mockChunkType;
-
 
     @Override
     public void setUp() throws Exception {
@@ -90,5 +64,29 @@ public class GenericChunkTest extends TestCase {
         byte[] actual = underTest.toBytes();
 
         Assert.assertArrayEquals(expected, actual);
+    }
+
+    // Implement a new type of Generic chunk just to test specific functionality
+    protected class TestChunk extends GenericChunk {
+
+        public TestChunk(ChunkType chunkType, IntReader inputReader) {
+            super(chunkType, inputReader);
+        }
+
+        @Override
+        public void readHeader(IntReader reader) throws IOException {
+
+        }
+
+        @Override
+        public String toXML(StringSection stringSection, ResourceSection resourceSection, int indent) {
+            return null;
+        }
+
+        @Override
+        public byte[] toBytes() {
+            byte[] chunks = super.toBytes();
+            return ByteBuffer.allocate(chunks.length + 1).put(chunks).put((byte) 0xFF).array();
+        }
     }
 }

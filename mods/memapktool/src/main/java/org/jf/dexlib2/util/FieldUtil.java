@@ -36,24 +36,25 @@ import org.jf.dexlib2.AccessFlags;
 import org.jf.dexlib2.iface.Field;
 
 
-
-
 public final class FieldUtil {
     public static Predicate<Field> FIELD_IS_STATIC = new Predicate<Field>() {
-        @Override public boolean apply(Field input) {
-            return input!=null && isStatic(input);
+        @Override
+        public boolean apply(Field input) {
+            return input != null && isStatic(input);
         }
     };
 
     public static Predicate<Field> FIELD_IS_INSTANCE = new Predicate<Field>() {
-        @Override public boolean apply(Field input) {
-            return input!= null && !isStatic(input);
+        @Override
+        public boolean apply(Field input) {
+            return input != null && !isStatic(input);
         }
     };
 
-    public static boolean isStatic( Field field) {
-        return AccessFlags.STATIC.isSet(field.getAccessFlags());
+    private FieldUtil() {
     }
 
-    private FieldUtil() {}
+    public static boolean isStatic(Field field) {
+        return AccessFlags.STATIC.isSet(field.getAccessFlags());
+    }
 }

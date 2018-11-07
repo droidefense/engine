@@ -10,10 +10,9 @@ import java.util.Map;
 /**
  * This class is used to create implementations of XML Pull Parser defined in XMPULL V1 API.
  *
- * @see XmlPullParser
- *
  * @author <a href="http://www.extreme.indiana.edu/~aslom/">Aleksander Slominski</a>
  * @author Stefan Haustein
+ * @see XmlPullParser
  */
 
 public class XmlPullParserFactory {
@@ -22,7 +21,9 @@ public class XmlPullParserFactory {
     protected ArrayList parserClasses;
     protected ArrayList serializerClasses;
 
-    /** Unused, but we have to keep it because it's public API. */
+    /**
+     * Unused, but we have to keep it because it's public API.
+     */
     protected String classNamesLocation = null;
 
     // features are kept there
@@ -44,17 +45,50 @@ public class XmlPullParserFactory {
         }
     }
 
+    private static XmlPullParserException newInstantiationException(String message,
+                                                                    ArrayList<Exception> exceptions) {
+        if (exceptions == null || exceptions.isEmpty()) {
+            return new XmlPullParserException(message);
+        } else {
+            XmlPullParserException exception = new XmlPullParserException(message);
+            for (Exception ex : exceptions) {
+                exception.addSuppressed(ex);
+            }
+
+            return exception;
+        }
+    }
+
+    /**
+     * Creates a new instance of a PullParserFactory that can be used
+     * to create XML pull parsers. The factory will always return instances
+     * of Android's built-in {@link XmlPullParser} and {@link XmlSerializer}.
+     */
+    public static XmlPullParserFactory newInstance() throws XmlPullParserException {
+        return new XmlPullParserFactory();
+    }
+
+    /**
+     * Creates a factory that always returns instances of Android's built-in
+     * {@link XmlPullParser} and {@link XmlSerializer} implementation. This
+     * <b>does not</b> support factories capable of creating arbitrary parser
+     * and serializer implementations. Both arguments to this method are unused.
+     */
+    public static XmlPullParserFactory newInstance(String unused, Class unused2)
+            throws XmlPullParserException {
+        return newInstance();
+    }
+
     /**
      * Set the features to be set when XML Pull Parser is created by this factory.
      * <p><b>NOTE:</b> factory features are not used for XML Serializer.
      *
-     * @param name string with URI identifying feature
+     * @param name  string with URI identifying feature
      * @param state if true feature will be set; if false will be ignored
      */
     public void setFeature(String name, boolean state) throws XmlPullParserException {
         features.put(name, state);
     }
-
 
     /**
      * Return the current value of the feature with given name.
@@ -62,11 +96,23 @@ public class XmlPullParserFactory {
      *
      * @param name The name of feature to be retrieved.
      * @return The value of named feature.
-     *     Unknown features are <string>always</strong> returned as false
+     * Unknown features are <string>always</strong> returned as false
      */
     public boolean getFeature(String name) {
         Boolean value = features.get(name);
         return value != null ? value.booleanValue() : false;
+    }
+
+    /**
+     * Indicates whether or not the factory is configured to produce
+     * parsers which are namespace aware
+     * (it simply set feature XmlPullParser.FEATURE_PROCESS_NAMESPACES to true or false).
+     *
+     * @return true if the factory is configured to produce parsers
+     * which are namespace aware; false otherwise.
+     */
+    public boolean isNamespaceAware() {
+        return getFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES);
     }
 
     /**
@@ -75,46 +121,34 @@ public class XmlPullParserFactory {
      * By default the value of this is set to false.
      *
      * @param awareness true if the parser produced by this code
-     *    will provide support for XML namespaces;  false otherwise.
+     *                  will provide support for XML namespaces;  false otherwise.
      */
     public void setNamespaceAware(boolean awareness) {
-        features.put (XmlPullParser.FEATURE_PROCESS_NAMESPACES, awareness);
-    }
-
-    /**
-     * Indicates whether or not the factory is configured to produce
-     * parsers which are namespace aware
-     * (it simply set feature XmlPullParser.FEATURE_PROCESS_NAMESPACES to true or false).
-     *
-     * @return  true if the factory is configured to produce parsers
-     *    which are namespace aware; false otherwise.
-     */
-    public boolean isNamespaceAware() {
-        return getFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES);
-    }
-
-    /**
-     * Specifies that the parser produced by this factory will be validating
-     * (it simply set feature XmlPullParser.FEATURE_VALIDATION to true or false).
-     *
-     * By default the value of this is set to false.
-     *
-     * @param validating - if true the parsers created by this factory  must be validating.
-     */
-    public void setValidating(boolean validating) {
-        features.put(XmlPullParser.FEATURE_VALIDATION, validating);
+        features.put(XmlPullParser.FEATURE_PROCESS_NAMESPACES, awareness);
     }
 
     /**
      * Indicates whether or not the factory is configured to produce parsers
      * which validate the XML content during parse.
      *
-     * @return   true if the factory is configured to produce parsers
+     * @return true if the factory is configured to produce parsers
      * which validate the XML content during parse; false otherwise.
      */
 
     public boolean isValidating() {
         return getFeature(XmlPullParser.FEATURE_VALIDATION);
+    }
+
+    /**
+     * Specifies that the parser produced by this factory will be validating
+     * (it simply set feature XmlPullParser.FEATURE_VALIDATION to true or false).
+     * <p>
+     * By default the value of this is set to false.
+     *
+     * @param validating - if true the parsers created by this factory  must be validating.
+     */
+    public void setValidating(boolean validating) {
+        features.put(XmlPullParser.FEATURE_VALIDATION, validating);
     }
 
     /**
@@ -184,20 +218,6 @@ public class XmlPullParserFactory {
         throw newInstantiationException("Invalid serializer class list", exceptions);
     }
 
-    private static XmlPullParserException newInstantiationException(String message,
-            ArrayList<Exception> exceptions) {
-        if (exceptions == null || exceptions.isEmpty()) {
-            return new XmlPullParserException(message);
-        } else {
-            XmlPullParserException exception = new XmlPullParserException(message);
-            for (Exception ex : exceptions) {
-                exception.addSuppressed(ex);
-            }
-
-            return exception;
-        }
-    }
-
     /**
      * Creates a new instance of a XML Serializer.
      *
@@ -205,30 +225,10 @@ public class XmlPullParserFactory {
      *
      * @return A new instance of a XML Serializer.
      * @throws XmlPullParserException if a parser cannot be created which satisfies the
-     * requested configuration.
+     *                                requested configuration.
      */
 
     public XmlSerializer newSerializer() throws XmlPullParserException {
         return getSerializerInstance();
-    }
-
-    /**
-     * Creates a new instance of a PullParserFactory that can be used
-     * to create XML pull parsers. The factory will always return instances
-     * of Android's built-in {@link XmlPullParser} and {@link XmlSerializer}.
-     */
-    public static XmlPullParserFactory newInstance () throws XmlPullParserException {
-        return new XmlPullParserFactory();
-    }
-
-    /**
-     * Creates a factory that always returns instances of Android's built-in
-     * {@link XmlPullParser} and {@link XmlSerializer} implementation. This
-     * <b>does not</b> support factories capable of creating arbitrary parser
-     * and serializer implementations. Both arguments to this method are unused.
-     */
-    public static XmlPullParserFactory newInstance (String unused, Class unused2)
-        throws XmlPullParserException {
-        return newInstance();
     }
 }

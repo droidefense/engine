@@ -36,25 +36,24 @@ import org.jf.dexlib2.dexbacked.DexBackedDexFile;
 import org.jf.dexlib2.dexbacked.raw.TypeIdItem;
 
 
-
 public class DexBackedTypeReference extends BaseTypeReference {
-     public final DexBackedDexFile dexFile;
+    public final DexBackedDexFile dexFile;
     public final int typeIndex;
 
-    public DexBackedTypeReference( DexBackedDexFile dexFile,
+    public DexBackedTypeReference(DexBackedDexFile dexFile,
                                   int typeIndex) {
         this.dexFile = dexFile;
         this.typeIndex = typeIndex;
     }
 
-     public String getType() {
+    public String getType() {
         return dexFile.getType(typeIndex);
     }
 
 
     /**
      * Calculate and return the private size of a type reference.
-     *
+     * <p>
      * Calculated as: descriptor_idx
      *
      * @return size in bytes

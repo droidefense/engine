@@ -34,8 +34,6 @@ package org.jf.dexlib2.iface;
 import org.jf.dexlib2.iface.value.EncodedValue;
 
 
-
-
 /**
  * This class represents an individual name/value element in an annotation
  */
@@ -45,18 +43,18 @@ public interface AnnotationElement extends Comparable<AnnotationElement> {
      *
      * @return The name of the element.
      */
-     String getName();
+    String getName();
 
     /**
      * Gets the value of the element.
      *
      * @return The value of the element
      */
-     EncodedValue getValue();
+    EncodedValue getValue();
 
     /**
      * Returns a hashcode for this AnnotationElement.
-     *
+     * <p>
      * This hashCode is defined to be the following:
      *
      * <pre>
@@ -67,26 +65,29 @@ public interface AnnotationElement extends Comparable<AnnotationElement> {
      *
      * @return The hash code value for this AnnotationElement
      */
-    @Override int hashCode();
+    @Override
+    int hashCode();
 
     /**
      * Compares this AnnotationElement to another AnnotationElement for equality.
-     *
+     * <p>
      * This AnnotationElement is equal to another AnnotationElement if all of it's "fields" are equal. That is, if
      * the return values of getName() and getValue() are both equal.
      *
      * @param o The object to be compared for equality with this AnnotationElement
      * @return true if the specified object is equal to this AnnotationElement
      */
-    @Override boolean equals(Object o);
+    @Override
+    boolean equals(Object o);
 
     /**
      * Compares this AnnotationElement to another AnnotationElement.
-     *
+     * <p>
      * The comparison is based on the value of getName() and getValue(), in that order.
      *
      * @param o The AnnotationElement to compare with this AnnotationElement
      * @return An integer representing the result of the comparison
      */
-    @Override int compareTo(AnnotationElement o);
+    @Override
+    int compareTo(AnnotationElement o);
 }

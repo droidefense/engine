@@ -36,13 +36,15 @@ import org.jf.dexlib2.dexbacked.DexBackedDexFile;
 import org.jf.dexlib2.iface.instruction.formats.Instruction11x;
 
 
-
 public class DexBackedInstruction11x extends DexBackedInstruction implements Instruction11x {
-    public DexBackedInstruction11x( DexBackedDexFile dexFile,
-                                    Opcode opcode,
+    public DexBackedInstruction11x(DexBackedDexFile dexFile,
+                                   Opcode opcode,
                                    int instructionStart) {
         super(dexFile, opcode, instructionStart);
     }
 
-    @Override public int getRegisterA() { return dexFile.readUbyte(instructionStart + 1); }
+    @Override
+    public int getRegisterA() {
+        return dexFile.readUbyte(instructionStart + 1);
+    }
 }

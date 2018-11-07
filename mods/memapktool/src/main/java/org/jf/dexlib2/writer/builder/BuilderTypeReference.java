@@ -35,24 +35,26 @@ import org.jf.dexlib2.base.reference.BaseTypeReference;
 import org.jf.dexlib2.writer.DexWriter;
 
 
-
 public class BuilderTypeReference extends BaseTypeReference implements BuilderReference {
-     final BuilderStringReference stringReference;
+    final BuilderStringReference stringReference;
     int index = DexWriter.NO_INDEX;
 
-    BuilderTypeReference( BuilderStringReference stringReference) {
+    BuilderTypeReference(BuilderStringReference stringReference) {
         this.stringReference = stringReference;
     }
 
-     @Override public String getType() {
+    @Override
+    public String getType() {
         return stringReference.getString();
     }
 
-    @Override public int getIndex() {
+    @Override
+    public int getIndex() {
         return index;
     }
 
-    @Override public void setIndex(int index) {
+    @Override
+    public void setIndex(int index) {
         this.index = index;
     }
 }

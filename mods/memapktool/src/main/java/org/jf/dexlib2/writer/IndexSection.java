@@ -36,7 +36,9 @@ import java.util.Collection;
 import java.util.Map;
 
 public interface IndexSection<Key> {
-    int getItemIndex( Key key);
-     Collection<? extends Map.Entry<? extends Key, Integer>> getItems();
+    int getItemIndex(Key key);
+
+    Collection<? extends Map.Entry<? extends Key, Integer>> getItems();
+
     int getItemCount();
 }

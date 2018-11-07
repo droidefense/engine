@@ -37,7 +37,6 @@ import org.jf.dexlib2.iface.debug.SetSourceFile;
 import org.jf.dexlib2.iface.reference.StringReference;
 
 
-
 public class BuilderSetSourceFile extends BuilderDebugItem implements SetSourceFile {
 
     private final StringReference sourceFile;
@@ -46,13 +45,18 @@ public class BuilderSetSourceFile extends BuilderDebugItem implements SetSourceF
         this.sourceFile = sourceFile;
     }
 
-    @Override public int getDebugItemType() { return DebugItemType.SET_SOURCE_FILE; }
-
-    @Override public String getSourceFile() {
-        return sourceFile==null?null:sourceFile.getString();
+    @Override
+    public int getDebugItemType() {
+        return DebugItemType.SET_SOURCE_FILE;
     }
 
-    @Override public StringReference getSourceFileReference() {
+    @Override
+    public String getSourceFile() {
+        return sourceFile == null ? null : sourceFile.getString();
+    }
+
+    @Override
+    public StringReference getSourceFileReference() {
         return sourceFile;
     }
 }

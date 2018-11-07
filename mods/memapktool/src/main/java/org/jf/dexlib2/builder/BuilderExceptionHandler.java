@@ -35,65 +35,69 @@ import org.jf.dexlib2.base.BaseExceptionHandler;
 import org.jf.dexlib2.iface.reference.TypeReference;
 
 
-
-
 public abstract class BuilderExceptionHandler extends BaseExceptionHandler {
-     protected final Label handler;
+    protected final Label handler;
 
-    private BuilderExceptionHandler( Label handler) {
+    private BuilderExceptionHandler(Label handler) {
         this.handler = handler;
     }
 
-
-    public Label getHandler() {
-        return handler;
-    }
-
     static BuilderExceptionHandler newExceptionHandler(final TypeReference exceptionType,
-                                                 Label handler) {
+                                                       Label handler) {
         if (exceptionType == null) {
             return newExceptionHandler(handler);
         }
         return new BuilderExceptionHandler(handler) {
-            @Override public String getExceptionType() {
+            @Override
+            public String getExceptionType() {
                 return exceptionType.getType();
             }
 
-            @Override public int getHandlerCodeAddress() {
+            @Override
+            public int getHandlerCodeAddress() {
                 return handler.getCodeAddress();
             }
 
-            @Override public TypeReference getExceptionTypeReference() {
+            @Override
+            public TypeReference getExceptionTypeReference() {
                 return exceptionType;
             }
         };
     }
 
-    static BuilderExceptionHandler newExceptionHandler( Label handler) {
+    static BuilderExceptionHandler newExceptionHandler(Label handler) {
         return new BuilderExceptionHandler(handler) {
-            @Override public String getExceptionType() {
+            @Override
+            public String getExceptionType() {
                 return null;
             }
 
-            @Override public int getHandlerCodeAddress() {
+            @Override
+            public int getHandlerCodeAddress() {
                 return handler.getCodeAddress();
             }
         };
     }
 
     static BuilderExceptionHandler newExceptionHandler(final String exceptionType,
-                                                 Label handler) {
+                                                       Label handler) {
         if (exceptionType == null) {
             return newExceptionHandler(handler);
         }
         return new BuilderExceptionHandler(handler) {
-            @Override public String getExceptionType() {
+            @Override
+            public String getExceptionType() {
                 return exceptionType;
             }
 
-            @Override public int getHandlerCodeAddress() {
+            @Override
+            public int getHandlerCodeAddress() {
                 return handler.getCodeAddress();
             }
         };
+    }
+
+    public Label getHandler() {
+        return handler;
     }
 }

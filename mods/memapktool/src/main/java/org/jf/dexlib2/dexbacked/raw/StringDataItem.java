@@ -37,18 +37,17 @@ import org.jf.dexlib2.util.AnnotatedBytes;
 import org.jf.util.StringUtils;
 
 
-
-
 public class StringDataItem {
 
-    public static SectionAnnotator makeAnnotator( DexAnnotator annotator,  MapItem mapItem) {
+    public static SectionAnnotator makeAnnotator(DexAnnotator annotator, MapItem mapItem) {
         return new SectionAnnotator(annotator, mapItem) {
-             @Override public String getItemName() {
+            @Override
+            public String getItemName() {
                 return "string_data_item";
             }
 
             @Override
-            protected void annotateItem( AnnotatedBytes out, int itemIndex, String itemIdentity) {
+            protected void annotateItem(AnnotatedBytes out, int itemIndex, String itemIdentity) {
                 DexReader reader = dexFile.readerAt(out.getCursor());
                 int utf16Length = reader.readSmallUleb128();
                 out.annotateTo(reader.getOffset(), "utf16_size = %d", utf16Length);

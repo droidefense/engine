@@ -37,19 +37,18 @@ import org.jf.dexlib2.dexbacked.raw.util.DexAnnotator;
 import org.jf.dexlib2.util.AnnotatedBytes;
 
 
-
-
 public class DebugInfoItem {
 
 
-    public static SectionAnnotator makeAnnotator( DexAnnotator annotator,  MapItem mapItem) {
+    public static SectionAnnotator makeAnnotator(DexAnnotator annotator, MapItem mapItem) {
         return new SectionAnnotator(annotator, mapItem) {
-             @Override public String getItemName() {
+            @Override
+            public String getItemName() {
                 return "debug_info_item";
             }
 
             @Override
-            public void annotateItem( AnnotatedBytes out, int itemIndex, String itemIdentity) {
+            public void annotateItem(AnnotatedBytes out, int itemIndex, String itemIdentity) {
                 DexReader reader = dexFile.readerAt(out.getCursor());
 
                 int lineStart = reader.readSmallUleb128();
@@ -61,7 +60,7 @@ public class DebugInfoItem {
                 if (parametersSize > 0) {
                     out.annotate(0, "parameters:");
                     out.indent();
-                    for (int i=0; i<parametersSize; i++) {
+                    for (int i = 0; i < parametersSize; i++) {
                         int paramaterIndex = reader.readSmallUleb128() - 1;
                         out.annotateTo(reader.getOffset(), "%s",
                                 StringIdItem.getOptionalReferenceAnnotation(dexFile, paramaterIndex, true));
@@ -75,7 +74,8 @@ public class DebugInfoItem {
                 int codeAddress = 0;
                 int lineNumber = lineStart;
 
-                loop: while (true) {
+                loop:
+                while (true) {
                     int opcode = reader.readUbyte();
                     switch (opcode) {
                         case DebugItemType.END_SEQUENCE: {

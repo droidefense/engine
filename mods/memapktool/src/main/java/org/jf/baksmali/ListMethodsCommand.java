@@ -41,9 +41,9 @@ import java.util.List;
 @Parameters(commandDescription = "Lists the methods in a dex file's method table.")
 @ExtendedParameters(
         commandName = "methods",
-        commandAliases = { "method", "m" })
+        commandAliases = {"method", "m"})
 public class ListMethodsCommand extends ListReferencesCommand {
-    public ListMethodsCommand( List<JCommander> commandAncestors) {
+    public ListMethodsCommand(List<JCommander> commandAncestors) {
         super(commandAncestors, ReferenceType.METHOD);
     }
 }

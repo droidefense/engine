@@ -36,8 +36,6 @@ import org.jf.dexlib2.dexbacked.raw.util.DexAnnotator;
 import org.jf.dexlib2.util.AnnotatedBytes;
 
 
-
-
 public class MapItem {
     public static final int ITEM_SIZE = 12;
 
@@ -53,32 +51,15 @@ public class MapItem {
         this.offset = offset;
     }
 
-    public int getType() {
-        return dexFile.readUshort(offset + TYPE_OFFSET);
-    }
-
-
-    public String getName() {
-        return ItemType.getItemTypeName(getType());
-    }
-
-    public int getItemCount() {
-        return dexFile.readSmallUint(offset + SIZE_OFFSET);
-    }
-
-    public int getOffset() {
-        return dexFile.readSmallUint(offset + OFFSET_OFFSET);
-    }
-
-
-    public static SectionAnnotator makeAnnotator( DexAnnotator annotator,  MapItem mapItem) {
+    public static SectionAnnotator makeAnnotator(DexAnnotator annotator, MapItem mapItem) {
         return new SectionAnnotator(annotator, mapItem) {
-             @Override public String getItemName() {
+            @Override
+            public String getItemName() {
                 return "map_item";
             }
 
             @Override
-            protected void annotateItem( AnnotatedBytes out, int itemIndex, String itemIdentity) {
+            protected void annotateItem(AnnotatedBytes out, int itemIndex, String itemIdentity) {
                 int itemType = dexFile.readUshort(out.getCursor());
                 out.annotate(2, "type = 0x%x: %s", itemType, ItemType.getItemTypeName(itemType));
 
@@ -91,7 +72,8 @@ public class MapItem {
                 out.annotate(4, "offset = 0x%x", offset);
             }
 
-            @Override public void annotateSection( AnnotatedBytes out) {
+            @Override
+            public void annotateSection(AnnotatedBytes out) {
                 out.moveTo(sectionOffset);
                 int mapItemCount = dexFile.readSmallUint(out.getCursor());
                 out.annotate(4, "size = %d", mapItemCount);
@@ -99,5 +81,21 @@ public class MapItem {
                 super.annotateSectionInner(out, mapItemCount);
             }
         };
+    }
+
+    public int getType() {
+        return dexFile.readUshort(offset + TYPE_OFFSET);
+    }
+
+    public String getName() {
+        return ItemType.getItemTypeName(getType());
+    }
+
+    public int getItemCount() {
+        return dexFile.readSmallUint(offset + SIZE_OFFSET);
+    }
+
+    public int getOffset() {
+        return dexFile.readSmallUint(offset + OFFSET_OFFSET);
     }
 }

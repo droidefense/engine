@@ -62,7 +62,7 @@ public class ArrayDataMethodItem extends InstructionMethodItem<ArrayPayload> {
                 break;
         }
 
-        for (Number number: elements) {
+        for (Number number : elements) {
             LongRenderer.writeSignedIntOrLongTo(writer, number.longValue());
             writer.write(suffix);
             if (elementWidth == 8) {

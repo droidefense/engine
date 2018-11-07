@@ -398,25 +398,25 @@ public final class CertificateModel implements Serializable {
     }
 
     private boolean seemsDebugCertificate(CertificateModel that) {
-        int counter=0;
-        if ( validtime == that.validtime )
+        int counter = 0;
+        if (validtime == that.validtime)
             counter++;
-        if ( publicKeyAlgorithm != null && publicKeyAlgorithm.equals(that.publicKeyAlgorithm) )
+        if (publicKeyAlgorithm != null && publicKeyAlgorithm.equals(that.publicKeyAlgorithm))
             counter++;
-        if ( certType != null && certType.equals(that.certType) )
+        if (certType != null && certType.equals(that.certType))
             counter++;
-        if ( exponent != null && exponent.equals(that.exponent) )
+        if (exponent != null && exponent.equals(that.exponent))
             counter++;
-        if ( validity != null && validity.equals(that.validity) )
+        if (validity != null && validity.equals(that.validity))
             counter++;
-        if ( serialNumber != null && serialNumber.equals(that.serialNumber) )
+        if (serialNumber != null && serialNumber.equals(that.serialNumber))
             counter++;
-        if ( subject != null && subject.hasDebugData() )
+        if (subject != null && subject.hasDebugData())
             counter++;
-        if ( issuer != null && issuer.hasDebugData() )
+        if (issuer != null && issuer.hasDebugData())
             counter++;
-        Log.write(LoggerType.DEBUG, "Matched "+counter+" fields from Android debug certificate");
-        this.certificateDefaultFields=counter;
+        Log.write(LoggerType.DEBUG, "Matched " + counter + " fields from Android debug certificate");
+        this.certificateDefaultFields = counter;
         return counter >= 5;
     }
 }

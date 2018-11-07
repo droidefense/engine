@@ -6,6 +6,7 @@ import droidefense.log4j.LoggerType;
 import droidefense.sdk.helpers.DroidDefenseEnvironmentConfig;
 import droidefense.sdk.model.io.AbstractHashedFile;
 import droidefense.sdk.util.InternalConstant;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;

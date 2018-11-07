@@ -42,27 +42,27 @@ import org.jf.dexlib2.writer.DexWriter;
 import java.util.*;
 
 public class BuilderClassDef extends BaseTypeReference implements ClassDef {
-     final BuilderTypeReference type;
+    final BuilderTypeReference type;
     final int accessFlags;
     final BuilderTypeReference superclass;
-     final BuilderTypeList interfaces;
+    final BuilderTypeList interfaces;
     final BuilderStringReference sourceFile;
-     final BuilderAnnotationSet annotations;
-     final SortedSet<BuilderField> staticFields;
-     final SortedSet<BuilderField> instanceFields;
-     final SortedSet<BuilderMethod> directMethods;
-     final SortedSet<BuilderMethod> virtualMethods;
+    final BuilderAnnotationSet annotations;
+    final SortedSet<BuilderField> staticFields;
+    final SortedSet<BuilderField> instanceFields;
+    final SortedSet<BuilderMethod> directMethods;
+    final SortedSet<BuilderMethod> virtualMethods;
 
     int classDefIndex = DexWriter.NO_INDEX;
     int encodedArrayOffset = DexWriter.NO_OFFSET;
     int annotationDirectoryOffset = DexWriter.NO_OFFSET;
 
-    BuilderClassDef( BuilderTypeReference type,
+    BuilderClassDef(BuilderTypeReference type,
                     int accessFlags,
                     BuilderTypeReference superclass,
-                     BuilderTypeList interfaces,
+                    BuilderTypeList interfaces,
                     BuilderStringReference sourceFile,
-                     BuilderAnnotationSet annotations,
+                    BuilderAnnotationSet annotations,
                     Iterable<? extends BuilderField> fields,
                     Iterable<? extends BuilderMethod> methods) {
         if (fields == null) {
@@ -84,44 +84,85 @@ public class BuilderClassDef extends BaseTypeReference implements ClassDef {
         this.virtualMethods = ImmutableSortedSet.copyOf(Iterables.filter(methods, MethodUtil.METHOD_IS_VIRTUAL));
     }
 
-     @Override public String getType() { return type.getType(); }
-    @Override public int getAccessFlags() { return accessFlags; }
-    @Override public String getSuperclass() { return superclass==null?null:superclass.getType(); }
-    @Override public String getSourceFile() { return sourceFile==null?null:sourceFile.getString(); }
-     @Override public BuilderAnnotationSet getAnnotations() { return annotations; }
-     @Override public SortedSet<BuilderField> getStaticFields() { return staticFields; }
-     @Override public SortedSet<BuilderField> getInstanceFields() { return instanceFields; }
-     @Override public SortedSet<BuilderMethod> getDirectMethods() { return directMethods; }
-     @Override public SortedSet<BuilderMethod> getVirtualMethods() { return virtualMethods; }
+    @Override
+    public String getType() {
+        return type.getType();
+    }
 
-     @Override
+    @Override
+    public int getAccessFlags() {
+        return accessFlags;
+    }
+
+    @Override
+    public String getSuperclass() {
+        return superclass == null ? null : superclass.getType();
+    }
+
+    @Override
+    public String getSourceFile() {
+        return sourceFile == null ? null : sourceFile.getString();
+    }
+
+    @Override
+    public BuilderAnnotationSet getAnnotations() {
+        return annotations;
+    }
+
+    @Override
+    public SortedSet<BuilderField> getStaticFields() {
+        return staticFields;
+    }
+
+    @Override
+    public SortedSet<BuilderField> getInstanceFields() {
+        return instanceFields;
+    }
+
+    @Override
+    public SortedSet<BuilderMethod> getDirectMethods() {
+        return directMethods;
+    }
+
+    @Override
+    public SortedSet<BuilderMethod> getVirtualMethods() {
+        return virtualMethods;
+    }
+
+    @Override
     public List<String> getInterfaces() {
         return Lists.transform(this.interfaces, Functions.toStringFunction());
     }
 
-     @Override public Collection<BuilderField> getFields() {
+    @Override
+    public Collection<BuilderField> getFields() {
         return new AbstractCollection<BuilderField>() {
-             @Override public Iterator<BuilderField> iterator() {
+            @Override
+            public Iterator<BuilderField> iterator() {
                 return Iterators.mergeSorted(
                         ImmutableList.of(staticFields.iterator(), instanceFields.iterator()),
                         Ordering.natural());
             }
 
-            @Override public int size() {
+            @Override
+            public int size() {
                 return staticFields.size() + instanceFields.size();
             }
         };
     }
 
-     @Override public Collection<BuilderMethod> getMethods() {
+    @Override
+    public Collection<BuilderMethod> getMethods() {
         return new AbstractCollection<BuilderMethod>() {
-             @Override public Iterator<BuilderMethod> iterator() {
+            @Override
+            public Iterator<BuilderMethod> iterator() {
                 return Iterators.mergeSorted(
                         ImmutableList.of(directMethods.iterator(), virtualMethods.iterator()),
                         Ordering.natural());
             }
 
-            @Override public int size() {
+            @Override
+            public int size() {
                 return directMethods.size() + virtualMethods.size();
             }
         };

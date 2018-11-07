@@ -39,23 +39,25 @@ import java.util.List;
 
 public class BuilderMethodProtoReference extends BaseMethodProtoReference implements
         MethodProtoReference, BuilderReference {
-     final BuilderStringReference shorty;
-     final BuilderTypeList parameterTypes;
-     final BuilderTypeReference returnType;
+    final BuilderStringReference shorty;
+    final BuilderTypeList parameterTypes;
+    final BuilderTypeReference returnType;
     int index = DexWriter.NO_INDEX;
 
-    public BuilderMethodProtoReference( BuilderStringReference shorty,  BuilderTypeList parameterTypes,
-                                        BuilderTypeReference returnType) {
+    public BuilderMethodProtoReference(BuilderStringReference shorty, BuilderTypeList parameterTypes,
+                                       BuilderTypeReference returnType) {
         this.shorty = shorty;
         this.parameterTypes = parameterTypes;
         this.returnType = returnType;
     }
 
-     @Override public List<? extends CharSequence> getParameterTypes() {
+    @Override
+    public List<? extends CharSequence> getParameterTypes() {
         return parameterTypes;
     }
 
-     @Override public String getReturnType() {
+    @Override
+    public String getReturnType() {
         return returnType.getType();
     }
 

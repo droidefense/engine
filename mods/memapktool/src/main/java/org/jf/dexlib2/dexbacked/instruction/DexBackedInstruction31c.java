@@ -38,15 +38,17 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction31c;
 import org.jf.dexlib2.iface.reference.Reference;
 
 
-
 public class DexBackedInstruction31c extends DexBackedInstruction implements Instruction31c {
-    public DexBackedInstruction31c( DexBackedDexFile dexFile,
-                                    Opcode opcode,
+    public DexBackedInstruction31c(DexBackedDexFile dexFile,
+                                   Opcode opcode,
                                    int instructionStart) {
         super(dexFile, opcode, instructionStart);
     }
 
-    @Override public int getRegisterA() { return dexFile.readUbyte(instructionStart + 1); }
+    @Override
+    public int getRegisterA() {
+        return dexFile.readUbyte(instructionStart + 1);
+    }
 
 
     @Override

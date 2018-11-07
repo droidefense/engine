@@ -34,7 +34,6 @@ package org.jf.dexlib2.writer.builder;
 import org.jf.dexlib2.base.BaseExceptionHandler;
 
 
-
 public class BuilderExceptionHandler extends BaseExceptionHandler {
     final BuilderTypeReference exceptionType;
     final int handlerCodeAddress;
@@ -44,11 +43,13 @@ public class BuilderExceptionHandler extends BaseExceptionHandler {
         this.handlerCodeAddress = handlerCodeAddress;
     }
 
-    @Override public String getExceptionType() {
-        return exceptionType==null?null:exceptionType.getType();
+    @Override
+    public String getExceptionType() {
+        return exceptionType == null ? null : exceptionType.getType();
     }
 
-    @Override public int getHandlerCodeAddress() {
+    @Override
+    public int getHandlerCodeAddress() {
         return handlerCodeAddress;
     }
 }

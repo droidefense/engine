@@ -62,14 +62,15 @@ public class ZipDexContainer implements MultiDexContainer<ZipDexFile> {
      * Constructs a new ZipDexContainer for the given zip file
      *
      * @param zipFilePath The path to the zip file
-     * @param opcodes The Opcodes instance to use when loading dex files from this container
+     * @param opcodes     The Opcodes instance to use when loading dex files from this container
      */
-    public ZipDexContainer( File zipFilePath,  Opcodes opcodes) {
+    public ZipDexContainer(File zipFilePath, Opcodes opcodes) {
         this.zipFilePath = zipFilePath;
         this.opcodes = opcodes;
     }
 
-     @Override public Opcodes getOpcodes() {
+    @Override
+    public Opcodes getOpcodes() {
         return opcodes;
     }
 
@@ -78,7 +79,8 @@ public class ZipDexContainer implements MultiDexContainer<ZipDexFile> {
      *
      * @return A list of the names of dex files in this zip file
      */
-     @Override public List<String> getDexEntryNames() throws IOException {
+    @Override
+    public List<String> getDexEntryNames() throws IOException {
         List<String> entryNames = Lists.newArrayList();
         ZipFile zipFile = getZipFile();
         try {
@@ -107,7 +109,8 @@ public class ZipDexContainer implements MultiDexContainer<ZipDexFile> {
      * @return A ZipDexFile, or null if there is no entry with the given name
      * @throws NotADexFile If the entry isn't a dex file
      */
-    @Override public ZipDexFile getEntry( String entryName) throws IOException {
+    @Override
+    public ZipDexFile getEntry(String entryName) throws IOException {
         ZipFile zipFile = getZipFile();
         try {
             ZipEntry entry = zipFile.getEntry(entryName);
@@ -131,7 +134,7 @@ public class ZipDexContainer implements MultiDexContainer<ZipDexFile> {
         } catch (NotAZipFileException ex) {
             return false;
         } finally {
-            if(zipFile != null) {
+            if (zipFile != null) {
                 try {
                     zipFile.close();
                 } catch (IOException ex) {
@@ -141,25 +144,7 @@ public class ZipDexContainer implements MultiDexContainer<ZipDexFile> {
         }
     }
 
-    public class ZipDexFile extends DexBackedDexFile implements MultiDexContainer.MultiDexFile {
-
-        private final String entryName;
-
-        protected ZipDexFile( Opcodes opcodes,  byte[] buf,  String entryName) {
-            super(opcodes, buf, 0);
-            this.entryName = entryName;
-        }
-
-         @Override public String getEntryName() {
-            return entryName;
-        }
-
-         @Override public MultiDexContainer getContainer() {
-            return ZipDexContainer.this;
-        }
-    }
-
-    protected boolean isDex( ZipFile zipFile,  ZipEntry zipEntry) throws IOException {
+    protected boolean isDex(ZipFile zipFile, ZipEntry zipEntry) throws IOException {
         InputStream inputStream = new BufferedInputStream(zipFile.getInputStream(zipEntry));
         try {
             DexUtil.verifyDexHeader(inputStream);
@@ -183,8 +168,7 @@ public class ZipDexContainer implements MultiDexContainer<ZipDexFile> {
         }
     }
 
-
-    protected ZipDexFile loadEntry( ZipFile zipFile,  ZipEntry zipEntry) throws IOException {
+    protected ZipDexFile loadEntry(ZipFile zipFile, ZipEntry zipEntry) throws IOException {
         InputStream inputStream = zipFile.getInputStream(zipEntry);
         try {
             byte[] buf = ByteStreams.toByteArray(inputStream);
@@ -195,5 +179,25 @@ public class ZipDexContainer implements MultiDexContainer<ZipDexFile> {
     }
 
     public static class NotAZipFileException extends RuntimeException {
+    }
+
+    public class ZipDexFile extends DexBackedDexFile implements MultiDexContainer.MultiDexFile {
+
+        private final String entryName;
+
+        protected ZipDexFile(Opcodes opcodes, byte[] buf, String entryName) {
+            super(opcodes, buf, 0);
+            this.entryName = entryName;
+        }
+
+        @Override
+        public String getEntryName() {
+            return entryName;
+        }
+
+        @Override
+        public MultiDexContainer getContainer() {
+            return ZipDexContainer.this;
+        }
     }
 }

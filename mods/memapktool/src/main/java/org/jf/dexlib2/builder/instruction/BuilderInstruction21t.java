@@ -39,20 +39,25 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction21t;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class BuilderInstruction21t extends BuilderOffsetInstruction implements Instruction21t {
     public static final Format FORMAT = Format.Format21t;
 
     protected final int registerA;
 
-    public BuilderInstruction21t( Opcode opcode,
+    public BuilderInstruction21t(Opcode opcode,
                                  int registerA,
-                                  Label target) {
+                                 Label target) {
         super(opcode, target);
         this.registerA = Preconditions.checkByteRegister(registerA);
     }
 
-    @Override public int getRegisterA() { return registerA; }
+    @Override
+    public int getRegisterA() {
+        return registerA;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

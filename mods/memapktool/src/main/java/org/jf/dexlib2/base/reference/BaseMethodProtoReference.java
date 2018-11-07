@@ -38,20 +38,17 @@ import org.jf.util.CharSequenceUtils;
 import org.jf.util.CollectionUtils;
 
 
-
-
-
 public abstract class BaseMethodProtoReference implements MethodProtoReference {
     @Override
     public int hashCode() {
         int hashCode = getReturnType().hashCode();
-        return hashCode*31 + getParameterTypes().hashCode();
+        return hashCode * 31 + getParameterTypes().hashCode();
     }
 
     @Override
     public boolean equals(Object o) {
         if (o instanceof MethodProtoReference) {
-            MethodProtoReference other = (MethodProtoReference)o;
+            MethodProtoReference other = (MethodProtoReference) o;
             return getReturnType().equals(other.getReturnType()) &&
                     CharSequenceUtils.listEquals(getParameterTypes(), other.getParameterTypes());
         }
@@ -59,13 +56,14 @@ public abstract class BaseMethodProtoReference implements MethodProtoReference {
     }
 
     @Override
-    public int compareTo( MethodProtoReference o) {
+    public int compareTo(MethodProtoReference o) {
         int res = getReturnType().compareTo(o.getReturnType());
         if (res != 0) return res;
         return CollectionUtils.compareAsIterable(Ordering.usingToString(), getParameterTypes(), o.getParameterTypes());
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return ReferenceUtil.getMethodProtoDescriptor(this);
     }
 }

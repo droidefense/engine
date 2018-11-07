@@ -39,9 +39,8 @@ import org.jf.dexlib2.util.MethodUtil;
 import org.jf.dexlib2.util.TypeUtils;
 
 
-
 public class AnalyzedMethodUtil {
-    public static boolean canAccess( TypeProto type,  Method virtualMethod, boolean checkPackagePrivate,
+    public static boolean canAccess(TypeProto type, Method virtualMethod, boolean checkPackagePrivate,
                                     boolean checkProtected, boolean checkClass) {
         if (checkPackagePrivate && MethodUtil.isPackagePrivate(virtualMethod)) {
             String otherPackage = TypeUtils.getPackage(virtualMethod.getDefiningClass());

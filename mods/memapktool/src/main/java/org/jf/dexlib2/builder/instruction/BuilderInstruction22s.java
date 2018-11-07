@@ -38,7 +38,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction22s;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class BuilderInstruction22s extends BuilderInstruction implements Instruction22s {
     public static final Format FORMAT = Format.Format22s;
 
@@ -46,7 +45,7 @@ public class BuilderInstruction22s extends BuilderInstruction implements Instruc
     protected final int registerB;
     protected final int literal;
 
-    public BuilderInstruction22s( Opcode opcode,
+    public BuilderInstruction22s(Opcode opcode,
                                  int registerA,
                                  int registerB,
                                  int literal) {
@@ -56,10 +55,28 @@ public class BuilderInstruction22s extends BuilderInstruction implements Instruc
         this.literal = Preconditions.checkShortLiteral(literal);
     }
 
-    @Override public int getRegisterA() { return registerA; }
-    @Override public int getRegisterB() { return registerB; }
-    @Override public int getNarrowLiteral() { return literal; }
-    @Override public long getWideLiteral() { return literal; }
+    @Override
+    public int getRegisterA() {
+        return registerA;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public int getRegisterB() {
+        return registerB;
+    }
+
+    @Override
+    public int getNarrowLiteral() {
+        return literal;
+    }
+
+    @Override
+    public long getWideLiteral() {
+        return literal;
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

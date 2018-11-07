@@ -36,13 +36,15 @@ import org.jf.dexlib2.dexbacked.DexBackedDexFile;
 import org.jf.dexlib2.iface.instruction.formats.Instruction10t;
 
 
-
 public class DexBackedInstruction10t extends DexBackedInstruction implements Instruction10t {
-    public DexBackedInstruction10t( DexBackedDexFile dexFile,
-                                    Opcode opcode,
+    public DexBackedInstruction10t(DexBackedDexFile dexFile,
+                                   Opcode opcode,
                                    int instructionStart) {
         super(dexFile, opcode, instructionStart);
     }
 
-    @Override public int getCodeOffset() { return dexFile.readByte(instructionStart + 1); }
+    @Override
+    public int getCodeOffset() {
+        return dexFile.readByte(instructionStart + 1);
+    }
 }

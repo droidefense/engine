@@ -36,8 +36,6 @@ import org.jf.dexlib2.dexbacked.raw.util.DexAnnotator;
 import org.jf.dexlib2.util.AnnotatedBytes;
 
 
-
-
 public class ProtoIdItem {
     public static final int ITEM_SIZE = 12;
 
@@ -46,14 +44,15 @@ public class ProtoIdItem {
     public static final int PARAMETERS_OFFSET = 8;
 
 
-    public static SectionAnnotator makeAnnotator( DexAnnotator annotator,  MapItem mapItem) {
+    public static SectionAnnotator makeAnnotator(DexAnnotator annotator, MapItem mapItem) {
         return new SectionAnnotator(annotator, mapItem) {
-             @Override public String getItemName() {
+            @Override
+            public String getItemName() {
                 return "proto_id_item";
             }
 
             @Override
-            protected void annotateItem( AnnotatedBytes out, int itemIndex, String itemIdentity) {
+            protected void annotateItem(AnnotatedBytes out, int itemIndex, String itemIdentity) {
                 int shortyIndex = dexFile.readSmallUint(out.getCursor());
                 out.annotate(4, "shorty_idx = %s", StringIdItem.getReferenceAnnotation(dexFile, shortyIndex));
 
@@ -67,7 +66,7 @@ public class ProtoIdItem {
     }
 
 
-    public static String getReferenceAnnotation( DexBackedDexFile dexFile, int protoIndex) {
+    public static String getReferenceAnnotation(DexBackedDexFile dexFile, int protoIndex) {
         try {
             String protoString = asString(dexFile, protoIndex);
             return String.format("proto_id_item[%d]: %s", protoIndex, protoString);
@@ -78,7 +77,7 @@ public class ProtoIdItem {
     }
 
 
-    public static String asString( DexBackedDexFile dexFile, int protoIndex) {
+    public static String asString(DexBackedDexFile dexFile, int protoIndex) {
         int offset = dexFile.getProtoIdItemOffset(protoIndex);
 
         StringBuilder sb = new StringBuilder();
@@ -95,7 +94,7 @@ public class ProtoIdItem {
         return sb.toString();
     }
 
-    public static String[] getProtos( RawDexFile dexFile) {
+    public static String[] getProtos(RawDexFile dexFile) {
         MapItem mapItem = dexFile.getMapItemForSection(ItemType.PROTO_ID_ITEM);
         if (mapItem == null) {
             return new String[0];
@@ -103,7 +102,7 @@ public class ProtoIdItem {
 
         int protoCount = mapItem.getItemCount();
         String[] ret = new String[protoCount];
-        for (int i=0; i<protoCount; i++) {
+        for (int i = 0; i < protoCount; i++) {
             ret[i] = asString(dexFile, i);
         }
         return ret;

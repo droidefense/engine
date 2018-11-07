@@ -47,31 +47,26 @@ import java.util.List;
 import java.util.Set;
 
 public class ClassDefinition {
-     public final BaksmaliOptions options;
-     public final ClassDef classDef;
-     private final HashSet<String> fieldsSetInStaticConstructor;
+    public final BaksmaliOptions options;
+    public final ClassDef classDef;
+    private final HashSet<String> fieldsSetInStaticConstructor;
 
     protected boolean validationErrors;
 
-    public ClassDefinition( BaksmaliOptions options,  ClassDef classDef) {
+    public ClassDefinition(BaksmaliOptions options, ClassDef classDef) {
         this.options = options;
         this.classDef = classDef;
         fieldsSetInStaticConstructor = findFieldsSetInStaticConstructor(classDef);
     }
 
-    public boolean hadValidationErrors() {
-        return validationErrors;
-    }
-
-
-    private static HashSet<String> findFieldsSetInStaticConstructor( ClassDef classDef) {
+    private static HashSet<String> findFieldsSetInStaticConstructor(ClassDef classDef) {
         HashSet<String> fieldsSetInStaticConstructor = new HashSet<String>();
 
-        for (Method method: classDef.getDirectMethods()) {
+        for (Method method : classDef.getDirectMethods()) {
             if (method.getName().equals("<clinit>")) {
                 MethodImplementation impl = method.getImplementation();
                 if (impl != null) {
-                    for (Instruction instruction: impl.getInstructions()) {
+                    for (Instruction instruction : impl.getInstructions()) {
                         switch (instruction.getOpcode()) {
                             case SPUT:
                             case SPUT_BOOLEAN:
@@ -80,10 +75,10 @@ public class ClassDefinition {
                             case SPUT_OBJECT:
                             case SPUT_SHORT:
                             case SPUT_WIDE: {
-                                Instruction21c ins = (Instruction21c)instruction;
+                                Instruction21c ins = (Instruction21c) instruction;
                                 FieldReference fieldRef = null;
                                 try {
-                                    fieldRef = (FieldReference)ins.getReference();
+                                    fieldRef = (FieldReference) ins.getReference();
                                 } catch (InvalidItemIndex ex) {
                                     // just ignore it for now. We'll deal with it later, when processing the instructions
                                     // themselves
@@ -100,6 +95,10 @@ public class ClassDefinition {
             }
         }
         return fieldsSetInStaticConstructor;
+    }
+
+    public boolean hadValidationErrors() {
+        return validationErrors;
     }
 
     public void writeTo(IndentingWriter writer) throws IOException {
@@ -122,7 +121,7 @@ public class ClassDefinition {
     }
 
     private void writeAccessFlags(IndentingWriter writer) throws IOException {
-        for (AccessFlags accessFlag: AccessFlags.getAccessFlagsForClass(classDef.getAccessFlags())) {
+        for (AccessFlags accessFlag : AccessFlags.getAccessFlagsForClass(classDef.getAccessFlags())) {
             writer.write(accessFlag.toString());
             writer.write(' ');
         }
@@ -152,7 +151,7 @@ public class ClassDefinition {
         if (interfaces.size() != 0) {
             writer.write('\n');
             writer.write("# interfaces\n");
-            for (String interfaceName: interfaces) {
+            for (String interfaceName : interfaces) {
                 writer.write(".implements ");
                 writer.write(interfaceName);
                 writer.write('\n');
@@ -181,12 +180,12 @@ public class ClassDefinition {
 
         Iterable<? extends Field> staticFields;
         if (classDef instanceof DexBackedClassDef) {
-            staticFields = ((DexBackedClassDef)classDef).getStaticFields(false);
+            staticFields = ((DexBackedClassDef) classDef).getStaticFields(false);
         } else {
             staticFields = classDef.getStaticFields();
         }
 
-        for (Field field: staticFields) {
+        for (Field field : staticFields) {
             if (!wroteHeader) {
                 writer.write("\n\n");
                 writer.write("# static fields");
@@ -216,12 +215,12 @@ public class ClassDefinition {
 
         Iterable<? extends Field> instanceFields;
         if (classDef instanceof DexBackedClassDef) {
-            instanceFields = ((DexBackedClassDef)classDef).getInstanceFields(false);
+            instanceFields = ((DexBackedClassDef) classDef).getInstanceFields(false);
         } else {
             instanceFields = classDef.getInstanceFields();
         }
 
-        for (Field field: instanceFields) {
+        for (Field field : instanceFields) {
             if (!wroteHeader) {
                 writer.write("\n\n");
                 writer.write("# instance fields");
@@ -241,7 +240,7 @@ public class ClassDefinition {
                 System.err.println("You will need to rename one of these fields, including all references.");
 
                 writer.write("# There is both a static and instance field with this signature.\n" +
-                             "# You will need to rename one of these fields, including all references.\n");
+                        "# You will need to rename one of these fields, including all references.\n");
             }
             FieldDefinition.writeTo(options, fieldWriter, field, false);
         }
@@ -253,12 +252,12 @@ public class ClassDefinition {
 
         Iterable<? extends Method> directMethods;
         if (classDef instanceof DexBackedClassDef) {
-            directMethods = ((DexBackedClassDef)classDef).getDirectMethods(false);
+            directMethods = ((DexBackedClassDef) classDef).getDirectMethods(false);
         } else {
             directMethods = classDef.getDirectMethods();
         }
 
-        for (Method method: directMethods) {
+        for (Method method : directMethods) {
             if (!wroteHeader) {
                 writer.write("\n\n");
                 writer.write("# direct methods");
@@ -292,12 +291,12 @@ public class ClassDefinition {
 
         Iterable<? extends Method> virtualMethods;
         if (classDef instanceof DexBackedClassDef) {
-            virtualMethods = ((DexBackedClassDef)classDef).getVirtualMethods(false);
+            virtualMethods = ((DexBackedClassDef) classDef).getVirtualMethods(false);
         } else {
             virtualMethods = classDef.getVirtualMethods();
         }
 
-        for (Method method: virtualMethods) {
+        for (Method method : virtualMethods) {
             if (!wroteHeader) {
                 writer.write("\n\n");
                 writer.write("# virtual methods");
@@ -314,7 +313,7 @@ public class ClassDefinition {
                 methodWriter = new CommentingIndentingWriter(writer);
             } else if (directMethods.contains(methodString)) {
                 writer.write("# There is both a direct and virtual method with this signature.\n" +
-                             "# You will need to rename one of these methods, including all references.\n");
+                        "# You will need to rename one of these methods, including all references.\n");
                 System.err.println(String.format("Duplicate direct+virtual method found: %s->%s",
                         classDef.getType(), methodString));
                 System.err.println("You will need to rename one of these methods, including all references.");

@@ -37,13 +37,13 @@ import org.jf.dexlib2.dexbacked.util.VariableSizeSet;
 import java.util.Set;
 
 public class DexBackedAnnotation extends BaseAnnotation {
-     public final DexBackedDexFile dexFile;
+    public final DexBackedDexFile dexFile;
 
     public final int visibility;
     public final int typeIndex;
     private final int elementsOffset;
 
-    public DexBackedAnnotation( DexBackedDexFile dexFile,
+    public DexBackedAnnotation(DexBackedDexFile dexFile,
                                int annotationOffset) {
         this.dexFile = dexFile;
 
@@ -53,8 +53,15 @@ public class DexBackedAnnotation extends BaseAnnotation {
         this.elementsOffset = reader.getOffset();
     }
 
-    @Override public int getVisibility() { return visibility; }
-     @Override public String getType() { return dexFile.getType(typeIndex); }
+    @Override
+    public int getVisibility() {
+        return visibility;
+    }
+
+    @Override
+    public String getType() {
+        return dexFile.getType(typeIndex);
+    }
 
 
     @Override
@@ -65,7 +72,7 @@ public class DexBackedAnnotation extends BaseAnnotation {
         return new VariableSizeSet<DexBackedAnnotationElement>(dexFile, reader.getOffset(), size) {
 
             @Override
-            protected DexBackedAnnotationElement readNextItem( DexReader reader, int index) {
+            protected DexBackedAnnotationElement readNextItem(DexReader reader, int index) {
                 return new DexBackedAnnotationElement(reader);
             }
         };

@@ -37,11 +37,11 @@ import java.io.IOException;
 import java.util.BitSet;
 
 public class PostInstructionRegisterInfoMethodItem extends MethodItem {
-     private final RegisterFormatter registerFormatter;
-     private final AnalyzedInstruction analyzedInstruction;
+    private final RegisterFormatter registerFormatter;
+    private final AnalyzedInstruction analyzedInstruction;
 
-    public PostInstructionRegisterInfoMethodItem( RegisterFormatter registerFormatter,
-                                                  AnalyzedInstruction analyzedInstruction,
+    public PostInstructionRegisterInfoMethodItem(RegisterFormatter registerFormatter,
+                                                 AnalyzedInstruction analyzedInstruction,
                                                  int codeAddress) {
         super(codeAddress);
         this.registerFormatter = registerFormatter;
@@ -73,7 +73,7 @@ public class PostInstructionRegisterInfoMethodItem extends MethodItem {
     }
 
     private void addDestRegs(BitSet printPostRegister, int registerCount) {
-        for (int registerNum=0; registerNum<registerCount; registerNum++) {
+        for (int registerNum = 0; registerNum < registerCount; registerNum++) {
             if (!analyzedInstruction.getPreInstructionRegisterType(registerNum).equals(
                     analyzedInstruction.getPostInstructionRegisterType(registerNum))) {
                 printPostRegister.set(registerNum);

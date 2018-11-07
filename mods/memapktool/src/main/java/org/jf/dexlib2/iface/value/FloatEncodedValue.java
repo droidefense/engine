@@ -32,8 +32,6 @@
 package org.jf.dexlib2.iface.value;
 
 
-
-
 /**
  * This class represents an encoded float value.
  */
@@ -47,42 +45,45 @@ public interface FloatEncodedValue extends EncodedValue {
 
     /**
      * Returns a hashcode for this EncodedFloatValue.
-     *
+     * <p>
      * This hashCode is defined to be the following:
      *
      * <pre>
      * {@code
      * int hashCode = Float.floatToRawIntBits(getValue());
      * }</pre>
-     *
+     * <p>
      * Note: This is slightly different than the definition of Float.hashCode(). This uses floatToRawIntBits()
      * instead of floatToIntBits(), in order to preserve as much information as possible.
      *
      * @return The hash code value for this EncodedFloatValue
      */
-    @Override int hashCode();
+    @Override
+    int hashCode();
 
     /**
      * Compares this FloatEncodedValue to another FloatEncodedValue for equality.
-     *
+     * <p>
      * This FloatEncodedValue is equal to another FloatEncodedValue if the values returned by
      * getValue().floatToRawIntBits() are equal.
-     *
+     * <p>
      * Note: this isn't quite the same as getValue() == getValue(), due to various NaN issues and signed zero issues.
      *
      * @param o The object to be compared for equality with this FloatEncodedValue
      * @return true if the specified object is equal to this FloatEncodedValue
      */
-    @Override boolean equals(Object o);
+    @Override
+    boolean equals(Object o);
 
     /**
      * Compare this FloatEncodedValue to another EncodedValue.
-     *
+     * <p>
      * The comparison is first done on the return values of getValueType(). If the other value is another
      * FloatEncodedValue, the return values of getValue() are compared, using the semantics of Float.compare()
      *
      * @param o The EncodedValue to compare with this FloatEncodedValue
      * @return An integer representing the result of the comparison
      */
-    @Override int compareTo( EncodedValue o);
+    @Override
+    int compareTo(EncodedValue o);
 }

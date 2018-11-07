@@ -36,16 +36,22 @@ import org.jf.dexlib2.iface.reference.FieldReference;
 import org.jf.dexlib2.iface.reference.MethodReference;
 
 
-
-
 public interface TypeProto {
-     ClassPath getClassPath();
-     String getType();
+    ClassPath getClassPath();
+
+    String getType();
+
     boolean isInterface();
-    boolean implementsInterface( String iface);
+
+    boolean implementsInterface(String iface);
+
     String getSuperclass();
-     TypeProto getCommonSuperclass( TypeProto other);
+
+    TypeProto getCommonSuperclass(TypeProto other);
+
     FieldReference getFieldByOffset(int fieldOffset);
+
     Method getMethodByVtableIndex(int vtableIndex);
-    int findMethodIndexInVtable( MethodReference method);
+
+    int findMethodIndexInVtable(MethodReference method);
 }

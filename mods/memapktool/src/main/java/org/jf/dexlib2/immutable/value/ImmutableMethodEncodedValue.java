@@ -36,20 +36,22 @@ import org.jf.dexlib2.iface.reference.MethodReference;
 import org.jf.dexlib2.iface.value.MethodEncodedValue;
 
 
-
 public class ImmutableMethodEncodedValue extends BaseMethodEncodedValue implements ImmutableEncodedValue {
-     protected final MethodReference value;
+    protected final MethodReference value;
 
-    public ImmutableMethodEncodedValue( MethodReference value) {
+    public ImmutableMethodEncodedValue(MethodReference value) {
         this.value = value;
     }
 
-    public static ImmutableMethodEncodedValue of( MethodEncodedValue methodEncodedValue) {
+    public static ImmutableMethodEncodedValue of(MethodEncodedValue methodEncodedValue) {
         if (methodEncodedValue instanceof ImmutableMethodEncodedValue) {
-            return (ImmutableMethodEncodedValue)methodEncodedValue;
+            return (ImmutableMethodEncodedValue) methodEncodedValue;
         }
         return new ImmutableMethodEncodedValue(methodEncodedValue.getValue());
     }
 
-     @Override public MethodReference getValue() { return value; }
+    @Override
+    public MethodReference getValue() {
+        return value;
+    }
 }

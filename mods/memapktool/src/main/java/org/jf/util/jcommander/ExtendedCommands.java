@@ -127,7 +127,7 @@ public class ExtendedCommands {
             return jc.getCommands().get(commandName);
         } else {
             for (JCommander command : jc.getCommands().values()) {
-                for (String alias: commandAliases(command)) {
+                for (String alias : commandAliases(command)) {
                     if (commandName.equals(alias)) {
                         return command;
                     }

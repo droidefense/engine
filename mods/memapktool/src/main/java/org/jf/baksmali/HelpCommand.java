@@ -47,13 +47,13 @@ import java.util.List;
         commandAliases = "h")
 public class HelpCommand extends Command {
 
-    public HelpCommand( List<JCommander> commandAncestors) {
-        super(commandAncestors);
-    }
-
     @Parameter(description = "If specified, show the detailed usage information for the given commands")
     @ExtendedParameter(argumentNames = "commands")
     private List<String> commands = Lists.newArrayList();
+
+    public HelpCommand(List<JCommander> commandAncestors) {
+        super(commandAncestors);
+    }
 
     public void run() {
         JCommander parentJc = commandAncestors.get(commandAncestors.size() - 1);
@@ -118,7 +118,7 @@ public class HelpCommand extends Command {
                             "option, baksmali needs to load all classes from the framework files on the device " +
                             "in order to fully understand the class hierarchy. There are several options that " +
                             "control how baksmali finds and loads the classpath entries.\n" +
-                            "\n"+
+                            "\n" +
                             "L+ devices (ART):\n" +
                             "When deodexing or disassembling a file from an L+ device using ART, you generally " +
                             "just need to specify the path to the boot.oat file via the --bootclasspath/-b " +
@@ -181,7 +181,7 @@ public class HelpCommand extends Command {
                         printedHelp = true;
                         System.out.println(new HelpFormatter()
                                 .width(ConsoleUtil.getConsoleWidth())
-                                .format(((Command)command.getObjects().get(0)).getCommandHierarchy()));
+                                .format(((Command) command.getObjects().get(0)).getCommandHierarchy()));
                     }
                 }
             }
@@ -193,10 +193,10 @@ public class HelpCommand extends Command {
         }
     }
 
-    @Parameters(hidden =  true)
+    @Parameters(hidden = true)
     @ExtendedParameters(commandName = "hlep")
     public static class HlepCommand extends HelpCommand {
-        public HlepCommand( List<JCommander> commandAncestors) {
+        public HlepCommand(List<JCommander> commandAncestors) {
             super(commandAncestors);
         }
     }

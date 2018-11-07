@@ -36,20 +36,19 @@ import org.jf.dexlib2.dexbacked.raw.util.DexAnnotator;
 import org.jf.dexlib2.util.AnnotatedBytes;
 
 
-
-
 public class TypeIdItem {
     public static final int ITEM_SIZE = 4;
 
 
-    public static SectionAnnotator makeAnnotator( DexAnnotator annotator,  MapItem mapItem) {
+    public static SectionAnnotator makeAnnotator(DexAnnotator annotator, MapItem mapItem) {
         return new SectionAnnotator(annotator, mapItem) {
-             @Override public String getItemName() {
+            @Override
+            public String getItemName() {
                 return "type_id_item";
             }
 
             @Override
-            protected void annotateItem( AnnotatedBytes out, int itemIndex, String itemIdentity) {
+            protected void annotateItem(AnnotatedBytes out, int itemIndex, String itemIdentity) {
                 int stringIndex = dexFile.readSmallUint(out.getCursor());
                 out.annotate(4, StringIdItem.getReferenceAnnotation(dexFile, stringIndex));
             }
@@ -57,7 +56,7 @@ public class TypeIdItem {
     }
 
 
-    public static String getReferenceAnnotation( DexBackedDexFile dexFile, int typeIndex) {
+    public static String getReferenceAnnotation(DexBackedDexFile dexFile, int typeIndex) {
         try {
             String typeString = dexFile.getType(typeIndex);
             return String.format("type_id_item[%d]: %s", typeIndex, typeString);
@@ -68,14 +67,14 @@ public class TypeIdItem {
     }
 
 
-    public static String getOptionalReferenceAnnotation( DexBackedDexFile dexFile, int typeIndex) {
+    public static String getOptionalReferenceAnnotation(DexBackedDexFile dexFile, int typeIndex) {
         if (typeIndex == -1) {
             return "type_id_item[NO_INDEX]";
         }
         return getReferenceAnnotation(dexFile, typeIndex);
     }
 
-    public static String[] getTypes( RawDexFile dexFile) {
+    public static String[] getTypes(RawDexFile dexFile) {
         MapItem mapItem = dexFile.getMapItemForSection(ItemType.TYPE_ID_ITEM);
         if (mapItem == null) {
             return new String[0];
@@ -83,7 +82,7 @@ public class TypeIdItem {
 
         int typeCount = mapItem.getItemCount();
         String[] ret = new String[typeCount];
-        for (int i=0; i<typeCount; i++) {
+        for (int i = 0; i < typeCount; i++) {
             ret[i] = dexFile.getType(i);
         }
         return ret;

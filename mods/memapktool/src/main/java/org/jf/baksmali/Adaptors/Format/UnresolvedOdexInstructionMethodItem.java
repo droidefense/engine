@@ -35,8 +35,8 @@ import org.jf.util.IndentingWriter;
 import java.io.IOException;
 
 public class UnresolvedOdexInstructionMethodItem extends InstructionMethodItem<UnresolvedOdexInstruction> {
-    public UnresolvedOdexInstructionMethodItem( MethodDefinition methodDef, int codeAddress,
-                                                UnresolvedOdexInstruction instruction) {
+    public UnresolvedOdexInstructionMethodItem(MethodDefinition methodDef, int codeAddress,
+                                               UnresolvedOdexInstruction instruction) {
         super(methodDef, codeAddress, instruction);
     }
 

@@ -40,13 +40,12 @@ import org.jf.dexlib2.iface.instruction.formats.PackedSwitchPayload;
 import java.util.List;
 
 public class DexBackedPackedSwitchPayload extends DexBackedInstruction implements PackedSwitchPayload {
-    public final int elementCount;
-
     private static final int ELEMENT_COUNT_OFFSET = 2;
     private static final int FIRST_KEY_OFFSET = 4;
     private static final int TARGETS_OFFSET = 8;
+    public final int elementCount;
 
-    public DexBackedPackedSwitchPayload( DexBackedDexFile dexFile,
+    public DexBackedPackedSwitchPayload(DexBackedDexFile dexFile,
                                         int instructionStart) {
         super(dexFile, Opcode.PACKED_SWITCH_PAYLOAD, instructionStart);
 
@@ -69,14 +68,20 @@ public class DexBackedPackedSwitchPayload extends DexBackedInstruction implement
 
                     @Override
                     public int getOffset() {
-                        return dexFile.readInt(instructionStart + TARGETS_OFFSET + index*4);
+                        return dexFile.readInt(instructionStart + TARGETS_OFFSET + index * 4);
                     }
                 };
             }
 
-            @Override public int size() { return elementCount; }
+            @Override
+            public int size() {
+                return elementCount;
+            }
         };
     }
 
-    @Override public int getCodeUnits() { return 4 + elementCount*2; }
+    @Override
+    public int getCodeUnits() {
+        return 4 + elementCount * 2;
+    }
 }

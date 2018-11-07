@@ -37,15 +37,15 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35mi;
 import org.jf.util.NibbleUtils;
 
 
-
 public class DexBackedInstruction35mi extends DexBackedInstruction implements Instruction35mi {
-    public DexBackedInstruction35mi( DexBackedDexFile dexFile,
-                                     Opcode opcode,
+    public DexBackedInstruction35mi(DexBackedDexFile dexFile,
+                                    Opcode opcode,
                                     int instructionStart) {
         super(dexFile, opcode, instructionStart);
     }
 
-    @Override public int getRegisterCount() {
+    @Override
+    public int getRegisterCount() {
         return NibbleUtils.extractHighUnsignedNibble(dexFile.readUbyte(instructionStart + 1));
     }
 

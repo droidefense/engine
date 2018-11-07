@@ -1,6 +1,6 @@
-/* 
+/*
  * Copyright 2015 Red Naga
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -38,7 +38,7 @@ public class AXMLHeader extends GenericChunk {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see android.content.res.chunk.types.Chunk#readHeader(android.content.res.IntReader)
      */
     @Override
@@ -48,7 +48,7 @@ public class AXMLHeader extends GenericChunk {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see android.content.res.chunk.types.Chunk#toXML(android.content.res.chunk.sections.StringSection,
      * android.content.res.chunk.sections.ResourceSection, int)
      */

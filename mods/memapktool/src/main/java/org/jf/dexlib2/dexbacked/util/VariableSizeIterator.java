@@ -38,17 +38,16 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public abstract class VariableSizeIterator<T> implements Iterator<T> {
-     private final DexReader reader;
     protected final int size;
-
+    private final DexReader reader;
     private int index;
 
-    protected VariableSizeIterator( DexBackedDexFile dexFile, int offset, int size) {
+    protected VariableSizeIterator(DexBackedDexFile dexFile, int offset, int size) {
         this.reader = dexFile.readerAt(offset);
         this.size = size;
     }
 
-    protected VariableSizeIterator( DexReader reader, int size) {
+    protected VariableSizeIterator(DexReader reader, int size) {
         this.reader = reader;
         this.size = size;
     }
@@ -57,10 +56,10 @@ public abstract class VariableSizeIterator<T> implements Iterator<T> {
      * Reads the next item from reader.
      *
      * @param reader The {@code DexReader} to read the next item from
-     * @param index The index of the item being read. This is guaranteed to be less than {@code size}
+     * @param index  The index of the item being read. This is guaranteed to be less than {@code size}
      * @return The item that was read
      */
-    protected abstract T readNextItem( DexReader reader, int index);
+    protected abstract T readNextItem(DexReader reader, int index);
 
     public int getReaderOffset() {
         return reader.getOffset();
@@ -79,5 +78,8 @@ public abstract class VariableSizeIterator<T> implements Iterator<T> {
         return readNextItem(reader, index++);
     }
 
-    @Override public void remove() { throw new UnsupportedOperationException(); }
+    @Override
+    public void remove() {
+        throw new UnsupportedOperationException();
+    }
 }

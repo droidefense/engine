@@ -39,25 +39,34 @@ import org.jf.dexlib2.iface.reference.MethodReference;
 import org.jf.dexlib2.iface.value.EncodedValue;
 
 
-
 public interface Rewriters {
-     Rewriter<ClassDef> getClassDefRewriter();
-     Rewriter<Field> getFieldRewriter();
+    Rewriter<ClassDef> getClassDefRewriter();
 
-     Rewriter<Method> getMethodRewriter();
-     Rewriter<MethodParameter> getMethodParameterRewriter();
-     Rewriter<MethodImplementation> getMethodImplementationRewriter();
-     Rewriter<Instruction> getInstructionRewriter();
-     Rewriter<TryBlock<? extends ExceptionHandler>> getTryBlockRewriter();
-     Rewriter<ExceptionHandler> getExceptionHandlerRewriter();
-     Rewriter<DebugItem> getDebugItemRewriter();
+    Rewriter<Field> getFieldRewriter();
 
-     Rewriter<String> getTypeRewriter();
-     Rewriter<FieldReference> getFieldReferenceRewriter();
-     Rewriter<MethodReference> getMethodReferenceRewriter();
+    Rewriter<Method> getMethodRewriter();
 
-     Rewriter<Annotation> getAnnotationRewriter();
-     Rewriter<AnnotationElement> getAnnotationElementRewriter();
+    Rewriter<MethodParameter> getMethodParameterRewriter();
 
-     Rewriter<EncodedValue> getEncodedValueRewriter();
+    Rewriter<MethodImplementation> getMethodImplementationRewriter();
+
+    Rewriter<Instruction> getInstructionRewriter();
+
+    Rewriter<TryBlock<? extends ExceptionHandler>> getTryBlockRewriter();
+
+    Rewriter<ExceptionHandler> getExceptionHandlerRewriter();
+
+    Rewriter<DebugItem> getDebugItemRewriter();
+
+    Rewriter<String> getTypeRewriter();
+
+    Rewriter<FieldReference> getFieldReferenceRewriter();
+
+    Rewriter<MethodReference> getMethodReferenceRewriter();
+
+    Rewriter<Annotation> getAnnotationRewriter();
+
+    Rewriter<AnnotationElement> getAnnotationElementRewriter();
+
+    Rewriter<EncodedValue> getEncodedValueRewriter();
 }

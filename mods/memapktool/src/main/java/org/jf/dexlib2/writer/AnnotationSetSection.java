@@ -37,5 +37,5 @@ import java.util.Collection;
 
 public interface AnnotationSetSection<AnnotationKey extends Annotation, AnnotationSetKey>
         extends NullableOffsetSection<AnnotationSetKey> {
-     Collection<? extends AnnotationKey> getAnnotations( AnnotationSetKey key);
+    Collection<? extends AnnotationKey> getAnnotations(AnnotationSetKey key);
 }

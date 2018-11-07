@@ -37,7 +37,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction23x;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class ImmutableInstruction23x extends ImmutableInstruction implements Instruction23x {
     public static final Format FORMAT = Format.Format23x;
 
@@ -45,7 +44,7 @@ public class ImmutableInstruction23x extends ImmutableInstruction implements Ins
     protected final int registerB;
     protected final int registerC;
 
-    public ImmutableInstruction23x( Opcode opcode,
+    public ImmutableInstruction23x(Opcode opcode,
                                    int registerA,
                                    int registerB,
                                    int registerC) {
@@ -57,7 +56,7 @@ public class ImmutableInstruction23x extends ImmutableInstruction implements Ins
 
     public static ImmutableInstruction23x of(Instruction23x instruction) {
         if (instruction instanceof ImmutableInstruction23x) {
-            return (ImmutableInstruction23x)instruction;
+            return (ImmutableInstruction23x) instruction;
         }
         return new ImmutableInstruction23x(
                 instruction.getOpcode(),
@@ -66,9 +65,23 @@ public class ImmutableInstruction23x extends ImmutableInstruction implements Ins
                 instruction.getRegisterC());
     }
 
-    @Override public int getRegisterA() { return registerA; }
-    @Override public int getRegisterB() { return registerB; }
-    @Override public int getRegisterC() { return registerC; }
+    @Override
+    public int getRegisterA() {
+        return registerA;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public int getRegisterB() {
+        return registerB;
+    }
+
+    @Override
+    public int getRegisterC() {
+        return registerC;
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

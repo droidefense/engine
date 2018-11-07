@@ -42,19 +42,19 @@ import java.util.concurrent.ConcurrentMap;
 
 public class BuilderFieldPool extends BaseBuilderPool
         implements FieldSection<BuilderStringReference, BuilderTypeReference, BuilderFieldReference, BuilderField> {
-     private final ConcurrentMap<FieldReference, BuilderFieldReference> internedItems =
+    private final ConcurrentMap<FieldReference, BuilderFieldReference> internedItems =
             Maps.newConcurrentMap();
 
-    public BuilderFieldPool( DexBuilder dexBuilder) {
+    public BuilderFieldPool(DexBuilder dexBuilder) {
         super(dexBuilder);
     }
 
-     BuilderFieldReference internField( String definingClass, String name, String type) {
+    BuilderFieldReference internField(String definingClass, String name, String type) {
         ImmutableFieldReference fieldReference = new ImmutableFieldReference(definingClass, name, type);
         return internField(fieldReference);
     }
 
-     public BuilderFieldReference internField( FieldReference fieldReference) {
+    public BuilderFieldReference internField(FieldReference fieldReference) {
         BuilderFieldReference ret = internedItems.get(fieldReference);
         if (ret != null) {
             return ret;
@@ -65,37 +65,44 @@ public class BuilderFieldPool extends BaseBuilderPool
                 dexBuilder.stringSection.internString(fieldReference.getName()),
                 dexBuilder.typeSection.internType(fieldReference.getType()));
         ret = internedItems.putIfAbsent(dexPoolFieldReference, dexPoolFieldReference);
-        return ret==null?dexPoolFieldReference:ret;
+        return ret == null ? dexPoolFieldReference : ret;
     }
 
-     @Override
-    public BuilderTypeReference getDefiningClass( BuilderFieldReference key) {
+    @Override
+    public BuilderTypeReference getDefiningClass(BuilderFieldReference key) {
         return key.definingClass;
     }
 
-     @Override public BuilderTypeReference getFieldType( BuilderFieldReference key) {
+    @Override
+    public BuilderTypeReference getFieldType(BuilderFieldReference key) {
         return key.fieldType;
     }
 
-     @Override public BuilderStringReference getName( BuilderFieldReference key) {
+    @Override
+    public BuilderStringReference getName(BuilderFieldReference key) {
         return key.name;
     }
 
-    @Override public int getFieldIndex( BuilderField builderField) {
+    @Override
+    public int getFieldIndex(BuilderField builderField) {
         return builderField.fieldReference.getIndex();
     }
 
-    @Override public int getItemIndex( BuilderFieldReference key) {
+    @Override
+    public int getItemIndex(BuilderFieldReference key) {
         return key.index;
     }
 
-     @Override public Collection<? extends Entry<? extends BuilderFieldReference, Integer>> getItems() {
+    @Override
+    public Collection<? extends Entry<? extends BuilderFieldReference, Integer>> getItems() {
         return new BuilderMapEntryCollection<BuilderFieldReference>(internedItems.values()) {
-            @Override protected int getValue( BuilderFieldReference key) {
+            @Override
+            protected int getValue(BuilderFieldReference key) {
                 return key.index;
             }
 
-            @Override protected int setValue( BuilderFieldReference key, int value) {
+            @Override
+            protected int setValue(BuilderFieldReference key, int value) {
                 int prev = key.index;
                 key.index = value;
                 return prev;
@@ -103,7 +110,8 @@ public class BuilderFieldPool extends BaseBuilderPool
         };
     }
 
-    @Override public int getItemCount() {
+    @Override
+    public int getItemCount() {
         return internedItems.size();
     }
 }

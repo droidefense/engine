@@ -42,25 +42,25 @@ import java.util.Set;
 public interface AnnotationEncodedValue extends EncodedValue, BasicAnnotation {
     /**
      * Gets the type of this annotation.
-     *
+     * <p>
      * This will be the type descriptor of the class that defines this annotation.
      *
      * @return The type of this annotation
      */
-     String getType();
+    String getType();
 
     /**
      * Gets a set of the name/value elements associated with this annotation.
-     *
+     * <p>
      * The elements in the returned set will be unique by name.
      *
      * @return A set of AnnotationElements
      */
-     Set<? extends AnnotationElement> getElements();
+    Set<? extends AnnotationElement> getElements();
 
     /**
      * Returns a hashcode for this AnnotationEncodedValue.
-     *
+     * <p>
      * This hashCode is defined to be the following:
      *
      * <pre>
@@ -71,22 +71,24 @@ public interface AnnotationEncodedValue extends EncodedValue, BasicAnnotation {
      *
      * @return The hash code value for this AnnotationEncodedValue
      */
-    @Override int hashCode();
+    @Override
+    int hashCode();
 
     /**
      * Compares this AnnotationEncodedValue to another AnnotationEncodedValue for equality.
-     *
+     * <p>
      * This AnnotationEncodedValue is equal to another AnnotationEncodedValue if all of it's "fields" are equal. That
      * is, if the return values getType() and getElements() are both equal.
      *
      * @param o The object to be compared for equality with this AnnotationEncodedValue
      * @return true if the specified object is equal to this AnnotationEncodedValue
      */
-    @Override boolean equals(Object o);
+    @Override
+    boolean equals(Object o);
 
     /**
      * Compare this AnnotationEncodedValue to another EncodedValue.
-     *
+     * <p>
      * The comparison is based on the value of getType() and getElements(), in that order. When
      * comparing the set of elements, the comparison is done with the semantics of
      * org.jf.util.CollectionUtils.compareAsSet(), using the natural ordering of AnnotationElement.
@@ -94,5 +96,6 @@ public interface AnnotationEncodedValue extends EncodedValue, BasicAnnotation {
      * @param o The EncodedValue to compare with this AnnotationEncodedValue
      * @return An integer representing the result of the comparison
      */
-    @Override int compareTo( EncodedValue o);
+    @Override
+    int compareTo(EncodedValue o);
 }

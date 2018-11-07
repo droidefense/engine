@@ -36,15 +36,25 @@ import org.jf.dexlib2.dexbacked.DexBackedDexFile;
 import org.jf.dexlib2.iface.instruction.formats.Instruction21s;
 
 
-
 public class DexBackedInstruction21s extends DexBackedInstruction implements Instruction21s {
-    public DexBackedInstruction21s( DexBackedDexFile dexFile,
-                                    Opcode opcode,
+    public DexBackedInstruction21s(DexBackedDexFile dexFile,
+                                   Opcode opcode,
                                    int instructionStart) {
         super(dexFile, opcode, instructionStart);
     }
 
-    @Override public int getRegisterA() { return dexFile.readUbyte(instructionStart + 1); }
-    @Override public int getNarrowLiteral() { return dexFile.readShort(instructionStart + 2); }
-    @Override public long getWideLiteral() { return getNarrowLiteral(); }
+    @Override
+    public int getRegisterA() {
+        return dexFile.readUbyte(instructionStart + 1);
+    }
+
+    @Override
+    public int getNarrowLiteral() {
+        return dexFile.readShort(instructionStart + 2);
+    }
+
+    @Override
+    public long getWideLiteral() {
+        return getNarrowLiteral();
+    }
 }

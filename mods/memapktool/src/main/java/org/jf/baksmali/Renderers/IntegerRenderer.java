@@ -34,7 +34,7 @@ import java.io.IOException;
 
 public class IntegerRenderer {
     public static void writeTo(IndentingWriter writer, int val) throws IOException {
-        if (val<0) {
+        if (val < 0) {
             writer.write("-0x");
             writer.printUnsignedLongAsHex(-((long) val));
         } else {

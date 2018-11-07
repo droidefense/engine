@@ -47,41 +47,7 @@ public class OdexedFieldInstructionMapper {
     private static final int PRIMITIVE = 0;
     private static final int WIDE = 1;
     private static final int REFERENCE = 2;
-
-    private static class FieldOpcode {
-        public final char type;
-        public final boolean isStatic;
-         public final Opcode normalOpcode;
-        public final Opcode quickOpcode;
-        public final Opcode volatileOpcode;
-
-        public FieldOpcode(char type,  Opcode normalOpcode, Opcode quickOpcode,
-                           Opcode volatileOpcode) {
-            this.type = type;
-            this.isStatic = false;
-            this.normalOpcode = normalOpcode;
-            this.quickOpcode = quickOpcode;
-            this.volatileOpcode = volatileOpcode;
-        }
-
-        public FieldOpcode(char type, boolean isStatic,  Opcode normalOpcode, Opcode volatileOpcode) {
-            this.type = type;
-            this.isStatic = isStatic;
-            this.normalOpcode = normalOpcode;
-            this.quickOpcode = null;
-            this.volatileOpcode = volatileOpcode;
-        }
-
-        public FieldOpcode(char type,  Opcode normalOpcode, Opcode quickOpcode) {
-            this.type = type;
-            this.isStatic = false;
-            this.normalOpcode = normalOpcode;
-            this.quickOpcode = quickOpcode;
-            this.volatileOpcode = null;
-        }
-    }
-
-    private static final FieldOpcode[] dalvikFieldOpcodes = new FieldOpcode[] {
+    private static final FieldOpcode[] dalvikFieldOpcodes = new FieldOpcode[]{
             new FieldOpcode('Z', Opcode.IGET_BOOLEAN, Opcode.IGET_QUICK, Opcode.IGET_VOLATILE),
             new FieldOpcode('B', Opcode.IGET_BYTE, Opcode.IGET_QUICK, Opcode.IGET_VOLATILE),
             new FieldOpcode('S', Opcode.IGET_SHORT, Opcode.IGET_QUICK, Opcode.IGET_VOLATILE),
@@ -126,8 +92,7 @@ public class OdexedFieldInstructionMapper {
             new FieldOpcode('L', true, Opcode.SGET_OBJECT, Opcode.SGET_OBJECT_VOLATILE),
             new FieldOpcode('[', true, Opcode.SGET_OBJECT, Opcode.SGET_OBJECT_VOLATILE),
     };
-
-    private static final FieldOpcode[] artFieldOpcodes = new FieldOpcode[] {
+    private static final FieldOpcode[] artFieldOpcodes = new FieldOpcode[]{
             new FieldOpcode('Z', Opcode.IGET_BOOLEAN, Opcode.IGET_BOOLEAN_QUICK),
             new FieldOpcode('B', Opcode.IGET_BYTE, Opcode.IGET_BYTE_QUICK),
             new FieldOpcode('S', Opcode.IGET_SHORT, Opcode.IGET_SHORT_QUICK),
@@ -150,9 +115,29 @@ public class OdexedFieldInstructionMapper {
             new FieldOpcode('L', Opcode.IPUT_OBJECT, Opcode.IPUT_OBJECT_QUICK),
             new FieldOpcode('[', Opcode.IPUT_OBJECT, Opcode.IPUT_OBJECT_QUICK)
     };
-
     private final FieldOpcode[][][] opcodeMap = new FieldOpcode[2][2][10];
     private final Map<Opcode, Integer> opcodeValueTypeMap = new HashMap<Opcode, Integer>(30);
+    public OdexedFieldInstructionMapper(boolean isArt) {
+        FieldOpcode[] opcodes;
+        if (isArt) {
+            opcodes = artFieldOpcodes;
+        } else {
+            opcodes = dalvikFieldOpcodes;
+        }
+
+        for (FieldOpcode fieldOpcode : opcodes) {
+            opcodeMap[isGet(fieldOpcode.normalOpcode) ? GET : PUT]
+                    [isStatic(fieldOpcode.normalOpcode) ? STATIC : INSTANCE]
+                    [getTypeIndex(fieldOpcode.type)] = fieldOpcode;
+
+            if (fieldOpcode.quickOpcode != null) {
+                opcodeValueTypeMap.put(fieldOpcode.quickOpcode, getValueType(fieldOpcode.type));
+            }
+            if (fieldOpcode.volatileOpcode != null) {
+                opcodeValueTypeMap.put(fieldOpcode.volatileOpcode, getValueType(fieldOpcode.type));
+            }
+        }
+    }
 
     private static int getValueType(char type) {
         switch (type) {
@@ -199,40 +184,17 @@ public class OdexedFieldInstructionMapper {
         throw new RuntimeException(String.format("Unknown type %s: ", type));
     }
 
-    private static boolean isGet( Opcode opcode) {
+    private static boolean isGet(Opcode opcode) {
         return (opcode.flags & Opcode.SETS_REGISTER) != 0;
     }
 
-    private static boolean isStatic( Opcode opcode) {
+    private static boolean isStatic(Opcode opcode) {
         return (opcode.flags & Opcode.STATIC_FIELD_ACCESSOR) != 0;
     }
 
-    public OdexedFieldInstructionMapper(boolean isArt) {
-        FieldOpcode[] opcodes;
-        if (isArt) {
-            opcodes = artFieldOpcodes;
-        } else {
-            opcodes = dalvikFieldOpcodes;
-        }
-
-        for (FieldOpcode fieldOpcode: opcodes) {
-            opcodeMap[isGet(fieldOpcode.normalOpcode)?GET:PUT]
-                    [isStatic(fieldOpcode.normalOpcode)?STATIC:INSTANCE]
-                    [getTypeIndex(fieldOpcode.type)] = fieldOpcode;
-
-            if (fieldOpcode.quickOpcode != null) {
-                opcodeValueTypeMap.put(fieldOpcode.quickOpcode, getValueType(fieldOpcode.type));
-            }
-            if (fieldOpcode.volatileOpcode != null) {
-                opcodeValueTypeMap.put(fieldOpcode.volatileOpcode, getValueType(fieldOpcode.type));
-            }
-        }
-    }
-
-
-    public Opcode getAndCheckDeodexedOpcode( String fieldType,  Opcode odexedOpcode) {
-        FieldOpcode fieldOpcode = opcodeMap[isGet(odexedOpcode)?GET:PUT]
-                [isStatic(odexedOpcode)?STATIC:INSTANCE]
+    public Opcode getAndCheckDeodexedOpcode(String fieldType, Opcode odexedOpcode) {
+        FieldOpcode fieldOpcode = opcodeMap[isGet(odexedOpcode) ? GET : PUT]
+                [isStatic(odexedOpcode) ? STATIC : INSTANCE]
                 [getTypeIndex(fieldType.charAt(0))];
 
         if (!isCompatible(odexedOpcode, fieldOpcode.type)) {
@@ -249,6 +211,39 @@ public class OdexedFieldInstructionMapper {
             throw new RuntimeException("Unexpected opcode: " + opcode.name);
         }
         return valueType == getValueType(type);
+    }
+
+    private static class FieldOpcode {
+        public final char type;
+        public final boolean isStatic;
+        public final Opcode normalOpcode;
+        public final Opcode quickOpcode;
+        public final Opcode volatileOpcode;
+
+        public FieldOpcode(char type, Opcode normalOpcode, Opcode quickOpcode,
+                           Opcode volatileOpcode) {
+            this.type = type;
+            this.isStatic = false;
+            this.normalOpcode = normalOpcode;
+            this.quickOpcode = quickOpcode;
+            this.volatileOpcode = volatileOpcode;
+        }
+
+        public FieldOpcode(char type, boolean isStatic, Opcode normalOpcode, Opcode volatileOpcode) {
+            this.type = type;
+            this.isStatic = isStatic;
+            this.normalOpcode = normalOpcode;
+            this.quickOpcode = null;
+            this.volatileOpcode = volatileOpcode;
+        }
+
+        public FieldOpcode(char type, Opcode normalOpcode, Opcode quickOpcode) {
+            this.type = type;
+            this.isStatic = false;
+            this.normalOpcode = normalOpcode;
+            this.quickOpcode = quickOpcode;
+            this.volatileOpcode = null;
+        }
     }
 }
 

@@ -38,14 +38,13 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction11n;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class BuilderInstruction11n extends BuilderInstruction implements Instruction11n {
     public static final Format FORMAT = Format.Format11n;
 
     protected final int registerA;
     protected final int literal;
 
-    public BuilderInstruction11n( Opcode opcode,
+    public BuilderInstruction11n(Opcode opcode,
                                  int registerA,
                                  int literal) {
         super(opcode);
@@ -53,9 +52,23 @@ public class BuilderInstruction11n extends BuilderInstruction implements Instruc
         this.literal = Preconditions.checkNibbleLiteral(literal);
     }
 
-    @Override public int getRegisterA() { return registerA; }
-    @Override public int getNarrowLiteral() { return literal; }
-    @Override public long getWideLiteral() { return literal; }
+    @Override
+    public int getRegisterA() {
+        return registerA;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public int getNarrowLiteral() {
+        return literal;
+    }
+
+    @Override
+    public long getWideLiteral() {
+        return literal;
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

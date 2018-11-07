@@ -31,11 +31,10 @@ package org.jf.baksmali.Adaptors;
 import org.jf.baksmali.BaksmaliOptions;
 
 
-
 public class EndTryLabelMethodItem extends LabelMethodItem {
     private int endTryAddress;
 
-    public EndTryLabelMethodItem( BaksmaliOptions options, int codeAddress, int endTryAddress) {
+    public EndTryLabelMethodItem(BaksmaliOptions options, int codeAddress, int endTryAddress) {
         super(options, codeAddress, "try_end_");
         this.endTryAddress = endTryAddress;
     }

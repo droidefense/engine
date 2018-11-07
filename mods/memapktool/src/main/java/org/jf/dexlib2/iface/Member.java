@@ -32,7 +32,6 @@
 package org.jf.dexlib2.iface;
 
 
-
 /**
  * This class represents a generic class member
  */
@@ -42,18 +41,18 @@ public interface Member extends Annotatable {
      *
      * @return The type of the class that defines this member
      */
-     String getDefiningClass();
+    String getDefiningClass();
 
     /**
      * Gets the name of this member.
      *
      * @return The name of this field
      */
-     String getName();
+    String getName();
 
     /**
      * Gets the access flags for this member.
-     *
+     * <p>
      * This will be a combination of the AccessFlags.* flags that are marked as compatible for use with this type
      * of member.
      *

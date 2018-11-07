@@ -32,7 +32,6 @@
 package org.jf.dexlib2.iface.reference;
 
 
-
 import java.util.List;
 
 /**
@@ -44,32 +43,32 @@ public interface MethodReference extends Reference, Comparable<MethodReference> 
      *
      * @return The type of the class that defines the referenced method
      */
-     String getDefiningClass();
+    String getDefiningClass();
 
     /**
      * Gets the name of the referenced method.
      *
      * @return The name of the referenced method
      */
-     String getName();
+    String getName();
 
     /**
      * Gets a list of the types of the parameters of this method.
      *
      * @return A list of the parameter types of this method, as strings.
      */
-     List<? extends CharSequence> getParameterTypes();
+    List<? extends CharSequence> getParameterTypes();
 
     /**
      * Gets the return type of the referenced method.
      *
      * @return The return type of the referenced method.
      */
-     String getReturnType();
+    String getReturnType();
 
     /**
      * Returns a hashcode for this MethodReference.
-     *
+     * <p>
      * This hashCode is defined to be the following:
      *
      * <pre>
@@ -82,25 +81,27 @@ public interface MethodReference extends Reference, Comparable<MethodReference> 
      *
      * @return The hash code value for this MethodReference
      */
-    @Override int hashCode();
+    @Override
+    int hashCode();
 
     /**
      * Compares this MethodReference to another MethodReference for equality.
-     *
+     * <p>
      * This MethodReference is equal to another MethodReference if all of it's "fields" are equal. That is, if
      * the return values of getDefiningClass(), getName(), getReturnType() and getParameterTypes() are all equal.
-     *
+     * <p>
      * Equality for getParameters() should be tested by comparing the string representation of each element. I.e.
      * CharSequenceUtils.listEquals(this.getParameterTypes(), other.getParameterTypes())
      *
      * @param o The object to be compared for equality with this MethodReference
      * @return true if the specified object is equal to this MethodReference
      */
-    @Override boolean equals(Object o);
+    @Override
+    boolean equals(Object o);
 
     /**
      * Compare this MethodReference to another MethodReference.
-     *
+     * <p>
      * The comparison is based on the comparison of the return values of getDefiningClass(), getName(),
      * getReturnType() and getParameters(), in that order. getParameters() should be compared using the semantics
      * of org.jf.util.CollectionUtils.compareAsList()
@@ -108,5 +109,6 @@ public interface MethodReference extends Reference, Comparable<MethodReference> 
      * @param o The MethodReference to compare with this MethodReference
      * @return An integer representing the result of the comparison
      */
-    @Override int compareTo( MethodReference o);
+    @Override
+    int compareTo(MethodReference o);
 }

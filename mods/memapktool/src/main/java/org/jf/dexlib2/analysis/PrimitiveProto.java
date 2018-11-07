@@ -37,24 +37,47 @@ import org.jf.dexlib2.iface.reference.MethodReference;
 import org.jf.util.ExceptionWithContext;
 
 
-
-
 public class PrimitiveProto implements TypeProto {
     protected final ClassPath classPath;
     protected final String type;
 
-    public PrimitiveProto( ClassPath classPath,  String type) {
+    public PrimitiveProto(ClassPath classPath, String type) {
         this.classPath = classPath;
         this.type = type;
     }
 
-    @Override public String toString() { return type; }
-     @Override public ClassPath getClassPath() { return classPath; }
-     @Override public String getType() { return type; }
-    @Override public boolean isInterface() { return false; }
-    @Override public boolean implementsInterface( String iface) { return false; }
-    @Override public String getSuperclass() { return null; }
-     @Override public TypeProto getCommonSuperclass( TypeProto other) {
+    @Override
+    public String toString() {
+        return type;
+    }
+
+    @Override
+    public ClassPath getClassPath() {
+        return classPath;
+    }
+
+    @Override
+    public String getType() {
+        return type;
+    }
+
+    @Override
+    public boolean isInterface() {
+        return false;
+    }
+
+    @Override
+    public boolean implementsInterface(String iface) {
+        return false;
+    }
+
+    @Override
+    public String getSuperclass() {
+        return null;
+    }
+
+    @Override
+    public TypeProto getCommonSuperclass(TypeProto other) {
         throw new ExceptionWithContext("Cannot call getCommonSuperclass on PrimitiveProto");
     }
 
@@ -70,7 +93,8 @@ public class PrimitiveProto implements TypeProto {
         return null;
     }
 
-    @Override public int findMethodIndexInVtable( MethodReference method) {
+    @Override
+    public int findMethodIndexInVtable(MethodReference method) {
         return -1;
     }
 }

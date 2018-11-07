@@ -49,7 +49,7 @@ import java.util.List;
 @Parameters(commandDescription = "Lists the virtual method tables for classes in a dex file.")
 @ExtendedParameters(
         commandName = "vtables",
-        commandAliases = { "vtable", "v" })
+        commandAliases = {"vtable", "v"})
 public class ListVtablesCommand extends DexInputCommand {
 
     @Parameter(names = {"-h", "-?", "--help"}, help = true,
@@ -73,11 +73,12 @@ public class ListVtablesCommand extends DexInputCommand {
                     "version.")
     private int oatVersion = 0;
 
-    public ListVtablesCommand( List<JCommander> commandAncestors) {
+    public ListVtablesCommand(List<JCommander> commandAncestors) {
         super(commandAncestors);
     }
 
-    @Override public void run() {
+    @Override
+    public void run() {
         if (help || inputList == null || inputList.isEmpty()) {
             usage();
             return;
@@ -99,15 +100,15 @@ public class ListVtablesCommand extends DexInputCommand {
 
         try {
             if (classes != null && !classes.isEmpty()) {
-                for (String cls: classes) {
-                    listClassVtable((ClassProto)options.classPath.getClass(cls));
+                for (String cls : classes) {
+                    listClassVtable((ClassProto) options.classPath.getClass(cls));
                 }
                 return;
             }
 
             for (ClassDef classDef : dexFile.getClasses()) {
                 if (!AccessFlags.INTERFACE.isSet(classDef.getAccessFlags())) {
-                    listClassVtable((ClassProto)options.classPath.getClass(classDef));
+                    listClassVtable((ClassProto) options.classPath.getClass(classDef));
                 }
             }
         } catch (IOException ex) {

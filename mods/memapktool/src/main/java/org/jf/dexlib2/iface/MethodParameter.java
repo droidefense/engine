@@ -38,31 +38,31 @@ import java.util.Set;
 
 /**
  * This class represents a method parameter.
- *
+ * <p>
  * It also acts as a TypeReference to the type of this parameter. Any equality/comparison is based on its identity as a
  * TypeReference, and should not take into account any details other than the parameter type.
- *
+ * <p>
  * It also acts as a LocalInfo object, and conceptually defines the debug information for any parameter register at the
  * beginning of the method.
  */
 public interface MethodParameter extends TypeReference, LocalInfo {
     /**
      * The type of this method parameter.
-     *
+     * <p>
      * This may be any type, including primitive or array types, other than the void (V) type.
      *
      * @return The type of this method parameter
      */
-     String getType();
+    String getType();
 
     /**
      * Gets a set of the annotations that are applied to this parameter.
-     *
+     * <p>
      * The annotations in the returned set are guaranteed to have unique types.
      *
      * @return A set of the annotations that are applied to this parameter
      */
-     Set<? extends Annotation> getAnnotations();
+    Set<? extends Annotation> getAnnotations();
 
     /**
      * Gets the name of this parameter, if available.
@@ -73,7 +73,7 @@ public interface MethodParameter extends TypeReference, LocalInfo {
 
     /**
      * Gets the signature of this parameter, if available.
-     *
+     * <p>
      * The signature of a parameter is defined to be the concatenated version of the dalvik.annotation.Signature
      * annotation applied to this parameter, or null if there is no dalvik.annotation.Signature annotation.
      *

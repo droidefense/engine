@@ -24,8 +24,22 @@ public class MemoryDeferredOutputStream extends DeferredOutputStream {
         currentBuffer = new byte[bufferSize];
     }
 
-    @Override public void writeTo(OutputStream output) throws IOException {
-        for (byte[] buffer: buffers) {
+    public static DeferredOutputStreamFactory getFactory() {
+        return getFactory(DEFAULT_BUFFER_SIZE);
+    }
+
+    public static DeferredOutputStreamFactory getFactory(final int bufferSize) {
+        return new DeferredOutputStreamFactory() {
+            @Override
+            public DeferredOutputStream makeDeferredOutputStream() {
+                return new MemoryDeferredOutputStream(bufferSize);
+            }
+        };
+    }
+
+    @Override
+    public void writeTo(OutputStream output) throws IOException {
+        for (byte[] buffer : buffers) {
             output.write(buffer);
         }
         if (currentPosition > 0) {
@@ -35,20 +49,23 @@ public class MemoryDeferredOutputStream extends DeferredOutputStream {
         currentPosition = 0;
     }
 
-    @Override public void write(int i) throws IOException {
+    @Override
+    public void write(int i) throws IOException {
         if (remaining() == 0) {
             buffers.add(currentBuffer);
             currentBuffer = new byte[currentBuffer.length];
             currentPosition = 0;
         }
-        currentBuffer[currentPosition++] = (byte)i;
+        currentBuffer[currentPosition++] = (byte) i;
     }
 
-    @Override public void write(byte[] bytes) throws IOException {
+    @Override
+    public void write(byte[] bytes) throws IOException {
         write(bytes, 0, bytes.length);
     }
 
-    @Override public void write(byte[] bytes, int offset, int length) throws IOException {
+    @Override
+    public void write(byte[] bytes, int offset, int length) throws IOException {
         int remaining = remaining();
         int written = 0;
         while (length - written > 0) {
@@ -69,19 +86,5 @@ public class MemoryDeferredOutputStream extends DeferredOutputStream {
 
     private int remaining() {
         return currentBuffer.length - currentPosition;
-    }
-
-
-    public static DeferredOutputStreamFactory getFactory() {
-        return getFactory(DEFAULT_BUFFER_SIZE);
-    }
-
-
-    public static DeferredOutputStreamFactory getFactory(final int bufferSize) {
-        return new DeferredOutputStreamFactory() {
-            @Override public DeferredOutputStream makeDeferredOutputStream() {
-                return new MemoryDeferredOutputStream(bufferSize);
-            }
-        };
     }
 }

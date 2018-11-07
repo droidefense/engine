@@ -37,10 +37,9 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction12x;
 import org.jf.util.NibbleUtils;
 
 
-
 public class DexBackedInstruction12x extends DexBackedInstruction implements Instruction12x {
-    public DexBackedInstruction12x( DexBackedDexFile dexFile,
-                                    Opcode opcode,
+    public DexBackedInstruction12x(DexBackedDexFile dexFile,
+                                   Opcode opcode,
                                    int instructionStart) {
         super(dexFile, opcode, instructionStart);
     }

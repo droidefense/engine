@@ -43,52 +43,61 @@ import java.util.List;
 import java.util.Set;
 
 public class ClassDefRewriter implements Rewriter<ClassDef> {
-     protected final Rewriters rewriters;
+    protected final Rewriters rewriters;
 
-    public ClassDefRewriter( Rewriters rewriters) {
+    public ClassDefRewriter(Rewriters rewriters) {
         this.rewriters = rewriters;
     }
 
-     @Override public ClassDef rewrite( ClassDef classDef) {
+    @Override
+    public ClassDef rewrite(ClassDef classDef) {
         return new RewrittenClassDef(classDef);
     }
 
     protected class RewrittenClassDef extends BaseTypeReference implements ClassDef {
-         protected ClassDef classDef;
+        protected ClassDef classDef;
 
-        public RewrittenClassDef( ClassDef classdef) {
+        public RewrittenClassDef(ClassDef classdef) {
             this.classDef = classdef;
         }
 
-        @Override  public String getType() {
+        @Override
+        public String getType() {
             return rewriters.getTypeRewriter().rewrite(classDef.getType());
         }
 
-        @Override public int getAccessFlags() {
+        @Override
+        public int getAccessFlags() {
             return classDef.getAccessFlags();
         }
 
-        @Override public String getSuperclass() {
+        @Override
+        public String getSuperclass() {
             return RewriterUtils.rewriteNullable(rewriters.getTypeRewriter(), classDef.getSuperclass());
         }
 
-        @Override  public List<String> getInterfaces() {
+        @Override
+        public List<String> getInterfaces() {
             return RewriterUtils.rewriteList(rewriters.getTypeRewriter(), classDef.getInterfaces());
         }
 
-        @Override public String getSourceFile() {
+        @Override
+        public String getSourceFile() {
             return classDef.getSourceFile();
         }
 
-        @Override  public Set<? extends Annotation> getAnnotations() {
+        @Override
+        public Set<? extends Annotation> getAnnotations() {
             return RewriterUtils.rewriteSet(rewriters.getAnnotationRewriter(), classDef.getAnnotations());
         }
 
-        @Override  public Iterable<? extends Field> getStaticFields() {
+        @Override
+        public Iterable<? extends Field> getStaticFields() {
             return RewriterUtils.rewriteIterable(rewriters.getFieldRewriter(), classDef.getStaticFields());
         }
 
-        @Override  public Iterable<? extends Field> getInstanceFields() {
+        @Override
+        public Iterable<? extends Field> getInstanceFields() {
             return RewriterUtils.rewriteIterable(rewriters.getFieldRewriter(), classDef.getInstanceFields());
         }
 
@@ -104,11 +113,13 @@ public class ClassDefRewriter implements Rewriter<ClassDef> {
             };
         }
 
-        @Override  public Iterable<? extends Method> getDirectMethods() {
+        @Override
+        public Iterable<? extends Method> getDirectMethods() {
             return RewriterUtils.rewriteIterable(rewriters.getMethodRewriter(), classDef.getDirectMethods());
         }
 
-        @Override  public Iterable<? extends Method> getVirtualMethods() {
+        @Override
+        public Iterable<? extends Method> getVirtualMethods() {
             return RewriterUtils.rewriteIterable(rewriters.getMethodRewriter(), classDef.getVirtualMethods());
         }
 

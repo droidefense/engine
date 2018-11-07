@@ -34,7 +34,6 @@ package org.jf.dexlib2.analysis;
 import org.jf.dexlib2.iface.ClassDef;
 
 
-
 public interface ClassProvider {
     ClassDef getClassDef(String type);
 }

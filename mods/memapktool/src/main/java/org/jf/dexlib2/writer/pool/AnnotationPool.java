@@ -41,38 +41,43 @@ import java.util.Collection;
 public class AnnotationPool extends BaseOffsetPool<Annotation>
         implements AnnotationSection<CharSequence, CharSequence, Annotation, AnnotationElement, EncodedValue> {
 
-    public AnnotationPool( DexPool dexPool) {
+    public AnnotationPool(DexPool dexPool) {
         super(dexPool);
     }
 
-    public void intern( Annotation annotation) {
+    public void intern(Annotation annotation) {
         Integer prev = internedItems.put(annotation, 0);
         if (prev == null) {
             dexPool.typeSection.intern(annotation.getType());
-            for (AnnotationElement element: annotation.getElements()) {
+            for (AnnotationElement element : annotation.getElements()) {
                 dexPool.stringSection.intern(element.getName());
                 dexPool.internEncodedValue(element.getValue());
             }
         }
     }
 
-    @Override public int getVisibility( Annotation annotation) {
+    @Override
+    public int getVisibility(Annotation annotation) {
         return annotation.getVisibility();
     }
 
-     @Override public CharSequence getType( Annotation annotation) {
+    @Override
+    public CharSequence getType(Annotation annotation) {
         return annotation.getType();
     }
 
-     @Override public Collection<? extends AnnotationElement> getElements( Annotation annotation) {
+    @Override
+    public Collection<? extends AnnotationElement> getElements(Annotation annotation) {
         return annotation.getElements();
     }
 
-     @Override public CharSequence getElementName( AnnotationElement annotationElement) {
+    @Override
+    public CharSequence getElementName(AnnotationElement annotationElement) {
         return annotationElement.getName();
     }
 
-     @Override public EncodedValue getElementValue( AnnotationElement annotationElement) {
+    @Override
+    public EncodedValue getElementValue(AnnotationElement annotationElement) {
         return annotationElement.getValue();
     }
 }

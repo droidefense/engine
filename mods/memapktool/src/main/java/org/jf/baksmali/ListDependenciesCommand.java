@@ -49,7 +49,7 @@ import java.util.List;
 @Parameters(commandDescription = "Lists the stored dependencies in an odex/oat file.")
 @ExtendedParameters(
         commandName = "dependencies",
-        commandAliases = { "deps", "dep" })
+        commandAliases = {"deps", "dep"})
 public class ListDependenciesCommand extends Command {
 
     @Parameter(names = {"-h", "-?", "--help"}, help = true,
@@ -60,11 +60,12 @@ public class ListDependenciesCommand extends Command {
     @ExtendedParameter(argumentNames = "file")
     private List<String> inputList = Lists.newArrayList();
 
-    public ListDependenciesCommand( List<JCommander> commandAncestors) {
+    public ListDependenciesCommand(List<JCommander> commandAncestors) {
         super(commandAncestors);
     }
 
-    @Override public void run() {
+    @Override
+    public void run() {
         if (help || inputList == null || inputList.isEmpty()) {
             usage();
             return;
@@ -87,7 +88,7 @@ public class ListDependenciesCommand extends Command {
 
         try {
             OatFile oatFile = OatFile.fromInputStream(inputStream);
-            for (String entry: oatFile.getBootClassPath()) {
+            for (String entry : oatFile.getBootClassPath()) {
                 System.out.println(entry);
             }
             return;
@@ -99,7 +100,7 @@ public class ListDependenciesCommand extends Command {
 
         try {
             DexBackedOdexFile odexFile = DexBackedOdexFile.fromInputStream(Opcodes.getDefault(), inputStream);
-            for (String entry: odexFile.getDependencies()) {
+            for (String entry : odexFile.getDependencies()) {
                 System.out.println(entry);
             }
             return;

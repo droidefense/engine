@@ -38,17 +38,17 @@ import org.jf.dexlib2.dexbacked.reference.DexBackedFieldReference;
 import org.jf.dexlib2.iface.reference.FieldReference;
 
 
-
 public class DexBackedFieldEncodedValue extends BaseFieldEncodedValue {
-     public final DexBackedDexFile dexFile;
+    public final DexBackedDexFile dexFile;
     private final int fieldIndex;
 
-    public DexBackedFieldEncodedValue( DexReader reader, int valueArg) {
+    public DexBackedFieldEncodedValue(DexReader reader, int valueArg) {
         this.dexFile = reader.dexBuf;
         fieldIndex = reader.readSizedSmallUint(valueArg + 1);
     }
 
-     @Override public FieldReference getValue() {
+    @Override
+    public FieldReference getValue() {
         return new DexBackedFieldReference(dexFile, fieldIndex);
     }
 }

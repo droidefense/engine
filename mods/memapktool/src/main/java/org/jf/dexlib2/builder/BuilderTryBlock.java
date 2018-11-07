@@ -39,41 +39,44 @@ import java.util.List;
 
 public class BuilderTryBlock extends BaseTryBlock<BuilderExceptionHandler> {
     // We only ever have one exception handler per try block. They are later merged as needed in TryListBuilder
-     public final BuilderExceptionHandler exceptionHandler;
-     public final Label start;
+    public final BuilderExceptionHandler exceptionHandler;
+    public final Label start;
     // The end location is exclusive, it should point to the codeAddress of the instruction immediately after the last
     // covered instruction.
-     public final Label end;
+    public final Label end;
 
-    public BuilderTryBlock( Label start,  Label end, String exceptionType,
-                            Label handler) {
+    public BuilderTryBlock(Label start, Label end, String exceptionType,
+                           Label handler) {
         this.start = start;
         this.end = end;
         this.exceptionHandler = BuilderExceptionHandler.newExceptionHandler(exceptionType, handler);
     }
 
-    public BuilderTryBlock( Label start,  Label end, TypeReference exceptionType,
-                            Label handler) {
+    public BuilderTryBlock(Label start, Label end, TypeReference exceptionType,
+                           Label handler) {
         this.start = start;
         this.end = end;
         this.exceptionHandler = BuilderExceptionHandler.newExceptionHandler(exceptionType, handler);
     }
 
-    public BuilderTryBlock( Label start,  Label end,  Label handler) {
+    public BuilderTryBlock(Label start, Label end, Label handler) {
         this.start = start;
         this.end = end;
         this.exceptionHandler = BuilderExceptionHandler.newExceptionHandler(handler);
     }
 
-    @Override public int getStartCodeAddress() {
+    @Override
+    public int getStartCodeAddress() {
         return start.getCodeAddress();
     }
 
-    @Override public int getCodeUnitCount() {
+    @Override
+    public int getCodeUnitCount() {
         return end.getCodeAddress() - start.getCodeAddress();
     }
 
-     @Override public List<? extends BuilderExceptionHandler> getExceptionHandlers() {
+    @Override
+    public List<? extends BuilderExceptionHandler> getExceptionHandlers() {
         return ImmutableList.of(exceptionHandler);
     }
 }

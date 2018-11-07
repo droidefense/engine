@@ -32,8 +32,6 @@
 package org.jf.dexlib2.iface.value;
 
 
-
-
 /**
  * This class represents an encoded char value.
  */
@@ -47,7 +45,7 @@ public interface CharEncodedValue extends EncodedValue {
 
     /**
      * Returns a hashcode for this EncodedCharValue.
-     *
+     * <p>
      * This hashCode is defined to be the following:
      *
      * <pre>
@@ -57,26 +55,29 @@ public interface CharEncodedValue extends EncodedValue {
      *
      * @return The hash code value for this EncodedCharValue
      */
-    @Override int hashCode();
+    @Override
+    int hashCode();
 
     /**
      * Compares this CharEncodedValue to another CharEncodedValue for equality.
-     *
+     * <p>
      * This CharEncodedValue is equal to another CharEncodedValue if the values returned by getValue() are equal.
      *
      * @param o The object to be compared for equality with this CharEncodedValue
      * @return true if the specified object is equal to this CharEncodedValue
      */
-    @Override boolean equals(Object o);
+    @Override
+    boolean equals(Object o);
 
     /**
      * Compare this CharEncodedValue to another EncodedValue.
-     *
+     * <p>
      * The comparison is first done on the return values of getValueType(). If the other value is another
      * CharEncodedValue, the return values of getValue() are compared.
      *
      * @param o The EncodedValue to compare with this CharEncodedValue
      * @return An integer representing the result of the comparison
      */
-    @Override int compareTo( EncodedValue o);
+    @Override
+    int compareTo(EncodedValue o);
 }

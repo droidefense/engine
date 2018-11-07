@@ -38,11 +38,11 @@ import java.util.Collection;
 
 public class AnnotationFormatter {
 
-    public static void writeTo( IndentingWriter writer,
-                                Collection<? extends Annotation> annotations,
+    public static void writeTo(IndentingWriter writer,
+                               Collection<? extends Annotation> annotations,
                                String containingClass) throws IOException {
         boolean first = true;
-        for (Annotation annotation: annotations) {
+        for (Annotation annotation : annotations) {
             if (!first) {
                 writer.write('\n');
             }
@@ -52,7 +52,7 @@ public class AnnotationFormatter {
         }
     }
 
-    public static void writeTo( IndentingWriter writer,  Annotation annotation,
+    public static void writeTo(IndentingWriter writer, Annotation annotation,
                                String containingClass) throws IOException {
         writer.write(".annotation ");
         writer.write(AnnotationVisibility.getVisibility(annotation.getVisibility()));

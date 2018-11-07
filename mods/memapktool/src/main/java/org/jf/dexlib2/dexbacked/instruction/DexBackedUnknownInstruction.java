@@ -36,14 +36,14 @@ import org.jf.dexlib2.dexbacked.DexBackedDexFile;
 import org.jf.dexlib2.iface.instruction.formats.UnknownInstruction;
 
 
-
 public class DexBackedUnknownInstruction extends DexBackedInstruction implements UnknownInstruction {
-    public DexBackedUnknownInstruction( DexBackedDexFile dexFile,
+    public DexBackedUnknownInstruction(DexBackedDexFile dexFile,
                                        int instructionStart) {
         super(dexFile, Opcode.NOP, instructionStart);
     }
 
-    @Override public int getOriginalOpcode() {
+    @Override
+    public int getOriginalOpcode() {
         int opcode = dexFile.readUbyte(instructionStart);
         if (opcode == 0) {
             opcode = dexFile.readUshort(instructionStart);

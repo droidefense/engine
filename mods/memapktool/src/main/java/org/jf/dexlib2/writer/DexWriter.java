@@ -100,16 +100,29 @@ public abstract class DexWriter<
         AnnotationSetSectionType extends AnnotationSetSection<AnnotationKey, AnnotationSetKey>> {
     public static final int NO_INDEX = -1;
     public static final int NO_OFFSET = 0;
-
+    private static Comparator<Map.Entry> toStringKeyComparator =
+            new Comparator<Map.Entry>() {
+                @Override
+                public int compare(Entry o1, Entry o2) {
+                    return o1.getKey().toString().compareTo(o2.getKey().toString());
+                }
+            };
+    public final StringSectionType stringSection;
+    public final TypeSectionType typeSection;
+    public final ProtoSectionType protoSection;
+    public final FieldSectionType fieldSection;
+    public final MethodSectionType methodSection;
+    public final ClassSectionType classSection;
+    public final TypeListSectionType typeListSection;
+    public final AnnotationSectionType annotationSection;
+    public final AnnotationSetSectionType annotationSetSection;
     protected final Opcodes opcodes;
-
     protected int stringIndexSectionOffset = NO_OFFSET;
     protected int typeSectionOffset = NO_OFFSET;
     protected int protoSectionOffset = NO_OFFSET;
     protected int fieldSectionOffset = NO_OFFSET;
     protected int methodSectionOffset = NO_OFFSET;
     protected int classIndexSectionOffset = NO_OFFSET;
-
     protected int stringDataSectionOffset = NO_OFFSET;
     protected int classDataSectionOffset = NO_OFFSET;
     protected int typeListSectionOffset = NO_OFFSET;
@@ -121,24 +134,12 @@ public abstract class DexWriter<
     protected int debugSectionOffset = NO_OFFSET;
     protected int codeSectionOffset = NO_OFFSET;
     protected int mapSectionOffset = NO_OFFSET;
-
     protected int numEncodedArrayItems = 0;
     protected int numAnnotationSetRefItems = 0;
     protected int numAnnotationDirectoryItems = 0;
     protected int numDebugInfoItems = 0;
     protected int numCodeItemItems = 0;
     protected int numClassDataItems = 0;
-
-    public final StringSectionType stringSection;
-    public final TypeSectionType typeSection;
-    public final ProtoSectionType protoSection;
-    public final FieldSectionType fieldSection;
-    public final MethodSectionType methodSection;
-    public final ClassSectionType classSection;
-    
-    public final TypeListSectionType typeListSection;
-    public final AnnotationSectionType annotationSection;
-    public final AnnotationSetSectionType annotationSetSection;
 
     protected DexWriter(Opcodes opcodes) {
         this.opcodes = opcodes;
@@ -155,36 +156,23 @@ public abstract class DexWriter<
         this.annotationSetSection = sectionProvider.getAnnotationSetSection();
     }
 
-     protected abstract SectionProvider getSectionProvider();
-
-    protected abstract void writeEncodedValue( InternalEncodedValueWriter writer,
-                                               EncodedValue encodedValue) throws IOException;
-
-    private static Comparator<Map.Entry> toStringKeyComparator =
-            new Comparator<Map.Entry>() {
-                @Override public int compare(Entry o1, Entry o2) {
-                    return o1.getKey().toString().compareTo(o2.getKey().toString());
-                }
-            };
-
     private static <T extends Comparable<? super T>> Comparator<Map.Entry<? extends T, ?>> comparableKeyComparator() {
         return new Comparator<Entry<? extends T, ?>>() {
-            @Override public int compare(Entry<? extends T, ?> o1, Entry<? extends T, ?> o2) {
+            @Override
+            public int compare(Entry<? extends T, ?> o1, Entry<? extends T, ?> o2) {
                 return o1.getKey().compareTo(o2.getKey());
             }
         };
     }
 
-    protected class InternalEncodedValueWriter extends EncodedValueWriter<StringKey, TypeKey, FieldRefKey, MethodRefKey,
-            AnnotationElement, EncodedValue> {
-        private InternalEncodedValueWriter( DexDataWriter writer) {
-            super(writer, stringSection, typeSection, fieldSection, methodSection, annotationSection);
-        }
-
-        @Override protected void writeEncodedValue( EncodedValue encodedValue) throws IOException {
-            DexWriter.this.writeEncodedValue(this, encodedValue);
-        }
+    private static DexDataWriter outputAt(DexDataStore dataStore, int filePosition) throws IOException {
+        return new DexDataWriter(dataStore.outputAt(filePosition), filePosition);
     }
+
+    protected abstract SectionProvider getSectionProvider();
+
+    protected abstract void writeEncodedValue(InternalEncodedValueWriter writer,
+                                              EncodedValue encodedValue) throws IOException;
 
     private int getDataSectionOffset() {
         return HeaderItem.ITEM_SIZE +
@@ -199,7 +187,7 @@ public abstract class DexWriter<
 
     public List<String> getMethodReferences() {
         List<String> methodReferences = Lists.newArrayList();
-        for (Entry<? extends MethodRefKey, Integer> methodReference: methodSection.getItems()) {
+        for (Entry<? extends MethodRefKey, Integer> methodReference : methodSection.getItems()) {
             methodReferences.add(ReferenceUtil.getMethodDescriptor(methodReference.getKey()));
         }
         return methodReferences;
@@ -208,7 +196,7 @@ public abstract class DexWriter<
 
     public List<String> getFieldReferences() {
         List<String> fieldReferences = Lists.newArrayList();
-        for (Entry<? extends FieldRefKey, Integer> fieldReference: fieldSection.getItems()) {
+        for (Entry<? extends FieldRefKey, Integer> fieldReference : fieldSection.getItems()) {
             fieldReferences.add(ReferenceUtil.getFieldDescriptor(fieldReference.getKey()));
         }
         return fieldReferences;
@@ -217,7 +205,7 @@ public abstract class DexWriter<
 
     public List<String> getTypeReferences() {
         List<String> classReferences = Lists.newArrayList();
-        for (Entry<? extends TypeKey, Integer> typeReference: typeSection.getItems()) {
+        for (Entry<? extends TypeKey, Integer> typeReference : typeSection.getItems()) {
             classReferences.add(typeReference.getKey().toString());
         }
         return classReferences;
@@ -225,9 +213,9 @@ public abstract class DexWriter<
 
     /**
      * Checks whether any of the size-sensitive constant pools have overflowed.
-     *
+     * <p>
      * This checks whether the type, method, field pools are larger than 64k entries.
-     *
+     * <p>
      * Note that even if this returns true, it may still be possible to successfully write the dex file, if the
      * overflowed items are not referenced anywhere that uses a 16-bit index
      *
@@ -239,12 +227,12 @@ public abstract class DexWriter<
                 fieldSection.getItemCount() > (1 << 16);
     }
 
-    public void writeTo( DexDataStore dest) throws IOException {
+    public void writeTo(DexDataStore dest) throws IOException {
         this.writeTo(dest, MemoryDeferredOutputStream.getFactory());
     }
 
-    public void writeTo( DexDataStore dest,
-                         DeferredOutputStreamFactory tempFactory) throws IOException {
+    public void writeTo(DexDataStore dest,
+                        DeferredOutputStreamFactory tempFactory) throws IOException {
         try {
             int dataSectionOffset = getDataSectionOffset();
             DexDataWriter headerWriter = outputAt(dest, 0);
@@ -278,7 +266,7 @@ public abstract class DexWriter<
         }
     }
 
-    private void updateSignature( DexDataStore dataStore) throws IOException {
+    private void updateSignature(DexDataStore dataStore) throws IOException {
         MessageDigest md;
         try {
             md = MessageDigest.getInstance("SHA-1");
@@ -305,7 +293,7 @@ public abstract class DexWriter<
         output.close();
     }
 
-    private void updateChecksum( DexDataStore dataStore) throws IOException {
+    private void updateChecksum(DexDataStore dataStore) throws IOException {
         Adler32 a32 = new Adler32();
 
         byte[] buffer = new byte[4 * 1024];
@@ -318,22 +306,18 @@ public abstract class DexWriter<
 
         // write checksum, utilizing logic in DexWriter to write the integer value properly
         OutputStream output = dataStore.outputAt(HeaderItem.CHECKSUM_OFFSET);
-        DexDataWriter.writeInt(output, (int)a32.getValue());
+        DexDataWriter.writeInt(output, (int) a32.getValue());
         output.close();
     }
 
-    private static DexDataWriter outputAt(DexDataStore dataStore, int filePosition) throws IOException {
-        return new DexDataWriter(dataStore.outputAt(filePosition), filePosition);
-    }
-
-    private void writeStrings( DexDataWriter indexWriter,  DexDataWriter offsetWriter) throws IOException {
+    private void writeStrings(DexDataWriter indexWriter, DexDataWriter offsetWriter) throws IOException {
         stringIndexSectionOffset = indexWriter.getPosition();
         stringDataSectionOffset = offsetWriter.getPosition();
         int index = 0;
         List<Entry<? extends StringKey, Integer>> stringEntries = Lists.newArrayList(stringSection.getItems());
         Collections.sort(stringEntries, toStringKeyComparator);
 
-        for (Map.Entry<? extends StringKey, Integer>  entry: stringEntries) {
+        for (Map.Entry<? extends StringKey, Integer> entry : stringEntries) {
             entry.setValue(index++);
             indexWriter.writeInt(offsetWriter.getPosition());
             String stringValue = entry.getKey().toString();
@@ -343,7 +327,7 @@ public abstract class DexWriter<
         }
     }
 
-    private void writeTypes( DexDataWriter writer) throws IOException {
+    private void writeTypes(DexDataWriter writer) throws IOException {
         typeSectionOffset = writer.getPosition();
         int index = 0;
 
@@ -356,14 +340,14 @@ public abstract class DexWriter<
         }
     }
 
-    private void writeProtos( DexDataWriter writer) throws IOException {
+    private void writeProtos(DexDataWriter writer) throws IOException {
         protoSectionOffset = writer.getPosition();
         int index = 0;
 
         List<Map.Entry<? extends ProtoRefKey, Integer>> protoEntries = Lists.newArrayList(protoSection.getItems());
         Collections.sort(protoEntries, DexWriter.<ProtoRefKey>comparableKeyComparator());
 
-        for (Map.Entry<? extends ProtoRefKey, Integer> entry: protoEntries) {
+        for (Map.Entry<? extends ProtoRefKey, Integer> entry : protoEntries) {
             entry.setValue(index++);
             ProtoRefKey key = entry.getKey();
             writer.writeInt(stringSection.getItemIndex(protoSection.getShorty(key)));
@@ -372,14 +356,14 @@ public abstract class DexWriter<
         }
     }
 
-    private void writeFields( DexDataWriter writer) throws IOException {
+    private void writeFields(DexDataWriter writer) throws IOException {
         fieldSectionOffset = writer.getPosition();
         int index = 0;
 
         List<Map.Entry<? extends FieldRefKey, Integer>> fieldEntries = Lists.newArrayList(fieldSection.getItems());
         Collections.sort(fieldEntries, DexWriter.<FieldRefKey>comparableKeyComparator());
-        
-        for (Map.Entry<? extends FieldRefKey, Integer> entry: fieldEntries) {
+
+        for (Map.Entry<? extends FieldRefKey, Integer> entry : fieldEntries) {
             entry.setValue(index++);
             FieldRefKey key = entry.getKey();
             writer.writeUshort(typeSection.getItemIndex(fieldSection.getDefiningClass(key)));
@@ -388,14 +372,14 @@ public abstract class DexWriter<
         }
     }
 
-    private void writeMethods( DexDataWriter writer) throws IOException {
+    private void writeMethods(DexDataWriter writer) throws IOException {
         methodSectionOffset = writer.getPosition();
         int index = 0;
 
         List<Map.Entry<? extends MethodRefKey, Integer>> methodEntries = Lists.newArrayList(methodSection.getItems());
         Collections.sort(methodEntries, DexWriter.<MethodRefKey>comparableKeyComparator());
-        
-        for (Map.Entry<? extends MethodRefKey, Integer> entry: methodEntries) {
+
+        for (Map.Entry<? extends MethodRefKey, Integer> entry : methodEntries) {
             entry.setValue(index++);
             MethodRefKey key = entry.getKey();
             writer.writeUshort(typeSection.getItemIndex(methodSection.getDefiningClass(key)));
@@ -404,7 +388,7 @@ public abstract class DexWriter<
         }
     }
 
-    private void writeClasses( DexDataWriter indexWriter,  DexDataWriter offsetWriter) throws IOException {
+    private void writeClasses(DexDataWriter indexWriter, DexDataWriter offsetWriter) throws IOException {
         classIndexSectionOffset = indexWriter.getPosition();
         classDataSectionOffset = offsetWriter.getPosition();
 
@@ -412,20 +396,20 @@ public abstract class DexWriter<
         Collections.sort(classEntries, DexWriter.<ClassKey>comparableKeyComparator());
 
         int index = 0;
-        for (Map.Entry<? extends ClassKey, Integer> key: classEntries) {
+        for (Map.Entry<? extends ClassKey, Integer> key : classEntries) {
             index = writeClass(indexWriter, offsetWriter, index, key);
         }
     }
 
     /**
      * Writes out the class_def_item and class_data_item for the given class.
-     *
+     * <p>
      * This will recursively write out any unwritten superclass/interface before writing the class itself, as per the
      * dex specification.
      *
      * @return the index for the next class to be written
      */
-    private int writeClass( DexDataWriter indexWriter,  DexDataWriter offsetWriter,
+    private int writeClass(DexDataWriter indexWriter, DexDataWriter offsetWriter,
                            int nextIndex, Map.Entry<? extends ClassKey, Integer> entry) throws IOException {
         if (entry == null) {
             // class does not exist in this dex file, cannot write it
@@ -448,7 +432,7 @@ public abstract class DexWriter<
         nextIndex = writeClass(indexWriter, offsetWriter, nextIndex, superEntry);
 
         // then, try to write interfaces
-        for (TypeKey interfaceTypeKey: typeListSection.getTypes(classSection.getInterfaces(key))) {
+        for (TypeKey interfaceTypeKey : typeListSection.getTypes(classSection.getInterfaces(key))) {
             Map.Entry<? extends ClassKey, Integer> interfaceEntry = classSection.getClassEntryByType(interfaceTypeKey);
             nextIndex = writeClass(indexWriter, offsetWriter, nextIndex, interfaceEntry);
         }
@@ -500,10 +484,10 @@ public abstract class DexWriter<
         return nextIndex;
     }
 
-    private void writeEncodedFields( DexDataWriter writer,  Collection<? extends FieldKey> fields)
+    private void writeEncodedFields(DexDataWriter writer, Collection<? extends FieldKey> fields)
             throws IOException {
         int prevIndex = 0;
-        for (FieldKey key: fields) {
+        for (FieldKey key : fields) {
             int index = fieldSection.getFieldIndex(key);
             writer.writeUleb128(index - prevIndex);
             writer.writeUleb128(classSection.getFieldAccessFlags(key));
@@ -511,64 +495,42 @@ public abstract class DexWriter<
         }
     }
 
-    private void writeEncodedMethods( DexDataWriter writer,  Collection<? extends MethodKey> methods)
+    private void writeEncodedMethods(DexDataWriter writer, Collection<? extends MethodKey> methods)
             throws IOException {
         int prevIndex = 0;
-        for (MethodKey key: methods) {
+        for (MethodKey key : methods) {
             int index = methodSection.getMethodIndex(key);
-            writer.writeUleb128(index-prevIndex);
+            writer.writeUleb128(index - prevIndex);
             writer.writeUleb128(classSection.getMethodAccessFlags(key));
             writer.writeUleb128(classSection.getCodeItemOffset(key));
             prevIndex = index;
         }
     }
 
-    private void writeTypeLists( DexDataWriter writer) throws IOException {
+    private void writeTypeLists(DexDataWriter writer) throws IOException {
         writer.align();
         typeListSectionOffset = writer.getPosition();
-        for (Map.Entry<? extends TypeListKey, Integer> entry: typeListSection.getItems()) {
+        for (Map.Entry<? extends TypeListKey, Integer> entry : typeListSection.getItems()) {
             writer.align();
             entry.setValue(writer.getPosition());
 
             Collection<? extends TypeKey> types = typeListSection.getTypes(entry.getKey());
             writer.writeInt(types.size());
-            for (TypeKey typeKey: types) {
+            for (TypeKey typeKey : types) {
                 writer.writeUshort(typeSection.getItemIndex(typeKey));
             }
         }
     }
 
-    private static class EncodedArrayKey<EncodedValue> {
-         Collection<? extends EncodedValue> elements;
-
-        public EncodedArrayKey() {
-        }
-
-        @Override public int hashCode() {
-            return CollectionUtils.listHashCode(elements);
-        }
-
-        @Override public boolean equals(Object o) {
-            if (o instanceof EncodedArrayKey) {
-                EncodedArrayKey other = (EncodedArrayKey)o;
-                if (elements.size() != other.elements.size()) {
-                    return false;
-                }
-                return Iterables.elementsEqual(elements, other.elements);
-            }
-            return false;
-        }
-    }
-
-    private void writeEncodedArrays( DexDataWriter writer) throws IOException {
+    private void writeEncodedArrays(DexDataWriter writer) throws IOException {
         InternalEncodedValueWriter encodedValueWriter = new InternalEncodedValueWriter(writer);
         encodedArraySectionOffset = writer.getPosition();
 
         HashMap<EncodedArrayKey<EncodedValue>, Integer> internedItems = Maps.newHashMap();
         EncodedArrayKey<EncodedValue> key = new EncodedArrayKey<EncodedValue>();
 
-        for (ClassKey classKey: classSection.getSortedClasses()) {
-            Collection <? extends EncodedValue> elements = classSection.getStaticInitializers(classKey);
+        for (ClassKey classKey : classSection.getSortedClasses()) {
+            Collection<? extends EncodedValue> elements = classSection.getStaticInitializers(classKey);
             if (elements != null && elements.size() > 0) {
                 key.elements = elements;
                 Integer prev = internedItems.get(key);
@@ -583,7 +545,7 @@ public abstract class DexWriter<
                     numEncodedArrayItems++;
 
                     writer.writeUleb128(elements.size());
-                    for (EncodedValue value: elements) {
+                    for (EncodedValue value : elements) {
                         writeEncodedValue(encodedValueWriter, value);
                     }
                 }
@@ -591,11 +553,11 @@ public abstract class DexWriter<
         }
     }
 
-    private void writeAnnotations( DexDataWriter writer) throws IOException {
+    private void writeAnnotations(DexDataWriter writer) throws IOException {
         InternalEncodedValueWriter encodedValueWriter = new InternalEncodedValueWriter(writer);
 
         annotationSectionOffset = writer.getPosition();
-        for (Map.Entry<? extends AnnotationKey, Integer> entry: annotationSection.getItems()) {
+        for (Map.Entry<? extends AnnotationKey, Integer> entry : annotationSection.getItems()) {
             entry.setValue(writer.getPosition());
 
             AnnotationKey key = entry.getKey();
@@ -608,39 +570,39 @@ public abstract class DexWriter<
 
             writer.writeUleb128(elements.size());
 
-            for (AnnotationElement element: elements) {
+            for (AnnotationElement element : elements) {
                 writer.writeUleb128(stringSection.getItemIndex(annotationSection.getElementName(element)));
                 writeEncodedValue(encodedValueWriter, annotationSection.getElementValue(element));
             }
         }
     }
 
-    private void writeAnnotationSets( DexDataWriter writer) throws IOException {
+    private void writeAnnotationSets(DexDataWriter writer) throws IOException {
         writer.align();
         annotationSetSectionOffset = writer.getPosition();
         if (shouldCreateEmptyAnnotationSet()) {
             writer.writeInt(0);
         }
-        for (Map.Entry<? extends AnnotationSetKey, Integer> entry: annotationSetSection.getItems()) {
+        for (Map.Entry<? extends AnnotationSetKey, Integer> entry : annotationSetSection.getItems()) {
             Collection<? extends AnnotationKey> annotations = Ordering.from(BaseAnnotation.BY_TYPE)
                     .immutableSortedCopy(annotationSetSection.getAnnotations(entry.getKey()));
 
             writer.align();
             entry.setValue(writer.getPosition());
             writer.writeInt(annotations.size());
-            for (AnnotationKey annotationKey: annotations) {
+            for (AnnotationKey annotationKey : annotations) {
                 writer.writeInt(annotationSection.getItemOffset(annotationKey));
             }
         }
     }
 
-    private void writeAnnotationSetRefs( DexDataWriter writer) throws IOException {
+    private void writeAnnotationSetRefs(DexDataWriter writer) throws IOException {
         writer.align();
         annotationSetRefSectionOffset = writer.getPosition();
         HashMap<List<? extends AnnotationSetKey>, Integer> internedItems = Maps.newHashMap();
 
-        for (ClassKey classKey: classSection.getSortedClasses()) {
-            for (MethodKey methodKey: classSection.getSortedMethods(classKey)) {
+        for (ClassKey classKey : classSection.getSortedClasses()) {
+            for (MethodKey methodKey : classSection.getSortedMethods(classKey)) {
                 List<? extends AnnotationSetKey> parameterAnnotations = classSection.getParameterAnnotations(methodKey);
                 if (parameterAnnotations != null) {
                     Integer prev = internedItems.get(parameterAnnotations);
@@ -655,7 +617,7 @@ public abstract class DexWriter<
                         numAnnotationSetRefItems++;
 
                         writer.writeInt(parameterAnnotations.size());
-                        for (AnnotationSetKey annotationSetKey: parameterAnnotations) {
+                        for (AnnotationSetKey annotationSetKey : parameterAnnotations) {
                             if (annotationSetSection.getAnnotations(annotationSetKey).size() > 0) {
                                 writer.writeInt(annotationSetSection.getItemOffset(annotationSetKey));
                             } else if (shouldCreateEmptyAnnotationSet()) {
@@ -670,7 +632,7 @@ public abstract class DexWriter<
         }
     }
 
-    private void writeAnnotationDirectories( DexDataWriter writer) throws IOException {
+    private void writeAnnotationDirectories(DexDataWriter writer) throws IOException {
         writer.align();
         annotationDirectorySectionOffset = writer.getPosition();
         HashMap<AnnotationSetKey, Integer> internedItems = Maps.newHashMap();
@@ -678,7 +640,7 @@ public abstract class DexWriter<
         ByteBuffer tempBuffer = ByteBuffer.allocate(65536);
         tempBuffer.order(ByteOrder.LITTLE_ENDIAN);
 
-        for (ClassKey key: classSection.getSortedClasses()) {
+        for (ClassKey key : classSection.getSortedClasses()) {
             // first, we write the field/method/parameter items to a temporary buffer, so that we can get a count
             // of each type, and determine if we even need to write an annotation directory for this class
 
@@ -698,7 +660,7 @@ public abstract class DexWriter<
             int methodAnnotations = 0;
             int parameterAnnotations = 0;
 
-            for (FieldKey field: fields) {
+            for (FieldKey field : fields) {
                 AnnotationSetKey fieldAnnotationsKey = classSection.getFieldAnnotations(field);
                 if (fieldAnnotationsKey != null) {
                     fieldAnnotations++;
@@ -707,7 +669,7 @@ public abstract class DexWriter<
                 }
             }
 
-            for (MethodKey method: methods) {
+            for (MethodKey method : methods) {
                 AnnotationSetKey methodAnnotationsKey = classSection.getMethodAnnotations(method);
                 if (methodAnnotationsKey != null) {
                     methodAnnotations++;
@@ -716,7 +678,7 @@ public abstract class DexWriter<
                 }
             }
 
-            for (MethodKey method: methods) {
+            for (MethodKey method : methods) {
                 int offset = classSection.getAnnotationSetRefListOffset(method);
                 if (offset != DexWriter.NO_OFFSET) {
                     parameterAnnotations++;
@@ -755,18 +717,8 @@ public abstract class DexWriter<
         }
     }
 
-    private static class CodeItemOffset<MethodKey> {
-         MethodKey method;
-        int codeOffset;
-
-        private CodeItemOffset( MethodKey method, int codeOffset) {
-            this.codeOffset = codeOffset;
-            this.method = method;
-        }
-    }
-
-    private void writeDebugAndCodeItems( DexDataWriter offsetWriter,
-                                         DeferredOutputStream temp) throws IOException {
+    private void writeDebugAndCodeItems(DexDataWriter offsetWriter,
+                                        DeferredOutputStream temp) throws IOException {
         ByteArrayOutputStream ehBuf = new ByteArrayOutputStream();
         debugSectionOffset = offsetWriter.getPosition();
         DebugWriter<StringKey, TypeKey> debugWriter =
@@ -776,13 +728,13 @@ public abstract class DexWriter<
 
         List<CodeItemOffset<MethodKey>> codeOffsets = Lists.newArrayList();
 
-        for (ClassKey classKey: classSection.getSortedClasses()) {
+        for (ClassKey classKey : classSection.getSortedClasses()) {
             Collection<? extends MethodKey> directMethods = classSection.getSortedDirectMethods(classKey);
             Collection<? extends MethodKey> virtualMethods = classSection.getSortedVirtualMethods(classKey);
 
             Iterable<MethodKey> methods = Iterables.concat(directMethods, virtualMethods);
 
-            for (MethodKey methodKey: methods) {
+            for (MethodKey methodKey : methods) {
                 List<? extends TryBlock<? extends ExceptionHandler>> tryBlocks =
                         classSection.getTryBlocks(methodKey);
                 Iterable<? extends Instruction> instructions = classSection.getInstructions(methodKey);
@@ -790,10 +742,10 @@ public abstract class DexWriter<
 
                 if (instructions != null && stringSection.hasJumboIndexes()) {
                     boolean needsFix = false;
-                    for (Instruction instruction: instructions) {
+                    for (Instruction instruction : instructions) {
                         if (instruction.getOpcode() == Opcode.CONST_STRING) {
                             if (stringSection.getItemIndex(
-                                    (StringRef)((ReferenceInstruction)instruction).getReference()) >= 65536) {
+                                    (StringRef) ((ReferenceInstruction) instruction).getReference()) >= 65536) {
                                 needsFix = true;
                                 break;
                             }
@@ -835,30 +787,30 @@ public abstract class DexWriter<
         temp.writeTo(offsetWriter);
         temp.close();
 
-        for (CodeItemOffset<MethodKey> codeOffset: codeOffsets) {
+        for (CodeItemOffset<MethodKey> codeOffset : codeOffsets) {
             classSection.setCodeItemOffset(codeOffset.method, codeSectionOffset + codeOffset.codeOffset);
         }
     }
 
-    private void fixInstructions( MutableMethodImplementation methodImplementation) {
+    private void fixInstructions(MutableMethodImplementation methodImplementation) {
         List<? extends Instruction> instructions = methodImplementation.getInstructions();
 
-        for (int i=0; i<instructions.size(); i++) {
+        for (int i = 0; i < instructions.size(); i++) {
             Instruction instruction = instructions.get(i);
 
             if (instruction.getOpcode() == Opcode.CONST_STRING) {
                 if (stringSection.getItemIndex(
-                        (StringRef)((ReferenceInstruction)instruction).getReference()) >= 65536) {
+                        (StringRef) ((ReferenceInstruction) instruction).getReference()) >= 65536) {
                     methodImplementation.replaceInstruction(i, new BuilderInstruction31c(Opcode.CONST_STRING_JUMBO,
-                            ((OneRegisterInstruction)instruction).getRegisterA(),
-                            ((ReferenceInstruction)instruction).getReference()));
+                            ((OneRegisterInstruction) instruction).getRegisterA(),
+                            ((ReferenceInstruction) instruction).getReference()));
                 }
             }
         }
     }
 
-    private int writeDebugItem( DexDataWriter writer,
-                                DebugWriter<StringKey, TypeKey> debugWriter,
+    private int writeDebugItem(DexDataWriter writer,
+                               DebugWriter<StringKey, TypeKey> debugWriter,
                                Iterable<? extends StringKey> parameterNames,
                                Iterable<? extends DebugItem> debugItems) throws IOException {
         int parameterCount = 0;
@@ -866,7 +818,7 @@ public abstract class DexWriter<
         if (parameterNames != null) {
             parameterCount = Iterables.size(parameterNames);
             int index = 0;
-            for (StringKey parameterName: parameterNames) {
+            for (StringKey parameterName : parameterNames) {
                 if (parameterName != null) {
                     lastNamedParameterIndex = index;
                 }
@@ -885,9 +837,9 @@ public abstract class DexWriter<
         int startingLineNumber = 0;
 
         if (debugItems != null) {
-            for (org.jf.dexlib2.iface.debug.DebugItem debugItem: debugItems) {
+            for (org.jf.dexlib2.iface.debug.DebugItem debugItem : debugItems) {
                 if (debugItem instanceof LineNumber) {
-                    startingLineNumber = ((LineNumber)debugItem).getLineNumber();
+                    startingLineNumber = ((LineNumber) debugItem).getLineNumber();
                     break;
                 }
             }
@@ -897,7 +849,7 @@ public abstract class DexWriter<
         writer.writeUleb128(parameterCount);
         if (parameterNames != null) {
             int index = 0;
-            for (StringKey parameterName: parameterNames) {
+            for (StringKey parameterName : parameterNames) {
                 if (index == parameterCount) {
                     break;
                 }
@@ -909,7 +861,7 @@ public abstract class DexWriter<
         if (debugItems != null) {
             debugWriter.reset(startingLineNumber);
 
-            for (DebugItem debugItem: debugItems) {
+            for (DebugItem debugItem : debugItems) {
                 classSection.writeDebugItem(debugWriter, debugItem);
             }
         }
@@ -919,10 +871,10 @@ public abstract class DexWriter<
         return debugItemOffset;
     }
 
-    private int writeCodeItem( DexDataWriter writer,
-                               ByteArrayOutputStream ehBuf,
-                               MethodKey methodKey,
-                               List<? extends TryBlock<? extends ExceptionHandler>> tryBlocks,
+    private int writeCodeItem(DexDataWriter writer,
+                              ByteArrayOutputStream ehBuf,
+                              MethodKey methodKey,
+                              List<? extends TryBlock<? extends ExceptionHandler>> tryBlocks,
                               Iterable<? extends Instruction> instructions,
                               int debugItemOffset) throws IOException {
         if (instructions == null && debugItemOffset == NO_OFFSET) {
@@ -948,11 +900,11 @@ public abstract class DexWriter<
 
             int outParamCount = 0;
             int codeUnitCount = 0;
-            for (Instruction instruction: instructions) {
+            for (Instruction instruction : instructions) {
                 codeUnitCount += instruction.getCodeUnits();
                 if (instruction.getOpcode().referenceType == ReferenceType.METHOD) {
-                    ReferenceInstruction refInsn = (ReferenceInstruction)instruction;
-                    MethodReference methodRef = (MethodReference)refInsn.getReference();
+                    ReferenceInstruction refInsn = (ReferenceInstruction) instruction;
+                    MethodReference methodRef = (MethodReference) refInsn.getReference();
                     int paramCount = MethodUtil.getParameterRegisterCount(methodRef, InstructionUtil.isInvokeStatic(instruction.getOpcode()));
                     if (paramCount > outParamCount) {
                         outParamCount = paramCount;
@@ -970,101 +922,101 @@ public abstract class DexWriter<
 
             writer.writeInt(codeUnitCount);
             int codeOffset = 0;
-            for (Instruction instruction: instructions) {
+            for (Instruction instruction : instructions) {
                 try {
                     switch (instruction.getOpcode().format) {
                         case Format10t:
-                            instructionWriter.write((Instruction10t)instruction);
+                            instructionWriter.write((Instruction10t) instruction);
                             break;
                         case Format10x:
-                            instructionWriter.write((Instruction10x)instruction);
+                            instructionWriter.write((Instruction10x) instruction);
                             break;
                         case Format11n:
-                            instructionWriter.write((Instruction11n)instruction);
+                            instructionWriter.write((Instruction11n) instruction);
                             break;
                         case Format11x:
-                            instructionWriter.write((Instruction11x)instruction);
+                            instructionWriter.write((Instruction11x) instruction);
                             break;
                         case Format12x:
-                            instructionWriter.write((Instruction12x)instruction);
+                            instructionWriter.write((Instruction12x) instruction);
                             break;
                         case Format20bc:
-                            instructionWriter.write((Instruction20bc)instruction);
+                            instructionWriter.write((Instruction20bc) instruction);
                             break;
                         case Format20t:
-                            instructionWriter.write((Instruction20t)instruction);
+                            instructionWriter.write((Instruction20t) instruction);
                             break;
                         case Format21c:
-                            instructionWriter.write((Instruction21c)instruction);
+                            instructionWriter.write((Instruction21c) instruction);
                             break;
                         case Format21ih:
-                            instructionWriter.write((Instruction21ih)instruction);
+                            instructionWriter.write((Instruction21ih) instruction);
                             break;
                         case Format21lh:
-                            instructionWriter.write((Instruction21lh)instruction);
+                            instructionWriter.write((Instruction21lh) instruction);
                             break;
                         case Format21s:
-                            instructionWriter.write((Instruction21s)instruction);
+                            instructionWriter.write((Instruction21s) instruction);
                             break;
                         case Format21t:
-                            instructionWriter.write((Instruction21t)instruction);
+                            instructionWriter.write((Instruction21t) instruction);
                             break;
                         case Format22b:
-                            instructionWriter.write((Instruction22b)instruction);
+                            instructionWriter.write((Instruction22b) instruction);
                             break;
                         case Format22c:
-                            instructionWriter.write((Instruction22c)instruction);
+                            instructionWriter.write((Instruction22c) instruction);
                             break;
                         case Format22s:
-                            instructionWriter.write((Instruction22s)instruction);
+                            instructionWriter.write((Instruction22s) instruction);
                             break;
                         case Format22t:
-                            instructionWriter.write((Instruction22t)instruction);
+                            instructionWriter.write((Instruction22t) instruction);
                             break;
                         case Format22x:
-                            instructionWriter.write((Instruction22x)instruction);
+                            instructionWriter.write((Instruction22x) instruction);
                             break;
                         case Format23x:
-                            instructionWriter.write((Instruction23x)instruction);
+                            instructionWriter.write((Instruction23x) instruction);
                             break;
                         case Format30t:
-                            instructionWriter.write((Instruction30t)instruction);
+                            instructionWriter.write((Instruction30t) instruction);
                             break;
                         case Format31c:
-                            instructionWriter.write((Instruction31c)instruction);
+                            instructionWriter.write((Instruction31c) instruction);
                             break;
                         case Format31i:
-                            instructionWriter.write((Instruction31i)instruction);
+                            instructionWriter.write((Instruction31i) instruction);
                             break;
                         case Format31t:
-                            instructionWriter.write((Instruction31t)instruction);
+                            instructionWriter.write((Instruction31t) instruction);
                             break;
                         case Format32x:
-                            instructionWriter.write((Instruction32x)instruction);
+                            instructionWriter.write((Instruction32x) instruction);
                             break;
                         case Format35c:
-                            instructionWriter.write((Instruction35c)instruction);
+                            instructionWriter.write((Instruction35c) instruction);
                             break;
                         case Format3rc:
-                            instructionWriter.write((Instruction3rc)instruction);
+                            instructionWriter.write((Instruction3rc) instruction);
                             break;
                         case Format45cc:
-                            instructionWriter.write((Instruction45cc)instruction);
+                            instructionWriter.write((Instruction45cc) instruction);
                             break;
                         case Format4rcc:
-                            instructionWriter.write((Instruction4rcc)instruction);
+                            instructionWriter.write((Instruction4rcc) instruction);
                             break;
                         case Format51l:
-                            instructionWriter.write((Instruction51l)instruction);
+                            instructionWriter.write((Instruction51l) instruction);
                             break;
                         case ArrayPayload:
-                            instructionWriter.write((ArrayPayload)instruction);
+                            instructionWriter.write((ArrayPayload) instruction);
                             break;
                         case PackedSwitchPayload:
-                            instructionWriter.write((PackedSwitchPayload)instruction);
+                            instructionWriter.write((PackedSwitchPayload) instruction);
                             break;
                         case SparseSwitchPayload:
-                            instructionWriter.write((SparseSwitchPayload)instruction);
+                            instructionWriter.write((SparseSwitchPayload) instruction);
                             break;
                         default:
                             throw new ExceptionWithContext("Unsupported instruction format: %s",
@@ -1081,12 +1033,12 @@ public abstract class DexWriter<
 
                 // filter out unique lists of exception handlers
                 Map<List<? extends ExceptionHandler>, Integer> exceptionHandlerOffsetMap = Maps.newHashMap();
-                for (TryBlock<? extends ExceptionHandler> tryBlock: tryBlocks) {
+                for (TryBlock<? extends ExceptionHandler> tryBlock : tryBlocks) {
                     exceptionHandlerOffsetMap.put(tryBlock.getExceptionHandlers(), 0);
                 }
                 DexDataWriter.writeUleb128(ehBuf, exceptionHandlerOffsetMap.size());
 
-                for (TryBlock<? extends ExceptionHandler> tryBlock: tryBlocks) {
+                for (TryBlock<? extends ExceptionHandler> tryBlock : tryBlocks) {
                     int startAddress = tryBlock.getStartCodeAddress();
                     int endAddress = startAddress + tryBlock.getCodeUnitCount();
 
@@ -1111,7 +1063,7 @@ public abstract class DexWriter<
 
                         // check if the last exception handler is a catch-all and adjust the size accordingly
                         int ehSize = tryBlock.getExceptionHandlers().size();
-                        ExceptionHandler ehLast = tryBlock.getExceptionHandlers().get(ehSize-1);
+                        ExceptionHandler ehLast = tryBlock.getExceptionHandlers().get(ehSize - 1);
                         if (ehLast.getExceptionType() == null) {
                             ehSize = ehSize * (-1) + 1;
                         }
@@ -1160,7 +1112,7 @@ public abstract class DexWriter<
         if (stringSection.getItems().size() > 0) {
             numItems += 2; // index and data
         }
-        if (typeSection.getItems().size()  > 0) {
+        if (typeSection.getItems().size() > 0) {
             numItems++;
         }
         if (protoSection.getItems().size() > 0) {
@@ -1208,7 +1160,7 @@ public abstract class DexWriter<
         return numItems;
     }
 
-    private void writeMapItem( DexDataWriter writer) throws IOException{
+    private void writeMapItem(DexDataWriter writer) throws IOException {
         writer.align();
         mapSectionOffset = writer.getPosition();
         int numItems = calcNumItems();
@@ -1240,7 +1192,7 @@ public abstract class DexWriter<
         writeMapItem(writer, ItemType.MAP_LIST, 1, mapSectionOffset);
     }
 
-    private void writeMapItem( DexDataWriter writer, int type, int size, int offset) throws IOException {
+    private void writeMapItem(DexDataWriter writer, int type, int size, int offset) throws IOException {
         if (size > 0) {
             writer.writeUshort(type);
             writer.writeUshort(0);
@@ -1249,7 +1201,7 @@ public abstract class DexWriter<
         }
     }
 
-    private void writeHeader( DexDataWriter writer, int dataOffset, int fileSize) throws IOException {
+    private void writeHeader(DexDataWriter writer, int dataOffset, int fileSize) throws IOException {
         // Write the appropriate header.
         writer.write(HeaderItem.getMagicForApi(opcodes.api));
 
@@ -1300,15 +1252,69 @@ public abstract class DexWriter<
         return (opcodes.api < 17);
     }
 
+    private static class EncodedArrayKey<EncodedValue> {
+        Collection<? extends EncodedValue> elements;
+
+        public EncodedArrayKey() {
+        }
+
+        @Override
+        public int hashCode() {
+            return CollectionUtils.listHashCode(elements);
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (o instanceof EncodedArrayKey) {
+                EncodedArrayKey other = (EncodedArrayKey) o;
+                if (elements.size() != other.elements.size()) {
+                    return false;
+                }
+                return Iterables.elementsEqual(elements, other.elements);
+            }
+            return false;
+        }
+    }
+
+    private static class CodeItemOffset<MethodKey> {
+        MethodKey method;
+        int codeOffset;
+
+        private CodeItemOffset(MethodKey method, int codeOffset) {
+            this.codeOffset = codeOffset;
+            this.method = method;
+        }
+    }
+
+    protected class InternalEncodedValueWriter extends EncodedValueWriter<StringKey, TypeKey, FieldRefKey, MethodRefKey,
+            AnnotationElement, EncodedValue> {
+        private InternalEncodedValueWriter(DexDataWriter writer) {
+            super(writer, stringSection, typeSection, fieldSection, methodSection, annotationSection);
+        }
+
+        @Override
+        protected void writeEncodedValue(EncodedValue encodedValue) throws IOException {
+            DexWriter.this.writeEncodedValue(this, encodedValue);
+        }
+    }
+
     public abstract class SectionProvider {
-         public abstract StringSectionType getStringSection();
-         public abstract TypeSectionType getTypeSection();
-         public abstract ProtoSectionType getProtoSection();
-         public abstract FieldSectionType getFieldSection();
-         public abstract MethodSectionType getMethodSection();
-         public abstract ClassSectionType getClassSection();
-         public abstract TypeListSectionType getTypeListSection();
-         public abstract AnnotationSectionType getAnnotationSection();
-         public abstract AnnotationSetSectionType getAnnotationSetSection();
+        public abstract StringSectionType getStringSection();
+
+        public abstract TypeSectionType getTypeSection();
+
+        public abstract ProtoSectionType getProtoSection();
+
+        public abstract FieldSectionType getFieldSection();
+
+        public abstract MethodSectionType getMethodSection();
+
+        public abstract ClassSectionType getClassSection();
+
+        public abstract TypeListSectionType getTypeListSection();
+
+        public abstract AnnotationSectionType getAnnotationSection();
+
+        public abstract AnnotationSetSectionType getAnnotationSetSection();
     }
 }

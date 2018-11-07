@@ -40,7 +40,7 @@ import java.io.IOException;
 public class OffsetInstructionFormatMethodItem extends InstructionMethodItem<OffsetInstruction> {
     protected LabelMethodItem label;
 
-    public OffsetInstructionFormatMethodItem( BaksmaliOptions options,  MethodDefinition methodDef,
+    public OffsetInstructionFormatMethodItem(BaksmaliOptions options, MethodDefinition methodDef,
                                              int codeAddress, OffsetInstruction instruction) {
         super(methodDef, codeAddress, instruction);
 

@@ -36,14 +36,20 @@ import org.jf.dexlib2.dexbacked.DexBackedDexFile;
 import org.jf.dexlib2.iface.instruction.formats.Instruction51l;
 
 
-
 public class DexBackedInstruction51l extends DexBackedInstruction implements Instruction51l {
-    public DexBackedInstruction51l( DexBackedDexFile dexFile,
-                                    Opcode opcode,
+    public DexBackedInstruction51l(DexBackedDexFile dexFile,
+                                   Opcode opcode,
                                    int instructionStart) {
         super(dexFile, opcode, instructionStart);
     }
 
-    @Override public int getRegisterA() { return dexFile.readUbyte(instructionStart + 1); }
-    @Override public long getWideLiteral() { return dexFile.readLong(instructionStart + 2); }
+    @Override
+    public int getRegisterA() {
+        return dexFile.readUbyte(instructionStart + 1);
+    }
+
+    @Override
+    public long getWideLiteral() {
+        return dexFile.readLong(instructionStart + 2);
+    }
 }

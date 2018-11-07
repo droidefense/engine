@@ -35,34 +35,37 @@ import org.jf.dexlib2.base.reference.BaseFieldReference;
 import org.jf.dexlib2.iface.reference.FieldReference;
 
 
-
 public class FieldReferenceRewriter implements Rewriter<FieldReference> {
-     protected final Rewriters rewriters;
+    protected final Rewriters rewriters;
 
-    public FieldReferenceRewriter( Rewriters rewriters) {
+    public FieldReferenceRewriter(Rewriters rewriters) {
         this.rewriters = rewriters;
     }
 
-     @Override public FieldReference rewrite( FieldReference fieldReference) {
+    @Override
+    public FieldReference rewrite(FieldReference fieldReference) {
         return new RewrittenFieldReference(fieldReference);
     }
 
     protected class RewrittenFieldReference extends BaseFieldReference {
-         protected FieldReference fieldReference;
+        protected FieldReference fieldReference;
 
-        public RewrittenFieldReference( FieldReference fieldReference) {
+        public RewrittenFieldReference(FieldReference fieldReference) {
             this.fieldReference = fieldReference;
         }
 
-        @Override  public String getDefiningClass() {
+        @Override
+        public String getDefiningClass() {
             return rewriters.getTypeRewriter().rewrite(fieldReference.getDefiningClass());
         }
 
-        @Override  public String getName() {
+        @Override
+        public String getName() {
             return fieldReference.getName();
         }
 
-        @Override  public String getType() {
+        @Override
+        public String getType() {
             return rewriters.getTypeRewriter().rewrite(fieldReference.getType());
         }
     }

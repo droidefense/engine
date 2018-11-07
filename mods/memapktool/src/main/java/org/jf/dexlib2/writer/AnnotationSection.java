@@ -36,10 +36,13 @@ import java.util.Collection;
 
 public interface AnnotationSection<StringKey, TypeKey, AnnotationKey, AnnotationElement, EncodedValue>
         extends OffsetSection<AnnotationKey> {
-    int getVisibility( AnnotationKey key);
-     TypeKey getType( AnnotationKey key);
-     Collection<? extends AnnotationElement> getElements( AnnotationKey key);
+    int getVisibility(AnnotationKey key);
 
-     StringKey getElementName( AnnotationElement element);
-     EncodedValue getElementValue( AnnotationElement element);
+    TypeKey getType(AnnotationKey key);
+
+    Collection<? extends AnnotationElement> getElements(AnnotationKey key);
+
+    StringKey getElementName(AnnotationElement element);
+
+    EncodedValue getElementValue(AnnotationElement element);
 }

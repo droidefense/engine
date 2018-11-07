@@ -36,21 +36,22 @@ import org.jf.dexlib2.iface.value.EncodedValue;
 import org.jf.dexlib2.writer.builder.BuilderEncodedValues.BuilderEncodedValue;
 
 
-
 public class BuilderAnnotationElement extends BaseAnnotationElement {
-     final BuilderStringReference name;
-     final BuilderEncodedValue value;
+    final BuilderStringReference name;
+    final BuilderEncodedValue value;
 
-    public BuilderAnnotationElement( BuilderStringReference name,  BuilderEncodedValue value) {
+    public BuilderAnnotationElement(BuilderStringReference name, BuilderEncodedValue value) {
         this.name = name;
         this.value = value;
     }
 
-     @Override public String getName() {
+    @Override
+    public String getName() {
         return name.getString();
     }
 
-     @Override public EncodedValue getValue() {
+    @Override
+    public EncodedValue getValue() {
         return value;
     }
 }

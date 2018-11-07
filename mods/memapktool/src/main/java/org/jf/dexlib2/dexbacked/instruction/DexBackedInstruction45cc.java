@@ -39,15 +39,15 @@ import org.jf.dexlib2.iface.reference.Reference;
 import org.jf.util.NibbleUtils;
 
 
-
 public class DexBackedInstruction45cc extends DexBackedInstruction implements Instruction45cc {
-    public DexBackedInstruction45cc( DexBackedDexFile dexFile,
-                                     Opcode opcode,
+    public DexBackedInstruction45cc(DexBackedDexFile dexFile,
+                                    Opcode opcode,
                                     int instructionStart) {
         super(dexFile, opcode, instructionStart);
     }
 
-    @Override public int getRegisterCount() {
+    @Override
+    public int getRegisterCount() {
         return NibbleUtils.extractHighUnsignedNibble(dexFile.readUbyte(instructionStart + 1));
     }
 

@@ -37,13 +37,15 @@ import org.jf.dexlib2.builder.BuilderInstruction;
 import org.jf.dexlib2.iface.instruction.formats.Instruction10x;
 
 
-
 public class BuilderInstruction10x extends BuilderInstruction implements Instruction10x {
     public static final Format FORMAT = Format.Format10x;
 
-    public BuilderInstruction10x( Opcode opcode) {
+    public BuilderInstruction10x(Opcode opcode) {
         super(opcode);
     }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

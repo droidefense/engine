@@ -46,12 +46,13 @@ public abstract class ListReferencesCommand extends DexInputCommand {
             description = "Show usage information")
     private boolean help;
 
-    public ListReferencesCommand( List<JCommander> commandAncestors, int referenceType) {
+    public ListReferencesCommand(List<JCommander> commandAncestors, int referenceType) {
         super(commandAncestors);
         this.referenceType = referenceType;
     }
 
-    @Override public void run() {
+    @Override
+    public void run() {
         if (help || inputList == null || inputList.isEmpty()) {
             usage();
             return;
@@ -66,7 +67,7 @@ public abstract class ListReferencesCommand extends DexInputCommand {
         String input = inputList.get(0);
         loadDexFile(input);
 
-        for (Reference reference: dexFile.getReferences(referenceType)) {
+        for (Reference reference : dexFile.getReferences(referenceType)) {
             System.out.println(ReferenceUtil.getReferenceString(reference));
         }
     }

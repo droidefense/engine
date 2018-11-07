@@ -57,14 +57,14 @@ public class MethodImplementationBuilder {
 
     /**
      * Adds a new named label at the current location.
-     *
+     * <p>
      * Any previous unplaced references to a label of this name will now refer to this label/location
      *
      * @param name The name of the label to add
      * @return A LabelRef representing the label
      */
 
-    public Label addLabel( String name) {
+    public Label addLabel(String name) {
         Label label = labels.get(name);
 
         if (label != null) {
@@ -83,7 +83,7 @@ public class MethodImplementationBuilder {
 
     /**
      * Get a reference to a label with the given name.
-     *
+     * <p>
      * If a label with that name has not been added yet, a new one is created, but is left
      * in an unplaced state. It is assumed that addLabel(name) will be called at a later
      * point to define the location of the label.
@@ -92,7 +92,7 @@ public class MethodImplementationBuilder {
      * @return A LabelRef representing the label
      */
 
-    public Label getLabel( String name) {
+    public Label getLabel(String name) {
         Label label = labels.get(name);
         if (label == null) {
             label = new Label();
@@ -101,17 +101,17 @@ public class MethodImplementationBuilder {
         return label;
     }
 
-    public void addCatch(TypeReference type,  Label from,
-                          Label to,  Label handler) {
+    public void addCatch(TypeReference type, Label from,
+                         Label to, Label handler) {
         impl.addCatch(type, from, to, handler);
     }
 
-    public void addCatch(String type,  Label from,  Label to,
-                          Label handler) {
+    public void addCatch(String type, Label from, Label to,
+                         Label handler) {
         impl.addCatch(type, from, to, handler);
     }
 
-    public void addCatch( Label from,  Label to,  Label handler) {
+    public void addCatch(Label from, Label to, Label handler) {
         impl.addCatch(from, to, handler);
     }
 
@@ -146,6 +146,6 @@ public class MethodImplementationBuilder {
 
     public void addInstruction(BuilderInstruction instruction) {
         impl.addInstruction(instruction);
-        currentLocation = impl.instructionList.get(impl.instructionList.size()-1);
+        currentLocation = impl.instructionList.get(impl.instructionList.size() - 1);
     }
 }

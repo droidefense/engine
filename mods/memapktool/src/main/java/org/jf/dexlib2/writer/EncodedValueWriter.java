@@ -43,20 +43,20 @@ import java.util.Collection;
 public abstract class EncodedValueWriter<StringKey, TypeKey, FieldRefKey extends FieldReference,
         MethodRefKey extends MethodReference, AnnotationElement extends org.jf.dexlib2.iface.AnnotationElement,
         EncodedValue> {
-     private final DexDataWriter writer;
-     private final StringSection<StringKey, ?> stringSection;
-     private final TypeSection<?, TypeKey, ?> typeSection;
-     private final FieldSection<?, ?, FieldRefKey, ?> fieldSection;
-     private final MethodSection<?, ?, ?, MethodRefKey, ?> methodSection;
-     private final AnnotationSection<StringKey, TypeKey, ?, AnnotationElement, EncodedValue> annotationSection;
+    private final DexDataWriter writer;
+    private final StringSection<StringKey, ?> stringSection;
+    private final TypeSection<?, TypeKey, ?> typeSection;
+    private final FieldSection<?, ?, FieldRefKey, ?> fieldSection;
+    private final MethodSection<?, ?, ?, MethodRefKey, ?> methodSection;
+    private final AnnotationSection<StringKey, TypeKey, ?, AnnotationElement, EncodedValue> annotationSection;
 
     public EncodedValueWriter(
-             DexDataWriter writer,
-             StringSection<StringKey, ?> stringSection,
-             TypeSection<?, TypeKey, ?> typeSection,
-             FieldSection<?, ?, FieldRefKey, ?> fieldSection,
-             MethodSection<?, ?, ?, MethodRefKey, ?> methodSection,
-             AnnotationSection<StringKey, TypeKey, ?, AnnotationElement, EncodedValue> annotationSection) {
+            DexDataWriter writer,
+            StringSection<StringKey, ?> stringSection,
+            TypeSection<?, TypeKey, ?> typeSection,
+            FieldSection<?, ?, FieldRefKey, ?> fieldSection,
+            MethodSection<?, ?, ?, MethodRefKey, ?> methodSection,
+            AnnotationSection<StringKey, TypeKey, ?, AnnotationElement, EncodedValue> annotationSection) {
         this.writer = writer;
         this.stringSection = stringSection;
         this.typeSection = typeSection;
@@ -65,7 +65,7 @@ public abstract class EncodedValueWriter<StringKey, TypeKey, FieldRefKey extends
         this.annotationSection = annotationSection;
     }
 
-    protected abstract void writeEncodedValue( EncodedValue encodedValue) throws IOException;
+    protected abstract void writeEncodedValue(EncodedValue encodedValue) throws IOException;
 
     public void writeAnnotation(TypeKey annotationType,
                                 Collection<? extends AnnotationElement> elements) throws IOException {
@@ -76,7 +76,7 @@ public abstract class EncodedValueWriter<StringKey, TypeKey, FieldRefKey extends
         Collection<? extends AnnotationElement> sortedElements = Ordering.from(BaseAnnotationElement.BY_NAME)
                 .immutableSortedCopy(elements);
 
-        for (AnnotationElement element: sortedElements) {
+        for (AnnotationElement element : sortedElements) {
             writer.writeUleb128(stringSection.getItemIndex(annotationSection.getElementName(element)));
             writeEncodedValue(annotationSection.getElementValue(element));
         }
@@ -85,7 +85,7 @@ public abstract class EncodedValueWriter<StringKey, TypeKey, FieldRefKey extends
     public void writeArray(Collection<? extends EncodedValue> elements) throws IOException {
         writer.writeEncodedValueHeader(ValueType.ARRAY, 0);
         writer.writeUleb128(elements.size());
-        for (EncodedValue element: elements) {
+        for (EncodedValue element : elements) {
             writeEncodedValue(element);
         }
     }
@@ -106,11 +106,11 @@ public abstract class EncodedValueWriter<StringKey, TypeKey, FieldRefKey extends
         writer.writeEncodedDouble(ValueType.DOUBLE, value);
     }
 
-    public void writeEnum( FieldRefKey value) throws IOException {
+    public void writeEnum(FieldRefKey value) throws IOException {
         writer.writeEncodedUint(ValueType.ENUM, fieldSection.getItemIndex(value));
     }
-    
-    public void writeField( FieldRefKey value) throws IOException {
+
+    public void writeField(FieldRefKey value) throws IOException {
         writer.writeEncodedUint(ValueType.FIELD, fieldSection.getItemIndex(value));
     }
 
@@ -126,7 +126,7 @@ public abstract class EncodedValueWriter<StringKey, TypeKey, FieldRefKey extends
         writer.writeEncodedLong(ValueType.LONG, value);
     }
 
-    public void writeMethod( MethodRefKey value) throws IOException {
+    public void writeMethod(MethodRefKey value) throws IOException {
         writer.writeEncodedUint(ValueType.METHOD, methodSection.getItemIndex(value));
     }
 
@@ -138,11 +138,11 @@ public abstract class EncodedValueWriter<StringKey, TypeKey, FieldRefKey extends
         writer.writeEncodedInt(ValueType.SHORT, value);
     }
 
-    public void writeString( StringKey value) throws IOException {
+    public void writeString(StringKey value) throws IOException {
         writer.writeEncodedUint(ValueType.STRING, stringSection.getItemIndex(value));
     }
 
-    public void writeType( TypeKey value) throws IOException {
+    public void writeType(TypeKey value) throws IOException {
         writer.writeEncodedUint(ValueType.TYPE, typeSection.getItemIndex(value));
     }
 }

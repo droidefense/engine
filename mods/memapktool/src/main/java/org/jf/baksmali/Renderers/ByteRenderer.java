@@ -32,9 +32,9 @@ import org.jf.util.IndentingWriter;
 
 import java.io.IOException;
 
-public class ByteRenderer  {
+public class ByteRenderer {
     public static void writeTo(IndentingWriter writer, byte val) throws IOException {
-        if (val<0) {
+        if (val < 0) {
             writer.write("-0x");
             writer.printUnsignedLongAsHex(-val);
             writer.write('t');

@@ -39,21 +39,20 @@ import org.jf.dexlib2.iface.reference.Reference;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class BuilderInstruction4rcc extends BuilderInstruction implements Instruction4rcc {
     public static final Format FORMAT = Format.Format4rcc;
 
     protected final int startRegister;
     protected final int registerCount;
 
-     protected final Reference reference;
-     protected final Reference reference2;
+    protected final Reference reference;
+    protected final Reference reference2;
 
-    public BuilderInstruction4rcc( Opcode opcode,
+    public BuilderInstruction4rcc(Opcode opcode,
                                   int startRegister,
                                   int registerCount,
-                                   Reference reference,
-                                   Reference reference2) {
+                                  Reference reference,
+                                  Reference reference2) {
         super(opcode);
         this.startRegister = Preconditions.checkShortRegister(startRegister);
         this.registerCount = Preconditions.checkRegisterRangeCount(registerCount);
@@ -61,12 +60,38 @@ public class BuilderInstruction4rcc extends BuilderInstruction implements Instru
         this.reference2 = reference2;
     }
 
-    @Override public int getStartRegister() { return startRegister; }
-    @Override public int getRegisterCount() { return registerCount; }
-     @Override public Reference getReference() { return reference; }
-    @Override public int getReferenceType() { return opcode.referenceType; }
-     @Override public Reference getReference2() { return reference2; }
-    @Override public int getReferenceType2() { return opcode.referenceType2; }
+    @Override
+    public int getStartRegister() {
+        return startRegister;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public int getRegisterCount() {
+        return registerCount;
+    }
+
+    @Override
+    public Reference getReference() {
+        return reference;
+    }
+
+    @Override
+    public int getReferenceType() {
+        return opcode.referenceType;
+    }
+
+    @Override
+    public Reference getReference2() {
+        return reference2;
+    }
+
+    @Override
+    public int getReferenceType2() {
+        return opcode.referenceType2;
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

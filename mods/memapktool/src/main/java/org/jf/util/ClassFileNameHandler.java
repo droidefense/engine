@@ -41,7 +41,7 @@ import java.util.regex.Pattern;
 /**
  * This class handles the complexities of translating a class name into a file name. i.e. dealing with case insensitive
  * file systems, windows reserved filenames, class names with extremely long package/class elements, etc.
- *
+ * <p>
  * The types of transformations this class does include:
  * - append a '#123' style numeric suffix if 2 physical representations collide
  * - replace some number of characters in the middle with a '#' character name if an individual path element is too long
@@ -53,12 +53,12 @@ public class ClassFileNameHandler {
     // Dex files can currently only have 64k classes, so 5 digits plus 1 for an '#' should
     // be sufficient to handle the case when every class has a conflicting name
     private static final int NUMERIC_SUFFIX_RESERVE = 6;
-
+    private static Pattern reservedFileNameRegex = Pattern.compile("^(CON|PRN|AUX|NUL|COM[1-9]|LPT[1-9])(\\..*)?$",
+            Pattern.CASE_INSENSITIVE);
     private final int NO_VALUE = -1;
     private final int CASE_INSENSITIVE = 0;
     private final int CASE_SENSITIVE = 1;
     private int forcedCaseSensitivity = NO_VALUE;
-
     private DirectoryEntry top;
     private String fileExtension;
     private boolean modifyWindowsReservedFilenames;
@@ -74,81 +74,14 @@ public class ClassFileNameHandler {
                                 boolean modifyWindowsReservedFilenames) {
         this.top = new DirectoryEntry(path);
         this.fileExtension = fileExtension;
-        this.forcedCaseSensitivity = caseSensitive?CASE_SENSITIVE:CASE_INSENSITIVE;
+        this.forcedCaseSensitivity = caseSensitive ? CASE_SENSITIVE : CASE_INSENSITIVE;
         this.modifyWindowsReservedFilenames = modifyWindowsReservedFilenames;
-    }
-
-    private int getMaxFilenameLength() {
-        return MAX_FILENAME_LENGTH - NUMERIC_SUFFIX_RESERVE;
-    }
-
-    public File getUniqueFilenameForClass(String className) {
-        //class names should be passed in the normal dalvik style, with a leading L, a trailing ;, and using
-        //'/' as a separator.
-        if (className.charAt(0) != 'L' || className.charAt(className.length()-1) != ';') {
-            throw new RuntimeException("Not a valid dalvik class name");
-        }
-
-        int packageElementCount = 1;
-        for (int i=1; i<className.length()-1; i++) {
-            if (className.charAt(i) == '/') {
-                packageElementCount++;
-            }
-        }
-
-        String[] packageElements = new String[packageElementCount];
-        int elementIndex = 0;
-        int elementStart = 1;
-        for (int i=1; i<className.length()-1; i++) {
-            if (className.charAt(i) == '/') {
-                //if the first char after the initial L is a '/', or if there are
-                //two consecutive '/'
-                if (i-elementStart==0) {
-                    throw new RuntimeException("Not a valid dalvik class name");
-                }
-
-                packageElements[elementIndex++] = className.substring(elementStart, i);
-                elementStart = ++i;
-            }
-        }
-
-        //at this point, we have added all the package elements to packageElements, but still need to add
-        //the final class name. elementStart should point to the beginning of the class name
-
-        //this will be true if the class ends in a '/', i.e. Lsome/package/className/;
-        if (elementStart >= className.length()-1) {
-            throw new RuntimeException("Not a valid dalvik class name");
-        }
-
-        packageElements[elementIndex] = className.substring(elementStart, className.length()-1);
-
-        return addUniqueChild(top, packageElements, 0);
-    }
-
-
-    private File addUniqueChild(DirectoryEntry parent, String[] packageElements,
-                                int packageElementIndex) {
-        if (packageElementIndex == packageElements.length - 1) {
-            FileEntry fileEntry = new FileEntry(parent, packageElements[packageElementIndex] + fileExtension);
-            parent.addChild(fileEntry);
-
-            String physicalName = fileEntry.getPhysicalName();
-
-            // the physical name should be set when adding it as a child to the parent
-            assert  physicalName != null;
-
-            return new File(parent.file, physicalName);
-        } else {
-            DirectoryEntry directoryEntry = new DirectoryEntry(parent, packageElements[packageElementIndex]);
-            directoryEntry = (DirectoryEntry)parent.addChild(directoryEntry);
-            return addUniqueChild(directoryEntry, packageElements, packageElementIndex+1);
-        }
     }
 
     private static int utf8Length(String str) {
         int utf8Length = 0;
-        int i=0;
-        while (i<str.length()) {
+        int i = 0;
+        while (i < str.length()) {
             int c = str.codePointAt(i);
             utf8Length += utf8Length(c);
             i += Character.charCount(c);
@@ -172,7 +105,7 @@ public class ClassFileNameHandler {
      * Shortens an individual file/directory name, removing the necessary number of code points
      * from the middle of the string such that the utf-8 encoding of the string is at least
      * bytesToRemove bytes shorter than the original.
-     *
+     * <p>
      * The removed codePoints in the middle of the string will be replaced with a # character.
      */
 
@@ -189,10 +122,10 @@ public class ClassFileNameHandler {
             throw new RuntimeException(ex);
         }
 
-        int midPoint = codePoints.length/2;
+        int midPoint = codePoints.length / 2;
 
         int firstEnd = midPoint; // exclusive
-        int secondStart = midPoint+1; // inclusive
+        int secondStart = midPoint + 1; // inclusive
         int bytesRemoved = utf8Length(codePoints[midPoint]);
 
         // if we have an even number of codepoints, start by removing both middle characters,
@@ -216,11 +149,11 @@ public class ClassFileNameHandler {
         }
 
         StringBuilder sb = new StringBuilder();
-        for (int i=0; i<firstEnd; i++) {
+        for (int i = 0; i < firstEnd; i++) {
             sb.appendCodePoint(codePoints[i]);
         }
         sb.append('#');
-        for (int i=secondStart; i<codePoints.length; i++) {
+        for (int i = secondStart; i < codePoints.length; i++) {
             sb.appendCodePoint(codePoints[i]);
         }
 
@@ -231,10 +164,89 @@ public class ClassFileNameHandler {
         return System.getProperty("os.name").startsWith("Windows");
     }
 
-    private static Pattern reservedFileNameRegex = Pattern.compile("^(CON|PRN|AUX|NUL|COM[1-9]|LPT[1-9])(\\..*)?$",
-            Pattern.CASE_INSENSITIVE);
     private static boolean isReservedFileName(String className) {
         return reservedFileNameRegex.matcher(className).matches();
+    }
+
+    private static String addSuffixBeforeExtension(String pathElement, String suffix) {
+        int extensionStart = pathElement.lastIndexOf('.');
+
+        StringBuilder newName = new StringBuilder(pathElement.length() + suffix.length() + 1);
+        if (extensionStart < 0) {
+            newName.append(pathElement);
+            newName.append(suffix);
+        } else {
+            newName.append(pathElement.subSequence(0, extensionStart));
+            newName.append(suffix);
+            newName.append(pathElement.subSequence(extensionStart, pathElement.length()));
+        }
+        return newName.toString();
+    }
+
+    private int getMaxFilenameLength() {
+        return MAX_FILENAME_LENGTH - NUMERIC_SUFFIX_RESERVE;
+    }
+
+    public File getUniqueFilenameForClass(String className) {
+        //class names should be passed in the normal dalvik style, with a leading L, a trailing ;, and using
+        //'/' as a separator.
+        if (className.charAt(0) != 'L' || className.charAt(className.length() - 1) != ';') {
+            throw new RuntimeException("Not a valid dalvik class name");
+        }
+
+        int packageElementCount = 1;
+        for (int i = 1; i < className.length() - 1; i++) {
+            if (className.charAt(i) == '/') {
+                packageElementCount++;
+            }
+        }
+
+        String[] packageElements = new String[packageElementCount];
+        int elementIndex = 0;
+        int elementStart = 1;
+        for (int i = 1; i < className.length() - 1; i++) {
+            if (className.charAt(i) == '/') {
+                //if the first char after the initial L is a '/', or if there are
+                //two consecutive '/'
+                if (i - elementStart == 0) {
+                    throw new RuntimeException("Not a valid dalvik class name");
+                }
+
+                packageElements[elementIndex++] = className.substring(elementStart, i);
+                elementStart = ++i;
+            }
+        }
+
+        //at this point, we have added all the package elements to packageElements, but still need to add
+        //the final class name. elementStart should point to the beginning of the class name
+
+        //this will be true if the class ends in a '/', i.e. Lsome/package/className/;
+        if (elementStart >= className.length() - 1) {
+            throw new RuntimeException("Not a valid dalvik class name");
+        }
+
+        packageElements[elementIndex] = className.substring(elementStart, className.length() - 1);
+
+        return addUniqueChild(top, packageElements, 0);
+    }
+
+    private File addUniqueChild(DirectoryEntry parent, String[] packageElements,
+                                int packageElementIndex) {
+        if (packageElementIndex == packageElements.length - 1) {
+            FileEntry fileEntry = new FileEntry(parent, packageElements[packageElementIndex] + fileExtension);
+            parent.addChild(fileEntry);
+
+            String physicalName = fileEntry.getPhysicalName();
+
+            // the physical name should be set when adding it as a child to the parent
+            assert physicalName != null;
+
+            return new File(parent.file, physicalName);
+        } else {
+            DirectoryEntry directoryEntry = new DirectoryEntry(parent, packageElements[packageElementIndex]);
+            directoryEntry = (DirectoryEntry) parent.addChild(directoryEntry);
+            return addUniqueChild(directoryEntry, packageElements, packageElementIndex + 1);
+        }
     }
 
     private abstract class FileSystemEntry {
@@ -284,13 +296,12 @@ public class ClassFileNameHandler {
     }
 
     private class DirectoryEntry extends FileSystemEntry {
-        private File file = null;
-        private int caseSensitivity = forcedCaseSensitivity;
-
         // maps a normalized (but not suffixed) entry name to 1 or more FileSystemEntries.
         // Each FileSystemEntry asociated with a normalized entry name must have a distinct
         // physical name
         private final Multimap<String, FileSystemEntry> children = ArrayListMultimap.create();
+        private File file = null;
+        private int caseSensitivity = forcedCaseSensitivity;
 
         public DirectoryEntry(File path) {
             super(null, path.getName());
@@ -306,7 +317,7 @@ public class ClassFileNameHandler {
             String normalizedChildName = entry.getNormalizedName(false);
             Collection<FileSystemEntry> entries = children.get(normalizedChildName);
             if (entry instanceof DirectoryEntry) {
-                for (FileSystemEntry childEntry: entries) {
+                for (FileSystemEntry childEntry : entries) {
                     if (childEntry.logicalName.equals(entry.logicalName)) {
                         return childEntry;
                     }
@@ -357,7 +368,7 @@ public class ClassFileNameHandler {
 
             try {
                 boolean result = testCaseSensitivity(path);
-                caseSensitivity = result?CASE_SENSITIVE:CASE_INSENSITIVE;
+                caseSensitivity = result ? CASE_SENSITIVE : CASE_INSENSITIVE;
                 return result;
             } catch (IOException ex) {
                 return false;
@@ -370,7 +381,7 @@ public class ClassFileNameHandler {
             do {
                 f = new File(path, "test." + num);
                 f2 = new File(path, "TEST." + num++);
-            } while(f.exists() || f2.exists());
+            } while (f.exists() || f2.exists());
 
             try {
                 try {
@@ -379,7 +390,10 @@ public class ClassFileNameHandler {
                     writer.flush();
                     writer.close();
                 } catch (IOException ex) {
-                    try {f.delete();} catch (Exception ex2) {}
+                    try {
+                        f.delete();
+                    } catch (Exception ex2) {
+                    }
                     throw ex;
                 }
 
@@ -398,7 +412,7 @@ public class ClassFileNameHandler {
                     CharBuffer buf = CharBuffer.allocate(32);
                     FileReader reader = new FileReader(f2);
 
-                    while (reader.read(buf) != -1 && buf.length() < 4);
+                    while (reader.read(buf) != -1 && buf.length() < 4) ;
                     if (buf.length() == 4 && buf.toString().equals("test")) {
                         return false;
                     } else {
@@ -406,15 +420,21 @@ public class ClassFileNameHandler {
                         //FileReader should have thrown a FileNotFoundException. Otherwise, we should have opened
                         //the file and read in the string "test". It's remotely possible that someone else modified
                         //the file after we created it. Let's be safe and return false here as well
-                        assert(false);
+                        assert (false);
                         return false;
                     }
                 } catch (FileNotFoundException ex) {
                     return true;
                 }
             } finally {
-                try { f.delete(); } catch (Exception ex) {}
-                try { f2.delete(); } catch (Exception ex) {}
+                try {
+                    f.delete();
+                } catch (Exception ex) {
+                }
+                try {
+                    f2.delete();
+                } catch (Exception ex) {
+                }
             }
         }
     }
@@ -431,20 +451,5 @@ public class ClassFileNameHandler {
             }
             return getNormalizedName(true);
         }
-    }
-
-    private static String addSuffixBeforeExtension(String pathElement, String suffix) {
-        int extensionStart = pathElement.lastIndexOf('.');
-
-        StringBuilder newName = new StringBuilder(pathElement.length() + suffix.length() + 1);
-        if (extensionStart < 0) {
-            newName.append(pathElement);
-            newName.append(suffix);
-        } else {
-            newName.append(pathElement.subSequence(0, extensionStart));
-            newName.append(suffix);
-            newName.append(pathElement.subSequence(extensionStart, pathElement.length()));
-        }
-        return newName.toString();
     }
 }

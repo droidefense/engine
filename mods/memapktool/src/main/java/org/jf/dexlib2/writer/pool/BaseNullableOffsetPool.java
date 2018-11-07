@@ -35,16 +35,15 @@ import org.jf.dexlib2.writer.DexWriter;
 import org.jf.dexlib2.writer.NullableOffsetSection;
 
 
-
-
 public abstract class BaseNullableOffsetPool<Key> extends BaseOffsetPool<Key>
         implements NullableOffsetSection<Key> {
 
-    public BaseNullableOffsetPool( DexPool dexPool) {
+    public BaseNullableOffsetPool(DexPool dexPool) {
         super(dexPool);
     }
 
-    @Override public int getNullableItemOffset(Key key) {
+    @Override
+    public int getNullableItemOffset(Key key) {
         if (key == null) {
             return DexWriter.NO_OFFSET;
         }

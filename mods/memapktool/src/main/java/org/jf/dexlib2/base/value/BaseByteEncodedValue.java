@@ -37,8 +37,6 @@ import org.jf.dexlib2.iface.value.ByteEncodedValue;
 import org.jf.dexlib2.iface.value.EncodedValue;
 
 
-
-
 public abstract class BaseByteEncodedValue implements ByteEncodedValue {
     @Override
     public int hashCode() {
@@ -48,17 +46,19 @@ public abstract class BaseByteEncodedValue implements ByteEncodedValue {
     @Override
     public boolean equals(Object o) {
         if (o instanceof ByteEncodedValue) {
-            return getValue() == ((ByteEncodedValue)o).getValue();
+            return getValue() == ((ByteEncodedValue) o).getValue();
         }
         return false;
     }
 
     @Override
-    public int compareTo( EncodedValue o) {
+    public int compareTo(EncodedValue o) {
         int res = Ints.compare(getValueType(), o.getValueType());
         if (res != 0) return res;
-        return Ints.compare(getValue(), ((ByteEncodedValue)o).getValue());
+        return Ints.compare(getValue(), ((ByteEncodedValue) o).getValue());
     }
 
-    public int getValueType() { return ValueType.BYTE; }
+    public int getValueType() {
+        return ValueType.BYTE;
+    }
 }

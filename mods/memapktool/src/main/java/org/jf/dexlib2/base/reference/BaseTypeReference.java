@@ -34,7 +34,6 @@ package org.jf.dexlib2.base.reference;
 import org.jf.dexlib2.iface.reference.TypeReference;
 
 
-
 public abstract class BaseTypeReference implements TypeReference {
     @Override
     public int hashCode() {
@@ -45,7 +44,7 @@ public abstract class BaseTypeReference implements TypeReference {
     public boolean equals(Object o) {
         if (o != null) {
             if (o instanceof TypeReference) {
-                return getType().equals(((TypeReference)o).getType());
+                return getType().equals(((TypeReference) o).getType());
             }
             if (o instanceof CharSequence) {
                 return getType().equals(o.toString());
@@ -55,12 +54,27 @@ public abstract class BaseTypeReference implements TypeReference {
     }
 
     @Override
-    public int compareTo( CharSequence o) {
+    public int compareTo(CharSequence o) {
         return getType().compareTo(o.toString());
     }
 
-    @Override public int length() { return getType().length(); }
-    @Override public char charAt(int index) { return getType().charAt(index); }
-    @Override public CharSequence subSequence(int start, int end) { return getType().subSequence(start, end); }
-    @Override  public String toString() { return getType(); }
+    @Override
+    public int length() {
+        return getType().length();
+    }
+
+    @Override
+    public char charAt(int index) {
+        return getType().charAt(index);
+    }
+
+    @Override
+    public CharSequence subSequence(int start, int end) {
+        return getType().subSequence(start, end);
+    }
+
+    @Override
+    public String toString() {
+        return getType();
+    }
 }

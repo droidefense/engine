@@ -35,5 +35,5 @@ package org.jf.dexlib2.iface.instruction;
 import java.util.List;
 
 public interface SwitchPayload extends PayloadInstruction {
-     List<? extends SwitchElement> getSwitchElements();
+    List<? extends SwitchElement> getSwitchElements();
 }

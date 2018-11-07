@@ -38,14 +38,16 @@ import org.jf.dexlib2.builder.Label;
 import org.jf.dexlib2.iface.instruction.formats.Instruction10t;
 
 
-
 public class BuilderInstruction10t extends BuilderOffsetInstruction implements Instruction10t {
     public static final Format FORMAT = Format.Format10t;
 
-    public BuilderInstruction10t( Opcode opcode,
-                                  Label target) {
+    public BuilderInstruction10t(Opcode opcode,
+                                 Label target) {
         super(opcode, target);
     }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

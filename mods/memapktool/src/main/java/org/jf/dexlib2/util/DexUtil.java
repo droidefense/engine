@@ -45,15 +45,15 @@ public class DexUtil {
 
     /**
      * Reads in the dex header from the given input stream and verifies that it is valid and a supported version
-     *
+     * <p>
      * The inputStream must support mark(), and will be reset to initial position upon exiting the method
      *
      * @param inputStream An input stream that is positioned at a dex header
-     * @throws NotADexFile If the file is not a dex file
-     * @throws InvalidFile If the header appears to be a dex file, but is not valid for some reason
+     * @throws NotADexFile     If the file is not a dex file
+     * @throws InvalidFile     If the header appears to be a dex file, but is not valid for some reason
      * @throws UnsupportedFile If the dex header is valid, but uses unsupported functionality
      */
-    public static void verifyDexHeader( InputStream inputStream) throws IOException {
+    public static void verifyDexHeader(InputStream inputStream) throws IOException {
         if (!inputStream.markSupported()) {
             throw new IllegalArgumentException("InputStream must support mark");
         }
@@ -73,17 +73,17 @@ public class DexUtil {
     /**
      * Verifies that the dex header is valid and a supported version
      *
-     * @param buf A byte array containing at least the first 44 bytes of a dex file
+     * @param buf    A byte array containing at least the first 44 bytes of a dex file
      * @param offset The offset within the array to the dex header
-     * @throws NotADexFile If the file is not a dex file
-     * @throws InvalidFile If the header appears to be a dex file, but is not valid for some reason
+     * @throws NotADexFile     If the file is not a dex file
+     * @throws InvalidFile     If the header appears to be a dex file, but is not valid for some reason
      * @throws UnsupportedFile If the dex header is valid, but uses unsupported functionality
      */
-    public static void verifyDexHeader( byte[] buf, int offset) {
+    public static void verifyDexHeader(byte[] buf, int offset) {
         int dexVersion = HeaderItem.getVersion(buf, offset);
         if (dexVersion == -1) {
             StringBuilder sb = new StringBuilder("Not a valid dex magic value:");
-            for (int i=0; i<8; i++) {
+            for (int i = 0; i < 8; i++) {
                 sb.append(String.format(" %02x", buf[i]));
             }
             throw new NotADexFile(sb.toString());
@@ -105,14 +105,14 @@ public class DexUtil {
 
     /**
      * Reads in the odex header from the given input stream and verifies that it is valid and a supported version
-     *
+     * <p>
      * The inputStream must support mark(), and will be reset to initial position upon exiting the method
      *
      * @param inputStream An input stream that is positioned at an odex header
-     * @throws NotAnOdexFile If the file is not an odex file
+     * @throws NotAnOdexFile   If the file is not an odex file
      * @throws UnsupportedFile If the odex header is valid, but is an unsupported version
      */
-    public static void verifyOdexHeader( InputStream inputStream) throws IOException {
+    public static void verifyOdexHeader(InputStream inputStream) throws IOException {
         if (!inputStream.markSupported()) {
             throw new IllegalArgumentException("InputStream must support mark");
         }
@@ -132,16 +132,16 @@ public class DexUtil {
     /**
      * Verifies that the odex header is valid and a supported version
      *
-     * @param buf A byte array containing at least the first 8 bytes of an odex file
+     * @param buf    A byte array containing at least the first 8 bytes of an odex file
      * @param offset The offset within the array to the odex header
-     * @throws NotAnOdexFile If the file is not an odex file
+     * @throws NotAnOdexFile   If the file is not an odex file
      * @throws UnsupportedFile If the odex header is valid, but uses unsupported functionality
      */
-    public static void verifyOdexHeader( byte[] buf, int offset) {
+    public static void verifyOdexHeader(byte[] buf, int offset) {
         int odexVersion = OdexHeaderItem.getVersion(buf, offset);
         if (odexVersion == -1) {
             StringBuilder sb = new StringBuilder("Not a valid odex magic value:");
-            for (int i=0; i<8; i++) {
+            for (int i = 0; i < 8; i++) {
                 sb.append(String.format(" %02x", buf[i]));
             }
             throw new NotAnOdexFile(sb.toString());

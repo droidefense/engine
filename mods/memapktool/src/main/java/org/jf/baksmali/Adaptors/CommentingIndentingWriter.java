@@ -41,7 +41,8 @@ public class CommentingIndentingWriter extends IndentingWriter {
         super(writer);
     }
 
-    @Override protected void writeIndent() throws IOException {
+    @Override
+    protected void writeIndent() throws IOException {
         writer.write("# ");
         super.writeIndent();
     }

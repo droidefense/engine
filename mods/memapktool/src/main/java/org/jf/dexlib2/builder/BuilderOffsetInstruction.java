@@ -36,18 +36,18 @@ import org.jf.dexlib2.iface.instruction.OffsetInstruction;
 import org.jf.util.ExceptionWithContext;
 
 
-
 public abstract class BuilderOffsetInstruction extends BuilderInstruction implements OffsetInstruction {
 
     protected final Label target;
 
-    public BuilderOffsetInstruction( Opcode opcode,
-                                     Label target) {
+    public BuilderOffsetInstruction(Opcode opcode,
+                                    Label target) {
         super(opcode);
         this.target = target;
     }
 
-    @Override public int getCodeOffset() {
+    @Override
+    public int getCodeOffset() {
         int codeOffset = internalGetCodeOffset();
         if (this.getCodeUnits() == 1) {
             if (codeOffset < Byte.MIN_VALUE || codeOffset > Byte.MAX_VALUE) {

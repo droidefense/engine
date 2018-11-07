@@ -34,10 +34,17 @@ package org.jf.dexlib2.dexbacked;
 public class DexBackedCatchAllExceptionHandler extends DexBackedExceptionHandler {
     private final int handlerCodeAddress;
 
-    public DexBackedCatchAllExceptionHandler( DexReader reader) {
+    public DexBackedCatchAllExceptionHandler(DexReader reader) {
         this.handlerCodeAddress = reader.readSmallUleb128();
     }
 
-    @Override public String getExceptionType() { return null; }
-    @Override public int getHandlerCodeAddress() { return handlerCodeAddress; }
+    @Override
+    public String getExceptionType() {
+        return null;
+    }
+
+    @Override
+    public int getHandlerCodeAddress() {
+        return handlerCodeAddress;
+    }
 }

@@ -37,7 +37,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction3rms;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class ImmutableInstruction3rms extends ImmutableInstruction implements Instruction3rms {
     public static final Format FORMAT = Format.Format3rms;
 
@@ -45,7 +44,7 @@ public class ImmutableInstruction3rms extends ImmutableInstruction implements In
     protected final int registerCount;
     protected final int vtableIndex;
 
-    public ImmutableInstruction3rms( Opcode opcode,
+    public ImmutableInstruction3rms(Opcode opcode,
                                     int startRegister,
                                     int registerCount,
                                     int vtableIndex) {
@@ -57,7 +56,7 @@ public class ImmutableInstruction3rms extends ImmutableInstruction implements In
 
     public static ImmutableInstruction3rms of(Instruction3rms instruction) {
         if (instruction instanceof ImmutableInstruction3rms) {
-            return (ImmutableInstruction3rms)instruction;
+            return (ImmutableInstruction3rms) instruction;
         }
         return new ImmutableInstruction3rms(
                 instruction.getOpcode(),
@@ -66,10 +65,24 @@ public class ImmutableInstruction3rms extends ImmutableInstruction implements In
                 instruction.getVtableIndex());
     }
 
-    @Override public int getStartRegister() { return startRegister; }
-    @Override public int getRegisterCount() { return registerCount; }
-    @Override public int getVtableIndex() { return vtableIndex; }
+    @Override
+    public int getStartRegister() {
+        return startRegister;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public int getRegisterCount() {
+        return registerCount;
+    }
+
+    @Override
+    public int getVtableIndex() {
+        return vtableIndex;
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }
 

@@ -37,8 +37,6 @@ import org.jf.dexlib2.iface.debug.SetSourceFile;
 import org.jf.dexlib2.iface.reference.StringReference;
 
 
-
-
 public class ImmutableSetSourceFile extends ImmutableDebugItem implements SetSourceFile {
     protected final String sourceFile;
 
@@ -49,25 +47,33 @@ public class ImmutableSetSourceFile extends ImmutableDebugItem implements SetSou
     }
 
 
-    public static ImmutableSetSourceFile of ( SetSourceFile setSourceFile) {
+    public static ImmutableSetSourceFile of(SetSourceFile setSourceFile) {
         if (setSourceFile instanceof ImmutableSetSourceFile) {
-            return (ImmutableSetSourceFile)setSourceFile;
+            return (ImmutableSetSourceFile) setSourceFile;
         }
         return new ImmutableSetSourceFile(
                 setSourceFile.getCodeAddress(),
                 setSourceFile.getSourceFile());
     }
 
-    @Override public String getSourceFile() { return sourceFile; }
+    @Override
+    public String getSourceFile() {
+        return sourceFile;
+    }
 
-    @Override public StringReference getSourceFileReference() {
-        return sourceFile==null?null:new BaseStringReference() {
-             @Override public String getString() {
+    @Override
+    public StringReference getSourceFileReference() {
+        return sourceFile == null ? null : new BaseStringReference() {
+            @Override
+            public String getString() {
                 return sourceFile;
             }
         };
     }
 
 
-    @Override public int getDebugItemType() { return DebugItemType.SET_SOURCE_FILE; }
+    @Override
+    public int getDebugItemType() {
+        return DebugItemType.SET_SOURCE_FILE;
+    }
 }

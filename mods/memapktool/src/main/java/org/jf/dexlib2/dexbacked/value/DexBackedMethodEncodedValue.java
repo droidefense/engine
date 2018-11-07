@@ -38,17 +38,17 @@ import org.jf.dexlib2.dexbacked.reference.DexBackedMethodReference;
 import org.jf.dexlib2.iface.reference.MethodReference;
 
 
-
 public class DexBackedMethodEncodedValue extends BaseMethodEncodedValue {
-     public final DexBackedDexFile dexFile;
+    public final DexBackedDexFile dexFile;
     private final int MethodIndex;
 
-    public DexBackedMethodEncodedValue( DexReader reader, int valueArg) {
+    public DexBackedMethodEncodedValue(DexReader reader, int valueArg) {
         this.dexFile = reader.dexBuf;
         MethodIndex = reader.readSizedSmallUint(valueArg + 1);
     }
 
-     @Override public MethodReference getValue() {
+    @Override
+    public MethodReference getValue() {
         return new DexBackedMethodReference(dexFile, MethodIndex);
     }
 }

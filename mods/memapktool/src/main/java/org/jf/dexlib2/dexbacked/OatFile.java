@@ -52,29 +52,26 @@ import java.util.Iterator;
 import java.util.List;
 
 public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFile> {
-    private static final byte[] ELF_MAGIC = new byte[] { 0x7f, 'E', 'L', 'F' };
-    private static final byte[] OAT_MAGIC = new byte[] { 'o', 'a', 't', '\n' };
+    public static final int UNSUPPORTED = 0;
+    public static final int SUPPORTED = 1;
+    public static final int UNKNOWN = 2;
+    private static final byte[] ELF_MAGIC = new byte[]{0x7f, 'E', 'L', 'F'};
+    private static final byte[] OAT_MAGIC = new byte[]{'o', 'a', 't', '\n'};
     private static final int MIN_ELF_HEADER_SIZE = 52;
-
     // These are the "known working" versions that I have manually inspected the source for.
     // Later version may or may not work, depending on what changed.
     private static final int MIN_OAT_VERSION = 56;
     private static final int MAX_OAT_VERSION = 86;
-
-    public static final int UNSUPPORTED = 0;
-    public static final int SUPPORTED = 1;
-    public static final int UNKNOWN = 2;
-
     private final boolean is64bit;
-     private final OatHeader oatHeader;
-     private final Opcodes opcodes;
+    private final OatHeader oatHeader;
+    private final Opcodes opcodes;
     private final VdexProvider vdexProvider;
 
-    public OatFile( byte[] buf) {
+    public OatFile(byte[] buf) {
         this(buf, null);
     }
 
-    public OatFile( byte[] buf, VdexProvider vdexProvider) {
+    public OatFile(byte[] buf, VdexProvider vdexProvider) {
         super(buf);
 
         if (buf.length < MIN_ELF_HEADER_SIZE) {
@@ -93,7 +90,7 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
 
         OatHeader oatHeader = null;
         SymbolTable symbolTable = getSymbolTable();
-        for (Symbol symbol: symbolTable.getSymbols()) {
+        for (Symbol symbol : symbolTable.getSymbols()) {
             if (symbol.getName().equals("oatdata")) {
                 oatHeader = new OatHeader(symbol.getFileOffset());
                 break;
@@ -121,11 +118,11 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
         }
     }
 
-    public static OatFile fromInputStream( InputStream is) throws IOException {
+    public static OatFile fromInputStream(InputStream is) throws IOException {
         return fromInputStream(is, null);
     }
 
-    public static OatFile fromInputStream( InputStream is, VdexProvider vdexProvider)
+    public static OatFile fromInputStream(InputStream is, VdexProvider vdexProvider)
             throws IOException {
         if (!is.markSupported()) {
             throw new IllegalArgumentException("InputStream must support mark");
@@ -175,20 +172,24 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
         return Arrays.asList(bcp.split(":"));
     }
 
-     @Override public Opcodes getOpcodes() {
+    @Override
+    public Opcodes getOpcodes() {
         return opcodes;
     }
 
 
     public List<OatDexFile> getDexFiles() {
         return new AbstractForwardSequentialList<OatDexFile>() {
-            @Override public int size() {
+            @Override
+            public int size() {
                 return oatHeader.getDexFileCount();
             }
 
-             @Override public Iterator<OatDexFile> iterator() {
+            @Override
+            public Iterator<OatDexFile> iterator() {
                 return Iterators.transform(new DexEntryIterator(), new Function<DexEntry, OatDexFile>() {
-                    @Override public OatDexFile apply(DexEntry dexEntry) {
+                    @Override
+                    public OatDexFile apply(DexEntry dexEntry) {
                         return dexEntry.getDexFile();
                     }
                 });
@@ -196,15 +197,19 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
         };
     }
 
-     @Override public List<String> getDexEntryNames() throws IOException {
+    @Override
+    public List<String> getDexEntryNames() throws IOException {
         return new AbstractForwardSequentialList<String>() {
-            @Override public int size() {
+            @Override
+            public int size() {
                 return oatHeader.getDexFileCount();
             }
 
-             @Override public Iterator<String> iterator() {
+            @Override
+            public Iterator<String> iterator() {
                 return Iterators.transform(new DexEntryIterator(), new Function<DexEntry, String>() {
-                    @Override public String apply(DexEntry dexEntry) {
+                    @Override
+                    public String apply(DexEntry dexEntry) {
                         return dexEntry.entryName;
                     }
                 });
@@ -212,7 +217,8 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
         };
     }
 
-    @Override public OatDexFile getEntry( String entryName) throws IOException {
+    @Override
+    public OatDexFile getEntry(String entryName) throws IOException {
         DexEntryIterator iterator = new DexEntryIterator();
         while (iterator.hasNext()) {
             DexEntry entry = iterator.next();
@@ -224,23 +230,103 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
         return null;
     }
 
-    public class OatDexFile extends DexBackedDexFile implements MultiDexContainer.MultiDexFile {
-         public final String filename;
+    private List<SectionHeader> getSections() {
+        final int offset;
+        final int entrySize;
+        final int entryCount;
+        if (is64bit) {
+            offset = readLongAsSmallUint(40);
+            entrySize = readUshort(58);
+            entryCount = readUshort(60);
+        } else {
+            offset = readSmallUint(32);
+            entrySize = readUshort(46);
+            entryCount = readUshort(48);
+        }
 
-        public OatDexFile(byte[] buf, int offset,  String filename) {
+        if (offset + (entrySize * entryCount) > buf.length) {
+            throw new InvalidOatFileException("The ELF section headers extend past the end of the file");
+        }
+
+        return new AbstractList<SectionHeader>() {
+            @Override
+            public SectionHeader get(int index) {
+                if (index < 0 || index >= entryCount) {
+                    throw new IndexOutOfBoundsException();
+                }
+                if (is64bit) {
+                    return new SectionHeader64Bit(offset + (index * entrySize));
+                } else {
+                    return new SectionHeader32Bit(offset + (index * entrySize));
+                }
+            }
+
+            @Override
+            public int size() {
+                return entryCount;
+            }
+        };
+    }
+
+    private SymbolTable getSymbolTable() {
+        for (SectionHeader header : getSections()) {
+            if (header.getType() == SectionHeader.TYPE_DYNAMIC_SYMBOL_TABLE) {
+                return new SymbolTable(header);
+            }
+        }
+        throw new InvalidOatFileException("Oat file has no symbol table");
+    }
+
+    private StringTable getSectionNameStringTable() {
+        int index = readUshort(50);
+        if (index == 0) {
+            throw new InvalidOatFileException("There is no section name string table");
+        }
+
+        try {
+            return new StringTable(getSections().get(index));
+        } catch (IndexOutOfBoundsException ex) {
+            throw new InvalidOatFileException("The section index for the section name string table is invalid");
+        }
+    }
+
+
+    public interface VdexProvider {
+
+        byte[] getVdex();
+    }
+
+    public static class InvalidOatFileException extends RuntimeException {
+        public InvalidOatFileException(String message) {
+            super(message);
+        }
+    }
+
+    public static class NotAnOatFileException extends RuntimeException {
+        public NotAnOatFileException() {
+        }
+    }
+
+    public class OatDexFile extends DexBackedDexFile implements MultiDexContainer.MultiDexFile {
+        public final String filename;
+
+        public OatDexFile(byte[] buf, int offset, String filename) {
             super(opcodes, buf, offset);
             this.filename = filename;
         }
 
-         @Override public String getEntryName() {
+        @Override
+        public String getEntryName() {
             return filename;
         }
 
-         @Override public OatFile getContainer() {
+        @Override
+        public OatFile getContainer() {
             return OatFile.this;
         }
 
-        @Override public boolean hasOdexOpcodes() {
+        @Override
+        public boolean hasOdexOpcodes() {
             return true;
         }
     }
@@ -253,13 +339,13 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
         }
 
         public boolean isValid() {
-            for (int i=0; i<OAT_MAGIC.length; i++) {
+            for (int i = 0; i < OAT_MAGIC.length; i++) {
                 if (buf[headerOffset + i] != OAT_MAGIC[i]) {
                     return false;
                 }
             }
 
-            for (int i=4; i<7; i++) {
+            for (int i = 4; i < 7; i++) {
                 if (buf[headerOffset + i] < '0' || buf[headerOffset + i] > '9') {
                     return false;
                 }
@@ -288,11 +374,11 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
             if (getVersion() < MIN_OAT_VERSION) {
                 throw new IllegalStateException("Unsupported oat version");
             }
-            return 18*4 + getKeyValueStoreSize();
+            return 18 * 4 + getKeyValueStoreSize();
         }
 
 
-        public String getKeyValue( String key) {
+        public String getKeyValue(String key) {
             int size = getKeyValueStoreSize();
 
             int offset = headerOffset + 18 * 4;
@@ -330,105 +416,102 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
         }
     }
 
-
-    private List<SectionHeader> getSections() {
-        final int offset;
-        final int entrySize;
-        final int entryCount;
-        if (is64bit) {
-            offset = readLongAsSmallUint(40);
-            entrySize = readUshort(58);
-            entryCount = readUshort(60);
-        } else {
-            offset = readSmallUint(32);
-            entrySize = readUshort(46);
-            entryCount = readUshort(48);
-        }
-
-        if (offset + (entrySize * entryCount) > buf.length) {
-            throw new InvalidOatFileException("The ELF section headers extend past the end of the file");
-        }
-
-        return new AbstractList<SectionHeader>() {
-            @Override public SectionHeader get(int index) {
-                if (index < 0 || index >= entryCount) {
-                    throw new IndexOutOfBoundsException();
-                }
-                if (is64bit) {
-                    return new SectionHeader64Bit(offset + (index * entrySize));
-                } else {
-                    return new SectionHeader32Bit(offset + (index * entrySize));
-                }
-            }
-
-            @Override public int size() {
-                return entryCount;
-            }
-        };
-    }
-
-
-    private SymbolTable getSymbolTable() {
-        for (SectionHeader header: getSections()) {
-            if (header.getType() == SectionHeader.TYPE_DYNAMIC_SYMBOL_TABLE) {
-                return new SymbolTable(header);
-            }
-        }
-        throw new InvalidOatFileException("Oat file has no symbol table");
-    }
-
-
-    private StringTable getSectionNameStringTable() {
-        int index = readUshort(50);
-        if (index == 0) {
-            throw new InvalidOatFileException("There is no section name string table");
-        }
-
-        try {
-            return new StringTable(getSections().get(index));
-        } catch (IndexOutOfBoundsException ex) {
-            throw new InvalidOatFileException("The section index for the section name string table is invalid");
-        }
-    }
-
     private abstract class SectionHeader {
-        protected final int offset;
         public static final int TYPE_DYNAMIC_SYMBOL_TABLE = 11;
-        public SectionHeader(int offset) { this.offset = offset; }
-         public String getName() { return getSectionNameStringTable().getString(readSmallUint(offset)); }
-        public int getType() { return readInt(offset + 4); }
+        protected final int offset;
+
+        public SectionHeader(int offset) {
+            this.offset = offset;
+        }
+
+        public String getName() {
+            return getSectionNameStringTable().getString(readSmallUint(offset));
+        }
+
+        public int getType() {
+            return readInt(offset + 4);
+        }
+
         public abstract long getAddress();
+
         public abstract int getOffset();
+
         public abstract int getSize();
+
         public abstract int getLink();
+
         public abstract int getEntrySize();
     }
 
     private class SectionHeader32Bit extends SectionHeader {
-        public SectionHeader32Bit(int offset) { super(offset); }
-        @Override public long getAddress() { return readInt(offset + 12) & 0xFFFFFFFFL; }
-        @Override public int getOffset() { return readSmallUint(offset + 16); }
-        @Override public int getSize() { return readSmallUint(offset + 20); }
-        @Override public int getLink() { return readSmallUint(offset + 24); }
-        @Override public int getEntrySize() { return readSmallUint(offset + 36); }
+        public SectionHeader32Bit(int offset) {
+            super(offset);
+        }
+
+        @Override
+        public long getAddress() {
+            return readInt(offset + 12) & 0xFFFFFFFFL;
+        }
+
+        @Override
+        public int getOffset() {
+            return readSmallUint(offset + 16);
+        }
+
+        @Override
+        public int getSize() {
+            return readSmallUint(offset + 20);
+        }
+
+        @Override
+        public int getLink() {
+            return readSmallUint(offset + 24);
+        }
+
+        @Override
+        public int getEntrySize() {
+            return readSmallUint(offset + 36);
+        }
     }
 
     private class SectionHeader64Bit extends SectionHeader {
-        public SectionHeader64Bit(int offset) { super(offset); }
-        @Override public long getAddress() { return readLong(offset + 16); }
-        @Override public int getOffset() { return readLongAsSmallUint(offset + 24); }
-        @Override public int getSize() { return readLongAsSmallUint(offset + 32); }
-        @Override public int getLink() { return readSmallUint(offset + 40); }
-        @Override public int getEntrySize() { return readLongAsSmallUint(offset + 56); }
+        public SectionHeader64Bit(int offset) {
+            super(offset);
+        }
+
+        @Override
+        public long getAddress() {
+            return readLong(offset + 16);
+        }
+
+        @Override
+        public int getOffset() {
+            return readLongAsSmallUint(offset + 24);
+        }
+
+        @Override
+        public int getSize() {
+            return readLongAsSmallUint(offset + 32);
+        }
+
+        @Override
+        public int getLink() {
+            return readSmallUint(offset + 40);
+        }
+
+        @Override
+        public int getEntrySize() {
+            return readLongAsSmallUint(offset + 56);
+        }
     }
 
     class SymbolTable {
-         private final StringTable stringTable;
+        private final StringTable stringTable;
         private final int offset;
         private final int entryCount;
         private final int entrySize;
 
-        public SymbolTable( SectionHeader header) {
+        public SymbolTable(SectionHeader header) {
             try {
                 this.stringTable = new StringTable(getSections().get(header.getLink()));
             } catch (IndexOutOfBoundsException ex) {
@@ -446,7 +529,8 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
 
         public List<Symbol> getSymbols() {
             return new AbstractList<Symbol>() {
-                @Override public Symbol get(int index) {
+                @Override
+                public Symbol get(int index) {
                     if (index < 0 || index >= entryCount) {
                         throw new IndexOutOfBoundsException();
                     }
@@ -457,7 +541,8 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
                     }
                 }
 
-                @Override public int size() {
+                @Override
+                public int size() {
                     return entryCount;
                 }
             };
@@ -465,10 +550,17 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
 
         public abstract class Symbol {
             protected final int offset;
-            public Symbol(int offset) { this.offset = offset; }
-             public abstract String getName();
+
+            public Symbol(int offset) {
+                this.offset = offset;
+            }
+
+            public abstract String getName();
+
             public abstract long getValue();
+
             public abstract int getSize();
+
             public abstract int getSectionIndex();
 
             public int getFileOffset() {
@@ -491,28 +583,54 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
 
                 long fileOffset = (sectionOffset + (getValue() - sectionAddress));
                 assert fileOffset <= Integer.MAX_VALUE;
-                return (int)fileOffset;
+                return (int) fileOffset;
             }
         }
 
         public class Symbol32 extends Symbol {
-            public Symbol32(int offset) { super(offset); }
+            public Symbol32(int offset) {
+                super(offset);
+            }
 
 
-            public String getName() { return stringTable.getString(readSmallUint(offset)); }
-            public long getValue() { return readSmallUint(offset + 4); }
-            public int getSize() { return readSmallUint(offset + 8); }
-            public int getSectionIndex() { return readUshort(offset + 14); }
+            public String getName() {
+                return stringTable.getString(readSmallUint(offset));
+            }
+
+            public long getValue() {
+                return readSmallUint(offset + 4);
+            }
+
+            public int getSize() {
+                return readSmallUint(offset + 8);
+            }
+
+            public int getSectionIndex() {
+                return readUshort(offset + 14);
+            }
         }
 
         public class Symbol64 extends Symbol {
-            public Symbol64(int offset) { super(offset); }
+            public Symbol64(int offset) {
+                super(offset);
+            }
 
 
-            public String getName() { return stringTable.getString(readSmallUint(offset)); }
-            public long getValue() { return readLong(offset + 8); }
-            public int getSize() { return readLongAsSmallUint(offset + 16); }
-            public int getSectionIndex() { return readUshort(offset + 6); }
+            public String getName() {
+                return stringTable.getString(readSmallUint(offset));
+            }
+
+            public long getValue() {
+                return readLong(offset + 8);
+            }
+
+            public int getSize() {
+                return readLongAsSmallUint(offset + 16);
+            }
+
+            public int getSectionIndex() {
+                return readUshort(offset + 6);
+            }
         }
     }
 
@@ -520,7 +638,7 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
         private final int offset;
         private final int size;
 
-        public StringTable( SectionHeader header) {
+        public StringTable(SectionHeader header) {
             this.offset = header.getOffset();
             this.size = header.getSize();
 
@@ -544,7 +662,7 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
                 }
             }
 
-            return new String(buf, start, end-start, Charset.forName("US-ASCII"));
+            return new String(buf, start, end - start, Charset.forName("US-ASCII"));
         }
     }
 
@@ -569,11 +687,13 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
         int index = 0;
         int offset = oatHeader.getDexListStart();
 
-        @Override public boolean hasNext() {
+        @Override
+        public boolean hasNext() {
             return index < oatHeader.getDexFileCount();
         }
 
-        @Override public DexEntry next() {
+        @Override
+        public DexEntry next() {
             int filenameLength = readSmallUint(offset);
             offset += 4;
 
@@ -611,23 +731,9 @@ public class OatFile extends BaseDexBuffer implements MultiDexContainer<OatDexFi
             return new DexEntry(filename, buf, dexOffset);
         }
 
-        @Override public void remove() {
+        @Override
+        public void remove() {
             throw new UnsupportedOperationException();
         }
-    }
-
-    public static class InvalidOatFileException extends RuntimeException {
-        public InvalidOatFileException(String message) {
-            super(message);
-        }
-    }
-
-    public static class NotAnOatFileException extends RuntimeException {
-        public NotAnOatFileException() {}
-    }
-
-    public interface VdexProvider {
-
-        byte[] getVdex();
     }
 }

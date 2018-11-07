@@ -38,6 +38,9 @@ import java.io.IOException;
 import java.io.Writer;
 
 public final class ReferenceUtil {
+    private ReferenceUtil() {
+    }
+
     public static String getMethodDescriptor(MethodReference methodReference) {
         return getMethodDescriptor(methodReference, false);
     }
@@ -50,7 +53,7 @@ public final class ReferenceUtil {
         }
         sb.append(methodReference.getName());
         sb.append('(');
-        for (CharSequence paramType: methodReference.getParameterTypes()) {
+        for (CharSequence paramType : methodReference.getParameterTypes()) {
             sb.append(paramType);
         }
         sb.append(')');
@@ -81,7 +84,7 @@ public final class ReferenceUtil {
         }
         writer.write(methodReference.getName());
         writer.write('(');
-        for (CharSequence paramType: methodReference.getParameterTypes()) {
+        for (CharSequence paramType : methodReference.getParameterTypes()) {
             writer.write(paramType.toString());
         }
         writer.write(')');
@@ -127,35 +130,31 @@ public final class ReferenceUtil {
         writer.write(fieldReference.getType());
     }
 
-
-    public static String getReferenceString( Reference reference) {
+    public static String getReferenceString(Reference reference) {
         return getReferenceString(reference, null);
     }
 
-
-    public static String getReferenceString( Reference reference, String containingClass) {
+    public static String getReferenceString(Reference reference, String containingClass) {
         if (reference instanceof StringReference) {
-            return String.format("\"%s\"", StringUtils.escapeString(((StringReference)reference).getString()));
+            return String.format("\"%s\"", StringUtils.escapeString(((StringReference) reference).getString()));
         }
         if (reference instanceof TypeReference) {
-            return ((TypeReference)reference).getType();
+            return ((TypeReference) reference).getType();
         }
         if (reference instanceof FieldReference) {
-            FieldReference fieldReference = (FieldReference)reference;
+            FieldReference fieldReference = (FieldReference) reference;
             boolean useImplicitReference = fieldReference.getDefiningClass().equals(containingClass);
             return getFieldDescriptor(fieldReference, useImplicitReference);
         }
         if (reference instanceof MethodReference) {
-            MethodReference methodReference = (MethodReference)reference;
+            MethodReference methodReference = (MethodReference) reference;
             boolean useImplicitReference = methodReference.getDefiningClass().equals(containingClass);
             return getMethodDescriptor(methodReference, useImplicitReference);
         }
         if (reference instanceof MethodProtoReference) {
-            MethodProtoReference methodProtoReference = (MethodProtoReference)reference;
+            MethodProtoReference methodProtoReference = (MethodProtoReference) reference;
             return getMethodProtoDescriptor(methodProtoReference);
         }
         return null;
     }
-
-    private ReferenceUtil() {}
 }

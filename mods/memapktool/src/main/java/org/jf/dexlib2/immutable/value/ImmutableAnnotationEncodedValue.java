@@ -41,16 +41,16 @@ import org.jf.util.ImmutableUtils;
 import java.util.Collection;
 
 public class ImmutableAnnotationEncodedValue extends BaseAnnotationEncodedValue implements ImmutableEncodedValue {
-     protected final String type;
-     protected final ImmutableSet<? extends ImmutableAnnotationElement> elements;
+    protected final String type;
+    protected final ImmutableSet<? extends ImmutableAnnotationElement> elements;
 
-    public ImmutableAnnotationEncodedValue( String type,
+    public ImmutableAnnotationEncodedValue(String type,
                                            Collection<? extends AnnotationElement> elements) {
         this.type = type;
         this.elements = ImmutableAnnotationElement.immutableSetOf(elements);
     }
 
-    public ImmutableAnnotationEncodedValue( String type,
+    public ImmutableAnnotationEncodedValue(String type,
                                            ImmutableSet<? extends ImmutableAnnotationElement> elements) {
         this.type = type;
         this.elements = ImmutableUtils.nullToEmptySet(elements);
@@ -58,13 +58,20 @@ public class ImmutableAnnotationEncodedValue extends BaseAnnotationEncodedValue 
 
     public static ImmutableAnnotationEncodedValue of(AnnotationEncodedValue annotationEncodedValue) {
         if (annotationEncodedValue instanceof ImmutableAnnotationEncodedValue) {
-            return (ImmutableAnnotationEncodedValue)annotationEncodedValue;
+            return (ImmutableAnnotationEncodedValue) annotationEncodedValue;
         }
         return new ImmutableAnnotationEncodedValue(
                 annotationEncodedValue.getType(),
                 annotationEncodedValue.getElements());
     }
 
-     @Override public String getType() { return type; }
-     @Override public ImmutableSet<? extends ImmutableAnnotationElement> getElements() { return elements; }
+    @Override
+    public String getType() {
+        return type;
+    }
+
+    @Override
+    public ImmutableSet<? extends ImmutableAnnotationElement> getElements() {
+        return elements;
+    }
 }

@@ -35,30 +35,28 @@ import org.jf.dexlib2.iface.reference.FieldReference;
 import org.jf.dexlib2.util.ReferenceUtil;
 
 
-
-
 public abstract class BaseFieldReference implements FieldReference {
     @Override
     public int hashCode() {
         int hashCode = getDefiningClass().hashCode();
-        hashCode = hashCode*31 + getName().hashCode();
-        return hashCode*31 + getType().hashCode();
+        hashCode = hashCode * 31 + getName().hashCode();
+        return hashCode * 31 + getType().hashCode();
     }
 
     @Override
     public boolean equals(Object o) {
         if (o instanceof FieldReference) {
-            FieldReference other = (FieldReference)o;
+            FieldReference other = (FieldReference) o;
             return getDefiningClass().equals(other.getDefiningClass()) &&
-                   getName().equals(other.getName()) &&
-                   getType().equals(other.getType());
+                    getName().equals(other.getName()) &&
+                    getType().equals(other.getType());
 
         }
         return false;
     }
 
     @Override
-    public int compareTo( FieldReference o) {
+    public int compareTo(FieldReference o) {
         int res = getDefiningClass().compareTo(o.getDefiningClass());
         if (res != 0) return res;
         res = getName().compareTo(o.getName());
@@ -66,7 +64,8 @@ public abstract class BaseFieldReference implements FieldReference {
         return getType().compareTo(o.getType());
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return ReferenceUtil.getFieldDescriptor(this);
     }
 }

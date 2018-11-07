@@ -34,8 +34,6 @@ package org.jf.dexlib2.base.reference;
 import org.jf.dexlib2.iface.reference.StringReference;
 
 
-
-
 public abstract class BaseStringReference implements StringReference {
     @Override
     public int hashCode() {
@@ -45,18 +43,33 @@ public abstract class BaseStringReference implements StringReference {
     @Override
     public boolean equals(Object o) {
         if (o != null && o instanceof StringReference) {
-            return getString().equals(((StringReference)o).getString());
+            return getString().equals(((StringReference) o).getString());
         }
         return false;
     }
 
     @Override
-    public int compareTo( CharSequence o) {
+    public int compareTo(CharSequence o) {
         return getString().compareTo(o.toString());
     }
 
-    @Override public int length() { return getString().length(); }
-    @Override public char charAt(int index) { return getString().charAt(index); }
-    @Override public CharSequence subSequence(int start, int end) { return getString().subSequence(start, end); }
-    @Override  public String toString() { return getString(); }
+    @Override
+    public int length() {
+        return getString().length();
+    }
+
+    @Override
+    public char charAt(int index) {
+        return getString().charAt(index);
+    }
+
+    @Override
+    public CharSequence subSequence(int start, int end) {
+        return getString().subSequence(start, end);
+    }
+
+    @Override
+    public String toString() {
+        return getString();
+    }
 }

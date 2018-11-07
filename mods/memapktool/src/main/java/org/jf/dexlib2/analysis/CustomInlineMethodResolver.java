@@ -51,10 +51,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CustomInlineMethodResolver extends InlineMethodResolver {
-     private final ClassPath classPath;
-     private final Method[] inlineMethods;
+    private static final Pattern longMethodPattern = Pattern.compile("(L[^;]+;)->([^(]+)\\(([^)]*)\\)(.+)");
+    private final ClassPath classPath;
+    private final Method[] inlineMethods;
 
-    public CustomInlineMethodResolver( ClassPath classPath,  String inlineTable) {
+    public CustomInlineMethodResolver(ClassPath classPath, String inlineTable) {
         this.classPath = classPath;
 
         StringReader reader = new StringReader(inlineTable);
@@ -78,19 +79,19 @@ public class CustomInlineMethodResolver extends InlineMethodResolver {
 
         inlineMethods = new Method[lines.size()];
 
-        for (int i=0; i<inlineMethods.length; i++) {
+        for (int i = 0; i < inlineMethods.length; i++) {
             inlineMethods[i] = parseAndResolveInlineMethod(lines.get(i));
         }
     }
 
-    public CustomInlineMethodResolver( ClassPath classPath,  File inlineTable) throws IOException {
+    public CustomInlineMethodResolver(ClassPath classPath, File inlineTable) throws IOException {
         this(classPath, Files.toString(inlineTable, Charset.forName("UTF-8")));
     }
 
     @Override
 
-    public Method resolveExecuteInline( AnalyzedInstruction analyzedInstruction) {
-        InlineIndexInstruction instruction = (InlineIndexInstruction)analyzedInstruction.instruction;
+    public Method resolveExecuteInline(AnalyzedInstruction analyzedInstruction) {
+        InlineIndexInstruction instruction = (InlineIndexInstruction) analyzedInstruction.instruction;
         int methodIndex = instruction.getInlineIndex();
 
         if (methodIndex < 0 || methodIndex >= inlineMethods.length) {
@@ -99,10 +100,7 @@ public class CustomInlineMethodResolver extends InlineMethodResolver {
         return inlineMethods[methodIndex];
     }
 
-    private static final Pattern longMethodPattern = Pattern.compile("(L[^;]+;)->([^(]+)\\(([^)]*)\\)(.+)");
-
-
-    private Method parseAndResolveInlineMethod( String inlineMethod) {
+    private Method parseAndResolveInlineMethod(String inlineMethod) {
         Matcher m = longMethodPattern.matcher(inlineMethod);
         if (!m.matches()) {
             assert false;
@@ -121,8 +119,8 @@ public class CustomInlineMethodResolver extends InlineMethodResolver {
         boolean resolved = false;
         TypeProto typeProto = classPath.getClass(className);
         if (typeProto instanceof ClassProto) {
-            ClassDef classDef = ((ClassProto)typeProto).getClassDef();
-            for (Method method: classDef.getMethods()) {
+            ClassDef classDef = ((ClassProto) typeProto).getClassDef();
+            for (Method method : classDef.getMethods()) {
                 if (method.equals(methodRef)) {
                     resolved = true;
                     accessFlags = method.getAccessFlags();

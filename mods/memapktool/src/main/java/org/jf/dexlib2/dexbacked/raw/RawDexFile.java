@@ -43,14 +43,14 @@ import java.util.Arrays;
 import java.util.List;
 
 public class RawDexFile extends DexBackedDexFile {
-     public final HeaderItem headerItem;
+    public final HeaderItem headerItem;
 
-    public RawDexFile( Opcodes opcodes,  BaseDexBuffer buf) {
+    public RawDexFile(Opcodes opcodes, BaseDexBuffer buf) {
         super(opcodes, buf);
         this.headerItem = new HeaderItem(this);
     }
 
-    public RawDexFile( Opcodes opcodes,  byte[] buf) {
+    public RawDexFile(Opcodes opcodes, byte[] buf) {
         super(opcodes, buf);
         this.headerItem = new HeaderItem(this);
     }
@@ -66,7 +66,7 @@ public class RawDexFile extends DexBackedDexFile {
 
 
     public MapItem getMapItemForSection(int itemType) {
-        for (MapItem mapItem: getMapItems()) {
+        for (MapItem mapItem : getMapItems()) {
             if (mapItem.getType() == itemType) {
                 return mapItem;
             }
@@ -85,13 +85,14 @@ public class RawDexFile extends DexBackedDexFile {
                 return new MapItem(RawDexFile.this, mapItemOffset);
             }
 
-            @Override public int size() {
+            @Override
+            public int size() {
                 return mapSize;
             }
         };
     }
 
-    public void writeAnnotations( Writer out,  AnnotatedBytes annotatedBytes) throws IOException {
+    public void writeAnnotations(Writer out, AnnotatedBytes annotatedBytes) throws IOException {
         // TODO: need to pass in the offset
         annotatedBytes.writeAnnotations(out, getBuf());
     }

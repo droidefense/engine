@@ -44,14 +44,14 @@ import java.util.concurrent.ConcurrentMap;
 
 class BuilderProtoPool extends BaseBuilderPool
         implements ProtoSection<BuilderStringReference, BuilderTypeReference, BuilderMethodProtoReference, BuilderTypeList> {
-     private final ConcurrentMap<MethodProtoReference, BuilderMethodProtoReference> internedItems =
+    private final ConcurrentMap<MethodProtoReference, BuilderMethodProtoReference> internedItems =
             Maps.newConcurrentMap();
 
-    public BuilderProtoPool( DexBuilder dexBuilder) {
+    public BuilderProtoPool(DexBuilder dexBuilder) {
         super(dexBuilder);
     }
 
-     public BuilderMethodProtoReference internMethodProto( MethodProtoReference methodProto) {
+    public BuilderMethodProtoReference internMethodProto(MethodProtoReference methodProto) {
         BuilderMethodProtoReference ret = internedItems.get(methodProto);
         if (ret != null) {
             return ret;
@@ -63,37 +63,44 @@ class BuilderProtoPool extends BaseBuilderPool
                 dexBuilder.typeListSection.internTypeList(methodProto.getParameterTypes()),
                 dexBuilder.typeSection.internType(methodProto.getReturnType()));
         ret = internedItems.putIfAbsent(protoReference, protoReference);
-        return ret==null?protoReference:ret;
+        return ret == null ? protoReference : ret;
     }
 
-     public BuilderMethodProtoReference internMethodProto( MethodReference methodReference) {
+    public BuilderMethodProtoReference internMethodProto(MethodReference methodReference) {
         return internMethodProto(new ImmutableMethodProtoReference(
                 methodReference.getParameterTypes(), methodReference.getReturnType()));
     }
 
-     @Override public BuilderStringReference getShorty( BuilderMethodProtoReference proto) {
+    @Override
+    public BuilderStringReference getShorty(BuilderMethodProtoReference proto) {
         return proto.shorty;
     }
 
-     @Override public BuilderTypeReference getReturnType( BuilderMethodProtoReference proto) {
+    @Override
+    public BuilderTypeReference getReturnType(BuilderMethodProtoReference proto) {
         return proto.returnType;
     }
 
-    @Override public BuilderTypeList getParameters( BuilderMethodProtoReference proto) {
+    @Override
+    public BuilderTypeList getParameters(BuilderMethodProtoReference proto) {
         return proto.parameterTypes;
     }
 
-    @Override public int getItemIndex( BuilderMethodProtoReference proto) {
+    @Override
+    public int getItemIndex(BuilderMethodProtoReference proto) {
         return proto.getIndex();
     }
 
-     @Override public Collection<? extends Entry<? extends BuilderMethodProtoReference, Integer>> getItems() {
+    @Override
+    public Collection<? extends Entry<? extends BuilderMethodProtoReference, Integer>> getItems() {
         return new BuilderMapEntryCollection<BuilderMethodProtoReference>(internedItems.values()) {
-            @Override protected int getValue( BuilderMethodProtoReference key) {
+            @Override
+            protected int getValue(BuilderMethodProtoReference key) {
                 return key.index;
             }
 
-            @Override protected int setValue( BuilderMethodProtoReference key, int value) {
+            @Override
+            protected int setValue(BuilderMethodProtoReference key, int value) {
                 int prev = key.index;
                 key.index = value;
                 return prev;
@@ -101,7 +108,8 @@ class BuilderProtoPool extends BaseBuilderPool
         };
     }
 
-    @Override public int getItemCount() {
+    @Override
+    public int getItemCount() {
         return internedItems.size();
     }
 }

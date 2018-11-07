@@ -40,38 +40,43 @@ import org.jf.dexlib2.iface.instruction.Instruction;
 import java.util.List;
 
 public class MethodImplementationRewriter implements Rewriter<MethodImplementation> {
-     protected final Rewriters rewriters;
+    protected final Rewriters rewriters;
 
-    public MethodImplementationRewriter( Rewriters rewriters) {
+    public MethodImplementationRewriter(Rewriters rewriters) {
         this.rewriters = rewriters;
     }
 
-     @Override public MethodImplementation rewrite( MethodImplementation methodImplementation) {
+    @Override
+    public MethodImplementation rewrite(MethodImplementation methodImplementation) {
         return new RewrittenMethodImplementation(methodImplementation);
     }
 
     protected class RewrittenMethodImplementation implements MethodImplementation {
-         protected MethodImplementation methodImplementation;
+        protected MethodImplementation methodImplementation;
 
-        public RewrittenMethodImplementation( MethodImplementation methodImplementation) {
+        public RewrittenMethodImplementation(MethodImplementation methodImplementation) {
             this.methodImplementation = methodImplementation;
         }
 
-        @Override public int getRegisterCount() {
+        @Override
+        public int getRegisterCount() {
             return methodImplementation.getRegisterCount();
         }
 
-        @Override  public Iterable<? extends Instruction> getInstructions() {
+        @Override
+        public Iterable<? extends Instruction> getInstructions() {
             return RewriterUtils.rewriteIterable(rewriters.getInstructionRewriter(),
                     methodImplementation.getInstructions());
         }
 
-        @Override  public List<? extends TryBlock<? extends ExceptionHandler>> getTryBlocks() {
+        @Override
+        public List<? extends TryBlock<? extends ExceptionHandler>> getTryBlocks() {
             return RewriterUtils.rewriteList(rewriters.getTryBlockRewriter(),
                     methodImplementation.getTryBlocks());
         }
 
-        @Override  public Iterable<? extends DebugItem> getDebugItems() {
+        @Override
+        public Iterable<? extends DebugItem> getDebugItems() {
             return RewriterUtils.rewriteIterable(rewriters.getDebugItemRewriter(),
                     methodImplementation.getDebugItems());
         }

@@ -44,7 +44,7 @@ import java.util.List;
 public class BuilderPackedSwitchPayload extends BuilderSwitchPayload implements PackedSwitchPayload {
     public static final Opcode OPCODE = Opcode.PACKED_SWITCH_PAYLOAD;
 
-     protected final List<BuilderSwitchElement> switchElements;
+    protected final List<BuilderSwitchElement> switchElements;
 
     public BuilderPackedSwitchPayload(final int startKey,
                                       List<? extends Label> switchElements) {
@@ -54,14 +54,24 @@ public class BuilderPackedSwitchPayload extends BuilderSwitchPayload implements 
         } else {
             this.switchElements = Lists.newArrayList();
             int key = startKey;
-            for (Label target: switchElements) {
+            for (Label target : switchElements) {
                 this.switchElements.add(new BuilderSwitchElement(this, key++, target));
             }
         }
     }
 
-     @Override public List<BuilderSwitchElement> getSwitchElements() { return switchElements; }
+    @Override
+    public List<BuilderSwitchElement> getSwitchElements() {
+        return switchElements;
+    }
 
-    @Override public int getCodeUnits() { return 4 + switchElements.size() * 2; }
-    @Override public Format getFormat() { return OPCODE.format; }
+    @Override
+    public int getCodeUnits() {
+        return 4 + switchElements.size() * 2;
+    }
+
+    @Override
+    public Format getFormat() {
+        return OPCODE.format;
+    }
 }

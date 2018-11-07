@@ -38,19 +38,24 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction11x;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class BuilderInstruction11x extends BuilderInstruction implements Instruction11x {
     public static final Format FORMAT = Format.Format11x;
 
     protected final int registerA;
 
-    public BuilderInstruction11x( Opcode opcode,
+    public BuilderInstruction11x(Opcode opcode,
                                  int registerA) {
         super(opcode);
         this.registerA = Preconditions.checkByteRegister(registerA);
     }
 
-    @Override public int getRegisterA() { return registerA; }
+    @Override
+    public int getRegisterA() {
+        return registerA;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

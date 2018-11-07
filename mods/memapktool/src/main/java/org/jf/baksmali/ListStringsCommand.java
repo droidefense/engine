@@ -41,9 +41,9 @@ import java.util.List;
 @Parameters(commandDescription = "Lists the strings in a dex file's string table.")
 @ExtendedParameters(
         commandName = "strings",
-        commandAliases = { "string", "str", "s" })
+        commandAliases = {"string", "str", "s"})
 public class ListStringsCommand extends ListReferencesCommand {
-    public ListStringsCommand( List<JCommander> commandAncestors) {
+    public ListStringsCommand(List<JCommander> commandAncestors) {
         super(commandAncestors, ReferenceType.STRING);
     }
 }

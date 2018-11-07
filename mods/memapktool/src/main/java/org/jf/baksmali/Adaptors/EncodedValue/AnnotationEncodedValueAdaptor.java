@@ -37,8 +37,8 @@ import java.util.Collection;
 
 public abstract class AnnotationEncodedValueAdaptor {
 
-    public static void writeTo( IndentingWriter writer,
-                                AnnotationEncodedValue annotationEncodedValue,
+    public static void writeTo(IndentingWriter writer,
+                               AnnotationEncodedValue annotationEncodedValue,
                                String containingClass) throws IOException {
         writer.write(".subannotation ");
         writer.write(annotationEncodedValue.getType());
@@ -48,11 +48,11 @@ public abstract class AnnotationEncodedValueAdaptor {
         writer.write(".end subannotation");
     }
 
-    public static void writeElementsTo( IndentingWriter writer,
-                                        Collection<? extends AnnotationElement> annotationElements,
+    public static void writeElementsTo(IndentingWriter writer,
+                                       Collection<? extends AnnotationElement> annotationElements,
                                        String containingClass) throws IOException {
         writer.indent(4);
-        for (AnnotationElement annotationElement: annotationElements) {
+        for (AnnotationElement annotationElement : annotationElements) {
             writer.write(annotationElement.getName());
             writer.write(" = ");
             EncodedValueAdaptor.writeTo(writer, annotationElement.getValue(), containingClass);

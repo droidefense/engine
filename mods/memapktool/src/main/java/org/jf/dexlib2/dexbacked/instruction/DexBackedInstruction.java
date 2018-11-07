@@ -38,26 +38,20 @@ import org.jf.dexlib2.iface.instruction.Instruction;
 import org.jf.util.ExceptionWithContext;
 
 
-
-
 public abstract class DexBackedInstruction implements Instruction {
-     public final DexBackedDexFile dexFile;
-     public final Opcode opcode;
+    public final DexBackedDexFile dexFile;
+    public final Opcode opcode;
     public final int instructionStart;
 
-    public DexBackedInstruction( DexBackedDexFile dexFile,
-                                 Opcode opcode,
+    public DexBackedInstruction(DexBackedDexFile dexFile,
+                                Opcode opcode,
                                 int instructionStart) {
         this.dexFile = dexFile;
         this.opcode = opcode;
         this.instructionStart = instructionStart;
     }
 
-     public Opcode getOpcode() { return opcode; }
-    @Override public int getCodeUnits() { return opcode.format.size / 2; }
-
-
-    public static Instruction readFrom( DexReader reader) {
+    public static Instruction readFrom(DexReader reader) {
         int opcodeValue = reader.peekUbyte();
 
         if (opcodeValue == 0) {
@@ -67,11 +61,11 @@ public abstract class DexBackedInstruction implements Instruction {
         Opcode opcode = reader.dexBuf.getOpcodes().getOpcodeByValue(opcodeValue);
 
         Instruction instruction = buildInstruction(reader.dexBuf, opcode, reader.getOffset());
-        reader.moveRelative(instruction.getCodeUnits()*2);
+        reader.moveRelative(instruction.getCodeUnits() * 2);
         return instruction;
     }
-    
-    private static DexBackedInstruction buildInstruction( DexBackedDexFile dexFile, Opcode opcode,
+
+    private static DexBackedInstruction buildInstruction(DexBackedDexFile dexFile, Opcode opcode,
                                                          int instructionStartOffset) {
         if (opcode == null) {
             return new DexBackedUnknownInstruction(dexFile, instructionStartOffset);
@@ -152,5 +146,14 @@ public abstract class DexBackedInstruction implements Instruction {
             default:
                 throw new ExceptionWithContext("Unexpected opcode format: %s", opcode.format.toString());
         }
+    }
+
+    public Opcode getOpcode() {
+        return opcode;
+    }
+
+    @Override
+    public int getCodeUnits() {
+        return opcode.format.size / 2;
     }
 }

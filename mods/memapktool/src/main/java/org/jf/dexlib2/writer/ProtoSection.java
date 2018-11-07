@@ -32,10 +32,10 @@
 package org.jf.dexlib2.writer;
 
 
-
-
 public interface ProtoSection<StringKey, TypeKey, ProtoKey, TypeListKey> extends IndexSection<ProtoKey> {
-     StringKey getShorty( ProtoKey key);
-     TypeKey getReturnType( ProtoKey key);
-    TypeListKey getParameters( ProtoKey key);
+    StringKey getShorty(ProtoKey key);
+
+    TypeKey getReturnType(ProtoKey key);
+
+    TypeListKey getParameters(ProtoKey key);
 }

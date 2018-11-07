@@ -43,7 +43,7 @@ public interface MultiDexContainer<T extends DexFile> {
     /**
      * @return A list of the names of dex entries in this container
      */
-     List<String> getDexEntryNames() throws IOException;
+    List<String> getDexEntryNames() throws IOException;
 
     /**
      * Gets the dex entry with the given name
@@ -51,12 +51,12 @@ public interface MultiDexContainer<T extends DexFile> {
      * @param entryName The name of the entry
      * @return A DexFile, or null if no entry with that name is found
      */
-    T getEntry( String entryName) throws IOException;
+    T getEntry(String entryName) throws IOException;
 
     /**
      * @return the Opcodes instance associated with this MultiDexContainer
      */
-     Opcodes getOpcodes();
+    Opcodes getOpcodes();
 
     /**
      * This class represents a dex file that is contained in a MultiDexContainer
@@ -65,11 +65,11 @@ public interface MultiDexContainer<T extends DexFile> {
         /**
          * @return The name of this entry within its container
          */
-         String getEntryName();
+        String getEntryName();
 
         /**
          * @return The MultiDexContainer that contains this dex file
          */
-         MultiDexContainer<? extends MultiDexFile> getContainer();
+        MultiDexContainer<? extends MultiDexFile> getContainer();
     }
 }

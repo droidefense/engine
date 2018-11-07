@@ -296,7 +296,7 @@ public class DVMClass extends IDroidefenseClass implements Serializable {
                     dm.getName().equals("onBind") ||
                     dm.getName().equals("onStartCommand") ||
                     dm.getName().equals("onCreate")
-                    ) {
+            ) {
                 mains.add(dm);
             }
         }

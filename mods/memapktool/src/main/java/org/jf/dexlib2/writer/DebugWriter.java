@@ -37,15 +37,18 @@ import org.jf.util.ExceptionWithContext;
 import java.io.IOException;
 
 public class DebugWriter<StringKey extends CharSequence, TypeKey extends CharSequence> {
-     private final StringSection<StringKey, ?> stringSection;
-     private final TypeSection<StringKey, TypeKey, ?> typeSection;
-     private final DexDataWriter writer;
+    private static final int LINE_BASE = -4;
+    private static final int LINE_RANGE = 15;
+    private static final int FIRST_SPECIAL = 0x0a;
+    private final StringSection<StringKey, ?> stringSection;
+    private final TypeSection<StringKey, TypeKey, ?> typeSection;
+    private final DexDataWriter writer;
     private int currentAddress;
     private int currentLine;
 
-    DebugWriter( StringSection<StringKey, ?> stringSection,
-                 TypeSection<StringKey, TypeKey, ?> typeSection,
-                 DexDataWriter writer) {
+    DebugWriter(StringSection<StringKey, ?> stringSection,
+                TypeSection<StringKey, TypeKey, ?> typeSection,
+                DexDataWriter writer) {
         this.stringSection = stringSection;
         this.typeSection = typeSection;
         this.writer = writer;
@@ -149,12 +152,8 @@ public class DebugWriter<StringKey extends CharSequence, TypeKey extends CharSeq
         }
     }
 
-    private static final int LINE_BASE     = -4;
-    private static final int LINE_RANGE    = 15;
-    private static final int FIRST_SPECIAL = 0x0a;
-
     private void writeSpecialOpcode(int lineDelta, int addressDelta) throws IOException {
-        writer.write((byte)(FIRST_SPECIAL + (addressDelta * LINE_RANGE) + (lineDelta - LINE_BASE)));
+        writer.write((byte) (FIRST_SPECIAL + (addressDelta * LINE_RANGE) + (lineDelta - LINE_BASE)));
         currentLine += lineDelta;
         currentAddress += addressDelta;
     }

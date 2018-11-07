@@ -40,35 +40,63 @@ import org.jf.dexlib2.iface.reference.Reference;
 import java.util.List;
 
 public interface InstructionFactory<Ref extends Reference> {
-    Instruction makeInstruction10t( Opcode opcode, int codeOffset);
-    Instruction makeInstruction10x( Opcode opcode);
-    Instruction makeInstruction11n( Opcode opcode, int registerA, int literal);
-    Instruction makeInstruction11x( Opcode opcode, int registerA);
-    Instruction makeInstruction12x( Opcode opcode, int registerA, int registerB);
-    Instruction makeInstruction20bc( Opcode opcode, int verificationError,  Ref reference);
-    Instruction makeInstruction20t( Opcode opcode, int codeOffset);
-    Instruction makeInstruction21c( Opcode opcode, int registerA,  Ref reference);
-    Instruction makeInstruction21ih( Opcode opcode, int registerA, int literal);
-    Instruction makeInstruction21lh( Opcode opcode, int registerA, long literal);
-    Instruction makeInstruction21s( Opcode opcode, int registerA, int literal);
-    Instruction makeInstruction21t( Opcode opcode, int registerA, int codeOffset);
-    Instruction makeInstruction22b( Opcode opcode, int registerA, int registerB, int literal);
-    Instruction makeInstruction22c( Opcode opcode, int registerA, int registerB,  Ref reference);
-    Instruction makeInstruction22s( Opcode opcode, int registerA, int registerB, int literal);
-    Instruction makeInstruction22t( Opcode opcode, int registerA, int registerB, int codeOffset);
-    Instruction makeInstruction22x( Opcode opcode, int registerA, int registerB);
-    Instruction makeInstruction23x( Opcode opcode, int registerA, int registerB, int registerC);
-    Instruction makeInstruction30t( Opcode opcode, int codeOffset);
-    Instruction makeInstruction31c( Opcode opcode, int registerA,  Ref reference);
-    Instruction makeInstruction31i( Opcode opcode, int registerA, int literal);
-    Instruction makeInstruction31t( Opcode opcode, int registerA, int codeOffset);
-    Instruction makeInstruction32x( Opcode opcode, int registerA, int registerB);
-    Instruction makeInstruction35c( Opcode opcode, int registerCount, int registerC, int registerD, int registerE,
-                            int registerF, int registerG,  Ref reference);
-    Instruction makeInstruction3rc( Opcode opcode,  int startRegister, int registerCount,
-                             Ref reference);
-    Instruction makeInstruction51l( Opcode opcode, int registerA, long literal);
+    Instruction makeInstruction10t(Opcode opcode, int codeOffset);
+
+    Instruction makeInstruction10x(Opcode opcode);
+
+    Instruction makeInstruction11n(Opcode opcode, int registerA, int literal);
+
+    Instruction makeInstruction11x(Opcode opcode, int registerA);
+
+    Instruction makeInstruction12x(Opcode opcode, int registerA, int registerB);
+
+    Instruction makeInstruction20bc(Opcode opcode, int verificationError, Ref reference);
+
+    Instruction makeInstruction20t(Opcode opcode, int codeOffset);
+
+    Instruction makeInstruction21c(Opcode opcode, int registerA, Ref reference);
+
+    Instruction makeInstruction21ih(Opcode opcode, int registerA, int literal);
+
+    Instruction makeInstruction21lh(Opcode opcode, int registerA, long literal);
+
+    Instruction makeInstruction21s(Opcode opcode, int registerA, int literal);
+
+    Instruction makeInstruction21t(Opcode opcode, int registerA, int codeOffset);
+
+    Instruction makeInstruction22b(Opcode opcode, int registerA, int registerB, int literal);
+
+    Instruction makeInstruction22c(Opcode opcode, int registerA, int registerB, Ref reference);
+
+    Instruction makeInstruction22s(Opcode opcode, int registerA, int registerB, int literal);
+
+    Instruction makeInstruction22t(Opcode opcode, int registerA, int registerB, int codeOffset);
+
+    Instruction makeInstruction22x(Opcode opcode, int registerA, int registerB);
+
+    Instruction makeInstruction23x(Opcode opcode, int registerA, int registerB, int registerC);
+
+    Instruction makeInstruction30t(Opcode opcode, int codeOffset);
+
+    Instruction makeInstruction31c(Opcode opcode, int registerA, Ref reference);
+
+    Instruction makeInstruction31i(Opcode opcode, int registerA, int literal);
+
+    Instruction makeInstruction31t(Opcode opcode, int registerA, int codeOffset);
+
+    Instruction makeInstruction32x(Opcode opcode, int registerA, int registerB);
+
+    Instruction makeInstruction35c(Opcode opcode, int registerCount, int registerC, int registerD, int registerE,
+                                   int registerF, int registerG, Ref reference);
+
+    Instruction makeInstruction3rc(Opcode opcode, int startRegister, int registerCount,
+                                   Ref reference);
+
+    Instruction makeInstruction51l(Opcode opcode, int registerA, long literal);
+
     Instruction makeSparseSwitchPayload(List<? extends SwitchElement> switchElements);
+
     Instruction makePackedSwitchPayload(List<? extends SwitchElement> switchElements);
+
     Instruction makeArrayPayload(int elementWidth, List<Number> arrayElements);
 }

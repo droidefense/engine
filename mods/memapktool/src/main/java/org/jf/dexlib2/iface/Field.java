@@ -38,7 +38,7 @@ import java.util.Set;
 
 /**
  * This class represents a specific field definition in a class.
- *
+ * <p>
  * It also acts as a FieldReference to itself. Any equality/comparison is based on its identity as a FieldReference,
  * and shouldn't take into account any non-FieldReference specifics of this field.
  */
@@ -48,34 +48,38 @@ public interface Field extends FieldReference, Member {
      *
      * @return The type of the class that defines this field
      */
-    @Override  String getDefiningClass();
+    @Override
+    String getDefiningClass();
 
     /**
      * Gets the name of this field.
      *
      * @return The name of this field
      */
-    @Override  String getName();
+    @Override
+    String getName();
 
     /**
      * Gets the type of this field.
      *
      * @return The type of this field
      */
-    @Override  String getType();
+    @Override
+    String getType();
 
     /**
      * Gets the access flags for this field.
-     *
+     * <p>
      * This will be a combination of the AccessFlags.* flags that are marked as compatible for use with a field.
      *
      * @return The access flags for this field
      */
-    @Override int getAccessFlags();
+    @Override
+    int getAccessFlags();
 
     /**
      * Gets the initial value for this field, if available.
-     *
+     * <p>
      * Only static field may have an initial value set, but are not required to have an initial value.
      *
      * @return The initial value for this field, or null if this field is not a static field, or if this static field
@@ -85,10 +89,11 @@ public interface Field extends FieldReference, Member {
 
     /**
      * Gets a set of the annotations that are applied to this field.
-     *
+     * <p>
      * The annotations in the returned set are guaranteed to have unique types.
      *
      * @return A set of the annotations that are applied to this field
      */
-    @Override  Set<? extends Annotation> getAnnotations();
+    @Override
+    Set<? extends Annotation> getAnnotations();
 }

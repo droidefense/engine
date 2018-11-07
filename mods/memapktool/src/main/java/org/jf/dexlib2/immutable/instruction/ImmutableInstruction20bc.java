@@ -41,15 +41,14 @@ import org.jf.dexlib2.immutable.reference.ImmutableReferenceFactory;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class ImmutableInstruction20bc extends ImmutableInstruction implements Instruction20bc {
     public static final Format FORMAT = Format.Format20bc;
 
     protected final int verificationError;
-     protected final ImmutableReference reference;
+    protected final ImmutableReference reference;
 
-    public ImmutableInstruction20bc( Opcode opcode,
-                                   int verificationError,
+    public ImmutableInstruction20bc(Opcode opcode,
+                                    int verificationError,
                                     Reference reference) {
         super(opcode);
         this.verificationError = Preconditions.checkVerificationError(verificationError);
@@ -58,7 +57,7 @@ public class ImmutableInstruction20bc extends ImmutableInstruction implements In
 
     public static ImmutableInstruction20bc of(Instruction20bc instruction) {
         if (instruction instanceof ImmutableInstruction20bc) {
-            return (ImmutableInstruction20bc)instruction;
+            return (ImmutableInstruction20bc) instruction;
         }
         return new ImmutableInstruction20bc(
                 instruction.getOpcode(),
@@ -66,9 +65,23 @@ public class ImmutableInstruction20bc extends ImmutableInstruction implements In
                 instruction.getReference());
     }
 
-    @Override public int getVerificationError() { return verificationError; }
-     @Override public ImmutableReference getReference() { return reference; }
-    @Override public int getReferenceType() { return ReferenceType.getReferenceType(reference); }
+    @Override
+    public int getVerificationError() {
+        return verificationError;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public ImmutableReference getReference() {
+        return reference;
+    }
+
+    @Override
+    public int getReferenceType() {
+        return ReferenceType.getReferenceType(reference);
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

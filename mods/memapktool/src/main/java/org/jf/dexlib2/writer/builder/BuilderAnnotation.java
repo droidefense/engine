@@ -37,27 +37,30 @@ import org.jf.dexlib2.writer.DexWriter;
 import java.util.Set;
 
 class BuilderAnnotation extends BaseAnnotation {
+    final BuilderTypeReference type;
+    final Set<? extends BuilderAnnotationElement> elements;
     int visibility;
-     final BuilderTypeReference type;
-     final Set<? extends BuilderAnnotationElement> elements;
     int offset = DexWriter.NO_OFFSET;
 
-    public BuilderAnnotation(int visibility,  BuilderTypeReference type,
-                              Set<? extends BuilderAnnotationElement> elements) {
+    public BuilderAnnotation(int visibility, BuilderTypeReference type,
+                             Set<? extends BuilderAnnotationElement> elements) {
         this.visibility = visibility;
         this.type = type;
         this.elements = elements;
     }
 
-    @Override public int getVisibility() {
+    @Override
+    public int getVisibility() {
         return visibility;
     }
 
-     @Override public String getType() {
+    @Override
+    public String getType() {
         return type.getType();
     }
 
-     @Override public Set<? extends BuilderAnnotationElement> getElements() {
+    @Override
+    public Set<? extends BuilderAnnotationElement> getElements() {
         return elements;
     }
 }

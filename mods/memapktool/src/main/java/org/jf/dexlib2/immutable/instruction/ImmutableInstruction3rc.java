@@ -40,19 +40,18 @@ import org.jf.dexlib2.immutable.reference.ImmutableReferenceFactory;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class ImmutableInstruction3rc extends ImmutableInstruction implements Instruction3rc {
     public static final Format FORMAT = Format.Format3rc;
 
     protected final int startRegister;
     protected final int registerCount;
 
-     protected final ImmutableReference reference;
+    protected final ImmutableReference reference;
 
-    public ImmutableInstruction3rc( Opcode opcode,
+    public ImmutableInstruction3rc(Opcode opcode,
                                    int startRegister,
                                    int registerCount,
-                                    Reference reference) {
+                                   Reference reference) {
         super(opcode);
         this.startRegister = Preconditions.checkShortRegister(startRegister);
         this.registerCount = Preconditions.checkRegisterRangeCount(registerCount);
@@ -61,7 +60,7 @@ public class ImmutableInstruction3rc extends ImmutableInstruction implements Ins
 
     public static ImmutableInstruction3rc of(Instruction3rc instruction) {
         if (instruction instanceof ImmutableInstruction3rc) {
-            return (ImmutableInstruction3rc)instruction;
+            return (ImmutableInstruction3rc) instruction;
         }
         return new ImmutableInstruction3rc(
                 instruction.getOpcode(),
@@ -70,11 +69,29 @@ public class ImmutableInstruction3rc extends ImmutableInstruction implements Ins
                 instruction.getReference());
     }
 
-    @Override public int getStartRegister() { return startRegister; }
-    @Override public int getRegisterCount() { return registerCount; }
-     @Override public ImmutableReference getReference() { return reference; }
-    @Override public int getReferenceType() { return opcode.referenceType; }
+    @Override
+    public int getStartRegister() {
+        return startRegister;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public int getRegisterCount() {
+        return registerCount;
+    }
+
+    @Override
+    public ImmutableReference getReference() {
+        return reference;
+    }
+
+    @Override
+    public int getReferenceType() {
+        return opcode.referenceType;
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }
 

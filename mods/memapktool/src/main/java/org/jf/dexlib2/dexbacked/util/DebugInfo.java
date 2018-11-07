@@ -48,6 +48,14 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 public abstract class DebugInfo implements Iterable<DebugItem> {
+    public static DebugInfo newOrEmpty(DexBackedDexFile dexFile, int debugInfoOffset,
+                                       DexBackedMethodImplementation methodImpl) {
+        if (debugInfoOffset == 0) {
+            return EmptyDebugInfo.INSTANCE;
+        }
+        return new DebugInfoImpl(dexFile, debugInfoOffset, methodImpl);
+    }
+
     /**
      * Gets an iterator that yields the parameter names from the debug_info_item
      *
@@ -55,7 +63,7 @@ public abstract class DebugInfo implements Iterable<DebugItem> {
      *               field, and will
      * @return An iterator that yields the parameter names as strings
      */
-     public abstract Iterator<String> getParameterNames(DexReader reader);
+    public abstract Iterator<String> getParameterNames(DexReader reader);
 
     /**
      * Calculate and return the private size of debuginfo.
@@ -64,23 +72,19 @@ public abstract class DebugInfo implements Iterable<DebugItem> {
      */
     public abstract int getSize();
 
-    public static DebugInfo newOrEmpty( DexBackedDexFile dexFile, int debugInfoOffset,
-                                        DexBackedMethodImplementation methodImpl) {
-        if (debugInfoOffset == 0) {
-            return EmptyDebugInfo.INSTANCE;
-        }
-        return new DebugInfoImpl(dexFile, debugInfoOffset, methodImpl);
-    }
-
     private static class EmptyDebugInfo extends DebugInfo {
         public static final EmptyDebugInfo INSTANCE = new EmptyDebugInfo();
-        private EmptyDebugInfo() {}
 
-         @Override public Iterator<DebugItem> iterator() {
+        private EmptyDebugInfo() {
+        }
+
+        @Override
+        public Iterator<DebugItem> iterator() {
             return ImmutableSet.<DebugItem>of().iterator();
         }
 
-         @Override public Iterator<String> getParameterNames(DexReader reader) {
+        @Override
+        public Iterator<String> getParameterNames(DexReader reader) {
             return ImmutableSet.<String>of().iterator();
         }
 
@@ -91,24 +95,33 @@ public abstract class DebugInfo implements Iterable<DebugItem> {
     }
 
     private static class DebugInfoImpl extends DebugInfo {
-         public final DexBackedDexFile dexFile;
-        private final int debugInfoOffset;
-         private final DexBackedMethodImplementation methodImpl;
+        private static final LocalInfo EMPTY_LOCAL_INFO = new LocalInfo() {
+            @Override
+            public String getName() {
+                return null;
+            }
 
-        public DebugInfoImpl( DexBackedDexFile dexFile,
-                         int debugInfoOffset,
-                          DexBackedMethodImplementation methodImpl) {
+            @Override
+            public String getType() {
+                return null;
+            }
+
+            @Override
+            public String getSignature() {
+                return null;
+            }
+        };
+        public final DexBackedDexFile dexFile;
+        private final int debugInfoOffset;
+        private final DexBackedMethodImplementation methodImpl;
+
+        public DebugInfoImpl(DexBackedDexFile dexFile,
+                             int debugInfoOffset,
+                             DexBackedMethodImplementation methodImpl) {
             this.dexFile = dexFile;
             this.debugInfoOffset = debugInfoOffset;
             this.methodImpl = methodImpl;
         }
-
-        private static final LocalInfo EMPTY_LOCAL_INFO = new LocalInfo() {
-            @Override public String getName() { return null; }
-            @Override public String getType() { return null; }
-            @Override public String getSignature() { return null; }
-        };
-
 
         @Override
         public Iterator<DebugItem> iterator() {
@@ -136,9 +149,20 @@ public abstract class DebugInfo implements Iterable<DebugItem> {
             if (!AccessFlags.STATIC.isSet(methodImpl.method.getAccessFlags())) {
                 // add the local info for the "this" parameter
                 locals[parameterIndex++] = new LocalInfo() {
-                    @Override public String getName() { return "this"; }
-                    @Override public String getType() { return methodImpl.method.getDefiningClass(); }
-                    @Override public String getSignature() { return null; }
+                    @Override
+                    public String getName() {
+                        return "this";
+                    }
+
+                    @Override
+                    public String getType() {
+                        return methodImpl.method.getDefiningClass();
+                    }
+
+                    @Override
+                    public String getSignature() {
+                        return null;
+                    }
                 };
             }
             while (parameterIterator.hasNext()) {
@@ -147,8 +171,8 @@ public abstract class DebugInfo implements Iterable<DebugItem> {
 
             if (parameterIndex < registerCount) {
                 // now, we push the parameter locals back to their appropriate register, starting from the end
-                int localIndex = registerCount-1;
-                while(--parameterIndex > -1) {
+                int localIndex = registerCount - 1;
+                while (--parameterIndex > -1) {
                     LocalInfo currentLocal = locals[parameterIndex];
                     String type = currentLocal.getType();
                     if (type != null && (type.equals("J") || type.equals("D"))) {
@@ -169,7 +193,7 @@ public abstract class DebugInfo implements Iterable<DebugItem> {
                 private int lineNumber = lineNumberStart;
 
 
-                protected DebugItem readNextItem( DexReader reader) {
+                protected DebugItem readNextItem(DexReader reader) {
                     while (true) {
                         int next = reader.readUbyte();
                         switch (next) {
@@ -284,7 +308,8 @@ public abstract class DebugInfo implements Iterable<DebugItem> {
             //TODO: make sure dalvik doesn't allow more parameter names than we have parameters
             final int parameterNameCount = reader.readSmallUleb128();
             return new VariableSizeIterator<String>(reader, parameterNameCount) {
-                @Override protected String readNextItem( DexReader reader, int index) {
+                @Override
+                protected String readNextItem(DexReader reader, int index) {
                     return dexFile.getOptionalString(reader.readSmallUleb128() - 1);
                 }
             };
@@ -293,7 +318,7 @@ public abstract class DebugInfo implements Iterable<DebugItem> {
         @Override
         public int getSize() {
             Iterator<DebugItem> iter = iterator();
-            while(iter.hasNext()) {
+            while (iter.hasNext()) {
                 iter.next();
             }
             return ((VariableSizeLookaheadIterator) iter).getReaderOffset() - debugInfoOffset;

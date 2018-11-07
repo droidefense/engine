@@ -36,18 +36,24 @@ import org.jf.dexlib2.dexbacked.value.DexBackedEncodedValue;
 import org.jf.dexlib2.iface.value.EncodedValue;
 
 
-
 public class DexBackedAnnotationElement extends BaseAnnotationElement {
-     private final DexBackedDexFile dexFile;
     public final int nameIndex;
-     public final EncodedValue value;
+    public final EncodedValue value;
+    private final DexBackedDexFile dexFile;
 
-    public DexBackedAnnotationElement( DexReader reader) {
+    public DexBackedAnnotationElement(DexReader reader) {
         this.dexFile = reader.dexBuf;
         this.nameIndex = reader.readSmallUleb128();
         this.value = DexBackedEncodedValue.readFrom(reader);
     }
 
-     @Override public String getName() { return dexFile.getString(nameIndex); }
-     @Override public EncodedValue getValue() { return value; }
+    @Override
+    public String getName() {
+        return dexFile.getString(nameIndex);
+    }
+
+    @Override
+    public EncodedValue getValue() {
+        return value;
+    }
 }

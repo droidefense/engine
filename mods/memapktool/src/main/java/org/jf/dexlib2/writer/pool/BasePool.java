@@ -37,11 +37,11 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class BasePool<Key, Value> implements Markable {
-     protected final DexPool dexPool;
-     protected final Map<Key, Value> internedItems = Maps.newLinkedHashMap();
+    protected final DexPool dexPool;
+    protected final Map<Key, Value> internedItems = Maps.newLinkedHashMap();
     private int markedItemCount = -1;
 
-    public BasePool( DexPool dexPool) {
+    public BasePool(DexPool dexPool) {
         this.dexPool = dexPool;
     }
 
@@ -59,7 +59,7 @@ public class BasePool<Key, Value> implements Markable {
         }
 
         Iterator<Key> keys = internedItems.keySet().iterator();
-        for (int i=0; i<markedItemCount; i++) {
+        for (int i = 0; i < markedItemCount; i++) {
             keys.next();
         }
         while (keys.hasNext()) {

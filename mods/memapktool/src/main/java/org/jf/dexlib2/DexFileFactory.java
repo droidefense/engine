@@ -56,28 +56,30 @@ import java.util.List;
 public final class DexFileFactory {
 
 
-    public static DexBackedDexFile loadDexFile( String path,  Opcodes opcodes) throws IOException {
+    private DexFileFactory() {
+    }
+
+    public static DexBackedDexFile loadDexFile(String path, Opcodes opcodes) throws IOException {
         return loadDexFile(new File(path), opcodes);
     }
 
     /**
      * Loads a dex/apk/odex/oat file.
-     *
+     * <p>
      * For oat files with multiple dex files, the first will be opened. For zip/apk files, the "classes.dex" entry
      * will be opened.
      *
-     * @param file The file to open
+     * @param file    The file to open
      * @param opcodes The set of opcodes to use
      * @return A DexBackedDexFile for the given file
-     *
      * @throws UnsupportedOatVersionException If file refers to an unsupported oat file
-     * @throws DexFileNotFoundException If file does not exist, if file is a zip file but does not have a "classes.dex"
-     * entry, or if file is an oat file that has no dex entries.
-     * @throws UnsupportedFileTypeException If file is not a valid dex/zip/odex/oat file, or if the "classes.dex" entry
-     * in a zip file is not a valid dex file
+     * @throws DexFileNotFoundException       If file does not exist, if file is a zip file but does not have a "classes.dex"
+     *                                        entry, or if file is an oat file that has no dex entries.
+     * @throws UnsupportedFileTypeException   If file is not a valid dex/zip/odex/oat file, or if the "classes.dex" entry
+     *                                        in a zip file is not a valid dex file
      */
 
-    public static DexBackedDexFile loadDexFile( File file,  Opcodes opcodes) throws IOException {
+    public static DexBackedDexFile loadDexFile(File file, Opcodes opcodes) throws IOException {
         if (!file.exists()) {
             throw new DexFileNotFoundException("%s does not exist", file.getName());
         }
@@ -135,46 +137,45 @@ public final class DexFileFactory {
 
     /**
      * Loads a dex entry from a container format (zip/oat)
-     *
+     * <p>
      * This has two modes of operation, depending on the exactMatch parameter. When exactMatch is true, it will only
      * load an entry whose name exactly matches that provided by the dexEntry parameter.
-     *
+     * <p>
      * When exactMatch is false, then it will search for any entry that dexEntry is a path suffix of. "path suffix"
      * meaning all the path components in dexEntry must fully match the corresponding path components in the entry name,
      * but some path components at the beginning of entry name can be missing.
-     *
+     * <p>
      * For example, if an oat file contains a "/system/framework/framework.jar:classes2.dex" entry, then the following
      * will match (not an exhaustive list):
-     *
+     * <p>
      * "/system/framework/framework.jar:classes2.dex"
      * "system/framework/framework.jar:classes2.dex"
      * "framework/framework.jar:classes2.dex"
      * "framework.jar:classes2.dex"
      * "classes2.dex"
-     *
+     * <p>
      * Note that partial path components specifically don't match. So something like "work/framework.jar:classes2.dex"
      * would not match.
-     *
+     * <p>
      * If dexEntry contains an initial slash, it will be ignored for purposes of this suffix match -- but not when
      * performing an exact match.
-     *
+     * <p>
      * If multiple entries match the given dexEntry, a MultipleMatchingDexEntriesException will be thrown
      *
-     * @param file The container file. This must be either a zip (apk) file or an oat file.
-     * @param dexEntry The name of the entry to load. This can either be the exact entry name, if exactMatch is true,
-     *                 or it can be a path suffix.
+     * @param file       The container file. This must be either a zip (apk) file or an oat file.
+     * @param dexEntry   The name of the entry to load. This can either be the exact entry name, if exactMatch is true,
+     *                   or it can be a path suffix.
      * @param exactMatch If true, dexE
-     * @param opcodes The set of opcodes to use
+     * @param opcodes    The set of opcodes to use
      * @return A DexBackedDexFile for the given entry
-     *
-     * @throws UnsupportedOatVersionException If file refers to an unsupported oat file
-     * @throws DexFileNotFoundException If the file does not exist, or if no matching entry could be found
-     * @throws UnsupportedFileTypeException If file is not a valid zip/oat file, or if the matching entry is not a
-     * valid dex file
+     * @throws UnsupportedOatVersionException      If file refers to an unsupported oat file
+     * @throws DexFileNotFoundException            If the file does not exist, or if no matching entry could be found
+     * @throws UnsupportedFileTypeException        If file is not a valid zip/oat file, or if the matching entry is not a
+     *                                             valid dex file
      * @throws MultipleMatchingDexEntriesException If multiple entries match the given dexEntry
      */
-    public static DexBackedDexFile loadDexEntry( File file,  String dexEntry,
-                                                boolean exactMatch,  Opcodes opcodes) throws IOException {
+    public static DexBackedDexFile loadDexEntry(File file, String dexEntry,
+                                                boolean exactMatch, Opcodes opcodes) throws IOException {
         if (!file.exists()) {
             throw new DexFileNotFoundException("Container file %s does not exist", file.getName());
         }
@@ -217,18 +218,18 @@ public final class DexFileFactory {
 
     /**
      * Loads a file containing 1 or more dex files
-     *
+     * <p>
      * If the given file is a dex or odex file, it will return a MultiDexContainer containing that single entry.
      * Otherwise, for an oat or zip file, it will return an OatFile or ZipDexContainer respectively.
      *
-     * @param file The file to open
+     * @param file    The file to open
      * @param opcodes The set of opcodes to use
      * @return A MultiDexContainer
-     * @throws DexFileNotFoundException If the given file does not exist
+     * @throws DexFileNotFoundException     If the given file does not exist
      * @throws UnsupportedFileTypeException If the given file is not a valid dex/zip/odex/oat file
      */
     public static MultiDexContainer<? extends DexBackedDexFile> loadDexContainer(
-             File file,  final Opcodes opcodes) throws IOException {
+            File file, final Opcodes opcodes) throws IOException {
         if (!file.exists()) {
             throw new DexFileNotFoundException("%s does not exist", file.getName());
         }
@@ -281,46 +282,17 @@ public final class DexFileFactory {
     /**
      * Writes a DexFile out to disk
      *
-     * @param path The path to write the dex file to
+     * @param path    The path to write the dex file to
      * @param dexFile a DexFile to write
      */
-    public static void writeDexFile( String path,  DexFile dexFile) throws IOException {
+    public static void writeDexFile(String path, DexFile dexFile) throws IOException {
         DexPool.writeTo(path, dexFile);
-    }
-
-    private DexFileFactory() {}
-
-    public static class DexFileNotFoundException extends ExceptionWithContext {
-        public DexFileNotFoundException(String message, Object... formatArgs) {
-            super(message, formatArgs);
-        }
-    }
-
-    public static class UnsupportedOatVersionException extends ExceptionWithContext {
-         public final OatFile oatFile;
-
-        public UnsupportedOatVersionException( OatFile oatFile) {
-            super("Unsupported oat version: %d", oatFile.getOatVersion());
-            this.oatFile = oatFile;
-        }
-    }
-
-    public static class MultipleMatchingDexEntriesException extends ExceptionWithContext {
-        public MultipleMatchingDexEntriesException( String message, Object... formatArgs) {
-            super(String.format(message, formatArgs));
-        }
-    }
-
-    public static class UnsupportedFileTypeException extends ExceptionWithContext {
-        public UnsupportedFileTypeException( String message, Object... formatArgs) {
-            super(String.format(message, formatArgs));
-        }
     }
 
     /**
      * Matches two entries fully, ignoring any initial slash, if any
      */
-    private static boolean fullEntryMatch( String entry,  String targetEntry) {
+    private static boolean fullEntryMatch(String entry, String targetEntry) {
         if (entry.equals(targetEntry)) {
             return true;
         }
@@ -338,10 +310,10 @@ public final class DexFileFactory {
 
     /**
      * Performs a partial match against entry and targetEntry.
-     *
+     * <p>
      * This is considered a partial match if targetEntry is a suffix of entry, and if the suffix starts
      * on a path "part" (ignoring the initial separator, if any). Both '/' and ':' are considered separators for this.
-     *
+     * <p>
      * So entry="/blah/blah/something.dex" and targetEntry="lah/something.dex" shouldn't match, but
      * both targetEntry="blah/something.dex" and "/blah/something.dex" should match.
      */
@@ -363,18 +335,45 @@ public final class DexFileFactory {
         return firstTargetChar == ':' || firstTargetChar == '/' || precedingChar == ':' || precedingChar == '/';
     }
 
+    public static class DexFileNotFoundException extends ExceptionWithContext {
+        public DexFileNotFoundException(String message, Object... formatArgs) {
+            super(message, formatArgs);
+        }
+    }
+
+    public static class UnsupportedOatVersionException extends ExceptionWithContext {
+        public final OatFile oatFile;
+
+        public UnsupportedOatVersionException(OatFile oatFile) {
+            super("Unsupported oat version: %d", oatFile.getOatVersion());
+            this.oatFile = oatFile;
+        }
+    }
+
+    public static class MultipleMatchingDexEntriesException extends ExceptionWithContext {
+        public MultipleMatchingDexEntriesException(String message, Object... formatArgs) {
+            super(String.format(message, formatArgs));
+        }
+    }
+
+    public static class UnsupportedFileTypeException extends ExceptionWithContext {
+        public UnsupportedFileTypeException(String message, Object... formatArgs) {
+            super(String.format(message, formatArgs));
+        }
+    }
+
     protected static class DexEntryFinder {
         private final String filename;
         private final MultiDexContainer<? extends DexBackedDexFile> dexContainer;
 
-        public DexEntryFinder( String filename,
-                               MultiDexContainer<? extends DexBackedDexFile> dexContainer) {
+        public DexEntryFinder(String filename,
+                              MultiDexContainer<? extends DexBackedDexFile> dexContainer) {
             this.filename = filename;
             this.dexContainer = dexContainer;
         }
 
 
-        public DexBackedDexFile findEntry( String targetEntry, boolean exactMatch) throws IOException {
+        public DexBackedDexFile findEntry(String targetEntry, boolean exactMatch) throws IOException {
             if (exactMatch) {
                 try {
                     DexBackedDexFile dexFile = dexContainer.getEntry(targetEntry);
@@ -392,7 +391,7 @@ public final class DexFileFactory {
             List<DexBackedDexFile> fullEntries = Lists.newArrayList();
             List<String> partialMatches = Lists.newArrayList();
             List<DexBackedDexFile> partialEntries = Lists.newArrayList();
-            for (String entry: dexContainer.getDexEntryNames()) {
+            for (String entry : dexContainer.getDexEntryNames()) {
                 if (fullEntryMatch(entry, targetEntry)) {
                     // We want to grab all full matches, regardless of whether they're actually a dex file.
                     fullMatches.add(entry);
@@ -439,23 +438,26 @@ public final class DexFileFactory {
         private final String entryName;
         private final DexBackedDexFile dexFile;
 
-        public SingletonMultiDexContainer( String entryName,  DexBackedDexFile dexFile) {
+        public SingletonMultiDexContainer(String entryName, DexBackedDexFile dexFile) {
             this.entryName = entryName;
             this.dexFile = dexFile;
         }
 
-         @Override public List<String> getDexEntryNames() throws IOException {
+        @Override
+        public List<String> getDexEntryNames() throws IOException {
             return ImmutableList.of(entryName);
         }
 
-        @Override public DexBackedDexFile getEntry( String entryName) throws IOException {
+        @Override
+        public DexBackedDexFile getEntry(String entryName) throws IOException {
             if (entryName.equals(this.entryName)) {
                 return dexFile;
             }
             return null;
         }
 
-         @Override public Opcodes getOpcodes() {
+        @Override
+        public Opcodes getOpcodes() {
             return dexFile.getOpcodes();
         }
     }
@@ -473,7 +475,8 @@ public final class DexFileFactory {
             vdexFile = new File(oatParent, baseName + ".vdex");
         }
 
-        @Override public byte[] getVdex() {
+        @Override
+        public byte[] getVdex() {
             if (!loadedVdex) {
                 if (vdexFile.exists()) {
                     try {

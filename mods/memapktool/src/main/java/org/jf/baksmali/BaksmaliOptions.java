@@ -47,8 +47,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BaksmaliOptions {
+    // register info values
+    public static final int ALL = 1;
+    public static final int ALLPRE = 2;
+    public static final int ALLPOST = 4;
+    public static final int ARGS = 8;
+    public static final int DEST = 16;
+    public static final int MERGE = 32;
+    public static final int FULLMERGE = 64;
     public int apiLevel = 15;
-
     public boolean parameterRegisters = true;
     public boolean localsDirective = false;
     public boolean sequentialLabels = false;
@@ -59,19 +66,9 @@ public class BaksmaliOptions {
     public boolean deodex = false;
     public boolean implicitReferences = false;
     public boolean normalizeVirtualMethods = false;
-
-    // register info values
-    public static final int ALL = 1;
-    public static final int ALLPRE = 2;
-    public static final int ALLPOST = 4;
-    public static final int ARGS = 8;
-    public static final int DEST = 16;
-    public static final int MERGE = 32;
-    public static final int FULLMERGE = 64;
-
     public int registerInfo = 0;
 
-    public Map<Integer,String> resourceIds = new HashMap<Integer,String>();
+    public Map<Integer, String> resourceIds = new HashMap<Integer, String>();
     public InlineMethodResolver inlineResolver = null;
     public ClassPath classPath = null;
     public SyntheticAccessorResolver syntheticAccessorResolver = null;
@@ -82,7 +79,7 @@ public class BaksmaliOptions {
      * @param resourceFiles A map of resource prefixes -> public.xml files
      */
     public void loadResourceIds(Map<String, File> resourceFiles) throws SAXException, IOException {
-        for (Map.Entry<String, File> entry: resourceFiles.entrySet()) {
+        for (Map.Entry<String, File> entry : resourceFiles.entrySet()) {
             try {
                 SAXParser saxp = SAXParserFactory.newInstance().newSAXParser();
                 final String prefix = entry.getKey();

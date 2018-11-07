@@ -38,15 +38,15 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction3rc;
 import org.jf.dexlib2.iface.reference.Reference;
 
 
-
 public class DexBackedInstruction3rc extends DexBackedInstruction implements Instruction3rc {
-    public DexBackedInstruction3rc( DexBackedDexFile dexFile,
-                                    Opcode opcode,
+    public DexBackedInstruction3rc(DexBackedDexFile dexFile,
+                                   Opcode opcode,
                                    int instructionStart) {
         super(dexFile, opcode, instructionStart);
     }
 
-    @Override public int getRegisterCount() {
+    @Override
+    public int getRegisterCount() {
         return dexFile.readUbyte(instructionStart + 1);
     }
 

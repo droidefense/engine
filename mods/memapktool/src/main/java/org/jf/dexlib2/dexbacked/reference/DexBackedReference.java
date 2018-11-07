@@ -37,9 +37,8 @@ import org.jf.dexlib2.iface.reference.Reference;
 import org.jf.util.ExceptionWithContext;
 
 
-
 public abstract class DexBackedReference {
-    public static Reference makeReference( DexBackedDexFile dexFile, int referenceType, int referenceIndex) {
+    public static Reference makeReference(DexBackedDexFile dexFile, int referenceType, int referenceIndex) {
         switch (referenceType) {
             case ReferenceType.STRING:
                 return new DexBackedStringReference(dexFile, referenceIndex);

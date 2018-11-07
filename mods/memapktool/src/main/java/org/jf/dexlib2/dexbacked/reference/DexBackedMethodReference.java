@@ -42,11 +42,11 @@ import org.jf.dexlib2.dexbacked.util.FixedSizeList;
 import java.util.List;
 
 public class DexBackedMethodReference extends BaseMethodReference {
-     public final DexBackedDexFile dexFile;
+    public final DexBackedDexFile dexFile;
     public final int methodIdItemOffset;
     private int protoIdItemOffset;
 
-    public DexBackedMethodReference( DexBackedDexFile dexFile, int methodIndex) {
+    public DexBackedMethodReference(DexBackedDexFile dexFile, int methodIndex) {
         this.dexFile = dexFile;
         this.methodIdItemOffset = dexFile.getMethodIdItemOffset(methodIndex);
     }
@@ -75,9 +75,13 @@ public class DexBackedMethodReference extends BaseMethodReference {
 
                 @Override
                 public String readItem(final int index) {
-                    return dexFile.getType(dexFile.readUshort(paramListStart + 2*index));
+                    return dexFile.getType(dexFile.readUshort(paramListStart + 2 * index));
                 }
-                @Override public int size() { return parameterCount; }
+
+                @Override
+                public int size() {
+                    return parameterCount;
+                }
             };
         }
         return ImmutableList.of();
@@ -100,7 +104,7 @@ public class DexBackedMethodReference extends BaseMethodReference {
 
     /**
      * Calculate and return the private size of a method reference.
-     *
+     * <p>
      * Calculated as: class_idx + proto_idx + name_idx + prototype size
      *
      * @return size in bytes
@@ -108,7 +112,7 @@ public class DexBackedMethodReference extends BaseMethodReference {
     public int getSize() {
         int size = MethodIdItem.ITEM_SIZE; //ushort + ushort + uint for indices
         DexBackedMethodProtoReference protoRef = new DexBackedMethodProtoReference(dexFile,
-            dexFile.readUshort(methodIdItemOffset + MethodIdItem.PROTO_OFFSET));
+                dexFile.readUshort(methodIdItemOffset + MethodIdItem.PROTO_OFFSET));
         size += protoRef.getSize();
         return size;
     }

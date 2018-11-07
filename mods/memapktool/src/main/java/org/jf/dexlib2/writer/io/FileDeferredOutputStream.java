@@ -10,20 +10,36 @@ import java.io.*;
 public class FileDeferredOutputStream extends DeferredOutputStream {
     private static final int DEFAULT_BUFFER_SIZE = 4 * 1024;
 
-     private final File backingFile;
-     private final NakedBufferedOutputStream output;
+    private final File backingFile;
+    private final NakedBufferedOutputStream output;
     private int writtenBytes;
 
-    public FileDeferredOutputStream( File backingFile) throws FileNotFoundException {
+    public FileDeferredOutputStream(File backingFile) throws FileNotFoundException {
         this(backingFile, DEFAULT_BUFFER_SIZE);
     }
 
-    public FileDeferredOutputStream( File backingFile, int bufferSize) throws FileNotFoundException {
+    public FileDeferredOutputStream(File backingFile, int bufferSize) throws FileNotFoundException {
         this.backingFile = backingFile;
         output = new NakedBufferedOutputStream(new FileOutputStream(backingFile), bufferSize);
     }
 
-    @Override public void writeTo( OutputStream dest) throws IOException {
+    public static DeferredOutputStreamFactory getFactory(File containingDirectory) {
+        return getFactory(containingDirectory, DEFAULT_BUFFER_SIZE);
+    }
+
+    public static DeferredOutputStreamFactory getFactory(final File containingDirectory,
+                                                         final int bufferSize) {
+        return new DeferredOutputStreamFactory() {
+            @Override
+            public DeferredOutputStream makeDeferredOutputStream() throws IOException {
+                File tempFile = File.createTempFile("dexlibtmp", null, containingDirectory);
+                return new FileDeferredOutputStream(tempFile, bufferSize);
+            }
+        };
+    }
+
+    @Override
+    public void writeTo(OutputStream dest) throws IOException {
         byte[] outBuf = output.getBuffer();
         int count = output.getCount();
         output.resetBuffer();
@@ -39,26 +55,31 @@ public class FileDeferredOutputStream extends DeferredOutputStream {
         dest.write(outBuf, 0, count);
     }
 
-    @Override public void write(int i) throws IOException {
+    @Override
+    public void write(int i) throws IOException {
         output.write(i);
         writtenBytes++;
     }
 
-    @Override public void write(byte[] bytes) throws IOException {
+    @Override
+    public void write(byte[] bytes) throws IOException {
         output.write(bytes);
         writtenBytes += bytes.length;
     }
 
-    @Override public void write(byte[] bytes, int off, int len) throws IOException {
+    @Override
+    public void write(byte[] bytes, int off, int len) throws IOException {
         output.write(bytes, off, len);
         writtenBytes += len;
     }
 
-    @Override public void flush() throws IOException {
+    @Override
+    public void flush() throws IOException {
         output.flush();
     }
 
-    @Override public void close() throws IOException {
+    @Override
+    public void close() throws IOException {
         output.close();
     }
 
@@ -82,21 +103,5 @@ public class FileDeferredOutputStream extends DeferredOutputStream {
         public byte[] getBuffer() {
             return buf;
         }
-    }
-
-
-    public static DeferredOutputStreamFactory getFactory(File containingDirectory) {
-        return getFactory(containingDirectory, DEFAULT_BUFFER_SIZE);
-    }
-
-
-    public static DeferredOutputStreamFactory getFactory(final File containingDirectory,
-                                                         final int bufferSize) {
-        return new DeferredOutputStreamFactory() {
-            @Override public DeferredOutputStream makeDeferredOutputStream() throws IOException {
-                File tempFile = File.createTempFile("dexlibtmp", null, containingDirectory);
-                return new FileDeferredOutputStream(tempFile, bufferSize);
-            }
-        };
     }
 }

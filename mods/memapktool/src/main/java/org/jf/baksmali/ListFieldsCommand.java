@@ -41,9 +41,9 @@ import java.util.List;
 @Parameters(commandDescription = "Lists the fields in a dex file's field table.")
 @ExtendedParameters(
         commandName = "fields",
-        commandAliases = { "field", "f" })
+        commandAliases = {"field", "f"})
 public class ListFieldsCommand extends ListReferencesCommand {
-    public ListFieldsCommand( List<JCommander> commandAncestors) {
+    public ListFieldsCommand(List<JCommander> commandAncestors) {
         super(commandAncestors, ReferenceType.FIELD);
     }
 }

@@ -38,20 +38,20 @@ import org.jf.dexlib2.dexbacked.DexReader;
 import java.util.Iterator;
 
 public abstract class VariableSizeLookaheadIterator<T> extends AbstractIterator<T> implements Iterator<T> {
-     private final DexReader reader;
+    private final DexReader reader;
 
-    protected VariableSizeLookaheadIterator( DexBackedDexFile dexFile, int offset) {
+    protected VariableSizeLookaheadIterator(DexBackedDexFile dexFile, int offset) {
         this.reader = dexFile.readerAt(offset);
     }
 
     /**
      * Reads the next item from reader. If the end of the list has been reached, it should call endOfData.
-     *
+     * <p>
      * endOfData has a return value of T, so you can simply {@code return endOfData()}
      *
      * @return The item that was read. If endOfData was called, the return value is ignored.
      */
-    protected abstract T readNextItem( DexReader reader);
+    protected abstract T readNextItem(DexReader reader);
 
     @Override
     protected T computeNext() {

@@ -38,11 +38,11 @@ import org.jf.dexlib2.dexbacked.util.VariableSizeList;
 import java.util.List;
 
 public class DexBackedTryBlock extends BaseTryBlock<DexBackedExceptionHandler> {
-     public final DexBackedDexFile dexFile;
+    public final DexBackedDexFile dexFile;
     private final int tryItemOffset;
     private final int handlersStartOffset;
 
-    public DexBackedTryBlock( DexBackedDexFile dexFile,
+    public DexBackedTryBlock(DexBackedDexFile dexFile,
                              int tryItemOffset,
                              int handlersStartOffset) {
         this.dexFile = dexFile;
@@ -50,11 +50,13 @@ public class DexBackedTryBlock extends BaseTryBlock<DexBackedExceptionHandler> {
         this.handlersStartOffset = handlersStartOffset;
     }
 
-    @Override public int getStartCodeAddress() {
+    @Override
+    public int getStartCodeAddress() {
         return dexFile.readSmallUint(tryItemOffset + CodeItem.TryItem.START_ADDRESS_OFFSET);
     }
 
-    @Override public int getCodeUnitCount() {
+    @Override
+    public int getCodeUnitCount() {
         return dexFile.readUshort(tryItemOffset + CodeItem.TryItem.CODE_UNIT_COUNT_OFFSET);
     }
 
@@ -70,7 +72,7 @@ public class DexBackedTryBlock extends BaseTryBlock<DexBackedExceptionHandler> {
             return new VariableSizeList<DexBackedTypedExceptionHandler>(dexFile, reader.getOffset(), encodedSize) {
 
                 @Override
-                protected DexBackedTypedExceptionHandler readNextItem( DexReader reader, int index) {
+                protected DexBackedTypedExceptionHandler readNextItem(DexReader reader, int index) {
                     return new DexBackedTypedExceptionHandler(reader);
                 }
             };
@@ -80,8 +82,8 @@ public class DexBackedTryBlock extends BaseTryBlock<DexBackedExceptionHandler> {
             return new VariableSizeList<DexBackedExceptionHandler>(dexFile, reader.getOffset(), sizeWithCatchAll) {
 
                 @Override
-                protected DexBackedExceptionHandler readNextItem( DexReader dexReader, int index) {
-                    if (index == sizeWithCatchAll-1) {
+                protected DexBackedExceptionHandler readNextItem(DexReader dexReader, int index) {
+                    if (index == sizeWithCatchAll - 1) {
                         return new DexBackedCatchAllExceptionHandler(dexReader);
                     } else {
                         return new DexBackedTypedExceptionHandler(dexReader);

@@ -43,7 +43,7 @@ import java.util.List;
 public class ImmutableSparseSwitchPayload extends ImmutableInstruction implements SparseSwitchPayload {
     public static final Opcode OPCODE = Opcode.SPARSE_SWITCH_PAYLOAD;
 
-     protected final ImmutableList<? extends ImmutableSwitchElement> switchElements;
+    protected final ImmutableList<? extends ImmutableSwitchElement> switchElements;
 
     public ImmutableSparseSwitchPayload(List<? extends SwitchElement> switchElements) {
         super(OPCODE);
@@ -59,14 +59,24 @@ public class ImmutableSparseSwitchPayload extends ImmutableInstruction implement
 
     public static ImmutableSparseSwitchPayload of(SparseSwitchPayload instruction) {
         if (instruction instanceof ImmutableSparseSwitchPayload) {
-            return (ImmutableSparseSwitchPayload)instruction;
+            return (ImmutableSparseSwitchPayload) instruction;
         }
         return new ImmutableSparseSwitchPayload(
                 instruction.getSwitchElements());
     }
 
-     @Override public List<? extends SwitchElement> getSwitchElements() { return switchElements; }
+    @Override
+    public List<? extends SwitchElement> getSwitchElements() {
+        return switchElements;
+    }
 
-    @Override public int getCodeUnits() { return 2 + switchElements.size() * 4; }
-    @Override public Format getFormat() { return OPCODE.format; }
+    @Override
+    public int getCodeUnits() {
+        return 2 + switchElements.size() * 4;
+    }
+
+    @Override
+    public Format getFormat() {
+        return OPCODE.format;
+    }
 }

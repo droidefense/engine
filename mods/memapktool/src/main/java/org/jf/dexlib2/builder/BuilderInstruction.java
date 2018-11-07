@@ -37,19 +37,17 @@ import org.jf.dexlib2.iface.instruction.Instruction;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
-
 public abstract class BuilderInstruction implements Instruction {
-     protected final Opcode opcode;
+    protected final Opcode opcode;
 
     MethodLocation location;
 
-    protected BuilderInstruction( Opcode opcode) {
+    protected BuilderInstruction(Opcode opcode) {
         Preconditions.checkFormat(opcode, getFormat());
         this.opcode = opcode;
     }
 
-     public Opcode getOpcode() {
+    public Opcode getOpcode() {
         return opcode;
     }
 

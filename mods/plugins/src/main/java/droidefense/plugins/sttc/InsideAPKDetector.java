@@ -32,7 +32,7 @@ public class InsideAPKDetector extends AbstractStaticPlugin {
             if (
                     Util.checkHexSignature(content, APK_SIGNATURE_1, false)
                             || Util.checkHexSignature(content, APK_SIGNATURE_2, false)
-                    ) {
+            ) {
                 apklist.add(res);
             }
         }

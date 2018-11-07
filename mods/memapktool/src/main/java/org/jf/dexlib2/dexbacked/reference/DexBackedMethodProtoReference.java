@@ -42,10 +42,10 @@ import java.util.List;
 
 
 public class DexBackedMethodProtoReference extends BaseMethodProtoReference {
-     public final DexBackedDexFile dexFile;
+    public final DexBackedDexFile dexFile;
     private final int protoIdItemOffset;
 
-    public DexBackedMethodProtoReference( DexBackedDexFile dexFile, int protoIndex) {
+    public DexBackedMethodProtoReference(DexBackedDexFile dexFile, int protoIndex) {
         this.dexFile = dexFile;
         this.protoIdItemOffset = dexFile.getProtoIdItemOffset(protoIndex);
     }
@@ -61,9 +61,13 @@ public class DexBackedMethodProtoReference extends BaseMethodProtoReference {
 
                 @Override
                 public String readItem(final int index) {
-                    return dexFile.getType(dexFile.readUshort(paramListStart + 2*index));
+                    return dexFile.getType(dexFile.readUshort(paramListStart + 2 * index));
                 }
-                @Override public int size() { return parameterCount; }
+
+                @Override
+                public int size() {
+                    return parameterCount;
+                }
             };
         }
         return ImmutableList.of();
@@ -77,7 +81,7 @@ public class DexBackedMethodProtoReference extends BaseMethodProtoReference {
 
     /**
      * Calculate and return the private size of a method proto.
-     *
+     * <p>
      * Calculated as: shorty_idx + return_type_idx + parameters_off + type_list size
      *
      * @return size in bytes

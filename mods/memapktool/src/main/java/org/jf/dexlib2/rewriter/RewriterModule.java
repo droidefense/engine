@@ -39,65 +39,64 @@ import org.jf.dexlib2.iface.reference.MethodReference;
 import org.jf.dexlib2.iface.value.EncodedValue;
 
 
-
 public class RewriterModule {
-     public Rewriter<ClassDef> getClassDefRewriter( Rewriters rewriters) {
+    public Rewriter<ClassDef> getClassDefRewriter(Rewriters rewriters) {
         return new ClassDefRewriter(rewriters);
     }
 
-     public Rewriter<Field> getFieldRewriter( Rewriters rewriters) {
+    public Rewriter<Field> getFieldRewriter(Rewriters rewriters) {
         return new FieldRewriter(rewriters);
     }
 
-     public Rewriter<Method> getMethodRewriter( Rewriters rewriters) {
+    public Rewriter<Method> getMethodRewriter(Rewriters rewriters) {
         return new MethodRewriter(rewriters);
     }
 
-     public Rewriter<MethodParameter> getMethodParameterRewriter( Rewriters rewriters) {
+    public Rewriter<MethodParameter> getMethodParameterRewriter(Rewriters rewriters) {
         return new MethodParameterRewriter(rewriters);
     }
 
-     public Rewriter<MethodImplementation> getMethodImplementationRewriter( Rewriters rewriters) {
+    public Rewriter<MethodImplementation> getMethodImplementationRewriter(Rewriters rewriters) {
         return new MethodImplementationRewriter(rewriters);
     }
 
-     public Rewriter<Instruction> getInstructionRewriter( Rewriters rewriters) {
+    public Rewriter<Instruction> getInstructionRewriter(Rewriters rewriters) {
         return new InstructionRewriter(rewriters);
     }
 
-     public Rewriter<TryBlock<? extends ExceptionHandler>> getTryBlockRewriter( Rewriters rewriters) {
+    public Rewriter<TryBlock<? extends ExceptionHandler>> getTryBlockRewriter(Rewriters rewriters) {
         return new TryBlockRewriter(rewriters);
     }
 
-     public Rewriter<ExceptionHandler> getExceptionHandlerRewriter( Rewriters rewriters) {
+    public Rewriter<ExceptionHandler> getExceptionHandlerRewriter(Rewriters rewriters) {
         return new ExceptionHandlerRewriter(rewriters);
     }
 
-     public Rewriter<DebugItem> getDebugItemRewriter( Rewriters rewriters) {
+    public Rewriter<DebugItem> getDebugItemRewriter(Rewriters rewriters) {
         return new DebugItemRewriter(rewriters);
     }
 
-     public Rewriter<String> getTypeRewriter( Rewriters rewriters) {
+    public Rewriter<String> getTypeRewriter(Rewriters rewriters) {
         return new TypeRewriter();
     }
 
-     public Rewriter<FieldReference> getFieldReferenceRewriter( Rewriters rewriters) {
+    public Rewriter<FieldReference> getFieldReferenceRewriter(Rewriters rewriters) {
         return new FieldReferenceRewriter(rewriters);
     }
 
-     public Rewriter<MethodReference> getMethodReferenceRewriter( Rewriters rewriters) {
+    public Rewriter<MethodReference> getMethodReferenceRewriter(Rewriters rewriters) {
         return new MethodReferenceRewriter(rewriters);
     }
 
-     public Rewriter<Annotation> getAnnotationRewriter( Rewriters rewriters) {
+    public Rewriter<Annotation> getAnnotationRewriter(Rewriters rewriters) {
         return new AnnotationRewriter(rewriters);
     }
 
-     public Rewriter<AnnotationElement> getAnnotationElementRewriter( Rewriters rewriters) {
+    public Rewriter<AnnotationElement> getAnnotationElementRewriter(Rewriters rewriters) {
         return new AnnotationElementRewriter(rewriters);
     }
 
-     public Rewriter<EncodedValue> getEncodedValueRewriter( Rewriters rewriters) {
+    public Rewriter<EncodedValue> getEncodedValueRewriter(Rewriters rewriters) {
         return new EncodedValueRewriter(rewriters);
     }
 }

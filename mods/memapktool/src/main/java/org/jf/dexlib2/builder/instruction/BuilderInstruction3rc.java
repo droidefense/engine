@@ -39,30 +39,47 @@ import org.jf.dexlib2.iface.reference.Reference;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class BuilderInstruction3rc extends BuilderInstruction implements Instruction3rc {
     public static final Format FORMAT = Format.Format3rc;
 
     protected final int startRegister;
     protected final int registerCount;
 
-     protected final Reference reference;
+    protected final Reference reference;
 
-    public BuilderInstruction3rc( Opcode opcode,
+    public BuilderInstruction3rc(Opcode opcode,
                                  int startRegister,
                                  int registerCount,
-                                  Reference reference) {
+                                 Reference reference) {
         super(opcode);
         this.startRegister = Preconditions.checkShortRegister(startRegister);
         this.registerCount = Preconditions.checkRegisterRangeCount(registerCount);
         this.reference = reference;
     }
 
-    @Override public int getStartRegister() { return startRegister; }
-    @Override public int getRegisterCount() { return registerCount; }
-     @Override public Reference getReference() { return reference; }
-    @Override public int getReferenceType() { return opcode.referenceType; }
+    @Override
+    public int getStartRegister() {
+        return startRegister;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public int getRegisterCount() {
+        return registerCount;
+    }
+
+    @Override
+    public Reference getReference() {
+        return reference;
+    }
+
+    @Override
+    public int getReferenceType() {
+        return opcode.referenceType;
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }
 

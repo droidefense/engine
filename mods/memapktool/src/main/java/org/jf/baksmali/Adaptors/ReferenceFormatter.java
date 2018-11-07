@@ -47,16 +47,16 @@ public class ReferenceFormatter {
                                       Reference reference) throws IOException {
         switch (referenceType) {
             case ReferenceType.STRING:
-                writeStringReference(writer, ((StringReference)reference).getString());
+                writeStringReference(writer, ((StringReference) reference).getString());
                 return;
             case ReferenceType.TYPE:
-                writer.write(((TypeReference)reference).getType());
+                writer.write(((TypeReference) reference).getType());
                 return;
             case ReferenceType.METHOD:
-                ReferenceUtil.writeMethodDescriptor(writer, (MethodReference)reference);
+                ReferenceUtil.writeMethodDescriptor(writer, (MethodReference) reference);
                 return;
             case ReferenceType.FIELD:
-                ReferenceUtil.writeFieldDescriptor(writer, (FieldReference)reference);
+                ReferenceUtil.writeFieldDescriptor(writer, (FieldReference) reference);
                 return;
             default:
                 throw new IllegalStateException("Unknown reference type");

@@ -39,15 +39,17 @@ import java.util.Map;
 
 public abstract class BaseOffsetPool<Key> extends BasePool<Key, Integer> implements OffsetSection<Key> {
 
-    public BaseOffsetPool( DexPool dexPool) {
+    public BaseOffsetPool(DexPool dexPool) {
         super(dexPool);
     }
 
-     @Override public Collection<? extends Map.Entry<? extends Key, Integer>> getItems() {
+    @Override
+    public Collection<? extends Map.Entry<? extends Key, Integer>> getItems() {
         return internedItems.entrySet();
     }
 
-    @Override public int getItemOffset( Key key) {
+    @Override
+    public int getItemOffset(Key key) {
         Integer offset = internedItems.get(key);
         if (offset == null) {
             throw new ExceptionWithContext("Item not found.: %s", getItemString(key));
@@ -55,7 +57,7 @@ public abstract class BaseOffsetPool<Key> extends BasePool<Key, Integer> impleme
         return offset;
     }
 
-     protected String getItemString( Key key) {
+    protected String getItemString(Key key) {
         return key.toString();
     }
 }

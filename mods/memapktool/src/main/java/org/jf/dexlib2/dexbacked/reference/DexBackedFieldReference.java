@@ -36,12 +36,11 @@ import org.jf.dexlib2.dexbacked.DexBackedDexFile;
 import org.jf.dexlib2.dexbacked.raw.FieldIdItem;
 
 
-
 public class DexBackedFieldReference extends BaseFieldReference {
-     public final DexBackedDexFile dexFile;
+    public final DexBackedDexFile dexFile;
     public final int fieldIdItemOffset;
 
-    public DexBackedFieldReference( DexBackedDexFile dexFile, int fieldIndex) {
+    public DexBackedFieldReference(DexBackedDexFile dexFile, int fieldIndex) {
         this.dexFile = dexFile;
         this.fieldIdItemOffset = dexFile.getFieldIdItemOffset(fieldIndex);
     }
@@ -66,7 +65,7 @@ public class DexBackedFieldReference extends BaseFieldReference {
 
     /**
      * Calculate and return the private size of a field reference.
-     *
+     * <p>
      * Calculated as: class_idx + type_idx + name_idx
      *
      * @return size in bytes

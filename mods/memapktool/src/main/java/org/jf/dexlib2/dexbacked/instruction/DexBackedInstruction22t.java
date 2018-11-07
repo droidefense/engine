@@ -37,10 +37,9 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction22t;
 import org.jf.util.NibbleUtils;
 
 
-
 public class DexBackedInstruction22t extends DexBackedInstruction implements Instruction22t {
-    public DexBackedInstruction22t( DexBackedDexFile dexFile,
-                                    Opcode opcode,
+    public DexBackedInstruction22t(DexBackedDexFile dexFile,
+                                   Opcode opcode,
                                    int instructionStart) {
         super(dexFile, opcode, instructionStart);
     }
@@ -55,5 +54,8 @@ public class DexBackedInstruction22t extends DexBackedInstruction implements Ins
         return NibbleUtils.extractHighUnsignedNibble(dexFile.readByte(instructionStart + 1));
     }
 
-    @Override public int getCodeOffset() { return dexFile.readShort(instructionStart + 2); }
+    @Override
+    public int getCodeOffset() {
+        return dexFile.readShort(instructionStart + 2);
+    }
 }

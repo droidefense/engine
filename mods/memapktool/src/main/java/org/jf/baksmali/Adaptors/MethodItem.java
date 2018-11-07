@@ -49,8 +49,8 @@ public abstract class MethodItem implements Comparable<MethodItem> {
     public int compareTo(MethodItem methodItem) {
         int result = ((Integer) codeAddress).compareTo(methodItem.codeAddress);
 
-        if (result == 0){
-            return ((Double)getSortOrder()).compareTo(methodItem.getSortOrder());
+        if (result == 0) {
+            return ((Double) getSortOrder()).compareTo(methodItem.getSortOrder());
         }
         return result;
     }

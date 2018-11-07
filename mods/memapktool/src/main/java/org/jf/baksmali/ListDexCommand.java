@@ -61,11 +61,12 @@ public class ListDexCommand extends Command {
     @ExtendedParameter(argumentNames = "file")
     private List<String> inputList = Lists.newArrayList();
 
-    public ListDexCommand( List<JCommander> commandAncestors) {
+    public ListDexCommand(List<JCommander> commandAncestors) {
         super(commandAncestors);
     }
 
-    @Override public void run() {
+    @Override
+    public void run() {
         if (help || inputList == null || inputList.isEmpty()) {
             usage();
             return;
@@ -94,7 +95,7 @@ public class ListDexCommand extends Command {
             throw new RuntimeException(ex);
         }
 
-        for (String entry: entries) {
+        for (String entry : entries) {
             System.out.println(entry);
         }
     }

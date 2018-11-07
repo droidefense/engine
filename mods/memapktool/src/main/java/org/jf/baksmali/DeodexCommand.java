@@ -49,7 +49,7 @@ import java.util.List;
 @Parameters(commandDescription = "Deodexes an odex/oat file")
 @ExtendedParameters(
         commandName = "deodex",
-        commandAliases = { "de", "x" })
+        commandAliases = {"de", "x"})
 public class DeodexCommand extends DisassembleCommand {
 
     @ParametersDelegate
@@ -62,11 +62,12 @@ public class DeodexCommand extends DisassembleCommand {
     @ExtendedParameter(argumentNames = "file")
     private String inlineTable;
 
-    public DeodexCommand( List<JCommander> commandAncestors) {
+    public DeodexCommand(List<JCommander> commandAncestors) {
         super(commandAncestors);
     }
 
-    @Override protected BaksmaliOptions getOptions() {
+    @Override
+    protected BaksmaliOptions getOptions() {
         BaksmaliOptions options = super.getOptions();
 
         options.deodex = true;
@@ -74,7 +75,7 @@ public class DeodexCommand extends DisassembleCommand {
         if (dexFile instanceof DexBackedOdexFile) {
             if (inlineTable == null) {
                 options.inlineResolver = InlineMethodResolver.createInlineMethodResolver(
-                        ((DexBackedOdexFile)dexFile).getOdexVersion());
+                        ((DexBackedOdexFile) dexFile).getOdexVersion());
             } else {
                 File inlineTableFile = new File(inlineTable);
                 if (!inlineTableFile.exists()) {
@@ -94,15 +95,18 @@ public class DeodexCommand extends DisassembleCommand {
         return options;
     }
 
-    @Override protected boolean shouldCheckPackagePrivateAccess() {
+    @Override
+    protected boolean shouldCheckPackagePrivateAccess() {
         return checkPackagePrivateArgument.checkPackagePrivateAccess;
     }
 
-    @Override protected boolean needsClassPath() {
+    @Override
+    protected boolean needsClassPath() {
         return true;
     }
 
-    @Override protected boolean showDeodexWarning() {
+    @Override
+    protected boolean showDeodexWarning() {
         return false;
     }
 }

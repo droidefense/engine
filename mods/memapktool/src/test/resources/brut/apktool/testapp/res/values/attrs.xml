@@ -14,10 +14,10 @@
     <attr format="color" name="test_attr9"/>
     <attr format="boolean" name="test_attr10"/>
     <attr name="test_attr11">
-        <enum name="TEST_ZERO" value="0" />
-        <enum name="TEST_ONE" value="1" />
+        <enum name="TEST_ZERO" value="0"/>
+        <enum name="TEST_ONE" value="1"/>
     </attr>
-    <attr name="min_value" format="float" />
-    <attr name="max_value" format="float" />
-    <attr name="default_value" format="float" />
+    <attr name="min_value" format="float"/>
+    <attr name="max_value" format="float"/>
+    <attr name="default_value" format="float"/>
 </resources>

@@ -39,10 +39,9 @@ import org.jf.dexlib2.iface.reference.Reference;
 import org.jf.util.NibbleUtils;
 
 
-
 public class DexBackedInstruction22c extends DexBackedInstruction implements Instruction22c {
-    public DexBackedInstruction22c( DexBackedDexFile dexFile,
-                                    Opcode opcode,
+    public DexBackedInstruction22c(DexBackedDexFile dexFile,
+                                   Opcode opcode,
                                    int instructionStart) {
         super(dexFile, opcode, instructionStart);
     }

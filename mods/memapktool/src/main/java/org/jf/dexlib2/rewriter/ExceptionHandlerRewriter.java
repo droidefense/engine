@@ -35,31 +35,32 @@ import org.jf.dexlib2.base.BaseExceptionHandler;
 import org.jf.dexlib2.iface.ExceptionHandler;
 
 
-
-
 public class ExceptionHandlerRewriter implements Rewriter<ExceptionHandler> {
-     protected final Rewriters rewriters;
+    protected final Rewriters rewriters;
 
-    public ExceptionHandlerRewriter( Rewriters rewriters) {
+    public ExceptionHandlerRewriter(Rewriters rewriters) {
         this.rewriters = rewriters;
     }
 
-     @Override public ExceptionHandler rewrite( ExceptionHandler value) {
+    @Override
+    public ExceptionHandler rewrite(ExceptionHandler value) {
         return new RewrittenExceptionHandler(value);
     }
 
     protected class RewrittenExceptionHandler extends BaseExceptionHandler {
-         protected ExceptionHandler exceptionHandler;
+        protected ExceptionHandler exceptionHandler;
 
-        public RewrittenExceptionHandler( ExceptionHandler exceptionHandler) {
+        public RewrittenExceptionHandler(ExceptionHandler exceptionHandler) {
             this.exceptionHandler = exceptionHandler;
         }
 
-        @Override public String getExceptionType() {
+        @Override
+        public String getExceptionType() {
             return RewriterUtils.rewriteNullable(rewriters.getTypeRewriter(), exceptionHandler.getExceptionType());
         }
 
-        @Override public int getHandlerCodeAddress() {
+        @Override
+        public int getHandlerCodeAddress() {
             return exceptionHandler.getHandlerCodeAddress();
         }
     }

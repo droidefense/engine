@@ -57,7 +57,7 @@ public class Smali {
      * Assemble the specified files, using the given options
      *
      * @param options a SmaliOptions object with the options to run smali with
-     * @param input The files/directories to process
+     * @param input   The files/directories to process
      * @return true if assembly completed with no errors, or false if errors were encountered
      */
     public static boolean assemble(final SmaliOptions options, String... input) throws IOException {
@@ -68,13 +68,13 @@ public class Smali {
      * Assemble the specified files, using the given options
      *
      * @param options a SmaliOptions object with the options to run smali with
-     * @param input The files/directories to process
+     * @param input   The files/directories to process
      * @return true if assembly completed with no errors, or false if errors were encountered
      */
     public static boolean assemble(final SmaliOptions options, List<String> input) throws IOException {
         LinkedHashSet<File> filesToProcessSet = new LinkedHashSet<File>();
 
-        for (String fileToProcess: input) {
+        for (String fileToProcess : input) {
             File argFile = new File(fileToProcess);
 
             if (!argFile.exists()) {
@@ -95,16 +95,17 @@ public class Smali {
         ExecutorService executor = Executors.newFixedThreadPool(options.jobs);
         List<Future<Boolean>> tasks = Lists.newArrayList();
 
-        for (final File file: filesToProcessSet) {
+        for (final File file : filesToProcessSet) {
             tasks.add(executor.submit(new Callable<Boolean>() {
-                @Override public Boolean call() throws Exception {
+                @Override
+                public Boolean call() throws Exception {
                     return assembleSmaliFile(file, dexBuilder, options);
                 }
             }));
         }
 
-        for (Future<Boolean> task: tasks) {
-            while(true) {
+        for (Future<Boolean> task : tasks) {
+            while (true) {
                 try {
                     try {
                         if (!task.get()) {
@@ -131,10 +132,10 @@ public class Smali {
         return true;
     }
 
-    private static void getSmaliFilesInDir( File dir,  Set<File> smaliFiles) {
+    private static void getSmaliFilesInDir(File dir, Set<File> smaliFiles) {
         File[] files = dir.listFiles();
         if (files != null) {
-            for(File file: files) {
+            for (File file : files) {
                 if (file.isDirectory()) {
                     getSmaliFilesInDir(file, smaliFiles);
                 } else if (file.getName().endsWith(".smali")) {
@@ -152,13 +153,13 @@ public class Smali {
             InputStreamReader reader = new InputStreamReader(fis, "UTF-8");
 
             LexerErrorInterface lexer = new smaliFlexLexer(reader);
-            ((smaliFlexLexer)lexer).setSourceFile(smaliFile);
-            CommonTokenStream tokens = new CommonTokenStream((TokenSource)lexer);
+            ((smaliFlexLexer) lexer).setSourceFile(smaliFile);
+            CommonTokenStream tokens = new CommonTokenStream((TokenSource) lexer);
 
             if (options.printTokens) {
                 tokens.getTokens();
 
-                for (int i=0; i<tokens.size(); i++) {
+                for (int i = 0; i < tokens.size(); i++) {
                     Token token = tokens.get(i);
                     if (token.getChannel() == smaliParser.HIDDEN) {
                         continue;

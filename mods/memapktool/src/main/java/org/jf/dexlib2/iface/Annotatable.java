@@ -40,10 +40,10 @@ import java.util.Set;
 public interface Annotatable {
     /**
      * Gets a set of the annotations that are applied to this object.
-     *
+     * <p>
      * The annotations in the returned set are guaranteed to have unique types.
      *
      * @return A set of the annotations that are applied to this object
      */
-     Set<? extends Annotation> getAnnotations();
+    Set<? extends Annotation> getAnnotations();
 }

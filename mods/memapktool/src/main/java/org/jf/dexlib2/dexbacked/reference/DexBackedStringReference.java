@@ -37,12 +37,11 @@ import org.jf.dexlib2.dexbacked.DexReader;
 import org.jf.dexlib2.dexbacked.raw.StringIdItem;
 
 
-
 public class DexBackedStringReference extends BaseStringReference {
-     public final DexBackedDexFile dexFile;
+    public final DexBackedDexFile dexFile;
     public final int stringIndex;
 
-    public DexBackedStringReference( DexBackedDexFile dexBuf,
+    public DexBackedStringReference(DexBackedDexFile dexBuf,
                                     int stringIndex) {
         this.dexFile = dexBuf;
         this.stringIndex = stringIndex;
@@ -56,7 +55,7 @@ public class DexBackedStringReference extends BaseStringReference {
 
     /**
      * Calculate and return the private size of a string reference.
-     *
+     * <p>
      * Calculated as: string_data_off + string_data_item size
      *
      * @return size in bytes

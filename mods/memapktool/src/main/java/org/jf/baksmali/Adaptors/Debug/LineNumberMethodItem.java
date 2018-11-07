@@ -39,7 +39,7 @@ import java.io.IOException;
 public class LineNumberMethodItem extends DebugMethodItem {
     private final int lineNumber;
 
-    public LineNumberMethodItem(int codeAddress, int sortOrder,  LineNumber lineNumber) {
+    public LineNumberMethodItem(int codeAddress, int sortOrder, LineNumber lineNumber) {
         super(codeAddress, sortOrder);
         this.lineNumber = lineNumber.getLineNumber();
     }

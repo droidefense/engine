@@ -36,15 +36,13 @@ import org.jf.dexlib2.writer.StringSection;
 import org.jf.util.ExceptionWithContext;
 
 
-
-
 public class StringPool extends StringTypeBasePool implements StringSection<CharSequence, StringReference> {
 
-    public StringPool( DexPool dexPool) {
+    public StringPool(DexPool dexPool) {
         super(dexPool);
     }
 
-    public void intern( CharSequence string) {
+    public void intern(CharSequence string) {
         internedItems.put(string.toString(), 0);
     }
 
@@ -54,7 +52,8 @@ public class StringPool extends StringTypeBasePool implements StringSection<Char
         }
     }
 
-    @Override public int getItemIndex( StringReference key) {
+    @Override
+    public int getItemIndex(StringReference key) {
         Integer index = internedItems.get(key.toString());
         if (index == null) {
             throw new ExceptionWithContext("Item not found.: %s", key.toString());
@@ -62,7 +61,8 @@ public class StringPool extends StringTypeBasePool implements StringSection<Char
         return index;
     }
 
-    @Override public boolean hasJumboIndexes() {
+    @Override
+    public boolean hasJumboIndexes() {
         return internedItems.size() > 65536;
     }
 }

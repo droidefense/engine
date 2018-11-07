@@ -40,26 +40,45 @@ import java.util.Comparator;
 import java.util.Set;
 
 public class SmaliMethodParameter extends BaseMethodParameter implements WithRegister {
+    public static final Comparator<WithRegister> COMPARATOR = new Comparator<WithRegister>() {
+        @Override
+        public int compare(WithRegister o1, WithRegister o2) {
+            return Ints.compare(o1.getRegister(), o2.getRegister());
+        }
+    };
     public final int register;
-     public final String type;
-     public Set<? extends Annotation> annotations;
+    public final String type;
+    public Set<? extends Annotation> annotations;
     public String name;
 
-    public SmaliMethodParameter(int register,  String type) {
+    public SmaliMethodParameter(int register, String type) {
         this.register = register;
         this.type = type;
         this.annotations = ImmutableSet.of();
     }
 
-    @Override public int getRegister() { return register; }
-     @Override public String getType() { return type; }
-     @Override public Set<? extends Annotation> getAnnotations() { return annotations; }
-    @Override public String getName() { return name; }
-    @Override public String getSignature() { return null; }
+    @Override
+    public int getRegister() {
+        return register;
+    }
 
-    public static final Comparator<WithRegister> COMPARATOR = new Comparator<WithRegister>() {
-        @Override public int compare(WithRegister o1, WithRegister o2) {
-            return Ints.compare(o1.getRegister(), o2.getRegister());
-        }
-    };
+    @Override
+    public String getType() {
+        return type;
+    }
+
+    @Override
+    public Set<? extends Annotation> getAnnotations() {
+        return annotations;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getSignature() {
+        return null;
+    }
 }

@@ -52,22 +52,20 @@ import java.util.List;
 import java.util.Set;
 
 public class DexBackedClassDef extends BaseTypeReference implements ClassDef {
-     public final DexBackedDexFile dexFile;
+    public final DexBackedDexFile dexFile;
     private final int classDefOffset;
 
     private final int staticFieldsOffset;
-    private int instanceFieldsOffset = 0;
-    private int directMethodsOffset = 0;
-    private int virtualMethodsOffset = 0;
-
     private final int staticFieldCount;
     private final int instanceFieldCount;
     private final int directMethodCount;
     private final int virtualMethodCount;
-
+    private int instanceFieldsOffset = 0;
+    private int directMethodsOffset = 0;
+    private int virtualMethodsOffset = 0;
     private AnnotationsDirectory annotationsDirectory;
 
-    public DexBackedClassDef( DexBackedDexFile dexFile,
+    public DexBackedClassDef(DexBackedDexFile dexFile,
                              int classDefOffset) {
         this.dexFile = dexFile;
         this.classDefOffset = classDefOffset;
@@ -123,10 +121,13 @@ public class DexBackedClassDef extends BaseTypeReference implements ClassDef {
                 @Override
 
                 public String get(int index) {
-                    return dexFile.getType(dexFile.readUshort(interfacesOffset + 4 + (2*index)));
+                    return dexFile.getType(dexFile.readUshort(interfacesOffset + 4 + (2 * index)));
                 }
 
-                @Override public int size() { return size; }
+                @Override
+                public int size() {
+                    return size;
+                }
             };
         }
         return ImmutableList.of();
@@ -170,7 +171,7 @@ public class DexBackedClassDef extends BaseTypeReference implements ClassDef {
 
 
                         @Override
-                        protected DexBackedField readNextItem( DexReader reader) {
+                        protected DexBackedField readNextItem(DexReader reader) {
                             while (true) {
                                 if (++count > staticFieldCount) {
                                     instanceFieldsOffset = reader.getOffset();
@@ -229,7 +230,7 @@ public class DexBackedClassDef extends BaseTypeReference implements ClassDef {
 
 
                         @Override
-                        protected DexBackedField readNextItem( DexReader reader) {
+                        protected DexBackedField readNextItem(DexReader reader) {
                             while (true) {
                                 if (++count > instanceFieldCount) {
                                     directMethodsOffset = reader.getOffset();
@@ -298,7 +299,7 @@ public class DexBackedClassDef extends BaseTypeReference implements ClassDef {
 
 
                         @Override
-                        protected DexBackedMethod readNextItem( DexReader reader) {
+                        protected DexBackedMethod readNextItem(DexReader reader) {
                             while (true) {
                                 if (++count > directMethodCount) {
                                     virtualMethodsOffset = reader.getOffset();
@@ -355,7 +356,7 @@ public class DexBackedClassDef extends BaseTypeReference implements ClassDef {
 
 
                         @Override
-                        protected DexBackedMethod readNextItem( DexReader reader) {
+                        protected DexBackedMethod readNextItem(DexReader reader) {
                             while (true) {
                                 if (++count > virtualMethodCount) {
                                     return endOfData();
@@ -435,7 +436,7 @@ public class DexBackedClassDef extends BaseTypeReference implements ClassDef {
 
     /**
      * Calculate and return the private size of a class definition.
-     *
+     * <p>
      * Calculated as: class_def_item size + type_id size + interfaces type_list +
      * annotations_directory_item overhead + class_data_item + static values overhead +
      * methods size + fields size
@@ -468,7 +469,7 @@ public class DexBackedClassDef extends BaseTypeReference implements ClassDef {
 
         //static values and/or metadata
         int staticInitialValuesOffset =
-            dexFile.readSmallUint(classDefOffset + ClassDefItem.STATIC_VALUES_OFFSET);
+                dexFile.readSmallUint(classDefOffset + ClassDefItem.STATIC_VALUES_OFFSET);
         if (staticInitialValuesOffset != 0) {
             DexReader reader = dexFile.readerAt(staticInitialValuesOffset);
             size += reader.peekSmallUleb128Size(); //encoded_array size field

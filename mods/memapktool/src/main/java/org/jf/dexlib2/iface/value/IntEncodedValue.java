@@ -32,8 +32,6 @@
 package org.jf.dexlib2.iface.value;
 
 
-
-
 /**
  * This class represents an encoded integer value.
  */
@@ -47,7 +45,7 @@ public interface IntEncodedValue extends EncodedValue {
 
     /**
      * Returns a hashcode for this EncodedIntValue.
-     *
+     * <p>
      * This hashCode is defined to be the following:
      *
      * <pre>
@@ -57,26 +55,29 @@ public interface IntEncodedValue extends EncodedValue {
      *
      * @return The hash code value for this EncodedIntValue
      */
-    @Override int hashCode();
+    @Override
+    int hashCode();
 
     /**
      * Compares this IntEncodedValue to another IntEncodedValue for equality.
-     *
+     * <p>
      * This IntEncodedValue is equal to another IntEncodedValue if the values returned by getValue() are equal.
      *
      * @param o The object to be compared for equality with this IntEncodedValue
      * @return true if the specified object is equal to this IntEncodedValue
      */
-    @Override boolean equals(Object o);
+    @Override
+    boolean equals(Object o);
 
     /**
      * Compare this IntEncodedValue to another EncodedValue.
-     *
+     * <p>
      * The comparison is first done on the return values of getValueType(). If the other value is another
      * IntEncodedValue, the return values of getValue() are compared.
      *
      * @param o The EncodedValue to compare with this IntEncodedValue
      * @return An integer representing the result of the comparison
      */
-    @Override int compareTo( EncodedValue o);
+    @Override
+    int compareTo(EncodedValue o);
 }

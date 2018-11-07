@@ -36,14 +36,16 @@ import org.jf.dexlib2.iface.ClassDef;
 import org.jf.dexlib2.iface.reference.TypeReference;
 
 
-
 public final class TypeUtils {
-    public static boolean isWideType( String type) {
+    private TypeUtils() {
+    }
+
+    public static boolean isWideType(String type) {
         char c = type.charAt(0);
         return c == 'J' || c == 'D';
     }
 
-    public static boolean isWideType( TypeReference type) {
+    public static boolean isWideType(TypeReference type) {
         return isWideType(type.getType());
     }
 
@@ -51,8 +53,7 @@ public final class TypeUtils {
         return type.length() == 1;
     }
 
-
-    public static String getPackage( String type) {
+    public static String getPackage(String type) {
         int lastSlash = type.lastIndexOf('/');
         if (lastSlash < 0) {
             return "";
@@ -60,7 +61,7 @@ public final class TypeUtils {
         return type.substring(1, lastSlash);
     }
 
-    public static boolean canAccessClass( String accessorType,  ClassDef accesseeClassDef) {
+    public static boolean canAccessClass(String accessorType, ClassDef accesseeClassDef) {
         if (AccessFlags.PUBLIC.isSet(accesseeClassDef.getAccessFlags())) {
             return true;
         }
@@ -69,6 +70,4 @@ public final class TypeUtils {
         // package private.
         return getPackage(accesseeClassDef.getType()).equals(getPackage(accessorType));
     }
-
-    private TypeUtils() {}
 }

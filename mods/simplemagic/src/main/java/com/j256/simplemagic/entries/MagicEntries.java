@@ -98,8 +98,8 @@ public class MagicEntries {
             firstByteEntryLists[index].add(entry);
             /*
              * We put an entry in the first-byte list but need to leave it in the main list because there may be
-			 * optional characters or != or > comparisons in the match
-			 */
+             * optional characters or != or > comparisons in the match
+             */
         }
     }
 

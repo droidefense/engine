@@ -38,14 +38,13 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction21lh;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class BuilderInstruction21lh extends BuilderInstruction implements Instruction21lh {
     public static final Format FORMAT = Format.Format21lh;
 
     protected final int registerA;
     protected final long literal;
 
-    public BuilderInstruction21lh( Opcode opcode,
+    public BuilderInstruction21lh(Opcode opcode,
                                   int registerA,
                                   long literal) {
         super(opcode);
@@ -53,9 +52,23 @@ public class BuilderInstruction21lh extends BuilderInstruction implements Instru
         this.literal = Preconditions.checkLongHatLiteral(literal);
     }
 
-    @Override public int getRegisterA() { return registerA; }
-    @Override public long getWideLiteral() { return literal; }
-    @Override public short getHatLiteral() { return (short)(literal >>> 48); }
+    @Override
+    public int getRegisterA() {
+        return registerA;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public long getWideLiteral() {
+        return literal;
+    }
+
+    @Override
+    public short getHatLiteral() {
+        return (short) (literal >>> 48);
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

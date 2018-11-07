@@ -305,16 +305,16 @@ public class WekaResultsHandler extends AbstractHandler {
 
         /*
          * First we load the training data from our ARFF file
-		 */
+         */
         ArffLoader trainLoader = new ArffLoader();
 
         trainLoader.setSource(featuresFile);
         Instances unlabeled = trainLoader.getDataSet();
 
-		/*
+        /*
          * Now we tell the data set which attribute we want to classify, in our
-		 * case, we want to classify the first column: survived
-		 */
+         * case, we want to classify the first column: survived
+         */
         unlabeled.setClassIndex(unlabeled.size() - 1);
 
         // Use a set of classifiers
@@ -322,7 +322,7 @@ public class WekaResultsHandler extends AbstractHandler {
 
         /*
          * Now we read in the serialized apimodel from disk
-		 */
+         */
         models = classifier.readModels(modelFiles);
 
         MLResultHolder result = new MLResultHolder();

@@ -38,30 +38,30 @@ import org.jf.util.IndentingWriter;
 import java.io.IOException;
 
 public abstract class EncodedValueAdaptor {
-    public static void writeTo( IndentingWriter writer,  EncodedValue encodedValue,
+    public static void writeTo(IndentingWriter writer, EncodedValue encodedValue,
                                String containingClass)
             throws IOException {
         switch (encodedValue.getValueType()) {
             case ValueType.ANNOTATION:
-                AnnotationEncodedValueAdaptor.writeTo(writer, (AnnotationEncodedValue)encodedValue, containingClass);
+                AnnotationEncodedValueAdaptor.writeTo(writer, (AnnotationEncodedValue) encodedValue, containingClass);
                 return;
             case ValueType.ARRAY:
-                ArrayEncodedValueAdaptor.writeTo(writer, (ArrayEncodedValue)encodedValue, containingClass);
+                ArrayEncodedValueAdaptor.writeTo(writer, (ArrayEncodedValue) encodedValue, containingClass);
                 return;
             case ValueType.BOOLEAN:
-                BooleanRenderer.writeTo(writer, ((BooleanEncodedValue)encodedValue).getValue());
+                BooleanRenderer.writeTo(writer, ((BooleanEncodedValue) encodedValue).getValue());
                 return;
             case ValueType.BYTE:
-                ByteRenderer.writeTo(writer, ((ByteEncodedValue)encodedValue).getValue());
+                ByteRenderer.writeTo(writer, ((ByteEncodedValue) encodedValue).getValue());
                 return;
             case ValueType.CHAR:
-                CharRenderer.writeTo(writer, ((CharEncodedValue)encodedValue).getValue());
+                CharRenderer.writeTo(writer, ((CharEncodedValue) encodedValue).getValue());
                 return;
             case ValueType.DOUBLE:
-                DoubleRenderer.writeTo(writer, ((DoubleEncodedValue)encodedValue).getValue());
+                DoubleRenderer.writeTo(writer, ((DoubleEncodedValue) encodedValue).getValue());
                 return;
             case ValueType.ENUM:
-                EnumEncodedValue enumEncodedValue = (EnumEncodedValue)encodedValue;
+                EnumEncodedValue enumEncodedValue = (EnumEncodedValue) encodedValue;
                 boolean useImplicitReference = false;
                 if (enumEncodedValue.getValue().getDefiningClass().equals(containingClass)) {
                     useImplicitReference = true;
@@ -70,7 +70,7 @@ public abstract class EncodedValueAdaptor {
                 ReferenceUtil.writeFieldDescriptor(writer, enumEncodedValue.getValue(), useImplicitReference);
                 return;
             case ValueType.FIELD:
-                FieldEncodedValue fieldEncodedValue = (FieldEncodedValue)encodedValue;
+                FieldEncodedValue fieldEncodedValue = (FieldEncodedValue) encodedValue;
                 useImplicitReference = false;
                 if (fieldEncodedValue.getValue().getDefiningClass().equals(containingClass)) {
                     useImplicitReference = true;
@@ -78,16 +78,16 @@ public abstract class EncodedValueAdaptor {
                 ReferenceUtil.writeFieldDescriptor(writer, fieldEncodedValue.getValue(), useImplicitReference);
                 return;
             case ValueType.FLOAT:
-                FloatRenderer.writeTo(writer, ((FloatEncodedValue)encodedValue).getValue());
+                FloatRenderer.writeTo(writer, ((FloatEncodedValue) encodedValue).getValue());
                 return;
             case ValueType.INT:
-                IntegerRenderer.writeTo(writer, ((IntEncodedValue)encodedValue).getValue());
+                IntegerRenderer.writeTo(writer, ((IntEncodedValue) encodedValue).getValue());
                 return;
             case ValueType.LONG:
-                LongRenderer.writeTo(writer, ((LongEncodedValue)encodedValue).getValue());
+                LongRenderer.writeTo(writer, ((LongEncodedValue) encodedValue).getValue());
                 return;
             case ValueType.METHOD:
-                MethodEncodedValue methodEncodedValue = (MethodEncodedValue)encodedValue;
+                MethodEncodedValue methodEncodedValue = (MethodEncodedValue) encodedValue;
                 useImplicitReference = false;
                 if (methodEncodedValue.getValue().getDefiningClass().equals(containingClass)) {
                     useImplicitReference = true;
@@ -98,13 +98,13 @@ public abstract class EncodedValueAdaptor {
                 writer.write("null");
                 return;
             case ValueType.SHORT:
-                ShortRenderer.writeTo(writer, ((ShortEncodedValue)encodedValue).getValue());
+                ShortRenderer.writeTo(writer, ((ShortEncodedValue) encodedValue).getValue());
                 return;
             case ValueType.STRING:
-                ReferenceFormatter.writeStringReference(writer, ((StringEncodedValue)encodedValue).getValue());
+                ReferenceFormatter.writeStringReference(writer, ((StringEncodedValue) encodedValue).getValue());
                 return;
             case ValueType.TYPE:
-                writer.write(((TypeEncodedValue)encodedValue).getValue());
+                writer.write(((TypeEncodedValue) encodedValue).getValue());
         }
     }
 }

@@ -49,12 +49,29 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ClassPath {
-     private final TypeProto unknownClass;
-     private List<ClassProvider> classProviders;
-    private final boolean checkPackagePrivateAccess;
-    public final int oatVersion;
-
     public static final int NOT_ART = -1;
+    public final int oatVersion;
+    private final TypeProto unknownClass;
+    private final boolean checkPackagePrivateAccess;
+    private final CacheLoader<String, TypeProto> classLoader = new CacheLoader<String, TypeProto>() {
+        @Override
+        public TypeProto load(String type) throws Exception {
+            if (type.charAt(0) == '[') {
+                return new ArrayProto(ClassPath.this, type);
+            } else {
+                return new ClassProto(ClassPath.this, type);
+            }
+        }
+    };
+    private final Supplier<OdexedFieldInstructionMapper> fieldInstructionMapperSupplier = Suppliers.memoize(
+            new Supplier<OdexedFieldInstructionMapper>() {
+                @Override
+                public OdexedFieldInstructionMapper get() {
+                    return new OdexedFieldInstructionMapper(isArt());
+                }
+            });
+    private List<ClassProvider> classProviders;
+    private LoadingCache<String, TypeProto> loadedClasses = CacheBuilder.newBuilder().build(classLoader);
 
     /**
      * Creates a new ClassPath instance that can load classes from the given providers
@@ -79,13 +96,13 @@ public class ClassPath {
     /**
      * Creates a new ClassPath instance that can load classes from the given providers
      *
-     * @param classProviders An iterable of ClassProviders. When loading a class, these providers will be searched in
-     *                       order
+     * @param classProviders            An iterable of ClassProviders. When loading a class, these providers will be searched in
+     *                                  order
      * @param checkPackagePrivateAccess Whether checkPackagePrivateAccess is needed, enabled for ONLY early API 17 by
      *                                  default
-     * @param oatVersion The applicable oat version, or NOT_ART
+     * @param oatVersion                The applicable oat version, or NOT_ART
      */
-    public ClassPath( Iterable<? extends ClassProvider> classProviders, boolean checkPackagePrivateAccess,
+    public ClassPath(Iterable<? extends ClassProvider> classProviders, boolean checkPackagePrivateAccess,
                      int oatVersion) {
         // add fallbacks for certain special classes that must be present
         unknownClass = new UnknownClassProto(this);
@@ -107,10 +124,6 @@ public class ClassPath {
         this.classProviders.add(getBasicClasses());
     }
 
-    private void loadPrimitiveType(String type) {
-        loadedClasses.put(type, new PrimitiveProto(this, type));
-    }
-
     private static ClassProvider getBasicClasses() {
         // fallbacks for some special classes that we assume are present
         return new DexClassProvider(new ImmutableDexFile(Opcodes.getDefault(), ImmutableSet.of(
@@ -122,30 +135,20 @@ public class ClassPath {
                 new ReflectionClassDef(Throwable.class))));
     }
 
+    private void loadPrimitiveType(String type) {
+        loadedClasses.put(type, new PrimitiveProto(this, type));
+    }
+
     public boolean isArt() {
         return oatVersion != NOT_ART;
     }
 
-
-    public TypeProto getClass( CharSequence type) {
+    public TypeProto getClass(CharSequence type) {
         return loadedClasses.getUnchecked(type.toString());
     }
 
-    private final CacheLoader<String, TypeProto> classLoader = new CacheLoader<String, TypeProto>() {
-        @Override public TypeProto load(String type) throws Exception {
-            if (type.charAt(0) == '[') {
-                return new ArrayProto(ClassPath.this, type);
-            } else {
-                return new ClassProto(ClassPath.this, type);
-            }
-        }
-    };
-
-     private LoadingCache<String, TypeProto> loadedClasses = CacheBuilder.newBuilder().build(classLoader);
-
-
     public ClassDef getClassDef(String type) {
-        for (ClassProvider provider: classProviders) {
+        for (ClassProvider provider : classProviders) {
             ClassDef classDef = provider.getClassDef(type);
             if (classDef != null) {
                 return classDef;
@@ -154,7 +157,6 @@ public class ClassPath {
         throw new UnresolvedClassException("Could not resolve class %s", type);
     }
 
-
     public TypeProto getUnknownClass() {
         return unknownClass;
     }
@@ -162,14 +164,6 @@ public class ClassPath {
     public boolean shouldCheckPackagePrivateAccess() {
         return checkPackagePrivateAccess;
     }
-
-    private final Supplier<OdexedFieldInstructionMapper> fieldInstructionMapperSupplier = Suppliers.memoize(
-            new Supplier<OdexedFieldInstructionMapper>() {
-                @Override public OdexedFieldInstructionMapper get() {
-                    return new OdexedFieldInstructionMapper(isArt());
-                }
-            });
-
 
     public OdexedFieldInstructionMapper getFieldInstructionMapper() {
         return fieldInstructionMapperSupplier.get();

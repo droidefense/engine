@@ -32,9 +32,9 @@
 package org.jf.dexlib2.rewriter;
 
 
-
 public class TypeRewriter implements Rewriter<String> {
-     @Override public String rewrite( String value) {
+    @Override
+    public String rewrite(String value) {
         return value;
     }
 }

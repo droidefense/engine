@@ -43,7 +43,7 @@ import java.util.Set;
 
 /**
  * Out-of-the box, this class does nothing except make a picture-perfect copy of a dex file.
- *
+ * <p>
  * However, it provides many points where you can hook into this process and selectively modify
  * the dex file. For example, If you want to rename all instances (including definitions and references)
  * of the class Lorg/blah/MyBlah; to Lorg/blah/YourBlah;
@@ -102,39 +102,100 @@ public class DexRewriter implements Rewriters {
     }
 
 
-    public DexFile rewriteDexFile( DexFile dexFile) {
+    public DexFile rewriteDexFile(DexFile dexFile) {
         return new RewrittenDexFile(dexFile);
     }
 
-    protected class RewrittenDexFile implements DexFile {
-         protected final DexFile dexFile;
+    @Override
+    public Rewriter<ClassDef> getClassDefRewriter() {
+        return classDefRewriter;
+    }
 
-        public RewrittenDexFile( DexFile dexFile) {
+    @Override
+    public Rewriter<Field> getFieldRewriter() {
+        return fieldRewriter;
+    }
+
+    @Override
+    public Rewriter<Method> getMethodRewriter() {
+        return methodRewriter;
+    }
+
+    @Override
+    public Rewriter<MethodParameter> getMethodParameterRewriter() {
+        return methodParameterRewriter;
+    }
+
+    @Override
+    public Rewriter<MethodImplementation> getMethodImplementationRewriter() {
+        return methodImplementationRewriter;
+    }
+
+    @Override
+    public Rewriter<Instruction> getInstructionRewriter() {
+        return instructionRewriter;
+    }
+
+    @Override
+    public Rewriter<TryBlock<? extends ExceptionHandler>> getTryBlockRewriter() {
+        return tryBlockRewriter;
+    }
+
+    @Override
+    public Rewriter<ExceptionHandler> getExceptionHandlerRewriter() {
+        return exceptionHandlerRewriter;
+    }
+
+    @Override
+    public Rewriter<DebugItem> getDebugItemRewriter() {
+        return debugItemRewriter;
+    }
+
+    @Override
+    public Rewriter<String> getTypeRewriter() {
+        return typeRewriter;
+    }
+
+    @Override
+    public Rewriter<FieldReference> getFieldReferenceRewriter() {
+        return fieldReferenceRewriter;
+    }
+
+    @Override
+    public Rewriter<MethodReference> getMethodReferenceRewriter() {
+        return methodReferenceRewriter;
+    }
+
+    @Override
+    public Rewriter<Annotation> getAnnotationRewriter() {
+        return annotationRewriter;
+    }
+
+    @Override
+    public Rewriter<AnnotationElement> getAnnotationElementRewriter() {
+        return annotationElementRewriter;
+    }
+
+    @Override
+    public Rewriter<EncodedValue> getEncodedValueRewriter() {
+        return encodedValueRewriter;
+    }
+
+    protected class RewrittenDexFile implements DexFile {
+        protected final DexFile dexFile;
+
+        public RewrittenDexFile(DexFile dexFile) {
             this.dexFile = dexFile;
         }
 
-        @Override  public Set<? extends ClassDef> getClasses() {
+        @Override
+        public Set<? extends ClassDef> getClasses() {
             return RewriterUtils.rewriteSet(getClassDefRewriter(), dexFile.getClasses());
         }
 
-         @Override public Opcodes getOpcodes() {
+        @Override
+        public Opcodes getOpcodes() {
             return dexFile.getOpcodes();
         }
     }
-
-     @Override public Rewriter<ClassDef> getClassDefRewriter() { return classDefRewriter; }
-     @Override public Rewriter<Field> getFieldRewriter() { return fieldRewriter; }
-     @Override public Rewriter<Method> getMethodRewriter() { return methodRewriter; }
-     @Override public Rewriter<MethodParameter> getMethodParameterRewriter() { return methodParameterRewriter; }
-     @Override public Rewriter<MethodImplementation> getMethodImplementationRewriter() { return methodImplementationRewriter; }
-     @Override public Rewriter<Instruction> getInstructionRewriter() { return instructionRewriter; }
-     @Override public Rewriter<TryBlock<? extends ExceptionHandler>> getTryBlockRewriter() { return tryBlockRewriter; }
-     @Override public Rewriter<ExceptionHandler> getExceptionHandlerRewriter() { return exceptionHandlerRewriter; }
-     @Override public Rewriter<DebugItem> getDebugItemRewriter() { return debugItemRewriter; }
-     @Override public Rewriter<String> getTypeRewriter() { return typeRewriter; }
-     @Override public Rewriter<FieldReference> getFieldReferenceRewriter() { return fieldReferenceRewriter; }
-     @Override public Rewriter<MethodReference> getMethodReferenceRewriter() { return methodReferenceRewriter; }
-     @Override public Rewriter<Annotation> getAnnotationRewriter() { return annotationRewriter; }
-     @Override public Rewriter<AnnotationElement> getAnnotationElementRewriter() { return annotationElementRewriter; }
-     @Override public Rewriter<EncodedValue> getEncodedValueRewriter() { return encodedValueRewriter; }
 }

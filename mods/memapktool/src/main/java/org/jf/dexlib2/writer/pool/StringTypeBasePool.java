@@ -41,15 +41,17 @@ import java.util.Map;
 public abstract class StringTypeBasePool extends BasePool<String, Integer>
         implements NullableIndexSection<CharSequence>, Markable {
 
-    public StringTypeBasePool( DexPool dexPool) {
+    public StringTypeBasePool(DexPool dexPool) {
         super(dexPool);
     }
 
-     @Override public Collection<Map.Entry<String, Integer>> getItems() {
+    @Override
+    public Collection<Map.Entry<String, Integer>> getItems() {
         return internedItems.entrySet();
     }
 
-    @Override public int getItemIndex( CharSequence key) {
+    @Override
+    public int getItemIndex(CharSequence key) {
         Integer index = internedItems.get(key.toString());
         if (index == null) {
             throw new ExceptionWithContext("Item not found.: %s", key.toString());
@@ -57,7 +59,8 @@ public abstract class StringTypeBasePool extends BasePool<String, Integer>
         return index;
     }
 
-    @Override public int getNullableItemIndex(CharSequence key) {
+    @Override
+    public int getNullableItemIndex(CharSequence key) {
         if (key == null) {
             return DexWriter.NO_INDEX;
         }

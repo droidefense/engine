@@ -38,7 +38,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction23x;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class BuilderInstruction23x extends BuilderInstruction implements Instruction23x {
     public static final Format FORMAT = Format.Format23x;
 
@@ -46,7 +45,7 @@ public class BuilderInstruction23x extends BuilderInstruction implements Instruc
     protected final int registerB;
     protected final int registerC;
 
-    public BuilderInstruction23x( Opcode opcode,
+    public BuilderInstruction23x(Opcode opcode,
                                  int registerA,
                                  int registerB,
                                  int registerC) {
@@ -56,9 +55,23 @@ public class BuilderInstruction23x extends BuilderInstruction implements Instruc
         this.registerC = Preconditions.checkByteRegister(registerC);
     }
 
-    @Override public int getRegisterA() { return registerA; }
-    @Override public int getRegisterB() { return registerB; }
-    @Override public int getRegisterC() { return registerC; }
+    @Override
+    public int getRegisterA() {
+        return registerA;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public int getRegisterB() {
+        return registerB;
+    }
+
+    @Override
+    public int getRegisterC() {
+        return registerC;
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

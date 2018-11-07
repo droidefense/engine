@@ -36,15 +36,14 @@ import org.jf.dexlib2.iface.reference.MethodReference;
 import org.jf.dexlib2.writer.MethodSection;
 
 
-
 public class MethodPool extends BaseIndexPool<MethodReference>
         implements MethodSection<CharSequence, CharSequence, MethodProtoReference, MethodReference, PoolMethod> {
 
-    public MethodPool( DexPool dexPool) {
+    public MethodPool(DexPool dexPool) {
         super(dexPool);
     }
 
-    public void intern( MethodReference method) {
+    public void intern(MethodReference method) {
         Integer prev = internedItems.put(method, 0);
         if (prev == null) {
             dexPool.typeSection.intern(method.getDefiningClass());
@@ -53,27 +52,33 @@ public class MethodPool extends BaseIndexPool<MethodReference>
         }
     }
 
-     @Override public MethodReference getMethodReference( PoolMethod poolMethod) {
+    @Override
+    public MethodReference getMethodReference(PoolMethod poolMethod) {
         return poolMethod;
     }
 
-     @Override public CharSequence getDefiningClass( MethodReference methodReference) {
+    @Override
+    public CharSequence getDefiningClass(MethodReference methodReference) {
         return methodReference.getDefiningClass();
     }
 
-     @Override public MethodProtoReference getPrototype( MethodReference methodReference) {
+    @Override
+    public MethodProtoReference getPrototype(MethodReference methodReference) {
         return new PoolMethodProto(methodReference);
     }
 
-     @Override public MethodProtoReference getPrototype( PoolMethod poolMethod) {
+    @Override
+    public MethodProtoReference getPrototype(PoolMethod poolMethod) {
         return new PoolMethodProto(poolMethod);
     }
 
-     @Override public CharSequence getName( MethodReference methodReference) {
+    @Override
+    public CharSequence getName(MethodReference methodReference) {
         return methodReference.getName();
     }
 
-    @Override public int getMethodIndex( PoolMethod poolMethod) {
+    @Override
+    public int getMethodIndex(PoolMethod poolMethod) {
         return getItemIndex(poolMethod);
     }
 }

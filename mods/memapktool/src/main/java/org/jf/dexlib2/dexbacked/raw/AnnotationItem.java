@@ -37,21 +37,20 @@ import org.jf.dexlib2.dexbacked.raw.util.DexAnnotator;
 import org.jf.dexlib2.util.AnnotatedBytes;
 
 
-
-
 public class AnnotationItem {
     public static final int VISIBILITY_OFFSET = 0;
     public static final int ANNOTATION_OFFSET = 1;
 
 
-    public static SectionAnnotator makeAnnotator( DexAnnotator annotator,  MapItem mapItem) {
+    public static SectionAnnotator makeAnnotator(DexAnnotator annotator, MapItem mapItem) {
         return new SectionAnnotator(annotator, mapItem) {
-             @Override public String getItemName() {
+            @Override
+            public String getItemName() {
                 return "annotation_item";
             }
 
             @Override
-            protected void annotateItem( AnnotatedBytes out, int itemIndex, String itemIdentity) {
+            protected void annotateItem(AnnotatedBytes out, int itemIndex, String itemIdentity) {
                 int visibility = dexFile.readUbyte(out.getCursor());
                 out.annotate(1, "visibility = %d: %s", visibility, getAnnotationVisibility(visibility));
 
@@ -75,7 +74,7 @@ public class AnnotationItem {
         }
     }
 
-    public static String getReferenceAnnotation( DexBackedDexFile dexFile, int annotationItemOffset) {
+    public static String getReferenceAnnotation(DexBackedDexFile dexFile, int annotationItemOffset) {
         try {
             DexReader reader = dexFile.readerAt(annotationItemOffset);
             reader.readUbyte();

@@ -36,15 +36,14 @@ import org.jf.dexlib2.iface.reference.FieldReference;
 import org.jf.dexlib2.writer.FieldSection;
 
 
-
 public class FieldPool extends BaseIndexPool<FieldReference>
         implements FieldSection<CharSequence, CharSequence, FieldReference, Field> {
 
-    public FieldPool( DexPool dexPool) {
+    public FieldPool(DexPool dexPool) {
         super(dexPool);
     }
 
-    public void intern( FieldReference field) {
+    public void intern(FieldReference field) {
         Integer prev = internedItems.put(field, 0);
         if (prev == null) {
             dexPool.typeSection.intern(field.getDefiningClass());
@@ -53,19 +52,23 @@ public class FieldPool extends BaseIndexPool<FieldReference>
         }
     }
 
-     @Override public CharSequence getDefiningClass( FieldReference fieldReference) {
+    @Override
+    public CharSequence getDefiningClass(FieldReference fieldReference) {
         return fieldReference.getDefiningClass();
     }
 
-     @Override public CharSequence getFieldType( FieldReference fieldReference) {
+    @Override
+    public CharSequence getFieldType(FieldReference fieldReference) {
         return fieldReference.getType();
     }
 
-     @Override public CharSequence getName( FieldReference fieldReference) {
+    @Override
+    public CharSequence getName(FieldReference fieldReference) {
         return fieldReference.getName();
     }
 
-    @Override public int getFieldIndex( Field field) {
+    @Override
+    public int getFieldIndex(Field field) {
         return getItemIndex(field);
     }
 }

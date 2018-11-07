@@ -32,8 +32,6 @@
 package org.jf.dexlib2.builder;
 
 
-
-
 public class Label {
     MethodLocation location;
 

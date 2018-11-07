@@ -35,38 +35,42 @@ import org.jf.dexlib2.base.reference.BaseFieldReference;
 import org.jf.dexlib2.writer.DexWriter;
 
 
-
 public class BuilderFieldReference extends BaseFieldReference implements BuilderReference {
-     final BuilderTypeReference definingClass;
-     final BuilderStringReference name;
-     final BuilderTypeReference fieldType;
+    final BuilderTypeReference definingClass;
+    final BuilderStringReference name;
+    final BuilderTypeReference fieldType;
     int index = DexWriter.NO_INDEX;
 
-    BuilderFieldReference( BuilderTypeReference definingClass,
-                           BuilderStringReference name,
-                           BuilderTypeReference fieldType) {
+    BuilderFieldReference(BuilderTypeReference definingClass,
+                          BuilderStringReference name,
+                          BuilderTypeReference fieldType) {
         this.definingClass = definingClass;
         this.name = name;
         this.fieldType = fieldType;
     }
 
-     @Override public String getDefiningClass() {
+    @Override
+    public String getDefiningClass() {
         return definingClass.getType();
     }
 
-     @Override public String getName() {
+    @Override
+    public String getName() {
         return name.getString();
     }
 
-     @Override public String getType() {
+    @Override
+    public String getType() {
         return fieldType.getType();
     }
 
-    @Override public int getIndex() {
+    @Override
+    public int getIndex() {
         return index;
     }
 
-    @Override public void setIndex(int index) {
+    @Override
+    public void setIndex(int index) {
         this.index = index;
     }
 }

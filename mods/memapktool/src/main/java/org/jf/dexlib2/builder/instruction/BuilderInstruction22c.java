@@ -39,28 +39,45 @@ import org.jf.dexlib2.iface.reference.Reference;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class BuilderInstruction22c extends BuilderInstruction implements Instruction22c {
     public static final Format FORMAT = Format.Format22c;
 
     protected final int registerA;
     protected final int registerB;
-     protected final Reference reference;
+    protected final Reference reference;
 
-    public BuilderInstruction22c( Opcode opcode,
+    public BuilderInstruction22c(Opcode opcode,
                                  int registerA,
                                  int registerB,
-                                  Reference reference) {
+                                 Reference reference) {
         super(opcode);
         this.registerA = Preconditions.checkNibbleRegister(registerA);
         this.registerB = Preconditions.checkNibbleRegister(registerB);
         this.reference = reference;
     }
 
-    @Override public int getRegisterA() { return registerA; }
-    @Override public int getRegisterB() { return registerB; }
-     @Override public Reference getReference() { return reference; }
-    @Override public int getReferenceType() { return opcode.referenceType; }
+    @Override
+    public int getRegisterA() {
+        return registerA;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public int getRegisterB() {
+        return registerB;
+    }
+
+    @Override
+    public Reference getReference() {
+        return reference;
+    }
+
+    @Override
+    public int getReferenceType() {
+        return opcode.referenceType;
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

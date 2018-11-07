@@ -48,42 +48,13 @@ public class DexBackedOdexFile extends DexBackedDexFile {
 
     private final byte[] odexBuf;
 
-    public DexBackedOdexFile( Opcodes opcodes,  byte[] odexBuf, byte[] dexBuf) {
+    public DexBackedOdexFile(Opcodes opcodes, byte[] odexBuf, byte[] dexBuf) {
         super(opcodes, dexBuf);
 
         this.odexBuf = odexBuf;
     }
 
-    @Override public boolean isOdexFile() {
-        return true;
-    }
-
-    @Override public boolean hasOdexOpcodes() {
-        return true;
-    }
-
-     public List<String> getDependencies() {
-        final int dexOffset = OdexHeaderItem.getDexOffset(odexBuf);
-        final int dependencyOffset = OdexHeaderItem.getDependenciesOffset(odexBuf) - dexOffset;
-
-        BaseDexBuffer buf = new BaseDexBuffer(this.buf);
-        int dependencyCount = buf.readInt(dependencyOffset + DEPENDENCY_COUNT_OFFSET);
-
-        return new VariableSizeList<String>(this, dependencyOffset + DEPENDENCY_START_OFFSET, dependencyCount) {
-            @Override protected String readNextItem( DexReader reader, int index) {
-                int length = reader.readInt();
-                int offset = reader.getOffset();
-                reader.moveRelative(length + 20);
-                try {
-                    return new String(DexBackedOdexFile.this.buf, offset, length-1, "US-ASCII");
-                } catch (UnsupportedEncodingException ex) {
-                    throw new RuntimeException(ex);
-                }
-            }
-        };
-    }
-
-     public static DexBackedOdexFile fromInputStream( Opcodes opcodes,  InputStream is)
+    public static DexBackedOdexFile fromInputStream(Opcodes opcodes, InputStream is)
             throws IOException {
         DexUtil.verifyOdexHeader(is);
 
@@ -98,6 +69,38 @@ public class DexBackedOdexFile extends DexBackedDexFile {
         byte[] dexBuf = ByteStreams.toByteArray(is);
 
         return new DexBackedOdexFile(opcodes, odexBuf, dexBuf);
+    }
+
+    @Override
+    public boolean isOdexFile() {
+        return true;
+    }
+
+    @Override
+    public boolean hasOdexOpcodes() {
+        return true;
+    }
+
+    public List<String> getDependencies() {
+        final int dexOffset = OdexHeaderItem.getDexOffset(odexBuf);
+        final int dependencyOffset = OdexHeaderItem.getDependenciesOffset(odexBuf) - dexOffset;
+
+        BaseDexBuffer buf = new BaseDexBuffer(this.buf);
+        int dependencyCount = buf.readInt(dependencyOffset + DEPENDENCY_COUNT_OFFSET);
+
+        return new VariableSizeList<String>(this, dependencyOffset + DEPENDENCY_START_OFFSET, dependencyCount) {
+            @Override
+            protected String readNextItem(DexReader reader, int index) {
+                int length = reader.readInt();
+                int offset = reader.getOffset();
+                reader.moveRelative(length + 20);
+                try {
+                    return new String(DexBackedOdexFile.this.buf, offset, length - 1, "US-ASCII");
+                } catch (UnsupportedEncodingException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        };
     }
 
     public int getOdexVersion() {

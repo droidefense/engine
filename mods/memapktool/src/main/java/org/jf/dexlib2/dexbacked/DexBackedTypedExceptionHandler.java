@@ -32,18 +32,24 @@
 package org.jf.dexlib2.dexbacked;
 
 
-
 public class DexBackedTypedExceptionHandler extends DexBackedExceptionHandler {
-     private final DexBackedDexFile dexFile;
+    private final DexBackedDexFile dexFile;
     private final int typeId;
     private final int handlerCodeAddress;
 
-    public DexBackedTypedExceptionHandler( DexReader reader) {
+    public DexBackedTypedExceptionHandler(DexReader reader) {
         this.dexFile = reader.dexBuf;
         this.typeId = reader.readSmallUleb128();
         this.handlerCodeAddress = reader.readSmallUleb128();
     }
 
-     @Override public String getExceptionType() { return dexFile.getType(typeId); }
-    @Override public int getHandlerCodeAddress() { return handlerCodeAddress; }
+    @Override
+    public String getExceptionType() {
+        return dexFile.getType(typeId);
+    }
+
+    @Override
+    public int getHandlerCodeAddress() {
+        return handlerCodeAddress;
+    }
 }

@@ -41,36 +41,41 @@ import java.util.List;
 import java.util.Set;
 
 public class MethodRewriter implements Rewriter<Method> {
-     protected final Rewriters rewriters;
+    protected final Rewriters rewriters;
 
-    public MethodRewriter( Rewriters rewriters) {
+    public MethodRewriter(Rewriters rewriters) {
         this.rewriters = rewriters;
     }
 
-     @Override public Method rewrite( Method value) {
+    @Override
+    public Method rewrite(Method value) {
         return new RewrittenMethod(value);
     }
 
     protected class RewrittenMethod extends BaseMethodReference implements Method {
-         protected Method method;
+        protected Method method;
 
-        public RewrittenMethod( Method method) {
+        public RewrittenMethod(Method method) {
             this.method = method;
         }
 
-        @Override  public String getDefiningClass() {
+        @Override
+        public String getDefiningClass() {
             return rewriters.getMethodReferenceRewriter().rewrite(method).getDefiningClass();
         }
 
-        @Override  public String getName() {
+        @Override
+        public String getName() {
             return rewriters.getMethodReferenceRewriter().rewrite(method).getName();
         }
 
-        @Override  public List<? extends CharSequence> getParameterTypes() {
+        @Override
+        public List<? extends CharSequence> getParameterTypes() {
             return rewriters.getMethodReferenceRewriter().rewrite(method).getParameterTypes();
         }
 
-        @Override  public List<? extends MethodParameter> getParameters() {
+        @Override
+        public List<? extends MethodParameter> getParameters() {
             // We can't use the MethodReferenceRewriter to rewrite the parameters, because we would lose
             // parameter names and annotations. If a method rewrite involves changing parameters, it needs
             // to be handled here as well as in the MethodReferenceRewriter
@@ -78,19 +83,23 @@ public class MethodRewriter implements Rewriter<Method> {
             return RewriterUtils.rewriteList(rewriters.getMethodParameterRewriter(), method.getParameters());
         }
 
-        @Override  public String getReturnType() {
+        @Override
+        public String getReturnType() {
             return rewriters.getMethodReferenceRewriter().rewrite(method).getReturnType();
         }
 
-        @Override public int getAccessFlags() {
+        @Override
+        public int getAccessFlags() {
             return method.getAccessFlags();
         }
 
-        @Override  public Set<? extends Annotation> getAnnotations() {
+        @Override
+        public Set<? extends Annotation> getAnnotations() {
             return RewriterUtils.rewriteSet(rewriters.getAnnotationRewriter(), method.getAnnotations());
         }
 
-        @Override public MethodImplementation getImplementation() {
+        @Override
+        public MethodImplementation getImplementation() {
             return RewriterUtils.rewriteNullable(rewriters.getMethodImplementationRewriter(),
                     method.getImplementation());
         }

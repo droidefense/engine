@@ -43,7 +43,7 @@ import java.util.List;
 public class ImmutablePackedSwitchPayload extends ImmutableInstruction implements PackedSwitchPayload {
     public static final Opcode OPCODE = Opcode.PACKED_SWITCH_PAYLOAD;
 
-     protected final ImmutableList<? extends ImmutableSwitchElement> switchElements;
+    protected final ImmutableList<? extends ImmutableSwitchElement> switchElements;
 
     public ImmutablePackedSwitchPayload(List<? extends SwitchElement> switchElements) {
         super(OPCODE);
@@ -60,14 +60,24 @@ public class ImmutablePackedSwitchPayload extends ImmutableInstruction implement
 
     public static ImmutablePackedSwitchPayload of(PackedSwitchPayload instruction) {
         if (instruction instanceof ImmutablePackedSwitchPayload) {
-            return (ImmutablePackedSwitchPayload)instruction;
+            return (ImmutablePackedSwitchPayload) instruction;
         }
         return new ImmutablePackedSwitchPayload(
                 instruction.getSwitchElements());
     }
 
-     @Override public List<? extends SwitchElement> getSwitchElements() { return switchElements; }
+    @Override
+    public List<? extends SwitchElement> getSwitchElements() {
+        return switchElements;
+    }
 
-    @Override public int getCodeUnits() { return 4 + switchElements.size() * 2; }
-    @Override public Format getFormat() { return OPCODE.format; }
+    @Override
+    public int getCodeUnits() {
+        return 4 + switchElements.size() * 2;
+    }
+
+    @Override
+    public Format getFormat() {
+        return OPCODE.format;
+    }
 }

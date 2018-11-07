@@ -34,11 +34,13 @@ package org.jf.dexlib2.writer;
 import org.jf.dexlib2.iface.reference.FieldReference;
 
 
-
 public interface FieldSection<StringKey, TypeKey, FieldRefKey extends FieldReference, FieldKey>
         extends IndexSection<FieldRefKey> {
-     TypeKey getDefiningClass( FieldRefKey key);
-     TypeKey getFieldType( FieldRefKey key);
-     StringKey getName( FieldRefKey key);
-    int getFieldIndex( FieldKey key);
+    TypeKey getDefiningClass(FieldRefKey key);
+
+    TypeKey getFieldType(FieldRefKey key);
+
+    StringKey getName(FieldRefKey key);
+
+    int getFieldIndex(FieldKey key);
 }

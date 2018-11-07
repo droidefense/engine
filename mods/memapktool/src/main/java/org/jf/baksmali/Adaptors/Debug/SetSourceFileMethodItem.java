@@ -40,7 +40,7 @@ import java.io.IOException;
 public class SetSourceFileMethodItem extends DebugMethodItem {
     private final String sourceFile;
 
-    public SetSourceFileMethodItem(int codeAddress, int sortOrder,  SetSourceFile setSourceFile) {
+    public SetSourceFileMethodItem(int codeAddress, int sortOrder, SetSourceFile setSourceFile) {
         super(codeAddress, sortOrder);
         this.sourceFile = setSourceFile.getSourceFile();
     }

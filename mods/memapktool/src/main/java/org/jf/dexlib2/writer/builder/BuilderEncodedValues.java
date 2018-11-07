@@ -40,52 +40,16 @@ import java.util.List;
 import java.util.Set;
 
 public abstract class BuilderEncodedValues {
-    public static interface BuilderEncodedValue extends EncodedValue {
-    }
-
-    public static class BuilderAnnotationEncodedValue extends BaseAnnotationEncodedValue
-            implements BuilderEncodedValue {
-         final BuilderTypeReference typeReference;
-         final Set<? extends BuilderAnnotationElement> elements;
-
-        BuilderAnnotationEncodedValue( BuilderTypeReference typeReference,
-                                       Set<? extends BuilderAnnotationElement> elements) {
-            this.typeReference = typeReference;
-            this.elements = elements;
-        }
-
-         @Override public String getType() {
-            return typeReference.getType();
-        }
-
-         @Override public Set<? extends BuilderAnnotationElement> getElements() {
-            return elements;
-        }
-    }
-
-    public static class BuilderArrayEncodedValue extends BaseArrayEncodedValue implements BuilderEncodedValue {
-         final List<? extends BuilderEncodedValue> elements;
-
-        BuilderArrayEncodedValue( List<? extends BuilderEncodedValue> elements) {
-            this.elements = elements;
-        }
-
-         @Override public List<? extends EncodedValue> getValue() {
-            return elements;
-        }
-    }
-
-
     public static BuilderEncodedValue defaultValueForType(String type) {
         switch (type.charAt(0)) {
             case 'Z':
                 return BuilderBooleanEncodedValue.FALSE_VALUE;
             case 'B':
-                return new BuilderByteEncodedValue((byte)0);
+                return new BuilderByteEncodedValue((byte) 0);
             case 'S':
-                return new BuilderShortEncodedValue((short)0);
+                return new BuilderShortEncodedValue((short) 0);
             case 'C':
-                return new BuilderCharEncodedValue((char)0);
+                return new BuilderCharEncodedValue((char) 0);
             case 'I':
                 return new BuilderIntEncodedValue(0);
             case 'J':
@@ -102,6 +66,44 @@ public abstract class BuilderEncodedValues {
         }
     }
 
+    public static interface BuilderEncodedValue extends EncodedValue {
+    }
+
+    public static class BuilderAnnotationEncodedValue extends BaseAnnotationEncodedValue
+            implements BuilderEncodedValue {
+        final BuilderTypeReference typeReference;
+        final Set<? extends BuilderAnnotationElement> elements;
+
+        BuilderAnnotationEncodedValue(BuilderTypeReference typeReference,
+                                      Set<? extends BuilderAnnotationElement> elements) {
+            this.typeReference = typeReference;
+            this.elements = elements;
+        }
+
+        @Override
+        public String getType() {
+            return typeReference.getType();
+        }
+
+        @Override
+        public Set<? extends BuilderAnnotationElement> getElements() {
+            return elements;
+        }
+    }
+
+    public static class BuilderArrayEncodedValue extends BaseArrayEncodedValue implements BuilderEncodedValue {
+        final List<? extends BuilderEncodedValue> elements;
+
+        BuilderArrayEncodedValue(List<? extends BuilderEncodedValue> elements) {
+            this.elements = elements;
+        }
+
+        @Override
+        public List<? extends EncodedValue> getValue() {
+            return elements;
+        }
+    }
+
     public static class BuilderBooleanEncodedValue extends BaseBooleanEncodedValue
             implements BuilderEncodedValue {
         public static final BuilderBooleanEncodedValue TRUE_VALUE = new BuilderBooleanEncodedValue(true);
@@ -113,7 +115,8 @@ public abstract class BuilderEncodedValues {
             this.value = value;
         }
 
-        @Override public boolean getValue() {
+        @Override
+        public boolean getValue() {
             return value;
         }
     }
@@ -141,26 +144,28 @@ public abstract class BuilderEncodedValues {
 
     public static class BuilderEnumEncodedValue extends BaseEnumEncodedValue
             implements BuilderEncodedValue {
-         final BuilderFieldReference enumReference;
+        final BuilderFieldReference enumReference;
 
-        BuilderEnumEncodedValue( BuilderFieldReference enumReference) {
+        BuilderEnumEncodedValue(BuilderFieldReference enumReference) {
             this.enumReference = enumReference;
         }
 
-         @Override public BuilderFieldReference getValue() {
+        @Override
+        public BuilderFieldReference getValue() {
             return enumReference;
         }
     }
 
     public static class BuilderFieldEncodedValue extends BaseFieldEncodedValue
             implements BuilderEncodedValue {
-         final BuilderFieldReference fieldReference;
+        final BuilderFieldReference fieldReference;
 
-        BuilderFieldEncodedValue( BuilderFieldReference fieldReference) {
+        BuilderFieldEncodedValue(BuilderFieldReference fieldReference) {
             this.fieldReference = fieldReference;
         }
 
-         @Override public BuilderFieldReference getValue() {
+        @Override
+        public BuilderFieldReference getValue() {
             return fieldReference;
         }
     }
@@ -188,13 +193,14 @@ public abstract class BuilderEncodedValues {
 
     public static class BuilderMethodEncodedValue extends BaseMethodEncodedValue
             implements BuilderEncodedValue {
-         final BuilderMethodReference methodReference;
+        final BuilderMethodReference methodReference;
 
-        BuilderMethodEncodedValue( BuilderMethodReference methodReference) {
+        BuilderMethodEncodedValue(BuilderMethodReference methodReference) {
             this.methodReference = methodReference;
         }
 
-        @Override public BuilderMethodReference getValue() {
+        @Override
+        public BuilderMethodReference getValue() {
             return methodReference;
         }
     }
@@ -203,7 +209,8 @@ public abstract class BuilderEncodedValues {
             implements BuilderEncodedValue {
         public static final BuilderNullEncodedValue INSTANCE = new BuilderNullEncodedValue();
 
-        private BuilderNullEncodedValue() {}
+        private BuilderNullEncodedValue() {
+        }
     }
 
     public static class BuilderShortEncodedValue extends ImmutableShortEncodedValue
@@ -215,26 +222,28 @@ public abstract class BuilderEncodedValues {
 
     public static class BuilderStringEncodedValue extends BaseStringEncodedValue
             implements BuilderEncodedValue {
-         final BuilderStringReference stringReference;
+        final BuilderStringReference stringReference;
 
-        BuilderStringEncodedValue( BuilderStringReference stringReference) {
+        BuilderStringEncodedValue(BuilderStringReference stringReference) {
             this.stringReference = stringReference;
         }
 
-         @Override public String getValue() {
+        @Override
+        public String getValue() {
             return stringReference.getString();
         }
     }
 
     public static class BuilderTypeEncodedValue extends BaseTypeEncodedValue
             implements BuilderEncodedValue {
-         final BuilderTypeReference typeReference;
+        final BuilderTypeReference typeReference;
 
-        BuilderTypeEncodedValue( BuilderTypeReference typeReference) {
+        BuilderTypeEncodedValue(BuilderTypeReference typeReference) {
             this.typeReference = typeReference;
         }
 
-         @Override public String getValue() {
+        @Override
+        public String getValue() {
             return typeReference.getType();
         }
     }

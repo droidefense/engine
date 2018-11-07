@@ -38,14 +38,13 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction22x;
 import org.jf.dexlib2.util.Preconditions;
 
 
-
 public class BuilderInstruction22x extends BuilderInstruction implements Instruction22x {
     public static final Format FORMAT = Format.Format22x;
 
     protected final int registerA;
     protected final int registerB;
 
-    public BuilderInstruction22x( Opcode opcode,
+    public BuilderInstruction22x(Opcode opcode,
                                  int registerA,
                                  int registerB) {
         super(opcode);
@@ -53,8 +52,18 @@ public class BuilderInstruction22x extends BuilderInstruction implements Instruc
         this.registerB = Preconditions.checkShortRegister(registerB);
     }
 
-    @Override public int getRegisterA() { return registerA; }
-    @Override public int getRegisterB() { return registerB; }
+    @Override
+    public int getRegisterA() {
+        return registerA;
+    }
 
-    @Override public Format getFormat() { return FORMAT; }
+    @Override
+    public int getRegisterB() {
+        return registerB;
+    }
+
+    @Override
+    public Format getFormat() {
+        return FORMAT;
+    }
 }

@@ -49,7 +49,7 @@ public class HelpCommand extends Command {
     @ExtendedParameter(argumentNames = "commands")
     private List<String> commands;
 
-    public HelpCommand( List<JCommander> commandAncestors) {
+    public HelpCommand(List<JCommander> commandAncestors) {
         super(commandAncestors);
     }
 
@@ -70,7 +70,7 @@ public class HelpCommand extends Command {
                     printedHelp = true;
                     System.out.println(new HelpFormatter()
                             .width(ConsoleUtil.getConsoleWidth())
-                            .format(((Command)command.getObjects().get(0)).getCommandHierarchy()));
+                            .format(((Command) command.getObjects().get(0)).getCommandHierarchy()));
                 }
             }
             if (!printedHelp) {
@@ -81,10 +81,10 @@ public class HelpCommand extends Command {
         }
     }
 
-    @Parameters(hidden =  true)
+    @Parameters(hidden = true)
     @ExtendedParameters(commandName = "hlep")
     public static class HlepCommand extends HelpCommand {
-        public HlepCommand( List<JCommander> commandAncestors) {
+        public HlepCommand(List<JCommander> commandAncestors) {
             super(commandAncestors);
         }
     }

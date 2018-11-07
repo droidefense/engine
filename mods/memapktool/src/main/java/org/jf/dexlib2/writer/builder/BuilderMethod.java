@@ -39,19 +39,19 @@ import org.jf.dexlib2.writer.DexWriter;
 import java.util.List;
 
 public class BuilderMethod extends BaseMethodReference implements Method {
-     final BuilderMethodReference methodReference;
-     final List<? extends BuilderMethodParameter> parameters;
+    final BuilderMethodReference methodReference;
+    final List<? extends BuilderMethodParameter> parameters;
     final int accessFlags;
-     final BuilderAnnotationSet annotations;
+    final BuilderAnnotationSet annotations;
     final MethodImplementation methodImplementation;
 
     int annotationSetRefListOffset = DexWriter.NO_OFFSET;
     int codeItemOffset = DexWriter.NO_OFFSET;
 
-    BuilderMethod( BuilderMethodReference methodReference,
-                   List<? extends BuilderMethodParameter> parameters,
+    BuilderMethod(BuilderMethodReference methodReference,
+                  List<? extends BuilderMethodParameter> parameters,
                   int accessFlags,
-                   BuilderAnnotationSet annotations,
+                  BuilderAnnotationSet annotations,
                   MethodImplementation methodImplementation) {
         this.methodReference = methodReference;
         this.parameters = parameters;
@@ -60,12 +60,43 @@ public class BuilderMethod extends BaseMethodReference implements Method {
         this.methodImplementation = methodImplementation;
     }
 
-    @Override  public String getDefiningClass() { return methodReference.definingClass.getType(); }
-    @Override  public String getName() { return methodReference.name.getString(); }
-    @Override  public BuilderTypeList getParameterTypes() { return methodReference.proto.parameterTypes; }
-     @Override public String getReturnType() { return methodReference.proto.returnType.getType(); }
-    @Override  public List<? extends BuilderMethodParameter> getParameters() { return parameters; }
-    @Override public int getAccessFlags() { return accessFlags; }
-    @Override  public BuilderAnnotationSet getAnnotations() { return annotations; }
-    @Override public MethodImplementation getImplementation() { return methodImplementation; }
+    @Override
+    public String getDefiningClass() {
+        return methodReference.definingClass.getType();
+    }
+
+    @Override
+    public String getName() {
+        return methodReference.name.getString();
+    }
+
+    @Override
+    public BuilderTypeList getParameterTypes() {
+        return methodReference.proto.parameterTypes;
+    }
+
+    @Override
+    public String getReturnType() {
+        return methodReference.proto.returnType.getType();
+    }
+
+    @Override
+    public List<? extends BuilderMethodParameter> getParameters() {
+        return parameters;
+    }
+
+    @Override
+    public int getAccessFlags() {
+        return accessFlags;
+    }
+
+    @Override
+    public BuilderAnnotationSet getAnnotations() {
+        return annotations;
+    }
+
+    @Override
+    public MethodImplementation getImplementation() {
+        return methodImplementation;
+    }
 }

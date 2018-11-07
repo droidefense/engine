@@ -38,23 +38,24 @@ import java.util.Set;
 
 /**
  * This class represents a class definition.
- *
+ * <p>
  * It also acts as a TypeReference to itself. Any equality/comparison is based on its identity as a TypeReference,
  * and shouldn't take into account anything other than the type of this class.
  */
 public interface ClassDef extends TypeReference, Annotatable {
     /**
      * Gets the class type.
-     *
+     * <p>
      * This will be a type descriptor per the dex file specification.
      *
      * @return The class type
      */
-    @Override  String getType();
+    @Override
+    String getType();
 
     /**
      * Gets the access flags for this class.
-     *
+     * <p>
      * This will be a combination of the AccessFlags.* flags that are marked as compatible for use with a class.
      *
      * @return The access flags for this class
@@ -63,7 +64,7 @@ public interface ClassDef extends TypeReference, Annotatable {
 
     /**
      * Gets the superclass of this class.
-     *
+     * <p>
      * This will only be null if this is the base java.lang.Object class.
      *
      * @return The superclass of this class
@@ -75,11 +76,11 @@ public interface ClassDef extends TypeReference, Annotatable {
      *
      * @return A list of the interfaces that this class implements
      */
-     List<String> getInterfaces();
+    List<String> getInterfaces();
 
     /**
      * Gets the name of the primary source file that this class is defined in, if available.
-     *
+     * <p>
      * This will be the default source file associated with all methods defined in this class. This can be overridden
      * for sections of an individual method with the SetSourceFile debug item.
      *
@@ -89,76 +90,77 @@ public interface ClassDef extends TypeReference, Annotatable {
 
     /**
      * Gets a set of the annotations that are applied to this class.
-     *
+     * <p>
      * The annotations in the returned set are guaranteed to have unique types.
      *
      * @return A set of the annotations that are applied to this class
      */
-    @Override  Set<? extends Annotation> getAnnotations();
+    @Override
+    Set<? extends Annotation> getAnnotations();
 
     /**
      * Gets the static fields that are defined by this class.
-     *
+     * <p>
      * The static fields that are returned must have no duplicates.
      *
      * @return The static fields that are defined by this class
      */
-     Iterable<? extends Field> getStaticFields();
+    Iterable<? extends Field> getStaticFields();
 
     /**
      * Gets the instance fields that are defined by this class.
-     *
+     * <p>
      * The instance fields that are returned must have no duplicates.
      *
      * @return The instance fields that are defined by this class
      */
-     Iterable<? extends Field> getInstanceFields();
+    Iterable<? extends Field> getInstanceFields();
 
     /**
      * Gets all the fields that are defined by this class.
-     *
+     * <p>
      * This is a convenience method that combines getStaticFields() and getInstanceFields()
-     *
+     * <p>
      * The returned fields may be in any order. I.e. It's not safe to assume that all instance fields will come after
      * all static fields.
-     *
+     * <p>
      * Note that there typically should not be any duplicate fields between the two, but some versions of
      * dalvik inadvertently allow duplicate static/instance fields, and are supported here for completeness
      *
      * @return A set of the fields that are defined by this class
      */
-     Iterable<? extends Field> getFields();
+    Iterable<? extends Field> getFields();
 
     /**
      * Gets the direct methods that are defined by this class.
-     *
+     * <p>
      * The direct methods that are returned must have no duplicates.
      *
      * @return The direct methods that are defined by this class.
      */
-     Iterable<? extends Method> getDirectMethods();
+    Iterable<? extends Method> getDirectMethods();
 
     /**
      * Gets the virtual methods that are defined by this class.
-     *
+     * <p>
      * The virtual methods that are returned must have no duplicates.
      *
      * @return The virtual methods that are defined by this class.
      */
-     Iterable<? extends Method> getVirtualMethods();
+    Iterable<? extends Method> getVirtualMethods();
 
     /**
      * Gets all the methods that are defined by this class.
-     *
+     * <p>
      * This is a convenience method that combines getDirectMethods() and getVirtualMethods().
-     *
+     * <p>
      * The returned methods may be in any order. I.e. It's not safe to assume that all virtual methods will come after
      * all direct methods.
-     *
+     * <p>
      * Note that there typically should not be any duplicate methods between the two, but some versions of
      * dalvik inadvertently allow duplicate direct/virtual methods, and are supported here for completeness
      *
      * @return An iterable of the methods that are defined by this class.
      */
-     Iterable<? extends Method> getMethods();
+    Iterable<? extends Method> getMethods();
 }

@@ -41,27 +41,30 @@ public class TypeProtoUtils {
     /**
      * Get the chain of superclasses of the given class. The first element will be the immediate superclass followed by
      * it's superclass, etc. up to java.lang.Object.
-     *
+     * <p>
      * Returns an empty iterable if called on java.lang.Object or a primitive.
-     *
+     * <p>
      * If any class in the superclass chain can't be resolved, the iterable will return Ujava/lang/Object; to represent
      * the unknown class.
      *
      * @return An iterable containing the superclasses of this class.
      */
 
-    public static Iterable<TypeProto> getSuperclassChain( final TypeProto typeProto) {
+    public static Iterable<TypeProto> getSuperclassChain(final TypeProto typeProto) {
         return new Iterable<TypeProto>() {
 
-            @Override public Iterator<TypeProto> iterator() {
+            @Override
+            public Iterator<TypeProto> iterator() {
                 return new Iterator<TypeProto>() {
                     private TypeProto type = getSuperclassAsTypeProto(typeProto);
 
-                    @Override public boolean hasNext() {
+                    @Override
+                    public boolean hasNext() {
                         return type != null;
                     }
 
-                    @Override public TypeProto next() {
+                    @Override
+                    public TypeProto next() {
                         TypeProto type = this.type;
                         if (type == null) {
                             throw new NoSuchElementException();
@@ -71,7 +74,8 @@ public class TypeProtoUtils {
                         return type;
                     }
 
-                    @Override public void remove() {
+                    @Override
+                    public void remove() {
                         throw new UnsupportedOperationException();
                     }
                 };
@@ -80,7 +84,7 @@ public class TypeProtoUtils {
     }
 
 
-    public static TypeProto getSuperclassAsTypeProto( TypeProto type) {
+    public static TypeProto getSuperclassAsTypeProto(TypeProto type) {
         try {
             String next = type.getSuperclass();
             if (next != null) {
@@ -93,11 +97,11 @@ public class TypeProtoUtils {
         }
     }
 
-    public static boolean extendsFrom( TypeProto candidate,  String possibleSuper) {
+    public static boolean extendsFrom(TypeProto candidate, String possibleSuper) {
         if (candidate.getType().equals(possibleSuper)) {
             return true;
         }
-        for (TypeProto superProto: getSuperclassChain(candidate)) {
+        for (TypeProto superProto : getSuperclassChain(candidate)) {
             if (superProto.getType().equals(possibleSuper)) {
                 return true;
             }

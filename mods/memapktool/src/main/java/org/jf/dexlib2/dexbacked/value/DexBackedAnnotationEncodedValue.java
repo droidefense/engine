@@ -41,12 +41,12 @@ import org.jf.dexlib2.iface.value.AnnotationEncodedValue;
 import java.util.Set;
 
 public class DexBackedAnnotationEncodedValue extends BaseAnnotationEncodedValue implements AnnotationEncodedValue {
-     public final DexBackedDexFile dexFile;
-     public final String type;
+    public final DexBackedDexFile dexFile;
+    public final String type;
     private final int elementCount;
     private final int elementsOffset;
 
-    public DexBackedAnnotationEncodedValue( DexReader reader) {
+    public DexBackedAnnotationEncodedValue(DexReader reader) {
         this.dexFile = reader.dexBuf;
         this.type = dexFile.getType(reader.readSmallUleb128());
         this.elementCount = reader.readSmallUleb128();
@@ -54,20 +54,23 @@ public class DexBackedAnnotationEncodedValue extends BaseAnnotationEncodedValue 
         skipElements(reader, elementCount);
     }
 
-    public static void skipFrom( DexReader reader) {
+    public static void skipFrom(DexReader reader) {
         reader.skipUleb128(); // type
         int elementCount = reader.readSmallUleb128();
         skipElements(reader, elementCount);
     }
 
-    private static void skipElements( DexReader reader, int elementCount) {
-        for (int i=0; i<elementCount; i++) {
+    private static void skipElements(DexReader reader, int elementCount) {
+        for (int i = 0; i < elementCount; i++) {
             reader.skipUleb128();
             DexBackedEncodedValue.skipFrom(reader);
         }
     }
 
-     @Override public String getType() { return type; }
+    @Override
+    public String getType() {
+        return type;
+    }
 
 
     @Override
@@ -75,7 +78,7 @@ public class DexBackedAnnotationEncodedValue extends BaseAnnotationEncodedValue 
         return new VariableSizeSet<DexBackedAnnotationElement>(dexFile, elementsOffset, elementCount) {
 
             @Override
-            protected DexBackedAnnotationElement readNextItem( DexReader dexReader, int index) {
+            protected DexBackedAnnotationElement readNextItem(DexReader dexReader, int index) {
                 return new DexBackedAnnotationElement(dexReader);
             }
         };

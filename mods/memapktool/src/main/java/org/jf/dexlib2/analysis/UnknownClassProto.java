@@ -36,22 +36,40 @@ import org.jf.dexlib2.iface.reference.FieldReference;
 import org.jf.dexlib2.iface.reference.MethodReference;
 
 
-
-
 public class UnknownClassProto implements TypeProto {
-     protected final ClassPath classPath;
+    protected final ClassPath classPath;
 
-    public UnknownClassProto( ClassPath classPath) {
+    public UnknownClassProto(ClassPath classPath) {
         this.classPath = classPath;
     }
 
-    @Override public String toString() { return "Ujava/lang/Object;"; }
-     @Override public ClassPath getClassPath() { return classPath; }
-    @Override public String getSuperclass() { return null; }
-    @Override public boolean isInterface() { return false; }
-    @Override public boolean implementsInterface( String iface) { return false; }
+    @Override
+    public String toString() {
+        return "Ujava/lang/Object;";
+    }
 
-     @Override public TypeProto getCommonSuperclass( TypeProto other) {
+    @Override
+    public ClassPath getClassPath() {
+        return classPath;
+    }
+
+    @Override
+    public String getSuperclass() {
+        return null;
+    }
+
+    @Override
+    public boolean isInterface() {
+        return false;
+    }
+
+    @Override
+    public boolean implementsInterface(String iface) {
+        return false;
+    }
+
+    @Override
+    public TypeProto getCommonSuperclass(TypeProto other) {
         if (other.getType().equals("Ljava/lang/Object;")) {
             return other;
         }
@@ -63,7 +81,8 @@ public class UnknownClassProto implements TypeProto {
         return this;
     }
 
-     @Override public String getType() {
+    @Override
+    public String getType() {
         // use the otherwise used U prefix for an unknown/unresolvable class
         return "Ujava/lang/Object;";
     }
@@ -80,7 +99,8 @@ public class UnknownClassProto implements TypeProto {
         return classPath.getClass("Ljava/lang/Object;").getMethodByVtableIndex(vtableIndex);
     }
 
-    @Override public int findMethodIndexInVtable( MethodReference method) {
+    @Override
+    public int findMethodIndexInVtable(MethodReference method) {
         return classPath.getClass("Ljava/lang/Object;").findMethodIndexInVtable(method);
     }
 }

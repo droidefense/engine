@@ -37,8 +37,6 @@ import org.jf.dexlib2.iface.value.EncodedValue;
 import org.jf.dexlib2.iface.value.MethodEncodedValue;
 
 
-
-
 public abstract class BaseMethodEncodedValue implements MethodEncodedValue {
     @Override
     public int hashCode() {
@@ -48,17 +46,19 @@ public abstract class BaseMethodEncodedValue implements MethodEncodedValue {
     @Override
     public boolean equals(Object o) {
         if (o instanceof MethodEncodedValue) {
-            return getValue().equals(((MethodEncodedValue)o).getValue());
+            return getValue().equals(((MethodEncodedValue) o).getValue());
         }
         return false;
     }
 
     @Override
-    public int compareTo( EncodedValue o) {
+    public int compareTo(EncodedValue o) {
         int res = Ints.compare(getValueType(), o.getValueType());
         if (res != 0) return res;
-        return getValue().compareTo(((MethodEncodedValue)o).getValue());
+        return getValue().compareTo(((MethodEncodedValue) o).getValue());
     }
 
-    public int getValueType() { return ValueType.METHOD; }
+    public int getValueType() {
+        return ValueType.METHOD;
+    }
 }

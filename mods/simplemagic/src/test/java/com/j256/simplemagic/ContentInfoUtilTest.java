@@ -123,7 +123,7 @@ public class ContentInfoUtilTest {
     public void testSpecificFileProblem() throws Exception {
         /*
          * For testing specific entries from a different magic file.
-		 */
+         */
         InputStream stream = getClass().getClassLoader().getResourceAsStream("magic");
         assertNotNull(stream);
         ContentInfoUtil util = new ContentInfoUtil(new InputStreamReader(stream));

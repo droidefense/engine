@@ -53,8 +53,30 @@ public class DumpCommand extends DexInputCommand {
             description = "Show usage information for this command.")
     private boolean help;
 
-    public DumpCommand( List<JCommander> commandAncestors) {
+    public DumpCommand(List<JCommander> commandAncestors) {
         super(commandAncestors);
+    }
+
+    /**
+     * Writes an annotated hex dump of the given dex file to output.
+     *
+     * @param dexFile The dex file to dump
+     * @param output  An OutputStream to write the annotated hex dump to. The caller is responsible for closing this
+     *                when needed.
+     * @throws IOException
+     */
+    public static void dump(DexBackedDexFile dexFile, OutputStream output)
+            throws IOException {
+        Writer writer = new BufferedWriter(new OutputStreamWriter(output));
+
+        int consoleWidth = ConsoleUtil.getConsoleWidth();
+        if (consoleWidth <= 0) {
+            consoleWidth = 120;
+        }
+
+        RawDexFile rawDexFile = new RawDexFile(dexFile.getOpcodes(), dexFile);
+        DexAnnotator annotator = new DexAnnotator(rawDexFile, consoleWidth);
+        annotator.writeAnnotations(writer);
     }
 
     public void run() {
@@ -78,28 +100,5 @@ public class DumpCommand extends DexInputCommand {
             System.err.println("There was an error while dumping the dex file");
             ex.printStackTrace(System.err);
         }
-    }
-
-    /**
-     * Writes an annotated hex dump of the given dex file to output.
-     *
-     * @param dexFile The dex file to dump
-     * @param output An OutputStream to write the annotated hex dump to. The caller is responsible for closing this
-     *               when needed.
-     *
-     * @throws IOException
-     */
-    public static void dump( DexBackedDexFile dexFile,  OutputStream output)
-            throws IOException {
-        Writer writer = new BufferedWriter(new OutputStreamWriter(output));
-
-        int consoleWidth = ConsoleUtil.getConsoleWidth();
-        if (consoleWidth <= 0) {
-            consoleWidth = 120;
-        }
-
-        RawDexFile rawDexFile = new RawDexFile(dexFile.getOpcodes(), dexFile);
-        DexAnnotator annotator = new DexAnnotator(rawDexFile, consoleWidth);
-        annotator.writeAnnotations(writer);
     }
 }

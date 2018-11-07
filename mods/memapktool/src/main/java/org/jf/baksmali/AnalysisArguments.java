@@ -71,22 +71,12 @@ public class AnalysisArguments {
     @ExtendedParameter(argumentNames = "dir")
     public List<String> classPathDirectories = null;
 
-    public static class CheckPackagePrivateArgument {
-        @Parameter(names = {"--check-package-private-access", "--package-private", "--checkpp", "--pp"},
-                description = "Use the package-private access check when calculating vtable indexes. This is enabled " +
-                        "by default for oat files. For odex files, this is only needed for odexes from 4.2.0. It " +
-                        "was reverted in 4.2.1.")
-        public boolean checkPackagePrivateAccess = false;
-    }
-
-
-    public ClassPath loadClassPathForDexFile( File dexFileDir,  DexFile dexFile,
+    public ClassPath loadClassPathForDexFile(File dexFileDir, DexFile dexFile,
                                              boolean checkPackagePrivateAccess) throws IOException {
         return loadClassPathForDexFile(dexFileDir, dexFile, checkPackagePrivateAccess, NOT_ART);
     }
 
-
-    public ClassPath loadClassPathForDexFile( File dexFileDir,  DexFile dexFile,
+    public ClassPath loadClassPathForDexFile(File dexFileDir, DexFile dexFile,
                                              boolean checkPackagePrivateAccess, int oatVersion)
             throws IOException {
         ClassPathResolver resolver;
@@ -97,7 +87,7 @@ public class AnalysisArguments {
         if (oatVersion == NOT_ART) {
             if (dexFile instanceof OatDexFile) {
                 checkPackagePrivateAccess = true;
-                oatVersion = ((OatDexFile)dexFile).getContainer().getOatVersion();
+                oatVersion = ((OatDexFile) dexFile).getContainer().getOatVersion();
             }
         } else {
             // this should always be true for ART
@@ -110,7 +100,7 @@ public class AnalysisArguments {
 
         List<String> filteredClassPathDirectories = Lists.newArrayList();
         if (classPathDirectories != null) {
-            for (String dir: classPathDirectories) {
+            for (String dir : classPathDirectories) {
                 File file = new File(dir);
                 if (!file.exists()) {
                     System.err.println(String.format("Warning: directory %s does not exist. Ignoring.", dir));
@@ -126,7 +116,7 @@ public class AnalysisArguments {
             // TODO: we should be able to get the api from the Opcodes object associated with the dexFile..
             // except that the oat version -> api mapping doesn't fully work yet
             resolver = new ClassPathResolver(filteredClassPathDirectories, classPath, dexFile);
-        }  else if (bootClassPath.size() == 1 && bootClassPath.get(0).length() == 0) {
+        } else if (bootClassPath.size() == 1 && bootClassPath.get(0).length() == 0) {
             // --bootclasspath "" is a special case, denoting that no bootclasspath should be used
             resolver = new ClassPathResolver(
                     ImmutableList.<String>of(), ImmutableList.<String>of(), classPath, dexFile);
@@ -135,8 +125,16 @@ public class AnalysisArguments {
         }
 
         if (oatVersion == 0 && dexFile instanceof OatDexFile) {
-            oatVersion = ((OatDexFile)dexFile).getContainer().getOatVersion();
+            oatVersion = ((OatDexFile) dexFile).getContainer().getOatVersion();
         }
         return new ClassPath(resolver.getResolvedClassProviders(), checkPackagePrivateAccess, oatVersion);
+    }
+
+    public static class CheckPackagePrivateArgument {
+        @Parameter(names = {"--check-package-private-access", "--package-private", "--checkpp", "--pp"},
+                description = "Use the package-private access check when calculating vtable indexes. This is enabled " +
+                        "by default for oat files. For odex files, this is only needed for odexes from 4.2.0. It " +
+                        "was reverted in 4.2.1.")
+        public boolean checkPackagePrivateAccess = false;
     }
 }

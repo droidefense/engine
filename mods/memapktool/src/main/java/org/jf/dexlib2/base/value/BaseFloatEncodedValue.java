@@ -37,8 +37,6 @@ import org.jf.dexlib2.iface.value.EncodedValue;
 import org.jf.dexlib2.iface.value.FloatEncodedValue;
 
 
-
-
 public abstract class BaseFloatEncodedValue implements FloatEncodedValue {
     @Override
     public int hashCode() {
@@ -48,17 +46,19 @@ public abstract class BaseFloatEncodedValue implements FloatEncodedValue {
     @Override
     public boolean equals(Object o) {
         if (o != null && o instanceof FloatEncodedValue) {
-            return Float.floatToRawIntBits(getValue()) == Float.floatToRawIntBits(((FloatEncodedValue)o).getValue());
+            return Float.floatToRawIntBits(getValue()) == Float.floatToRawIntBits(((FloatEncodedValue) o).getValue());
         }
         return false;
     }
 
     @Override
-    public int compareTo( EncodedValue o) {
+    public int compareTo(EncodedValue o) {
         int res = Ints.compare(getValueType(), o.getValueType());
         if (res != 0) return res;
-        return Float.compare(getValue(), ((FloatEncodedValue)o).getValue());
+        return Float.compare(getValue(), ((FloatEncodedValue) o).getValue());
     }
 
-    public int getValueType() { return ValueType.FLOAT; }
+    public int getValueType() {
+        return ValueType.FLOAT;
+    }
 }

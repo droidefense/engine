@@ -34,8 +34,6 @@ package org.jf.dexlib2.iface;
 import org.jf.dexlib2.iface.reference.TypeReference;
 
 
-
-
 /**
  * This class represents an individual exception handler entry, in a try block.
  */
@@ -65,7 +63,7 @@ public interface ExceptionHandler extends Comparable<ExceptionHandler> {
 
     /**
      * Returns a hashcode for this ExceptionHandler.
-     *
+     * <p>
      * This hashCode is defined to be the following:
      *
      * <pre>
@@ -77,27 +75,30 @@ public interface ExceptionHandler extends Comparable<ExceptionHandler> {
      *
      * @return The hash code value for this ExceptionHandler
      */
-    @Override int hashCode();
+    @Override
+    int hashCode();
 
     /**
      * Compares this ExceptionHandler to another ExceptionHandler for equality.
-     *
+     * <p>
      * This ExceptionHandler is equal to another ExceptionHandler if all of it's "fields" are equal. That is, if
      * the return values of getExceptionType() and getHandlerCodeAddress() are both equal.
      *
      * @param o The object to be compared for equality with this ExceptionHandler
      * @return true if the specified object is equal to this ExceptionHandler
      */
-    @Override boolean equals(Object o);
+    @Override
+    boolean equals(Object o);
 
     /**
      * Compare this ExceptionHandler to another ExceptionHandler.
-     *
+     * <p>
      * The comparison is based on the comparison of the return values of getExceptionType() and
      * getHandlerCodeAddress() in that order. A null value for getExceptionType() compares after a non-null value.
      *
      * @param o The ExceptionHandler to compare with this ExceptionHandler
      * @return An integer representing the result of the comparison
      */
-    @Override int compareTo( ExceptionHandler o);
+    @Override
+    int compareTo(ExceptionHandler o);
 }

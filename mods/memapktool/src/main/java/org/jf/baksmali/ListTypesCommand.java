@@ -41,9 +41,9 @@ import java.util.List;
 @Parameters(commandDescription = "Lists the type ids in a dex file's type table.")
 @ExtendedParameters(
         commandName = "types",
-        commandAliases = { "type", "t" })
+        commandAliases = {"type", "t"})
 public class ListTypesCommand extends ListReferencesCommand {
-    public ListTypesCommand( List<JCommander> commandAncestors) {
+    public ListTypesCommand(List<JCommander> commandAncestors) {
         super(commandAncestors, ReferenceType.TYPE);
     }
 }
