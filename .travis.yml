@@ -1,7 +1,9 @@
 language: java
 sudo: false
 jdk:
-- oraclejdk8
+  - oraclejdk9
+  - openjdk10
+  - oraclejdk10
 os:
 - linux
 cache:
@@ -9,8 +11,8 @@ cache:
   - $HOME/.m2
 env:
   global:
-  - MAVEN_OPTS="-XX:MaxPermSize=2g -Xmx4g"
-  - JAVA_OPTS="-XX:MaxPermSize=2g -Xmx4g"
+  - MAVEN_OPTS="-Xmx4g"
+  - JAVA_OPTS="-Xmx4g"
 script:
 - ./build.sh
 after_success:
