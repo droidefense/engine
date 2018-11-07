@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
+
 installation_path="/usr/bin/droidefense.jar"
 
 function install_on_system(){

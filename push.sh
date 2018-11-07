@@ -1,4 +1,7 @@
 #!/bin/sh
+
+cd "$(dirname "$0")"
+
 echo 'Updating remote content with new local push'
 git add .
 echo 'Adding new commit...'

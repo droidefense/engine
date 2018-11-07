@@ -1,12 +1,21 @@
-# Droidefense
-
 <p align="center">
-</br>
-<img src ="https://avatars3.githubusercontent.com/u/22367829?s=200&v=4" />
+  <img alt="Droidefense Engine Logo" src="https://avatars1.githubusercontent.com/u/22367829?s=400&u=7cd7357fdd34008b7a77a8e560f8f2adc26174ba&v=4" width="200px"></img>
+  <h3 align="center"><b>Droidefense Engine</b></h3>
+  <p align="center">Advance Android Malware Analysis Framework</p>
 </p>
 
-[![Build Status](https://travis-ci.org/droidefense/engine.svg?branch=develop)](https://travis-ci.org/droidefense/engine)
-[![License](http://img.shields.io/:license-gpl3-blue.svg)](https://raw.githubusercontent.com/Droidefense/engine/develop/LICENSE)
+<p align="center">
+    <a href="https://github.com/droidefense/engine/releases">
+    <a href="https://github.com/droidefense/engine/blob/develop/LICENSE"><img alt="Software License" src="http://img.shields.io/:license-gpl3-brightgreen.svg?style=flat-square"></a>
+    <a href="https://travis-ci.org/droidefense/engine">
+      <img alt="Build Status" src="https://travis-ci.org/droidefense/engine.svg?branch=develop">
+    </a>
+    <a href="https://opencollective.com/auditnet/backers/">
+      <img alt="Backers on Open Collective" src="https://opencollective.com/droidefense-hq/backers/badge.svg?style=flat-square"></a>
+    <a href="https://opencollective.com/auditnet/sponsors/">
+      <img alt="Sponsors on Open Collective" src="https://opencollective.com/droidefense-hq/sponsors/badge.svg?style=flat-square">      </a>
+</p>
+
 
 ## Latest release
 
@@ -22,42 +31,42 @@
 
 ## Droidefense Features
 
-    .apk unpacker
-    .apk resource decoder
-    .apk file enumeration
-    .apk file classification and identification
-    binary xml decoder
-    in-memory processing using a virtual filesystem
-    resource fuzzing and hashing
-    entropy calculator
-    native code dump
-    certificate analysis
-    debug certificate detection
-    opcode analysis
-    unused opcode detection
-    androidManifest.xml analysis
-    internal structure analysis
-    dalvik bytecode flow analysis
-    multipath analysis implementation (not tested)
-    CFG generation
-    simple reflection resolver
-    String classification
-    simulated workflow generation
-    dynamic rules engine
- 
+* .apk unpacker
+* .apk resource decoder
+* .apk file enumeration
+* .apk file classification and identification
+* binary xml decoder
+* in-memory processing using a virtual filesystem
+* resource fuzzing and hashing
+* entropy calculator
+* native code dump
+* certificate analysis
+* debug certificate detection
+* opcode analysis
+* unused opcode detection
+* androidManifest.xml analysis
+* internal structure analysis
+* dalvik bytecode flow analysis
+* multipath analysis implementation (not tested)
+* CFG generation
+* simple reflection resolver
+* String classification
+* simulated workflow generation
+* dynamic rules engine
+
 ## Droidefense modules
 
-    PSCout data module
-    Full Android manifest parser, based on official SDK documentation v23.
-    Plugins
-    Machine Learning (Weka based) module
- 
+* PSCout data module
+* Full Android manifest parser, based on official SDK documentation v23.
+* Plugins
+* Machine Learning (Weka based) module
+
 ## Droidefense plugins
 
-    Hidden ELF file detector plugin
-    Hidden APK file detector plugin
-    Application UID detector plugin
-    Privacy plugin
+* Hidden ELF file detector plugin
+* Hidden APK file detector plugin
+* Application UID detector plugin
+* Privacy plugin
 
 ## Usage
 

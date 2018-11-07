@@ -43,7 +43,7 @@ public final class AndroidDynamicPluginAnalysis extends AbstractAndroidAnalysis 
                         ClassLoader classLoader = this.getClass().getClassLoader();
                         aClass = classLoader.loadClass(PLUGIN_PACKAGE_NAME + pluginName.replace(".class", ""));
                         Log.write(LoggerType.TRACE, "Executing " + aClass.getName());
-                        AbstractDynamicPlugin pluginDynamic = (AbstractDynamicPlugin) aClass.newInstance();
+                        AbstractDynamicPlugin pluginDynamic = (AbstractDynamicPlugin) aClass.getDeclaredConstructor().newInstance();
 
                         System.out.println();
                         Log.write(LoggerType.TRACE, " ######## PLUGIN ########");

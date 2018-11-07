@@ -86,7 +86,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.0</version>
                 <configuration>
-                    <source>1.8</source>
+                    <jdk.version>1.10</jdk.version>
                     <target>1.8</target>
                 </configuration>
             </plugin>

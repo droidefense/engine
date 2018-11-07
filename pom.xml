@@ -11,6 +11,8 @@
     <packaging>pom</packaging>
 
     <properties>
+        <jdk.version>1.10</jdk.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.assembly.plugin.version>2.4</maven.assembly.plugin.version>
         <tool.proguard.version>5.3.3</tool.proguard.version>
         <build.name>droidefense</build.name>
@@ -19,8 +21,8 @@
     </properties>
 
     <modules>
-        <module>mods/logger</module>
         <module>mods/axmlprinter</module>
+        <module>mods/logger</module>
         <module>mods/datamanager</module>
         <module>mods/entropy</module>
         <module>mods/reporting</module>
@@ -37,6 +39,7 @@
         <module>mods/plugins</module>
         <module>mods/core</module>
         <module>mods/cli</module>
+        <module>mods/batch</module>
     </modules>
 
     <dependencies>
@@ -82,6 +85,16 @@
 
     <build>
         <plugins>
+            <!-- Set a JDK compiler level -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>

@@ -11,7 +11,7 @@
     <name>Droidefense - cli</name>
 
     <properties>
-        <jdk.version>1.8</jdk.version>
+        <jdk.version>1.10</jdk.version>
         <dependecy.directory>lib</dependecy.directory>
         <releasename>droidefense-cli</releasename>
         <maven.assembly.plugin.version>2.4</maven.assembly.plugin.version>
@@ -94,8 +94,8 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.6.0</version>
                     <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
+                        <source>${jdk.version}</source>
+                        <target>${jdk.version}</target>
                     </configuration>
                 </plugin>
                 <plugin>

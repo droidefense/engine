@@ -1,8 +1,6 @@
 #!/bin/sh
 
-base=$(pwd)
-
-cd target
+cd "$(dirname "$0")"
 
 jarname=$(ls *jar)
 

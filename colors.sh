@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
+
 #custom terminal colores
 bold_red=`tput bold; tput setaf 1`
 bold_green=`tput bold; tput setaf 2`

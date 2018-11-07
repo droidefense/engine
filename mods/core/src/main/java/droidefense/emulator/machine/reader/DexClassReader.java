@@ -150,7 +150,7 @@ public final class DexClassReader implements Serializable {
             Class<?>[] classes;
             if (lastCallArgs == null && name.equals(InternalConstant.SUPERCLASS)) {
                 //Special case. this class has no super
-                Object newInstance = s.newInstance();
+                Object newInstance = s.getDeclaredConstructor().newInstance();
                 EncapsulatedClass newClass = buildFakeClss(name, newInstance);
                 newClass.setClass(s);
                 newClass.setJavaObject(newInstance);
@@ -159,7 +159,7 @@ public final class DexClassReader implements Serializable {
                 return newClass;
             } else if (lastCallArgs == null && name.startsWith("java/lang/")) {
                 //this class belongs to java/lang core
-                Object newInstance = s.newInstance();
+                Object newInstance = s.getDeclaredConstructor().newInstance();
                 EncapsulatedClass newClass = buildFakeClss(name, newInstance);
                 newClass.setClass(s);
                 newClass.setJavaObject(newInstance);

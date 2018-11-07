@@ -55,7 +55,7 @@ public final class AndroidStaticPluginAnalysis extends AbstractAndroidAnalysis {
                         Log.write(LoggerType.DEBUG, "Loading plugin: " + pluginFullName);
                         aClass = classLoader.loadClass(pluginFullName);
                         Log.write(LoggerType.TRACE, "Executing plugin: " + aClass.getName());
-                        AbstractStaticPlugin staticPlugin = (AbstractStaticPlugin) aClass.newInstance();
+                        AbstractStaticPlugin staticPlugin = (AbstractStaticPlugin) aClass.getDeclaredConstructor().newInstance();
 
                         staticPlugin.setApk(apkFile);
                         staticPlugin.setCurrentProject(currentProject);
