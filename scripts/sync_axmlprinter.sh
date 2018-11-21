@@ -1,6 +1,10 @@
 #!/bin/bash
 
+# go to current script location
 cd "$(dirname "$0")"
+
+# go to previous folder. from ./scripts to ./
+cd ..
 
 echo "Downloading latest version of axmlprinter"
 cloneFolder=rednaga_axmlprinter

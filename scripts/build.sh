@@ -1,6 +1,10 @@
 #!/bin/bash
 
+# go to current script location
 cd "$(dirname "$0")"
+
+# go to previous folder. from ./scripts to ./
+cd ..
 
 function command_exists() {
   #this should be a very portable way of checking if something is on the path
