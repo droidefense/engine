@@ -61,6 +61,7 @@
     <orderEntry type="module" module-name="rulengine" />
     <orderEntry type="module" module-name="simplemagic" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.7" level="project" />
+    <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk15on:1.55" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.0" level="project" />
     <orderEntry type="module" module-name="sdk" />
     <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />

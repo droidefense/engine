@@ -29,7 +29,6 @@ public class AndroidCertParser extends AbstractFileParser {
     @Override
     public void parserCode() {
         Log.write(LoggerType.INFO, "\n\nParsing Android Certificate...\n");
-        String certpath = "";
         //TODO fix
         try {
             AbstractHashedFile certificateFile = currentProject.getStaticInfo().getCertFile();
@@ -39,7 +38,7 @@ public class AndroidCertParser extends AbstractFileParser {
         }
     }
 
-    public void extractCertInfo(InputStream in) throws IOException {
+    private void extractCertInfo(InputStream in) throws IOException {
         PKCS7 p7 = new PKCS7(in);
         X509Certificate[] cert = p7.getCertificates();
         currentProject.setCertNumber(cert.length);

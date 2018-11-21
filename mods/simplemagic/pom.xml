@@ -27,6 +27,7 @@
         <easymock-version>3.4</easymock-version>
         <junit-version>4.8.1</junit-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jdk.version>1.10</jdk.version>
     </properties>
 
     <developers>
@@ -84,10 +85,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>3.8.0</version>
                 <configuration>
-                    <jdk.version>1.10</jdk.version>
-                    <target>1.8</target>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
                 </configuration>
             </plugin>
             <plugin>
