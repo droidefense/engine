@@ -1,0 +1,6 @@
+*.md
+scripts
+banner
+.git
+.github
+.idea
