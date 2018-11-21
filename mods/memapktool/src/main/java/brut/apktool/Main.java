@@ -1,18 +1,18 @@
 /**
- * Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
- * Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *  Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 package brut.apktool;
 
@@ -34,26 +34,6 @@ import java.util.logging.*;
  * @author Connor Tumbleson <connor.tumbleson@gmail.com>
  */
 public class Main {
-    private final static Options normalOptions;
-    private final static Options DecodeOptions;
-    private final static Options BuildOptions;
-    private final static Options frameOptions;
-    private final static Options allOptions;
-    private final static Options emptyOptions;
-    private final static Options emptyFrameworkOptions;
-    private static boolean advanceMode = false;
-
-    static {
-        //normal and advance usage output
-        normalOptions = new Options();
-        BuildOptions = new Options();
-        DecodeOptions = new Options();
-        frameOptions = new Options();
-        allOptions = new Options();
-        emptyOptions = new Options();
-        emptyFrameworkOptions = new Options();
-    }
-
     public static void main(String[] args) throws IOException, InterruptedException, BrutException {
 
         // set verbosity default
@@ -208,8 +188,7 @@ public class Main {
         } finally {
             try {
                 decoder.close();
-            } catch (IOException ignored) {
-            }
+            } catch (IOException ignored) {}
         }
     }
 
@@ -489,16 +468,16 @@ public class Main {
 
         // add all, loop existing cats then manually add advance
         for (Object op : normalOptions.getOptions()) {
-            allOptions.addOption((Option) op);
+            allOptions.addOption((Option)op);
         }
         for (Object op : DecodeOptions.getOptions()) {
-            allOptions.addOption((Option) op);
+            allOptions.addOption((Option)op);
         }
         for (Object op : BuildOptions.getOptions()) {
-            allOptions.addOption((Option) op);
+            allOptions.addOption((Option)op);
         }
         for (Object op : frameOptions.getOptions()) {
-            allOptions.addOption((Option) op);
+            allOptions.addOption((Option)op);
         }
         allOptions.addOption(apiLevelOption);
         allOptions.addOption(analysisOption);
@@ -534,10 +513,10 @@ public class Main {
                         "with smali v" + ApktoolProperties.get("smaliVersion") +
                         " and baksmali v" + ApktoolProperties.get("baksmaliVersion") + "\n" +
                         "Copyright 2014 Ryszard Wiśniewski <brut.alll@gmail.com>\n" +
-                        "Updated by Connor Tumbleson <connor.tumbleson@gmail.com>");
+                        "Updated by Connor Tumbleson <connor.tumbleson@gmail.com>" );
         if (isAdvanceMode()) {
             System.out.println("Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0)\n");
-        } else {
+        }else {
             System.out.println("");
         }
 
@@ -571,7 +550,7 @@ public class Main {
             return;
         }
 
-        Handler handler = new Handler() {
+        Handler handler = new Handler(){
             @Override
             public void publish(LogRecord record) {
                 if (getFormatter() == null) {
@@ -595,14 +574,10 @@ public class Main {
                     reportError(null, exception, ErrorManager.FORMAT_FAILURE);
                 }
             }
-
             @Override
-            public void close() throws SecurityException {
-            }
-
+            public void close() throws SecurityException {}
             @Override
-            public void flush() {
-            }
+            public void flush(){}
         };
 
         logger.addHandler(handler);
@@ -632,5 +607,26 @@ public class Main {
 
     private enum Verbosity {
         NORMAL, VERBOSE, QUIET
+    }
+
+    private static boolean advanceMode = false;
+
+    private final static Options normalOptions;
+    private final static Options DecodeOptions;
+    private final static Options BuildOptions;
+    private final static Options frameOptions;
+    private final static Options allOptions;
+    private final static Options emptyOptions;
+    private final static Options emptyFrameworkOptions;
+
+    static {
+        //normal and advance usage output
+        normalOptions = new Options();
+        BuildOptions = new Options();
+        DecodeOptions = new Options();
+        frameOptions = new Options();
+        allOptions = new Options();
+        emptyOptions = new Options();
+        emptyFrameworkOptions = new Options();
     }
 }

@@ -1,18 +1,18 @@
 /**
- * Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
- * Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *  Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 package brut.androlib.res.decoder;
 
@@ -25,55 +25,16 @@ import brut.util.Duo;
 import brut.androlib.res.data.ResTable;
 import brut.util.ExtDataInput;
 import com.google.common.io.LittleEndianDataInputStream;
-
 import java.io.*;
 import java.math.BigInteger;
 import java.util.*;
 import java.util.logging.Logger;
-
 import org.apache.commons.io.input.CountingInputStream;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
  */
 public class ARSCDecoder {
-    private final static short ENTRY_FLAG_COMPLEX = 0x0001;
-    private final static short ENTRY_FLAG_PUBLIC = 0x0002;
-    private final static short ENTRY_FLAG_WEAK = 0x0004;
-    private static final Logger LOGGER = Logger.getLogger(ARSCDecoder.class.getName());
-    private static final int KNOWN_CONFIG_BYTES = 56;
-    private final ExtDataInput mIn;
-    private final ResTable mResTable;
-    private final CountingInputStream mCountIn;
-    private final List<FlagsOffset> mFlagsOffsets;
-    private final boolean mKeepBroken;
-    private Header mHeader;
-    private StringBlock mTableStrings;
-    private StringBlock mTypeNames;
-    private StringBlock mSpecNames;
-    private ResPackage mPkg;
-    private ResTypeSpec mTypeSpec;
-    private ResType mType;
-    private int mResId;
-    private int mTypeIdOffset = 0;
-    private boolean[] mMissingResSpecs;
-    private HashMap<Integer, ResTypeSpec> mResTypeSpecs = new HashMap<>();
-
-    private ARSCDecoder(InputStream arscStream, ResTable resTable, boolean storeFlagsOffsets, boolean keepBroken) {
-        arscStream = mCountIn = new CountingInputStream(arscStream);
-        if (storeFlagsOffsets) {
-            mFlagsOffsets = new ArrayList<FlagsOffset>();
-        } else {
-            mFlagsOffsets = null;
-        }
-        // We need to explicitly cast to DataInput as otherwise the constructor is ambiguous.
-        // We choose DataInput instead of InputStream as ExtDataInput wraps an InputStream in
-        // a DataInputStream which is big-endian and ignores the little-endian behavior.
-        mIn = new ExtDataInput((DataInput) new LittleEndianDataInputStream(arscStream));
-        mResTable = resTable;
-        mKeepBroken = keepBroken;
-    }
-
     public static ARSCData decode(InputStream arscStream, boolean findFlagsOffsets, boolean keepBroken)
             throws AndrolibException {
         return decode(arscStream, findFlagsOffsets, keepBroken, new ResTable());
@@ -91,6 +52,21 @@ public class ARSCDecoder {
         } catch (IOException ex) {
             throw new AndrolibException("Could not decode arsc file", ex);
         }
+    }
+
+    private ARSCDecoder(InputStream arscStream, ResTable resTable, boolean storeFlagsOffsets, boolean keepBroken) {
+        arscStream = mCountIn = new CountingInputStream(arscStream);
+        if (storeFlagsOffsets) {
+            mFlagsOffsets = new ArrayList<FlagsOffset>();
+        } else {
+            mFlagsOffsets = null;
+        }
+        // We need to explicitly cast to DataInput as otherwise the constructor is ambiguous.
+        // We choose DataInput instead of InputStream as ExtDataInput wraps an InputStream in
+        // a DataInputStream which is big-endian and ignores the little-endian behavior.
+        mIn = new ExtDataInput((DataInput) new LittleEndianDataInputStream(arscStream));
+        mResTable = resTable;
+        mKeepBroken = keepBroken;
     }
 
     private ResPackage[] readTableHeader() throws IOException, AndrolibException {
@@ -124,14 +100,10 @@ public class ARSCDecoder {
         }
 
         String name = mIn.readNullEndedString(128, true);
-        /* typeStrings */
-        mIn.skipInt();
-        /* lastPublicType */
-        mIn.skipInt();
-        /* keyStrings */
-        mIn.skipInt();
-        /* lastPublicKey */
-        mIn.skipInt();
+        /* typeStrings */mIn.skipInt();
+        /* lastPublicType */mIn.skipInt();
+        /* keyStrings */mIn.skipInt();
+        /* lastPublicKey */mIn.skipInt();
 
         // TypeIdOffset was added platform_frameworks_base/@f90f2f8dc36e7243b85e0b6a7fd5a590893c827e
         // which is only in split/new applications.
@@ -175,7 +147,7 @@ public class ARSCDecoder {
             LOGGER.info(String.format("Decoding Shared Library (%s), pkgId: %d", packageName, packageId));
         }
 
-        while (nextChunk().type == Header.TYPE_TYPE) {
+        while(nextChunk().type == Header.TYPE_TYPE) {
             readTableTypeSpec();
         }
     }
@@ -194,7 +166,7 @@ public class ARSCDecoder {
 
             // We've detected sparse resources, lets record this so we can rebuild in that same format (sparse/not)
             // with aapt2. aapt1 will ignore this.
-            if (!mResTable.getSparseResources()) {
+            if (! mResTable.getSparseResources()) {
                 mResTable.setSparseResources(true);
             }
         }
@@ -224,8 +196,7 @@ public class ARSCDecoder {
             mFlagsOffsets.add(new FlagsOffset(mCountIn.getCount(), entryCount));
         }
 
-        /* flags */
-        mIn.skipBytes(entryCount * 4);
+		/* flags */mIn.skipBytes(entryCount * 4);
         mTypeSpec = new ResTypeSpec(mTypeNames.getString(id - 1), mResTable, mPkg, id, entryCount);
         mPkg.addType(mTypeSpec);
         return mTypeSpec;
@@ -240,8 +211,7 @@ public class ARSCDecoder {
         }
 
         int typeFlags = mIn.readByte();
-        /* reserved */
-        mIn.skipBytes(2);
+        /* reserved */mIn.skipBytes(2);
         int entryCount = mIn.readInt();
         int entriesStart = mIn.readInt();
         mMissingResSpecs = new boolean[entryCount];
@@ -293,6 +263,7 @@ public class ARSCDecoder {
 
         return mType;
     }
+
 
     private EntryData readEntryData() throws IOException, AndrolibException {
         short size = mIn.readShort();
@@ -380,10 +351,8 @@ public class ARSCDecoder {
     }
 
     private ResIntBasedValue readValue() throws IOException, AndrolibException {
-        /* size */
-        mIn.skipCheckShort((short) 8);
-        /* zero */
-        mIn.skipCheckByte((byte) 0);
+		/* size */mIn.skipCheckShort((short) 8);
+		/* zero */mIn.skipCheckByte((byte) 0);
         byte type = mIn.readByte();
         int data = mIn.readInt();
 
@@ -416,15 +385,13 @@ public class ARSCDecoder {
         byte keyboard = mIn.readByte();
         byte navigation = mIn.readByte();
         byte inputFlags = mIn.readByte();
-        /* inputPad0 */
-        mIn.skipBytes(1);
+		/* inputPad0 */mIn.skipBytes(1);
 
         short screenWidth = mIn.readShort();
         short screenHeight = mIn.readShort();
 
         short sdkVersion = mIn.readShort();
-        /* minorVersion, now must always be 0 */
-        mIn.skipBytes(2);
+		/* minorVersion, now must always be 0 */mIn.skipBytes(2);
 
         byte screenLayout = 0;
         byte uiMode = 0;
@@ -506,15 +473,15 @@ public class ARSCDecoder {
 
             // since this function handles languages & regions, we add the value(s) to the base char
             // which is usually 'a' or '0' depending on language or region.
-            return new char[]{(char) (first + base), (char) (second + base), (char) (third + base)};
+            return new char[] { (char) (first + base), (char) (second + base), (char) (third + base) };
         }
-        return new char[]{(char) in0, (char) in1};
+        return new char[] { (char) in0, (char) in1 };
     }
 
     private String readScriptOrVariantChar(int length) throws AndrolibException, IOException {
         StringBuilder string = new StringBuilder(16);
 
-        while (length-- != 0) {
+        while(length-- != 0) {
             short ch = mIn.readByte();
             if (ch == 0) {
                 break;
@@ -541,7 +508,7 @@ public class ARSCDecoder {
             ResResSpec spec = new ResResSpec(new ResID(resId | i), "APKTOOL_DUMMY_" + Integer.toHexString(i), mPkg, mTypeSpec);
 
             // If we already have this resID dont add it again.
-            if (!mPkg.hasResSpec(new ResID(resId | i))) {
+            if (! mPkg.hasResSpec(new ResID(resId | i))) {
                 mPkg.addResSpec(spec);
                 mTypeSpec.addResSpec(spec);
 
@@ -582,9 +549,29 @@ public class ARSCDecoder {
         checkChunkType(expectedType);
     }
 
+    private final ExtDataInput mIn;
+    private final ResTable mResTable;
+    private final CountingInputStream mCountIn;
+    private final List<FlagsOffset> mFlagsOffsets;
+    private final boolean mKeepBroken;
+
+    private Header mHeader;
+    private StringBlock mTableStrings;
+    private StringBlock mTypeNames;
+    private StringBlock mSpecNames;
+    private ResPackage mPkg;
+    private ResTypeSpec mTypeSpec;
+    private ResType mType;
+    private int mResId;
+    private int mTypeIdOffset = 0;
+    private boolean[] mMissingResSpecs;
+    private HashMap<Integer, ResTypeSpec> mResTypeSpecs = new HashMap<>();
+
+    private final static short ENTRY_FLAG_COMPLEX = 0x0001;
+    private final static short ENTRY_FLAG_PUBLIC = 0x0002;
+    private final static short ENTRY_FLAG_WEAK = 0x0004;
+
     public static class Header {
-        public final static short TYPE_NONE = -1, TYPE_TABLE = 0x0002,
-                TYPE_PACKAGE = 0x0200, TYPE_TYPE = 0x0201, TYPE_SPEC_TYPE = 0x0202, TYPE_LIBRARY = 0x0203;
         public final short type;
         public final int headerSize;
         public final int chunkSize;
@@ -609,6 +596,9 @@ public class ARSCDecoder {
             }
             return new Header(type, in.readShort(), in.readInt(), start);
         }
+
+        public final static short TYPE_NONE = -1, TYPE_TABLE = 0x0002,
+                TYPE_PACKAGE = 0x0200, TYPE_TYPE = 0x0201, TYPE_SPEC_TYPE = 0x0202, TYPE_LIBRARY = 0x0203;
     }
 
     public static class FlagsOffset {
@@ -621,11 +611,16 @@ public class ARSCDecoder {
         }
     }
 
-    public static class ARSCData {
+    private class EntryData {
+        public short mFlags;
+        public int mSpecNamesId;
+        public ResValue mValue;
+    }
 
-        private final ResPackage[] mPackages;
-        private final FlagsOffset[] mFlagsOffsets;
-        private final ResTable mResTable;
+    private static final Logger LOGGER = Logger.getLogger(ARSCDecoder.class.getName());
+    private static final int KNOWN_CONFIG_BYTES = 56;
+
+    public static class ARSCData {
 
         public ARSCData(ResPackage[] packages, FlagsOffset[] flagsOffsets, ResTable resTable) {
             mPackages = packages;
@@ -670,11 +665,9 @@ public class ARSCDecoder {
         public ResTable getResTable() {
             return mResTable;
         }
-    }
 
-    private class EntryData {
-        public short mFlags;
-        public int mSpecNamesId;
-        public ResValue mValue;
+        private final ResPackage[] mPackages;
+        private final FlagsOffset[] mFlagsOffsets;
+        private final ResTable mResTable;
     }
 }

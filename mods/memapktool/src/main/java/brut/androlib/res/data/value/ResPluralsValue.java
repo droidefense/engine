@@ -1,18 +1,18 @@
 /**
- * Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
- * Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *  Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 package brut.androlib.res.data.value;
 
@@ -21,9 +21,7 @@ import brut.androlib.res.data.ResResource;
 import brut.androlib.res.xml.ResValuesXmlSerializable;
 import brut.androlib.res.xml.ResXmlEncoders;
 import brut.util.Duo;
-
 import java.io.IOException;
-
 import org.xmlpull.v1.XmlSerializer;
 
 /**
@@ -31,10 +29,6 @@ import org.xmlpull.v1.XmlSerializer;
  */
 public class ResPluralsValue extends ResBagValue implements
         ResValuesXmlSerializable {
-    public static final int BAG_KEY_PLURALS_START = 0x01000004;
-    public static final int BAG_KEY_PLURALS_END = 0x01000009;
-    private static final String[] QUANTITY_MAP = new String[]{"other", "zero", "one", "two", "few", "many"};
-    private final ResScalarValue[] mItems;
     ResPluralsValue(ResReferenceValue parent,
                     Duo<Integer, ResScalarValue>[] items) {
         super(parent);
@@ -63,4 +57,10 @@ public class ResPluralsValue extends ResBagValue implements
         }
         serializer.endTag(null, "plurals");
     }
+
+    private final ResScalarValue[] mItems;
+
+    public static final int BAG_KEY_PLURALS_START = 0x01000004;
+    public static final int BAG_KEY_PLURALS_END = 0x01000009;
+    private static final String[] QUANTITY_MAP = new String[] { "other", "zero", "one", "two", "few", "many" };
 }

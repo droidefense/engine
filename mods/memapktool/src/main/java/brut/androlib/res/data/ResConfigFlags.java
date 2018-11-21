@@ -1,18 +1,18 @@
 /**
- * Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
- * Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *  Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 package brut.androlib.res.data;
 
@@ -22,154 +22,49 @@ import java.util.logging.Logger;
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
  */
 public class ResConfigFlags {
-    public final static byte SDK_BASE = 1;
-    public final static byte SDK_BASE_1_1 = 2;
-    public final static byte SDK_CUPCAKE = 3;
-    public final static byte SDK_DONUT = 4;
-    public final static byte SDK_ECLAIR = 5;
-    public final static byte SDK_ECLAIR_0_1 = 6;
-    public final static byte SDK_ECLAIR_MR1 = 7;
-    public final static byte SDK_FROYO = 8;
-    public final static byte SDK_GINGERBREAD = 9;
-    public final static byte SDK_GINGERBREAD_MR1 = 10;
-    public final static byte SDK_HONEYCOMB = 11;
-    public final static byte SDK_HONEYCOMB_MR1 = 12;
-    public final static byte SDK_HONEYCOMB_MR2 = 13;
-    public final static byte SDK_ICE_CREAM_SANDWICH = 14;
-    public final static byte SDK_ICE_CREAM_SANDWICH_MR1 = 15;
-    public final static byte SDK_JELLY_BEAN = 16;
-    public final static byte SDK_JELLY_BEAN_MR1 = 17;
-    public final static byte SDK_JELLY_BEAN_MR2 = 18;
-    public final static byte SDK_KITKAT = 19;
-    public final static byte SDK_LOLLIPOP = 21;
-    public final static byte SDK_LOLLIPOP_MR1 = 22;
-    public final static byte SDK_MNC = 23;
-    public final static byte SDK_NOUGAT = 24;
-    public final static byte SDK_NOUGAT_MR1 = 25;
-    public final static byte SDK_OREO = 26;
-    public final static byte SDK_OREO_MR1 = 27;
-    public final static byte SDK_P = 28;
-    public final static byte ORIENTATION_ANY = 0;
-    public final static byte ORIENTATION_PORT = 1;
-    public final static byte ORIENTATION_LAND = 2;
-    public final static byte ORIENTATION_SQUARE = 3;
-    public final static byte TOUCHSCREEN_ANY = 0;
-    public final static byte TOUCHSCREEN_NOTOUCH = 1;
-    public final static byte TOUCHSCREEN_STYLUS = 2;
-    public final static byte TOUCHSCREEN_FINGER = 3;
-    public final static int DENSITY_DEFAULT = 0;
-    public final static int DENSITY_LOW = 120;
-    public final static int DENSITY_MEDIUM = 160;
-    public final static int DENSITY_400 = 190;
-    public final static int DENSITY_TV = 213;
-    public final static int DENSITY_HIGH = 240;
-    public final static int DENSITY_XHIGH = 320;
-    public final static int DENSITY_XXHIGH = 480;
-    public final static int DENSITY_XXXHIGH = 640;
-    public final static int DENSITY_ANY = 0xFFFE;
-    public final static int DENSITY_NONE = 0xFFFF;
-    public final static int MNC_ZERO = -1;
-    public final static short MASK_LAYOUTDIR = 0xc0;
-    public final static short SCREENLAYOUT_LAYOUTDIR_ANY = 0x00;
-    public final static short SCREENLAYOUT_LAYOUTDIR_LTR = 0x40;
-    public final static short SCREENLAYOUT_LAYOUTDIR_RTL = 0x80;
-    public final static short SCREENLAYOUT_LAYOUTDIR_SHIFT = 0x06;
-    public final static short MASK_SCREENROUND = 0x03;
-    public final static short SCREENLAYOUT_ROUND_ANY = 0;
-    public final static short SCREENLAYOUT_ROUND_NO = 0x1;
-    public final static short SCREENLAYOUT_ROUND_YES = 0x2;
-    public final static byte KEYBOARD_ANY = 0;
-    public final static byte KEYBOARD_NOKEYS = 1;
-    public final static byte KEYBOARD_QWERTY = 2;
-    public final static byte KEYBOARD_12KEY = 3;
-    public final static byte NAVIGATION_ANY = 0;
-    public final static byte NAVIGATION_NONAV = 1;
-    public final static byte NAVIGATION_DPAD = 2;
-    public final static byte NAVIGATION_TRACKBALL = 3;
-    public final static byte NAVIGATION_WHEEL = 4;
-    public final static byte MASK_KEYSHIDDEN = 0x3;
-    public final static byte KEYSHIDDEN_ANY = 0x0;
-    public final static byte KEYSHIDDEN_NO = 0x1;
-    public final static byte KEYSHIDDEN_YES = 0x2;
-    public final static byte KEYSHIDDEN_SOFT = 0x3;
-    public final static byte MASK_NAVHIDDEN = 0xc;
-    public final static byte NAVHIDDEN_ANY = 0x0;
-    public final static byte NAVHIDDEN_NO = 0x4;
-    public final static byte NAVHIDDEN_YES = 0x8;
-    public final static byte MASK_SCREENSIZE = 0x0f;
-    public final static byte SCREENSIZE_ANY = 0x00;
-    public final static byte SCREENSIZE_SMALL = 0x01;
-    public final static byte SCREENSIZE_NORMAL = 0x02;
-    public final static byte SCREENSIZE_LARGE = 0x03;
-    public final static byte SCREENSIZE_XLARGE = 0x04;
-    public final static byte MASK_SCREENLONG = 0x30;
-    public final static byte SCREENLONG_ANY = 0x00;
-    public final static byte SCREENLONG_NO = 0x10;
-    public final static byte SCREENLONG_YES = 0x20;
-    public final static byte MASK_UI_MODE_TYPE = 0x0f;
-    public final static byte UI_MODE_TYPE_ANY = 0x00;
-    public final static byte UI_MODE_TYPE_NORMAL = 0x01;
-    public final static byte UI_MODE_TYPE_DESK = 0x02;
-    public final static byte UI_MODE_TYPE_CAR = 0x03;
-    public final static byte UI_MODE_TYPE_TELEVISION = 0x04;
-    public final static byte UI_MODE_TYPE_APPLIANCE = 0x05;
-    public final static byte UI_MODE_TYPE_WATCH = 0x06;
-    public final static byte UI_MODE_TYPE_VR_HEADSET = 0x07;
-    // start - miui
-    public final static byte UI_MODE_TYPE_GODZILLAUI = 0x0b;
-    public final static byte UI_MODE_TYPE_SMALLUI = 0x0c;
-    public final static byte UI_MODE_TYPE_MEDIUMUI = 0x0d;
-    public final static byte UI_MODE_TYPE_LARGEUI = 0x0e;
-    public final static byte UI_MODE_TYPE_HUGEUI = 0x0f;
-    public final static byte MASK_UI_MODE_NIGHT = 0x30;
-    public final static byte UI_MODE_NIGHT_ANY = 0x00;
-    public final static byte UI_MODE_NIGHT_NO = 0x10;
-    public final static byte UI_MODE_NIGHT_YES = 0x20;
-    public final static byte COLOR_HDR_MASK = 0xC;
-    public final static byte COLOR_HDR_NO = 0x4;
-    public final static byte COLOR_HDR_SHIFT = 0x2;
-    public final static byte COLOR_HDR_UNDEFINED = 0x0;
-    public final static byte COLOR_HDR_YES = 0x8;
-    public final static byte COLOR_UNDEFINED = 0x0;
-    public final static byte COLOR_WIDE_UNDEFINED = 0x0;
-    public final static byte COLOR_WIDE_NO = 0x1;
-    public final static byte COLOR_WIDE_YES = 0x2;
-    public final static byte COLOR_WIDE_MASK = 0x3;
-    private static final Logger LOGGER = Logger.getLogger(ResConfigFlags.class.getName());
-    // TODO: Dirty static hack. This counter should be a part of ResPackage,
-    // but it would be hard right now and this feature is very rarely used.
-    private static int sErrCounter = 0;
     public final short mcc;
     public final short mnc;
+
     public final char[] language;
     public final char[] region;
+
     public final byte orientation;
     public final byte touchscreen;
     public final int density;
+
     public final byte keyboard;
     public final byte navigation;
     public final byte inputFlags;
+
     public final short screenWidth;
     public final short screenHeight;
+
     public final short sdkVersion;
+
     public final byte screenLayout;
     public final byte uiMode;
     public final short smallestScreenWidthDp;
+
     public final short screenWidthDp;
     public final short screenHeightDp;
-    public final boolean isInvalid;
+
     private final char[] localeScript;
-    // end - miui
     private final char[] localeVariant;
+
     private final byte screenLayout2;
     private final byte colorMode;
+
+    public final boolean isInvalid;
+
     private final String mQualifiers;
+
     private final int size;
+
     public ResConfigFlags() {
         mcc = 0;
         mnc = 0;
-        language = new char[]{'\00', '\00'};
-        region = new char[]{'\00', '\00'};
+        language = new char[] { '\00', '\00' };
+        region = new char[] { '\00', '\00' };
         orientation = ORIENTATION_ANY;
         touchscreen = TOUCHSCREEN_ANY;
         density = DENSITY_DEFAULT;
@@ -192,6 +87,7 @@ public class ResConfigFlags {
         mQualifiers = "";
         size = 0;
     }
+
     public ResConfigFlags(short mcc, short mnc, char[] language,
                           char[] region, byte orientation,
                           byte touchscreen, int density, byte keyboard, byte navigation,
@@ -238,7 +134,7 @@ public class ResConfigFlags {
             if (localeVariant[0] == '\00') {
                 localeVariant = null;
             }
-        } else {
+        }  else {
             localeVariant = null;
         }
 
@@ -579,11 +475,12 @@ public class ResConfigFlags {
 
     private String toUpper(char[] character) {
         StringBuilder sb = new StringBuilder();
-        for (char ch : character) {
+        for (char ch: character) {
             sb.append(Character.toUpperCase(ch));
         }
         return sb.toString();
     }
+
 
     @Override
     public String toString() {
@@ -608,4 +505,143 @@ public class ResConfigFlags {
         hash = 31 * hash + this.mQualifiers.hashCode();
         return hash;
     }
+
+    // TODO: Dirty static hack. This counter should be a part of ResPackage,
+    // but it would be hard right now and this feature is very rarely used.
+    private static int sErrCounter = 0;
+
+    public final static byte SDK_BASE = 1;
+    public final static byte SDK_BASE_1_1 = 2;
+    public final static byte SDK_CUPCAKE = 3;
+    public final static byte SDK_DONUT = 4;
+    public final static byte SDK_ECLAIR = 5;
+    public final static byte SDK_ECLAIR_0_1 = 6;
+    public final static byte SDK_ECLAIR_MR1 = 7;
+    public final static byte SDK_FROYO = 8;
+    public final static byte SDK_GINGERBREAD = 9;
+    public final static byte SDK_GINGERBREAD_MR1 = 10;
+    public final static byte SDK_HONEYCOMB = 11;
+    public final static byte SDK_HONEYCOMB_MR1 = 12;
+    public final static byte SDK_HONEYCOMB_MR2 = 13;
+    public final static byte SDK_ICE_CREAM_SANDWICH = 14;
+    public final static byte SDK_ICE_CREAM_SANDWICH_MR1 = 15;
+    public final static byte SDK_JELLY_BEAN = 16;
+    public final static byte SDK_JELLY_BEAN_MR1 = 17;
+    public final static byte SDK_JELLY_BEAN_MR2 = 18;
+    public final static byte SDK_KITKAT = 19;
+    public final static byte SDK_LOLLIPOP = 21;
+    public final static byte SDK_LOLLIPOP_MR1 = 22;
+    public final static byte SDK_MNC = 23;
+    public final static byte SDK_NOUGAT = 24;
+    public final static byte SDK_NOUGAT_MR1 = 25;
+    public final static byte SDK_OREO = 26;
+    public final static byte SDK_OREO_MR1 = 27;
+    public final static byte SDK_P = 28;
+
+    public final static byte ORIENTATION_ANY = 0;
+    public final static byte ORIENTATION_PORT = 1;
+    public final static byte ORIENTATION_LAND = 2;
+    public final static byte ORIENTATION_SQUARE = 3;
+
+    public final static byte TOUCHSCREEN_ANY = 0;
+    public final static byte TOUCHSCREEN_NOTOUCH = 1;
+    public final static byte TOUCHSCREEN_STYLUS = 2;
+    public final static byte TOUCHSCREEN_FINGER = 3;
+
+    public final static int DENSITY_DEFAULT = 0;
+    public final static int DENSITY_LOW = 120;
+    public final static int DENSITY_MEDIUM = 160;
+    public final static int DENSITY_400 = 190;
+    public final static int DENSITY_TV = 213;
+    public final static int DENSITY_HIGH = 240;
+    public final static int DENSITY_XHIGH = 320;
+    public final static int DENSITY_XXHIGH = 480;
+    public final static int DENSITY_XXXHIGH = 640;
+    public final static int DENSITY_ANY = 0xFFFE;
+    public final static int DENSITY_NONE = 0xFFFF;
+
+    public final static int MNC_ZERO = -1;
+
+    public final static short MASK_LAYOUTDIR = 0xc0;
+    public final static short SCREENLAYOUT_LAYOUTDIR_ANY = 0x00;
+    public final static short SCREENLAYOUT_LAYOUTDIR_LTR = 0x40;
+    public final static short SCREENLAYOUT_LAYOUTDIR_RTL = 0x80;
+    public final static short SCREENLAYOUT_LAYOUTDIR_SHIFT = 0x06;
+
+    public final static short MASK_SCREENROUND = 0x03;
+    public final static short SCREENLAYOUT_ROUND_ANY = 0;
+    public final static short SCREENLAYOUT_ROUND_NO = 0x1;
+    public final static short SCREENLAYOUT_ROUND_YES = 0x2;
+
+    public final static byte KEYBOARD_ANY = 0;
+    public final static byte KEYBOARD_NOKEYS = 1;
+    public final static byte KEYBOARD_QWERTY = 2;
+    public final static byte KEYBOARD_12KEY = 3;
+
+    public final static byte NAVIGATION_ANY = 0;
+    public final static byte NAVIGATION_NONAV = 1;
+    public final static byte NAVIGATION_DPAD = 2;
+    public final static byte NAVIGATION_TRACKBALL = 3;
+    public final static byte NAVIGATION_WHEEL = 4;
+
+    public final static byte MASK_KEYSHIDDEN = 0x3;
+    public final static byte KEYSHIDDEN_ANY = 0x0;
+    public final static byte KEYSHIDDEN_NO = 0x1;
+    public final static byte KEYSHIDDEN_YES = 0x2;
+    public final static byte KEYSHIDDEN_SOFT = 0x3;
+
+    public final static byte MASK_NAVHIDDEN = 0xc;
+    public final static byte NAVHIDDEN_ANY = 0x0;
+    public final static byte NAVHIDDEN_NO = 0x4;
+    public final static byte NAVHIDDEN_YES = 0x8;
+
+    public final static byte MASK_SCREENSIZE = 0x0f;
+    public final static byte SCREENSIZE_ANY = 0x00;
+    public final static byte SCREENSIZE_SMALL = 0x01;
+    public final static byte SCREENSIZE_NORMAL = 0x02;
+    public final static byte SCREENSIZE_LARGE = 0x03;
+    public final static byte SCREENSIZE_XLARGE = 0x04;
+
+    public final static byte MASK_SCREENLONG = 0x30;
+    public final static byte SCREENLONG_ANY = 0x00;
+    public final static byte SCREENLONG_NO = 0x10;
+    public final static byte SCREENLONG_YES = 0x20;
+
+    public final static byte MASK_UI_MODE_TYPE = 0x0f;
+    public final static byte UI_MODE_TYPE_ANY = 0x00;
+    public final static byte UI_MODE_TYPE_NORMAL = 0x01;
+    public final static byte UI_MODE_TYPE_DESK = 0x02;
+    public final static byte UI_MODE_TYPE_CAR = 0x03;
+    public final static byte UI_MODE_TYPE_TELEVISION = 0x04;
+    public final static byte UI_MODE_TYPE_APPLIANCE = 0x05;
+    public final static byte UI_MODE_TYPE_WATCH = 0x06;
+    public final static byte UI_MODE_TYPE_VR_HEADSET = 0x07;
+
+    // start - miui
+    public final static byte UI_MODE_TYPE_GODZILLAUI = 0x0b;
+    public final static byte UI_MODE_TYPE_SMALLUI = 0x0c;
+    public final static byte UI_MODE_TYPE_MEDIUMUI = 0x0d;
+    public final static byte UI_MODE_TYPE_LARGEUI = 0x0e;
+    public final static byte UI_MODE_TYPE_HUGEUI = 0x0f;
+    // end - miui
+
+    public final static byte MASK_UI_MODE_NIGHT = 0x30;
+    public final static byte UI_MODE_NIGHT_ANY = 0x00;
+    public final static byte UI_MODE_NIGHT_NO = 0x10;
+    public final static byte UI_MODE_NIGHT_YES = 0x20;
+
+    public final static byte COLOR_HDR_MASK = 0xC;
+    public final static byte COLOR_HDR_NO = 0x4;
+    public final static byte COLOR_HDR_SHIFT = 0x2;
+    public final static byte COLOR_HDR_UNDEFINED = 0x0;
+    public final static byte COLOR_HDR_YES = 0x8;
+
+    public final static byte COLOR_UNDEFINED = 0x0;
+
+    public final static byte COLOR_WIDE_UNDEFINED = 0x0;
+    public final static byte COLOR_WIDE_NO = 0x1;
+    public final static byte COLOR_WIDE_YES = 0x2;
+    public final static byte COLOR_WIDE_MASK = 0x3;
+
+    private static final Logger LOGGER = Logger.getLogger(ResConfigFlags.class.getName());
 }

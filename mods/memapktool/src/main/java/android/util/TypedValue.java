@@ -1,18 +1,18 @@
 /**
- * Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
- * Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *  Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
+ *  Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 package android.util;
 
@@ -120,7 +120,7 @@ public class TypedValue {
     /** Identifies the end of plain integer values. */
     public static final int TYPE_LAST_INT = 0x1f;
 
-    /* ------------------------------------------------------------ */
+	/* ------------------------------------------------------------ */
 
     /** Complex data: bit location of unit information. */
     public static final int COMPLEX_UNIT_SHIFT = 0;
@@ -183,7 +183,7 @@ public class TypedValue {
      */
     public static final int COMPLEX_MANTISSA_MASK = 0xffffff;
 
-    /* ------------------------------------------------------------ */
+	/* ------------------------------------------------------------ */
 
     /**
      * {@link #TYPE_NULL} data indicating the value was not specified.
@@ -209,19 +209,18 @@ public class TypedValue {
      */
     public static final int DENSITY_NONE = 0xffff;
 
-    /* ------------------------------------------------------------ */
-    private static final float MANTISSA_MULT = 1.0f / (1 << TypedValue.COMPLEX_MANTISSA_SHIFT);
-    private static final float[] RADIX_MULTS = new float[]{
-            1.0f * MANTISSA_MULT, 1.0f / (1 << 7) * MANTISSA_MULT,
-            1.0f / (1 << 15) * MANTISSA_MULT, 1.0f / (1 << 23) * MANTISSA_MULT};
-    private static final String[] DIMENSION_UNIT_STRS = new String[]{"px",
-            "dip", "sp", "pt", "in", "mm"};
-    private static final String[] FRACTION_UNIT_STRS = new String[]{"%", "%p"};
+	/* ------------------------------------------------------------ */
+
     /**
      * The type held by this value, as defined by the constants here. This tells
      * you how to interpret the other fields in the object.
      */
     public int type;
+
+    private static final float MANTISSA_MULT = 1.0f / (1 << TypedValue.COMPLEX_MANTISSA_SHIFT);
+    private static final float[] RADIX_MULTS = new float[] {
+            1.0f * MANTISSA_MULT, 1.0f / (1 << 7) * MANTISSA_MULT,
+            1.0f / (1 << 15) * MANTISSA_MULT, 1.0f / (1 << 23) * MANTISSA_MULT };
 
     /**
      * Retrieve the base value from a complex data integer. This uses the
@@ -239,6 +238,10 @@ public class TypedValue {
                 * RADIX_MULTS[(complex >> TypedValue.COMPLEX_RADIX_SHIFT)
                 & TypedValue.COMPLEX_RADIX_MASK];
     }
+
+    private static final String[] DIMENSION_UNIT_STRS = new String[] { "px",
+            "dip", "sp", "pt", "in", "mm" };
+    private static final String[] FRACTION_UNIT_STRS = new String[] { "%", "%p" };
 
     /**
      * Perform type conversion as per {@link #coerceToString()} on an explicitly
