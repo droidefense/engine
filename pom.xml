@@ -11,7 +11,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <jdk.version>1.10</jdk.version>
+        <jdk.version>1.8</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.assembly.plugin.version>2.4</maven.assembly.plugin.version>
         <tool.proguard.version>5.3.3</tool.proguard.version>
