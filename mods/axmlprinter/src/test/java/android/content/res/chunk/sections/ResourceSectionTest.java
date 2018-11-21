@@ -30,9 +30,27 @@ import static org.mockito.Mockito.when;
  * @author tstrazzere
  */
 public class ResourceSectionTest extends TestCase {
+    // Implement a new type of Generic chunk just to test specific functionality
+    protected class TestResourceSection extends ResourceSection {
+        public TestResourceSection(ChunkType chunkType, IntReader inputReader) {
+            super(chunkType, inputReader);
+        }
+
+        @Override
+        public void readSection(IntReader inputReader) throws IOException {
+            addResource(0);
+            addResource(1);
+            addResource(2);
+            addResource(3);
+            addResource(4);
+        }
+    }
+
     private GenericChunk underTest;
+
     private IntReader mockReader;
     private ChunkType mockChunkType;
+
 
     @Override
     public void setUp() throws Exception {
@@ -72,21 +90,5 @@ public class ResourceSectionTest extends TestCase {
         byte[] actual = underTest.toBytes();
 
         Assert.assertArrayEquals(expected, actual);
-    }
-
-    // Implement a new type of Generic chunk just to test specific functionality
-    protected class TestResourceSection extends ResourceSection {
-        public TestResourceSection(ChunkType chunkType, IntReader inputReader) {
-            super(chunkType, inputReader);
-        }
-
-        @Override
-        public void readSection(IntReader inputReader) throws IOException {
-            addResource(0);
-            addResource(1);
-            addResource(2);
-            addResource(3);
-            addResource(4);
-        }
     }
 }

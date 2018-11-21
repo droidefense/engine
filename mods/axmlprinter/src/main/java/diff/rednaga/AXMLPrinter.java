@@ -1,6 +1,6 @@
-/*
+/* 
  * Copyright 2015 Red Naga
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -49,13 +49,6 @@ public class AXMLPrinter {
 
     }
 
-    /*
-     * Avoid anyone accidentally (purposefully?) Instantiating this class
-     */
-    private AXMLPrinter() {
-
-    }
-
     public static void main(String[] arguments) throws IOException {
         if (arguments.length < 1) {
             System.out.println("Usage: AXMLPrinter <binary xml file>");
@@ -93,5 +86,12 @@ public class AXMLPrinter {
                 fileOutputStream.close();
             }
         }
+    }
+
+    /*
+     * Avoid anyone accidentally (purposefully?) Instantiating this class
+     */
+    private AXMLPrinter() {
+
     }
 }
