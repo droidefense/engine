@@ -1,5 +1,7 @@
 package droidefense.social;
 
+import droidefense.log4j.Log;
+import droidefense.log4j.LoggerType;
 import droidefense.sdk.util.RemoteFileDownloader;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -18,9 +20,11 @@ public class RemoteFileDownloaderTest {
             content = new RemoteFileDownloader().downloadFileFromUrlUsingNio("https://www.android.com/robots.txt");
             Assert.assertEquals(content, "User-agent: *\n" +
                     "Disallow: /search\n" +
+                    "Disallow: /404\n" +
+                    "Disallow: /payapp/\n" +
                     "Sitemap: https://www.android.com/sitemap.xml\n");
         } catch (MalformedURLException e) {
-            System.err.println(e.getMessage());
+            Log.write(LoggerType.ERROR, e.getMessage());
         }
 
     }

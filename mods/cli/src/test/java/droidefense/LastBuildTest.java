@@ -1,6 +1,5 @@
 package droidefense;
 
-import droidefense.exception.InvalidScanParametersException;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -17,7 +16,7 @@ import java.util.Calendar;
 public class LastBuildTest {
 
     @Test
-    public void t00_scan_creation() throws InvalidScanParametersException, FileNotFoundException {
+    public void t00_scan_creation() throws FileNotFoundException {
         String path = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "lastbuild";
         File last = new File(path);
         Assert.assertNotNull(last);

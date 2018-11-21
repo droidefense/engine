@@ -4,3 +4,5 @@ banner
 .git
 .github
 .idea
+lib/tools/mac
+lib/tools/win

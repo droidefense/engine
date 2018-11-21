@@ -27,11 +27,11 @@ public class GooglePlayChecker {
         }
     }
 
-    protected boolean existsOnGooglePlay(String url) {
+    public boolean existsOnGooglePlay(String url) {
         return !FileIOHandler.getWebsiteContent(url).equals(NOT_FOUND_ERROR);
     }
 
-    protected String getGooglePlayData(String url) {
+    public String getGooglePlayData(String url) {
         if (url != null && url.length() > 0)
             return FileIOHandler.getWebsiteContent(url);
         return "";

@@ -1,13 +1,9 @@
 language: java
 sudo: false
 jdk:
-  - openjdk10
-matrix:
-include:
-  - jdk: openjdk10
-    before_install:
-      - rm "${JAVA_HOME}/lib/security/cacerts"
-      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+  - oraclejdk8
+  - oraclejdk9
+  # - oraclejdk11
 os:
   - linux
 cache:

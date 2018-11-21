@@ -19,4 +19,17 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
 WORKDIR /opt
 COPY . .
-RUN mvn clean compile install -T4
+# RUN mvn -Prelease clean compile install && ls -alh /opt/dist/release/ && java -jar /opt/dist/release/droidefense-jar-with-dependencies.jar
+RUN mvn -Prelease clean compile package && \
+	mv /opt/dist/release/droidefense-jar-with-dependencies.jar /opt/dist/release/droidefense.jar && \
+	ls -alh /opt/dist/release/ && \
+	java -jar /opt/dist/release/droidefense.jar && \
+
+
+FROM openjdk:8u181 as runner
+
+MAINTAINER kernel@droidefense.com
+
+WORKDIR /opt
+COPY --from=compiler /opt/dist/release/droidefense.jar ./droidefense.jar
+CMD ["java", "-jar", "./droidefense.jar"]

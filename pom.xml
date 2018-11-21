@@ -37,6 +37,7 @@
         <module>mods/memapktool</module>
         <module>mods/simplemagic</module>
         <module>mods/plugins</module>
+        <module>mods/cluster-worker</module>
         <module>mods/core</module>
         <module>mods/cli</module>
         <module>mods/batch</module>
@@ -98,10 +99,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.6</version>
+                <version>3.1.0</version>
                 <executions>
                     <execution>
-                        <id>jar-with-dependencies</id>
+                        <id>make-assembly</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
@@ -109,13 +110,6 @@
                         <configuration>
                             <finalName>${build.name}</finalName>
                             <appendAssemblyId>true</appendAssemblyId>
-                            <archive>
-                                <manifest>
-                                    <mainClass>
-                                        droidefense.cli.DroidefenseScan
-                                    </mainClass>
-                                </manifest>
-                            </archive>
                             <descriptorRefs>
                                 <descriptorRef>jar-with-dependencies</descriptorRef>
                             </descriptorRefs>
@@ -123,7 +117,40 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.mkyong.core.App</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>debug</id>
+            <build>
+                <directory>./dist/debug</directory>
+            </build>
+        </profile>
+        <profile>
+            <id>test</id>
+            <build>
+                <directory>./dist/test</directory>
+            </build>
+        </profile>
+        <profile>
+            <id>release</id>
+            <build>
+                <directory>./dist/release</directory>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

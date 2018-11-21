@@ -40,7 +40,7 @@ public class GooglePlayCheckerTest {
         Assert.assertTrue(
                 gpc.getGooglePlayData(
                         "https://play.google.com/store/apps/details?id=org.videolan.vlc"
-                ).contains("</div></body></html>")
+                ).contains("org.videolan.vlc")
         );
     }
 
