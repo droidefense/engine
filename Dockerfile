@@ -24,13 +24,15 @@ RUN echo "maven version" && \
 	mvn -Prelease package && \
 	mv /opt/dist/release/droidefense-jar-with-dependencies.jar /opt/dist/release/droidefense.jar && \
 	ls -alh /opt/dist/release/ && \
-	java -jar /opt/dist/release/droidefense.jar --version
+	java -jar /opt/dist/release/droidefense.jar --version && \
+	echo "using default configuration file" && \
+	cat /root/droidefense/config/config.linux.json
 
 # FROM openjdk:8u181 as runner
 # FROM anapsix/alpine-java:8u191b12_jdk
 # FROM rawmind/alpine-jdk8:1.8.181-0
 
-FROM openjdk:8-jre-alpine as runner
+FROM openjdk:8u181 as runner
 MAINTAINER kernel@droidefense.com
 
 WORKDIR /opt
