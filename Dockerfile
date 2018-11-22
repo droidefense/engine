@@ -19,17 +19,21 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
 WORKDIR /opt
 COPY . .
-# RUN mvn -Prelease clean compile install && ls -alh /opt/dist/release/ && java -jar /opt/dist/release/droidefense-jar-with-dependencies.jar
-RUN mvn -Prelease clean compile package && \
+RUN echo "maven version" && \
+	mvn --version && \
+	mvn -Prelease package && \
 	mv /opt/dist/release/droidefense-jar-with-dependencies.jar /opt/dist/release/droidefense.jar && \
 	ls -alh /opt/dist/release/ && \
-	java -jar /opt/dist/release/droidefense.jar && \
+	java -jar /opt/dist/release/droidefense.jar --version
 
+# FROM openjdk:8u181 as runner
+# FROM anapsix/alpine-java:8u191b12_jdk
+# FROM rawmind/alpine-jdk8:1.8.181-0
 
-FROM openjdk:8u181 as runner
-
+FROM openjdk:8-jre-alpine as runner
 MAINTAINER kernel@droidefense.com
 
 WORKDIR /opt
 COPY --from=compiler /opt/dist/release/droidefense.jar ./droidefense.jar
+COPY --from=compiler /root/droidefense/config/config.linux.json /root/droidefense/config/config.linux.json
 CMD ["java", "-jar", "./droidefense.jar"]
