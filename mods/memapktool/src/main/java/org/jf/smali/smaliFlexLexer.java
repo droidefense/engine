@@ -2677,6 +2677,7 @@ public class smaliFlexLexer implements TokenSource, LexerErrorInterface {
     private int lexerErrors = 0;
     private File sourceFile;
     private boolean suppressErrors;
+
     /**
      * Creates a new scanner
      * There is also a java.io.InputStream version of this constructor.
@@ -2686,6 +2687,7 @@ public class smaliFlexLexer implements TokenSource, LexerErrorInterface {
     public smaliFlexLexer(java.io.Reader in) {
         this.zzReader = in;
     }
+
     /**
      * Creates a new scanner.
      * There is also java.io.Reader version of this constructor.

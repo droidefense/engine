@@ -1,18 +1,18 @@
 /**
- *  Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
- *  Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
+ * Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package brut.androlib.res.decoder;
 
@@ -23,13 +23,14 @@ import brut.androlib.res.data.ResID;
 import brut.androlib.res.xml.ResXmlEncoders;
 import brut.util.ExtDataInput;
 import com.google.common.io.LittleEndianDataInputStream;
+import org.xmlpull.v1.XmlPullParserException;
+
 import java.io.DataInput;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.xmlpull.v1.XmlPullParserException;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
@@ -48,6 +49,42 @@ import org.xmlpull.v1.XmlPullParserException;
  */
 public class AXmlResourceParser implements XmlResourceParser {
 
+    private final static Logger LOGGER = Logger.getLogger(AXmlResourceParser.class.getName());
+    private static final String E_NOT_SUPPORTED = "Method is not supported.";
+    private static final int ATTRIBUTE_IX_NAMESPACE_URI = 0,
+            ATTRIBUTE_IX_NAME = 1, ATTRIBUTE_IX_VALUE_STRING = 2,
+            ATTRIBUTE_IX_VALUE_TYPE = 3, ATTRIBUTE_IX_VALUE_DATA = 4,
+            ATTRIBUTE_LENGTH = 5;
+    private static final int CHUNK_AXML_FILE = 0x00080003,
+            CHUNK_RESOURCEIDS = 0x00080180, CHUNK_XML_FIRST = 0x00100100,
+            CHUNK_XML_START_NAMESPACE = 0x00100100,
+            CHUNK_XML_END_NAMESPACE = 0x00100101,
+            CHUNK_XML_START_TAG = 0x00100102, CHUNK_XML_END_TAG = 0x00100103,
+            CHUNK_XML_TEXT = 0x00100104, CHUNK_XML_LAST = 0x00100104;
+    private static final int PRIVATE_PKG_ID = 0x7F;
+    // ///////////////////////////////// data
+    /*
+     * All values are essentially indices, e.g. m_name is an index of name in
+     * m_strings.
+     */
+    private ExtDataInput m_reader;
+    private ResAttrDecoder mAttrDecoder;
+    private AndrolibException mFirstError;
+    private boolean m_operational = false;
+    private StringBlock m_strings;
+    private int[] m_resourceIDs;
+    private NamespaceStack m_namespaces = new NamespaceStack();
+    private String android_ns = "http://schemas.android.com/apk/res/android";
+    private boolean m_decreaseDepth;
+    private int m_event;
+    private int m_lineNumber;
+    private int m_name;
+    private int m_namespaceUri;
+    private int[] m_attributes;
+    private int m_idAttribute;
+    private int m_classAttribute;
+    private int m_styleAttribute;
+
     public AXmlResourceParser() {
         resetEventInfo();
     }
@@ -59,6 +96,12 @@ public class AXmlResourceParser implements XmlResourceParser {
 
     public AndrolibException getFirstError() {
         return mFirstError;
+    }
+
+    private void setFirstError(AndrolibException error) {
+        if (mFirstError == null) {
+            mFirstError = error;
+        }
     }
 
     public ResAttrDecoder getAttrDecoder() {
@@ -309,8 +352,8 @@ public class AXmlResourceParser implements XmlResourceParser {
         int offset = m_namespaces.getCurrentCount() + 1;
         String prefix = m_strings.getString(m_namespaces.get(offset, true));
 
-        if (! prefix.equalsIgnoreCase("android")) {
-            return  m_strings.getString(m_namespaces.get(offset, false));
+        if (!prefix.equalsIgnoreCase("android")) {
+            return m_strings.getString(m_namespaces.get(offset, false));
         }
 
         return android_ns;
@@ -429,6 +472,8 @@ public class AXmlResourceParser implements XmlResourceParser {
     public int getAttributeUnsignedIntValue(int index, int defaultValue) {
         return getAttributeIntValue(index, defaultValue);
     }
+
+    // /////////////////////////////////////////// implementation
 
     @Override
     public int getAttributeResourceValue(int index, int defaultValue) {
@@ -581,7 +626,175 @@ public class AXmlResourceParser implements XmlResourceParser {
         throw new XmlPullParserException(E_NOT_SUPPORTED);
     }
 
-    // /////////////////////////////////////////// implementation
+    final StringBlock getStrings() {
+        return m_strings;
+    }
+
+    private final int getAttributeOffset(int index) {
+        if (m_event != START_TAG) {
+            throw new IndexOutOfBoundsException("Current event is not START_TAG.");
+        }
+        int offset = index * ATTRIBUTE_LENGTH;
+        if (offset >= m_attributes.length) {
+            throw new IndexOutOfBoundsException("Invalid attribute index (" + index + ").");
+        }
+        return offset;
+    }
+
+    private final int findAttribute(String namespace, String attribute) {
+        if (m_strings == null || attribute == null) {
+            return -1;
+        }
+        int name = m_strings.find(attribute);
+        if (name == -1) {
+            return -1;
+        }
+        int uri = (namespace != null) ? m_strings.find(namespace) : -1;
+        for (int o = 0; o != m_attributes.length; o += ATTRIBUTE_LENGTH) {
+            if (name == m_attributes[o + ATTRIBUTE_IX_NAME]
+                    && (uri == -1 || uri == m_attributes[o + ATTRIBUTE_IX_NAMESPACE_URI])) {
+                return o / ATTRIBUTE_LENGTH;
+            }
+        }
+        return -1;
+    }
+
+    private final void resetEventInfo() {
+        m_event = -1;
+        m_lineNumber = -1;
+        m_name = -1;
+        m_namespaceUri = -1;
+        m_attributes = null;
+        m_idAttribute = -1;
+        m_classAttribute = -1;
+        m_styleAttribute = -1;
+    }
+
+    private final void doNext() throws IOException {
+        // Delayed initialization.
+        if (m_strings == null) {
+            m_reader.skipCheckInt(CHUNK_AXML_FILE);
+
+            /*
+             * chunkSize
+             */
+            m_reader.skipInt();
+            m_strings = StringBlock.read(m_reader);
+            m_namespaces.increaseDepth();
+            m_operational = true;
+        }
+
+        if (m_event == END_DOCUMENT) {
+            return;
+        }
+
+        int event = m_event;
+        resetEventInfo();
+
+        while (true) {
+            if (m_decreaseDepth) {
+                m_decreaseDepth = false;
+                m_namespaces.decreaseDepth();
+            }
+
+            // Fake END_DOCUMENT event.
+            if (event == END_TAG && m_namespaces.getDepth() == 1 && m_namespaces.getCurrentCount() == 0) {
+                m_event = END_DOCUMENT;
+                break;
+            }
+
+            int chunkType;
+            if (event == START_DOCUMENT) {
+                // Fake event, see CHUNK_XML_START_TAG handler.
+                chunkType = CHUNK_XML_START_TAG;
+            } else {
+                chunkType = m_reader.readInt();
+            }
+
+            if (chunkType == CHUNK_RESOURCEIDS) {
+                int chunkSize = m_reader.readInt();
+                if (chunkSize < 8 || (chunkSize % 4) != 0) {
+                    throw new IOException("Invalid resource ids size (" + chunkSize + ").");
+                }
+                m_resourceIDs = m_reader.readIntArray(chunkSize / 4 - 2);
+                continue;
+            }
+
+            if (chunkType < CHUNK_XML_FIRST || chunkType > CHUNK_XML_LAST) {
+                throw new IOException("Invalid chunk type (" + chunkType + ").");
+            }
+
+            // Fake START_DOCUMENT event.
+            if (chunkType == CHUNK_XML_START_TAG && event == -1) {
+                m_event = START_DOCUMENT;
+                break;
+            }
+
+            // Common header.
+            /* chunkSize */
+            m_reader.skipInt();
+            int lineNumber = m_reader.readInt();
+            /* 0xFFFFFFFF */
+            m_reader.skipInt();
+
+            if (chunkType == CHUNK_XML_START_NAMESPACE || chunkType == CHUNK_XML_END_NAMESPACE) {
+                if (chunkType == CHUNK_XML_START_NAMESPACE) {
+                    int prefix = m_reader.readInt();
+                    int uri = m_reader.readInt();
+                    m_namespaces.push(prefix, uri);
+                } else {
+                    /* prefix */
+                    m_reader.skipInt();
+                    /* uri */
+                    m_reader.skipInt();
+                    m_namespaces.pop();
+                }
+                continue;
+            }
+
+            m_lineNumber = lineNumber;
+
+            if (chunkType == CHUNK_XML_START_TAG) {
+                m_namespaceUri = m_reader.readInt();
+                m_name = m_reader.readInt();
+                /* flags? */
+                m_reader.skipInt();
+                int attributeCount = m_reader.readInt();
+                m_idAttribute = (attributeCount >>> 16) - 1;
+                attributeCount &= 0xFFFF;
+                m_classAttribute = m_reader.readInt();
+                m_styleAttribute = (m_classAttribute >>> 16) - 1;
+                m_classAttribute = (m_classAttribute & 0xFFFF) - 1;
+                m_attributes = m_reader.readIntArray(attributeCount * ATTRIBUTE_LENGTH);
+                for (int i = ATTRIBUTE_IX_VALUE_TYPE; i < m_attributes.length; ) {
+                    m_attributes[i] = (m_attributes[i] >>> 24);
+                    i += ATTRIBUTE_LENGTH;
+                }
+                m_namespaces.increaseDepth();
+                m_event = START_TAG;
+                break;
+            }
+
+            if (chunkType == CHUNK_XML_END_TAG) {
+                m_namespaceUri = m_reader.readInt();
+                m_name = m_reader.readInt();
+                m_event = END_TAG;
+                m_decreaseDepth = true;
+                break;
+            }
+
+            if (chunkType == CHUNK_XML_TEXT) {
+                m_name = m_reader.readInt();
+                /* ? */
+                m_reader.skipInt();
+                /* ? */
+                m_reader.skipInt();
+                m_event = TEXT;
+                break;
+            }
+        }
+    }
+
     /**
      * Namespace stack, holds prefix+uri pairs, as well as depth information.
      * All information is stored in one int[] array. Array consists of depth
@@ -598,6 +811,11 @@ public class AXmlResourceParser implements XmlResourceParser {
      *
      */
     private static final class NamespaceStack {
+
+        private int[] m_data;
+        private int m_dataLength;
+        private int m_count;
+        private int m_depth;
 
         public NamespaceStack() {
             m_data = new int[32];
@@ -798,218 +1016,5 @@ public class AXmlResourceParser implements XmlResourceParser {
             }
             return -1;
         }
-
-        private int[] m_data;
-        private int m_dataLength;
-        private int m_count;
-        private int m_depth;
     }
-
-    final StringBlock getStrings() {
-        return m_strings;
-    }
-
-    private final int getAttributeOffset(int index) {
-        if (m_event != START_TAG) {
-            throw new IndexOutOfBoundsException("Current event is not START_TAG.");
-        }
-        int offset = index * ATTRIBUTE_LENGTH;
-        if (offset >= m_attributes.length) {
-            throw new IndexOutOfBoundsException("Invalid attribute index (" + index + ").");
-        }
-        return offset;
-    }
-
-    private final int findAttribute(String namespace, String attribute) {
-        if (m_strings == null || attribute == null) {
-            return -1;
-        }
-        int name = m_strings.find(attribute);
-        if (name == -1) {
-            return -1;
-        }
-        int uri = (namespace != null) ? m_strings.find(namespace) : -1;
-        for (int o = 0; o != m_attributes.length; o += ATTRIBUTE_LENGTH) {
-            if (name == m_attributes[o + ATTRIBUTE_IX_NAME]
-                    && (uri == -1 || uri == m_attributes[o + ATTRIBUTE_IX_NAMESPACE_URI])) {
-                return o / ATTRIBUTE_LENGTH;
-            }
-        }
-        return -1;
-    }
-
-    private final void resetEventInfo() {
-        m_event = -1;
-        m_lineNumber = -1;
-        m_name = -1;
-        m_namespaceUri = -1;
-        m_attributes = null;
-        m_idAttribute = -1;
-        m_classAttribute = -1;
-        m_styleAttribute = -1;
-    }
-
-    private final void doNext() throws IOException {
-        // Delayed initialization.
-        if (m_strings == null) {
-            m_reader.skipCheckInt(CHUNK_AXML_FILE);
-
-			/*
-			 * chunkSize
-			 */
-            m_reader.skipInt();
-            m_strings = StringBlock.read(m_reader);
-            m_namespaces.increaseDepth();
-            m_operational = true;
-        }
-
-        if (m_event == END_DOCUMENT) {
-            return;
-        }
-
-        int event = m_event;
-        resetEventInfo();
-
-        while (true) {
-            if (m_decreaseDepth) {
-                m_decreaseDepth = false;
-                m_namespaces.decreaseDepth();
-            }
-
-            // Fake END_DOCUMENT event.
-            if (event == END_TAG && m_namespaces.getDepth() == 1 && m_namespaces.getCurrentCount() == 0) {
-                m_event = END_DOCUMENT;
-                break;
-            }
-
-            int chunkType;
-            if (event == START_DOCUMENT) {
-                // Fake event, see CHUNK_XML_START_TAG handler.
-                chunkType = CHUNK_XML_START_TAG;
-            } else {
-                chunkType = m_reader.readInt();
-            }
-
-            if (chunkType == CHUNK_RESOURCEIDS) {
-                int chunkSize = m_reader.readInt();
-                if (chunkSize < 8 || (chunkSize % 4) != 0) {
-                    throw new IOException("Invalid resource ids size (" + chunkSize + ").");
-                }
-                m_resourceIDs = m_reader.readIntArray(chunkSize / 4 - 2);
-                continue;
-            }
-
-            if (chunkType < CHUNK_XML_FIRST || chunkType > CHUNK_XML_LAST) {
-                throw new IOException("Invalid chunk type (" + chunkType + ").");
-            }
-
-            // Fake START_DOCUMENT event.
-            if (chunkType == CHUNK_XML_START_TAG && event == -1) {
-                m_event = START_DOCUMENT;
-                break;
-            }
-
-            // Common header.
-			/* chunkSize */m_reader.skipInt();
-            int lineNumber = m_reader.readInt();
-			/* 0xFFFFFFFF */m_reader.skipInt();
-
-            if (chunkType == CHUNK_XML_START_NAMESPACE || chunkType == CHUNK_XML_END_NAMESPACE) {
-                if (chunkType == CHUNK_XML_START_NAMESPACE) {
-                    int prefix = m_reader.readInt();
-                    int uri = m_reader.readInt();
-                    m_namespaces.push(prefix, uri);
-                } else {
-					/* prefix */m_reader.skipInt();
-					/* uri */m_reader.skipInt();
-                    m_namespaces.pop();
-                }
-                continue;
-            }
-
-            m_lineNumber = lineNumber;
-
-            if (chunkType == CHUNK_XML_START_TAG) {
-                m_namespaceUri = m_reader.readInt();
-                m_name = m_reader.readInt();
-				/* flags? */m_reader.skipInt();
-                int attributeCount = m_reader.readInt();
-                m_idAttribute = (attributeCount >>> 16) - 1;
-                attributeCount &= 0xFFFF;
-                m_classAttribute = m_reader.readInt();
-                m_styleAttribute = (m_classAttribute >>> 16) - 1;
-                m_classAttribute = (m_classAttribute & 0xFFFF) - 1;
-                m_attributes = m_reader.readIntArray(attributeCount * ATTRIBUTE_LENGTH);
-                for (int i = ATTRIBUTE_IX_VALUE_TYPE; i < m_attributes.length; ) {
-                    m_attributes[i] = (m_attributes[i] >>> 24);
-                    i += ATTRIBUTE_LENGTH;
-                }
-                m_namespaces.increaseDepth();
-                m_event = START_TAG;
-                break;
-            }
-
-            if (chunkType == CHUNK_XML_END_TAG) {
-                m_namespaceUri = m_reader.readInt();
-                m_name = m_reader.readInt();
-                m_event = END_TAG;
-                m_decreaseDepth = true;
-                break;
-            }
-
-            if (chunkType == CHUNK_XML_TEXT) {
-                m_name = m_reader.readInt();
-				/* ? */m_reader.skipInt();
-				/* ? */m_reader.skipInt();
-                m_event = TEXT;
-                break;
-            }
-        }
-    }
-
-    private void setFirstError(AndrolibException error) {
-        if (mFirstError == null) {
-            mFirstError = error;
-        }
-    }
-
-    // ///////////////////////////////// data
-	/*
-	 * All values are essentially indices, e.g. m_name is an index of name in
-	 * m_strings.
-	 */
-    private ExtDataInput m_reader;
-    private ResAttrDecoder mAttrDecoder;
-    private AndrolibException mFirstError;
-
-    private boolean m_operational = false;
-    private StringBlock m_strings;
-    private int[] m_resourceIDs;
-    private NamespaceStack m_namespaces = new NamespaceStack();
-    private String android_ns = "http://schemas.android.com/apk/res/android";
-    private boolean m_decreaseDepth;
-    private int m_event;
-    private int m_lineNumber;
-    private int m_name;
-    private int m_namespaceUri;
-    private int[] m_attributes;
-    private int m_idAttribute;
-    private int m_classAttribute;
-    private int m_styleAttribute;
-
-    private final static Logger LOGGER = Logger.getLogger(AXmlResourceParser.class.getName());
-    private static final String E_NOT_SUPPORTED = "Method is not supported.";
-    private static final int ATTRIBUTE_IX_NAMESPACE_URI = 0,
-            ATTRIBUTE_IX_NAME = 1, ATTRIBUTE_IX_VALUE_STRING = 2,
-            ATTRIBUTE_IX_VALUE_TYPE = 3, ATTRIBUTE_IX_VALUE_DATA = 4,
-            ATTRIBUTE_LENGTH = 5;
-
-    private static final int CHUNK_AXML_FILE = 0x00080003,
-            CHUNK_RESOURCEIDS = 0x00080180, CHUNK_XML_FIRST = 0x00100100,
-            CHUNK_XML_START_NAMESPACE = 0x00100100,
-            CHUNK_XML_END_NAMESPACE = 0x00100101,
-            CHUNK_XML_START_TAG = 0x00100102, CHUNK_XML_END_TAG = 0x00100103,
-            CHUNK_XML_TEXT = 0x00100104, CHUNK_XML_LAST = 0x00100104;
-
-    private static final int PRIVATE_PKG_ID = 0x7F;
 }

@@ -117,6 +117,7 @@ public class OdexedFieldInstructionMapper {
     };
     private final FieldOpcode[][][] opcodeMap = new FieldOpcode[2][2][10];
     private final Map<Opcode, Integer> opcodeValueTypeMap = new HashMap<Opcode, Integer>(30);
+
     public OdexedFieldInstructionMapper(boolean isArt) {
         FieldOpcode[] opcodes;
         if (isArt) {

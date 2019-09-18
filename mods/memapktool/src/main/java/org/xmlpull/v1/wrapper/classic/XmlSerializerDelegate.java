@@ -2,11 +2,11 @@
 // for license please see accompanying LICENSE.txt file (available also at http://www.xmlpull.org/)
 package org.xmlpull.v1.wrapper.classic;
 
+import org.xmlpull.v1.XmlSerializer;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Writer;
-
-import org.xmlpull.v1.XmlSerializer;
 
 /**
  * This is simple class that implements serializer interface by delegating

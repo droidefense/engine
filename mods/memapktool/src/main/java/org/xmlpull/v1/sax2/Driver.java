@@ -57,6 +57,7 @@ public class Driver implements Locator, XMLReader, Attributes {
     //private final static boolean DEBUG = false;
 
     /**
+     *
      */
     public Driver() throws XmlPullParserException {
         final XmlPullParserFactory factory = XmlPullParserFactory.newInstance();

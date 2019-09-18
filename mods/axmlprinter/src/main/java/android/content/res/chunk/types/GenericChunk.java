@@ -1,6 +1,6 @@
-/* 
+/*
  * Copyright 2015 Red Naga
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -29,10 +29,9 @@ import java.nio.ByteOrder;
  */
 public abstract class GenericChunk implements Chunk {
 
-    private int startPosition;
-
-    private ChunkType type;
     protected int size;
+    private int startPosition;
+    private ChunkType type;
 
     public GenericChunk(ChunkType chunkType, IntReader reader) {
         startPosition = reader.getBytesRead() - 4;
@@ -48,7 +47,7 @@ public abstract class GenericChunk implements Chunk {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see android.content.res.chunk.types.Chunk#getChunkType()
      */
     public ChunkType getChunkType() {
@@ -57,7 +56,7 @@ public abstract class GenericChunk implements Chunk {
 
     /*
      *` (non-Javadoc)
-     * 
+     *
      * @see android.content.res.chunk.types.Chunk#getSize()
      */
     public int getSize() {

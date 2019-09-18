@@ -14,7 +14,7 @@ public class ClusterWorker {
     private String server;
 
     public ClusterWorker(String url) throws IOException {
-        if(url==null){
+        if (url == null) {
             this.server = URL;
         } else {
             this.server = url;

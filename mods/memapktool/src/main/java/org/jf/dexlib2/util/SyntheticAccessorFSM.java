@@ -69,7 +69,7 @@ public class SyntheticAccessorFSM {
     static final int SyntheticAccessorFSM_en_main = 1;
 
 
-// line 44 "SyntheticAccessorFSM.rl"
+    // line 44 "SyntheticAccessorFSM.rl"
     private static final byte _SyntheticAccessorFSM_actions[] = init__SyntheticAccessorFSM_actions_0();
     private static final short _SyntheticAccessorFSM_key_offsets[] = init__SyntheticAccessorFSM_key_offsets_0();
     private static final short _SyntheticAccessorFSM_trans_keys[] = init__SyntheticAccessorFSM_trans_keys_0();
@@ -80,6 +80,7 @@ public class SyntheticAccessorFSM {
     private static final byte _SyntheticAccessorFSM_trans_targs[] = init__SyntheticAccessorFSM_trans_targs_0();
     private static final byte _SyntheticAccessorFSM_trans_actions[] = init__SyntheticAccessorFSM_trans_actions_0();
     private final Opcodes opcodes;
+
     public SyntheticAccessorFSM(Opcodes opcodes) {
         this.opcodes = opcodes;
     }

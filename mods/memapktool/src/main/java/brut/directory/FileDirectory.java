@@ -1,18 +1,18 @@
 /**
- *  Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
- *  Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
+ * Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package brut.directory;
 
@@ -34,7 +34,7 @@ public class FileDirectory extends AbstractDirectory {
 
     public FileDirectory(File dir) throws DirectoryException {
         super();
-        if (! dir.isDirectory()) {
+        if (!dir.isDirectory()) {
             throw new DirectoryException("file must be a directory: " + dir);
         }
         mDir = dir;
@@ -44,7 +44,7 @@ public class FileDirectory extends AbstractDirectory {
     public long getSize(String fileName)
             throws DirectoryException {
         File file = new File(generatePath(fileName));
-        if (! file.isFile()) {
+        if (!file.isFile()) {
             throw new DirectoryException("file must be a file: " + file);
         }
         return file.length();
@@ -113,7 +113,8 @@ public class FileDirectory extends AbstractDirectory {
                 // IMPOSSIBLE_EXCEPTION
                 try {
                     mDirs.put(file.getName(), new FileDirectory(file));
-                } catch (DirectoryException e) {}
+                } catch (DirectoryException e) {
+                }
             }
         }
     }

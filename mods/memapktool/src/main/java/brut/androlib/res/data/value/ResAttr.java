@@ -1,18 +1,18 @@
 /**
- *  Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
- *  Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
+ * Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package brut.androlib.res.data.value;
 
@@ -21,13 +21,33 @@ import brut.androlib.res.data.ResPackage;
 import brut.androlib.res.data.ResResource;
 import brut.androlib.res.xml.ResValuesXmlSerializable;
 import brut.util.Duo;
-import java.io.IOException;
 import org.xmlpull.v1.XmlSerializer;
+
+import java.io.IOException;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
  */
 public class ResAttr extends ResBagValue implements ResValuesXmlSerializable {
+    public static final int BAG_KEY_ATTR_TYPE = 0x01000000;
+    private static final int BAG_KEY_ATTR_MIN = 0x01000001;
+    private static final int BAG_KEY_ATTR_MAX = 0x01000002;
+    private static final int BAG_KEY_ATTR_L10N = 0x01000003;
+    private final static int TYPE_REFERENCE = 0x01;
+    private final static int TYPE_STRING = 0x02;
+    private final static int TYPE_INT = 0x04;
+    private final static int TYPE_BOOL = 0x08;
+    private final static int TYPE_COLOR = 0x10;
+    private final static int TYPE_FLOAT = 0x20;
+    private final static int TYPE_DIMEN = 0x40;
+    private final static int TYPE_FRACTION = 0x80;
+    private final static int TYPE_ANY_STRING = 0xee;
+    private static final int TYPE_ENUM = 0x00010000;
+    private static final int TYPE_FLAGS = 0x00020000;
+    private final int mType;
+    private final Integer mMin;
+    private final Integer mMax;
+    private final Boolean mL10n;
     ResAttr(ResReferenceValue parentVal, int type, Integer min, Integer max,
             Boolean l10n) {
         super(parentVal);
@@ -35,34 +55,6 @@ public class ResAttr extends ResBagValue implements ResValuesXmlSerializable {
         mMin = min;
         mMax = max;
         mL10n = l10n;
-    }
-
-    public String convertToResXmlFormat(ResScalarValue value)
-            throws AndrolibException {
-        return null;
-    }
-
-    @Override
-    public void serializeToResValuesXml(XmlSerializer serializer,
-                                        ResResource res) throws IOException, AndrolibException {
-        String type = getTypeAsString();
-
-        serializer.startTag(null, "attr");
-        serializer.attribute(null, "name", res.getResSpec().getName());
-        if (type != null) {
-            serializer.attribute(null, "format", type);
-        }
-        if (mMin != null) {
-            serializer.attribute(null, "min", mMin.toString());
-        }
-        if (mMax != null) {
-            serializer.attribute(null, "max", mMax.toString());
-        }
-        if (mL10n != null && mL10n) {
-            serializer.attribute(null, "localization", "suggested");
-        }
-        serializeBody(serializer, res);
-        serializer.endTag(null, "attr");
     }
 
     public static ResAttr factory(ResReferenceValue parent,
@@ -114,6 +106,34 @@ public class ResAttr extends ResBagValue implements ResValuesXmlSerializable {
         throw new AndrolibException("Could not decode attr value");
     }
 
+    public String convertToResXmlFormat(ResScalarValue value)
+            throws AndrolibException {
+        return null;
+    }
+
+    @Override
+    public void serializeToResValuesXml(XmlSerializer serializer,
+                                        ResResource res) throws IOException, AndrolibException {
+        String type = getTypeAsString();
+
+        serializer.startTag(null, "attr");
+        serializer.attribute(null, "name", res.getResSpec().getName());
+        if (type != null) {
+            serializer.attribute(null, "format", type);
+        }
+        if (mMin != null) {
+            serializer.attribute(null, "min", mMin.toString());
+        }
+        if (mMax != null) {
+            serializer.attribute(null, "max", mMax.toString());
+        }
+        if (mL10n != null && mL10n) {
+            serializer.attribute(null, "localization", "suggested");
+        }
+        serializeBody(serializer, res);
+        serializer.endTag(null, "attr");
+    }
+
     protected void serializeBody(XmlSerializer serializer, ResResource res)
             throws AndrolibException, IOException {
     }
@@ -149,27 +169,4 @@ public class ResAttr extends ResBagValue implements ResValuesXmlSerializable {
         }
         return s.substring(1);
     }
-
-    private final int mType;
-    private final Integer mMin;
-    private final Integer mMax;
-    private final Boolean mL10n;
-
-    public static final int BAG_KEY_ATTR_TYPE = 0x01000000;
-    private static final int BAG_KEY_ATTR_MIN = 0x01000001;
-    private static final int BAG_KEY_ATTR_MAX = 0x01000002;
-    private static final int BAG_KEY_ATTR_L10N = 0x01000003;
-
-    private final static int TYPE_REFERENCE = 0x01;
-    private final static int TYPE_STRING = 0x02;
-    private final static int TYPE_INT = 0x04;
-    private final static int TYPE_BOOL = 0x08;
-    private final static int TYPE_COLOR = 0x10;
-    private final static int TYPE_FLOAT = 0x20;
-    private final static int TYPE_DIMEN = 0x40;
-    private final static int TYPE_FRACTION = 0x80;
-    private final static int TYPE_ANY_STRING = 0xee;
-
-    private static final int TYPE_ENUM = 0x00010000;
-    private static final int TYPE_FLAGS = 0x00020000;
 }

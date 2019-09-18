@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# Copyright Droidefense API. All Rights Reserved.
+# Copyright Droidefense. All Rights Reserved.
 # SPDX-License-Identifier: GNU GPL v3
 #
 

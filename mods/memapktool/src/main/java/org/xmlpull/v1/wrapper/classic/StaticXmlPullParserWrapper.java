@@ -2,12 +2,12 @@
 // for license please see accompanying LICENSE.txt file (available also at http://www.xmlpull.org/)
 package org.xmlpull.v1.wrapper.classic;
 
-import java.io.IOException;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.util.XmlPullUtil;
 import org.xmlpull.v1.wrapper.XmlPullParserWrapper;
+
+import java.io.IOException;
 
 /**
  * This class seemlesly extends exisiting parser implementation by adding new methods

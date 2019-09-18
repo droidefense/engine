@@ -1,37 +1,41 @@
 /**
- *  Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
- *  Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
+ * Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package brut.androlib.res.decoder;
 
 import brut.androlib.AndrolibException;
 import brut.androlib.err.CantFind9PatchChunk;
 import brut.util.ExtDataInput;
+import org.apache.commons.io.IOUtils;
+
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
 import java.io.*;
-import javax.imageio.ImageIO;
-import javax.imageio.ImageTypeSpecifier;
-
-import org.apache.commons.io.IOUtils;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
  */
 public class Res9patchStreamDecoder implements ResStreamDecoder {
+    private static final int NP_CHUNK_TYPE = 0x6e705463; // npTc
+    private static final int OI_CHUNK_TYPE = 0x6e704c62; // npLb
+    private static final int NP_COLOR = 0xff000000;
+    private static final int OI_COLOR = 0xffff0000;
+
     @Override
     public void decode(InputStream in, OutputStream out)
             throws AndrolibException {
@@ -156,11 +160,6 @@ public class Res9patchStreamDecoder implements ResStreamDecoder {
         }
     }
 
-    private static final int NP_CHUNK_TYPE = 0x6e705463; // npTc
-    private static final int OI_CHUNK_TYPE = 0x6e704c62; // npLb
-    private static final int NP_COLOR = 0xff000000;
-    private static final int OI_COLOR = 0xffff0000;
-
     private static class NinePatch {
         public final int padLeft, padRight, padTop, padBottom;
         public final int[] xDivs, yDivs;
@@ -195,13 +194,13 @@ public class Res9patchStreamDecoder implements ResStreamDecoder {
     }
 
     private static class OpticalInset {
-	    public final int layoutBoundsLeft, layoutBoundsTop, layoutBoundsRight, layoutBoundsBottom;
+        public final int layoutBoundsLeft, layoutBoundsTop, layoutBoundsRight, layoutBoundsBottom;
 
         public OpticalInset(int layoutBoundsLeft, int layoutBoundsTop,
-                int layoutBoundsRight, int layoutBoundsBottom) {
-            this.layoutBoundsLeft   = layoutBoundsLeft;
-            this.layoutBoundsTop    = layoutBoundsTop;
-            this.layoutBoundsRight  = layoutBoundsRight;
+                            int layoutBoundsRight, int layoutBoundsBottom) {
+            this.layoutBoundsLeft = layoutBoundsLeft;
+            this.layoutBoundsTop = layoutBoundsTop;
+            this.layoutBoundsRight = layoutBoundsRight;
             this.layoutBoundsBottom = layoutBoundsBottom;
         }
 

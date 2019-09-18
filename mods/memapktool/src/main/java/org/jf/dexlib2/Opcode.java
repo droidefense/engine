@@ -339,9 +339,11 @@ public enum Opcode {
     public final Format format;
     public final int flags;
     public final int referenceType2;
+
     Opcode(int opcodeValue, String opcodeName, int referenceType, Format format) {
         this(opcodeValue, opcodeName, referenceType, format, 0);
     }
+
     Opcode(int opcodeValue, String opcodeName, int referenceType, Format format, int flags) {
         this(allVersions(opcodeValue), opcodeName, referenceType, format, flags);
     }

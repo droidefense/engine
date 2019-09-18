@@ -3,7 +3,7 @@ apkFileName: testapp.apk
 isFrameworkApk: false
 usesFramework:
   ids:
-  - 1
+    - 1
 packageInfo:
   forcedPackageId: '127'
 versionInfo:
@@ -11,9 +11,9 @@ versionInfo:
   versionName: '1.0'
 compressionType: false
 doNotCompress:
-- arsc
-- png
-- mp3
+  - arsc
+  - png
+  - mp3
 unknownFiles:
   hidden.file: '8'
   non\u007Fprintable.file: '8'

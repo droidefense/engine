@@ -1,18 +1,18 @@
 /**
- *  Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
- *  Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * Copyright (C) 2018 Ryszard Wiśniewski <brut.alll@gmail.com>
+ * Copyright (C) 2018 Connor Tumbleson <connor.tumbleson@gmail.com>
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package brut.androlib.res.data;
 
@@ -21,6 +21,7 @@ import brut.androlib.err.UndefinedResObject;
 import brut.androlib.meta.VersionInfo;
 import brut.androlib.res.AndrolibResources;
 import brut.androlib.res.data.value.ResValue;
+
 import java.util.*;
 
 /**
@@ -151,30 +152,6 @@ public class ResTable {
         }
     }
 
-    public void setAnalysisMode(boolean mode) {
-        mAnalysisMode = mode;
-    }
-
-    public void setPackageRenamed(String pkg) {
-        mPackageRenamed = pkg;
-    }
-
-    public void setPackageOriginal(String pkg) {
-        mPackageOriginal = pkg;
-    }
-
-    public void setPackageId(int id) {
-        mPackageId = id;
-    }
-
-    public void setSharedLibrary(boolean flag) {
-        mSharedLibrary = flag;
-    }
-
-    public void setSparseResources(boolean flag) {
-        mSparseResources = flag;
-    }
-
     public void clearSdkInfo() {
         mSdkInfo.clear();
     }
@@ -203,23 +180,47 @@ public class ResTable {
         return mAnalysisMode;
     }
 
+    public void setAnalysisMode(boolean mode) {
+        mAnalysisMode = mode;
+    }
+
     public String getPackageRenamed() {
         return mPackageRenamed;
+    }
+
+    public void setPackageRenamed(String pkg) {
+        mPackageRenamed = pkg;
     }
 
     public String getPackageOriginal() {
         return mPackageOriginal;
     }
 
+    public void setPackageOriginal(String pkg) {
+        mPackageOriginal = pkg;
+    }
+
     public int getPackageId() {
         return mPackageId;
+    }
+
+    public void setPackageId(int id) {
+        mPackageId = id;
     }
 
     public boolean getSharedLibrary() {
         return mSharedLibrary;
     }
 
+    public void setSharedLibrary(boolean flag) {
+        mSharedLibrary = flag;
+    }
+
     public boolean getSparseResources() {
         return mSparseResources;
+    }
+
+    public void setSparseResources(boolean flag) {
+        mSparseResources = flag;
     }
 }

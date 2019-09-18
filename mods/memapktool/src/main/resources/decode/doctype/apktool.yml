@@ -3,7 +3,7 @@ apkFileName: doctype.apk
 isFrameworkApk: false
 usesFramework:
   ids:
-  - 1
+    - 1
 packageInfo:
   forcedPackageId: '127'
 versionInfo:

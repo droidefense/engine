@@ -1,16 +1,13 @@
 // $ANTLR 3.5 /usr/local/google/home/bgruv/android/aosp-master/external/smali/smali/src/main/antlr3/smaliParser.g 2014-02-12 17:39:16
 package org.jf.smali;
 
-import org.jf.dexlib2.Format;
-import org.jf.dexlib2.Opcode;
-import org.jf.dexlib2.Opcodes;
 import org.antlr.runtime.*;
-
-import java.util.Stack;
-import java.util.List;
-import java.util.ArrayList;
-
 import org.antlr.runtime.tree.*;
+import org.jf.dexlib2.Opcodes;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 @SuppressWarnings("all")
 public class smaliParser extends Parser {
@@ -1077,10 +1074,12 @@ public class smaliParser extends Parser {
     private boolean allowOdex = false;
     private int apiLevel = 15;
     private Opcodes opcodes = Opcodes.forApi(apiLevel);
+
     // delegators
     public smaliParser(TokenStream input) {
         this(input, new RecognizerSharedState());
     }
+
     public smaliParser(TokenStream input, RecognizerSharedState state) {
         super(input, state);
     }
