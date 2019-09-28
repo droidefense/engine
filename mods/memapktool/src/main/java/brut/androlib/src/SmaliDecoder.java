@@ -38,6 +38,7 @@ public class SmaliDecoder {
     private final String mDexFile;
     private final boolean mBakDeb;
     private final int mApi;
+
     private SmaliDecoder(File apkFile, File outDir, String dexName, boolean bakdeb, int api) {
         mApkFile = apkFile;
         mOutDir = outDir;

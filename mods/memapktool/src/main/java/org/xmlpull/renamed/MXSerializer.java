@@ -41,7 +41,6 @@ import java.io.Writer;
  * <li>PROPERTY_SERIALIZER_INDENTATION
  * <li>PROPERTY_SERIALIZER_LINE_SEPARATOR
  * </ul>
- *
  */
 public class MXSerializer implements XmlSerializer {
     protected final static String XML_URI = "http://www.w3.org/XML/1998/namespace";
@@ -101,7 +100,9 @@ public class MXSerializer implements XmlSerializer {
     protected boolean writeIndentation; // is indentation used?
     private boolean checkNamesInterned = false;
 
-    /** simple utility method -- good for debugging */
+    /**
+     * simple utility method -- good for debugging
+     */
     protected static final String printable(String s) {
         if (s == null)
             return "null";

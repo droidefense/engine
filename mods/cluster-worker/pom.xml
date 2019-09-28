@@ -10,6 +10,11 @@
 
     <name>Droidefense - cluster-worker</name>
 
+    <organization>
+        <name>Droidefense</name>
+        <url>https://droidefense.com</url>
+    </organization>
+
     <properties>
         <jdk.version>1.8</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

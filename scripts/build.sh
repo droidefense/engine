@@ -3,6 +3,10 @@
 # go to current script location
 cd "$(dirname "$0")"
 
+set -e
+
+source colors.sh
+
 # go to previous folder. from ./scripts to ./
 cd ..
 
@@ -35,14 +39,10 @@ function main(){
 	log ' Building droidefense from current version'
 
 	log "mvn clean package"
-	mvn package -T4
+	mvn package -Prelease -T4
 
 	ok " Building done "
 }
-
-set -e
-
-source colors.sh
 
 prerequirements
 clean

@@ -22,8 +22,14 @@
     <dependencies>
 
         <dependency>
-            <groupId>diff.rednaga</groupId>
+            <groupId>com.droidefense</groupId>
             <artifactId>axmlprinter</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.droidefense</groupId>
+            <artifactId>axmlparser</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
@@ -42,12 +48,6 @@
         <dependency>
             <groupId>com.droidefense</groupId>
             <artifactId>reporting</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.droidefense</groupId>
-            <artifactId>manparser</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
@@ -101,31 +101,25 @@
             <version>1.13-SNAPSHOT</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <version>1.60</version>
-        </dependency>
-
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.8.0</version>
         </dependency>
 
-        <!-- testing libs -->
+        <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.63</version>
+        </dependency>
 
+        <!-- testing libs -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <version>1.55</version>
         </dependency>
 
     </dependencies>

@@ -48,6 +48,7 @@ public class ResAttr extends ResBagValue implements ResValuesXmlSerializable {
     private final Integer mMin;
     private final Integer mMax;
     private final Boolean mL10n;
+
     ResAttr(ResReferenceValue parentVal, int type, Integer min, Integer max,
             Boolean l10n) {
         super(parentVal);

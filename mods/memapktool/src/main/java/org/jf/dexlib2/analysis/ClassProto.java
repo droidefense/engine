@@ -68,6 +68,141 @@ public class ClassProto implements TypeProto {
             return classPath.getClassDef(type);
         }
     });
+    private final Supplier<SparseArray<FieldReference>> artInstanceFieldsSupplier =
+            Suppliers.memoize(new Supplier<SparseArray<FieldReference>>() {
+
+                @Override
+                public SparseArray<FieldReference> get() {
+                    // We need to follow the same algorithm that art uses to arrange fields, so that we end up with the
+                    // same field offsets, which is needed for deodexing.
+                    // See LinkFields() in art/runtime/class_linker.cc
+
+                    PriorityQueue<FieldGap> gaps = new PriorityQueue<FieldGap>();
+
+                    SparseArray<FieldReference> linkedFields = new SparseArray<FieldReference>();
+                    ArrayList<Field> fields = getSortedInstanceFields(getClassDef());
+
+                    int fieldOffset = 0;
+                    String superclassType = getSuperclass();
+                    if (superclassType != null) {
+                        // TODO: what to do if superclass doesn't exist?
+                        ClassProto superclass = (ClassProto) classPath.getClass(superclassType);
+                        SparseArray<FieldReference> superFields = superclass.getInstanceFields();
+                        FieldReference field = null;
+                        int lastOffset = 0;
+                        for (int i = 0; i < superFields.size(); i++) {
+                            int offset = superFields.keyAt(i);
+                            field = superFields.valueAt(i);
+                            linkedFields.put(offset, field);
+                            lastOffset = offset;
+                        }
+                        if (field != null) {
+                            fieldOffset = lastOffset + getFieldSize(field);
+                        }
+                    }
+
+                    for (Field field : fields) {
+                        int fieldSize = getFieldSize(field);
+
+                        if (!AlignmentUtils.isAligned(fieldOffset, fieldSize)) {
+                            int oldOffset = fieldOffset;
+                            fieldOffset = AlignmentUtils.alignOffset(fieldOffset, fieldSize);
+                            addFieldGap(oldOffset, fieldOffset, gaps);
+                        }
+
+                        FieldGap gap = gaps.peek();
+                        if (gap != null && gap.size >= fieldSize) {
+                            gaps.poll();
+                            linkedFields.put(gap.offset, field);
+                            if (gap.size > fieldSize) {
+                                addFieldGap(gap.offset + fieldSize, gap.offset + gap.size, gaps);
+                            }
+                        } else {
+                            linkedFields.append(fieldOffset, field);
+                            fieldOffset += fieldSize;
+                        }
+                    }
+
+                    return linkedFields;
+                }
+
+                private void addFieldGap(int gapStart, int gapEnd, PriorityQueue<FieldGap> gaps) {
+                    int offset = gapStart;
+
+                    while (offset < gapEnd) {
+                        int remaining = gapEnd - offset;
+
+                        if ((remaining >= 4) && (offset % 4 == 0)) {
+                            gaps.add(FieldGap.newFieldGap(offset, 4, classPath.oatVersion));
+                            offset += 4;
+                        } else if (remaining >= 2 && (offset % 2 == 0)) {
+                            gaps.add(FieldGap.newFieldGap(offset, 2, classPath.oatVersion));
+                            offset += 2;
+                        } else {
+                            gaps.add(FieldGap.newFieldGap(offset, 1, classPath.oatVersion));
+                            offset += 1;
+                        }
+                    }
+                }
+
+
+                private ArrayList<Field> getSortedInstanceFields(ClassDef classDef) {
+                    ArrayList<Field> fields = Lists.newArrayList(classDef.getInstanceFields());
+                    Collections.sort(fields, new Comparator<Field>() {
+                        @Override
+                        public int compare(Field field1, Field field2) {
+                            int result = Ints.compare(getFieldSortOrder(field1), getFieldSortOrder(field2));
+                            if (result != 0) {
+                                return result;
+                            }
+
+                            result = field1.getName().compareTo(field2.getName());
+                            if (result != 0) {
+                                return result;
+                            }
+                            return field1.getType().compareTo(field2.getType());
+                        }
+                    });
+                    return fields;
+                }
+
+                private int getFieldSortOrder(FieldReference field) {
+                    // The sort order is based on type size (except references are first), and then based on the
+                    // enum value of the primitive type for types of equal size. See: Primitive::Type enum
+                    // in art/runtime/primitive.h
+                    switch (field.getType().charAt(0)) {
+                        /* reference */
+                        case '[':
+                        case 'L':
+                            return 0;
+                        /* 64 bit */
+                        case 'J':
+                            return 1;
+                        case 'D':
+                            return 2;
+                        /* 32 bit */
+                        case 'I':
+                            return 3;
+                        case 'F':
+                            return 4;
+                        /* 16 bit */
+                        case 'C':
+                            return 5;
+                        case 'S':
+                            return 6;
+                        /* 8 bit */
+                        case 'Z':
+                            return 7;
+                        case 'B':
+                            return 8;
+                    }
+                    throw new ExceptionWithContext("Invalid field type: %s", field.getType());
+                }
+
+                private int getFieldSize(FieldReference field) {
+                    return getTypeSize(field.getType().charAt(0));
+                }
+            });
     private final Supplier<SparseArray<FieldReference>> dalvikInstanceFieldsSupplier =
             Suppliers.memoize(new Supplier<SparseArray<FieldReference>>() {
                 @Override
@@ -231,144 +366,74 @@ public class ClassProto implements TypeProto {
                     fields.set(position2, tempField);
                 }
             });
-    private final Supplier<SparseArray<FieldReference>> artInstanceFieldsSupplier =
-            Suppliers.memoize(new Supplier<SparseArray<FieldReference>>() {
-
-                @Override
-                public SparseArray<FieldReference> get() {
-                    // We need to follow the same algorithm that art uses to arrange fields, so that we end up with the
-                    // same field offsets, which is needed for deodexing.
-                    // See LinkFields() in art/runtime/class_linker.cc
-
-                    PriorityQueue<FieldGap> gaps = new PriorityQueue<FieldGap>();
-
-                    SparseArray<FieldReference> linkedFields = new SparseArray<FieldReference>();
-                    ArrayList<Field> fields = getSortedInstanceFields(getClassDef());
-
-                    int fieldOffset = 0;
-                    String superclassType = getSuperclass();
-                    if (superclassType != null) {
-                        // TODO: what to do if superclass doesn't exist?
-                        ClassProto superclass = (ClassProto) classPath.getClass(superclassType);
-                        SparseArray<FieldReference> superFields = superclass.getInstanceFields();
-                        FieldReference field = null;
-                        int lastOffset = 0;
-                        for (int i = 0; i < superFields.size(); i++) {
-                            int offset = superFields.keyAt(i);
-                            field = superFields.valueAt(i);
-                            linkedFields.put(offset, field);
-                            lastOffset = offset;
-                        }
-                        if (field != null) {
-                            fieldOffset = lastOffset + getFieldSize(field);
-                        }
-                    }
-
-                    for (Field field : fields) {
-                        int fieldSize = getFieldSize(field);
-
-                        if (!AlignmentUtils.isAligned(fieldOffset, fieldSize)) {
-                            int oldOffset = fieldOffset;
-                            fieldOffset = AlignmentUtils.alignOffset(fieldOffset, fieldSize);
-                            addFieldGap(oldOffset, fieldOffset, gaps);
-                        }
-
-                        FieldGap gap = gaps.peek();
-                        if (gap != null && gap.size >= fieldSize) {
-                            gaps.poll();
-                            linkedFields.put(gap.offset, field);
-                            if (gap.size > fieldSize) {
-                                addFieldGap(gap.offset + fieldSize, gap.offset + gap.size, gaps);
-                            }
-                        } else {
-                            linkedFields.append(fieldOffset, field);
-                            fieldOffset += fieldSize;
-                        }
-                    }
-
-                    return linkedFields;
-                }
-
-                private void addFieldGap(int gapStart, int gapEnd, PriorityQueue<FieldGap> gaps) {
-                    int offset = gapStart;
-
-                    while (offset < gapEnd) {
-                        int remaining = gapEnd - offset;
-
-                        if ((remaining >= 4) && (offset % 4 == 0)) {
-                            gaps.add(FieldGap.newFieldGap(offset, 4, classPath.oatVersion));
-                            offset += 4;
-                        } else if (remaining >= 2 && (offset % 2 == 0)) {
-                            gaps.add(FieldGap.newFieldGap(offset, 2, classPath.oatVersion));
-                            offset += 2;
-                        } else {
-                            gaps.add(FieldGap.newFieldGap(offset, 1, classPath.oatVersion));
-                            offset += 1;
-                        }
-                    }
-                }
-
-
-                private ArrayList<Field> getSortedInstanceFields(ClassDef classDef) {
-                    ArrayList<Field> fields = Lists.newArrayList(classDef.getInstanceFields());
-                    Collections.sort(fields, new Comparator<Field>() {
-                        @Override
-                        public int compare(Field field1, Field field2) {
-                            int result = Ints.compare(getFieldSortOrder(field1), getFieldSortOrder(field2));
-                            if (result != 0) {
-                                return result;
-                            }
-
-                            result = field1.getName().compareTo(field2.getName());
-                            if (result != 0) {
-                                return result;
-                            }
-                            return field1.getType().compareTo(field2.getType());
-                        }
-                    });
-                    return fields;
-                }
-
-                private int getFieldSortOrder(FieldReference field) {
-                    // The sort order is based on type size (except references are first), and then based on the
-                    // enum value of the primitive type for types of equal size. See: Primitive::Type enum
-                    // in art/runtime/primitive.h
-                    switch (field.getType().charAt(0)) {
-                        /* reference */
-                        case '[':
-                        case 'L':
-                            return 0;
-                        /* 64 bit */
-                        case 'J':
-                            return 1;
-                        case 'D':
-                            return 2;
-                        /* 32 bit */
-                        case 'I':
-                            return 3;
-                        case 'F':
-                            return 4;
-                        /* 16 bit */
-                        case 'C':
-                            return 5;
-                        case 'S':
-                            return 6;
-                        /* 8 bit */
-                        case 'Z':
-                            return 7;
-                        case 'B':
-                            return 8;
-                    }
-                    throw new ExceptionWithContext("Invalid field type: %s", field.getType());
-                }
-
-                private int getFieldSize(FieldReference field) {
-                    return getTypeSize(field.getType().charAt(0));
-                }
-            });
     protected boolean vtableFullyResolved = true;
     protected boolean interfacesFullyResolved = true;
     protected Set<String> unresolvedInterfaces = null;
+    /**
+     * This calculates the interfaces in the order required for vtable generation for post-default method ART
+     */
+
+    private final Supplier<LinkedHashMap<String, ClassDef>> postDefaultMethodInterfaceSupplier =
+            Suppliers.memoize(new Supplier<LinkedHashMap<String, ClassDef>>() {
+                @Override
+                public LinkedHashMap<String, ClassDef> get() {
+                    Set<String> unresolvedInterfaces = new HashSet<String>(0);
+                    LinkedHashMap<String, ClassDef> interfaces = Maps.newLinkedHashMap();
+
+                    String superclass = getSuperclass();
+                    if (superclass != null) {
+                        ClassProto superclassProto = (ClassProto) classPath.getClass(superclass);
+                        for (String superclassInterface : superclassProto.getInterfaces().keySet()) {
+                            interfaces.put(superclassInterface, null);
+                        }
+                        if (!superclassProto.interfacesFullyResolved) {
+                            unresolvedInterfaces.addAll(superclassProto.getUnresolvedInterfaces());
+                            interfacesFullyResolved = false;
+                        }
+                    }
+
+                    try {
+                        for (String interfaceType : getClassDef().getInterfaces()) {
+                            if (!interfaces.containsKey(interfaceType)) {
+                                ClassProto interfaceProto = (ClassProto) classPath.getClass(interfaceType);
+                                try {
+                                    for (Entry<String, ClassDef> entry : interfaceProto.getInterfaces().entrySet()) {
+                                        if (!interfaces.containsKey(entry.getKey())) {
+                                            interfaces.put(entry.getKey(), entry.getValue());
+                                        }
+                                    }
+                                } catch (UnresolvedClassException ex) {
+                                    interfaces.put(interfaceType, null);
+                                    unresolvedInterfaces.add(interfaceType);
+                                    interfacesFullyResolved = false;
+                                }
+                                if (!interfaceProto.interfacesFullyResolved) {
+                                    unresolvedInterfaces.addAll(interfaceProto.getUnresolvedInterfaces());
+                                    interfacesFullyResolved = false;
+                                }
+                                try {
+                                    ClassDef interfaceDef = classPath.getClassDef(interfaceType);
+                                    interfaces.put(interfaceType, interfaceDef);
+                                } catch (UnresolvedClassException ex) {
+                                    interfaces.put(interfaceType, null);
+                                    unresolvedInterfaces.add(interfaceType);
+                                    interfacesFullyResolved = false;
+                                }
+                            }
+                        }
+                    } catch (UnresolvedClassException ex) {
+                        interfaces.put(type, null);
+                        unresolvedInterfaces.add(type);
+                        interfacesFullyResolved = false;
+                    }
+
+                    if (unresolvedInterfaces.size() > 0) {
+                        ClassProto.this.unresolvedInterfaces = unresolvedInterfaces;
+                    }
+
+                    return interfaces;
+                }
+            });
     /**
      * This calculates the interfaces in the order required for vtable generation for dalvik and pre-default method ART
      */
@@ -445,73 +510,7 @@ public class ClassProto implements TypeProto {
                     return interfaces;
                 }
             });
-    /**
-     * This calculates the interfaces in the order required for vtable generation for post-default method ART
-     */
-
-    private final Supplier<LinkedHashMap<String, ClassDef>> postDefaultMethodInterfaceSupplier =
-            Suppliers.memoize(new Supplier<LinkedHashMap<String, ClassDef>>() {
-                @Override
-                public LinkedHashMap<String, ClassDef> get() {
-                    Set<String> unresolvedInterfaces = new HashSet<String>(0);
-                    LinkedHashMap<String, ClassDef> interfaces = Maps.newLinkedHashMap();
-
-                    String superclass = getSuperclass();
-                    if (superclass != null) {
-                        ClassProto superclassProto = (ClassProto) classPath.getClass(superclass);
-                        for (String superclassInterface : superclassProto.getInterfaces().keySet()) {
-                            interfaces.put(superclassInterface, null);
-                        }
-                        if (!superclassProto.interfacesFullyResolved) {
-                            unresolvedInterfaces.addAll(superclassProto.getUnresolvedInterfaces());
-                            interfacesFullyResolved = false;
-                        }
-                    }
-
-                    try {
-                        for (String interfaceType : getClassDef().getInterfaces()) {
-                            if (!interfaces.containsKey(interfaceType)) {
-                                ClassProto interfaceProto = (ClassProto) classPath.getClass(interfaceType);
-                                try {
-                                    for (Entry<String, ClassDef> entry : interfaceProto.getInterfaces().entrySet()) {
-                                        if (!interfaces.containsKey(entry.getKey())) {
-                                            interfaces.put(entry.getKey(), entry.getValue());
-                                        }
-                                    }
-                                } catch (UnresolvedClassException ex) {
-                                    interfaces.put(interfaceType, null);
-                                    unresolvedInterfaces.add(interfaceType);
-                                    interfacesFullyResolved = false;
-                                }
-                                if (!interfaceProto.interfacesFullyResolved) {
-                                    unresolvedInterfaces.addAll(interfaceProto.getUnresolvedInterfaces());
-                                    interfacesFullyResolved = false;
-                                }
-                                try {
-                                    ClassDef interfaceDef = classPath.getClassDef(interfaceType);
-                                    interfaces.put(interfaceType, interfaceDef);
-                                } catch (UnresolvedClassException ex) {
-                                    interfaces.put(interfaceType, null);
-                                    unresolvedInterfaces.add(interfaceType);
-                                    interfacesFullyResolved = false;
-                                }
-                            }
-                        }
-                    } catch (UnresolvedClassException ex) {
-                        interfaces.put(type, null);
-                        unresolvedInterfaces.add(type);
-                        interfacesFullyResolved = false;
-                    }
-
-                    if (unresolvedInterfaces.size() > 0) {
-                        ClassProto.this.unresolvedInterfaces = unresolvedInterfaces;
-                    }
-
-                    return interfaces;
-                }
-            });
-    //TODO: check the case when we have a package private method that overrides an interface method
-    private final Supplier<List<Method>> preDefaultMethodVtableSupplier = Suppliers.memoize(new Supplier<List<Method>>() {
+    private final Supplier<List<Method>> postDefaultMethodVtableSupplier = Suppliers.memoize(new Supplier<List<Method>>() {
         @Override
         public List<Method> get() {
             List<Method> vtable = Lists.newArrayList();
@@ -530,8 +529,8 @@ public class ClassProto implements TypeProto {
                 ClassProto superclass = (ClassProto) classPath.getClass(superclassType);
                 vtable.addAll(superclass.getVtable());
 
-                // if the superclass's vtable wasn't fully resolved, then we can't know where the new methods added by this
-                // class should start, so we just propagate what we can from the parent and hope for the best.
+                // if the superclass's vtable wasn't fully resolved, then we can't know where the new methods added by
+                // this class should start, so we just propagate what we can from the parent and hope for the best.
                 if (!superclass.vtableFullyResolved) {
                     vtableFullyResolved = false;
                     return vtable;
@@ -543,16 +542,90 @@ public class ClassProto implements TypeProto {
             if (!isInterface()) {
                 addToVtable(getClassDef().getVirtualMethods(), vtable, true, true);
 
-                // We use the current class for any vtable method references that we add, rather than the interface, so
-                // we don't end up trying to call invoke-virtual using an interface, which will fail verification
-                Iterable<ClassDef> interfaces = getDirectInterfaces();
+                Iterable<ClassDef> interfaces = Lists.reverse(Lists.newArrayList(getDirectInterfaces()));
+
+                List<Method> defaultMethods = Lists.newArrayList();
+                List<Method> defaultConflictMethods = Lists.newArrayList();
+                List<Method> mirandaMethods = Lists.newArrayList();
+
+                final HashMap<MethodReference, Integer> methodOrder = Maps.newHashMap();
+
                 for (ClassDef interfaceDef : interfaces) {
-                    List<Method> interfaceMethods = Lists.newArrayList();
                     for (Method interfaceMethod : interfaceDef.getVirtualMethods()) {
-                        interfaceMethods.add(new ReparentedMethod(interfaceMethod, type));
+
+                        int vtableIndex = findMethodIndexInVtable(vtable, interfaceMethod);
+
+                        if (vtableIndex >= 0) {
+                            if (interfaceMethodOverrides(interfaceMethod, vtable.get(vtableIndex))) {
+                                vtable.set(vtableIndex, interfaceMethod);
+                            }
+                        } else {
+                            int defaultMethodIndex = findMethodIndexInVtable(defaultMethods, interfaceMethod);
+
+                            if (defaultMethodIndex >= 0) {
+                                if (!AccessFlags.ABSTRACT.isSet(interfaceMethod.getAccessFlags())) {
+                                    ClassProto existingInterface = (ClassProto) classPath.getClass(
+                                            defaultMethods.get(defaultMethodIndex).getDefiningClass());
+                                    if (!existingInterface.implementsInterface(interfaceMethod.getDefiningClass())) {
+                                        Method removedMethod = defaultMethods.remove(defaultMethodIndex);
+                                        defaultConflictMethods.add(removedMethod);
+                                    }
+                                }
+                                continue;
+                            }
+
+                            int defaultConflictMethodIndex = findMethodIndexInVtable(
+                                    defaultConflictMethods, interfaceMethod);
+                            if (defaultConflictMethodIndex >= 0) {
+                                // There's already a matching method in the conflict list, we don't need to do
+                                // anything else
+                                continue;
+                            }
+
+                            int mirandaMethodIndex = findMethodIndexInVtable(mirandaMethods, interfaceMethod);
+
+                            if (mirandaMethodIndex >= 0) {
+                                if (!AccessFlags.ABSTRACT.isSet(interfaceMethod.getAccessFlags())) {
+
+                                    ClassProto existingInterface = (ClassProto) classPath.getClass(
+                                            mirandaMethods.get(mirandaMethodIndex).getDefiningClass());
+                                    if (!existingInterface.implementsInterface(interfaceMethod.getDefiningClass())) {
+                                        Method oldMethod = mirandaMethods.remove(mirandaMethodIndex);
+                                        int methodOrderValue = methodOrder.get(oldMethod);
+                                        methodOrder.put(interfaceMethod, methodOrderValue);
+                                        defaultMethods.add(interfaceMethod);
+                                    }
+                                }
+                                continue;
+                            }
+
+                            if (!AccessFlags.ABSTRACT.isSet(interfaceMethod.getAccessFlags())) {
+                                defaultMethods.add(interfaceMethod);
+                                methodOrder.put(interfaceMethod, methodOrder.size());
+                            } else {
+                                mirandaMethods.add(interfaceMethod);
+                                methodOrder.put(interfaceMethod, methodOrder.size());
+                            }
+                        }
                     }
-                    addToVtable(interfaceMethods, vtable, false, true);
                 }
+
+                Comparator<MethodReference> comparator = new Comparator<MethodReference>() {
+                    @Override
+                    public int compare(MethodReference o1, MethodReference o2) {
+                        return Ints.compare(methodOrder.get(o1), methodOrder.get(o2));
+                    }
+                };
+
+                // The methods should be in the same order within each list as they were iterated over.
+                // They can be misordered if, e.g. a method was originally added to the default list, but then moved
+                // to the conflict list.
+                Collections.sort(defaultMethods, comparator);
+                Collections.sort(defaultConflictMethods, comparator);
+                Collections.sort(mirandaMethods, comparator);
+                addToVtable(defaultMethods, vtable, false, false);
+                addToVtable(defaultConflictMethods, vtable, false, false);
+                addToVtable(mirandaMethods, vtable, false, false);
             }
             return vtable;
         }
@@ -710,7 +783,8 @@ public class ClassProto implements TypeProto {
             return vtable;
         }
     });
-    private final Supplier<List<Method>> postDefaultMethodVtableSupplier = Suppliers.memoize(new Supplier<List<Method>>() {
+    //TODO: check the case when we have a package private method that overrides an interface method
+    private final Supplier<List<Method>> preDefaultMethodVtableSupplier = Suppliers.memoize(new Supplier<List<Method>>() {
         @Override
         public List<Method> get() {
             List<Method> vtable = Lists.newArrayList();
@@ -729,8 +803,8 @@ public class ClassProto implements TypeProto {
                 ClassProto superclass = (ClassProto) classPath.getClass(superclassType);
                 vtable.addAll(superclass.getVtable());
 
-                // if the superclass's vtable wasn't fully resolved, then we can't know where the new methods added by
-                // this class should start, so we just propagate what we can from the parent and hope for the best.
+                // if the superclass's vtable wasn't fully resolved, then we can't know where the new methods added by this
+                // class should start, so we just propagate what we can from the parent and hope for the best.
                 if (!superclass.vtableFullyResolved) {
                     vtableFullyResolved = false;
                     return vtable;
@@ -742,90 +816,16 @@ public class ClassProto implements TypeProto {
             if (!isInterface()) {
                 addToVtable(getClassDef().getVirtualMethods(), vtable, true, true);
 
-                Iterable<ClassDef> interfaces = Lists.reverse(Lists.newArrayList(getDirectInterfaces()));
-
-                List<Method> defaultMethods = Lists.newArrayList();
-                List<Method> defaultConflictMethods = Lists.newArrayList();
-                List<Method> mirandaMethods = Lists.newArrayList();
-
-                final HashMap<MethodReference, Integer> methodOrder = Maps.newHashMap();
-
+                // We use the current class for any vtable method references that we add, rather than the interface, so
+                // we don't end up trying to call invoke-virtual using an interface, which will fail verification
+                Iterable<ClassDef> interfaces = getDirectInterfaces();
                 for (ClassDef interfaceDef : interfaces) {
+                    List<Method> interfaceMethods = Lists.newArrayList();
                     for (Method interfaceMethod : interfaceDef.getVirtualMethods()) {
-
-                        int vtableIndex = findMethodIndexInVtable(vtable, interfaceMethod);
-
-                        if (vtableIndex >= 0) {
-                            if (interfaceMethodOverrides(interfaceMethod, vtable.get(vtableIndex))) {
-                                vtable.set(vtableIndex, interfaceMethod);
-                            }
-                        } else {
-                            int defaultMethodIndex = findMethodIndexInVtable(defaultMethods, interfaceMethod);
-
-                            if (defaultMethodIndex >= 0) {
-                                if (!AccessFlags.ABSTRACT.isSet(interfaceMethod.getAccessFlags())) {
-                                    ClassProto existingInterface = (ClassProto) classPath.getClass(
-                                            defaultMethods.get(defaultMethodIndex).getDefiningClass());
-                                    if (!existingInterface.implementsInterface(interfaceMethod.getDefiningClass())) {
-                                        Method removedMethod = defaultMethods.remove(defaultMethodIndex);
-                                        defaultConflictMethods.add(removedMethod);
-                                    }
-                                }
-                                continue;
-                            }
-
-                            int defaultConflictMethodIndex = findMethodIndexInVtable(
-                                    defaultConflictMethods, interfaceMethod);
-                            if (defaultConflictMethodIndex >= 0) {
-                                // There's already a matching method in the conflict list, we don't need to do
-                                // anything else
-                                continue;
-                            }
-
-                            int mirandaMethodIndex = findMethodIndexInVtable(mirandaMethods, interfaceMethod);
-
-                            if (mirandaMethodIndex >= 0) {
-                                if (!AccessFlags.ABSTRACT.isSet(interfaceMethod.getAccessFlags())) {
-
-                                    ClassProto existingInterface = (ClassProto) classPath.getClass(
-                                            mirandaMethods.get(mirandaMethodIndex).getDefiningClass());
-                                    if (!existingInterface.implementsInterface(interfaceMethod.getDefiningClass())) {
-                                        Method oldMethod = mirandaMethods.remove(mirandaMethodIndex);
-                                        int methodOrderValue = methodOrder.get(oldMethod);
-                                        methodOrder.put(interfaceMethod, methodOrderValue);
-                                        defaultMethods.add(interfaceMethod);
-                                    }
-                                }
-                                continue;
-                            }
-
-                            if (!AccessFlags.ABSTRACT.isSet(interfaceMethod.getAccessFlags())) {
-                                defaultMethods.add(interfaceMethod);
-                                methodOrder.put(interfaceMethod, methodOrder.size());
-                            } else {
-                                mirandaMethods.add(interfaceMethod);
-                                methodOrder.put(interfaceMethod, methodOrder.size());
-                            }
-                        }
+                        interfaceMethods.add(new ReparentedMethod(interfaceMethod, type));
                     }
+                    addToVtable(interfaceMethods, vtable, false, true);
                 }
-
-                Comparator<MethodReference> comparator = new Comparator<MethodReference>() {
-                    @Override
-                    public int compare(MethodReference o1, MethodReference o2) {
-                        return Ints.compare(methodOrder.get(o1), methodOrder.get(o2));
-                    }
-                };
-
-                // The methods should be in the same order within each list as they were iterated over.
-                // They can be misordered if, e.g. a method was originally added to the default list, but then moved
-                // to the conflict list.
-                Collections.sort(defaultMethods, comparator);
-                Collections.sort(defaultConflictMethods, comparator);
-                Collections.sort(mirandaMethods, comparator);
-                addToVtable(defaultMethods, vtable, false, false);
-                addToVtable(defaultConflictMethods, vtable, false, false);
-                addToVtable(mirandaMethods, vtable, false, false);
             }
             return vtable;
         }

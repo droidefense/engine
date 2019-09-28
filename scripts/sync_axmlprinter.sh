@@ -49,7 +49,7 @@ echo rm -rf $base/$cloneFolder
 rm -rf $base/$cloneFolder
 
 cd  $base
-git checkout mods/axmlprinter/axmlprinter.iml
+git checkout mods/axmlprinter/axmlprinter2.iml
 git checkout mods/axmlprinter/pom.xml
 
 echo "axmlprinter repository files updated"

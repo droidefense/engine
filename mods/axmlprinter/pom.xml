@@ -1,39 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <groupId>diff.rednaga</groupId>
+    <groupId>com.droidefense</groupId>
     <version>1.0-SNAPSHOT</version>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>axmlprinter</artifactId>
-    <name>Droidefense - axml parser (diff.rednaga)</name>
+    <name>Droidefense - AXML Printer</name>
+    <description>Parses binary Android XML files</description>
+    <packaging>jar</packaging>
+
+    <organization>
+        <name>Droidefense</name>
+        <url>https://droidefense.com</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Droidefense Team</name>
+        </developer>
+    </developers>
 
     <properties>
-        <jdk.version>1.8</jdk.version>
+        <jdk.version>1.10</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <!-- list of required dependencies -->
     <dependencies>
-
-        <!-- testing libs -->
+        <!-- https://mvnrepository.com/artifact/xmlpull/xmlpull -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
+            <groupId>xmlpull</groupId>
+            <artifactId>xmlpull</artifactId>
+            <version>1.1.3.1</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>1.9.5</version>
-            <scope>test</scope>
-        </dependency>
-
-
     </dependencies>
+
 
     <build>
         <plugins>
@@ -49,5 +59,6 @@
             </plugin>
         </plugins>
     </build>
+
 
 </project>

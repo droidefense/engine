@@ -34,6 +34,7 @@ public class ResPluralsValue extends ResBagValue implements
     public static final int BAG_KEY_PLURALS_END = 0x01000009;
     private static final String[] QUANTITY_MAP = new String[]{"other", "zero", "one", "two", "few", "many"};
     private final ResScalarValue[] mItems;
+
     ResPluralsValue(ResReferenceValue parent,
                     Duo<Integer, ResScalarValue>[] items) {
         super(parent);

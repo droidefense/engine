@@ -11,3 +11,18 @@ next build issues
 - check for ads libraries
 - parse this filed when available from certificate data EMAILADDRESS=lorenz@londatiga.net in subject and issuer
 - add permission description to each permission found
+- add support for ADS libraries detection:
+
+"AdMob",
+"MillennialMedia",
+"MobPartner",
+"AdZerk",
+"Media152",
+"LeadBolt",
+"AdIQuity",
+"Amazon",
+"SamsungAdHub",
+"AppLovin",
+"StartApp",
+"Airpush",
+"StaticAd"

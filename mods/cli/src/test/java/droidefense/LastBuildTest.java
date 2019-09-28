@@ -24,7 +24,6 @@ public class LastBuildTest {
         try (PrintStream out = new PrintStream(new FileOutputStream(last))) {
             String timeStamp = new SimpleDateFormat("yyyy_MM_dd__HH_mm_ss").format(Calendar.getInstance().getTime());
             Assert.assertNotNull(timeStamp);
-
             out.print(timeStamp);
         }
     }

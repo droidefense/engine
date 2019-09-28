@@ -77,6 +77,7 @@ public class ApkDecoder {
     public ApkDecoder(File apkFile) {
         this(apkFile, new Androlib());
     }
+
     public ApkDecoder(File apkFile, Androlib androlib) {
         mAndrolib = androlib;
         setApkFile(apkFile);

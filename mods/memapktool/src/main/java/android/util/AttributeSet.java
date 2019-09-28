@@ -18,7 +18,6 @@ package android.util;
 
 /**
  * @author Dmitry Skiba
- *
  */
 public interface AttributeSet {
     int getAttributeCount();

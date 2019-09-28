@@ -8,7 +8,7 @@ public class InternalConstant implements Serializable {
     /**
      * Version related info and code related info
      */
-    public static final String ENGINE_VERSION = "0.2";
+    public static final String ENGINE_VERSION = "0.3";
     public static final String LEAD_DEVELOPER = "@zerjioang";
     public static final String REPO_URL = "https://github.com/droidefense/";
     public static final String ISSUES_URL = "https://github.com/droidefense/engine/issues";

@@ -32,5 +32,8 @@ mods/cli/src/main/resources/lastbuild
 #ignore config files
 config/
 
+# upackeed folder with scan results
+unpacked
+
 #ignore sync files
 Apktool/

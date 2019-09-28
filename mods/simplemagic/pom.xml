@@ -92,38 +92,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <additionalparam>-tag inheritDoc:X -Xdoclint:none</additionalparam>
-                        </configuration>
-                    </execution>
-                </executions>
-                <configuration>
-                    <bottom>
-                        This content is licensed by Gray Watson under the
-                        &lt;a
-                        href="http://creativecommons.org/licenses/by-sa/3.0/" &gt;Creative Commons Attribution-Share
-                        Alike 3.0 License.
-                        &lt;/a&gt;
-                    </bottom>
-                    <additionalparam>-tag inheritDoc:X -Xdoclint:none</additionalparam>
-                    <excludePackageNames>
-                    </excludePackageNames>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-eclipse-plugin</artifactId>
-                <version>2.9</version>
-            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>

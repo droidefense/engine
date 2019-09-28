@@ -30,7 +30,7 @@ public class YamlStringEscapeUtils {
     }
 
     /**
-     * @param str String to escape values in, may be null
+     * @param str                String to escape values in, may be null
      * @param escapeSingleQuotes escapes single quotes if <code>true</code>
      * @param escapeForwardSlash TODO
      * @return the escaped string
@@ -50,9 +50,9 @@ public class YamlStringEscapeUtils {
     }
 
     /**
-     * @param out write to receieve the escaped string
-     * @param str String to escape values in, may be null
-     * @param escapeSingleQuote escapes single quotes if <code>true</code>
+     * @param out                write to receieve the escaped string
+     * @param str                String to escape values in, may be null
+     * @param escapeSingleQuote  escapes single quotes if <code>true</code>
      * @param escapeForwardSlash TODO
      * @throws IOException if an IOException occurs
      */
@@ -134,7 +134,7 @@ public class YamlStringEscapeUtils {
      * <code>'n'</code> into a newline character, unless the <code>'\'</code>
      * is preceded by another <code>'\'</code>.</p>
      *
-     * @param str  the <code>String</code> to unescape, may be null
+     * @param str the <code>String</code> to unescape, may be null
      * @return a new unescaped <code>String</code>, <code>null</code> if null string input
      */
     public static String unescapeString(String str) {

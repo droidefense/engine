@@ -22,6 +22,7 @@ public class RemoteFileDownloaderTest {
                     "Disallow: /search\n" +
                     "Disallow: /404\n" +
                     "Disallow: /payapp/\n" +
+                    "Disallow: /results/\n" +
                     "Sitemap: https://www.android.com/sitemap.xml\n");
         } catch (MalformedURLException e) {
             Log.write(LoggerType.ERROR, e.getMessage());

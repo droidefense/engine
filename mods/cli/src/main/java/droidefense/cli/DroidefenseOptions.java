@@ -58,11 +58,11 @@ public class DroidefenseOptions extends Options {
     }
 
     public void showVersion() {
-        System.out.println("\t* Current version:         " + InternalConstant.ENGINE_VERSION);
-        System.out.println("\t* Current build:           " + readVersion());
-        System.out.println("\t* Check out on Github:     " + InternalConstant.REPO_URL);
-        System.out.println("\t* Report your issue:       " + InternalConstant.ISSUES_URL);
-        System.out.println("\t* Lead developer:          " + InternalConstant.LEAD_DEVELOPER);
+        System.out.println(" > Current version:       " + InternalConstant.ENGINE_VERSION);
+        System.out.println(" > Current build:         " + readVersion());
+        System.out.println(" > Check out on Github:   " + InternalConstant.REPO_URL);
+        System.out.println(" > Report your issue:     " + InternalConstant.ISSUES_URL);
+        System.out.println(" > Lead developer:        " + InternalConstant.LEAD_DEVELOPER);
         System.out.println();
     }
 
@@ -92,14 +92,11 @@ public class DroidefenseOptions extends Options {
         System.out.println("droidefense v" + InternalConstant.ENGINE_VERSION + " - a tool for automated reverse engineering of Android apk files.");
         System.out.println("specially focused on Android Malware detection, feature extraction and reporting");
         System.out.println();
-        System.out.println("Copyright 2017 Droidefense <droidefense@protonmail.com>");
+        System.out.println("Copyright 2017 Droidefense <droidefense@gmail.com>");
         System.out.println();
     }
 
     public void readKeyBoard() {
-        try {
-            System.in.read();
-        } catch (Exception e) {
-        }
+        try { System.in.read(); } catch (Exception e) {}
     }
 }

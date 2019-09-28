@@ -167,8 +167,8 @@ public final class ResXmlEncoders {
 
     /**
      * It returns a tuple of:
-     *   - a list of offsets of non positional substitutions. non-pos is defined as any "%" which isn't "%%" nor "%\d+\$"
-     *   - a list of offsets of positional substitutions
+     * - a list of offsets of non positional substitutions. non-pos is defined as any "%" which isn't "%%" nor "%\d+\$"
+     * - a list of offsets of positional substitutions
      */
     private static Duo<List<Integer>, List<Integer>> findSubstitutions(String str, int nonPosMax) {
         if (nonPosMax == -1) {

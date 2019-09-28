@@ -78,9 +78,9 @@
 
         <!-- https://mvnbuild.com/artifact/kxml2/kxml2 -->
         <dependency>
-            <groupId>kxml2</groupId>
+            <groupId>net.sf.kxml</groupId>
             <artifactId>kxml2</artifactId>
-            <version>2.1.8</version>
+            <version>2.3.0</version>
         </dependency>
 
         <!-- testing libs -->

@@ -30,11 +30,10 @@ import java.util.logging.Logger;
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
  * @author Dmitry Skiba
- *
- *         Block of strings, used in binary xml and arsc.
- *
- *         TODO: - implement get()
- *
+ * <p>
+ * Block of strings, used in binary xml and arsc.
+ * <p>
+ * TODO: - implement get()
  */
 public class StringBlock {
 
@@ -179,7 +178,7 @@ public class StringBlock {
 
     /**
      * Not yet implemented.
-     *
+     * <p>
      * Returns string with style information (if any).
      */
     public CharSequence get(int index) {

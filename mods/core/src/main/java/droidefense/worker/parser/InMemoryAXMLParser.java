@@ -1,13 +1,12 @@
 package droidefense.worker.parser;
 
-import android.content.res.AXMLResource;
+import droidefense.axml.axml.AXMLPrinter;
 import droidefense.log4j.Log;
 import droidefense.log4j.LoggerType;
 import droidefense.vfs.model.impl.VirtualFile;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * Created by .local on 21/06/2017.
@@ -18,7 +17,7 @@ public class InMemoryAXMLParser {
 
     public void decode() {
         //todo decode virtual file, which represent a binary xml to readable xml
-        if (inputFile != null && inputFile.getContent() != null) {
+        if (inputFile != null && inputFile.getContent().length > 0) {
             try {
                 String decoded = getDecodedXML();
                 if (decoded != null) {
@@ -35,20 +34,11 @@ public class InMemoryAXMLParser {
     }
 
     private String getDecodedXML() throws XmlPullParserException, IOException {
-        //return new AXMLPrinter(inputFile.getContent()).getResult();
-        InputStream stream = inputFile.getStream();
-        if (stream != null) {
-            AXMLResource axmlResource = new AXMLResource();
-            try {
-                axmlResource.read(stream);
-                String decoded = axmlResource.toXML();
-                stream.close();
-                return decoded;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        byte[] content = inputFile.getContent();
+        if (content.length > 0) {
+            return AXMLPrinter.GetManifestXMLFromBytes(content);
         }
-        return null;
+        return "";
     }
 
     public void setInputFile(VirtualFile inputFile) {

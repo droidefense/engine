@@ -35,17 +35,16 @@ import java.util.logging.Logger;
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
  * @author Dmitry Skiba
- *
- *         Binary xml files parser.
- *
- *         Parser has only two states: (1) Operational state, which parser
- *         obtains after first successful call to next() and retains until
- *         open(), close(), or failed call to next(). (2) Closed state, which
- *         parser obtains after open(), close(), or failed call to next(). In
- *         this state methods return invalid values or throw exceptions.
- *
- *         TODO: * check all methods in closed state
- *
+ * <p>
+ * Binary xml files parser.
+ * <p>
+ * Parser has only two states: (1) Operational state, which parser
+ * obtains after first successful call to next() and retains until
+ * open(), close(), or failed call to next(). (2) Closed state, which
+ * parser obtains after open(), close(), or failed call to next(). In
+ * this state methods return invalid values or throw exceptions.
+ * <p>
+ * TODO: * check all methods in closed state
  */
 public class AXmlResourceParser implements XmlResourceParser {
 
@@ -806,9 +805,8 @@ public class AXmlResourceParser implements XmlResourceParser {
      * methods search all depth frames starting from the last namespace pair of
      * current depth frame. All functions that operate with int, use -1 as
      * 'invalid value'.
-     *
+     * <p>
      * !! functions expect 'prefix'+'uri' pairs, not 'uri'+'prefix' !!
-     *
      */
     private static final class NamespaceStack {
 

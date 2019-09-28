@@ -81,7 +81,7 @@ public final class ResXmlPatcher {
      * build, thus preventing the application from installing. This is from a bug/error
      * in AOSP where public resources cannot be part of an authorities attribute within
      * a <provider> tag.
-     *
+     * <p>
      * This finds any reference and replaces it with the literal value found in the
      * res/values/strings.xml file.
      *
@@ -145,8 +145,8 @@ public final class ResXmlPatcher {
     /**
      * Checks if the replacement was properly made to a node.
      *
-     * @param file File we are searching for value
-     * @param saved boolean on whether we need to save
+     * @param file     File we are searching for value
+     * @param saved    boolean on whether we need to save
      * @param provider Node we are attempting to replace
      * @return boolean
      * @throws AndrolibException setting node value failed
@@ -166,7 +166,7 @@ public final class ResXmlPatcher {
      * Finds key in strings.xml file and returns text value
      *
      * @param directory Root directory of apk
-     * @param key String reference (ie @string/foo)
+     * @param key       String reference (ie @string/foo)
      * @return String|null
      * @throws AndrolibException
      */
@@ -228,7 +228,7 @@ public final class ResXmlPatcher {
     /**
      * Replaces package value with passed packageOriginal string
      *
-     * @param file File for AndroidManifest.xml
+     * @param file            File for AndroidManifest.xml
      * @param packageOriginal Package name to replace
      * @throws AndrolibException
      */
@@ -250,7 +250,6 @@ public final class ResXmlPatcher {
     }
 
     /**
-     *
      * @param file File to load into Document
      * @return Document
      * @throws IOException
@@ -283,9 +282,8 @@ public final class ResXmlPatcher {
     }
 
     /**
-     *
      * @param file File to save Document to (ie AndroidManifest.xml)
-     * @param doc Document being saved
+     * @param doc  Document being saved
      * @throws IOException
      * @throws SAXException
      * @throws ParserConfigurationException

@@ -165,6 +165,7 @@ public class ResConfigFlags {
     private final byte colorMode;
     private final String mQualifiers;
     private final int size;
+
     public ResConfigFlags() {
         mcc = 0;
         mnc = 0;
@@ -192,6 +193,7 @@ public class ResConfigFlags {
         mQualifiers = "";
         size = 0;
     }
+
     public ResConfigFlags(short mcc, short mnc, char[] language,
                           char[] region, byte orientation,
                           byte touchscreen, int density, byte keyboard, byte navigation,
